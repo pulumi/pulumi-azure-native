@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:DisasterRecoveryConfig'.")]
-    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:DisasterRecoveryConfig")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:DisasterRecoveryConfig'.")]
+    [AzureNativeResourceType("azure-native:servicebus/latest:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DisasterRecoveryConfig(string name, DisasterRecoveryConfigArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/latest:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DisasterRecoveryConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/latest:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,8 +84,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"},
                 },
             };

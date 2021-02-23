@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20170301Preview
+namespace Pulumi.AzureNative.Sql.V20170301Preview
 {
     /// <summary>
     /// An Azure SQL job agent.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20170301preview:JobAgent")]
+    [AzureNativeResourceType("azure-native:sql/v20170301preview:JobAgent")]
     public partial class JobAgent : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobAgent(string name, JobAgentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20170301preview:JobAgent", name, args ?? new JobAgentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20170301preview:JobAgent", name, args ?? new JobAgentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobAgent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20170301preview:JobAgent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20170301preview:JobAgent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:JobAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:JobAgent"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobAgent"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:JobAgent"},
                 },
             };

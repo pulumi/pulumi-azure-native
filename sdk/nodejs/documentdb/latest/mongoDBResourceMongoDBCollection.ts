@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB MongoDB collection.
  * Latest API Version: 2021-01-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:MongoDBResourceMongoDBCollection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBCollection'.
  */
 export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MongoDBResourceMongoDBCollection {
-        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:MongoDBResourceMongoDBCollection'.")
+        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBCollection'.")
         return new MongoDBResourceMongoDBCollection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:MongoDBResourceMongoDBCollection';
 
     /**
      * Returns true if the given object is an instance of MongoDBResourceMongoDBCollection.  This is designed to work even
@@ -65,9 +65,9 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:MongoDBResourceMongoDBCollection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBCollection'. */
     constructor(name: string, args: MongoDBResourceMongoDBCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:MongoDBResourceMongoDBCollection'.")
+        pulumi.log.warn("MongoDBResourceMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBCollection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +107,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection" }, { type: "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, inputs, opts);
     }

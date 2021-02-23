@@ -14,7 +14,7 @@ import (
 // Description of hybrid connection resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnection'.
 type HybridConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:HybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:HybridConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/v20160701:HybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/v20160701:HybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20170401:HybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20170401:HybridConnection"),
@@ -60,7 +69,7 @@ func NewHybridConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HybridConnection
-	err := ctx.RegisterResource("azure-nextgen:relay/latest:HybridConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/latest:HybridConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewHybridConnection(ctx *pulumi.Context,
 func GetHybridConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HybridConnectionState, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
 	var resource HybridConnection
-	err := ctx.ReadResource("azure-nextgen:relay/latest:HybridConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/latest:HybridConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

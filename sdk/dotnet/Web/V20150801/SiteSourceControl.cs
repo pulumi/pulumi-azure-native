@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Describes the source control configuration for web app
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteSourceControl")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteSourceControl")]
     public partial class SiteSourceControl : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteSourceControl(string name, SiteSourceControlArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteSourceControl", name, args ?? new SiteSourceControlArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteSourceControl", name, args ?? new SiteSourceControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteSourceControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteSourceControl", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteSourceControl", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,14 +100,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteSourceControl"},
                 },
             };

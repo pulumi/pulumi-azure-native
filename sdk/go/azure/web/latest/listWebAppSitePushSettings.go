@@ -10,10 +10,10 @@ import (
 // Push settings for the App.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppSitePushSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSitePushSettings'.
 func ListWebAppSitePushSettings(ctx *pulumi.Context, args *ListWebAppSitePushSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppSitePushSettingsResult, error) {
 	var rv ListWebAppSitePushSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppSitePushSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppSitePushSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // The integration account.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccount'.
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
@@ -46,16 +46,31 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccount"),
@@ -63,7 +78,7 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccount
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +90,7 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 func GetIntegrationAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountState, opts ...pulumi.ResourceOption) (*IntegrationAccount, error) {
 	var resource IntegrationAccount
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

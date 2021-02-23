@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class AS2MdnSettingsArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The signing or hashing algorithm.
         /// </summary>
         [Input("micHashingAlgorithm")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.HashingAlgorithm>? MicHashingAlgorithm { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.HashingAlgorithm>? MicHashingAlgorithm { get; set; }
 
         /// <summary>
         /// The value indicating whether to send or request a MDN.

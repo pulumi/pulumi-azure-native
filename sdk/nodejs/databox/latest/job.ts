@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Job Resource.
  * Latest API Version: 2020-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Job extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Job {
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.")
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.")
         return new Job(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databox/latest:Job';
+    public static readonly __pulumiType = 'azure-native:databox/latest:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -123,9 +123,9 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'. */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databox:Job'.")
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -186,7 +186,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox:Job" }, { type: "azure-nextgen:databox/v20180101:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databox:Job" }, { type: "azure-nextgen:databox:Job" }, { type: "azure-native:databox/v20180101:Job" }, { type: "azure-nextgen:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-native:databox/v20201101:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

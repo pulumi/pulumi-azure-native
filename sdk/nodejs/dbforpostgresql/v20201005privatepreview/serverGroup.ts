@@ -22,7 +22,7 @@ export class ServerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup';
 
     /**
      * Returns true if the given object is an instance of ServerGroup.  This is designed to work even

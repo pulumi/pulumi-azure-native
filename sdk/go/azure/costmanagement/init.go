@@ -21,31 +21,31 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:costmanagement:Budget":
+	case "azure-native:costmanagement:Budget":
 		r, err = NewBudget(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:CloudConnector":
+	case "azure-native:costmanagement:CloudConnector":
 		r, err = NewCloudConnector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:Connector":
+	case "azure-native:costmanagement:Connector":
 		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:CostAllocationRule":
+	case "azure-native:costmanagement:CostAllocationRule":
 		r, err = NewCostAllocationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:Export":
+	case "azure-native:costmanagement:Export":
 		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:Report":
+	case "azure-native:costmanagement:Report":
 		r, err = NewReport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ReportByBillingAccount":
+	case "azure-native:costmanagement:ReportByBillingAccount":
 		r, err = NewReportByBillingAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ReportByDepartment":
+	case "azure-native:costmanagement:ReportByDepartment":
 		r, err = NewReportByDepartment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ReportByResourceGroupName":
+	case "azure-native:costmanagement:ReportByResourceGroupName":
 		r, err = NewReportByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ReportConfig":
+	case "azure-native:costmanagement:ReportConfig":
 		r, err = NewReportConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ReportConfigByResourceGroupName":
+	case "azure-native:costmanagement:ReportConfigByResourceGroupName":
 		r, err = NewReportConfigByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:View":
+	case "azure-native:costmanagement:View":
 		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement:ViewByScope":
+	case "azure-native:costmanagement:ViewByScope":
 		r, err = NewViewByScope(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -60,7 +60,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"costmanagement",
 		&module{version},
 	)

@@ -21,87 +21,87 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:apimanagement/v20191201preview:Api":
+	case "azure-native:apimanagement/v20191201preview:Api":
 		r, err = NewApi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic":
+	case "azure-native:apimanagement/v20191201preview:ApiDiagnostic":
 		r, err = NewApiDiagnostic(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiIssue":
+	case "azure-native:apimanagement/v20191201preview:ApiIssue":
 		r, err = NewApiIssue(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment":
+	case "azure-native:apimanagement/v20191201preview:ApiIssueAttachment":
 		r, err = NewApiIssueAttachment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiIssueComment":
+	case "azure-native:apimanagement/v20191201preview:ApiIssueComment":
 		r, err = NewApiIssueComment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiManagementService":
+	case "azure-native:apimanagement/v20191201preview:ApiManagementService":
 		r, err = NewApiManagementService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiOperation":
+	case "azure-native:apimanagement/v20191201preview:ApiOperation":
 		r, err = NewApiOperation(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy":
+	case "azure-native:apimanagement/v20191201preview:ApiOperationPolicy":
 		r, err = NewApiOperationPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiPolicy":
+	case "azure-native:apimanagement/v20191201preview:ApiPolicy":
 		r, err = NewApiPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiRelease":
+	case "azure-native:apimanagement/v20191201preview:ApiRelease":
 		r, err = NewApiRelease(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiSchema":
+	case "azure-native:apimanagement/v20191201preview:ApiSchema":
 		r, err = NewApiSchema(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription":
+	case "azure-native:apimanagement/v20191201preview:ApiTagDescription":
 		r, err = NewApiTagDescription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet":
+	case "azure-native:apimanagement/v20191201preview:ApiVersionSet":
 		r, err = NewApiVersionSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer":
+	case "azure-native:apimanagement/v20191201preview:AuthorizationServer":
 		r, err = NewAuthorizationServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Backend":
+	case "azure-native:apimanagement/v20191201preview:Backend":
 		r, err = NewBackend(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Cache":
+	case "azure-native:apimanagement/v20191201preview:Cache":
 		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Certificate":
+	case "azure-native:apimanagement/v20191201preview:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Diagnostic":
+	case "azure-native:apimanagement/v20191201preview:Diagnostic":
 		r, err = NewDiagnostic(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:EmailTemplate":
+	case "azure-native:apimanagement/v20191201preview:EmailTemplate":
 		r, err = NewEmailTemplate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Gateway":
+	case "azure-native:apimanagement/v20191201preview:Gateway":
 		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag":
+	case "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag":
 		r, err = NewGatewayApiEntityTag(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration":
+	case "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration":
 		r, err = NewGatewayHostnameConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Group":
+	case "azure-native:apimanagement/v20191201preview:Group":
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:GroupUser":
+	case "azure-native:apimanagement/v20191201preview:GroupUser":
 		r, err = NewGroupUser(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:IdentityProvider":
+	case "azure-native:apimanagement/v20191201preview:IdentityProvider":
 		r, err = NewIdentityProvider(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Logger":
+	case "azure-native:apimanagement/v20191201preview:Logger":
 		r, err = NewLogger(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:NamedValue":
+	case "azure-native:apimanagement/v20191201preview:NamedValue":
 		r, err = NewNamedValue(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientEmail":
+	case "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail":
 		r, err = NewNotificationRecipientEmail(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser":
+	case "azure-native:apimanagement/v20191201preview:NotificationRecipientUser":
 		r, err = NewNotificationRecipientUser(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider":
+	case "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider":
 		r, err = NewOpenIdConnectProvider(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Policy":
+	case "azure-native:apimanagement/v20191201preview:Policy":
 		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Product":
+	case "azure-native:apimanagement/v20191201preview:Product":
 		r, err = NewProduct(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ProductApi":
+	case "azure-native:apimanagement/v20191201preview:ProductApi":
 		r, err = NewProductApi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ProductGroup":
+	case "azure-native:apimanagement/v20191201preview:ProductGroup":
 		r, err = NewProductGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:ProductPolicy":
+	case "azure-native:apimanagement/v20191201preview:ProductPolicy":
 		r, err = NewProductPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Subscription":
+	case "azure-native:apimanagement/v20191201preview:Subscription":
 		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:Tag":
+	case "azure-native:apimanagement/v20191201preview:Tag":
 		r, err = NewTag(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:TagByApi":
+	case "azure-native:apimanagement/v20191201preview:TagByApi":
 		r, err = NewTagByApi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:TagByOperation":
+	case "azure-native:apimanagement/v20191201preview:TagByOperation":
 		r, err = NewTagByOperation(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:TagByProduct":
+	case "azure-native:apimanagement/v20191201preview:TagByProduct":
 		r, err = NewTagByProduct(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:apimanagement/v20191201preview:User":
+	case "azure-native:apimanagement/v20191201preview:User":
 		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -116,7 +116,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"apimanagement/v20191201preview",
 		&module{version},
 	)

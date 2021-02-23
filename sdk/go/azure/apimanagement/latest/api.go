@@ -14,7 +14,7 @@ import (
 // Api details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Api'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Api'.
 type Api struct {
 	pulumi.CustomResourceState
 
@@ -78,31 +78,61 @@ func NewApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Api"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Api"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Api"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Api"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Api"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Api"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Api"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Api"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Api"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Api"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Api"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Api"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Api"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Api"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Api"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Api"),
@@ -110,7 +140,7 @@ func NewApi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Api
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/latest:Api", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/latest:Api", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +152,7 @@ func NewApi(ctx *pulumi.Context,
 func GetApi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiState, opts ...pulumi.ResourceOption) (*Api, error) {
 	var resource Api
-	err := ctx.ReadResource("azure-nextgen:apimanagement/latest:Api", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/latest:Api", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

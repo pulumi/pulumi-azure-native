@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01-preview.
 func LookupCostAllocationRule(ctx *pulumi.Context, args *LookupCostAllocationRuleArgs, opts ...pulumi.InvokeOption) (*LookupCostAllocationRuleResult, error) {
 	var rv LookupCostAllocationRuleResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getCostAllocationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getCostAllocationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

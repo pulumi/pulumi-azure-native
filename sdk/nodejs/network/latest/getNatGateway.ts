@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Nat Gateway resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatGateway'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatGateway'. */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
-    pulumi.log.warn("getNatGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatGateway'.")
+    pulumi.log.warn("getNatGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatGateway'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNatGateway", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNatGateway", {
         "expand": args.expand,
         "natGatewayName": args.natGatewayName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     public static class GetStaticSite
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Static Site ARM resource.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-nextgen:web/v20190801:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web/v20190801:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithVersion());
     }
 
 

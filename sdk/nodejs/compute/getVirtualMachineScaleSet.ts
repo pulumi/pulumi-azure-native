@@ -17,7 +17,7 @@ export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getVirtualMachineScaleSet", {
+    return pulumi.runtime.invoke("azure-native:compute:getVirtualMachineScaleSet", {
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
     }, opts);

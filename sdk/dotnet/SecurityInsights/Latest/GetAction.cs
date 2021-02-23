@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'.")]
     public static class GetAction
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-nextgen:securityinsights/latest:getAction", args ?? new GetActionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-native:securityinsights/latest:getAction", args ?? new GetActionArgs(), options.WithVersion());
     }
 
 

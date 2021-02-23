@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
+namespace Pulumi.AzureNative.AzureData.V20200908Preview
 {
     /// <summary>
     /// A Postgres Instance.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azuredata/v20200908preview:PostgresInstance")]
+    [AzureNativeResourceType("azure-native:azuredata/v20200908preview:PostgresInstance")]
     public partial class PostgresInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PostgresInstance(string name, PostgresInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata/v20200908preview:PostgresInstance", name, args ?? new PostgresInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azuredata/v20200908preview:PostgresInstance", name, args ?? new PostgresInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PostgresInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata/v20200908preview:PostgresInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azuredata/v20200908preview:PostgresInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,9 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azuredata:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata:PostgresInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:PostgresInstance"},
                 },
             };

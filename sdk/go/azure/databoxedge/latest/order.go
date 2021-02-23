@@ -14,7 +14,7 @@ import (
 // The order details.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Order'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Order'.
 type Order struct {
 	pulumi.CustomResourceState
 
@@ -58,22 +58,43 @@ func NewOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Order"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Order"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190301:Order"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Order"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:Order"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Order"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Order"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Order"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Order"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Order"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Order"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Order"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Order"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
@@ -81,7 +102,7 @@ func NewOrder(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Order
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:Order", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:Order", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +114,7 @@ func NewOrder(ctx *pulumi.Context,
 func GetOrder(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrderState, opts ...pulumi.ResourceOption) (*Order, error) {
 	var resource Order
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:Order", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:Order", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

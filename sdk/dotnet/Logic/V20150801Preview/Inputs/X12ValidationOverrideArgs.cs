@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class X12ValidationOverrideArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The trailing separator policy.
         /// </summary>
         [Input("trailingSeparatorPolicy")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.TrailingSeparatorPolicy>? TrailingSeparatorPolicy { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.TrailingSeparatorPolicy>? TrailingSeparatorPolicy { get; set; }
 
         /// <summary>
         /// The value indicating whether to trim leading and trailing spaces and zeroes.

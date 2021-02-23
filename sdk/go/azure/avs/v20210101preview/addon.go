@@ -42,7 +42,13 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:Addon"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:Addon"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Addon"),
@@ -50,7 +56,7 @@ func NewAddon(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Addon
-	err := ctx.RegisterResource("azure-nextgen:avs/v20210101preview:Addon", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20210101preview:Addon", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewAddon(ctx *pulumi.Context,
 func GetAddon(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AddonState, opts ...pulumi.ResourceOption) (*Addon, error) {
 	var resource Addon
-	err := ctx.ReadResource("azure-nextgen:avs/v20210101preview:Addon", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20210101preview:Addon", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

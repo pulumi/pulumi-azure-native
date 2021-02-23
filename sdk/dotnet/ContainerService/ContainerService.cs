@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService
+namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Container service.
     /// API Version: 2017-01-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerservice:ContainerService")]
+    [AzureNativeResourceType("azure-native:containerservice:ContainerService")]
     public partial class ContainerService : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContainerService(string name, ContainerServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice:ContainerService", name, args ?? new ContainerServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice:ContainerService", name, args ?? new ContainerServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContainerService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice:ContainerService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice:ContainerService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,10 +119,15 @@ namespace Pulumi.AzureNextGen.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:ContainerService"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20151101preview:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20151101preview:ContainerService"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20160330:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160330:ContainerService"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20160930:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20160930:ContainerService"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20170131:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170131:ContainerService"},
                 },
             };

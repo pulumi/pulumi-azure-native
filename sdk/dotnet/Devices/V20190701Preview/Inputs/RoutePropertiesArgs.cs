@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20190701Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20190701Preview.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190701Preview.Inputs
         /// The source that the routing rule is to be applied to, such as DeviceMessages.
         /// </summary>
         [Input("source", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20190701Preview.RoutingSource> Source { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20190701Preview.RoutingSource> Source { get; set; } = null!;
 
         public RoutePropertiesArgs()
         {

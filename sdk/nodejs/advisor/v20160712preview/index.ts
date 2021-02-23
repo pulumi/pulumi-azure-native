@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:advisor/v20160712preview:Suppression":
+            case "azure-native:advisor/v20160712preview:Suppression":
                 return new Suppression(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "advisor/v20160712preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "advisor/v20160712preview", _module)

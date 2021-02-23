@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20200101preview:NodeType")]
+    [AzureNativeResourceType("azure-native:servicefabric/v20200101preview:NodeType")]
     public partial class NodeType : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NodeType(string name, NodeTypeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20200101preview:NodeType", name, args ?? new NodeTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric/v20200101preview:NodeType", name, args ?? new NodeTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NodeType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20200101preview:NodeType", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric/v20200101preview:NodeType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,6 +148,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric:NodeType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:NodeType"},
                 },
             };

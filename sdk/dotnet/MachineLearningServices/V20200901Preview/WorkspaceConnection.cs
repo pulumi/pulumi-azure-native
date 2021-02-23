@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Workspace connection.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200901preview:WorkspaceConnection")]
     public partial class WorkspaceConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceConnection(string name, WorkspaceConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection", name, args ?? new WorkspaceConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200901preview:WorkspaceConnection", name, args ?? new WorkspaceConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200901preview:WorkspaceConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,10 +76,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection"},
                 },
             };

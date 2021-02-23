@@ -10,7 +10,7 @@ import (
 // The response from the ListKeys operation.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:storage/v20190601:listStorageAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20190601:listStorageAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

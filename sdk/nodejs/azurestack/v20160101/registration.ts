@@ -22,7 +22,7 @@ export class Registration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azurestack/v20160101:Registration';
+    public static readonly __pulumiType = 'azure-native:azurestack/v20160101:Registration';
 
     /**
      * Returns true if the given object is an instance of Registration.  This is designed to work even
@@ -112,7 +112,7 @@ export class Registration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack:Registration" }, { type: "azure-nextgen:azurestack/latest:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestack:Registration" }, { type: "azure-nextgen:azurestack:Registration" }, { type: "azure-native:azurestack/latest:Registration" }, { type: "azure-nextgen:azurestack/latest:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registration.__pulumiType, name, inputs, opts);
     }

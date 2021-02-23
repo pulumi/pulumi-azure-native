@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * File Server information.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getFileServer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getFileServer'. */
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
-    pulumi.log.warn("getFileServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getFileServer'.")
+    pulumi.log.warn("getFileServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getFileServer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:getFileServer", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:getFileServer", {
         "fileServerName": args.fileServerName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

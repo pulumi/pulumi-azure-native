@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data needed to decrypt asset files encrypted with legacy storage encryption.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetEncryptionKey'. */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
-    pulumi.log.warn("getAssetEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetEncryptionKey'.")
+    pulumi.log.warn("getAssetEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetEncryptionKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getAssetEncryptionKey", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getAssetEncryptionKey", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,

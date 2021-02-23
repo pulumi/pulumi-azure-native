@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * disk encryption set resource.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskEncryptionSet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskEncryptionSet'. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
-    pulumi.log.warn("getDiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskEncryptionSet'.")
+    pulumi.log.warn("getDiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskEncryptionSet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getDiskEncryptionSet", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

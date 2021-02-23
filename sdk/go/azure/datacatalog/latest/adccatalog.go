@@ -14,7 +14,7 @@ import (
 // Azure Data Catalog.
 // Latest API Version: 2016-03-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datacatalog:ADCCatalog'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.
 type ADCCatalog struct {
 	pulumi.CustomResourceState
 
@@ -54,7 +54,13 @@ func NewADCCatalog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datacatalog:ADCCatalog"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datacatalog:ADCCatalog"),
+		},
+		{
+			Type: pulumi.String("azure-native:datacatalog/v20160330:ADCCatalog"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datacatalog/v20160330:ADCCatalog"),
@@ -62,7 +68,7 @@ func NewADCCatalog(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ADCCatalog
-	err := ctx.RegisterResource("azure-nextgen:datacatalog/latest:ADCCatalog", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datacatalog/latest:ADCCatalog", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewADCCatalog(ctx *pulumi.Context,
 func GetADCCatalog(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ADCCatalogState, opts ...pulumi.ResourceOption) (*ADCCatalog, error) {
 	var resource ADCCatalog
-	err := ctx.ReadResource("azure-nextgen:datacatalog/latest:ADCCatalog", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datacatalog/latest:ADCCatalog", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

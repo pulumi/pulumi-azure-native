@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB container.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getSqlResourceSqlContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getSqlResourceSqlContainer'.
 func LookupSqlResourceSqlContainer(ctx *pulumi.Context, args *LookupSqlResourceSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlContainerResult, error) {
 	var rv LookupSqlResourceSqlContainerResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getSqlResourceSqlContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getSqlResourceSqlContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

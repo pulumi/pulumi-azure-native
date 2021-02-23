@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200930
+namespace Pulumi.AzureNative.Compute.V20200930
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskAccessAPrivateEndpointConnection(string name, DiskAccessAPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, args ?? new DiskAccessAPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, args ?? new DiskAccessAPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskAccessAPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"},
                 },
             };

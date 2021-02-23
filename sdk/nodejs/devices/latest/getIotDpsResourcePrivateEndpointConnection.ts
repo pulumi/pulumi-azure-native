@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The private endpoint connection of a provisioning service
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResourcePrivateEndpointConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResourcePrivateEndpointConnection'. */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
-    pulumi.log.warn("getIotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResourcePrivateEndpointConnection'.")
+    pulumi.log.warn("getIotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResourcePrivateEndpointConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResour
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:getIotDpsResourcePrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:getIotDpsResourcePrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

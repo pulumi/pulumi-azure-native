@@ -10,7 +10,7 @@ import (
 // A class representing a CommunicationService resource.
 func LookupCommunicationService(ctx *pulumi.Context, args *LookupCommunicationServiceArgs, opts ...pulumi.InvokeOption) (*LookupCommunicationServiceResult, error) {
 	var rv LookupCommunicationServiceResult
-	err := ctx.Invoke("azure-nextgen:communication/v20200820preview:getCommunicationService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:communication/v20200820preview:getCommunicationService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

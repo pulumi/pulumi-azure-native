@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
+namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
     public sealed class OpenIdConnectClientCredentialArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         public Input<string>? Kind { get; set; }
 
         [Input("method")]
-        public Input<Pulumi.AzureNextGen.Web.V20200601.ClientCredentialMethod>? Method { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200601.ClientCredentialMethod>? Method { get; set; }
 
         public OpenIdConnectClientCredentialArgs()
         {

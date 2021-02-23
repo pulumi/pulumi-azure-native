@@ -16,7 +16,7 @@ export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:addons/v20170515:getSupportPlanType", {
+    return pulumi.runtime.invoke("azure-native:addons/v20170515:getSupportPlanType", {
         "planTypeName": args.planTypeName,
         "providerName": args.providerName,
     }, opts);

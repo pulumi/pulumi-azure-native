@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getProfile'. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfile'.")
+    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getProfile", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

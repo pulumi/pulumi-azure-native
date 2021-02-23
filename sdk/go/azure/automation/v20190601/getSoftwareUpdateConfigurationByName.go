@@ -10,7 +10,7 @@ import (
 // Software update configuration properties.
 func LookupSoftwareUpdateConfigurationByName(ctx *pulumi.Context, args *LookupSoftwareUpdateConfigurationByNameArgs, opts ...pulumi.InvokeOption) (*LookupSoftwareUpdateConfigurationByNameResult, error) {
 	var rv LookupSoftwareUpdateConfigurationByNameResult
-	err := ctx.Invoke("azure-nextgen:automation/v20190601:getSoftwareUpdateConfigurationByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20190601:getSoftwareUpdateConfigurationByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

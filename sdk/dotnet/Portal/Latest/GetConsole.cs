@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest
+namespace Pulumi.AzureNative.Portal.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'.")]
     public static class GetConsole
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// Latest API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-nextgen:portal/latest:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal/latest:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
     }
 
 

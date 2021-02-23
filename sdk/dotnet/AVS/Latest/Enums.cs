@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AVS.Latest
+namespace Pulumi.AzureNative.AVS.Latest
 {
     /// <summary>
     /// Connectivity to internet is enabled or disabled

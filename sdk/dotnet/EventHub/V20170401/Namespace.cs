@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:Namespace")]
+    [AzureNativeResourceType("azure-native:eventhub/v20170401:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/v20170401:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/v20170401:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,10 +118,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:Namespace"},
                 },
             };

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB MongoDB database.
  * Latest API Version: 2016-03-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBDatabase'.
  */
 export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountMongoDBDatabase {
-        pulumi.log.warn("DatabaseAccountMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.")
+        pulumi.log.warn("DatabaseAccountMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBDatabase'.")
         return new DatabaseAccountMongoDBDatabase(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:DatabaseAccountMongoDBDatabase';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:DatabaseAccountMongoDBDatabase';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountMongoDBDatabase.  This is designed to work even
@@ -63,9 +63,9 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBDatabase'. */
     constructor(name: string, args: DatabaseAccountMongoDBDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase'.")
+        pulumi.log.warn("DatabaseAccountMongoDBDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBDatabase'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -102,7 +102,7 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountMongoDBDatabase.__pulumiType, name, inputs, opts);
     }

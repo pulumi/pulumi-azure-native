@@ -11,7 +11,7 @@ import (
 // API Version: 2018-01-01-preview.
 func LookupNamespaceIpFilterRule(ctx *pulumi.Context, args *LookupNamespaceIpFilterRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceIpFilterRuleResult, error) {
 	var rv LookupNamespaceIpFilterRuleResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getNamespaceIpFilterRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getNamespaceIpFilterRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

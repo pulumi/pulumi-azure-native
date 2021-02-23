@@ -17,7 +17,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:getLinkedService", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:getLinkedService", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

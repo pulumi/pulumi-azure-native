@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A streaming job object, containing all information associated with the named streaming job.
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getStreamingJob'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getStreamingJob'. */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
-    pulumi.log.warn("getStreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getStreamingJob'.")
+    pulumi.log.warn("getStreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getStreamingJob'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/latest:getStreamingJob", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/latest:getStreamingJob", {
         "expand": args.expand,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Inputs
 {
 
     public sealed class ApiPropertiesArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// Describes the ServerVersion of an a MongoDB account.
         /// </summary>
         [Input("serverVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.ServerVersion>? ServerVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20200601Preview.ServerVersion>? ServerVersion { get; set; }
 
         public ApiPropertiesArgs()
         {

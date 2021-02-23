@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the job schedule.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getJobSchedule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getJobSchedule'. */
 export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetJobScheduleResult> {
-    pulumi.log.warn("getJobSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getJobSchedule'.")
+    pulumi.log.warn("getJobSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getJobSchedule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getJobSchedule", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getJobSchedule", {
         "automationAccountName": args.automationAccountName,
         "jobScheduleId": args.jobScheduleId,
         "resourceGroupName": args.resourceGroupName,

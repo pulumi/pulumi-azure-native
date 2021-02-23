@@ -50,25 +50,49 @@ func NewProductPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ProductPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ProductPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ProductPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ProductPolicy"),
@@ -76,7 +100,7 @@ func NewProductPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProductPolicy
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ProductPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ProductPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +112,7 @@ func NewProductPolicy(ctx *pulumi.Context,
 func GetProductPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProductPolicyState, opts ...pulumi.ResourceOption) (*ProductPolicy, error) {
 	var resource ProductPolicy
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ProductPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ProductPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

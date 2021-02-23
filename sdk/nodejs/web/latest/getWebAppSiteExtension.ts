@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Site Extension Information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtension'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtension'. */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
-    pulumi.log.warn("getWebAppSiteExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtension'.")
+    pulumi.log.warn("getWebAppSiteExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtension'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSiteExtension", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSiteExtension", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteExtensionId": args.siteExtensionId,

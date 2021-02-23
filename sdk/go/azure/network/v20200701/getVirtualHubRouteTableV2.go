@@ -10,7 +10,7 @@ import (
 // VirtualHubRouteTableV2 Resource.
 func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRouteTableV2Args, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableV2Result, error) {
 	var rv LookupVirtualHubRouteTableV2Result
-	err := ctx.Invoke("azure-nextgen:network/v20200701:getVirtualHubRouteTableV2", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200701:getVirtualHubRouteTableV2", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

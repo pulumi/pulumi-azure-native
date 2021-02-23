@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The List SAS credentials operation response.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountSAS'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountSAS'. */
 export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSASResult> {
-    pulumi.log.warn("listStorageAccountSAS is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountSAS'.")
+    pulumi.log.warn("listStorageAccountSAS is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountSAS'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:listStorageAccountSAS", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:listStorageAccountSAS", {
         "accountName": args.accountName,
         "iPAddressOrRange": args.iPAddressOrRange,
         "keyToSign": args.keyToSign,

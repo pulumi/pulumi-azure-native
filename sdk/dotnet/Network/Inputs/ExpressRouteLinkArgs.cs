@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Administrative state of the physical port.
         /// </summary>
         [Input("adminState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ExpressRouteLinkAdminState>? AdminState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ExpressRouteLinkAdminState>? AdminState { get; set; }
 
         /// <summary>
         /// Resource ID.

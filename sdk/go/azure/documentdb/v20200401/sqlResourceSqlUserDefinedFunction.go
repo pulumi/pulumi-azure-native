@@ -53,25 +53,49 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
@@ -79,7 +103,7 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlUserDefinedFunction
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +115,7 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 func GetSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlResourceSqlUserDefinedFunctionState, opts ...pulumi.ResourceOption) (*SqlResourceSqlUserDefinedFunction, error) {
 	var resource SqlResourceSqlUserDefinedFunction
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

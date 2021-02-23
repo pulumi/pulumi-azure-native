@@ -47,16 +47,31 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare/latest:SynchronizationSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:SynchronizationSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20181101preview:SynchronizationSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:SynchronizationSetting"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20191101:SynchronizationSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:SynchronizationSetting"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20200901:SynchronizationSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynchronizationSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:SynchronizationSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SynchronizationSetting"),
@@ -64,7 +79,7 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SynchronizationSetting
-	err := ctx.RegisterResource("azure-nextgen:datashare:SynchronizationSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare:SynchronizationSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +91,7 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 func GetSynchronizationSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SynchronizationSettingState, opts ...pulumi.ResourceOption) (*SynchronizationSetting, error) {
 	var resource SynchronizationSetting
-	err := ctx.ReadResource("azure-nextgen:datashare:SynchronizationSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare:SynchronizationSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

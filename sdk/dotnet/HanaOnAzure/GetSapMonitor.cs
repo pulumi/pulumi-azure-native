@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure
+namespace Pulumi.AzureNative.HanaOnAzure
 {
     public static class GetSapMonitor
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// API Version: 2020-02-07-preview.
         /// </summary>
         public static Task<GetSapMonitorResult> InvokeAsync(GetSapMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-nextgen:hanaonazure:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSapMonitorResult>("azure-native:hanaonazure:getSapMonitor", args ?? new GetSapMonitorArgs(), options.WithVersion());
     }
 
 

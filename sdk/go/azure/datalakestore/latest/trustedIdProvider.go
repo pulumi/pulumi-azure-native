@@ -14,7 +14,7 @@ import (
 // Data Lake Store trusted identity provider information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:TrustedIdProvider'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.
 type TrustedIdProvider struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +44,13 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore:TrustedIdProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/v20161101:TrustedIdProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:TrustedIdProvider"),
@@ -52,7 +58,7 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TrustedIdProvider
-	err := ctx.RegisterResource("azure-nextgen:datalakestore/latest:TrustedIdProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore/latest:TrustedIdProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 func GetTrustedIdProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TrustedIdProviderState, opts ...pulumi.ResourceOption) (*TrustedIdProvider, error) {
 	var resource TrustedIdProvider
-	err := ctx.ReadResource("azure-nextgen:datalakestore/latest:TrustedIdProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore/latest:TrustedIdProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

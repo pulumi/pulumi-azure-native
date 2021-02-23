@@ -10,7 +10,7 @@ import (
 // Description of a Namespace AuthorizationRules.
 func LookupNotificationHubAuthorizationRule(ctx *pulumi.Context, args *LookupNotificationHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubAuthorizationRuleResult, error) {
 	var rv LookupNotificationHubAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/v20170401:getNotificationHubAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/v20170401:getNotificationHubAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

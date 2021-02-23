@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:resources/v20200601:Deployment":
+            case "azure-native:resources/v20200601:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope":
+            case "azure-native:resources/v20200601:DeploymentAtManagementGroupScope":
                 return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:DeploymentAtScope":
+            case "azure-native:resources/v20200601:DeploymentAtScope":
                 return new DeploymentAtScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope":
+            case "azure-native:resources/v20200601:DeploymentAtSubscriptionScope":
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:DeploymentAtTenantScope":
+            case "azure-native:resources/v20200601:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:Resource":
+            case "azure-native:resources/v20200601:Resource":
                 return new Resource(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:ResourceGroup":
+            case "azure-native:resources/v20200601:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20200601:TagAtScope":
+            case "azure-native:resources/v20200601:TagAtScope":
                 return new TagAtScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "resources/v20200601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "resources/v20200601", _module)

@@ -10,7 +10,7 @@ import (
 // Describes a hybrid machine.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute/v20191212:getMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute/v20191212:getMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

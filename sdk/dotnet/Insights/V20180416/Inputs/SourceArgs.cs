@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
+namespace Pulumi.AzureNative.Insights.V20180416.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Set value to 'ResultCount' .
         /// </summary>
         [Input("queryType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.QueryType>? QueryType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180416.QueryType>? QueryType { get; set; }
 
         public SourceArgs()
         {

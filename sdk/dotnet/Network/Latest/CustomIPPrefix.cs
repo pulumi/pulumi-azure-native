@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Custom IP prefix resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:CustomIPPrefix'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:CustomIPPrefix")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:CustomIPPrefix'.")]
+    [AzureNativeResourceType("azure-native:network/latest:CustomIPPrefix")]
     public partial class CustomIPPrefix : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomIPPrefix(string name, CustomIPPrefixArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:CustomIPPrefix", name, args ?? new CustomIPPrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:CustomIPPrefix", name, args ?? new CustomIPPrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomIPPrefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:CustomIPPrefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:CustomIPPrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,9 +114,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:CustomIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:CustomIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:CustomIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:CustomIPPrefix"},
                 },
             };
@@ -151,7 +155,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The commissioned state of the Custom IP Prefix.
         /// </summary>
         [Input("commissionedState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.CommissionedState>? CommissionedState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.CommissionedState>? CommissionedState { get; set; }
 
         /// <summary>
         /// The name of the custom IP prefix.

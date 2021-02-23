@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.Inputs
+namespace Pulumi.AzureNative.HDInsight.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HDInsight.Inputs
         /// Algorithm identifier for encryption, default RSA-OAEP.
         /// </summary>
         [Input("encryptionAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.HDInsight.JsonWebKeyEncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HDInsight.JsonWebKeyEncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
 
         /// <summary>
         /// Indicates whether or not resource disk encryption is enabled.

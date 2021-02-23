@@ -10,7 +10,7 @@ import (
 // Resource information.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
-	err := ctx.Invoke("azure-nextgen:resources/v20160201:getResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20160201:getResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

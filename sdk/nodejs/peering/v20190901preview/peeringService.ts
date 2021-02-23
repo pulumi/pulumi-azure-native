@@ -21,7 +21,7 @@ export class PeeringService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/v20190901preview:PeeringService';
+    public static readonly __pulumiType = 'azure-native:peering/v20190901preview:PeeringService';
 
     /**
      * Returns true if the given object is an instance of PeeringService.  This is designed to work even
@@ -101,7 +101,7 @@ export class PeeringService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:PeeringService" }, { type: "azure-nextgen:peering/latest:PeeringService" }, { type: "azure-nextgen:peering/v20190801preview:PeeringService" }, { type: "azure-nextgen:peering/v20200101preview:PeeringService" }, { type: "azure-nextgen:peering/v20200401:PeeringService" }, { type: "azure-nextgen:peering/v20201001:PeeringService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringService" }, { type: "azure-nextgen:peering:PeeringService" }, { type: "azure-native:peering/latest:PeeringService" }, { type: "azure-nextgen:peering/latest:PeeringService" }, { type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-nextgen:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-nextgen:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20200401:PeeringService" }, { type: "azure-nextgen:peering/v20200401:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-nextgen:peering/v20201001:PeeringService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeeringService.__pulumiType, name, inputs, opts);
     }

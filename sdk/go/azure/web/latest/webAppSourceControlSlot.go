@@ -14,7 +14,7 @@ import (
 // Source control configuration for an app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSourceControlSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControlSlot'.
 type WebAppSourceControlSlot struct {
 	pulumi.CustomResourceState
 
@@ -58,28 +58,55 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControlSlot"),
@@ -87,7 +114,7 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSourceControlSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppSourceControlSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppSourceControlSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +126,7 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 func GetWebAppSourceControlSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSourceControlSlotState, opts ...pulumi.ResourceOption) (*WebAppSourceControlSlot, error) {
 	var resource WebAppSourceControlSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppSourceControlSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppSourceControlSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Bot resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Bot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:botservice:Bot'.
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -48,13 +48,25 @@ func NewBot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20171201:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20171201:Bot"),
 		},
 		{
+			Type: pulumi.String("azure-native:botservice/v20180712:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20200602:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:Bot"),
@@ -62,7 +74,7 @@ func NewBot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Bot
-	err := ctx.RegisterResource("azure-nextgen:botservice/latest:Bot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/latest:Bot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewBot(ctx *pulumi.Context,
 func GetBot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BotState, opts ...pulumi.ResourceOption) (*Bot, error) {
 	var resource Bot
-	err := ctx.ReadResource("azure-nextgen:botservice/latest:Bot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/latest:Bot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Inputs
+namespace Pulumi.AzureNative.Logic.Inputs
 {
 
     /// <summary>
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The group header date format.
         /// </summary>
         [Input("groupHeaderDateFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.X12DateFormat> GroupHeaderDateFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.X12DateFormat> GroupHeaderDateFormat { get; set; } = null!;
 
         /// <summary>
         /// The group header time format.
         /// </summary>
         [Input("groupHeaderTimeFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.X12TimeFormat> GroupHeaderTimeFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.X12TimeFormat> GroupHeaderTimeFormat { get; set; } = null!;
 
         /// <summary>
         /// The group header version.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The usage indicator.
         /// </summary>
         [Input("usageIndicator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.UsageIndicator> UsageIndicator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.UsageIndicator> UsageIndicator { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether to use control standards id as repetition character.

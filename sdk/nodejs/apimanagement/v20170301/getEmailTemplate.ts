@@ -16,7 +16,7 @@ export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20170301:getEmailTemplate", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getEmailTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "templateName": args.templateName,

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupDeploymentScript(ctx *pulumi.Context, args *LookupDeploymentScriptArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentScriptResult, error) {
 	var rv LookupDeploymentScriptResult
-	err := ctx.Invoke("azure-nextgen:resources:getDeploymentScript", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources:getDeploymentScript", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

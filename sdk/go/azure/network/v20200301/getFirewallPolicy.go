@@ -10,7 +10,7 @@ import (
 // FirewallPolicy Resource.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	var rv LookupFirewallPolicyResult
-	err := ctx.Invoke("azure-nextgen:network/v20200301:getFirewallPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200301:getFirewallPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

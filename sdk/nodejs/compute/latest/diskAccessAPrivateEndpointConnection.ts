@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  * Latest API Version: 2020-09-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.
  */
 export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskAccessAPrivateEndpointConnection {
-        pulumi.log.warn("DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'.")
+        pulumi.log.warn("DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.")
         return new DiskAccessAPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:compute/latest:DiskAccessAPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of DiskAccessAPrivateEndpointConnection.  This is designed to work even
@@ -67,9 +67,9 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'. */
     constructor(name: string, args: DiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'.")
+        pulumi.log.warn("DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.diskAccessName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

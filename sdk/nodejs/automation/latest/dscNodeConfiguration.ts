@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Definition of the dsc node configuration.
  * Latest API Version: 2019-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscNodeConfiguration'.
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DscNodeConfiguration {
-        pulumi.log.warn("DscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.")
+        pulumi.log.warn("DscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscNodeConfiguration'.")
         return new DscNodeConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/latest:DscNodeConfiguration';
+    public static readonly __pulumiType = 'azure-native:automation/latest:DscNodeConfiguration';
 
     /**
      * Returns true if the given object is an instance of DscNodeConfiguration.  This is designed to work even
@@ -79,9 +79,9 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscNodeConfiguration'. */
     constructor(name: string, args: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscNodeConfiguration'.")
+        pulumi.log.warn("DscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscNodeConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
@@ -125,7 +125,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20151031:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20180115:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20190601:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20200113preview:DscNodeConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:DscNodeConfiguration" }, { type: "azure-nextgen:automation:DscNodeConfiguration" }, { type: "azure-native:automation/v20151031:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20151031:DscNodeConfiguration" }, { type: "azure-native:automation/v20180115:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20180115:DscNodeConfiguration" }, { type: "azure-native:automation/v20190601:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20190601:DscNodeConfiguration" }, { type: "azure-native:automation/v20200113preview:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20200113preview:DscNodeConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
     }

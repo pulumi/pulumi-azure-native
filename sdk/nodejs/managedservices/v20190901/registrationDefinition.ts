@@ -22,7 +22,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managedservices/v20190901:RegistrationDefinition';
+    public static readonly __pulumiType = 'azure-native:managedservices/v20190901:RegistrationDefinition';
 
     /**
      * Returns true if the given object is an instance of RegistrationDefinition.  This is designed to work even
@@ -84,7 +84,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/latest:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationDefinition" }, { type: "azure-nextgen:managedservices:RegistrationDefinition" }, { type: "azure-native:managedservices/latest:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/latest:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20200201preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }

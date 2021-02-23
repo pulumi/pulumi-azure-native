@@ -10,7 +10,7 @@ import (
 // Represents a database transparent data encryption configuration.
 func LookupTransparentDataEncryption(ctx *pulumi.Context, args *LookupTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupTransparentDataEncryptionResult, error) {
 	var rv LookupTransparentDataEncryptionResult
-	err := ctx.Invoke("azure-nextgen:sql/v20140401:getTransparentDataEncryption", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20140401:getTransparentDataEncryption", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

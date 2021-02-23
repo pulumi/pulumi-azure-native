@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     public static class GetServiceUnit
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetServiceUnitResult> InvokeAsync(GetServiceUnitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-nextgen:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithVersion());
     }
 
 

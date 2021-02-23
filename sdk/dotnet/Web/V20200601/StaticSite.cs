@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     /// <summary>
     /// Static Site ARM resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20200601:StaticSite")]
+    [AzureNativeResourceType("azure-native:web/v20200601:StaticSite")]
     public partial class StaticSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StaticSite(string name, StaticSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:StaticSite", name, args ?? new StaticSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20200601:StaticSite", name, args ?? new StaticSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StaticSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:StaticSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20200601:StaticSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,10 +112,15 @@ namespace Pulumi.AzureNextGen.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:StaticSite"},
                 },
             };

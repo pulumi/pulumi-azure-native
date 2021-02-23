@@ -10,10 +10,10 @@ import (
 // Response for list BGP peer status API service call.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayBgpPeerStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayBgpPeerStatus'.
 func GetVirtualNetworkGatewayBgpPeerStatus(ctx *pulumi.Context, args *GetVirtualNetworkGatewayBgpPeerStatusArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 	var rv GetVirtualNetworkGatewayBgpPeerStatusResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetworkGatewayBgpPeerStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

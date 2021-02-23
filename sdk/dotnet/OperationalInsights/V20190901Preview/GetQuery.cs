@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
 {
     public static class GetQuery
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// A Log Analytics QueryPack-Query definition.
         /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-nextgen:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithVersion());
     }
 
 

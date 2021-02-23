@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The details of subscription under management group.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroupSubscription'. */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
-    pulumi.log.warn("getManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroupSubscription'.")
+    pulumi.log.warn("getManagementGroupSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroupSubscription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementGroupSubscription(args: GetManagementGroupSubscript
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:management/latest:getManagementGroupSubscription", {
+    return pulumi.runtime.invoke("azure-native:management/latest:getManagementGroupSubscription", {
         "groupId": args.groupId,
         "subscriptionId": args.subscriptionId,
     }, opts);

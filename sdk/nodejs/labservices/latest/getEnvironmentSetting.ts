@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents settings of an environment, from which environment instances would be created
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironmentSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironmentSetting'. */
 export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSettingResult> {
-    pulumi.log.warn("getEnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getEnvironmentSetting'.")
+    pulumi.log.warn("getEnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironmentSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getEnvironmentSetting", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getEnvironmentSetting", {
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,
         "labAccountName": args.labAccountName,

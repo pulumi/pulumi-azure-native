@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Latest API Version: 2020-09-30.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccessAPrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskAccessAPrivateEndpointConnection(string name, DiskAccessAPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection", name, args ?? new DiskAccessAPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection", name, args ?? new DiskAccessAPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskAccessAPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
                 },
             };

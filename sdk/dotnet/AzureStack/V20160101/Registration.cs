@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.V20160101
+namespace Pulumi.AzureNative.AzureStack.V20160101
 {
     /// <summary>
     /// Registration information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azurestack/v20160101:Registration")]
+    [AzureNativeResourceType("azure-native:azurestack/v20160101:Registration")]
     public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.AzureStack.V20160101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registration(string name, RegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/v20160101:Registration", name, args ?? new RegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestack/v20160101:Registration", name, args ?? new RegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/v20160101:Registration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestack/v20160101:Registration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,9 +88,13 @@ namespace Pulumi.AzureNextGen.AzureStack.V20160101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/latest:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:Registration"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:Registration"},
                 },
             };
@@ -119,7 +123,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20160101
         /// Location of the resource.
         /// </summary>
         [Input("location")]
-        public InputUnion<string, Pulumi.AzureNextGen.AzureStack.V20160101.Location>? Location { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureStack.V20160101.Location>? Location { get; set; }
 
         /// <summary>
         /// Name of the Azure Stack registration.

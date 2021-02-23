@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     public static class GetVirtualNetworkResource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// A virtual network.
         /// </summary>
         public static Task<GetVirtualNetworkResourceResult> InvokeAsync(GetVirtualNetworkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-nextgen:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualNetworkResource", args ?? new GetVirtualNetworkResourceArgs(), options.WithVersion());
     }
 
 

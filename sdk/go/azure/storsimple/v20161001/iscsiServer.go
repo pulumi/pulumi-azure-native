@@ -55,7 +55,13 @@ func NewIscsiServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:IscsiServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:IscsiServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:IscsiServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:IscsiServer"),
@@ -63,7 +69,7 @@ func NewIscsiServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IscsiServer
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20161001:IscsiServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20161001:IscsiServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewIscsiServer(ctx *pulumi.Context,
 func GetIscsiServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IscsiServerState, opts ...pulumi.ResourceOption) (*IscsiServer, error) {
 	var resource IscsiServer
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20161001:IscsiServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20161001:IscsiServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

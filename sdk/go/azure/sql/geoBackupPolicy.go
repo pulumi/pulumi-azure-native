@@ -48,7 +48,13 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/latest:GeoBackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:GeoBackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:GeoBackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:GeoBackupPolicy"),
@@ -56,7 +62,7 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GeoBackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:sql:GeoBackupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:GeoBackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 func GetGeoBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GeoBackupPolicyState, opts ...pulumi.ResourceOption) (*GeoBackupPolicy, error) {
 	var resource GeoBackupPolicy
-	err := ctx.ReadResource("azure-nextgen:sql:GeoBackupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:GeoBackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

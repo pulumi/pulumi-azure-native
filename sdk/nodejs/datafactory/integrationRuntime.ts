@@ -23,7 +23,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory:IntegrationRuntime';
+    public static readonly __pulumiType = 'azure-native:datafactory:IntegrationRuntime';
 
     /**
      * Returns true if the given object is an instance of IntegrationRuntime.  This is designed to work even
@@ -92,7 +92,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/latest:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20180601:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/latest:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/latest:IntegrationRuntime" }, { type: "azure-native:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azure-native:datafactory/v20180601:IntegrationRuntime" }, { type: "azure-nextgen:datafactory/v20180601:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

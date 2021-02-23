@@ -58,28 +58,55 @@ func NewBlobContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:BlobContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20180201:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20180201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180301preview:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180301preview:BlobContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20181101:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobContainer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainer"),
@@ -87,7 +114,7 @@ func NewBlobContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobContainer
-	err := ctx.RegisterResource("azure-nextgen:storage/v20180701:BlobContainer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20180701:BlobContainer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +126,7 @@ func NewBlobContainer(ctx *pulumi.Context,
 func GetBlobContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobContainerState, opts ...pulumi.ResourceOption) (*BlobContainer, error) {
 	var resource BlobContainer
-	err := ctx.ReadResource("azure-nextgen:storage/v20180701:BlobContainer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20180701:BlobContainer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

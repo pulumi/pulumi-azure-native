@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
+namespace Pulumi.AzureNative.Notebooks.V20191011Preview
 {
     /// <summary>
     /// A NotebookProxy resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:notebooks/v20191011preview:NotebookProxy")]
+    [AzureNativeResourceType("azure-native:notebooks/v20191011preview:NotebookProxy")]
     public partial class NotebookProxy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotebookProxy(string name, NotebookProxyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notebooks/v20191011preview:NotebookProxy", name, args ?? new NotebookProxyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:notebooks/v20191011preview:NotebookProxy", name, args ?? new NotebookProxyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotebookProxy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:notebooks/v20191011preview:NotebookProxy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:notebooks/v20191011preview:NotebookProxy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:notebooks:NotebookProxy"},
                     new Pulumi.Alias { Type = "azure-nextgen:notebooks:NotebookProxy"},
                 },
             };

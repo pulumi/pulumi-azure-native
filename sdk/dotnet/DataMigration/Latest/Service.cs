@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.Latest
+namespace Pulumi.AzureNative.DataMigration.Latest
 {
     /// <summary>
     /// A Database Migration Service resource
     /// Latest API Version: 2018-04-19.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.")]
-    [AzureNextGenResourceType("azure-nextgen:datamigration/latest:Service")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datamigration:Service'.")]
+    [AzureNativeResourceType("azure-native:datamigration/latest:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration/latest:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datamigration/latest:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration/latest:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datamigration/latest:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,11 +102,17 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration:Service"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180419:Service"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Service"},
                 },
             };

@@ -54,7 +54,13 @@ func NewServiceFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:ServiceFabric"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceFabric"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceFabric"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabric"),
@@ -62,7 +68,7 @@ func NewServiceFabric(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabric
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:ServiceFabric", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:ServiceFabric", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewServiceFabric(ctx *pulumi.Context,
 func GetServiceFabric(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceFabricState, opts ...pulumi.ResourceOption) (*ServiceFabric, error) {
 	var resource ServiceFabric
-	err := ctx.ReadResource("azure-nextgen:devtestlab:ServiceFabric", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:ServiceFabric", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

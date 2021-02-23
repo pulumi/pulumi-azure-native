@@ -49,21 +49,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:labservices:Environment":
+            case "azure-native:labservices:Environment":
                 return new Environment(name, <any>undefined, { urn })
-            case "azure-nextgen:labservices:EnvironmentSetting":
+            case "azure-native:labservices:EnvironmentSetting":
                 return new EnvironmentSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:labservices:GalleryImage":
+            case "azure-native:labservices:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-nextgen:labservices:Lab":
+            case "azure-native:labservices:Lab":
                 return new Lab(name, <any>undefined, { urn })
-            case "azure-nextgen:labservices:LabAccount":
+            case "azure-native:labservices:LabAccount":
                 return new LabAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:labservices:User":
+            case "azure-native:labservices:User":
                 return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "labservices", _module)
+pulumi.runtime.registerResourceModule("azure-native", "labservices", _module)

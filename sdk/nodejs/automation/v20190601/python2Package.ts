@@ -22,7 +22,7 @@ export class Python2Package extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/v20190601:Python2Package';
+    public static readonly __pulumiType = 'azure-native:automation/v20190601:Python2Package';
 
     /**
      * Returns true if the given object is an instance of Python2Package.  This is designed to work even
@@ -163,7 +163,7 @@ export class Python2Package extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Python2Package" }, { type: "azure-nextgen:automation/latest:Python2Package" }, { type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20200113preview:Python2Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Python2Package" }, { type: "azure-nextgen:automation:Python2Package" }, { type: "azure-native:automation/latest:Python2Package" }, { type: "azure-nextgen:automation/latest:Python2Package" }, { type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20200113preview:Python2Package" }, { type: "azure-nextgen:automation/v20200113preview:Python2Package" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Python2Package.__pulumiType, name, inputs, opts);
     }

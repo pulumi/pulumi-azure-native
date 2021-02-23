@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.Latest
+namespace Pulumi.AzureNative.AzureStack.Latest
 {
     /// <summary>
     /// Customer subscription.
     /// Latest API Version: 2017-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:azurestack:CustomerSubscription'.")]
-    [AzureNextGenResourceType("azure-nextgen:azurestack/latest:CustomerSubscription")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:azurestack:CustomerSubscription'.")]
+    [AzureNativeResourceType("azure-native:azurestack/latest:CustomerSubscription")]
     public partial class CustomerSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerSubscription(string name, CustomerSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/latest:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestack/latest:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomerSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/latest:CustomerSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestack/latest:CustomerSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azurestack:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:CustomerSubscription"},
                 },
             };

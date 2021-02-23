@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     public static class ListListTenantConfigurationViolation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal
         /// API Version: 2020-09-01-preview.
         /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-nextgen:portal:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
+namespace Pulumi.AzureNative.DigitalTwins.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest.Inputs
         /// Specifies the authentication type being used for connecting to the endpoint.
         /// </summary>
         [Input("authenticationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.Latest.AuthenticationType>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.Latest.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// Dead letter storage secret for key-based authentication. Will be obfuscated during read.

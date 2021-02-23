@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster":
+            case "azure-native:kubernetes/v20200101preview:ConnectedCluster":
                 return new ConnectedCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "kubernetes/v20200101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "kubernetes/v20200101preview", _module)

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration
+namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A project resource
     /// API Version: 2018-04-19.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datamigration:Project")]
+    [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datamigration:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration:Project", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datamigration:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,11 +107,17 @@ namespace Pulumi.AzureNextGen.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration/latest:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/latest:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180419:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Project"},
                 },
             };
@@ -182,7 +188,7 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// Source platform for the project
         /// </summary>
         [Input("sourcePlatform", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.ProjectSourcePlatform> SourcePlatform { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.ProjectSourcePlatform> SourcePlatform { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -206,7 +212,7 @@ namespace Pulumi.AzureNextGen.DataMigration
         /// Target platform for the project
         /// </summary>
         [Input("targetPlatform", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.ProjectTargetPlatform> TargetPlatform { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.ProjectTargetPlatform> TargetPlatform { get; set; } = null!;
 
         public ProjectArgs()
         {

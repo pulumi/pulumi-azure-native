@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Virtual machine model
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getVirtualMachine'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getVirtualMachine'. */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getVirtualMachine'.")
+    pulumi.log.warn("getVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getVirtualMachine'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple/latest:getVirtualMachine", {
+    return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/latest:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineName": args.virtualMachineName,
     }, opts);

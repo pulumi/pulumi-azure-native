@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Gateway details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Gateway'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Gateway'.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Gateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Gateway {
-        pulumi.log.warn("Gateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Gateway'.")
+        pulumi.log.warn("Gateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Gateway'.")
         return new Gateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:Gateway';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:Gateway';
 
     /**
      * Returns true if the given object is an instance of Gateway.  This is designed to work even
@@ -63,9 +63,9 @@ export class Gateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Gateway'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Gateway'. */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Gateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Gateway'.")
+        pulumi.log.warn("Gateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Gateway'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +94,7 @@ export class Gateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20200601preview:Gateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Gateway" }, { type: "azure-nextgen:apimanagement:Gateway" }, { type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20200601preview:Gateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Gateway.__pulumiType, name, inputs, opts);
     }

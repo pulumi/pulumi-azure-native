@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Properties that define a favorite that is associated to an Application Insights component.
  * Latest API Version: 2015-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.
  */
 export class Favorite extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Favorite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Favorite {
-        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.")
+        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.")
         return new Favorite(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:Favorite';
+    public static readonly __pulumiType = 'azure-native:insights/latest:Favorite';
 
     /**
      * Returns true if the given object is an instance of Favorite.  This is designed to work even
@@ -91,9 +91,9 @@ export class Favorite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'. */
     constructor(name: string, args: FavoriteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Favorite'.")
+        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -135,7 +135,7 @@ export class Favorite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:Favorite" }, { type: "azure-nextgen:insights/v20150501:Favorite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:Favorite" }, { type: "azure-nextgen:insights:Favorite" }, { type: "azure-native:insights/v20150501:Favorite" }, { type: "azure-nextgen:insights/v20150501:Favorite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Favorite.__pulumiType, name, inputs, opts);
     }

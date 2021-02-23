@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Latest
+namespace Pulumi.AzureNative.EventHub.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:listDisasterRecoveryConfigKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listDisasterRecoveryConfigKeys'.")]
     public static class ListDisasterRecoveryConfigKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-nextgen:eventhub/latest:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:eventhub/latest:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
     }
 
 

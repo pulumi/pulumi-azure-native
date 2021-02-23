@@ -45,25 +45,49 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/latest:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/latest:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190201preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20190601:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200101preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:Domain"),
@@ -71,7 +95,7 @@ func NewDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Domain
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20180915preview:Domain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20180915preview:Domain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +107,7 @@ func NewDomain(ctx *pulumi.Context,
 func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
 	var resource Domain
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20180915preview:Domain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20180915preview:Domain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

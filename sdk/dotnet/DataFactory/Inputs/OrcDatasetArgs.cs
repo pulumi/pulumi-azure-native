@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         public Input<object> Location { get; set; } = null!;
 
         [Input("orcCompressionCodec")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.OrcCompressionCodec>? OrcCompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.OrcCompressionCodec>? OrcCompressionCodec { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

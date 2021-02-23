@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListIntegrationAccountKeyVaultKeys(ctx *pulumi.Context, args *ListIntegrationAccountKeyVaultKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountKeyVaultKeysResult, error) {
 	var rv ListIntegrationAccountKeyVaultKeysResult
-	err := ctx.Invoke("azure-nextgen:logic:listIntegrationAccountKeyVaultKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:listIntegrationAccountKeyVaultKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

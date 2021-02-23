@@ -46,10 +46,19 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:policyinsights/latest:RemediationAtSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:policyinsights/latest:RemediationAtSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20190701:RemediationAtSubscription"),
@@ -57,7 +66,7 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtSubscription
-	err := ctx.RegisterResource("azure-nextgen:policyinsights:RemediationAtSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:policyinsights:RemediationAtSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 func GetRemediationAtSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RemediationAtSubscriptionState, opts ...pulumi.ResourceOption) (*RemediationAtSubscription, error) {
 	var resource RemediationAtSubscription
-	err := ctx.ReadResource("azure-nextgen:policyinsights:RemediationAtSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:policyinsights:RemediationAtSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

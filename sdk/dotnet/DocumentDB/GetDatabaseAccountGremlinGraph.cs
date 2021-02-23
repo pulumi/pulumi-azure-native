@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     public static class GetDatabaseAccountGremlinGraph
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-nextgen:documentdb:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
     }
 
 

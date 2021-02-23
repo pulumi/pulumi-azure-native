@@ -81,35 +81,35 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:costmanagement:Budget":
+            case "azure-native:costmanagement:Budget":
                 return new Budget(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:CloudConnector":
+            case "azure-native:costmanagement:CloudConnector":
                 return new CloudConnector(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:Connector":
+            case "azure-native:costmanagement:Connector":
                 return new Connector(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:CostAllocationRule":
+            case "azure-native:costmanagement:CostAllocationRule":
                 return new CostAllocationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:Export":
+            case "azure-native:costmanagement:Export":
                 return new Export(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:Report":
+            case "azure-native:costmanagement:Report":
                 return new Report(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ReportByBillingAccount":
+            case "azure-native:costmanagement:ReportByBillingAccount":
                 return new ReportByBillingAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ReportByDepartment":
+            case "azure-native:costmanagement:ReportByDepartment":
                 return new ReportByDepartment(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ReportByResourceGroupName":
+            case "azure-native:costmanagement:ReportByResourceGroupName":
                 return new ReportByResourceGroupName(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ReportConfig":
+            case "azure-native:costmanagement:ReportConfig":
                 return new ReportConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ReportConfigByResourceGroupName":
+            case "azure-native:costmanagement:ReportConfigByResourceGroupName":
                 return new ReportConfigByResourceGroupName(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:View":
+            case "azure-native:costmanagement:View":
                 return new View(name, <any>undefined, { urn })
-            case "azure-nextgen:costmanagement:ViewByScope":
+            case "azure-native:costmanagement:ViewByScope":
                 return new ViewByScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "costmanagement", _module)
+pulumi.runtime.registerResourceModule("azure-native", "costmanagement", _module)

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         /// the operation associated with the notification and its value must be "scale"
         /// </summary>
         [Input("operation", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.OperationType> Operation { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.OperationType> Operation { get; set; } = null!;
 
         [Input("webhooks")]
         private InputList<Inputs.WebhookNotificationArgs>? _webhooks;

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Inputs
+namespace Pulumi.AzureNative.Logic.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The EDIFACT frame setting characterSet.
         /// </summary>
         [Input("characterSet", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.EdifactCharacterSet> CharacterSet { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.EdifactCharacterSet> CharacterSet { get; set; } = null!;
 
         /// <summary>
         /// The component separator.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The EDIFACT frame setting decimal indicator.
         /// </summary>
         [Input("decimalPointIndicator", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.EdifactDecimalIndicator> DecimalPointIndicator { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.EdifactDecimalIndicator> DecimalPointIndicator { get; set; } = null!;
 
         /// <summary>
         /// The protocol version.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.Inputs
         /// The EDIFACT frame setting segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.SegmentTerminatorSuffix> SegmentTerminatorSuffix { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.SegmentTerminatorSuffix> SegmentTerminatorSuffix { get; set; } = null!;
 
         /// <summary>
         /// The service code list directory version.

@@ -10,10 +10,10 @@ import (
 // Represents a Configuration.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getConfiguration'.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb/latest:getConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb/latest:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

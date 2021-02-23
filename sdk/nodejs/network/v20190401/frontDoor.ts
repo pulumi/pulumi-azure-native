@@ -22,7 +22,7 @@ export class FrontDoor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20190401:FrontDoor';
+    public static readonly __pulumiType = 'azure-native:network/v20190401:FrontDoor';
 
     /**
      * Returns true if the given object is an instance of FrontDoor.  This is designed to work even
@@ -150,7 +150,7 @@ export class FrontDoor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:FrontDoor" }, { type: "azure-nextgen:network/latest:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20200101:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:FrontDoor" }, { type: "azure-nextgen:network:FrontDoor" }, { type: "azure-native:network/latest:FrontDoor" }, { type: "azure-nextgen:network/latest:FrontDoor" }, { type: "azure-native:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-native:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-native:network/v20200101:FrontDoor" }, { type: "azure-nextgen:network/v20200101:FrontDoor" }, { type: "azure-native:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-native:network/v20200501:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FrontDoor.__pulumiType, name, inputs, opts);
     }

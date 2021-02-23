@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20190601
+namespace Pulumi.AzureNative.Authorization.V20190601
 {
     /// <summary>
     /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.

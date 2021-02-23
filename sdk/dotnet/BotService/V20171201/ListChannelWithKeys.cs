@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.V20171201
+namespace Pulumi.AzureNative.BotService.V20171201
 {
     public static class ListChannelWithKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// Bot channel resource definition
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-nextgen:botservice/v20171201:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20171201:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
     }
 
 

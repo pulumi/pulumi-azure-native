@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric/v20191101preview:Cluster';
+    public static readonly __pulumiType = 'azure-native:servicefabric/v20191101preview:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -260,7 +260,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric:Cluster" }, { type: "azure-nextgen:servicefabric/latest:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20170701preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:Cluster" }, { type: "azure-nextgen:servicefabric:Cluster" }, { type: "azure-native:servicefabric/latest:Cluster" }, { type: "azure-nextgen:servicefabric/latest:Cluster" }, { type: "azure-native:servicefabric/v20160901:Cluster" }, { type: "azure-nextgen:servicefabric/v20160901:Cluster" }, { type: "azure-native:servicefabric/v20170701preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20170701preview:Cluster" }, { type: "azure-native:servicefabric/v20180201:Cluster" }, { type: "azure-nextgen:servicefabric/v20180201:Cluster" }, { type: "azure-native:servicefabric/v20190301:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301:Cluster" }, { type: "azure-native:servicefabric/v20190301preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190301preview:Cluster" }, { type: "azure-native:servicefabric/v20190601preview:Cluster" }, { type: "azure-nextgen:servicefabric/v20190601preview:Cluster" }, { type: "azure-native:servicefabric/v20200301:Cluster" }, { type: "azure-nextgen:servicefabric/v20200301:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

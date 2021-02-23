@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * IoT Security solution configuration and resource information.
  * Latest API Version: 2019-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.
  */
 export class IotSecuritySolution extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotSecuritySolution {
-        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.")
+        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.")
         return new IotSecuritySolution(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/latest:IotSecuritySolution';
+    public static readonly __pulumiType = 'azure-native:security/latest:IotSecuritySolution';
 
     /**
      * Returns true if the given object is an instance of IotSecuritySolution.  This is designed to work even
@@ -111,9 +111,9 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'. */
     constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.")
+        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
@@ -168,7 +168,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }, { type: "azure-nextgen:security/v20190801:IotSecuritySolution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:IotSecuritySolution" }, { type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-native:security/v20170801preview:IotSecuritySolution" }, { type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }, { type: "azure-native:security/v20190801:IotSecuritySolution" }, { type: "azure-nextgen:security/v20190801:IotSecuritySolution" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotSecuritySolution.__pulumiType, name, inputs, opts);
     }

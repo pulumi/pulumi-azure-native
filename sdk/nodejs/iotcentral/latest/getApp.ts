@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The IoT Central application.
  * Latest API Version: 2018-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:iotcentral:getApp'. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    pulumi.log.warn("getApp is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:iotcentral:getApp'.")
+    pulumi.log.warn("getApp is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:iotcentral:getApp'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:iotcentral/latest:getApp", {
+    return pulumi.runtime.invoke("azure-native:iotcentral/latest:getApp", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

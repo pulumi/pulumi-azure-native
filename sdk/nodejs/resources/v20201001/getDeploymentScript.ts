@@ -16,7 +16,7 @@ export function getDeploymentScript(args: GetDeploymentScriptArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/v20201001:getDeploymentScript", {
+    return pulumi.runtime.invoke("azure-native:resources/v20201001:getDeploymentScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,
     }, opts);

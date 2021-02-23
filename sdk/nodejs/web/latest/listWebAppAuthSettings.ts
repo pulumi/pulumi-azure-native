@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAuthSettings'. */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
-    pulumi.log.warn("listWebAppAuthSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAuthSettings'.")
+    pulumi.log.warn("listWebAppAuthSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAuthSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppAuthSettings", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

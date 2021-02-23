@@ -23,7 +23,7 @@ export class VolumeContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple:VolumeContainer';
+    public static readonly __pulumiType = 'azure-native:storsimple:VolumeContainer';
 
     /**
      * Returns true if the given object is an instance of VolumeContainer.  This is designed to work even
@@ -138,7 +138,7 @@ export class VolumeContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:VolumeContainer" }, { type: "azure-nextgen:storsimple/v20170601:VolumeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:VolumeContainer" }, { type: "azure-nextgen:storsimple/latest:VolumeContainer" }, { type: "azure-native:storsimple/v20170601:VolumeContainer" }, { type: "azure-nextgen:storsimple/v20170601:VolumeContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VolumeContainer.__pulumiType, name, inputs, opts);
     }

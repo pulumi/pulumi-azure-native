@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.V20180101Preview
+namespace Pulumi.AzureNative.Management.V20180101Preview
 {
     /// <summary>
     /// The management group details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:management/v20180101preview:ManagementGroup")]
+    [AzureNativeResourceType("azure-native:management/v20180101preview:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Management.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/v20180101preview:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:management/v20180101preview:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/v20180101preview:ManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:management/v20180101preview:ManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,12 +82,19 @@ namespace Pulumi.AzureNextGen.Management.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/latest:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20171101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20171101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20180301preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20191101:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroup"},
                 },
             };

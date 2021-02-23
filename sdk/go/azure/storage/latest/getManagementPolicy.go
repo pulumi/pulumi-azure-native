@@ -10,10 +10,10 @@ import (
 // The Get Storage Account ManagementPolicies operation response.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getManagementPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getManagementPolicy'.
 func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagementPolicyResult, error) {
 	var rv LookupManagementPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage/latest:getManagementPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/latest:getManagementPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

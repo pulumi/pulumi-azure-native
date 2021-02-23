@@ -10,7 +10,7 @@ import (
 // Linked storage accounts top level resource container.
 func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupLinkedStorageAccountResult, error) {
 	var rv LookupLinkedStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20200801:getLinkedStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

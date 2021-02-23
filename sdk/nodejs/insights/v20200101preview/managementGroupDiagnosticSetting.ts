@@ -22,7 +22,7 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting';
+    public static readonly __pulumiType = 'azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting';
 
     /**
      * Returns true if the given object is an instance of ManagementGroupDiagnosticSetting.  This is designed to work even

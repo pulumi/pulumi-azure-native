@@ -10,7 +10,7 @@ import (
 // The StorSimple Manager
 func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.InvokeOption) (*LookupManagerResult, error) {
 	var rv LookupManagerResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getManager", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getManager", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

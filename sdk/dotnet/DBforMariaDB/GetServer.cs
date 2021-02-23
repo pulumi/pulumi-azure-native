@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB
+namespace Pulumi.AzureNative.DBforMariaDB
 {
     public static class GetServer
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-nextgen:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
 
 

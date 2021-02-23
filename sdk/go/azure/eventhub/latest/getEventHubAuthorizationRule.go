@@ -10,10 +10,10 @@ import (
 // Single item in a List or Get AuthorizationRule operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getEventHubAuthorizationRule'.
 func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupEventHubAuthorizationRuleResult, error) {
 	var rv LookupEventHubAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:eventhub/latest:getEventHubAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/latest:getEventHubAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

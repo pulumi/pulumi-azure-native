@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteHostNameBinding
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// A host name binding object
         /// </summary>
         public static Task<GetSiteHostNameBindingResult> InvokeAsync(GetSiteHostNameBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-nextgen:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithVersion());
     }
 
 

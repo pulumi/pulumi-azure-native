@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
+namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// describes if the policy is in enabled state or disabled state
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.PolicyEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.PolicyEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Describes if it is in detection mode or prevention mode at policy level.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.PolicyMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.PolicyMode>? Mode { get; set; }
 
         public PolicySettingsArgs()
         {

@@ -1,11 +1,11 @@
 import * as pulumi from "@pulumi/pulumi";
 
-import * as insights from "@pulumi/azure-nextgen/insights";
-import * as resources from "@pulumi/azure-nextgen/resources";
-import * as sql from "@pulumi/azure-nextgen/sql/v20200801preview";
-import * as sqltde from "@pulumi/azure-nextgen/sql";
-import * as storage from "@pulumi/azure-nextgen/storage";
-import * as web from "@pulumi/azure-nextgen/web";
+import * as insights from "@pulumi/azure-native/insights";
+import * as resources from "@pulumi/azure-native/resources";
+import * as sql from "@pulumi/azure-native/sql/v20200801preview";
+import * as sqltde from "@pulumi/azure-native/sql";
+import * as storage from "@pulumi/azure-native/storage";
+import * as web from "@pulumi/azure-native/web";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 

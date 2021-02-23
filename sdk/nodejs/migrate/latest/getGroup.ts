@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A group created in a Migration project.
  * Latest API Version: 2019-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getGroup'. */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    pulumi.log.warn("getGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getGroup'.")
+    pulumi.log.warn("getGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getGroup", {
+    return pulumi.runtime.invoke("azure-native:migrate/latest:getGroup", {
         "groupName": args.groupName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func GetguestDiagnosticsSetting(ctx *pulumi.Context, args *GetguestDiagnosticsSettingArgs, opts ...pulumi.InvokeOption) (*GetguestDiagnosticsSettingResult, error) {
 	var rv GetguestDiagnosticsSettingResult
-	err := ctx.Invoke("azure-nextgen:insights:getguestDiagnosticsSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getguestDiagnosticsSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

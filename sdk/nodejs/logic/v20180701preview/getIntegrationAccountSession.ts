@@ -16,7 +16,7 @@ export function getIntegrationAccountSession(args: GetIntegrationAccountSessionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20180701preview:getIntegrationAccountSession", {
+    return pulumi.runtime.invoke("azure-native:logic/v20180701preview:getIntegrationAccountSession", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "sessionName": args.sessionName,

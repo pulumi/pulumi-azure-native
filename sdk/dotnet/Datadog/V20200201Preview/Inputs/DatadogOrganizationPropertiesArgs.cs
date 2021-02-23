@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
+namespace Pulumi.AzureNative.Datadog.V20200201Preview.Inputs
 {
 
     /// <summary>

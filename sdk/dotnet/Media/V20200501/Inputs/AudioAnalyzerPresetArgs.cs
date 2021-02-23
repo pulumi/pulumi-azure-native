@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
+namespace Pulumi.AzureNative.Media.V20200501.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.AudioAnalysisMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.AudioAnalysisMode>? Mode { get; set; }
 
         /// <summary>
         /// The discriminator for derived types.

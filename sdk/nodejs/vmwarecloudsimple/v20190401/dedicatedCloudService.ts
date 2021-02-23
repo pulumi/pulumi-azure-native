@@ -21,7 +21,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService';
+    public static readonly __pulumiType = 'azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService';
 
     /**
      * Returns true if the given object is an instance of DedicatedCloudService.  This is designed to work even
@@ -110,7 +110,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-native:vmwarecloudsimple/latest:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedCloudService.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Developer Keys of account
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listSpatialAnchorsAccountKeys'. */
 export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSpatialAnchorsAccountKeysResult> {
-    pulumi.log.warn("listSpatialAnchorsAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listSpatialAnchorsAccountKeys'.")
+    pulumi.log.warn("listSpatialAnchorsAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listSpatialAnchorsAccountKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKey
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/latest:listSpatialAnchorsAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/latest:listSpatialAnchorsAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

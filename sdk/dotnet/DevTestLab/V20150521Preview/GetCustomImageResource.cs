@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     public static class GetCustomImageResource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// A custom image.
         /// </summary>
         public static Task<GetCustomImageResourceResult> InvokeAsync(GetCustomImageResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResourceResult>("azure-nextgen:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomImageResourceResult>("azure-native:devtestlab/v20150521preview:getCustomImageResource", args ?? new GetCustomImageResourceArgs(), options.WithVersion());
     }
 
 

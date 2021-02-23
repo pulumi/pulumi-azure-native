@@ -68,12 +68,15 @@ func NewBlockchainMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:blockchain/v20180601preview:BlockchainMember"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:blockchain/v20180601preview:BlockchainMember"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BlockchainMember
-	err := ctx.RegisterResource("azure-nextgen:blockchain:BlockchainMember", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blockchain:BlockchainMember", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +88,7 @@ func NewBlockchainMember(ctx *pulumi.Context,
 func GetBlockchainMember(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlockchainMemberState, opts ...pulumi.ResourceOption) (*BlockchainMember, error) {
 	var resource BlockchainMember
-	err := ctx.ReadResource("azure-nextgen:blockchain:BlockchainMember", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blockchain:BlockchainMember", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -23,7 +23,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights:RemediationAtManagementGroup';
+    public static readonly __pulumiType = 'azure-native:policyinsights:RemediationAtManagementGroup';
 
     /**
      * Returns true if the given object is an instance of RemediationAtManagementGroup.  This is designed to work even
@@ -125,7 +125,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtManagementGroup.__pulumiType, name, inputs, opts);
     }

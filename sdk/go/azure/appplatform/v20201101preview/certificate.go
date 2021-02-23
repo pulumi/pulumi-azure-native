@@ -38,13 +38,25 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/latest:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/latest:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Certificate"),
@@ -52,7 +64,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:appplatform/v20201101preview:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/v20201101preview:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +76,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:appplatform/v20201101preview:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/v20201101preview:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

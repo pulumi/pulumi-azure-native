@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class SubscriptionStateOverrideActionArgs : Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.SubscriptionNotificationOperation> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.SubscriptionNotificationOperation> Action { get; set; } = null!;
 
         [Input("state", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.SubscriptionTransitioningState> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.SubscriptionTransitioningState> State { get; set; } = null!;
 
         public SubscriptionStateOverrideActionArgs()
         {

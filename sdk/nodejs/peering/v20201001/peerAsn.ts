@@ -22,7 +22,7 @@ export class PeerAsn extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/v20201001:PeerAsn';
+    public static readonly __pulumiType = 'azure-native:peering/v20201001:PeerAsn';
 
     /**
      * Returns true if the given object is an instance of PeerAsn.  This is designed to work even
@@ -98,7 +98,7 @@ export class PeerAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:PeerAsn" }, { type: "azure-nextgen:peering/latest:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190901preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:PeerAsn" }, { type: "azure-nextgen:peering:PeerAsn" }, { type: "azure-native:peering/latest:PeerAsn" }, { type: "azure-nextgen:peering/latest:PeerAsn" }, { type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }

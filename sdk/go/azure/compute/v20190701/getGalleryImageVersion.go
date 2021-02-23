@@ -10,7 +10,7 @@ import (
 // Specifies information about the gallery Image Version that you want to create or update.
 func LookupGalleryImageVersion(ctx *pulumi.Context, args *LookupGalleryImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryImageVersionResult, error) {
 	var rv LookupGalleryImageVersionResult
-	err := ctx.Invoke("azure-nextgen:compute/v20190701:getGalleryImageVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20190701:getGalleryImageVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

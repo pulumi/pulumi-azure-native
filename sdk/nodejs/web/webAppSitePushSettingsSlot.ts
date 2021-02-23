@@ -23,7 +23,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:WebAppSitePushSettingsSlot';
+    public static readonly __pulumiType = 'azure-native:web:WebAppSitePushSettingsSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSitePushSettingsSlot.  This is designed to work even
@@ -121,7 +121,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSitePushSettingsSlot.__pulumiType, name, inputs, opts);
     }

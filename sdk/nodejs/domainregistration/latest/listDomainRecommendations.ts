@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of domain name identifiers.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'. */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
-    pulumi.log.warn("listDomainRecommendations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.")
+    pulumi.log.warn("listDomainRecommendations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:domainregistration/latest:listDomainRecommendations", {
+    return pulumi.runtime.invoke("azure-native:domainregistration/latest:listDomainRecommendations", {
         "keywords": args.keywords,
         "maxDomainRecommendations": args.maxDomainRecommendations,
     }, opts);

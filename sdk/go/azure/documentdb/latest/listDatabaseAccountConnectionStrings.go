@@ -10,10 +10,10 @@ import (
 // The connection strings for the given database account.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountConnectionStrings'.
 func ListDatabaseAccountConnectionStrings(ctx *pulumi.Context, args *ListDatabaseAccountConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountConnectionStringsResult, error) {
 	var rv ListDatabaseAccountConnectionStringsResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:listDatabaseAccountConnectionStrings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:listDatabaseAccountConnectionStrings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * App resource payload
  * Latest API Version: 2020-07-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:App'.
  */
 export class App extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class App extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): App {
-        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'.")
+        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:App'.")
         return new App(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform/latest:App';
+    public static readonly __pulumiType = 'azure-native:appplatform/latest:App';
 
     /**
      * Returns true if the given object is an instance of App.  This is designed to work even
@@ -67,9 +67,9 @@ export class App extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:App'. */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:App'.")
+        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:App'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -100,7 +100,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:App" }, { type: "azure-nextgen:appplatform/v20190501preview:App" }, { type: "azure-nextgen:appplatform/v20200701:App" }, { type: "azure-nextgen:appplatform/v20201101preview:App" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:App" }, { type: "azure-nextgen:appplatform:App" }, { type: "azure-native:appplatform/v20190501preview:App" }, { type: "azure-nextgen:appplatform/v20190501preview:App" }, { type: "azure-native:appplatform/v20200701:App" }, { type: "azure-nextgen:appplatform/v20200701:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-nextgen:appplatform/v20201101preview:App" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(App.__pulumiType, name, inputs, opts);
     }

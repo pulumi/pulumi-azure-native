@@ -10,7 +10,7 @@ import (
 // An Application Insights component billing features
 func LookupComponentCurrentBillingFeature(ctx *pulumi.Context, args *LookupComponentCurrentBillingFeatureArgs, opts ...pulumi.InvokeOption) (*LookupComponentCurrentBillingFeatureResult, error) {
 	var rv LookupComponentCurrentBillingFeatureResult
-	err := ctx.Invoke("azure-nextgen:insights/v20150501:getComponentCurrentBillingFeature", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20150501:getComponentCurrentBillingFeature", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

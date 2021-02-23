@@ -10,7 +10,7 @@ import (
 // Management lock information.
 func LookupManagementLock(ctx *pulumi.Context, args *LookupManagementLockArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockResult, error) {
 	var rv LookupManagementLockResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20150101:getManagementLock", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20150101:getManagementLock", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

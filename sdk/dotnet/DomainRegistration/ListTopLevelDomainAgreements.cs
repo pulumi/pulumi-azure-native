@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DomainRegistration
+namespace Pulumi.AzureNative.DomainRegistration
 {
     public static class ListTopLevelDomainAgreements
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-nextgen:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithVersion());
     }
 
 

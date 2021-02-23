@@ -23,7 +23,7 @@ export class Invitation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datashare:Invitation';
+    public static readonly __pulumiType = 'azure-native:datashare:Invitation';
 
     /**
      * Returns true if the given object is an instance of Invitation.  This is designed to work even
@@ -149,7 +149,7 @@ export class Invitation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/latest:Invitation" }, { type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }, { type: "azure-nextgen:datashare/v20200901:Invitation" }, { type: "azure-nextgen:datashare/v20201001preview:Invitation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/latest:Invitation" }, { type: "azure-nextgen:datashare/latest:Invitation" }, { type: "azure-native:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-native:datashare/v20191101:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }, { type: "azure-native:datashare/v20200901:Invitation" }, { type: "azure-nextgen:datashare/v20200901:Invitation" }, { type: "azure-native:datashare/v20201001preview:Invitation" }, { type: "azure-nextgen:datashare/v20201001preview:Invitation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Invitation.__pulumiType, name, inputs, opts);
     }

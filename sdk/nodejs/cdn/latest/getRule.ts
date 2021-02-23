@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Friendly Rules name mapping to the any Rules or secret related information.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRule'. */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-    pulumi.log.warn("getRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'.")
+    pulumi.log.warn("getRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getRule", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getRule", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

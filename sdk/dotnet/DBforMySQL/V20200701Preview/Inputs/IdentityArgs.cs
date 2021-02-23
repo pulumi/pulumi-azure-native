@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.Inputs
+namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DBforMySQL.V20200701Preview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

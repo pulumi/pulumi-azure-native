@@ -16,7 +16,7 @@ export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:advisor/v20160712preview:getSuppression", {
+    return pulumi.runtime.invoke("azure-native:advisor/v20160712preview:getSuppression", {
         "name": args.name,
         "recommendationId": args.recommendationId,
         "resourceUri": args.resourceUri,

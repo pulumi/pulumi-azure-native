@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     public static class GetGalleryImageVersion
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies information about the gallery Image Version that you want to create or update.
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-nextgen:compute/v20190301:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute/v20190301:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithVersion());
     }
 
 

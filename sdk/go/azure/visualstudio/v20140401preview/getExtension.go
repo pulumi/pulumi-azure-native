@@ -10,7 +10,7 @@ import (
 // The response to an extension resource GET request.
 func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pulumi.InvokeOption) (*LookupExtensionResult, error) {
 	var rv LookupExtensionResult
-	err := ctx.Invoke("azure-nextgen:visualstudio/v20140401preview:getExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:visualstudio/v20140401preview:getExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

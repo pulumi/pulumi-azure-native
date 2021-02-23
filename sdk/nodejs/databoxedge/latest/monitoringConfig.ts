@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The metric setting details for the role
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.
  */
 export class MonitoringConfig extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MonitoringConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MonitoringConfig {
-        pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.")
+        pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.")
         return new MonitoringConfig(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:MonitoringConfig';
+    public static readonly __pulumiType = 'azure-native:databoxedge/latest:MonitoringConfig';
 
     /**
      * Returns true if the given object is an instance of MonitoringConfig.  This is designed to work even
@@ -59,9 +59,9 @@ export class MonitoringConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'. */
     constructor(name: string, args: MonitoringConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.")
+        pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -94,7 +94,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }

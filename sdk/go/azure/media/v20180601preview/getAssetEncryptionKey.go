@@ -10,7 +10,7 @@ import (
 // The Asset Storage encryption key.
 func GetAssetEncryptionKey(ctx *pulumi.Context, args *GetAssetEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetAssetEncryptionKeyResult, error) {
 	var rv GetAssetEncryptionKeyResult
-	err := ctx.Invoke("azure-nextgen:media/v20180601preview:getAssetEncryptionKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180601preview:getAssetEncryptionKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

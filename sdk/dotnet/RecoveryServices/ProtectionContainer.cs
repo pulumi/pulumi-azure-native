@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ProtectionContainer")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ProtectionContainer")]
     public partial class ProtectionContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionContainer(string name, ProtectionContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionContainer", name, args ?? new ProtectionContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ProtectionContainer", name, args ?? new ProtectionContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectionContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ProtectionContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,11 +77,17 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20161201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20161201:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201201:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectionContainer"},
                 },
             };

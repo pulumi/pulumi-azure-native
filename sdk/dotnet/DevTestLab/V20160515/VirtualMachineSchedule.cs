@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     /// <summary>
     /// A schedule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20160515:VirtualMachineSchedule")]
     public partial class VirtualMachineSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineSchedule(string name, VirtualMachineScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule", name, args ?? new VirtualMachineScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20160515:VirtualMachineSchedule", name, args ?? new VirtualMachineScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20160515:VirtualMachineSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,8 +130,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachineSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachineSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule"},
                 },
             };
@@ -208,7 +211,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The status of the schedule (i.e. Enabled, Disabled)
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

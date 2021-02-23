@@ -14,7 +14,7 @@ import (
 // IoT Security solution configuration and resource information.
 // Latest API Version: 2019-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.
 type IotSecuritySolution struct {
 	pulumi.CustomResourceState
 
@@ -76,10 +76,19 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:IotSecuritySolution"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20170801preview:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:IotSecuritySolution"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20190801:IotSecuritySolution"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20190801:IotSecuritySolution"),
@@ -87,7 +96,7 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotSecuritySolution
-	err := ctx.RegisterResource("azure-nextgen:security/latest:IotSecuritySolution", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/latest:IotSecuritySolution", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +108,7 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 func GetIotSecuritySolution(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotSecuritySolutionState, opts ...pulumi.ResourceOption) (*IotSecuritySolution, error) {
 	var resource IotSecuritySolution
-	err := ctx.ReadResource("azure-nextgen:security/latest:IotSecuritySolution", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/latest:IotSecuritySolution", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

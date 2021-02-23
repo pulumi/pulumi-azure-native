@@ -17,7 +17,7 @@ export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getSqlResourceSqlRoleAssignment", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "roleAssignmentId": args.roleAssignmentId,

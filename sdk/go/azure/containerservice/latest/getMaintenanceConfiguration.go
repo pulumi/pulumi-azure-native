@@ -10,10 +10,10 @@ import (
 // maintenance configuration.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getMaintenanceConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getMaintenanceConfiguration'.
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
-	err := ctx.Invoke("azure-nextgen:containerservice/latest:getMaintenanceConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/latest:getMaintenanceConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

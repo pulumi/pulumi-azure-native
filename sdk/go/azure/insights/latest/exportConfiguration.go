@@ -14,7 +14,7 @@ import (
 // Properties that define a Continuous Export configuration.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.
 type ExportConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -73,7 +73,13 @@ func NewExportConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ExportConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ExportConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:ExportConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:ExportConfiguration"),
@@ -81,7 +87,7 @@ func NewExportConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExportConfiguration
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:ExportConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:ExportConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +99,7 @@ func NewExportConfiguration(ctx *pulumi.Context,
 func GetExportConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExportConfigurationState, opts ...pulumi.ResourceOption) (*ExportConfiguration, error) {
 	var resource ExportConfiguration
-	err := ctx.ReadResource("azure-nextgen:insights/latest:ExportConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:ExportConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

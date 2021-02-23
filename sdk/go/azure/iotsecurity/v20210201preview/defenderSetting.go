@@ -40,12 +40,15 @@ func NewDefenderSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:iotsecurity:DefenderSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:iotsecurity:DefenderSetting"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DefenderSetting
-	err := ctx.RegisterResource("azure-nextgen:iotsecurity/v20210201preview:DefenderSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:iotsecurity/v20210201preview:DefenderSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewDefenderSetting(ctx *pulumi.Context,
 func GetDefenderSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DefenderSettingState, opts ...pulumi.ResourceOption) (*DefenderSetting, error) {
 	var resource DefenderSetting
-	err := ctx.ReadResource("azure-nextgen:iotsecurity/v20210201preview:DefenderSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:iotsecurity/v20210201preview:DefenderSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

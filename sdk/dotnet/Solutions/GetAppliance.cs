@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions
+namespace Pulumi.AzureNative.Solutions
 {
     public static class GetAppliance
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Solutions
         /// API Version: 2016-09-01-preview.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-nextgen:solutions:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:solutions:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
     }
 
 

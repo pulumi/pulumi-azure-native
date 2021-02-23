@@ -10,10 +10,10 @@ import (
 // Developer Keys of account
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listRemoteRenderingAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listRemoteRenderingAccountKeys'.
 func ListRemoteRenderingAccountKeys(ctx *pulumi.Context, args *ListRemoteRenderingAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListRemoteRenderingAccountKeysResult, error) {
 	var rv ListRemoteRenderingAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/latest:listRemoteRenderingAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/latest:listRemoteRenderingAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

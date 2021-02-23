@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Advisor.Latest
+namespace Pulumi.AzureNative.Advisor.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'.")]
     public static class GetSuppression
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Advisor.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-nextgen:advisor/latest:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor/latest:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
     }
 
 

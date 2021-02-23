@@ -54,13 +54,25 @@ func NewCustomImageResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:CustomImageResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:CustomImageResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:CustomImageResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:CustomImageResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:CustomImageResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:CustomImageResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:CustomImageResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:CustomImageResource"),
@@ -68,7 +80,7 @@ func NewCustomImageResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomImageResource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:CustomImageResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewCustomImageResource(ctx *pulumi.Context,
 func GetCustomImageResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomImageResourceState, opts ...pulumi.ResourceOption) (*CustomImageResource, error) {
 	var resource CustomImageResource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:CustomImageResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

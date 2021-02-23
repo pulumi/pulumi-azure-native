@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:compute/v20170330:AvailabilitySet":
+	case "azure-native:compute/v20170330:AvailabilitySet":
 		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:Disk":
+	case "azure-native:compute/v20170330:Disk":
 		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:Image":
+	case "azure-native:compute/v20170330:Image":
 		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:Snapshot":
+	case "azure-native:compute/v20170330:Snapshot":
 		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:VirtualMachine":
+	case "azure-native:compute/v20170330:VirtualMachine":
 		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:VirtualMachineExtension":
+	case "azure-native:compute/v20170330:VirtualMachineExtension":
 		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:VirtualMachineScaleSet":
+	case "azure-native:compute/v20170330:VirtualMachineScaleSet":
 		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/v20170330:VirtualMachineScaleSetExtension":
+	case "azure-native:compute/v20170330:VirtualMachineScaleSetExtension":
 		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"compute/v20170330",
 		&module{version},
 	)

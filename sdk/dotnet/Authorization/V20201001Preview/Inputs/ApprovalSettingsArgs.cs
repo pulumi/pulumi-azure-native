@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20201001Preview.Inputs
+namespace Pulumi.AzureNative.Authorization.V20201001Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview.Inputs
         /// The type of rule
         /// </summary>
         [Input("approvalMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20201001Preview.ApprovalMode>? ApprovalMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20201001Preview.ApprovalMode>? ApprovalMode { get; set; }
 
         [Input("approvalStages")]
         private InputList<Inputs.ApprovalStageArgs>? _approvalStages;

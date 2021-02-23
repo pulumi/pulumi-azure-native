@@ -10,10 +10,10 @@ import (
 // Class representing a Kusto database.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabase'.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

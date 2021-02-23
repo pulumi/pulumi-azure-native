@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.V20200801Preview
+namespace Pulumi.AzureNative.Search.V20200801Preview
 {
     public static class GetService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Search.V20200801Preview
         /// Describes an Azure Cognitive Search service and its current state.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-nextgen:search/v20200801preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:search/v20200801preview:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
 
 

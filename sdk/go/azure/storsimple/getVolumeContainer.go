@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func LookupVolumeContainer(ctx *pulumi.Context, args *LookupVolumeContainerArgs, opts ...pulumi.InvokeOption) (*LookupVolumeContainerResult, error) {
 	var rv LookupVolumeContainerResult
-	err := ctx.Invoke("azure-nextgen:storsimple:getVolumeContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:getVolumeContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
+namespace Pulumi.AzureNative.AzureData.V20190724Preview
 {
     /// <summary>
     /// A SqlServerInstance.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azuredata/v20190724preview:SqlServerInstance")]
+    [AzureNativeResourceType("azure-native:azuredata/v20190724preview:SqlServerInstance")]
     public partial class SqlServerInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlServerInstance(string name, SqlServerInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata/v20190724preview:SqlServerInstance", name, args ?? new SqlServerInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azuredata/v20190724preview:SqlServerInstance", name, args ?? new SqlServerInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlServerInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata/v20190724preview:SqlServerInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azuredata/v20190724preview:SqlServerInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,7 +112,9 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azuredata:SqlServerInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata:SqlServerInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20200908preview:SqlServerInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:SqlServerInstance"},
                 },
             };

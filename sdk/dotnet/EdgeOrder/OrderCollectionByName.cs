@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder
+namespace Pulumi.AzureNative.EdgeOrder
 {
     /// <summary>
     /// Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
     /// API Version: 2020-12-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:edgeorder:OrderCollectionByName")]
+    [AzureNativeResourceType("azure-native:edgeorder:OrderCollectionByName")]
     public partial class OrderCollectionByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.EdgeOrder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrderCollectionByName(string name, OrderCollectionByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder:OrderCollectionByName", name, args ?? new OrderCollectionByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:edgeorder:OrderCollectionByName", name, args ?? new OrderCollectionByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrderCollectionByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:edgeorder:OrderCollectionByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:edgeorder:OrderCollectionByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderCollectionByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:edgeorder/v20201201preview:OrderCollectionByName"},
                 },
             };

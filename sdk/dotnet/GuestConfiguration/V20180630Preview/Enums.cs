@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20180630Preview
+namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
 {
     /// <summary>
     /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false

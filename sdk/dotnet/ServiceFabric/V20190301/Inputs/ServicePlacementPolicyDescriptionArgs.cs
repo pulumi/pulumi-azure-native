@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20190301.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.V20190301.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301.Inputs
         /// The type of placement policy for a service fabric service. Following are the possible values.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20190301.ServicePlacementPolicyType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.V20190301.ServicePlacementPolicyType> Type { get; set; } = null!;
 
         public ServicePlacementPolicyDescriptionArgs()
         {

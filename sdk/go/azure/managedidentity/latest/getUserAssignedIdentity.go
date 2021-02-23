@@ -10,10 +10,10 @@ import (
 // Describes an identity resource.
 // Latest API Version: 2018-11-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedidentity:getUserAssignedIdentity'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedidentity:getUserAssignedIdentity'.
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	var rv LookupUserAssignedIdentityResult
-	err := ctx.Invoke("azure-nextgen:managedidentity/latest:getUserAssignedIdentity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedidentity/latest:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

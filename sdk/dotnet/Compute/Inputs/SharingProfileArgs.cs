@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Inputs
+namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.Inputs
         /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups**
         /// </summary>
         [Input("permissions")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.GallerySharingPermissionTypes>? Permissions { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.GallerySharingPermissionTypes>? Permissions { get; set; }
 
         public SharingProfileArgs()
         {

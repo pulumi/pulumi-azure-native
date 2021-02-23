@@ -46,49 +46,97 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp/latest:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20170815:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20170815:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190501:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190501:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190601:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190601:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190701:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190701:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190801:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190801:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20191001:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191001:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20191101:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191101:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200201:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200201:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200301:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200301:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200501:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200601:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200701:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200801:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200901:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Account"),
@@ -96,7 +144,7 @@ func NewAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:netapp:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +156,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:netapp:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

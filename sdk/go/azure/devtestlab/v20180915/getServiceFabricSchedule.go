@@ -10,7 +10,7 @@ import (
 // A schedule.
 func LookupServiceFabricSchedule(ctx *pulumi.Context, args *LookupServiceFabricScheduleArgs, opts ...pulumi.InvokeOption) (*LookupServiceFabricScheduleResult, error) {
 	var rv LookupServiceFabricScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getServiceFabricSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getServiceFabricSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

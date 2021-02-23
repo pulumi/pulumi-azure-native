@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20181201
+namespace Pulumi.AzureNative.Batch.V20181201
 {
     /// <summary>
     /// Contains information about a certificate.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batch/v20181201:Certificate")]
+    [AzureNativeResourceType("azure-native:batch/v20181201:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20181201:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch/v20181201:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20181201:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch/v20181201:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -103,14 +103,23 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Certificate"},
                 },
             };
@@ -157,7 +166,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
         /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         /// </summary>
         [Input("format")]
-        public Input<Pulumi.AzureNextGen.Batch.V20181201.CertificateFormat>? Format { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20181201.CertificateFormat>? Format { get; set; }
 
         /// <summary>
         /// This is required if the certificate format is pfx and must be omitted if the certificate format is cer.

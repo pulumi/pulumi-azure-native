@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20180601
+namespace Pulumi.AzureNative.Compute.V20180601
 {
     public static class GetImage
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-nextgen:compute/v20180601:getImage", args ?? new GetImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:compute/v20180601:getImage", args ?? new GetImageArgs(), options.WithVersion());
     }
 
 

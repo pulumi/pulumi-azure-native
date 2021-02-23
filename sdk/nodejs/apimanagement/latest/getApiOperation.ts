@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Api Operation details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperation'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiOperation'. */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
-    pulumi.log.warn("getApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperation'.")
+    pulumi.log.warn("getApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiOperation'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiOperation", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiOperation", {
         "apiId": args.apiId,
         "operationId": args.operationId,
         "resourceGroupName": args.resourceGroupName,

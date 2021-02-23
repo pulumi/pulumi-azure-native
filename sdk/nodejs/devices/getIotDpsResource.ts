@@ -17,7 +17,7 @@ export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices:getIotDpsResource", {
+    return pulumi.runtime.invoke("azure-native:devices:getIotDpsResource", {
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -10,7 +10,7 @@ import (
 // Slot Config names azure resource.
 func LookupWebAppSlotConfigurationNames(ctx *pulumi.Context, args *LookupWebAppSlotConfigurationNamesArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSlotConfigurationNamesResult, error) {
 	var rv LookupWebAppSlotConfigurationNamesResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:getWebAppSlotConfigurationNames", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:getWebAppSlotConfigurationNames", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

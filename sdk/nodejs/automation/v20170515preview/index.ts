@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName":
+            case "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName":
                 return new SoftwareUpdateConfigurationByName(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20170515preview:SourceControl":
+            case "azure-native:automation/v20170515preview:SourceControl":
                 return new SourceControl(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "automation/v20170515preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "automation/v20170515preview", _module)

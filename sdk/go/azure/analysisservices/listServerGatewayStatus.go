@@ -11,7 +11,7 @@ import (
 // API Version: 2017-08-01.
 func ListServerGatewayStatus(ctx *pulumi.Context, args *ListServerGatewayStatusArgs, opts ...pulumi.InvokeOption) (*ListServerGatewayStatusResult, error) {
 	var rv ListServerGatewayStatusResult
-	err := ctx.Invoke("azure-nextgen:analysisservices:listServerGatewayStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:analysisservices:listServerGatewayStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

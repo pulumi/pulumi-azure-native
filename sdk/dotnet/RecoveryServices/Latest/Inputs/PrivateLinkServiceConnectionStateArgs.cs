@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Gets or sets the status
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.PrivateEndpointConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.Latest.PrivateEndpointConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB Cassandra keyspace.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraKeyspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'.
 func LookupDatabaseAccountCassandraKeyspace(ctx *pulumi.Context, args *LookupDatabaseAccountCassandraKeyspaceArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountCassandraKeyspaceResult, error) {
 	var rv LookupDatabaseAccountCassandraKeyspaceResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraKeyspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getDatabaseAccountCassandraKeyspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

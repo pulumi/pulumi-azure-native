@@ -21,7 +21,7 @@ export class WebAppMetadata extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebAppMetadata';
+    public static readonly __pulumiType = 'azure-native:web/v20180201:WebAppMetadata';
 
     /**
      * Returns true if the given object is an instance of WebAppMetadata.  This is designed to work even
@@ -85,7 +85,7 @@ export class WebAppMetadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppMetadata" }, { type: "azure-nextgen:web/latest:WebAppMetadata" }, { type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }, { type: "azure-nextgen:web/v20201001:WebAppMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppMetadata" }, { type: "azure-nextgen:web:WebAppMetadata" }, { type: "azure-native:web/latest:WebAppMetadata" }, { type: "azure-nextgen:web/latest:WebAppMetadata" }, { type: "azure-native:web/v20150801:WebAppMetadata" }, { type: "azure-nextgen:web/v20150801:WebAppMetadata" }, { type: "azure-native:web/v20160801:WebAppMetadata" }, { type: "azure-nextgen:web/v20160801:WebAppMetadata" }, { type: "azure-native:web/v20181101:WebAppMetadata" }, { type: "azure-nextgen:web/v20181101:WebAppMetadata" }, { type: "azure-native:web/v20190801:WebAppMetadata" }, { type: "azure-nextgen:web/v20190801:WebAppMetadata" }, { type: "azure-native:web/v20200601:WebAppMetadata" }, { type: "azure-nextgen:web/v20200601:WebAppMetadata" }, { type: "azure-native:web/v20200901:WebAppMetadata" }, { type: "azure-nextgen:web/v20200901:WebAppMetadata" }, { type: "azure-native:web/v20201001:WebAppMetadata" }, { type: "azure-nextgen:web/v20201001:WebAppMetadata" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppMetadata.__pulumiType, name, inputs, opts);
     }

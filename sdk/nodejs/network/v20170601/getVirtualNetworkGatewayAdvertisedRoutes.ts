@@ -16,7 +16,7 @@ export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetwork
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20170601:getVirtualNetworkGatewayAdvertisedRoutes", {
+    return pulumi.runtime.invoke("azure-native:network/v20170601:getVirtualNetworkGatewayAdvertisedRoutes", {
         "peer": args.peer,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,

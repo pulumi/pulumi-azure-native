@@ -10,7 +10,7 @@ import (
 // Migrate Project REST Resource.
 func LookupMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectArgs, opts ...pulumi.InvokeOption) (*LookupMigrateProjectResult, error) {
 	var rv LookupMigrateProjectResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20180901preview:getMigrateProject", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20180901preview:getMigrateProject", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

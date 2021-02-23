@@ -16,7 +16,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/v20180101preview:getNamespaceAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:eventhub/v20180101preview:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

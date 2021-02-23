@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Defines the response of a trigger subscription operation.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTriggerEventSubscriptionStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTriggerEventSubscriptionStatus'. */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
-    pulumi.log.warn("getTriggerEventSubscriptionStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTriggerEventSubscriptionStatus'.")
+    pulumi.log.warn("getTriggerEventSubscriptionStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTriggerEventSubscriptionStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscript
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getTriggerEventSubscriptionStatus", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
         "triggerName": args.triggerName,

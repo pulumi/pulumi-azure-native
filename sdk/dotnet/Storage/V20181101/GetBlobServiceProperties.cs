@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20181101
+namespace Pulumi.AzureNative.Storage.V20181101
 {
     public static class GetBlobServiceProperties
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
         /// The properties of a storage account’s Blob service.
         /// </summary>
         public static Task<GetBlobServicePropertiesResult> InvokeAsync(GetBlobServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobServicePropertiesResult>("azure-nextgen:storage/v20181101:getBlobServiceProperties", args ?? new GetBlobServicePropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobServicePropertiesResult>("azure-native:storage/v20181101:getBlobServiceProperties", args ?? new GetBlobServicePropertiesArgs(), options.WithVersion());
     }
 
 

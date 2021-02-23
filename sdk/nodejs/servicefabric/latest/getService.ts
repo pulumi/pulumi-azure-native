@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The service resource.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getService'. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getService'.")
+    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabric/latest:getService", {
+    return pulumi.runtime.invoke("azure-native:servicefabric/latest:getService", {
         "applicationName": args.applicationName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

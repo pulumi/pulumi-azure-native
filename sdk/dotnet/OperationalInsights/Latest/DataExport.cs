@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level data export resource container.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.")]
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:DataExport")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:DataExport'.")]
+    [AzureNativeResourceType("azure-native:operationalinsights/latest:DataExport")]
     public partial class DataExport : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataExport(string name, DataExportArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:DataExport", name, args ?? new DataExportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/latest:DataExport", name, args ?? new DataExportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataExport(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:DataExport", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/latest:DataExport", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,9 +96,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataExport"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:DataExport"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataExport"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataExport"},
                 },
             };

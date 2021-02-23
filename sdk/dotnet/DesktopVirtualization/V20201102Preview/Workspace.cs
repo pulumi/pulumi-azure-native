@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20201102Preview
 {
     /// <summary>
     /// Represents a Workspace definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization/v20201102preview:Workspace")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization/v20201102preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization/v20201102preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization/v20201102preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization/v20201102preview:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization/v20201102preview:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,14 +82,23 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:Workspace"},
                 },
             };

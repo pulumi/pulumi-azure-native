@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExpressRouteCircuitAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitAuthorizationResult, error) {
 	var rv LookupExpressRouteCircuitAuthorizationResult
-	err := ctx.Invoke("azure-nextgen:network:getExpressRouteCircuitAuthorization", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getExpressRouteCircuitAuthorization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

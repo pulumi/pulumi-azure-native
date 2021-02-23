@@ -16,7 +16,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:visualstudio/v20140401preview:getAccount", {
+    return pulumi.runtime.invoke("azure-native:visualstudio/v20140401preview:getAccount", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

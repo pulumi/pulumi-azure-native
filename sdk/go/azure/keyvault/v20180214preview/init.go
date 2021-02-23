@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:keyvault/v20180214preview:Secret":
+	case "azure-native:keyvault/v20180214preview:Secret":
 		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:keyvault/v20180214preview:Vault":
+	case "azure-native:keyvault/v20180214preview:Vault":
 		r, err = NewVault(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -38,7 +38,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"keyvault/v20180214preview",
 		&module{version},
 	)

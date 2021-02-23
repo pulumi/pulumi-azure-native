@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Queue service.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:QueueServiceProperties")]
+    [AzureNativeResourceType("azure-native:storage:QueueServiceProperties")]
     public partial class QueueServiceProperties : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueueServiceProperties(string name, QueueServicePropertiesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:QueueServiceProperties", name, args ?? new QueueServicePropertiesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:QueueServiceProperties", name, args ?? new QueueServicePropertiesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QueueServiceProperties(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:QueueServiceProperties", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:QueueServiceProperties", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,9 +59,13 @@ namespace Pulumi.AzureNextGen.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:QueueServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:QueueServiceProperties"},
                 },
             };

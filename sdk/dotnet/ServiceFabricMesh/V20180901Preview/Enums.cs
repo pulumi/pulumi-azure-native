@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// Specifies the application-scoped volume kind.

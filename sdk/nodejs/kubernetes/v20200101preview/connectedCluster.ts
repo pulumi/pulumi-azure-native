@@ -22,7 +22,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:kubernetes/v20200101preview:ConnectedCluster';
+    public static readonly __pulumiType = 'azure-native:kubernetes/v20200101preview:ConnectedCluster';
 
     /**
      * Returns true if the given object is an instance of ConnectedCluster.  This is designed to work even
@@ -177,7 +177,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kubernetes:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/latest:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetes:ConnectedCluster" }, { type: "azure-nextgen:kubernetes:ConnectedCluster" }, { type: "azure-native:kubernetes/latest:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/latest:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectedCluster.__pulumiType, name, inputs, opts);
     }

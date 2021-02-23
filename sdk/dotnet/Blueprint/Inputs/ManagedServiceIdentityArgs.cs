@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.Inputs
+namespace Pulumi.AzureNative.Blueprint.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Blueprint.Inputs
         /// Type of the managed identity.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.ManagedServiceIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;

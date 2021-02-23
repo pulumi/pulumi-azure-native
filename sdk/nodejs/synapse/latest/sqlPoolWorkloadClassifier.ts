@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Workload classifier operations for a data warehouse
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadClassifier'.
  */
 export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolWorkloadClassifier {
-        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.")
+        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadClassifier'.")
         return new SqlPoolWorkloadClassifier(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:SqlPoolWorkloadClassifier';
 
     /**
      * Returns true if the given object is an instance of SqlPoolWorkloadClassifier.  This is designed to work even
@@ -78,9 +78,9 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadClassifier'. */
     constructor(name: string, args: SqlPoolWorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.")
+        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadClassifier'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.memberName === undefined) && !(opts && opts.urn)) {
@@ -128,7 +128,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolWorkloadClassifier.__pulumiType, name, inputs, opts);
     }

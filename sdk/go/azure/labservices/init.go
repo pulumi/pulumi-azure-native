@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:labservices:Environment":
+	case "azure-native:labservices:Environment":
 		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:labservices:EnvironmentSetting":
+	case "azure-native:labservices:EnvironmentSetting":
 		r, err = NewEnvironmentSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:labservices:GalleryImage":
+	case "azure-native:labservices:GalleryImage":
 		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:labservices:Lab":
+	case "azure-native:labservices:Lab":
 		r, err = NewLab(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:labservices:LabAccount":
+	case "azure-native:labservices:LabAccount":
 		r, err = NewLabAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:labservices:User":
+	case "azure-native:labservices:User":
 		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"labservices",
 		&module{version},
 	)

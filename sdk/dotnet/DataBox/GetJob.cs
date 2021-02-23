@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox
+namespace Pulumi.AzureNative.DataBox
 {
     public static class GetJob
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataBox
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:databox:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
 
 

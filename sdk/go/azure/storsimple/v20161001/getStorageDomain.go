@@ -10,7 +10,7 @@ import (
 // The storage domain.
 func LookupStorageDomain(ctx *pulumi.Context, args *LookupStorageDomainArgs, opts ...pulumi.InvokeOption) (*LookupStorageDomainResult, error) {
 	var rv LookupStorageDomainResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getStorageDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getStorageDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

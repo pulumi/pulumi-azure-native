@@ -42,12 +42,15 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource GatewayCertificateAuthority
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:GatewayCertificateAuthority", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:GatewayCertificateAuthority", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 func GetGatewayCertificateAuthority(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayCertificateAuthorityState, opts ...pulumi.ResourceOption) (*GatewayCertificateAuthority, error) {
 	var resource GatewayCertificateAuthority
-	err := ctx.ReadResource("azure-nextgen:apimanagement:GatewayCertificateAuthority", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:GatewayCertificateAuthority", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

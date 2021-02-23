@@ -10,7 +10,7 @@ import (
 // An Activity Log Alert rule resource.
 func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArgs, opts ...pulumi.InvokeOption) (*LookupActivityLogAlertResult, error) {
 	var rv LookupActivityLogAlertResult
-	err := ctx.Invoke("azure-nextgen:insights/v20201001:getActivityLogAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20201001:getActivityLogAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

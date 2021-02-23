@@ -10,7 +10,7 @@ import (
 // The list of shared access policies with a next link.
 func ListIotHubResourceKeys(ctx *pulumi.Context, args *ListIotHubResourceKeysArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysResult, error) {
 	var rv ListIotHubResourceKeysResult
-	err := ctx.Invoke("azure-nextgen:devices/v20200615:listIotHubResourceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20200615:listIotHubResourceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

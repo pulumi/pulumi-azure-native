@@ -40,10 +40,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/latest:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:Database"),
@@ -51,7 +60,7 @@ func NewDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Database
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/v20180601preview:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/v20180601preview:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +72,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/v20180601preview:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/v20180601preview:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

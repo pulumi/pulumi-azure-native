@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
+namespace Pulumi.AzureNative.Authorization.V20180901Preview
 {
     /// <summary>
     /// The principal type of the assigned principal ID.

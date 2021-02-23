@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storsimple/v20170601:AccessControlRecord":
+	case "azure-native:storsimple/v20170601:AccessControlRecord":
 		r, err = NewAccessControlRecord(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:BackupPolicy":
+	case "azure-native:storsimple/v20170601:BackupPolicy":
 		r, err = NewBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:BackupSchedule":
+	case "azure-native:storsimple/v20170601:BackupSchedule":
 		r, err = NewBackupSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:BandwidthSetting":
+	case "azure-native:storsimple/v20170601:BandwidthSetting":
 		r, err = NewBandwidthSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:Manager":
+	case "azure-native:storsimple/v20170601:Manager":
 		r, err = NewManager(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo":
+	case "azure-native:storsimple/v20170601:ManagerExtendedInfo":
 		r, err = NewManagerExtendedInfo(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:StorageAccountCredential":
+	case "azure-native:storsimple/v20170601:StorageAccountCredential":
 		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:Volume":
+	case "azure-native:storsimple/v20170601:Volume":
 		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20170601:VolumeContainer":
+	case "azure-native:storsimple/v20170601:VolumeContainer":
 		r, err = NewVolumeContainer(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storsimple/v20170601",
 		&module{version},
 	)

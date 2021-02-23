@@ -10,7 +10,7 @@ import (
 // A DDoS custom policy in a resource group.
 func LookupDdosCustomPolicy(ctx *pulumi.Context, args *LookupDdosCustomPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDdosCustomPolicyResult, error) {
 	var rv LookupDdosCustomPolicyResult
-	err := ctx.Invoke("azure-nextgen:network/v20200301:getDdosCustomPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200301:getDdosCustomPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

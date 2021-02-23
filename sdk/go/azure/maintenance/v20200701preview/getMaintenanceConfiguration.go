@@ -10,7 +10,7 @@ import (
 // Maintenance configuration record type
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
-	err := ctx.Invoke("azure-nextgen:maintenance/v20200701preview:getMaintenanceConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maintenance/v20200701preview:getMaintenanceConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

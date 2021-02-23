@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:servicefabric:Application":
+	case "azure-native:servicefabric:Application":
 		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:ApplicationType":
+	case "azure-native:servicefabric:ApplicationType":
 		r, err = NewApplicationType(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:ApplicationTypeVersion":
+	case "azure-native:servicefabric:ApplicationTypeVersion":
 		r, err = NewApplicationTypeVersion(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:Cluster":
+	case "azure-native:servicefabric:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:ManagedCluster":
+	case "azure-native:servicefabric:ManagedCluster":
 		r, err = NewManagedCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:NodeType":
+	case "azure-native:servicefabric:NodeType":
 		r, err = NewNodeType(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabric:Service":
+	case "azure-native:servicefabric:Service":
 		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"servicefabric",
 		&module{version},
 	)

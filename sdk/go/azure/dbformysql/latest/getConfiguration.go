@@ -10,10 +10,10 @@ import (
 // Represents a Configuration.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getConfiguration'.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/latest:getConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/latest:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

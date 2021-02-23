@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:customproviders/v20180901preview:Association":
+            case "azure-native:customproviders/v20180901preview:Association":
                 return new Association(name, <any>undefined, { urn })
-            case "azure-nextgen:customproviders/v20180901preview:CustomResourceProvider":
+            case "azure-native:customproviders/v20180901preview:CustomResourceProvider":
                 return new CustomResourceProvider(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "customproviders/v20180901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "customproviders/v20180901preview", _module)

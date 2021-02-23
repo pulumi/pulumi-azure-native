@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The track property condition operation.
         /// </summary>
         [Input("operation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.FilterTrackPropertyCompareOperation> Operation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.FilterTrackPropertyCompareOperation> Operation { get; set; } = null!;
 
         /// <summary>
         /// The track property type.
         /// </summary>
         [Input("property", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.FilterTrackPropertyType> Property { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.FilterTrackPropertyType> Property { get; set; } = null!;
 
         /// <summary>
         /// The track property value.

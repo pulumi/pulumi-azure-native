@@ -10,7 +10,7 @@ import (
 // Describes a Virtual Machine run command.
 func LookupVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineRunCommandByVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineRunCommandByVirtualMachineResult, error) {
 	var rv LookupVirtualMachineRunCommandByVirtualMachineResult
-	err := ctx.Invoke("azure-nextgen:compute/v20200601:getVirtualMachineRunCommandByVirtualMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20200601:getVirtualMachineRunCommandByVirtualMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

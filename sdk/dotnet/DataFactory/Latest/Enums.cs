@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
     [EnumType]
     public readonly struct AvroCompressionCodec : IEquatable<AvroCompressionCodec>

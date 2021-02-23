@@ -16,7 +16,7 @@ export function listSiteBackupStatusSecrets(args: ListSiteBackupStatusSecretsArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:listSiteBackupStatusSecrets", {
+    return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteBackupStatusSecrets", {
         "backupId": args.backupId,
         "backupSchedule": args.backupSchedule,
         "databases": args.databases,

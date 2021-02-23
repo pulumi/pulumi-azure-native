@@ -10,10 +10,10 @@ import (
 // The storage domain.
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getStorageDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getStorageDomain'.
 func LookupStorageDomain(ctx *pulumi.Context, args *LookupStorageDomainArgs, opts ...pulumi.InvokeOption) (*LookupStorageDomainResult, error) {
 	var rv LookupStorageDomainResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getStorageDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getStorageDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

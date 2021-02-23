@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshPublicKeyResult, error) {
 	var rv LookupSshPublicKeyResult
-	err := ctx.Invoke("azure-nextgen:compute:getSshPublicKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getSshPublicKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

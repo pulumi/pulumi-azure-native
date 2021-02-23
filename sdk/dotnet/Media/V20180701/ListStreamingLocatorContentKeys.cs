@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180701
+namespace Pulumi.AzureNative.Media.V20180701
 {
     public static class ListStreamingLocatorContentKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// Class of response for listContentKeys action
         /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-nextgen:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-native:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
     }
 
 

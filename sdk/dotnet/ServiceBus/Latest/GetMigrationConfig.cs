@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getMigrationConfig'.")]
     public static class GetMigrationConfig
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Latest API Version: 2017-04-01.
         /// </summary>
         public static Task<GetMigrationConfigResult> InvokeAsync(GetMigrationConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-nextgen:servicebus/latest:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMigrationConfigResult>("azure-native:servicebus/latest:getMigrationConfig", args ?? new GetMigrationConfigArgs(), options.WithVersion());
     }
 
 

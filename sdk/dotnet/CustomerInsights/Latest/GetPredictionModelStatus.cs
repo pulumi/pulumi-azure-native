@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'.")]
     public static class GetPredictionModelStatus
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionModelStatusResult> InvokeAsync(GetPredictionModelStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-nextgen:customerinsights/latest:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-native:customerinsights/latest:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithVersion());
     }
 
 

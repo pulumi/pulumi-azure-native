@@ -63,7 +63,13 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteInstanceDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteInstanceDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteInstanceDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteInstanceDeployment"),
@@ -71,7 +77,7 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteInstanceDeployment
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteInstanceDeployment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteInstanceDeployment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +89,7 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 func GetSiteInstanceDeployment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteInstanceDeploymentState, opts ...pulumi.ResourceOption) (*SiteInstanceDeployment, error) {
 	var resource SiteInstanceDeployment
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteInstanceDeployment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteInstanceDeployment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

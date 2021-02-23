@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
     /// <summary>
     /// Latest API Version: 2019-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:HyperVCollector'.")]
-    [AzureNextGenResourceType("azure-nextgen:migrate/latest:HyperVCollector")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:HyperVCollector'.")]
+    [AzureNativeResourceType("azure-native:migrate/latest:HyperVCollector")]
     public partial class HyperVCollector : Pulumi.CustomResource
     {
         [Output("eTag")]
@@ -37,12 +37,12 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HyperVCollector(string name, HyperVCollectorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:HyperVCollector", name, args ?? new HyperVCollectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/latest:HyperVCollector", name, args ?? new HyperVCollectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HyperVCollector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:HyperVCollector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/latest:HyperVCollector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -53,7 +53,9 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:HyperVCollector"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:HyperVCollector"},
                 },
             };

@@ -63,34 +63,67 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VpnServerConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VpnServerConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VpnServerConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VpnServerConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VpnServerConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VpnServerConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnServerConfiguration"),
@@ -98,7 +131,7 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VpnServerConfiguration
-	err := ctx.RegisterResource("azure-nextgen:network/v20190901:VpnServerConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190901:VpnServerConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +143,7 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 func GetVpnServerConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VpnServerConfigurationState, opts ...pulumi.ResourceOption) (*VpnServerConfiguration, error) {
 	var resource VpnServerConfiguration
-	err := ctx.ReadResource("azure-nextgen:network/v20190901:VpnServerConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190901:VpnServerConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

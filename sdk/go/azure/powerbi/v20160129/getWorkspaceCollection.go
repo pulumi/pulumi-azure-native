@@ -9,7 +9,7 @@ import (
 
 func LookupWorkspaceCollection(ctx *pulumi.Context, args *LookupWorkspaceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceCollectionResult, error) {
 	var rv LookupWorkspaceCollectionResult
-	err := ctx.Invoke("azure-nextgen:powerbi/v20160129:getWorkspaceCollection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:powerbi/v20160129:getWorkspaceCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

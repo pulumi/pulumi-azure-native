@@ -11,7 +11,7 @@ import (
 // API Version: 2019-01-01-preview.
 func GetEntityInsights(ctx *pulumi.Context, args *GetEntityInsightsArgs, opts ...pulumi.InvokeOption) (*GetEntityInsightsResult, error) {
 	var rv GetEntityInsightsResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getEntityInsights", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getEntityInsights", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

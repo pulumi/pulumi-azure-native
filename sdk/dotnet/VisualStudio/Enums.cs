@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.VisualStudio
+namespace Pulumi.AzureNative.VisualStudio
 {
     /// <summary>
     /// The type of the operation.

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Dataset resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataset'. */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    pulumi.log.warn("getDataset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getDataset'.")
+    pulumi.log.warn("getDataset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataset'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getDataset", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getDataset", {
         "datasetName": args.datasetName,
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

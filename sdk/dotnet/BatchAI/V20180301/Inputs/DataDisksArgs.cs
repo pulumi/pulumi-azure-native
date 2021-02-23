@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
+namespace Pulumi.AzureNative.BatchAI.V20180301.Inputs
 {
 
     /// <summary>
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
     public sealed class DataDisksArgs : Pulumi.ResourceArgs
     {
         [Input("cachingType")]
-        public Input<Pulumi.AzureNextGen.BatchAI.V20180301.CachingType>? CachingType { get; set; }
+        public Input<Pulumi.AzureNative.BatchAI.V20180301.CachingType>? CachingType { get; set; }
 
         [Input("diskCount", required: true)]
         public Input<int> DiskCount { get; set; } = null!;
@@ -25,11 +25,11 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
         public Input<int> DiskSizeInGB { get; set; } = null!;
 
         [Input("storageAccountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20180301.StorageAccountType> StorageAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.BatchAI.V20180301.StorageAccountType> StorageAccountType { get; set; } = null!;
 
         public DataDisksArgs()
         {
-            CachingType = Pulumi.AzureNextGen.BatchAI.V20180301.CachingType.None;
+            CachingType = Pulumi.AzureNative.BatchAI.V20180301.CachingType.None;
         }
     }
 }

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Fabric definition.
     /// API Version: 2018-07-10.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ReplicationFabric")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ReplicationFabric")]
     public partial class ReplicationFabric : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationFabric(string name, ReplicationFabricArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationFabric", name, args ?? new ReplicationFabricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ReplicationFabric", name, args ?? new ReplicationFabricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationFabric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationFabric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ReplicationFabric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,9 +65,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationFabric"},
                 },
             };

@@ -10,10 +10,10 @@ import (
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getEndpoint'.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
-	err := ctx.Invoke("azure-nextgen:cdn/latest:getEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/latest:getEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

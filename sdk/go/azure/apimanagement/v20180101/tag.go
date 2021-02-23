@@ -41,25 +41,49 @@ func NewTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Tag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Tag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Tag"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Tag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Tag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Tag"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Tag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Tag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Tag"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Tag"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Tag"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Tag"),
@@ -67,7 +91,7 @@ func NewTag(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Tag
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20180101:Tag", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20180101:Tag", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +103,7 @@ func NewTag(ctx *pulumi.Context,
 func GetTag(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagState, opts ...pulumi.ResourceOption) (*Tag, error) {
 	var resource Tag
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20180101:Tag", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20180101:Tag", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

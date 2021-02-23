@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An export resource.
  * Latest API Version: 2020-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Export extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Export {
-        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.")
+        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.")
         return new Export(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/latest:Export';
+    public static readonly __pulumiType = 'azure-native:costmanagement/latest:Export';
 
     /**
      * Returns true if the given object is an instance of Export.  This is designed to work even
@@ -83,9 +83,9 @@ export class Export extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'. */
     constructor(name: string, args: ExportArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:Export'.")
+        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
@@ -126,7 +126,7 @@ export class Export extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190901:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }, { type: "azure-nextgen:costmanagement/v20200601:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-nextgen:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-nextgen:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-nextgen:costmanagement/v20200601:Export" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Export.__pulumiType, name, inputs, opts);
     }

@@ -10,10 +10,10 @@ import (
 // Information about packet capture session.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPacketCapture'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPacketCapture'.
 func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opts ...pulumi.InvokeOption) (*LookupPacketCaptureResult, error) {
 	var rv LookupPacketCaptureResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getPacketCapture", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getPacketCapture", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

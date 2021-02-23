@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
     /// <summary>
     /// Trigger details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901:Trigger")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,12 +64,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Trigger"},
                 },
             };
@@ -104,7 +111,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// Trigger Kind.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901.TriggerEventType> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901.TriggerEventType> Kind { get; set; } = null!;
 
         /// <summary>
         /// The trigger name.

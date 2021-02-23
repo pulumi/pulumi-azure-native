@@ -10,10 +10,10 @@ import (
 // Wrapper resource for tags API requests and responses.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'.
 func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...pulumi.InvokeOption) (*LookupTagAtScopeResult, error) {
 	var rv LookupTagAtScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/latest:getTagAtScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/latest:getTagAtScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

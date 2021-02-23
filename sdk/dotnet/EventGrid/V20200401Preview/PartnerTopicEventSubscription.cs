@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
+namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Event Subscription
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription")]
     public partial class PartnerTopicEventSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -106,12 +106,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PartnerTopicEventSubscription(string name, PartnerTopicEventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, args ?? new PartnerTopicEventSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, args ?? new PartnerTopicEventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PartnerTopicEventSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -122,7 +122,9 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerTopicEventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription"},
                 },
             };
@@ -179,7 +181,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// The event delivery schema for the event subscription.
         /// </summary>
         [Input("eventDeliverySchema")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200401Preview.EventDeliverySchema>? EventDeliverySchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.V20200401Preview.EventDeliverySchema>? EventDeliverySchema { get; set; }
 
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

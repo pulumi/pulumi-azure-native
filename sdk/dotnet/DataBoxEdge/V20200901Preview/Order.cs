@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
     /// <summary>
     /// The order details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901preview:Order")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:Order")]
     public partial class Order : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Order(string name, OrderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901preview:Order", name, args ?? new OrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Order(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:Order", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901preview:Order", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,12 +100,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
                 },
             };
@@ -152,7 +159,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// ShipmentType of the order
         /// </summary>
         [Input("shipmentType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.ShipmentType>? ShipmentType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.ShipmentType>? ShipmentType { get; set; }
 
         /// <summary>
         /// The shipping address.

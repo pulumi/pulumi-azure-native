@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.Latest
+namespace Pulumi.AzureNative.AzureStack.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProducts'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'.")]
     public static class GetProducts
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<GetProductsResult> InvokeAsync(GetProductsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-nextgen:azurestack/latest:getProducts", args ?? new GetProductsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductsResult>("azure-native:azurestack/latest:getProducts", args ?? new GetProductsArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Represents a lab account.
     /// API Version: 2018-10-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices:LabAccount")]
+    [AzureNativeResourceType("azure-native:labservices:LabAccount")]
     public partial class LabAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabAccount(string name, LabAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:LabAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices:LabAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:LabAccount"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:LabAccount"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay:getHybridConnectionAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:getHybridConnectionAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

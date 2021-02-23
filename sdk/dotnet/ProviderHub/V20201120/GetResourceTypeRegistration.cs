@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     public static class GetResourceTypeRegistration
     {
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-nextgen:providerhub/v20201120:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub/v20201120:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithVersion());
     }
 
 

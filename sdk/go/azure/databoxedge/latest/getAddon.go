@@ -10,10 +10,10 @@ import (
 // Role Addon
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getAddon'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getAddon'.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getAddon", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getAddon", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

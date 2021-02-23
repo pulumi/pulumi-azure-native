@@ -17,7 +17,7 @@ export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:getWorkspaceConnection", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:getWorkspaceConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

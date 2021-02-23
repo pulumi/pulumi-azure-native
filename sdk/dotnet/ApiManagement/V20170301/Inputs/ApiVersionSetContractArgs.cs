@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20170301.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301.Inputs
         /// An value that determines where the API Version identifer will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20170301.VersioningScheme> VersioningScheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20170301.VersioningScheme> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetContractArgs()
         {

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.Latest
+namespace Pulumi.AzureNative.HybridCompute.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybridcompute:getMachineExtension'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachineExtension'.")]
     public static class GetMachineExtension
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
         /// Latest API Version: 2020-08-02.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-nextgen:hybridcompute/latest:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute/latest:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
     }
 
 

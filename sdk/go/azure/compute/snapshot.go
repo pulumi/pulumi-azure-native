@@ -77,37 +77,73 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20170330:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180930:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180930:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191101:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191101:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200501:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200501:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200630:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:Snapshot"),
@@ -115,7 +151,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Snapshot
-	err := ctx.RegisterResource("azure-nextgen:compute:Snapshot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:Snapshot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -127,7 +163,7 @@ func NewSnapshot(ctx *pulumi.Context,
 func GetSnapshot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SnapshotState, opts ...pulumi.ResourceOption) (*Snapshot, error) {
 	var resource Snapshot
-	err := ctx.ReadResource("azure-nextgen:compute:Snapshot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:Snapshot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

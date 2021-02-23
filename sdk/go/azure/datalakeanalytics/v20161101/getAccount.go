@@ -10,7 +10,7 @@ import (
 // A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics/v20161101:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics/v20161101:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Describes the suppression rule
     /// API Version: 2019-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:AlertsSuppressionRule")]
+    [AzureNativeResourceType("azure-native:security:AlertsSuppressionRule")]
     public partial class AlertsSuppressionRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertsSuppressionRule(string name, AlertsSuppressionRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:AlertsSuppressionRule", name, args ?? new AlertsSuppressionRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:AlertsSuppressionRule", name, args ?? new AlertsSuppressionRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertsSuppressionRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:AlertsSuppressionRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:AlertsSuppressionRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101preview:AlertsSuppressionRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AlertsSuppressionRule"},
                 },
             };
@@ -153,7 +154,7 @@ namespace Pulumi.AzureNextGen.Security
         /// Possible states of the rule
         /// </summary>
         [Input("state", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.RuleState> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.RuleState> State { get; set; } = null!;
 
         /// <summary>
         /// The suppression conditions

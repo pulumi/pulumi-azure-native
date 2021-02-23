@@ -10,10 +10,10 @@ import (
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getCustomDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getCustomDomain'.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
-	err := ctx.Invoke("azure-nextgen:cdn/latest:getCustomDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/latest:getCustomDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

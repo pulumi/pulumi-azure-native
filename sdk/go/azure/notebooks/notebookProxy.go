@@ -38,12 +38,15 @@ func NewNotebookProxy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notebooks/v20191011preview:NotebookProxy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notebooks/v20191011preview:NotebookProxy"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource NotebookProxy
-	err := ctx.RegisterResource("azure-nextgen:notebooks:NotebookProxy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notebooks:NotebookProxy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +58,7 @@ func NewNotebookProxy(ctx *pulumi.Context,
 func GetNotebookProxy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotebookProxyState, opts ...pulumi.ResourceOption) (*NotebookProxy, error) {
 	var resource NotebookProxy
-	err := ctx.ReadResource("azure-nextgen:notebooks:NotebookProxy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notebooks:NotebookProxy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

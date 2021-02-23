@@ -10,10 +10,10 @@ import (
 // A consumer side list of share subscription synchronizations
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizations'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizations'.
 func ListShareSubscriptionSynchronizations(ctx *pulumi.Context, args *ListShareSubscriptionSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSynchronizationsResult, error) {
 	var rv ListShareSubscriptionSynchronizationsResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:listShareSubscriptionSynchronizations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:listShareSubscriptionSynchronizations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

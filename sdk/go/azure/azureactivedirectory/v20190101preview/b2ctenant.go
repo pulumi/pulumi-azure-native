@@ -48,12 +48,15 @@ func NewB2CTenant(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azureactivedirectory:B2CTenant"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azureactivedirectory:B2CTenant"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource B2CTenant
-	err := ctx.RegisterResource("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azureactivedirectory/v20190101preview:B2CTenant", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +68,7 @@ func NewB2CTenant(ctx *pulumi.Context,
 func GetB2CTenant(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *B2CTenantState, opts ...pulumi.ResourceOption) (*B2CTenant, error) {
 	var resource B2CTenant
-	err := ctx.ReadResource("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azureactivedirectory/v20190101preview:B2CTenant", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

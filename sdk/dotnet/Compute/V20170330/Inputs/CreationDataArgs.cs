@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
+namespace Pulumi.AzureNative.Compute.V20170330.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
         /// This enumerates the possible sources of a disk's creation.
         /// </summary>
         [Input("createOption", required: true)]
-        public Input<Pulumi.AzureNextGen.Compute.V20170330.DiskCreateOption> CreateOption { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Compute.V20170330.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Disk source information.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.Inputs
+namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.Inputs
         /// Status of the order as per the allowed status types.
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.OrderState> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200501Preview.OrderState> Status { get; set; } = null!;
 
         public OrderStatusArgs()
         {

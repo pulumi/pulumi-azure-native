@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Inputs
+namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
 
         public ContainerServiceAgentPoolProfileArgs()
         {

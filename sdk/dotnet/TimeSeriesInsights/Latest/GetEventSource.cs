@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'.")]
     public static class GetEventSource
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// Latest API Version: 2020-05-15.
         /// </summary>
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-nextgen:timeseriesinsights/latest:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-native:timeseriesinsights/latest:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
     }
 
 

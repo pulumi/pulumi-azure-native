@@ -10,7 +10,7 @@ import (
 // Bot channel resource definition
 func LookupBotConnection(ctx *pulumi.Context, args *LookupBotConnectionArgs, opts ...pulumi.InvokeOption) (*LookupBotConnectionResult, error) {
 	var rv LookupBotConnectionResult
-	err := ctx.Invoke("azure-nextgen:botservice/v20171201:getBotConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/v20171201:getBotConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

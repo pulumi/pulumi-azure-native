@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataBox.V20200401
+namespace Pulumi.AzureNative.DataBox.V20200401
 {
     /// <summary>
     /// Type of address.

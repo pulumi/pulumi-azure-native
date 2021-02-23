@@ -10,7 +10,7 @@ import (
 // Describes the cloud service.
 func LookupCloudService(ctx *pulumi.Context, args *LookupCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupCloudServiceResult, error) {
 	var rv LookupCloudServiceResult
-	err := ctx.Invoke("azure-nextgen:compute/v20201001preview:getCloudService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20201001preview:getCloudService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
+namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
     public static class ListCognitiveServicesAccountKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// The access keys for the cognitive services account.
         /// </summary>
         public static Task<ListCognitiveServicesAccountKeysResult> InvokeAsync(ListCognitiveServicesAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCognitiveServicesAccountKeysResult>("azure-nextgen:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListCognitiveServicesAccountKeysResult>("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args ?? new ListCognitiveServicesAccountKeysArgs(), options.WithVersion());
     }
 
 

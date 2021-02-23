@@ -17,7 +17,7 @@ export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation:getJobSchedule", {
+    return pulumi.runtime.invoke("azure-native:automation:getJobSchedule", {
         "automationAccountName": args.automationAccountName,
         "jobScheduleId": args.jobScheduleId,
         "resourceGroupName": args.resourceGroupName,

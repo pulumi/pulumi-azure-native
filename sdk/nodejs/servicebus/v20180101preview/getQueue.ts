@@ -16,7 +16,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:getQueue", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getQueue", {
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,

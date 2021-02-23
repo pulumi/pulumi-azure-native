@@ -10,7 +10,7 @@ import (
 // Workspace connection.
 func LookupWorkspaceConnection(ctx *pulumi.Context, args *LookupWorkspaceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceConnectionResult, error) {
 	var rv LookupWorkspaceConnectionResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200801:getWorkspaceConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200801:getWorkspaceConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

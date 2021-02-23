@@ -10,7 +10,7 @@ import (
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 func LookupSuppression(ctx *pulumi.Context, args *LookupSuppressionArgs, opts ...pulumi.InvokeOption) (*LookupSuppressionResult, error) {
 	var rv LookupSuppressionResult
-	err := ctx.Invoke("azure-nextgen:advisor/v20170331:getSuppression", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:advisor/v20170331:getSuppression", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     /// <summary>
     /// A Policy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:Policy")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20160515:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20160515:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20160515:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,9 +118,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Policy"},
                 },
             };
@@ -155,7 +159,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         /// </summary>
         [Input("evaluatorType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.PolicyEvaluatorType>? EvaluatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.PolicyEvaluatorType>? EvaluatorType { get; set; }
 
         /// <summary>
         /// The fact data of the policy.
@@ -167,7 +171,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         /// </summary>
         [Input("factName")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.PolicyFactName>? FactName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.PolicyFactName>? FactName { get; set; }
 
         /// <summary>
         /// The name of the lab.
@@ -209,7 +213,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The status of the policy.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.PolicyStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.PolicyStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

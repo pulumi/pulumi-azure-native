@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI
+namespace Pulumi.AzureNative.BatchAI
 {
     /// <summary>
     /// Batch AI Workspace information.
     /// API Version: 2018-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batchai:Workspace")]
+    [AzureNativeResourceType("azure-native:batchai:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.BatchAI
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.BatchAI
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Workspace"},
                 },
             };

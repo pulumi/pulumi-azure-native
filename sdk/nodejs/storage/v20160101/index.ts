@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storage/v20160101:StorageAccount":
+            case "azure-native:storage/v20160101:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storage/v20160101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storage/v20160101", _module)

@@ -10,7 +10,7 @@ import (
 // A server trust group.
 func LookupServerTrustGroup(ctx *pulumi.Context, args *LookupServerTrustGroupArgs, opts ...pulumi.InvokeOption) (*LookupServerTrustGroupResult, error) {
 	var rv LookupServerTrustGroupResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getServerTrustGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getServerTrustGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

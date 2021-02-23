@@ -21,7 +21,7 @@ export class SiteMetadata extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteMetadata';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteMetadata';
 
     /**
      * Returns true if the given object is an instance of SiteMetadata.  This is designed to work even
@@ -98,7 +98,7 @@ export class SiteMetadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteMetadata" }, { type: "azure-nextgen:web/latest:SiteMetadata" }, { type: "azure-nextgen:web/v20160801:SiteMetadata" }, { type: "azure-nextgen:web/v20180201:SiteMetadata" }, { type: "azure-nextgen:web/v20181101:SiteMetadata" }, { type: "azure-nextgen:web/v20190801:SiteMetadata" }, { type: "azure-nextgen:web/v20200601:SiteMetadata" }, { type: "azure-nextgen:web/v20200901:SiteMetadata" }, { type: "azure-nextgen:web/v20201001:SiteMetadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteMetadata" }, { type: "azure-nextgen:web:SiteMetadata" }, { type: "azure-native:web/latest:SiteMetadata" }, { type: "azure-nextgen:web/latest:SiteMetadata" }, { type: "azure-native:web/v20160801:SiteMetadata" }, { type: "azure-nextgen:web/v20160801:SiteMetadata" }, { type: "azure-native:web/v20180201:SiteMetadata" }, { type: "azure-nextgen:web/v20180201:SiteMetadata" }, { type: "azure-native:web/v20181101:SiteMetadata" }, { type: "azure-nextgen:web/v20181101:SiteMetadata" }, { type: "azure-native:web/v20190801:SiteMetadata" }, { type: "azure-nextgen:web/v20190801:SiteMetadata" }, { type: "azure-native:web/v20200601:SiteMetadata" }, { type: "azure-nextgen:web/v20200601:SiteMetadata" }, { type: "azure-native:web/v20200901:SiteMetadata" }, { type: "azure-nextgen:web/v20200901:SiteMetadata" }, { type: "azure-native:web/v20201001:SiteMetadata" }, { type: "azure-nextgen:web/v20201001:SiteMetadata" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteMetadata.__pulumiType, name, inputs, opts);
     }

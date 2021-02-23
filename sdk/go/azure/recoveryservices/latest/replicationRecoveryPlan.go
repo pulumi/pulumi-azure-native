@@ -14,7 +14,7 @@ import (
 // Recovery plan details.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'.
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
@@ -46,13 +46,25 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan"),
@@ -60,7 +72,7 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryPlan
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationRecoveryPlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationRecoveryPlanState, opts ...pulumi.ResourceOption) (*ReplicationRecoveryPlan, error) {
 	var resource ReplicationRecoveryPlan
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationRecoveryPlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

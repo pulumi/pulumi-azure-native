@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// Public certificate object
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppPublicCertificateSlot")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppPublicCertificateSlot")]
     public partial class WebAppPublicCertificateSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppPublicCertificateSlot(string name, WebAppPublicCertificateSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppPublicCertificateSlot", name, args ?? new WebAppPublicCertificateSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppPublicCertificateSlot", name, args ?? new WebAppPublicCertificateSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppPublicCertificateSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppPublicCertificateSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppPublicCertificateSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,13 +76,21 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot"},
                 },
             };
@@ -129,7 +137,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Public Certificate Location
         /// </summary>
         [Input("publicCertificateLocation")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.PublicCertificateLocation>? PublicCertificateLocation { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.PublicCertificateLocation>? PublicCertificateLocation { get; set; }
 
         /// <summary>
         /// Public certificate name.

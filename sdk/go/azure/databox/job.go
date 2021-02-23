@@ -74,16 +74,31 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databox/latest:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databox/latest:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:databox/v20180101:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databox/v20180101:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:databox/v20190901:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databox/v20190901:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:databox/v20200401:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databox/v20200401:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:databox/v20201101:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databox/v20201101:Job"),
@@ -91,7 +106,7 @@ func NewJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:databox:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databox:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +118,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:databox:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databox:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

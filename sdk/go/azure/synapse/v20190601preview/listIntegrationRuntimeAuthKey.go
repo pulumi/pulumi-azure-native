@@ -10,7 +10,7 @@ import (
 // The integration runtime authentication keys.
 func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeyArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeyResult, error) {
 	var rv ListIntegrationRuntimeAuthKeyResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20190601preview:listIntegrationRuntimeAuthKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20190601preview:listIntegrationRuntimeAuthKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

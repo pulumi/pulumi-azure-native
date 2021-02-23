@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
+namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
         /// Type of encryption key used for key encryption.
         /// </summary>
         [Input("kekType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.KekType> KekType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.V20201101.KekType> KekType { get; set; } = null!;
 
         /// <summary>
         /// Key encryption key. It is required in case of Customer managed KekType.

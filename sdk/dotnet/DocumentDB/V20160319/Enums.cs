@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20160319
+namespace Pulumi.AzureNative.DocumentDB.V20160319
 {
     /// <summary>
     /// Indicates the conflict resolution mode.

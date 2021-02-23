@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Latest
+namespace Pulumi.AzureNative.DigitalTwins.Latest
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.")]
-    [AzureNextGenResourceType("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:digitaltwins:DigitalTwinsEndpoint'.")]
+    [AzureNativeResourceType("azure-native:digitaltwins/latest:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DigitalTwinsEndpoint(string name, DigitalTwinsEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, args ?? new DigitalTwinsEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:digitaltwins/latest:DigitalTwinsEndpoint", name, args ?? new DigitalTwinsEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DigitalTwinsEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:digitaltwins/latest:DigitalTwinsEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,9 +60,13 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint"},
                 },
             };

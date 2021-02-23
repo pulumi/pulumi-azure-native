@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Inputs
+namespace Pulumi.AzureNative.Devices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.Inputs
         /// IP Filter Action
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.NetworkRuleIPAction>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.NetworkRuleIPAction>? Action { get; set; }
 
         /// <summary>
         /// Name of the IP filter rule.

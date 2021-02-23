@@ -17,7 +17,7 @@ export function getServiceUnit(args: GetServiceUnitArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:deploymentmanager:getServiceUnit", {
+    return pulumi.runtime.invoke("azure-native:deploymentmanager:getServiceUnit", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "serviceTopologyName": args.serviceTopologyName,

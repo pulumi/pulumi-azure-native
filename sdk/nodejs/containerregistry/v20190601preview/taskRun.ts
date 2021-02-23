@@ -23,7 +23,7 @@ export class TaskRun extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190601preview:TaskRun';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20190601preview:TaskRun';
 
     /**
      * Returns true if the given object is an instance of TaskRun.  This is designed to work even
@@ -119,7 +119,7 @@ export class TaskRun extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:TaskRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:TaskRun" }, { type: "azure-nextgen:containerregistry:TaskRun" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TaskRun.__pulumiType, name, inputs, opts);
     }

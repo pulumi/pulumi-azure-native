@@ -14,7 +14,7 @@ import (
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:DisasterRecoveryConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:DisasterRecoveryConfig'.
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:DisasterRecoveryConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:DisasterRecoveryConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:DisasterRecoveryConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"),
@@ -60,7 +69,7 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfig
-	err := ctx.RegisterResource("azure-nextgen:servicebus/latest:DisasterRecoveryConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/latest:DisasterRecoveryConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 func GetDisasterRecoveryConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DisasterRecoveryConfigState, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfig, error) {
 	var resource DisasterRecoveryConfig
-	err := ctx.ReadResource("azure-nextgen:servicebus/latest:DisasterRecoveryConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/latest:DisasterRecoveryConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

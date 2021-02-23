@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Inputs
+namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.Inputs
         /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.DiskEncryptionSetIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskEncryptionSetIdentityType>? Type { get; set; }
 
         public EncryptionSetIdentityArgs()
         {

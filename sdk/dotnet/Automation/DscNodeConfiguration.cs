@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the dsc node configuration.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:DscNodeConfiguration")]
+    [AzureNativeResourceType("azure-native:automation:DscNodeConfiguration")]
     public partial class DscNodeConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscNodeConfiguration(string name, DscNodeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:DscNodeConfiguration", name, args ?? new DscNodeConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:DscNodeConfiguration", name, args ?? new DscNodeConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DscNodeConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:DscNodeConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:DscNodeConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,10 +89,15 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20180115:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180115:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:DscNodeConfiguration"},
                 },
             };

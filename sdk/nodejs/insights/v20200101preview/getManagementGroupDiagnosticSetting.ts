@@ -16,7 +16,7 @@ export function getManagementGroupDiagnosticSetting(args: GetManagementGroupDiag
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20200101preview:getManagementGroupDiagnosticSetting", {
+    return pulumi.runtime.invoke("azure-native:insights/v20200101preview:getManagementGroupDiagnosticSetting", {
         "managementGroupId": args.managementGroupId,
         "name": args.name,
     }, opts);

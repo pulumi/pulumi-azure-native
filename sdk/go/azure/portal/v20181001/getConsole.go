@@ -10,7 +10,7 @@ import (
 // Cloud shell console
 func LookupConsole(ctx *pulumi.Context, args *LookupConsoleArgs, opts ...pulumi.InvokeOption) (*LookupConsoleResult, error) {
 	var rv LookupConsoleResult
-	err := ctx.Invoke("azure-nextgen:portal/v20181001:getConsole", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/v20181001:getConsole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

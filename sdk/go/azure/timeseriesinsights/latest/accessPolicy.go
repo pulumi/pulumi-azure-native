@@ -14,7 +14,7 @@ import (
 // An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:AccessPolicy'.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -45,16 +45,31 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"),
@@ -62,7 +77,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AccessPolicy
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/latest:AccessPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/latest:AccessPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +89,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 func GetAccessPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
 	var resource AccessPolicy
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/latest:AccessPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/latest:AccessPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

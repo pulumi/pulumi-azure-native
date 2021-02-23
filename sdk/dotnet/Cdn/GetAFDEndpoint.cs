@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     public static class GetAFDEndpoint
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Cdn
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDEndpointResult> InvokeAsync(GetAFDEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-nextgen:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithVersion());
     }
 
 

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data Lake Store trusted identity provider information.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getTrustedIdProvider'. */
 export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedIdProviderResult> {
-    pulumi.log.warn("getTrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakestore:getTrustedIdProvider'.")
+    pulumi.log.warn("getTrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getTrustedIdProvider'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakestore/latest:getTrustedIdProvider", {
+    return pulumi.runtime.invoke("azure-native:datalakestore/latest:getTrustedIdProvider", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "trustedIdProviderName": args.trustedIdProviderName,

@@ -23,7 +23,7 @@ export class MachineGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights:MachineGroup';
+    public static readonly __pulumiType = 'azure-native:operationalinsights:MachineGroup';
 
     /**
      * Returns true if the given object is an instance of MachineGroup.  This is designed to work even
@@ -120,7 +120,7 @@ export class MachineGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20151101preview:MachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:MachineGroup" }, { type: "azure-nextgen:operationalinsights/v20151101preview:MachineGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineGroup.__pulumiType, name, inputs, opts);
     }

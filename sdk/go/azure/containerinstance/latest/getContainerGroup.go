@@ -10,10 +10,10 @@ import (
 // A container group.
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerinstance:getContainerGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerinstance:getContainerGroup'.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
-	err := ctx.Invoke("azure-nextgen:containerinstance/latest:getContainerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerinstance/latest:getContainerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

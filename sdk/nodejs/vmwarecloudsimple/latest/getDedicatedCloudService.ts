@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Dedicated cloud service model
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudService'. */
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
-    pulumi.log.warn("getDedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'.")
+    pulumi.log.warn("getDedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudService", {
+    return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/latest:getDedicatedCloudService", {
         "dedicatedCloudServiceName": args.dedicatedCloudServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -10,10 +10,10 @@ import (
 // Attestation service response message.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'.
 func LookupAttestationProvider(ctx *pulumi.Context, args *LookupAttestationProviderArgs, opts ...pulumi.InvokeOption) (*LookupAttestationProviderResult, error) {
 	var rv LookupAttestationProviderResult
-	err := ctx.Invoke("azure-nextgen:attestation/latest:getAttestationProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:attestation/latest:getAttestationProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

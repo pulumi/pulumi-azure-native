@@ -10,7 +10,7 @@ import (
 // String dictionary resource.
 func ListWebAppConnectionStrings(ctx *pulumi.Context, args *ListWebAppConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsResult, error) {
 	var rv ListWebAppConnectionStringsResult
-	err := ctx.Invoke("azure-nextgen:web/v20180201:listWebAppConnectionStrings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20180201:listWebAppConnectionStrings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

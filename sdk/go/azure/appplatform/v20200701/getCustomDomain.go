@@ -10,7 +10,7 @@ import (
 // Custom domain resource payload.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20200701:getCustomDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20200701:getCustomDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

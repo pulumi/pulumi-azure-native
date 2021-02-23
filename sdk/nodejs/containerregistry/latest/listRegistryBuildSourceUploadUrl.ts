@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of a response to source upload request.
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryBuildSourceUploadUrl'. */
 export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryBuildSourceUploadUrlResult> {
-    pulumi.log.warn("listRegistryBuildSourceUploadUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'.")
+    pulumi.log.warn("listRegistryBuildSourceUploadUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryBuildSourceUploadUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listRegistryBuildSourceUploadUrl", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

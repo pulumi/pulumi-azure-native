@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Defines the properties of an Experiment
  * Latest API Version: 2019-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExperiment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExperiment'. */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    pulumi.log.warn("getExperiment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExperiment'.")
+    pulumi.log.warn("getExperiment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExperiment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExperiment", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getExperiment", {
         "experimentName": args.experimentName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// The type of source for the import pipeline.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PipelineSourceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20191201Preview.PipelineSourceType>? Type { get; set; }
 
         /// <summary>
         /// The source uri of the import pipeline.

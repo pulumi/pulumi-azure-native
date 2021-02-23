@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     /// <summary>
     /// A notification.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:NotificationChannel")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20160515:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationChannel(string name, NotificationChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20160515:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:NotificationChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20160515:NotificationChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,8 +100,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:NotificationChannel"},
                 },
             };

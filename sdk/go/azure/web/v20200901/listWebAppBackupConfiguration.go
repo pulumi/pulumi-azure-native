@@ -10,7 +10,7 @@ import (
 // Description of a backup which will be performed.
 func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationResult, error) {
 	var rv ListWebAppBackupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:web/v20200901:listWebAppBackupConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200901:listWebAppBackupConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

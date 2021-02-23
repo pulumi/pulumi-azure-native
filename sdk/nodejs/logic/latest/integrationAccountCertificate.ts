@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The integration account certificate.
  * Latest API Version: 2019-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'.
  */
 export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountCertificate {
-        pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.")
+        pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'.")
         return new IntegrationAccountCertificate(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/latest:IntegrationAccountCertificate';
+    public static readonly __pulumiType = 'azure-native:logic/latest:IntegrationAccountCertificate';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountCertificate.  This is designed to work even
@@ -83,9 +83,9 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'. */
     constructor(name: string, args: IntegrationAccountCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.")
+        pulumi.log.warn("IntegrationAccountCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
@@ -124,7 +124,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20190501:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountCertificate.__pulumiType, name, inputs, opts);
     }

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB container.
     /// Latest API Version: 2021-01-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlContainer'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:SqlResourceSqlContainer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlContainer'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlContainer(string name, SqlResourceSqlContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,13 +72,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer"},
                 },
             };

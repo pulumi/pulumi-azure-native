@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func GetImageUploadUrlForData(ctx *pulumi.Context, args *GetImageUploadUrlForDataArgs, opts ...pulumi.InvokeOption) (*GetImageUploadUrlForDataResult, error) {
 	var rv GetImageUploadUrlForDataResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getImageUploadUrlForData", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getImageUploadUrlForData", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

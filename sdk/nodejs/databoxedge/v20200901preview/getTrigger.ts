@@ -16,7 +16,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200901preview:getTrigger", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200901preview:getTrigger", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

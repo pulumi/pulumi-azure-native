@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Specifies for what type of messages sampling settings should not apply.

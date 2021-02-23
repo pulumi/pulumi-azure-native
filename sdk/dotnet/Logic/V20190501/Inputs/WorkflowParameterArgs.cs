@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
+namespace Pulumi.AzureNative.Logic.V20190501.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.ParameterType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20190501.ParameterType>? Type { get; set; }
 
         /// <summary>
         /// The value.

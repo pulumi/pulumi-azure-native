@@ -10,10 +10,10 @@ import (
 // Snapshot resource.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSnapshot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSnapshot'.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getSnapshot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

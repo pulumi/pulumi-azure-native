@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
+namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
 {
     public static class GetCapacityDetails
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001
         /// Represents an instance of a Dedicated Capacity resource.
         /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-nextgen:powerbidedicated/v20171001:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20171001:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
     }
 
 

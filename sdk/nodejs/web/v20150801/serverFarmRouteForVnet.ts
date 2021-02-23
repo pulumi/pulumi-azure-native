@@ -21,7 +21,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:ServerFarmRouteForVnet';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:ServerFarmRouteForVnet';
 
     /**
      * Returns true if the given object is an instance of ServerFarmRouteForVnet.  This is designed to work even
@@ -121,7 +121,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/latest:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200601:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20201001:ServerFarmRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web:ServerFarmRouteForVnet" }, { type: "azure-native:web/latest:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/latest:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20200601:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200601:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20200901:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20200901:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20201001:ServerFarmRouteForVnet" }, { type: "azure-nextgen:web/v20201001:ServerFarmRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarmRouteForVnet.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // A private endpoint connection
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20190601preview:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20190601preview:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

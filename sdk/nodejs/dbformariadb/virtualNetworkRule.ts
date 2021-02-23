@@ -22,7 +22,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-native:dbformariadb:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
@@ -97,7 +97,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/latest:VirtualNetworkRule" }, { type: "azure-native:dbformariadb/v20180601:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule" }, { type: "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

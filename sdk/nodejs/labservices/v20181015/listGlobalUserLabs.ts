@@ -16,7 +16,7 @@ export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:listGlobalUserLabs", {
+    return pulumi.runtime.invoke("azure-native:labservices/v20181015:listGlobalUserLabs", {
         "userName": args.userName,
     }, opts);
 }

@@ -16,7 +16,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200901:getRule", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200901:getRule", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,

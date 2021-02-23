@@ -59,10 +59,19 @@ func NewFailoverGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:FailoverGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:FailoverGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:FailoverGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:FailoverGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:FailoverGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:FailoverGroup"),
@@ -70,7 +79,7 @@ func NewFailoverGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FailoverGroup
-	err := ctx.RegisterResource("azure-nextgen:sql:FailoverGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:FailoverGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewFailoverGroup(ctx *pulumi.Context,
 func GetFailoverGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FailoverGroupState, opts ...pulumi.ResourceOption) (*FailoverGroup, error) {
 	var resource FailoverGroup
-	err := ctx.ReadResource("azure-nextgen:sql:FailoverGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:FailoverGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

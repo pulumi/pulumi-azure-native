@@ -10,7 +10,7 @@ import (
 // The details of subscription under management group.
 func LookupManagementGroupSubscription(ctx *pulumi.Context, args *LookupManagementGroupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupSubscriptionResult, error) {
 	var rv LookupManagementGroupSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:management/v20200501:getManagementGroupSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/v20200501:getManagementGroupSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

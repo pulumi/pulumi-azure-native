@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTSpaces.Inputs
+namespace Pulumi.AzureNative.IoTSpaces.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.IoTSpaces.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.IoTSpaces.IoTSpacesSku> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.IoTSpaces.IoTSpacesSku> Name { get; set; } = null!;
 
         public IoTSpacesSkuInfoArgs()
         {

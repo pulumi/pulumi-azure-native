@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-01.
 func LookupSerialPort(ctx *pulumi.Context, args *LookupSerialPortArgs, opts ...pulumi.InvokeOption) (*LookupSerialPortResult, error) {
 	var rv LookupSerialPortResult
-	err := ctx.Invoke("azure-nextgen:serialconsole:getSerialPort", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:serialconsole:getSerialPort", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

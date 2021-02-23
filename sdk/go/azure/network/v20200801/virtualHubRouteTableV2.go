@@ -42,31 +42,61 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubRouteTableV2"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualHubRouteTableV2"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualHubRouteTableV2"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHubRouteTableV2"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubRouteTableV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubRouteTableV2"),
@@ -74,7 +104,7 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubRouteTableV2
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:VirtualHubRouteTableV2", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:VirtualHubRouteTableV2", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +116,7 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 func GetVirtualHubRouteTableV2(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualHubRouteTableV2State, opts ...pulumi.ResourceOption) (*VirtualHubRouteTableV2, error) {
 	var resource VirtualHubRouteTableV2
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:VirtualHubRouteTableV2", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:VirtualHubRouteTableV2", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

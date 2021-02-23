@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
+namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
 {
     /// <summary>
     /// The key-value resource along with all resource properties.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appconfiguration/v20200701preview:KeyValue")]
+    [AzureNativeResourceType("azure-native:appconfiguration/v20200701preview:KeyValue")]
     public partial class KeyValue : Pulumi.CustomResource
     {
         /// <summary>
@@ -88,12 +88,12 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyValue(string name, KeyValueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration/v20200701preview:KeyValue", name, args ?? new KeyValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appconfiguration/v20200701preview:KeyValue", name, args ?? new KeyValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KeyValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appconfiguration/v20200701preview:KeyValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appconfiguration/v20200701preview:KeyValue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration:KeyValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:KeyValue"},
                 },
             };

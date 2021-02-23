@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupPrivateStoreOffer(ctx *pulumi.Context, args *LookupPrivateStoreOfferArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreOfferResult, error) {
 	var rv LookupPrivateStoreOfferResult
-	err := ctx.Invoke("azure-nextgen:marketplace:getPrivateStoreOffer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:marketplace:getPrivateStoreOffer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
+namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Api Version Set Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20191201preview:ApiVersionSet")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20191201preview:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiVersionSet(string name, ApiVersionSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201preview:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20191201preview:ApiVersionSet", name, args ?? new ApiVersionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiVersionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20191201preview:ApiVersionSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20191201preview:ApiVersionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,13 +82,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"},
                 },
             };
@@ -159,7 +167,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.VersioningScheme> VersioningScheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20191201Preview.VersioningScheme> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetArgs()
         {

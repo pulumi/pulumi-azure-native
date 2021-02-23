@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Automation.V20170515Preview
+namespace Pulumi.AzureNative.Automation.V20170515Preview
 {
     /// <summary>
     /// Update classifications included in the software update configuration.

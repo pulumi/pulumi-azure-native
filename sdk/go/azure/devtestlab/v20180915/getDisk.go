@@ -10,7 +10,7 @@ import (
 // A Disk.
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
 	var rv LookupDiskResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getDisk", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getDisk", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

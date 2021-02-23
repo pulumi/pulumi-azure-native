@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// String dictionary resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteMetadataSlot")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteMetadataSlot")]
     public partial class SiteMetadataSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteMetadataSlot(string name, SiteMetadataSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteMetadataSlot", name, args ?? new SiteMetadataSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteMetadataSlot", name, args ?? new SiteMetadataSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteMetadataSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteMetadataSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteMetadataSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,14 +76,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteMetadataSlot"},
                 },
             };

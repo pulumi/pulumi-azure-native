@@ -10,7 +10,7 @@ import (
 // Hybrid Connection for an App Service app.
 func LookupWebAppRelayServiceConnection(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionResult, error) {
 	var rv LookupWebAppRelayServiceConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/v20160801:getWebAppRelayServiceConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160801:getWebAppRelayServiceConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

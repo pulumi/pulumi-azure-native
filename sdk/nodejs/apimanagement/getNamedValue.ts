@@ -17,7 +17,7 @@ export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getNamedValue", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getNamedValue", {
         "namedValueId": args.namedValueId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

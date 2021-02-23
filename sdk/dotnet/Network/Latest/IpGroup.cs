@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// The IpGroups resource information.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpGroup'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:IpGroup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpGroup'.")]
+    [AzureNativeResourceType("azure-native:network/latest:IpGroup")]
     public partial class IpGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpGroup(string name, IpGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:IpGroup", name, args ?? new IpGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:IpGroup", name, args ?? new IpGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:IpGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:IpGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,15 +96,25 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:IpGroup"},
                 },
             };

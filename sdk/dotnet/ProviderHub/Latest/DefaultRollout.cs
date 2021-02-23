@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest
+namespace Pulumi.AzureNative.ProviderHub.Latest
 {
     /// <summary>
     /// Default rollout definition.
     /// Latest API Version: 2020-11-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.")]
-    [AzureNextGenResourceType("azure-nextgen:providerhub/latest:DefaultRollout")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:DefaultRollout'.")]
+    [AzureNativeResourceType("azure-native:providerhub/latest:DefaultRollout")]
     public partial class DefaultRollout : Pulumi.CustomResource
     {
         /// <summary>
@@ -47,12 +47,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultRollout(string name, DefaultRolloutArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:DefaultRollout", name, args ?? new DefaultRolloutArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/latest:DefaultRollout", name, args ?? new DefaultRolloutArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DefaultRollout(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/latest:DefaultRollout", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/latest:DefaultRollout", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:DefaultRollout"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:DefaultRollout"},
                 },
             };

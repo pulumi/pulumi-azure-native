@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs, opts ...pulumi.InvokeOption) (*LookupSecurityContactResult, error) {
 	var rv LookupSecurityContactResult
-	err := ctx.Invoke("azure-nextgen:security:getSecurityContact", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getSecurityContact", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

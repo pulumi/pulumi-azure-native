@@ -17,7 +17,7 @@ export function getReportByResourceGroupName(args: GetReportByResourceGroupNameA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement:getReportByResourceGroupName", {
+    return pulumi.runtime.invoke("azure-native:costmanagement:getReportByResourceGroupName", {
         "reportName": args.reportName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

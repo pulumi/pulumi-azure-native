@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupServerAzureADOnlyAuthentication(ctx *pulumi.Context, args *LookupServerAzureADOnlyAuthenticationArgs, opts ...pulumi.InvokeOption) (*LookupServerAzureADOnlyAuthenticationResult, error) {
 	var rv LookupServerAzureADOnlyAuthenticationResult
-	err := ctx.Invoke("azure-nextgen:sql:getServerAzureADOnlyAuthentication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getServerAzureADOnlyAuthentication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

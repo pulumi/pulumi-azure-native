@@ -22,7 +22,7 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource';
+    public static readonly __pulumiType = 'azure-native:devtestlab/v20150521preview:VirtualNetworkResource';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkResource.  This is designed to work even
@@ -118,7 +118,7 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetworkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab:VirtualNetworkResource" }, { type: "azure-native:devtestlab/latest:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20180915:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetworkResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkResource.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getVirtualApplianceSite", {
+    return pulumi.runtime.invoke("azure-native:network:getVirtualApplianceSite", {
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,

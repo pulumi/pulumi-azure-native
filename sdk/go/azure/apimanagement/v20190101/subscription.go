@@ -68,31 +68,61 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Subscription"),
@@ -100,7 +130,7 @@ func NewSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Subscription
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20190101:Subscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20190101:Subscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +142,7 @@ func NewSubscription(ctx *pulumi.Context,
 func GetSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SubscriptionState, opts ...pulumi.ResourceOption) (*Subscription, error) {
 	var resource Subscription
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20190101:Subscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20190101:Subscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

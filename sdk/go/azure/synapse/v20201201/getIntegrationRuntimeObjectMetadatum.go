@@ -10,7 +10,7 @@ import (
 // A list of SSIS object metadata.
 func GetIntegrationRuntimeObjectMetadatum(ctx *pulumi.Context, args *GetIntegrationRuntimeObjectMetadatumArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeObjectMetadatumResult, error) {
 	var rv GetIntegrationRuntimeObjectMetadatumResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20201201:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20201201:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

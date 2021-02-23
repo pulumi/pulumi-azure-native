@@ -21,7 +21,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate';
+    public static readonly __pulumiType = 'azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate';
 
     /**
      * Returns true if the given object is an instance of AppServiceCertificateOrderCertificate.  This is designed to work even
@@ -110,7 +110,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/latest:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }, { type: "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceCertificateOrderCertificate.__pulumiType, name, inputs, opts);
     }

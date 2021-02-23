@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
 {
     /// <summary>
     /// The mode to create a new PostgreSQL server.

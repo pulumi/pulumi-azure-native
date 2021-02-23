@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest.Inputs
+namespace Pulumi.AzureNative.Web.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// The API type
         /// </summary>
         [Input("apiType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.ApiType>? ApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.Latest.ApiType>? ApiType { get; set; }
 
         /// <summary>
         /// The API backend service

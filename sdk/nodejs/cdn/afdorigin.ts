@@ -23,7 +23,7 @@ export class AFDOrigin extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn:AFDOrigin';
+    public static readonly __pulumiType = 'azure-native:cdn:AFDOrigin';
 
     /**
      * Returns true if the given object is an instance of AFDOrigin.  This is designed to work even
@@ -153,7 +153,7 @@ export class AFDOrigin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:AFDOrigin" }, { type: "azure-nextgen:cdn/v20200901:AFDOrigin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:AFDOrigin" }, { type: "azure-nextgen:cdn/latest:AFDOrigin" }, { type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-nextgen:cdn/v20200901:AFDOrigin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDOrigin.__pulumiType, name, inputs, opts);
     }

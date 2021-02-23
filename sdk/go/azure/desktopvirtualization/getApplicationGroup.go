@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-14-preview.
 func LookupApplicationGroup(ctx *pulumi.Context, args *LookupApplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGroupResult, error) {
 	var rv LookupApplicationGroupResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization:getApplicationGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization:getApplicationGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

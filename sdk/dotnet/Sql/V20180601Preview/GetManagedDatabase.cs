@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20180601Preview
+namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
     public static class GetManagedDatabase
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// A managed database resource.
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-nextgen:sql/v20180601preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql/v20180601preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithVersion());
     }
 
 

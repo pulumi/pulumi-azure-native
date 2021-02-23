@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     public static class GetAppServiceEnvironment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// App Service Environment ARM resource.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-nextgen:web/v20190801:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web/v20190801:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithVersion());
     }
 
 

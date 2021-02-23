@@ -63,7 +63,13 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription"),
@@ -71,7 +77,7 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SystemTopicEventSubscription
-	err := ctx.RegisterResource("azure-nextgen:eventgrid:SystemTopicEventSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid:SystemTopicEventSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +89,7 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 func GetSystemTopicEventSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SystemTopicEventSubscriptionState, opts ...pulumi.ResourceOption) (*SystemTopicEventSubscription, error) {
 	var resource SystemTopicEventSubscription
-	err := ctx.ReadResource("azure-nextgen:eventgrid:SystemTopicEventSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid:SystemTopicEventSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks
+namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// API Version: 2018-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databricks:vNetPeering")]
+    [AzureNativeResourceType("azure-native:databricks:vNetPeering")]
     public partial class VNetPeering : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.Databricks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VNetPeering(string name, VNetPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databricks:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VNetPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks:vNetPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databricks:vNetPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,7 +113,9 @@ namespace Pulumi.AzureNextGen.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databricks/latest:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:vNetPeering"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:vNetPeering"},
                 },
             };

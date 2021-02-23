@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine
+namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     public static class GetAvailabilityGroupListener
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-nextgen:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithVersion());
     }
 
 

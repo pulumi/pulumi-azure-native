@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupBookmark(ctx *pulumi.Context, args *LookupBookmarkArgs, opts ...pulumi.InvokeOption) (*LookupBookmarkResult, error) {
 	var rv LookupBookmarkResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getBookmark", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getBookmark", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

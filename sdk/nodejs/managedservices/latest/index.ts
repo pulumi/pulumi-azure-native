@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:managedservices/latest:RegistrationAssignment":
+            case "azure-native:managedservices/latest:RegistrationAssignment":
                 return new RegistrationAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:managedservices/latest:RegistrationDefinition":
+            case "azure-native:managedservices/latest:RegistrationDefinition":
                 return new RegistrationDefinition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "managedservices/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "managedservices/latest", _module)

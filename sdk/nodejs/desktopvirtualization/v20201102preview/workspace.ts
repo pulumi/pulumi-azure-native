@@ -21,7 +21,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:desktopvirtualization/v20201102preview:Workspace';
+    public static readonly __pulumiType = 'azure-native:desktopvirtualization/v20201102preview:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -101,7 +101,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:Workspace" }, { type: "azure-nextgen:desktopvirtualization:Workspace" }, { type: "azure-native:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

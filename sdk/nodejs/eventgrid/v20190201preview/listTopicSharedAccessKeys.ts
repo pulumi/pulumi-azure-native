@@ -16,7 +16,7 @@ export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20190201preview:listTopicSharedAccessKeys", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/v20190201preview:listTopicSharedAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
     }, opts);

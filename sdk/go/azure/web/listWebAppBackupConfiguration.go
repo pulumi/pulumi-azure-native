@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationResult, error) {
 	var rv ListWebAppBackupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppBackupConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppBackupConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

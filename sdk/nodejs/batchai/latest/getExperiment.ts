@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Experiment information.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getExperiment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getExperiment'. */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-    pulumi.log.warn("getExperiment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getExperiment'.")
+    pulumi.log.warn("getExperiment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getExperiment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:getExperiment", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:getExperiment", {
         "experimentName": args.experimentName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601
+namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
     /// LoadBalancer resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200601:LoadBalancer")]
+    [AzureNativeResourceType("azure-native:network/v20200601:LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>
@@ -114,12 +114,12 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancer(string name, LoadBalancerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:LoadBalancer", name, args ?? new LoadBalancerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200601:LoadBalancer", name, args ?? new LoadBalancerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LoadBalancer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200601:LoadBalancer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200601:LoadBalancer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -130,41 +130,77 @@ namespace Pulumi.AzureNextGen.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancer"},
                 },
             };

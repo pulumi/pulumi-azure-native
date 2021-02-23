@@ -10,7 +10,7 @@ import (
 // Properties that define a Continuous Export configuration.
 func LookupExportConfiguration(ctx *pulumi.Context, args *LookupExportConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupExportConfigurationResult, error) {
 	var rv LookupExportConfigurationResult
-	err := ctx.Invoke("azure-nextgen:insights/v20150501:getExportConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20150501:getExportConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

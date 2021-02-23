@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401
+namespace Pulumi.AzureNative.Network.V20200401
 {
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200401:RulesEngine")]
+    [AzureNativeResourceType("azure-native:network/v20200401:RulesEngine")]
     public partial class RulesEngine : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RulesEngine(string name, RulesEngineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200401:RulesEngine", name, args ?? new RulesEngineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200401:RulesEngine", name, args ?? new RulesEngineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RulesEngine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200401:RulesEngine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200401:RulesEngine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RulesEngine"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:RulesEngine"},
                 },
             };

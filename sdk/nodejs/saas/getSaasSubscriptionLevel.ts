@@ -17,7 +17,7 @@ export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:saas:getSaasSubscriptionLevel", {
+    return pulumi.runtime.invoke("azure-native:saas:getSaasSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

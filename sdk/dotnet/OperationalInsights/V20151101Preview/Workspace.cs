@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
     /// <summary>
     /// The top level Workspace resource container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20151101preview:Workspace")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20151101preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20151101preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20151101preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20151101preview:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20151101preview:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,10 +106,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Workspace"},
                 },
             };
@@ -150,7 +155,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// The provisioning state of the workspace.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.EntityStatus>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.V20151101Preview.EntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the workspace.

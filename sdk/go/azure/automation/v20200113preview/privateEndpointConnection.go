@@ -40,12 +40,15 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:automation/v20200113preview:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20200113preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:automation/v20200113preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20200113preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

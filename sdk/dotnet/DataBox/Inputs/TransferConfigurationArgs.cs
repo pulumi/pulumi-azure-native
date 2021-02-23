@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Inputs
+namespace Pulumi.AzureNative.DataBox.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.Inputs
         /// Type of the configuration for transfer.
         /// </summary>
         [Input("transferConfigurationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.TransferConfigurationType> TransferConfigurationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.TransferConfigurationType> TransferConfigurationType { get; set; } = null!;
 
         /// <summary>
         /// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func GetGlobalUserOperationStatus(ctx *pulumi.Context, args *GetGlobalUserOperationStatusArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserOperationStatusResult, error) {
 	var rv GetGlobalUserOperationStatusResult
-	err := ctx.Invoke("azure-nextgen:labservices:getGlobalUserOperationStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:getGlobalUserOperationStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

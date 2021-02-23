@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.Inputs
+namespace Pulumi.AzureNative.NotificationHubs.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Inputs
         /// Name of the notification hub sku
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.NotificationHubs.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The Sku size

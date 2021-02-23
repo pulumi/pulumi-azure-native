@@ -10,7 +10,7 @@ import (
 // Workload classifier operations for a data warehouse
 func LookupWorkloadClassifier(ctx *pulumi.Context, args *LookupWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadClassifierResult, error) {
 	var rv LookupWorkloadClassifierResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getWorkloadClassifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getWorkloadClassifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupDdosProtectionPlan(ctx *pulumi.Context, args *LookupDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*LookupDdosProtectionPlanResult, error) {
 	var rv LookupDdosProtectionPlanResult
-	err := ctx.Invoke("azure-nextgen:network:getDdosProtectionPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getDdosProtectionPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

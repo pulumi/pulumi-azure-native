@@ -10,7 +10,7 @@ import (
 // The private endpoint connection of an IotHub
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:devices/v20200401:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20200401:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

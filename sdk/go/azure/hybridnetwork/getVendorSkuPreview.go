@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork:getVendorSkuPreview", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork:getVendorSkuPreview", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

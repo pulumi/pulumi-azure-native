@@ -13,7 +13,7 @@ export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/v20201120:getProviderRegistration", {
+    return pulumi.runtime.invoke("azure-native:providerhub/v20201120:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
     }, opts);
 }

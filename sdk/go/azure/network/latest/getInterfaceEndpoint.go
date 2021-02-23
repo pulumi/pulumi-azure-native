@@ -10,10 +10,10 @@ import (
 // Interface endpoint resource.
 // Latest API Version: 2019-02-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInterfaceEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInterfaceEndpoint'.
 func LookupInterfaceEndpoint(ctx *pulumi.Context, args *LookupInterfaceEndpointArgs, opts ...pulumi.InvokeOption) (*LookupInterfaceEndpointResult, error) {
 	var rv LookupInterfaceEndpointResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getInterfaceEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getInterfaceEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

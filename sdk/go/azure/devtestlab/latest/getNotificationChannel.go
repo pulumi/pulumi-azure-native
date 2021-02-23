@@ -10,10 +10,10 @@ import (
 // A notification.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getNotificationChannel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getNotificationChannel'.
 func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChannelArgs, opts ...pulumi.InvokeOption) (*LookupNotificationChannelResult, error) {
 	var rv LookupNotificationChannelResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getNotificationChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getNotificationChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

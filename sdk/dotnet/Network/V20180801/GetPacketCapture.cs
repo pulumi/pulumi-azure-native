@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801
+namespace Pulumi.AzureNative.Network.V20180801
 {
     public static class GetPacketCapture
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// Information about packet capture session.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-nextgen:network/v20180801:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network/v20180801:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
     }
 
 

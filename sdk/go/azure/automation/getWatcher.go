@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupWatcher(ctx *pulumi.Context, args *LookupWatcherArgs, opts ...pulumi.InvokeOption) (*LookupWatcherResult, error) {
 	var rv LookupWatcherResult
-	err := ctx.Invoke("azure-nextgen:automation:getWatcher", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

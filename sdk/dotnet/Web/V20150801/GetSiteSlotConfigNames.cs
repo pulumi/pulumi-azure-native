@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteSlotConfigNames
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Slot Config names azure resource
         /// </summary>
         public static Task<GetSiteSlotConfigNamesResult> InvokeAsync(GetSiteSlotConfigNamesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotConfigNamesResult>("azure-nextgen:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotConfigNamesResult>("azure-native:web/v20150801:getSiteSlotConfigNames", args ?? new GetSiteSlotConfigNamesArgs(), options.WithVersion());
     }
 
 

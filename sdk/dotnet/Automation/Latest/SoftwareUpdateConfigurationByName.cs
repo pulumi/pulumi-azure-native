@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
     /// <summary>
     /// Software update configuration properties.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:SoftwareUpdateConfigurationByName'.")]
-    [AzureNextGenResourceType("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SoftwareUpdateConfigurationByName'.")]
+    [AzureNativeResourceType("azure-native:automation/latest:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SoftwareUpdateConfigurationByName(string name, SoftwareUpdateConfigurationByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName", name, args ?? new SoftwareUpdateConfigurationByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/latest:SoftwareUpdateConfigurationByName", name, args ?? new SoftwareUpdateConfigurationByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SoftwareUpdateConfigurationByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/latest:SoftwareUpdateConfigurationByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,8 +108,11 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:SoftwareUpdateConfigurationByName"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"},
                 },
             };

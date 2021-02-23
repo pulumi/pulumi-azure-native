@@ -28,17 +28,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:avs/latest:Authorization":
+            case "azure-native:avs/latest:Authorization":
                 return new Authorization(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/latest:Cluster":
+            case "azure-native:avs/latest:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/latest:HcxEnterpriseSite":
+            case "azure-native:avs/latest:HcxEnterpriseSite":
                 return new HcxEnterpriseSite(name, <any>undefined, { urn })
-            case "azure-nextgen:avs/latest:PrivateCloud":
+            case "azure-native:avs/latest:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "avs/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "avs/latest", _module)

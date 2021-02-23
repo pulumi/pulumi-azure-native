@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     public static class GetModule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// Definition of the module type.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-nextgen:automation/v20151031:getModule", args ?? new GetModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/v20151031:getModule", args ?? new GetModuleArgs(), options.WithVersion());
     }
 
 

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A DDoS protection plan in a resource group.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosProtectionPlan'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosProtectionPlan'. */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
-    pulumi.log.warn("getDdosProtectionPlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosProtectionPlan'.")
+    pulumi.log.warn("getDdosProtectionPlan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosProtectionPlan'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getDdosProtectionPlan", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getDdosProtectionPlan", {
         "ddosProtectionPlanName": args.ddosProtectionPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

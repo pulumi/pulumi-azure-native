@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Security assessment metadata
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'. */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
-    pulumi.log.warn("getAssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getAssessmentMetadataInSubscription'.")
+    pulumi.log.warn("getAssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataI
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/latest:getAssessmentMetadataInSubscription", {
+    return pulumi.runtime.invoke("azure-native:security/latest:getAssessmentMetadataInSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
     }, opts);
 }

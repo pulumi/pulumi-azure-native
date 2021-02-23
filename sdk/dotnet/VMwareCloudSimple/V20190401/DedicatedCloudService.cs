@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
+namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud service model
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService")]
+    [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService")]
     public partial class DedicatedCloudService : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedCloudService(string name, DedicatedCloudServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService", name, args ?? new DedicatedCloudServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService", name, args ?? new DedicatedCloudServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedCloudService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudService"},
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	var rv LookupOpenIdConnectProviderResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getOpenIdConnectProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getOpenIdConnectProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

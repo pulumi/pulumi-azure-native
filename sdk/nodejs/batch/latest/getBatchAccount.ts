@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contains information about an Azure Batch account.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getBatchAccount'. */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
-    pulumi.log.warn("getBatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getBatchAccount'.")
+    pulumi.log.warn("getBatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getBatchAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:getBatchAccount", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:getBatchAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

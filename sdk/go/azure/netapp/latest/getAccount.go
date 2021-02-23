@@ -10,10 +10,10 @@ import (
 // NetApp account resource
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getAccount'.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:netapp/latest:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/latest:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

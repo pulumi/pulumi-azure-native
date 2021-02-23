@@ -14,7 +14,7 @@ import (
 // Workspace active directory administrator
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceAadAdmin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceAadAdmin'.
 type WorkspaceAadAdmin struct {
 	pulumi.CustomResourceState
 
@@ -47,10 +47,19 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:WorkspaceAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:WorkspaceAadAdmin"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:WorkspaceAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:WorkspaceAadAdmin"),
@@ -58,7 +67,7 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceAadAdmin
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:WorkspaceAadAdmin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:WorkspaceAadAdmin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 func GetWorkspaceAadAdmin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceAadAdminState, opts ...pulumi.ResourceOption) (*WorkspaceAadAdmin, error) {
 	var resource WorkspaceAadAdmin
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:WorkspaceAadAdmin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:WorkspaceAadAdmin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

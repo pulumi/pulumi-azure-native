@@ -36,21 +36,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:appplatform/latest:App":
+            case "azure-native:appplatform/latest:App":
                 return new App(name, <any>undefined, { urn })
-            case "azure-nextgen:appplatform/latest:Binding":
+            case "azure-native:appplatform/latest:Binding":
                 return new Binding(name, <any>undefined, { urn })
-            case "azure-nextgen:appplatform/latest:Certificate":
+            case "azure-native:appplatform/latest:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:appplatform/latest:CustomDomain":
+            case "azure-native:appplatform/latest:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
-            case "azure-nextgen:appplatform/latest:Deployment":
+            case "azure-native:appplatform/latest:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-nextgen:appplatform/latest:Service":
+            case "azure-native:appplatform/latest:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "appplatform/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "appplatform/latest", _module)

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listDelegationSettingSecrets'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'.")]
     public static class ListDelegationSettingSecrets
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-nextgen:apimanagement/latest:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement/latest:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithVersion());
     }
 
 

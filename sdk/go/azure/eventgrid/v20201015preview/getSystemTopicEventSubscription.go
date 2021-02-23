@@ -10,7 +10,7 @@ import (
 // Event Subscription
 func LookupSystemTopicEventSubscription(ctx *pulumi.Context, args *LookupSystemTopicEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicEventSubscriptionResult, error) {
 	var rv LookupSystemTopicEventSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:getSystemTopicEventSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getSystemTopicEventSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // An object that represents a replication for a container registry.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Replication'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Replication'.
 type Replication struct {
 	pulumi.CustomResourceState
 
@@ -47,19 +47,37 @@ func NewReplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Replication"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20171001:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20190501:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Replication"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:Replication"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Replication"),
@@ -67,7 +85,7 @@ func NewReplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Replication
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/latest:Replication", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/latest:Replication", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +97,7 @@ func NewReplication(ctx *pulumi.Context,
 func GetReplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationState, opts ...pulumi.ResourceOption) (*Replication, error) {
 	var resource Replication
-	err := ctx.ReadResource("azure-nextgen:containerregistry/latest:Replication", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/latest:Replication", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

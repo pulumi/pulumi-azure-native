@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Virtual Network information contract.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppVnetConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnection'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppVnetConnection")]
     public partial class WebAppVnetConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppVnetConnection(string name, WebAppVnetConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppVnetConnection", name, args ?? new WebAppVnetConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppVnetConnection", name, args ?? new WebAppVnetConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppVnetConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppVnetConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppVnetConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,14 +109,23 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppVnetConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppVnetConnection"},
                 },
             };

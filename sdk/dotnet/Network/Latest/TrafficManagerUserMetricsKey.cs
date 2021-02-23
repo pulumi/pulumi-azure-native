@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
     /// Latest API Version: 2018-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:TrafficManagerUserMetricsKey'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:TrafficManagerUserMetricsKey")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:TrafficManagerUserMetricsKey'.")]
+    [AzureNativeResourceType("azure-native:network/latest:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficManagerUserMetricsKey(string name, TrafficManagerUserMetricsKeyArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:TrafficManagerUserMetricsKey", name, args ?? new TrafficManagerUserMetricsKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:TrafficManagerUserMetricsKey", name, args ?? new TrafficManagerUserMetricsKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TrafficManagerUserMetricsKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:TrafficManagerUserMetricsKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:TrafficManagerUserMetricsKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,7 +60,9 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"},
                 },
             };

@@ -10,10 +10,10 @@ import (
 // Definition of the module type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getModule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getModule'.
 func LookupModule(ctx *pulumi.Context, args *LookupModuleArgs, opts ...pulumi.InvokeOption) (*LookupModuleResult, error) {
 	var rv LookupModuleResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getModule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getModule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

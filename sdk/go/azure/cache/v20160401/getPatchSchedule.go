@@ -10,7 +10,7 @@ import (
 // Response to put/get patch schedules for Redis cache.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
-	err := ctx.Invoke("azure-nextgen:cache/v20160401:getPatchSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20160401:getPatchSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -12,7 +12,7 @@ import (
 // API Version: 2019-04-01.
 func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskDetailsResult, error) {
 	var rv ListTaskDetailsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listTaskDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listTaskDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

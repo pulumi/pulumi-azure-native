@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
+namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount")]
+    [AzureNativeResourceType("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount")]
     public partial class CognitiveServicesAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CognitiveServicesAccount(string name, CognitiveServicesAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, args ?? new CognitiveServicesAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, args ?? new CognitiveServicesAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CognitiveServicesAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:CognitiveServicesAccount"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:CognitiveServicesAccount"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:CognitiveServicesAccount"},
                 },
             };
@@ -130,7 +133,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// Required. Indicates the type of cognitive service account.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20160201Preview.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.V20160201Preview.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.

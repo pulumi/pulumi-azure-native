@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
+namespace Pulumi.AzureNative.HDInsight.V20150301Preview
 {
     public static class GetApplication
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// The HDInsight cluster application
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:hdinsight/v20150301preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:hdinsight/v20150301preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
 
 

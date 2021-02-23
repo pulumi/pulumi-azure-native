@@ -17,7 +17,7 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getVolume", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getVolume", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

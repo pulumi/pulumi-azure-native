@@ -16,7 +16,7 @@ export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20180601:getFactoryGitHubAccessToken", {
+    return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,
         "gitHubAccessCode": args.gitHubAccessCode,
         "gitHubAccessTokenBaseUrl": args.gitHubAccessTokenBaseUrl,

@@ -31,17 +31,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup":
+            case "azure-native:policyinsights/latest:RemediationAtManagementGroup":
                 return new RemediationAtManagementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:policyinsights/latest:RemediationAtResource":
+            case "azure-native:policyinsights/latest:RemediationAtResource":
                 return new RemediationAtResource(name, <any>undefined, { urn })
-            case "azure-nextgen:policyinsights/latest:RemediationAtResourceGroup":
+            case "azure-native:policyinsights/latest:RemediationAtResourceGroup":
                 return new RemediationAtResourceGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:policyinsights/latest:RemediationAtSubscription":
+            case "azure-native:policyinsights/latest:RemediationAtSubscription":
                 return new RemediationAtSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "policyinsights/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "policyinsights/latest", _module)

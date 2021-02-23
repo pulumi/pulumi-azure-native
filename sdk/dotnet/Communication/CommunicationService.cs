@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Communication
+namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a CommunicationService resource.
     /// API Version: 2020-08-20-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:communication:CommunicationService")]
+    [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Communication
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CommunicationService(string name, CommunicationServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:communication:CommunicationService", name, args ?? new CommunicationServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:communication:CommunicationService", name, args ?? new CommunicationServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CommunicationService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:communication:CommunicationService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:communication:CommunicationService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.Communication
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService"},
                     new Pulumi.Alias { Type = "azure-nextgen:communication/v20200820preview:CommunicationService"},
                 },
             };

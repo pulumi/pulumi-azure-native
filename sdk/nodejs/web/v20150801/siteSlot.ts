@@ -22,7 +22,7 @@ export class SiteSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteSlot';
 
     /**
      * Returns true if the given object is an instance of SiteSlot.  This is designed to work even
@@ -266,7 +266,7 @@ export class SiteSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteSlot" }, { type: "azure-nextgen:web/latest:SiteSlot" }, { type: "azure-nextgen:web/v20160801:SiteSlot" }, { type: "azure-nextgen:web/v20180201:SiteSlot" }, { type: "azure-nextgen:web/v20181101:SiteSlot" }, { type: "azure-nextgen:web/v20190801:SiteSlot" }, { type: "azure-nextgen:web/v20200601:SiteSlot" }, { type: "azure-nextgen:web/v20200901:SiteSlot" }, { type: "azure-nextgen:web/v20201001:SiteSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteSlot" }, { type: "azure-nextgen:web:SiteSlot" }, { type: "azure-native:web/latest:SiteSlot" }, { type: "azure-nextgen:web/latest:SiteSlot" }, { type: "azure-native:web/v20160801:SiteSlot" }, { type: "azure-nextgen:web/v20160801:SiteSlot" }, { type: "azure-native:web/v20180201:SiteSlot" }, { type: "azure-nextgen:web/v20180201:SiteSlot" }, { type: "azure-native:web/v20181101:SiteSlot" }, { type: "azure-nextgen:web/v20181101:SiteSlot" }, { type: "azure-native:web/v20190801:SiteSlot" }, { type: "azure-nextgen:web/v20190801:SiteSlot" }, { type: "azure-native:web/v20200601:SiteSlot" }, { type: "azure-nextgen:web/v20200601:SiteSlot" }, { type: "azure-native:web/v20200901:SiteSlot" }, { type: "azure-nextgen:web/v20200901:SiteSlot" }, { type: "azure-native:web/v20201001:SiteSlot" }, { type: "azure-nextgen:web/v20201001:SiteSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteSlot.__pulumiType, name, inputs, opts);
     }

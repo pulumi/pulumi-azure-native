@@ -26,15 +26,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:search/latest:PrivateEndpointConnection":
+            case "azure-native:search/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:search/latest:Service":
+            case "azure-native:search/latest:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "azure-nextgen:search/latest:SharedPrivateLinkResource":
+            case "azure-native:search/latest:SharedPrivateLinkResource":
                 return new SharedPrivateLinkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "search/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "search/latest", _module)

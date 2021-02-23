@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSecurityPartnerProvider'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityPartnerProvider'.")]
     public static class GetSecurityPartnerProvider
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-nextgen:network/latest:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/latest:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithVersion());
     }
 
 

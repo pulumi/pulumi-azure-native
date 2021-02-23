@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnectionSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot'. */
 export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
-    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnectionSlot'.")
+    pulumi.log.warn("getWebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftV
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSwiftVirtualNetworkConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSwiftVirtualNetworkConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

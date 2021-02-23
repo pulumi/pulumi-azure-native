@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:signalrservice/v20200701preview:SignalR":
+	case "azure-native:signalrservice/v20200701preview:SignalR":
 		r, err = NewSignalR(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection":
+	case "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection":
 		r, err = NewSignalRPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -38,7 +38,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"signalrservice/v20200701preview",
 		&module{version},
 	)

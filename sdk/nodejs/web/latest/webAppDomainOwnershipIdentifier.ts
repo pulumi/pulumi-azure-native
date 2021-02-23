@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A domain specific resource identifier.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifier'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifier'.
  */
 export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppDomainOwnershipIdentifier {
-        pulumi.log.warn("WebAppDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifier'.")
+        pulumi.log.warn("WebAppDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifier'.")
         return new WebAppDomainOwnershipIdentifier(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppDomainOwnershipIdentifier';
 
     /**
      * Returns true if the given object is an instance of WebAppDomainOwnershipIdentifier.  This is designed to work even
@@ -67,9 +67,9 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifier'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifier'. */
     constructor(name: string, args: WebAppDomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifier'.")
+        pulumi.log.warn("WebAppDomainOwnershipIdentifier is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifier'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

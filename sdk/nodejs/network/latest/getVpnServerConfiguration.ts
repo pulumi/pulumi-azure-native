@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VpnServerConfiguration Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnServerConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnServerConfiguration'. */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
-    pulumi.log.warn("getVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnServerConfiguration'.")
+    pulumi.log.warn("getVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnServerConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVpnServerConfiguration", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVpnServerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "vpnServerConfigurationName": args.vpnServerConfigurationName,
     }, opts);

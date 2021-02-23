@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
+namespace Pulumi.AzureNative.Network.V20191201.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The mode of the policy.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.WebApplicationFirewallMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.WebApplicationFirewallMode>? Mode { get; set; }
 
         /// <summary>
         /// Whether to allow WAF to check request Body.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The state of the policy.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.WebApplicationFirewallEnabledState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.WebApplicationFirewallEnabledState>? State { get; set; }
 
         public PolicySettingsArgs()
         {

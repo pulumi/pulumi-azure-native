@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20200701.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20200701.Inputs
 {
 
     public sealed class ManagedClusterPropertiesIdentityProfileArgs : Pulumi.ResourceArgs

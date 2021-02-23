@@ -10,10 +10,10 @@ import (
 // The integration runtime authentication keys.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:listIntegrationRuntimeAuthKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:listIntegrationRuntimeAuthKey'.
 func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeyArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeyResult, error) {
 	var rv ListIntegrationRuntimeAuthKeyResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:listIntegrationRuntimeAuthKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:listIntegrationRuntimeAuthKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

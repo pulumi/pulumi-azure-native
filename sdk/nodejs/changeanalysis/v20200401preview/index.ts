@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile":
+            case "azure-native:changeanalysis/v20200401preview:ConfigurationProfile":
                 return new ConfigurationProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "changeanalysis/v20200401preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "changeanalysis/v20200401preview", _module)

@@ -10,10 +10,10 @@ import (
 // Guest configuration assignment is an association between a machine and guest configuration.
 // Latest API Version: 2020-06-25.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'.
 func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationAssignmentResult, error) {
 	var rv LookupGuestConfigurationAssignmentResult
-	err := ctx.Invoke("azure-nextgen:guestconfiguration/latest:getGuestConfigurationAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:guestconfiguration/latest:getGuestConfigurationAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -57,49 +57,97 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/latest:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20170815:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20170815:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190501:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190501:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190601:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190601:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20190701:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190701:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20190801:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20190801:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20191001:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191001:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20191101:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20191101:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200301:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200301:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200501:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200601:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200701:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200801:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:Pool"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200901:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Pool"),
@@ -107,7 +155,7 @@ func NewPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Pool
-	err := ctx.RegisterResource("azure-nextgen:netapp/v20200201:Pool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp/v20200201:Pool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,7 +167,7 @@ func NewPool(ctx *pulumi.Context,
 func GetPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PoolState, opts ...pulumi.ResourceOption) (*Pool, error) {
 	var resource Pool
-	err := ctx.ReadResource("azure-nextgen:netapp/v20200201:Pool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp/v20200201:Pool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

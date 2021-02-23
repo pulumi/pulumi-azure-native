@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-15.
 func LookupReferenceDataSet(ctx *pulumi.Context, args *LookupReferenceDataSetArgs, opts ...pulumi.InvokeOption) (*LookupReferenceDataSetResult, error) {
 	var rv LookupReferenceDataSetResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights:getReferenceDataSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights:getReferenceDataSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

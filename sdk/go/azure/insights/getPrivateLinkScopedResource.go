@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-17-preview.
 func LookupPrivateLinkScopedResource(ctx *pulumi.Context, args *LookupPrivateLinkScopedResourceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopedResourceResult, error) {
 	var rv LookupPrivateLinkScopedResourceResult
-	err := ctx.Invoke("azure-nextgen:insights:getPrivateLinkScopedResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getPrivateLinkScopedResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

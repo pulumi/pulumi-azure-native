@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Represents an image from the Azure Marketplace
     /// API Version: 2018-10-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices:GalleryImage")]
+    [AzureNativeResourceType("azure-native:labservices:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.LabServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryImage(string name, GalleryImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices:GalleryImage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices:GalleryImage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,7 +137,9 @@ namespace Pulumi.AzureNextGen.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:GalleryImage"},
                 },
             };

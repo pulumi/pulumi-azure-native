@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the module type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getPython2Package'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'. */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
-    pulumi.log.warn("getPython2Package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getPython2Package'.")
+    pulumi.log.warn("getPython2Package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getPython2Package", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getPython2Package", {
         "automationAccountName": args.automationAccountName,
         "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation:Webhook';
+    public static readonly __pulumiType = 'azure-native:automation:Webhook';
 
     /**
      * Returns true if the given object is an instance of Webhook.  This is designed to work even
@@ -146,7 +146,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:Webhook" }, { type: "azure-nextgen:automation/v20151031:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:Webhook" }, { type: "azure-nextgen:automation/latest:Webhook" }, { type: "azure-native:automation/v20151031:Webhook" }, { type: "azure-nextgen:automation/v20151031:Webhook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Webhook.__pulumiType, name, inputs, opts);
     }

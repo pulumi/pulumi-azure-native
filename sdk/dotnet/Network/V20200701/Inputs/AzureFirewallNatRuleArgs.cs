@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
+namespace Pulumi.AzureNative.Network.V20200701.Inputs
 {
 
     /// <summary>
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("protocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20200701.AzureFirewallNetworkRuleProtocol>>? _protocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20200701.AzureFirewallNetworkRuleProtocol>>? _protocols;
 
         /// <summary>
         /// Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20200701.AzureFirewallNetworkRuleProtocol>> Protocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20200701.AzureFirewallNetworkRuleProtocol>> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20200701.AzureFirewallNetworkRuleProtocol>>());
+            get => _protocols ?? (_protocols = new InputList<Union<string, Pulumi.AzureNative.Network.V20200701.AzureFirewallNetworkRuleProtocol>>());
             set => _protocols = value;
         }
 

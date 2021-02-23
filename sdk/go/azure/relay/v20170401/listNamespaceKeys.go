@@ -10,7 +10,7 @@ import (
 // Namespace/Relay Connection String
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/v20170401:listNamespaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20170401:listNamespaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

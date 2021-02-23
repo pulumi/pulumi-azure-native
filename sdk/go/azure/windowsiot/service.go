@@ -50,10 +50,19 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:windowsiot/latest:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:windowsiot/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:windowsiot/v20180216preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:windowsiot/v20180216preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:windowsiot/v20190601:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:windowsiot/v20190601:Service"),
@@ -61,7 +70,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:windowsiot:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:windowsiot:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:windowsiot:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:windowsiot:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

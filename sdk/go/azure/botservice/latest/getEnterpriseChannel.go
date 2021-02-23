@@ -10,10 +10,10 @@ import (
 // Enterprise Channel resource definition
 // Latest API Version: 2018-07-12.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getEnterpriseChannel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getEnterpriseChannel'.
 func LookupEnterpriseChannel(ctx *pulumi.Context, args *LookupEnterpriseChannelArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseChannelResult, error) {
 	var rv LookupEnterpriseChannelResult
-	err := ctx.Invoke("azure-nextgen:botservice/latest:getEnterpriseChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/latest:getEnterpriseChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

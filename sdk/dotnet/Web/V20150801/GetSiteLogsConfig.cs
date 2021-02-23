@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteLogsConfig
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Configuration of Azure web site
         /// </summary>
         public static Task<GetSiteLogsConfigResult> InvokeAsync(GetSiteLogsConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-nextgen:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithVersion());
     }
 
 

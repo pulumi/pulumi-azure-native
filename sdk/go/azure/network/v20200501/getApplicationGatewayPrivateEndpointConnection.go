@@ -10,7 +10,7 @@ import (
 // Private Endpoint connection on an application gateway.
 func LookupApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context, args *LookupApplicationGatewayPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayPrivateEndpointConnectionResult, error) {
 	var rv LookupApplicationGatewayPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getApplicationGatewayPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getApplicationGatewayPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An object that represents a webhook for a container registry.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhook'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhook'. */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
-    pulumi.log.warn("getWebhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhook'.")
+    pulumi.log.warn("getWebhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhook'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getWebhook", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:getWebhook", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

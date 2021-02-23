@@ -22,7 +22,7 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20200717preview:WorkloadNetworkPortMirroring';
+    public static readonly __pulumiType = 'azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkPortMirroring.  This is designed to work even
@@ -118,7 +118,7 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkPortMirroring.__pulumiType, name, inputs, opts);
     }

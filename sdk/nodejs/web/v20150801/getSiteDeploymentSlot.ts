@@ -16,7 +16,7 @@ export function getSiteDeploymentSlot(args: GetSiteDeploymentSlotArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSiteDeploymentSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteDeploymentSlot", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

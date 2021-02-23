@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Latest
+namespace Pulumi.AzureNative.DataBox.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:listJobCredentials'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databox:listJobCredentials'.")]
     public static class ListJobCredentials
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-nextgen:databox/latest:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox/latest:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithVersion());
     }
 
 

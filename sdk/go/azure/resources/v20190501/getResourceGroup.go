@@ -10,7 +10,7 @@ import (
 // Resource group information.
 func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupResult, error) {
 	var rv LookupResourceGroupResult
-	err := ctx.Invoke("azure-nextgen:resources/v20190501:getResourceGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20190501:getResourceGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

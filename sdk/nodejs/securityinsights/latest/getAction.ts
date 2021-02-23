@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Action for alert rule.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'. */
 export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
-    pulumi.log.warn("getAction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'.")
+    pulumi.log.warn("getAction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/latest:getAction", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/latest:getAction", {
         "actionId": args.actionId,
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

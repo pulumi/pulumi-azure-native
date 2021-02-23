@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents an incident comment
     /// API Version: 2019-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights:IncidentComment")]
+    [AzureNativeResourceType("azure-native:securityinsights:IncidentComment")]
     public partial class IncidentComment : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IncidentComment(string name, IncidentCommentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:IncidentComment", name, args ?? new IncidentCommentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights:IncidentComment", name, args ?? new IncidentCommentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IncidentComment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights:IncidentComment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights:IncidentComment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IncidentComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:IncidentComment"},
                 },
             };

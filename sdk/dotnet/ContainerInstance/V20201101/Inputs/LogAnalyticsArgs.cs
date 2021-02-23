@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.V20201101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Inputs
         /// The log type to be used.
         /// </summary>
         [Input("logType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20201101.LogAnalyticsLogType>? LogType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20201101.LogAnalyticsLogType>? LogType { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

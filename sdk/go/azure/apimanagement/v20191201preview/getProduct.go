@@ -10,7 +10,7 @@ import (
 // Product details.
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:getProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // A list of custom API WSDL interfaces
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listCustomApiWsdlInterfaces'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'.
 func ListCustomApiWsdlInterfaces(ctx *pulumi.Context, args *ListCustomApiWsdlInterfacesArgs, opts ...pulumi.InvokeOption) (*ListCustomApiWsdlInterfacesResult, error) {
 	var rv ListCustomApiWsdlInterfacesResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listCustomApiWsdlInterfaces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listCustomApiWsdlInterfaces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

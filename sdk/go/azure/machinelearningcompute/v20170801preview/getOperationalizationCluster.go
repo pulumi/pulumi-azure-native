@@ -10,7 +10,7 @@ import (
 // Instance of an Azure ML Operationalization Cluster resource.
 func LookupOperationalizationCluster(ctx *pulumi.Context, args *LookupOperationalizationClusterArgs, opts ...pulumi.InvokeOption) (*LookupOperationalizationClusterResult, error) {
 	var rv LookupOperationalizationClusterResult
-	err := ctx.Invoke("azure-nextgen:machinelearningcompute/v20170801preview:getOperationalizationCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Streaming Locators associated with this Asset.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetStreamingLocators'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetStreamingLocators'. */
 export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetStreamingLocatorsResult> {
-    pulumi.log.warn("listAssetStreamingLocators is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetStreamingLocators'.")
+    pulumi.log.warn("listAssetStreamingLocators is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetStreamingLocators'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listAssetStreamingLocators", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listAssetStreamingLocators", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,

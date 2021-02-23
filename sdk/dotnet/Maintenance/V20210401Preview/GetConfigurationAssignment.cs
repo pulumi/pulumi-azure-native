@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
+namespace Pulumi.AzureNative.Maintenance.V20210401Preview
 {
     public static class GetConfigurationAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview
         /// Configuration Assignment
         /// </summary>
         public static Task<GetConfigurationAssignmentResult> InvokeAsync(GetConfigurationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentResult>("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignment", args ?? new GetConfigurationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentResult>("azure-native:maintenance/v20210401preview:getConfigurationAssignment", args ?? new GetConfigurationAssignmentArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest.Inputs
+namespace Pulumi.AzureNative.Web.Latest.Inputs
 {
 
     /// <summary>
@@ -19,11 +19,11 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Log level.
         /// </summary>
         [Input("level")]
-        public Input<Pulumi.AzureNextGen.Web.Latest.LogLevel>? Level { get; set; }
+        public Input<Pulumi.AzureNative.Web.Latest.LogLevel>? Level { get; set; }
 
         public FileSystemApplicationLogsConfigArgs()
         {
-            Level = Pulumi.AzureNextGen.Web.Latest.LogLevel.Off;
+            Level = Pulumi.AzureNative.Web.Latest.LogLevel.Off;
         }
     }
 }

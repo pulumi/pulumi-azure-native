@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-20.
 func LookupMyWorkbook(ctx *pulumi.Context, args *LookupMyWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupMyWorkbookResult, error) {
 	var rv LookupMyWorkbookResult
-	err := ctx.Invoke("azure-nextgen:insights:getMyWorkbook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getMyWorkbook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

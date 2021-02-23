@@ -17,7 +17,7 @@ export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse:getPrivateLinkHub", {
+    return pulumi.runtime.invoke("azure-native:synapse:getPrivateLinkHub", {
         "privateLinkHubName": args.privateLinkHubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

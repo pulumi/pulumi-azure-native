@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The storage account.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccount {
-        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")
+        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.")
         return new StorageAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:StorageAccount';
+    public static readonly __pulumiType = 'azure-native:storage/latest:StorageAccount';
 
     /**
      * Returns true if the given object is an instance of StorageAccount.  This is designed to work even
@@ -183,9 +183,9 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'. */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:StorageAccount'.")
+        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
@@ -276,7 +276,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:StorageAccount" }, { type: "azure-nextgen:storage/v20150501preview:StorageAccount" }, { type: "azure-nextgen:storage/v20150615:StorageAccount" }, { type: "azure-nextgen:storage/v20160101:StorageAccount" }, { type: "azure-nextgen:storage/v20160501:StorageAccount" }, { type: "azure-nextgen:storage/v20161201:StorageAccount" }, { type: "azure-nextgen:storage/v20170601:StorageAccount" }, { type: "azure-nextgen:storage/v20171001:StorageAccount" }, { type: "azure-nextgen:storage/v20180201:StorageAccount" }, { type: "azure-nextgen:storage/v20180301preview:StorageAccount" }, { type: "azure-nextgen:storage/v20180701:StorageAccount" }, { type: "azure-nextgen:storage/v20181101:StorageAccount" }, { type: "azure-nextgen:storage/v20190401:StorageAccount" }, { type: "azure-nextgen:storage/v20190601:StorageAccount" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccount" }, { type: "azure-nextgen:storage/v20210101:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccount" }, { type: "azure-nextgen:storage:StorageAccount" }, { type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-nextgen:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-nextgen:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-nextgen:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-nextgen:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-nextgen:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-nextgen:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-nextgen:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-nextgen:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-nextgen:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-nextgen:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-nextgen:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-nextgen:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-nextgen:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-nextgen:storage/v20210101:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

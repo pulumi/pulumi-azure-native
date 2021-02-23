@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB trigger.
 func LookupSqlResourceSqlTrigger(ctx *pulumi.Context, args *LookupSqlResourceSqlTriggerArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlTriggerResult, error) {
 	var rv LookupSqlResourceSqlTriggerResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getSqlResourceSqlTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

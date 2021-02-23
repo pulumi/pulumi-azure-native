@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Migration item.
  * Latest API Version: 2018-07-10.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'.
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationMigrationItem {
-        pulumi.log.warn("ReplicationMigrationItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'.")
+        pulumi.log.warn("ReplicationMigrationItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'.")
         return new ReplicationMigrationItem(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ReplicationMigrationItem';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/latest:ReplicationMigrationItem';
 
     /**
      * Returns true if the given object is an instance of ReplicationMigrationItem.  This is designed to work even
@@ -63,9 +63,9 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'. */
     constructor(name: string, args: ReplicationMigrationItemArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationMigrationItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationMigrationItem'.")
+        pulumi.log.warn("ReplicationMigrationItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationMigrationItem'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
@@ -105,7 +105,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20180110:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationMigrationItem" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationMigrationItem.__pulumiType, name, inputs, opts);
     }

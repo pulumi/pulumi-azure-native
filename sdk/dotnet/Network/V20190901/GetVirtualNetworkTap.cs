@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190901
+namespace Pulumi.AzureNative.Network.V20190901
 {
     public static class GetVirtualNetworkTap
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// Virtual Network Tap resource.
         /// </summary>
         public static Task<GetVirtualNetworkTapResult> InvokeAsync(GetVirtualNetworkTapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-nextgen:network/v20190901:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-native:network/v20190901:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithVersion());
     }
 
 

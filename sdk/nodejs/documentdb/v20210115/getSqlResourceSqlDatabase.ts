@@ -16,7 +16,7 @@ export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20210115:getSqlResourceSqlDatabase", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20210115:getSqlResourceSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

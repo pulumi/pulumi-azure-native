@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// The SKU name of the container registry. Required for registry creation.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20191201Preview.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.Latest
+namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Backup of a Volume
     /// Latest API Version: 2020-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Backup'.")]
-    [AzureNextGenResourceType("azure-nextgen:netapp/latest:Backup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Backup'.")]
+    [AzureNativeResourceType("azure-native:netapp/latest:Backup")]
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Backup(string name, BackupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp/latest:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Backup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:Backup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp/latest:Backup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,12 +102,19 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Backup"},
                 },
             };

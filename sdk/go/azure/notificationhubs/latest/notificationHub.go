@@ -14,7 +14,7 @@ import (
 // Description of a NotificationHub Resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NotificationHub'.
 type NotificationHub struct {
 	pulumi.CustomResourceState
 
@@ -61,13 +61,25 @@ func NewNotificationHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs:NotificationHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20140901:NotificationHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20140901:NotificationHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:NotificationHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NotificationHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20170401:NotificationHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:NotificationHub"),
@@ -75,7 +87,7 @@ func NewNotificationHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationHub
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs/latest:NotificationHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs/latest:NotificationHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +99,7 @@ func NewNotificationHub(ctx *pulumi.Context,
 func GetNotificationHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationHubState, opts ...pulumi.ResourceOption) (*NotificationHub, error) {
 	var resource NotificationHub
-	err := ctx.ReadResource("azure-nextgen:notificationhubs/latest:NotificationHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs/latest:NotificationHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

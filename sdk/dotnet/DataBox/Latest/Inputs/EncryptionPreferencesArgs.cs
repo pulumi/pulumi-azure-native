@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
+namespace Pulumi.AzureNative.DataBox.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// Defines secondary layer of software-based encryption enablement.
         /// </summary>
         [Input("doubleEncryption")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.DoubleEncryption>? DoubleEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBox.Latest.DoubleEncryption>? DoubleEncryption { get; set; }
 
         public EncryptionPreferencesArgs()
         {

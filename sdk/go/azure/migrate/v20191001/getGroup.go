@@ -10,7 +10,7 @@ import (
 // A group created in a Migration project.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20191001:getGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20191001:getGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -55,7 +55,13 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:marketplace:PrivateStoreOffer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
+		},
+		{
+			Type: pulumi.String("azure-native:marketplace/latest:PrivateStoreOffer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:marketplace/latest:PrivateStoreOffer"),
@@ -63,7 +69,7 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateStoreOffer
-	err := ctx.RegisterResource("azure-nextgen:marketplace/v20200101:PrivateStoreOffer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:marketplace/v20200101:PrivateStoreOffer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +81,7 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 func GetPrivateStoreOffer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateStoreOfferState, opts ...pulumi.ResourceOption) (*PrivateStoreOffer, error) {
 	var resource PrivateStoreOffer
-	err := ctx.ReadResource("azure-nextgen:marketplace/v20200101:PrivateStoreOffer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:marketplace/v20200101:PrivateStoreOffer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

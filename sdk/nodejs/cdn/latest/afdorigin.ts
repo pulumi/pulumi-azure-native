@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOrigin'.
  */
 export class AFDOrigin extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AFDOrigin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AFDOrigin {
-        pulumi.log.warn("AFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.")
+        pulumi.log.warn("AFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOrigin'.")
         return new AFDOrigin(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/latest:AFDOrigin';
+    public static readonly __pulumiType = 'azure-native:cdn/latest:AFDOrigin';
 
     /**
      * Returns true if the given object is an instance of AFDOrigin.  This is designed to work even
@@ -100,9 +100,9 @@ export class AFDOrigin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOrigin'. */
     constructor(name: string, args: AFDOriginArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDOrigin'.")
+        pulumi.log.warn("AFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDOrigin'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
@@ -158,7 +158,7 @@ export class AFDOrigin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDOrigin" }, { type: "azure-nextgen:cdn/v20200901:AFDOrigin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDOrigin" }, { type: "azure-nextgen:cdn:AFDOrigin" }, { type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-nextgen:cdn/v20200901:AFDOrigin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDOrigin.__pulumiType, name, inputs, opts);
     }

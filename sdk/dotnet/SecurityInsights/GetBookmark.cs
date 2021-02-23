@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights
+namespace Pulumi.AzureNative.SecurityInsights
 {
     public static class GetBookmark
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-nextgen:securityinsights:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkArgs(), options.WithVersion());
     }
 
 

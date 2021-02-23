@@ -10,7 +10,7 @@ import (
 // Status of gateway is live.
 func ListServerGatewayStatus(ctx *pulumi.Context, args *ListServerGatewayStatusArgs, opts ...pulumi.InvokeOption) (*ListServerGatewayStatusResult, error) {
 	var rv ListServerGatewayStatusResult
-	err := ctx.Invoke("azure-nextgen:analysisservices/v20170801:listServerGatewayStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:analysisservices/v20170801:listServerGatewayStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

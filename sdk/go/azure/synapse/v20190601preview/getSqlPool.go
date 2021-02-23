@@ -10,7 +10,7 @@ import (
 // A SQL Analytics pool
 func LookupSqlPool(ctx *pulumi.Context, args *LookupSqlPoolArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolResult, error) {
 	var rv LookupSqlPoolResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20190601preview:getSqlPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20190601preview:getSqlPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

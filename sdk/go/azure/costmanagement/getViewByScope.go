@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupViewByScope(ctx *pulumi.Context, args *LookupViewByScopeArgs, opts ...pulumi.InvokeOption) (*LookupViewByScopeResult, error) {
 	var rv LookupViewByScopeResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getViewByScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getViewByScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

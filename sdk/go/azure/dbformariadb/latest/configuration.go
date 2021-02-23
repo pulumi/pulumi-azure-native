@@ -14,7 +14,7 @@ import (
 // Represents a Configuration.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Configuration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Configuration'.
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -51,10 +51,19 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:Configuration"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:Configuration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:Configuration"),
@@ -62,7 +71,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Configuration
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/latest:Configuration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/latest:Configuration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +83,7 @@ func NewConfiguration(ctx *pulumi.Context,
 func GetConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	var resource Configuration
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/latest:Configuration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/latest:Configuration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

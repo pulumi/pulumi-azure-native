@@ -40,10 +40,19 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization/latest:ManagementLockAtSubscriptionLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel"),
@@ -51,7 +60,7 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockAtSubscriptionLevel
-	err := ctx.RegisterResource("azure-nextgen:authorization:ManagementLockAtSubscriptionLevel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization:ManagementLockAtSubscriptionLevel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +72,7 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 func GetManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementLockAtSubscriptionLevelState, opts ...pulumi.ResourceOption) (*ManagementLockAtSubscriptionLevel, error) {
 	var resource ManagementLockAtSubscriptionLevel
-	err := ctx.ReadResource("azure-nextgen:authorization:ManagementLockAtSubscriptionLevel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization:ManagementLockAtSubscriptionLevel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

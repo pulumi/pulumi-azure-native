@@ -17,7 +17,7 @@ export function getManagerEncryptionKey(args: GetManagerEncryptionKeyArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getManagerEncryptionKey", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getManagerEncryptionKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

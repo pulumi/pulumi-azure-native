@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200630
+namespace Pulumi.AzureNative.Compute.V20200630
 {
     public static class GetDiskAccess
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         /// disk access resource.
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-nextgen:compute/v20200630:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute/v20200630:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithVersion());
     }
 
 

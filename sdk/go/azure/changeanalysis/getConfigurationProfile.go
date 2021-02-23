@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationProfileArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileResult, error) {
 	var rv LookupConfigurationProfileResult
-	err := ctx.Invoke("azure-nextgen:changeanalysis:getConfigurationProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:changeanalysis:getConfigurationProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

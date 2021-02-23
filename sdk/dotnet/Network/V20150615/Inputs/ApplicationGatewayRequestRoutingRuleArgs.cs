@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
+namespace Pulumi.AzureNative.Network.V20150615.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
         /// Rule type. Possible values are: 'Basic' and 'PathBasedRouting'.
         /// </summary>
         [Input("ruleType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150615.ApplicationGatewayRequestRoutingRuleType>? RuleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150615.ApplicationGatewayRequestRoutingRuleType>? RuleType { get; set; }
 
         /// <summary>
         /// URL path map resource of the application gateway.

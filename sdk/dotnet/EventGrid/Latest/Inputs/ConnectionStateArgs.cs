@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.Latest.Inputs
+namespace Pulumi.AzureNative.EventGrid.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Inputs
         /// Status of the connection.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.PersistedConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.Latest.PersistedConnectionStatus>? Status { get; set; }
 
         public ConnectionStateArgs()
         {

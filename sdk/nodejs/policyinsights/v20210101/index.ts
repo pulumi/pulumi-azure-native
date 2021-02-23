@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:policyinsights/v20210101:AttestationAtResource":
+            case "azure-native:policyinsights/v20210101:AttestationAtResource":
                 return new AttestationAtResource(name, <any>undefined, { urn })
-            case "azure-nextgen:policyinsights/v20210101:AttestationAtResourceGroup":
+            case "azure-native:policyinsights/v20210101:AttestationAtResourceGroup":
                 return new AttestationAtResourceGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:policyinsights/v20210101:AttestationAtSubscription":
+            case "azure-native:policyinsights/v20210101:AttestationAtSubscription":
                 return new AttestationAtSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "policyinsights/v20210101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "policyinsights/v20210101", _module)

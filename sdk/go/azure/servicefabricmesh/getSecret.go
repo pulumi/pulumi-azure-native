@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

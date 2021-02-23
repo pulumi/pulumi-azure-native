@@ -14,7 +14,7 @@ import (
 // The policy set definition.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:PolicySetDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicySetDefinition'.
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 
@@ -50,28 +50,55 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20170601preview:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180301:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20180501:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190101:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20190601:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20190901:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20190901:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20200301:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicySetDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200901:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicySetDefinition"),
@@ -79,7 +106,7 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PolicySetDefinition
-	err := ctx.RegisterResource("azure-nextgen:authorization/latest:PolicySetDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/latest:PolicySetDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +118,7 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 func GetPolicySetDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicySetDefinitionState, opts ...pulumi.ResourceOption) (*PolicySetDefinition, error) {
 	var resource PolicySetDefinition
-	err := ctx.ReadResource("azure-nextgen:authorization/latest:PolicySetDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/latest:PolicySetDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

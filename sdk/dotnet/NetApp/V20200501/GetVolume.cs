@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20200501
+namespace Pulumi.AzureNative.NetApp.V20200501
 {
     public static class GetVolume
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         /// Volume resource
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-nextgen:netapp/v20200501:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:netapp/v20200501:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ import (
 // Public IP prefix resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PublicIPPrefix'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PublicIPPrefix'.
 type PublicIPPrefix struct {
 	pulumi.CustomResourceState
 
@@ -66,61 +66,121 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PublicIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIPPrefix"),
@@ -128,7 +188,7 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPPrefix
-	err := ctx.RegisterResource("azure-nextgen:network/latest:PublicIPPrefix", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:PublicIPPrefix", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -140,7 +200,7 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 func GetPublicIPPrefix(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublicIPPrefixState, opts ...pulumi.ResourceOption) (*PublicIPPrefix, error) {
 	var resource PublicIPPrefix
-	err := ctx.ReadResource("azure-nextgen:network/latest:PublicIPPrefix", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:PublicIPPrefix", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

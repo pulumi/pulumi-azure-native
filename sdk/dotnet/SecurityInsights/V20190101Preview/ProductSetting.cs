@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// The Setting.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:ProductSetting")]
+    [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:ProductSetting")]
     public partial class ProductSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductSetting(string name, ProductSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:ProductSetting", name, args ?? new ProductSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/v20190101preview:ProductSetting", name, args ?? new ProductSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProductSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:ProductSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/v20190101preview:ProductSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:ProductSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:ProductSetting"},
                 },
             };
@@ -98,7 +99,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The kind of the setting
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.SettingKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.SettingKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

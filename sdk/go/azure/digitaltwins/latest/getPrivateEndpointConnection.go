@@ -10,10 +10,10 @@ import (
 // The private endpoint connection of a Digital Twin.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getPrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getPrivateEndpointConnection'.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins/latest:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins/latest:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

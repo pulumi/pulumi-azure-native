@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     public static class GetSystemTopicEventSubscriptionDeliveryAttributes
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// Result of the Get delivery attributes operation.
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetSystemTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-nextgen:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20201015preview:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesArgs(), options.WithVersion());
     }
 
 

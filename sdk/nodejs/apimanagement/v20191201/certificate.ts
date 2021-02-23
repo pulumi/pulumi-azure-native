@@ -21,7 +21,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:Certificate';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -101,7 +101,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Certificate" }, { type: "azure-nextgen:apimanagement/latest:Certificate" }, { type: "azure-nextgen:apimanagement/v20160707:Certificate" }, { type: "azure-nextgen:apimanagement/v20161010:Certificate" }, { type: "azure-nextgen:apimanagement/v20170301:Certificate" }, { type: "azure-nextgen:apimanagement/v20180101:Certificate" }, { type: "azure-nextgen:apimanagement/v20180601preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20190101:Certificate" }, { type: "azure-nextgen:apimanagement/v20191201preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20200601preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Certificate" }, { type: "azure-nextgen:apimanagement:Certificate" }, { type: "azure-native:apimanagement/latest:Certificate" }, { type: "azure-nextgen:apimanagement/latest:Certificate" }, { type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-nextgen:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-nextgen:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-nextgen:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-nextgen:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-nextgen:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20200601preview:Certificate" }, { type: "azure-nextgen:apimanagement/v20200601preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

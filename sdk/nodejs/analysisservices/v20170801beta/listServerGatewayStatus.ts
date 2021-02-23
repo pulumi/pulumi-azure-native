@@ -16,7 +16,7 @@ export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:analysisservices/v20170801beta:listServerGatewayStatus", {
+    return pulumi.runtime.invoke("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

@@ -10,10 +10,10 @@ import (
 // Connection information for encrypting the on-premises data source credentials.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getIntegrationRuntimeConnectionInfo'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeConnectionInfo'.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

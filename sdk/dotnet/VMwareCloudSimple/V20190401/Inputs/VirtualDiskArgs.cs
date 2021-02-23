@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401.Inputs
+namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401.Inputs
         /// Disk's independence mode type
         /// </summary>
         [Input("independenceMode", required: true)]
-        public Input<Pulumi.AzureNextGen.VMwareCloudSimple.V20190401.DiskIndependenceMode> IndependenceMode { get; set; } = null!;
+        public Input<Pulumi.AzureNative.VMwareCloudSimple.V20190401.DiskIndependenceMode> IndependenceMode { get; set; } = null!;
 
         /// <summary>
         /// Disk's total size

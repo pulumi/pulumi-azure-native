@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
+namespace Pulumi.AzureNative.Kusto.V20180907Preview
 {
     public static class ListDatabasePrincipals
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-nextgen:kusto/v20180907preview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20180907preview:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
     }
 
 

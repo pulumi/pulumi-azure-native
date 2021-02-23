@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-30.
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	var rv LookupDiskAccessResult
-	err := ctx.Invoke("azure-nextgen:compute:getDiskAccess", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getDiskAccess", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

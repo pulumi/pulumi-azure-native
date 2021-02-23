@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview.Inputs
+namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview.Inputs
         /// The type of AAD object the object identifier refers to.
         /// </summary>
         [Input("objectType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataLakeAnalytics.V20151001Preview.AADObjectType> ObjectType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.AADObjectType> ObjectType { get; set; } = null!;
 
         public CreateComputePolicyWithAccountParametersArgs()
         {

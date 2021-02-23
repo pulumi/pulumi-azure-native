@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
-    [AzureNextGenResourceType("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration")]
+    [AzureNativeResourceType("azure-native:providerhub/v20201120:OperationByProviderRegistration")]
     public partial class OperationByProviderRegistration : Pulumi.CustomResource
     {
         [Output("actionType")]
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OperationByProviderRegistration(string name, OperationByProviderRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration", name, args ?? new OperationByProviderRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub/v20201120:OperationByProviderRegistration", name, args ?? new OperationByProviderRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OperationByProviderRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub/v20201120:OperationByProviderRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:OperationByProviderRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:OperationByProviderRegistration"},
                 },
             };

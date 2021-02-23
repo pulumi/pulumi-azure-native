@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200930
+namespace Pulumi.AzureNative.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20200930:GalleryImage")]
+    [AzureNativeResourceType("azure-native:compute/v20200930:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryImage(string name, GalleryImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200930:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20200930:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20200930:GalleryImage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20200930:GalleryImage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,11 +148,17 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:GalleryImage"},
                 },
             };
@@ -229,7 +235,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200930.HyperVGeneration>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20200930.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// This is the gallery image definition identifier.
@@ -247,13 +253,13 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         /// </summary>
         [Input("osState", required: true)]
-        public Input<Pulumi.AzureNextGen.Compute.V20200930.OperatingSystemStateTypes> OsState { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Compute.V20200930.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
         /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("osType", required: true)]
-        public Input<Pulumi.AzureNextGen.Compute.V20200930.OperatingSystemTypes> OsType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Compute.V20200930.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The privacy statement uri.

@@ -53,31 +53,61 @@ func NewProduct(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Product"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Product"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Product"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Product"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:Product"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Product"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:Product"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Product"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:Product"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Product"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:Product"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Product"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Product"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Product"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Product"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Product"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Product"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Product"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Product"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Product"),
@@ -85,7 +115,7 @@ func NewProduct(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Product
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20191201:Product", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20191201:Product", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +127,7 @@ func NewProduct(ctx *pulumi.Context,
 func GetProduct(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProductState, opts ...pulumi.ResourceOption) (*Product, error) {
 	var resource Product
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20191201:Product", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20191201:Product", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

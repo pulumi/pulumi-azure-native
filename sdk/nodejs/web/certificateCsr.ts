@@ -22,7 +22,7 @@ export class CertificateCsr extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:CertificateCsr';
+    public static readonly __pulumiType = 'azure-native:web:CertificateCsr';
 
     /**
      * Returns true if the given object is an instance of CertificateCsr.  This is designed to work even
@@ -126,7 +126,7 @@ export class CertificateCsr extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:CertificateCsr" }, { type: "azure-nextgen:web/v20150801:CertificateCsr" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:CertificateCsr" }, { type: "azure-nextgen:web/latest:CertificateCsr" }, { type: "azure-native:web/v20150801:CertificateCsr" }, { type: "azure-nextgen:web/v20150801:CertificateCsr" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateCsr.__pulumiType, name, inputs, opts);
     }

@@ -10,10 +10,10 @@ import (
 // Definition of the variable.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getVariable'.
 func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulumi.InvokeOption) (*LookupVariableResult, error) {
 	var rv LookupVariableResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getVariable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getVariable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

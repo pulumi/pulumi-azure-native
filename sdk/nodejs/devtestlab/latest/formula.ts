@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A formula for creating a VM, specifying an image base and other parameters
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Formula'.
  */
 export class Formula extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Formula extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Formula {
-        pulumi.log.warn("Formula is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.")
+        pulumi.log.warn("Formula is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Formula'.")
         return new Formula(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Formula';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Formula';
 
     /**
      * Returns true if the given object is an instance of Formula.  This is designed to work even
@@ -95,9 +95,9 @@ export class Formula extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Formula'. */
     constructor(name: string, args: FormulaArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Formula is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Formula'.")
+        pulumi.log.warn("Formula is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Formula'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -141,7 +141,7 @@ export class Formula extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20160515:Formula" }, { type: "azure-nextgen:devtestlab/v20180915:Formula" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20160515:Formula" }, { type: "azure-nextgen:devtestlab/v20160515:Formula" }, { type: "azure-native:devtestlab/v20180915:Formula" }, { type: "azure-nextgen:devtestlab/v20180915:Formula" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Formula.__pulumiType, name, inputs, opts);
     }

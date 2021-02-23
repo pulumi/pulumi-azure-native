@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
+namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
     /// <summary>
     /// User configurable setting that describes the status of the assessment.

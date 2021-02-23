@@ -14,7 +14,7 @@ import (
 // Represents a server.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Server'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:Server'.
 type Server struct {
 	pulumi.CustomResourceState
 
@@ -77,10 +77,19 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:Server"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Server"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Server"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:Server"),
@@ -88,7 +97,7 @@ func NewServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Server
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/latest:Server", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/latest:Server", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +109,7 @@ func NewServer(ctx *pulumi.Context,
 func GetServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
 	var resource Server
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/latest:Server", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/latest:Server", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

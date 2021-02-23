@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Function information.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebAppFunction")]
+    [AzureNativeResourceType("azure-native:web:WebAppFunction")]
     public partial class WebAppFunction : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppFunction(string name, WebAppFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppFunction", name, args ?? new WebAppFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebAppFunction", name, args ?? new WebAppFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebAppFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,13 +143,21 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppFunction"},
                 },
             };

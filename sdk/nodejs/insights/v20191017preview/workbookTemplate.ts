@@ -22,7 +22,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20191017preview:WorkbookTemplate';
+    public static readonly __pulumiType = 'azure-native:insights/v20191017preview:WorkbookTemplate';
 
     /**
      * Returns true if the given object is an instance of WorkbookTemplate.  This is designed to work even
@@ -120,7 +120,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:WorkbookTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:WorkbookTemplate" }, { type: "azure-nextgen:insights:WorkbookTemplate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkbookTemplate.__pulumiType, name, inputs, opts);
     }

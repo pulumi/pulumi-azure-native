@@ -10,7 +10,7 @@ import (
 // The X509 Certificate.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:devices/v20200301:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20200301:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

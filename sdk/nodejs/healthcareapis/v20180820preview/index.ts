@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:healthcareapis/v20180820preview:Service":
+            case "azure-native:healthcareapis/v20180820preview:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "healthcareapis/v20180820preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "healthcareapis/v20180820preview", _module)

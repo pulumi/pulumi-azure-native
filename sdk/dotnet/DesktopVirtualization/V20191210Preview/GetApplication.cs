@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
 {
     public static class GetApplication
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview
         /// Schema for Application properties.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-nextgen:desktopvirtualization/v20191210preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:desktopvirtualization/v20191210preview:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
 
 

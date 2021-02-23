@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
-	err := ctx.Invoke("azure-nextgen:cdn:getProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

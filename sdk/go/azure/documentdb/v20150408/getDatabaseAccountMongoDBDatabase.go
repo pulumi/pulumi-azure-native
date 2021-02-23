@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB MongoDB database.
 func LookupDatabaseAccountMongoDBDatabase(ctx *pulumi.Context, args *LookupDatabaseAccountMongoDBDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountMongoDBDatabaseResult, error) {
 	var rv LookupDatabaseAccountMongoDBDatabaseResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20150408:getDatabaseAccountMongoDBDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20150408:getDatabaseAccountMongoDBDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

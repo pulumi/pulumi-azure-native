@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest
+namespace Pulumi.AzureNative.Media.Latest
 {
     /// <summary>
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Transform'.")]
-    [AzureNextGenResourceType("azure-nextgen:media/latest:Transform")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Transform'.")]
+    [AzureNativeResourceType("azure-native:media/latest:Transform")]
     public partial class Transform : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Transform(string name, TransformArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:Transform", name, args ?? new TransformArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/latest:Transform", name, args ?? new TransformArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Transform(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/latest:Transform", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/latest:Transform", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,10 +84,15 @@ namespace Pulumi.AzureNextGen.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Transform"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Transform"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Transform"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Transform"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:Transform"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Transform"},
                 },
             };

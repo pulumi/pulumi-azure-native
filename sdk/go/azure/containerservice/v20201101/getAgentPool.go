@@ -10,7 +10,7 @@ import (
 // Agent Pool.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
-	err := ctx.Invoke("azure-nextgen:containerservice/v20201101:getAgentPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/v20201101:getAgentPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

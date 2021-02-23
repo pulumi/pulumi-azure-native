@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20200601
+namespace Pulumi.AzureNative.Cache.V20200601
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache/v20200601:PatchSchedule")]
+    [AzureNativeResourceType("azure-native:cache/v20200601:PatchSchedule")]
     public partial class PatchSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PatchSchedule(string name, PatchScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/v20200601:PatchSchedule", name, args ?? new PatchScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/v20200601:PatchSchedule", name, args ?? new PatchScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PatchSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/v20200601:PatchSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/v20200601:PatchSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,10 +58,15 @@ namespace Pulumi.AzureNextGen.Cache.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:PatchSchedule"},
                 },
             };

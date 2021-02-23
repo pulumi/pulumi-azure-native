@@ -14,7 +14,7 @@ import (
 // The customer's ASN that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredAsn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredAsn'.
 type RegisteredAsn struct {
 	pulumi.CustomResourceState
 
@@ -45,13 +45,25 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering:RegisteredAsn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering:RegisteredAsn"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:RegisteredAsn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredAsn"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:RegisteredAsn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:RegisteredAsn"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:RegisteredAsn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredAsn"),
@@ -59,7 +71,7 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredAsn
-	err := ctx.RegisterResource("azure-nextgen:peering/latest:RegisteredAsn", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering/latest:RegisteredAsn", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +83,7 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 func GetRegisteredAsn(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegisteredAsnState, opts ...pulumi.ResourceOption) (*RegisteredAsn, error) {
 	var resource RegisteredAsn
-	err := ctx.ReadResource("azure-nextgen:peering/latest:RegisteredAsn", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering/latest:RegisteredAsn", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

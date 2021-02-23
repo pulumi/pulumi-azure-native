@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
+namespace Pulumi.AzureNative.ContainerService.V20180801Preview
 {
     public static class GetManagedCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// Managed cluster.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-nextgen:containerservice/v20180801preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice/v20180801preview:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
     }
 
 

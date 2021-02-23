@@ -11,7 +11,7 @@ import (
 // API Version: 2018-04-01.
 func LookupTrafficManagerUserMetricsKey(ctx *pulumi.Context, args *LookupTrafficManagerUserMetricsKeyArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerUserMetricsKeyResult, error) {
 	var rv LookupTrafficManagerUserMetricsKeyResult
-	err := ctx.Invoke("azure-nextgen:network:getTrafficManagerUserMetricsKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getTrafficManagerUserMetricsKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

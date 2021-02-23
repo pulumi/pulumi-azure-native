@@ -53,16 +53,31 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:mixedreality:RemoteRenderingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality:RemoteRenderingAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:mixedreality/latest:RemoteRenderingAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/latest:RemoteRenderingAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:mixedreality/v20210101:RemoteRenderingAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount"),
@@ -70,7 +85,7 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RemoteRenderingAccount
-	err := ctx.RegisterResource("azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:mixedreality/v20210301preview:RemoteRenderingAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 func GetRemoteRenderingAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RemoteRenderingAccountState, opts ...pulumi.ResourceOption) (*RemoteRenderingAccount, error) {
 	var resource RemoteRenderingAccount
-	err := ctx.ReadResource("azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:mixedreality/v20210301preview:RemoteRenderingAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

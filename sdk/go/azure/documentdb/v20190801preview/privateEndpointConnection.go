@@ -44,10 +44,19 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"),
@@ -55,7 +64,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/v20190801preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/v20190801preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler
+namespace Pulumi.AzureNative.Scheduler
 {
     /// <summary>
     /// API Version: 2016-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:scheduler:Job")]
+    [AzureNativeResourceType("azure-native:scheduler:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Scheduler
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:scheduler:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:scheduler:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:scheduler:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:scheduler:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,9 +58,13 @@ namespace Pulumi.AzureNextGen.Scheduler
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:scheduler/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20140801preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20140801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:scheduler/v20160301:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20160301:Job"},
                 },
             };

@@ -17,7 +17,7 @@ export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azuredata:getPostgresInstance", {
+    return pulumi.runtime.invoke("azure-native:azuredata:getPostgresInstance", {
         "postgresInstanceName": args.postgresInstanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

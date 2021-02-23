@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20180501
+namespace Pulumi.AzureNative.BatchAI.V20180501
 {
     /// <summary>
     /// Experiment information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batchai/v20180501:Experiment")]
+    [AzureNativeResourceType("azure-native:batchai/v20180501:Experiment")]
     public partial class Experiment : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Experiment(string name, ExperimentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/v20180501:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/v20180501:Experiment", name, args ?? new ExperimentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Experiment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/v20180501:Experiment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/v20180501:Experiment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Experiment"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Experiment"},
                 },
             };

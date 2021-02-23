@@ -23,7 +23,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
-			"azure-nextgen:location": azureLocation,
+			"azure-native:location": azureLocation,
 		},
 	}
 }

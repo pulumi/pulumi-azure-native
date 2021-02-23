@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * disk access resource.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccess'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccess'. */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-    pulumi.log.warn("getDiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskAccess'.")
+    pulumi.log.warn("getDiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccess'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getDiskAccess", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getDiskAccess", {
         "diskAccessName": args.diskAccessName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

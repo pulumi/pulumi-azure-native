@@ -47,13 +47,25 @@ func NewWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppAuthSettingsV2Slot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettingsV2Slot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppAuthSettingsV2Slot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppAuthSettingsV2Slot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppAuthSettingsV2Slot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot"),
@@ -61,7 +73,7 @@ func NewWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettingsV2Slot
-	err := ctx.RegisterResource("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20201001:WebAppAuthSettingsV2Slot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 func GetWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppAuthSettingsV2SlotState, opts ...pulumi.ResourceOption) (*WebAppAuthSettingsV2Slot, error) {
 	var resource WebAppAuthSettingsV2Slot
-	err := ctx.ReadResource("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20201001:WebAppAuthSettingsV2Slot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getVpnGateway", {
+    return pulumi.runtime.invoke("azure-native:network:getVpnGateway", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

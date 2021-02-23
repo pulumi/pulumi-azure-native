@@ -16,7 +16,7 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/v20150701:getRoleDefinition", {
+    return pulumi.runtime.invoke("azure-native:authorization/v20150701:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);

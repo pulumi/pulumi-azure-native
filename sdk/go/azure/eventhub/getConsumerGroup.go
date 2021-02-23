@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupConsumerGroupResult, error) {
 	var rv LookupConsumerGroupResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getConsumerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getConsumerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

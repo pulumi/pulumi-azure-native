@@ -10,10 +10,10 @@ import (
 // A task resource
 // Latest API Version: 2018-04-19.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'.
 func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.InvokeOption) (*LookupTaskResult, error) {
 	var rv LookupTaskResult
-	err := ctx.Invoke("azure-nextgen:datamigration/latest:getTask", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datamigration/latest:getTask", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

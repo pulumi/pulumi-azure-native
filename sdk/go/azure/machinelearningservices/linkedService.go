@@ -43,12 +43,15 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:LinkedService"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices:LinkedService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices:LinkedService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewLinkedService(ctx *pulumi.Context,
 func GetLinkedService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	var resource LinkedService
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices:LinkedService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices:LinkedService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

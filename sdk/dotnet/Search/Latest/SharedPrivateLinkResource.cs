@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.Latest
+namespace Pulumi.AzureNative.Search.Latest
 {
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:SharedPrivateLinkResource'.")]
-    [AzureNextGenResourceType("azure-nextgen:search/latest:SharedPrivateLinkResource")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.")]
+    [AzureNativeResourceType("azure-native:search/latest:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Search.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedPrivateLinkResource(string name, SharedPrivateLinkResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search/latest:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:search/latest:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SharedPrivateLinkResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:search/latest:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:search/latest:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,11 @@ namespace Pulumi.AzureNextGen.Search.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:search:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource"},
                 },
             };

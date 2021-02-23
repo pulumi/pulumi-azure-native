@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
+namespace Pulumi.AzureNative.StoragePool.V20200315Preview
 {
     public static class GetIscsiTarget
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
         /// Response for iSCSI target requests.
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-nextgen:storagepool/v20200315preview:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool/v20200315preview:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithVersion());
     }
 
 

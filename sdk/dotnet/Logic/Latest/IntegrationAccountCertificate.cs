@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The integration account certificate.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountCertificate'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountCertificate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountCertificate'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationAccountCertificate")]
     public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountCertificate(string name, IntegrationAccountCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountCertificate", name, args ?? new IntegrationAccountCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationAccountCertificate", name, args ?? new IntegrationAccountCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationAccountCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,10 +96,15 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountCertificate"},
                 },
             };

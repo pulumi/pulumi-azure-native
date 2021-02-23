@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a network resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh/v20180701preview:Network")]
+    [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Network")]
     public partial class Network : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Network(string name, NetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh/v20180701preview:Network", name, args ?? new NetworkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabricmesh/v20180701preview:Network", name, args ?? new NetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Network(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh/v20180701preview:Network", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabricmesh/v20180701preview:Network", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Network"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh:Network"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Network"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Network"},
                 },
             };

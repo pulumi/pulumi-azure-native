@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20140901
+namespace Pulumi.AzureNative.EventHub.V20140901
 {
     public static class GetEventHub
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// Single item in List or Get Event Hub operation
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-nextgen:eventhub/v20140901:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub/v20140901:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
     }
 
 

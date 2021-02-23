@@ -16,7 +16,7 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20191201:getApiVersionSet", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20191201:getApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "versionSetId": args.versionSetId,

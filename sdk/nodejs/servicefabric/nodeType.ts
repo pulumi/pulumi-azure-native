@@ -23,7 +23,7 @@ export class NodeType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabric:NodeType';
+    public static readonly __pulumiType = 'azure-native:servicefabric:NodeType';
 
     /**
      * Returns true if the given object is an instance of NodeType.  This is designed to work even
@@ -182,7 +182,7 @@ export class NodeType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20200101preview:NodeType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:NodeType" }, { type: "azure-nextgen:servicefabric/v20200101preview:NodeType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NodeType.__pulumiType, name, inputs, opts);
     }

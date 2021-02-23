@@ -45,13 +45,25 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appconfiguration:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/latest:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/latest:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20191101preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200601:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection"),
@@ -59,7 +71,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +83,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

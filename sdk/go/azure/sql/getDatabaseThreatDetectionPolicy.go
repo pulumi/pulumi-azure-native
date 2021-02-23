@@ -11,7 +11,7 @@ import (
 // API Version: 2014-04-01.
 func LookupDatabaseThreatDetectionPolicy(ctx *pulumi.Context, args *LookupDatabaseThreatDetectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseThreatDetectionPolicyResult, error) {
 	var rv LookupDatabaseThreatDetectionPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getDatabaseThreatDetectionPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

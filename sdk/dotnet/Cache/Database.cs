@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
     /// API Version: 2021-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache:Database")]
+    [AzureNativeResourceType("azure-native:cache:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Cache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,8 +101,11 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:Database"},
                 },
             };
@@ -131,7 +134,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         /// </summary>
         [Input("clientProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Protocol>? ClientProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Protocol>? ClientProtocol { get; set; }
 
         /// <summary>
         /// The name of the RedisEnterprise cluster.
@@ -143,7 +146,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// Clustering policy - default is OSSCluster. Specified at create time.
         /// </summary>
         [Input("clusteringPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.ClusteringPolicy>? ClusteringPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.ClusteringPolicy>? ClusteringPolicy { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -155,7 +158,7 @@ namespace Pulumi.AzureNextGen.Cache
         /// Redis eviction policy - default is VolatileLRU
         /// </summary>
         [Input("evictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.EvictionPolicy>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.EvictionPolicy>? EvictionPolicy { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ModuleArgs>? _modules;

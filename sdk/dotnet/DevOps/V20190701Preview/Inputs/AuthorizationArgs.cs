@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Inputs
+namespace Pulumi.AzureNative.DevOps.V20190701Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Inputs
         /// Type of authorization.
         /// </summary>
         [Input("authorizationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DevOps.V20190701Preview.AuthorizationType> AuthorizationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DevOps.V20190701Preview.AuthorizationType> AuthorizationType { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthBot.V20201020
+namespace Pulumi.AzureNative.HealthBot.V20201020
 {
     /// <summary>
     /// Bot resource definition
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:healthbot/v20201020:getbot")]
+    [AzureNativeResourceType("azure-native:healthbot/v20201020:getbot")]
     public partial class Getbot : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Getbot(string name, GetbotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthbot/v20201020:getbot", name, args ?? new GetbotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:healthbot/v20201020:getbot", name, args ?? new GetbotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Getbot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:healthbot/v20201020:getbot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:healthbot/v20201020:getbot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:healthbot:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/latest:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/latest:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020preview:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201208:getbot"},
+                    new Pulumi.Alias { Type = "azure-native:healthbot/v20201208preview:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201208preview:getbot"},
                 },
             };

@@ -22,7 +22,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration';
+    public static readonly __pulumiType = 'azure-native:logic/v20190501:IntegrationAccountBatchConfiguration';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountBatchConfiguration.  This is designed to work even
@@ -97,7 +97,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
     }

@@ -21,33 +21,33 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:servicebus:DisasterRecoveryConfig":
+	case "azure-native:servicebus:DisasterRecoveryConfig":
 		r, err = NewDisasterRecoveryConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:MigrationConfig":
+	case "azure-native:servicebus:MigrationConfig":
 		r, err = NewMigrationConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:Namespace":
+	case "azure-native:servicebus:Namespace":
 		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:NamespaceAuthorizationRule":
+	case "azure-native:servicebus:NamespaceAuthorizationRule":
 		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:NamespaceIpFilterRule":
+	case "azure-native:servicebus:NamespaceIpFilterRule":
 		r, err = NewNamespaceIpFilterRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:NamespaceNetworkRuleSet":
+	case "azure-native:servicebus:NamespaceNetworkRuleSet":
 		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:NamespaceVirtualNetworkRule":
+	case "azure-native:servicebus:NamespaceVirtualNetworkRule":
 		r, err = NewNamespaceVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:PrivateEndpointConnection":
+	case "azure-native:servicebus:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:Queue":
+	case "azure-native:servicebus:Queue":
 		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:QueueAuthorizationRule":
+	case "azure-native:servicebus:QueueAuthorizationRule":
 		r, err = NewQueueAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:Rule":
+	case "azure-native:servicebus:Rule":
 		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:Subscription":
+	case "azure-native:servicebus:Subscription":
 		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:Topic":
+	case "azure-native:servicebus:Topic":
 		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicebus:TopicAuthorizationRule":
+	case "azure-native:servicebus:TopicAuthorizationRule":
 		r, err = NewTopicAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -62,7 +62,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"servicebus",
 		&module{version},
 	)

@@ -9,7 +9,7 @@ import (
 
 func ListWorkspaceNotebookAccessToken(ctx *pulumi.Context, args *ListWorkspaceNotebookAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceNotebookAccessTokenResult, error) {
 	var rv ListWorkspaceNotebookAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20210101:listWorkspaceNotebookAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20210101:listWorkspaceNotebookAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

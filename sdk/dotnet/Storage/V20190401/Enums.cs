@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Storage.V20190401
+namespace Pulumi.AzureNative.Storage.V20190401
 {
     /// <summary>
     /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.

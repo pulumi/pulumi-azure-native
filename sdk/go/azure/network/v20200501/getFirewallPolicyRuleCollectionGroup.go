@@ -10,7 +10,7 @@ import (
 // Rule Collection Group resource.
 func LookupFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context, args *LookupFirewallPolicyRuleCollectionGroupArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyRuleCollectionGroupResult, error) {
 	var rv LookupFirewallPolicyRuleCollectionGroupResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getFirewallPolicyRuleCollectionGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getFirewallPolicyRuleCollectionGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

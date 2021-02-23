@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
+namespace Pulumi.AzureNative.ManagedServices.V20200201Preview
 {
     /// <summary>
     /// MFA provider.

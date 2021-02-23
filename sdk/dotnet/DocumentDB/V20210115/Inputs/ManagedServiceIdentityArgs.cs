@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20210115.Inputs
+namespace Pulumi.AzureNative.DocumentDB.V20210115.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20210115.Inputs
         /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.DocumentDB.V20210115.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DocumentDB.V20210115.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

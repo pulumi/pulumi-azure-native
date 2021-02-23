@@ -23,7 +23,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:Queue';
+    public static readonly __pulumiType = 'azure-native:servicebus:Queue';
 
     /**
      * Returns true if the given object is an instance of Queue.  This is designed to work even
@@ -203,7 +203,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:Queue" }, { type: "azure-nextgen:servicebus/v20140901:Queue" }, { type: "azure-nextgen:servicebus/v20150801:Queue" }, { type: "azure-nextgen:servicebus/v20170401:Queue" }, { type: "azure-nextgen:servicebus/v20180101preview:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:Queue" }, { type: "azure-nextgen:servicebus/latest:Queue" }, { type: "azure-native:servicebus/v20140901:Queue" }, { type: "azure-nextgen:servicebus/v20140901:Queue" }, { type: "azure-native:servicebus/v20150801:Queue" }, { type: "azure-nextgen:servicebus/v20150801:Queue" }, { type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-nextgen:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-nextgen:servicebus/v20180101preview:Queue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Queue.__pulumiType, name, inputs, opts);
     }

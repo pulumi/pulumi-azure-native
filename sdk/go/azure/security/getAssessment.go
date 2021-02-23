@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
-	err := ctx.Invoke("azure-nextgen:security:getAssessment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getAssessment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

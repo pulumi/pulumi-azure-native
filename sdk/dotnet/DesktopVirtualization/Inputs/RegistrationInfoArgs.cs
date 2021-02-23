@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.Inputs
+namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.Inputs
         /// The type of resetting the token.
         /// </summary>
         [Input("registrationTokenOperation")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.RegistrationTokenOperation>? RegistrationTokenOperation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.RegistrationTokenOperation>? RegistrationTokenOperation { get; set; }
 
         /// <summary>
         /// The registration token base64 encoded string.

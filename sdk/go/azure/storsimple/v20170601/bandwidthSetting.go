@@ -45,7 +45,13 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BandwidthSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BandwidthSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:BandwidthSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:BandwidthSetting"),
@@ -53,7 +59,7 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSetting
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:BandwidthSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:BandwidthSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 func GetBandwidthSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BandwidthSettingState, opts ...pulumi.ResourceOption) (*BandwidthSetting, error) {
 	var resource BandwidthSetting
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:BandwidthSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:BandwidthSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

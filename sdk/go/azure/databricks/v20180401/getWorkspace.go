@@ -10,7 +10,7 @@ import (
 // Information about workspace.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:databricks/v20180401:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databricks/v20180401:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

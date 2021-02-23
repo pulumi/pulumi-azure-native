@@ -10,10 +10,10 @@ import (
 // Base class for backup items.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectedItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectedItem'.
 func LookupProtectedItem(ctx *pulumi.Context, args *LookupProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupProtectedItemResult, error) {
 	var rv LookupProtectedItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getProtectedItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getProtectedItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

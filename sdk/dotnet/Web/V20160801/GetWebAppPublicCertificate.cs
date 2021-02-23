@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801
+namespace Pulumi.AzureNative.Web.V20160801
 {
     public static class GetWebAppPublicCertificate
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// Public certificate object
         /// </summary>
         public static Task<GetWebAppPublicCertificateResult> InvokeAsync(GetWebAppPublicCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-nextgen:web/v20160801:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateResult>("azure-native:web/v20160801:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateArgs(), options.WithVersion());
     }
 
 

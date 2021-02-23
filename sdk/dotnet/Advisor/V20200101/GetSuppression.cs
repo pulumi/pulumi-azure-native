@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Advisor.V20200101
+namespace Pulumi.AzureNative.Advisor.V20200101
 {
     public static class GetSuppression
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
         /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-nextgen:advisor/v20200101:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor/v20200101:getSuppression", args ?? new GetSuppressionArgs(), options.WithVersion());
     }
 
 

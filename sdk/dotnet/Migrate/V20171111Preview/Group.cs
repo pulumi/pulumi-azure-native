@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
+namespace Pulumi.AzureNative.Migrate.V20171111Preview
 {
     /// <summary>
     /// A group created in a Migration project.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:migrate/v20171111preview:Group")]
+    [AzureNativeResourceType("azure-native:migrate/v20171111preview:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20171111preview:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/v20171111preview:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20171111preview:Group", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/v20171111preview:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20180202:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180202:Group"},
                 },
             };

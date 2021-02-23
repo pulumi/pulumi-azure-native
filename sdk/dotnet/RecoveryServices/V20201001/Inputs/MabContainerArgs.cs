@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20201001.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Type of backup management for the container.
         /// </summary>
         [Input("backupManagementType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.BackupManagementType>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20201001.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Can the container be registered one more time.

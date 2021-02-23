@@ -22,7 +22,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20200901preview:User';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20200901preview:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -99,7 +99,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:User" }, { type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-nextgen:databoxedge:User" }, { type: "azure-native:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

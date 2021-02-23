@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Policy Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:ApiOperationPolicy")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiOperationPolicy")]
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiOperationPolicy(string name, ApiOperationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiOperationPolicy", name, args ?? new ApiOperationPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:ApiOperationPolicy", name, args ?? new ApiOperationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiOperationPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiOperationPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:ApiOperationPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,13 +64,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy"},
                 },
             };
@@ -105,7 +113,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// Format of the policyContent.
         /// </summary>
         [Input("contentFormat")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.PolicyContentFormat>? ContentFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.PolicyContentFormat>? ContentFormat { get; set; }
 
         /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.

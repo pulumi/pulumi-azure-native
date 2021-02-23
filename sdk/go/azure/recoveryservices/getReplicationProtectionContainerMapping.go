@@ -11,7 +11,7 @@ import (
 // API Version: 2018-07-10.
 func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *LookupReplicationProtectionContainerMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectionContainerMappingResult, error) {
 	var rv LookupReplicationProtectionContainerMappingResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getReplicationProtectionContainerMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getReplicationProtectionContainerMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

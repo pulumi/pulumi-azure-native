@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Properties of the table, including Id, resource name, resource type.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTable'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getTable'. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    pulumi.log.warn("getTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getTable'.")
+    pulumi.log.warn("getTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getTable'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getTable", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableName": args.tableName,

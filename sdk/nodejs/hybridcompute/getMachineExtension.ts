@@ -17,7 +17,7 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridcompute:getMachineExtension", {
+    return pulumi.runtime.invoke("azure-native:hybridcompute:getMachineExtension", {
         "extensionName": args.extensionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

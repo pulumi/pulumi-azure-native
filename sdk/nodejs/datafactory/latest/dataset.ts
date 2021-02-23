@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Dataset resource type.
  * Latest API Version: 2018-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Dataset'.
  */
 export class Dataset extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Dataset extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dataset {
-        pulumi.log.warn("Dataset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.")
+        pulumi.log.warn("Dataset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Dataset'.")
         return new Dataset(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory/latest:Dataset';
+    public static readonly __pulumiType = 'azure-native:datafactory/latest:Dataset';
 
     /**
      * Returns true if the given object is an instance of Dataset.  This is designed to work even
@@ -63,9 +63,9 @@ export class Dataset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Dataset'. */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Dataset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.")
+        pulumi.log.warn("Dataset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Dataset'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class Dataset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:Dataset" }, { type: "azure-nextgen:datafactory/v20170901preview:Dataset" }, { type: "azure-nextgen:datafactory/v20180601:Dataset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Dataset" }, { type: "azure-nextgen:datafactory:Dataset" }, { type: "azure-native:datafactory/v20170901preview:Dataset" }, { type: "azure-nextgen:datafactory/v20170901preview:Dataset" }, { type: "azure-native:datafactory/v20180601:Dataset" }, { type: "azure-nextgen:datafactory/v20180601:Dataset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dataset.__pulumiType, name, inputs, opts);
     }

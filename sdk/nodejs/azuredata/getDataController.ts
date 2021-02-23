@@ -17,7 +17,7 @@ export function getDataController(args: GetDataControllerArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azuredata:getDataController", {
+    return pulumi.runtime.invoke("azure-native:azuredata:getDataController", {
         "dataControllerName": args.dataControllerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

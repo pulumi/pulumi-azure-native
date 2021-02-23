@@ -10,10 +10,10 @@ import (
 // Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRecordSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRecordSet'.
 func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pulumi.InvokeOption) (*LookupRecordSetResult, error) {
 	var rv LookupRecordSetResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getRecordSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getRecordSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

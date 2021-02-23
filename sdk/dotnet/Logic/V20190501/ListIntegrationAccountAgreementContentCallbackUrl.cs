@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20190501
+namespace Pulumi.AzureNative.Logic.V20190501
 {
     public static class ListIntegrationAccountAgreementContentCallbackUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListIntegrationAccountAgreementContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAgreementContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAgreementContentCallbackUrlResult>("azure-nextgen:logic/v20190501:listIntegrationAccountAgreementContentCallbackUrl", args ?? new ListIntegrationAccountAgreementContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAgreementContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountAgreementContentCallbackUrl", args ?? new ListIntegrationAccountAgreementContentCallbackUrlArgs(), options.WithVersion());
     }
 
 
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public Union<string, Pulumi.AzureNextGen.Logic.V20190501.KeyType>? KeyType { get; set; }
+        public Union<string, Pulumi.AzureNative.Logic.V20190501.KeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The expiry time.

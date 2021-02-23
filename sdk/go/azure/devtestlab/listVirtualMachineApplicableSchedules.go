@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtualMachineApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListVirtualMachineApplicableSchedulesResult, error) {
 	var rv ListVirtualMachineApplicableSchedulesResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:listVirtualMachineApplicableSchedules", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

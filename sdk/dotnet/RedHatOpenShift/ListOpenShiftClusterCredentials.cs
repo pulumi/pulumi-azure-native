@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift
+namespace Pulumi.AzureNative.RedHatOpenShift
 {
     public static class ListOpenShiftClusterCredentials
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift
         /// API Version: 2020-04-30.
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
     }
 
 

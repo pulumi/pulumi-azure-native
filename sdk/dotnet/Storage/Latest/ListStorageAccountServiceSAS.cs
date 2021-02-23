@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountServiceSAS'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountServiceSAS'.")]
     public static class ListStorageAccountServiceSAS
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<ListStorageAccountServiceSASResult> InvokeAsync(ListStorageAccountServiceSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-nextgen:storage/latest:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountServiceSASResult>("azure-native:storage/latest:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASArgs(), options.WithVersion());
     }
 
 
@@ -99,19 +99,19 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
         /// </summary>
         [Input("permissions")]
-        public Union<string, Pulumi.AzureNextGen.Storage.Latest.Permissions>? Permissions { get; set; }
+        public Union<string, Pulumi.AzureNative.Storage.Latest.Permissions>? Permissions { get; set; }
 
         /// <summary>
         /// The protocol permitted for a request made with the account SAS.
         /// </summary>
         [Input("protocols")]
-        public Pulumi.AzureNextGen.Storage.Latest.HttpProtocol? Protocols { get; set; }
+        public Pulumi.AzureNative.Storage.Latest.HttpProtocol? Protocols { get; set; }
 
         /// <summary>
         /// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
         /// </summary>
         [Input("resource")]
-        public Union<string, Pulumi.AzureNextGen.Storage.Latest.SignedResource>? Resource { get; set; }
+        public Union<string, Pulumi.AzureNative.Storage.Latest.SignedResource>? Resource { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

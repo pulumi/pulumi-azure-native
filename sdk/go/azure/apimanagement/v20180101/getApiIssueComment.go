@@ -10,7 +10,7 @@ import (
 // Issue Comment Contract details.
 func LookupApiIssueComment(ctx *pulumi.Context, args *LookupApiIssueCommentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueCommentResult, error) {
 	var rv LookupApiIssueCommentResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180101:getApiIssueComment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180101:getApiIssueComment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

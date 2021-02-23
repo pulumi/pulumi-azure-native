@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20191201
+namespace Pulumi.AzureNative.Compute.V20191201
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20191201:GalleryApplication")]
+    [AzureNativeResourceType("azure-native:compute/v20191201:GalleryApplication")]
     public partial class GalleryApplication : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryApplication(string name, GalleryApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20191201:GalleryApplication", name, args ?? new GalleryApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20191201:GalleryApplication", name, args ?? new GalleryApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryApplication(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20191201:GalleryApplication", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20191201:GalleryApplication", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,10 +100,15 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:GalleryApplication"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:GalleryApplication"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplication"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplication"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:GalleryApplication"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryApplication"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:GalleryApplication"},
                 },
             };
@@ -186,7 +191,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("supportedOSType", required: true)]
-        public Input<Pulumi.AzureNextGen.Compute.V20191201.OperatingSystemTypes> SupportedOSType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Compute.V20191201.OperatingSystemTypes> SupportedOSType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

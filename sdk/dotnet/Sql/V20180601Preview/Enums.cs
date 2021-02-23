@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Sql.V20180601Preview
+namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
     /// <summary>
     /// Type of the sever administrator.

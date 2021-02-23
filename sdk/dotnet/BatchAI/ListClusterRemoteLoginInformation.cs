@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI
+namespace Pulumi.AzureNative.BatchAI
 {
     public static class ListClusterRemoteLoginInformation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<ListClusterRemoteLoginInformationResult> InvokeAsync(ListClusterRemoteLoginInformationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterRemoteLoginInformationResult>("azure-nextgen:batchai:listClusterRemoteLoginInformation", args ?? new ListClusterRemoteLoginInformationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterRemoteLoginInformationResult>("azure-native:batchai:listClusterRemoteLoginInformation", args ?? new ListClusterRemoteLoginInformationArgs(), options.WithVersion());
     }
 
 

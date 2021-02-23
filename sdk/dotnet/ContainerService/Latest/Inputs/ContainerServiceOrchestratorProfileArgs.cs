@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         /// </summary>
         [Input("orchestratorType", required: true)]
-        public Input<Pulumi.AzureNextGen.ContainerService.Latest.ContainerServiceOrchestratorTypes> OrchestratorType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.ContainerService.Latest.ContainerServiceOrchestratorTypes> OrchestratorType { get; set; } = null!;
 
         public ContainerServiceOrchestratorProfileArgs()
         {

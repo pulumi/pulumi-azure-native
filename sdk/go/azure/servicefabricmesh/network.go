@@ -43,7 +43,13 @@ func NewNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Network"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180701preview:Network"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabricmesh/v20180901preview:Network"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:Network"),
@@ -51,7 +57,7 @@ func NewNetwork(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Network
-	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh:Network", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabricmesh:Network", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewNetwork(ctx *pulumi.Context,
 func GetNetwork(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkState, opts ...pulumi.ResourceOption) (*Network, error) {
 	var resource Network
-	err := ctx.ReadResource("azure-nextgen:servicefabricmesh:Network", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabricmesh:Network", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

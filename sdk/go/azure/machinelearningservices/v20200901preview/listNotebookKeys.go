@@ -9,7 +9,7 @@ import (
 
 func ListNotebookKeys(ctx *pulumi.Context, args *ListNotebookKeysArgs, opts ...pulumi.InvokeOption) (*ListNotebookKeysResult, error) {
 	var rv ListNotebookKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200901preview:listNotebookKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200901preview:listNotebookKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

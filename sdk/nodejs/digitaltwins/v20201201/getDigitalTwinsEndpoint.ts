@@ -16,7 +16,7 @@ export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:digitaltwins/v20201201:getDigitalTwinsEndpoint", {
+    return pulumi.runtime.invoke("azure-native:digitaltwins/v20201201:getDigitalTwinsEndpoint", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

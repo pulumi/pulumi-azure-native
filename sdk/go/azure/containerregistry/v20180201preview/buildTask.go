@@ -66,12 +66,15 @@ func NewBuildTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:BuildTask"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:BuildTask"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BuildTask
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +86,7 @@ func NewBuildTask(ctx *pulumi.Context,
 func GetBuildTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BuildTaskState, opts ...pulumi.ResourceOption) (*BuildTask, error) {
 	var resource BuildTask
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20180201preview:BuildTask", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

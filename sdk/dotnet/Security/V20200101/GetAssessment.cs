@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101
+namespace Pulumi.AzureNative.Security.V20200101
 {
     public static class GetAssessment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         /// Security assessment on a resource
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:security/v20200101:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Class of response for listPaths action
 func ListStreamingLocatorPaths(ctx *pulumi.Context, args *ListStreamingLocatorPathsArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorPathsResult, error) {
 	var rv ListStreamingLocatorPathsResult
-	err := ctx.Invoke("azure-nextgen:media/v20180330preview:listStreamingLocatorPaths", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180330preview:listStreamingLocatorPaths", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

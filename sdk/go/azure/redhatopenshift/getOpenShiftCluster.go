@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-30.
 func LookupOpenShiftCluster(ctx *pulumi.Context, args *LookupOpenShiftClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftClusterResult, error) {
 	var rv LookupOpenShiftClusterResult
-	err := ctx.Invoke("azure-nextgen:redhatopenshift:getOpenShiftCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:redhatopenshift:getOpenShiftCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

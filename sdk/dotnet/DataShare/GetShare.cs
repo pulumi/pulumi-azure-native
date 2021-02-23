@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare
+namespace Pulumi.AzureNative.DataShare
 {
     public static class GetShare
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-nextgen:datashare:getShare", args ?? new GetShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare:getShare", args ?? new GetShareArgs(), options.WithVersion());
     }
 
 

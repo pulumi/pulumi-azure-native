@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     public sealed class CosmosDbSettingsArgs : Pulumi.ResourceArgs

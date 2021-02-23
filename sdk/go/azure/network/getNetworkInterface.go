@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkInterface", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

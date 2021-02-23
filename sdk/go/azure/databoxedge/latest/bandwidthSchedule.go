@@ -14,7 +14,7 @@ import (
 // The bandwidth schedule details.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:BandwidthSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.
 type BandwidthSchedule struct {
 	pulumi.CustomResourceState
 
@@ -61,22 +61,43 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:BandwidthSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190301:BandwidthSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:BandwidthSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:BandwidthSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:BandwidthSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:BandwidthSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:BandwidthSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:BandwidthSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:BandwidthSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"),
@@ -84,7 +105,7 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSchedule
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:BandwidthSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:BandwidthSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +117,7 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 func GetBandwidthSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BandwidthScheduleState, opts ...pulumi.ResourceOption) (*BandwidthSchedule, error) {
 	var resource BandwidthSchedule
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:BandwidthSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:BandwidthSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

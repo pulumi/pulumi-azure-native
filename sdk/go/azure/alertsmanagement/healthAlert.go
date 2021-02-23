@@ -59,12 +59,15 @@ func NewHealthAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:alertsmanagement/v20200804preview:HealthAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource HealthAlert
-	err := ctx.RegisterResource("azure-nextgen:alertsmanagement:HealthAlert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:alertsmanagement:HealthAlert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +79,7 @@ func NewHealthAlert(ctx *pulumi.Context,
 func GetHealthAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HealthAlertState, opts ...pulumi.ResourceOption) (*HealthAlert, error) {
 	var resource HealthAlert
-	err := ctx.ReadResource("azure-nextgen:alertsmanagement:HealthAlert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:alertsmanagement:HealthAlert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

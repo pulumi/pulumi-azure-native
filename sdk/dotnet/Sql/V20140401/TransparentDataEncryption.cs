@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Represents a database transparent data encryption configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:TransparentDataEncryption")]
+    [AzureNativeResourceType("azure-native:sql/v20140401:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransparentDataEncryption(string name, TransparentDataEncryptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:TransparentDataEncryption", name, args ?? new TransparentDataEncryptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20140401:TransparentDataEncryption", name, args ?? new TransparentDataEncryptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransparentDataEncryption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:TransparentDataEncryption", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20140401:TransparentDataEncryption", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:TransparentDataEncryption"},
                 },
             };
@@ -113,7 +117,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// The status of the database transparent data encryption.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20140401.TransparentDataEncryptionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20140401.TransparentDataEncryptionStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the transparent data encryption configuration.

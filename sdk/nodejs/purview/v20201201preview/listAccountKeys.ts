@@ -16,7 +16,7 @@ export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:purview/v20201201preview:listAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:purview/v20201201preview:listAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

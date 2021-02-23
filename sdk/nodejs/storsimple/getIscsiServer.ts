@@ -17,7 +17,7 @@ export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getIscsiServer", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getIscsiServer", {
         "deviceName": args.deviceName,
         "iscsiServerName": args.iscsiServerName,
         "managerName": args.managerName,

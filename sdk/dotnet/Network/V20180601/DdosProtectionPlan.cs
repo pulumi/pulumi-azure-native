@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180601
+namespace Pulumi.AzureNative.Network.V20180601
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20180601:DdosProtectionPlan")]
+    [AzureNativeResourceType("azure-native:network/v20180601:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DdosProtectionPlan(string name, DdosProtectionPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180601:DdosProtectionPlan", name, args ?? new DdosProtectionPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20180601:DdosProtectionPlan", name, args ?? new DdosProtectionPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DdosProtectionPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180601:DdosProtectionPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20180601:DdosProtectionPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,28 +88,51 @@ namespace Pulumi.AzureNextGen.Network.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DdosProtectionPlan"},
                 },
             };

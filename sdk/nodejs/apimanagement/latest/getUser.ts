@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * User details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getUser'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getUser'. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getUser'.")
+    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getUser'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getUser", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getUser", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "userId": args.userId,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20191001.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191001.Inputs
         /// The sorting direction
         /// </summary>
         [Input("querySortingDirection")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191001.SortDirection>? QuerySortingDirection { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191001.SortDirection>? QuerySortingDirection { get; set; }
 
         public QuerySortingConfigurationArgs()
         {

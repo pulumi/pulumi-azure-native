@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The metric setting details for the role
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getMonitoringConfig'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getMonitoringConfig'. */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
-    pulumi.log.warn("getMonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getMonitoringConfig'.")
+    pulumi.log.warn("getMonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getMonitoringConfig'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getMonitoringConfig", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getMonitoringConfig", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
         "roleName": args.roleName,

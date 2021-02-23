@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Fabric definition.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationFabric'. */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
-    pulumi.log.warn("getReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'.")
+    pulumi.log.warn("getReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationFabric'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationFabric", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationFabric", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

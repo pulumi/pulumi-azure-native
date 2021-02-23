@@ -100,25 +100,49 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:HostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:HostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:HostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:HostingEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160901:HostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160901:HostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:HostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:HostingEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:HostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:HostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:HostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:HostingEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:HostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:HostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:HostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:HostingEnvironment"),
@@ -126,7 +150,7 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HostingEnvironment
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:HostingEnvironment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:HostingEnvironment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +162,7 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 func GetHostingEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HostingEnvironmentState, opts ...pulumi.ResourceOption) (*HostingEnvironment, error) {
 	var resource HostingEnvironment
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:HostingEnvironment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:HostingEnvironment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

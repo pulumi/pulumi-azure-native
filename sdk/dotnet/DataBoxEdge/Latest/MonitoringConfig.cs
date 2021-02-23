@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// The metric setting details for the role
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:MonitoringConfig'.")]
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:MonitoringConfig")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.")]
+    [AzureNativeResourceType("azure-native:databoxedge/latest:MonitoringConfig")]
     public partial class MonitoringConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitoringConfig(string name, MonitoringConfigArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:MonitoringConfig", name, args ?? new MonitoringConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/latest:MonitoringConfig", name, args ?? new MonitoringConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MonitoringConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:MonitoringConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/latest:MonitoringConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,11 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"},
                 },
             };

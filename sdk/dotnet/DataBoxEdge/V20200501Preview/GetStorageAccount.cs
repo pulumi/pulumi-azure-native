@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     public static class GetStorageAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge/v20200501preview:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Bot resource definition
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
-	err := ctx.Invoke("azure-nextgen:botservice/v20171201:getBot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/v20171201:getBot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

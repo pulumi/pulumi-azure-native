@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-15-preview.
 func LookupDiskPool(ctx *pulumi.Context, args *LookupDiskPoolArgs, opts ...pulumi.InvokeOption) (*LookupDiskPoolResult, error) {
 	var rv LookupDiskPoolResult
-	err := ctx.Invoke("azure-nextgen:storagepool:getDiskPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagepool:getDiskPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

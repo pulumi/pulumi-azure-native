@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid
+namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Channel.
     /// API Version: 2020-04-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid:EventChannel")]
+    [AzureNativeResourceType("azure-native:eventgrid:EventChannel")]
     public partial class EventChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.EventGrid
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventChannel(string name, EventChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid:EventChannel", name, args ?? new EventChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid:EventChannel", name, args ?? new EventChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid:EventChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid:EventChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,7 +97,9 @@ namespace Pulumi.AzureNextGen.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:EventChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:EventChannel"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:EventChannel"},
                 },
             };

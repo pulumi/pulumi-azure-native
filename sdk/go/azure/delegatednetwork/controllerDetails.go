@@ -48,12 +48,15 @@ func NewControllerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:ControllerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ControllerDetails
-	err := ctx.RegisterResource("azure-nextgen:delegatednetwork:ControllerDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:delegatednetwork:ControllerDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +68,7 @@ func NewControllerDetails(ctx *pulumi.Context,
 func GetControllerDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ControllerDetailsState, opts ...pulumi.ResourceOption) (*ControllerDetails, error) {
 	var resource ControllerDetails
-	err := ctx.ReadResource("azure-nextgen:delegatednetwork:ControllerDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:delegatednetwork:ControllerDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

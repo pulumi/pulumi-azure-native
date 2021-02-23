@@ -10,10 +10,10 @@ import (
 // Result of on demand test probe.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'.
 func GetApplicationGatewayBackendHealthOnDemand(ctx *pulumi.Context, args *GetApplicationGatewayBackendHealthOnDemandArgs, opts ...pulumi.InvokeOption) (*GetApplicationGatewayBackendHealthOnDemandResult, error) {
 	var rv GetApplicationGatewayBackendHealthOnDemandResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Subscription.Latest
+namespace Pulumi.AzureNative.Subscription.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:subscription:getAlias'.")]
     public static class GetAlias
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Subscription.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-nextgen:subscription/latest:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription/latest:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
 
 

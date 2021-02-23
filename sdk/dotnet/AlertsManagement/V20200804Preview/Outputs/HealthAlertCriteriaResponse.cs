@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Outputs
+namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview.Outputs
 {
 
     [OutputType]

@@ -49,25 +49,49 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:GremlinResourceGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:GremlinResourceGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:GremlinResourceGremlinGraph"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph"),
@@ -75,7 +99,7 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GremlinResourceGremlinGraph
-	err := ctx.RegisterResource("azure-nextgen:documentdb:GremlinResourceGremlinGraph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:GremlinResourceGremlinGraph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +111,7 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 func GetGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GremlinResourceGremlinGraphState, opts ...pulumi.ResourceOption) (*GremlinResourceGremlinGraph, error) {
 	var resource GremlinResourceGremlinGraph
-	err := ctx.ReadResource("azure-nextgen:documentdb:GremlinResourceGremlinGraph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:GremlinResourceGremlinGraph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The Managed Network resource
 func LookupScopeAssignment(ctx *pulumi.Context, args *LookupScopeAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupScopeAssignmentResult, error) {
 	var rv LookupScopeAssignmentResult
-	err := ctx.Invoke("azure-nextgen:managednetwork/v20190601preview:getScopeAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managednetwork/v20190601preview:getScopeAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

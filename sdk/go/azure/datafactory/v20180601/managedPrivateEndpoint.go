@@ -46,7 +46,13 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:ManagedPrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:ManagedPrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/latest:ManagedPrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint"),
@@ -54,7 +60,7 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedPrivateEndpoint
-	err := ctx.RegisterResource("azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/v20180601:ManagedPrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 func GetManagedPrivateEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedPrivateEndpointState, opts ...pulumi.ResourceOption) (*ManagedPrivateEndpoint, error) {
 	var resource ManagedPrivateEndpoint
-	err := ctx.ReadResource("azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/v20180601:ManagedPrivateEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

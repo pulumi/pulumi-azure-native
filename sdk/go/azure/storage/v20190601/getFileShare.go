@@ -10,7 +10,7 @@ import (
 // Properties of the file share, including Id, resource name, resource type, Etag.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
-	err := ctx.Invoke("azure-nextgen:storage/v20190601:getFileShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20190601:getFileShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

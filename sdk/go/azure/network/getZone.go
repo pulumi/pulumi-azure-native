@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-01.
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
-	err := ctx.Invoke("azure-nextgen:network:getZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

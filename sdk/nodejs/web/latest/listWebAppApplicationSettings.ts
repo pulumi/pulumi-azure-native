@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * String dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettings'. */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
-    pulumi.log.warn("listWebAppApplicationSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppApplicationSettings'.")
+    pulumi.log.warn("listWebAppApplicationSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppApplicationSettings(args: ListWebAppApplicationSetting
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppApplicationSettings", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppApplicationSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -43,10 +43,19 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:signalrservice/latest:SignalRPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20200501:SignalRPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"),
@@ -54,7 +63,7 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SignalRPrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:signalrservice:SignalRPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 func GetSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SignalRPrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*SignalRPrivateEndpointConnection, error) {
 	var resource SignalRPrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:signalrservice:SignalRPrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

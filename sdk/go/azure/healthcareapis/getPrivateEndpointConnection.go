@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-11.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:healthcareapis:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:healthcareapis:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

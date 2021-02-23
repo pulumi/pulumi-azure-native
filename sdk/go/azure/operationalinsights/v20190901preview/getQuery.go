@@ -10,7 +10,7 @@ import (
 // A Log Analytics QueryPack-Query definition.
 func LookupQuery(ctx *pulumi.Context, args *LookupQueryArgs, opts ...pulumi.InvokeOption) (*LookupQueryResult, error) {
 	var rv LookupQueryResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20190901preview:getQuery", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20190901preview:getQuery", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

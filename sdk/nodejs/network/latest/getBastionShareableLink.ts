@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response for all the Bastion Shareable Link endpoints.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionShareableLink'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionShareableLink'. */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
-    pulumi.log.warn("getBastionShareableLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getBastionShareableLink'.")
+    pulumi.log.warn("getBastionShareableLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionShareableLink'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getBastionShareableLink", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getBastionShareableLink", {
         "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
         "vms": args.vms,

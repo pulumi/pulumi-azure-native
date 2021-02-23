@@ -10,10 +10,10 @@ import (
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEventSource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'.
 func LookupEventSource(ctx *pulumi.Context, args *LookupEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupEventSourceResult, error) {
 	var rv LookupEventSourceResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights/latest:getEventSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights/latest:getEventSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

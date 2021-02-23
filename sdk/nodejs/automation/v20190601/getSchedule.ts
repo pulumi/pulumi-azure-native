@@ -16,7 +16,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20190601:getSchedule", {
+    return pulumi.runtime.invoke("azure-native:automation/v20190601:getSchedule", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "scheduleName": args.scheduleName,

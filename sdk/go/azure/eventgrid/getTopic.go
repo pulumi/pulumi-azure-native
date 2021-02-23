@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

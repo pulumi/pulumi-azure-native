@@ -10,10 +10,10 @@ import (
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionContainer'.
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	var rv LookupProtectionContainerResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getProtectionContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getProtectionContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

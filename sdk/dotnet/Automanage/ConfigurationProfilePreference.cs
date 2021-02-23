@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automanage
+namespace Pulumi.AzureNative.Automanage
 {
     /// <summary>
     /// Definition of the configuration profile preference.
     /// API Version: 2020-06-30-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automanage:ConfigurationProfilePreference")]
+    [AzureNativeResourceType("azure-native:automanage:ConfigurationProfilePreference")]
     public partial class ConfigurationProfilePreference : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Automanage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfilePreference(string name, ConfigurationProfilePreferenceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automanage:ConfigurationProfilePreference", name, args ?? new ConfigurationProfilePreferenceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automanage:ConfigurationProfilePreference", name, args ?? new ConfigurationProfilePreferenceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfilePreference(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automanage:ConfigurationProfilePreference", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automanage:ConfigurationProfilePreference", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Automanage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfilePreference"},
                     new Pulumi.Alias { Type = "azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference"},
                 },
             };

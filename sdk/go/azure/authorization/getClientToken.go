@@ -10,7 +10,7 @@ import (
 // Use this function to get an Azure authentication token for the current login context.
 func GetClientToken(ctx *pulumi.Context, args *GetClientTokenArgs, opts ...pulumi.InvokeOption) (*GetClientTokenResult, error) {
 	var rv GetClientTokenResult
-	err := ctx.Invoke("azure-nextgen:authorization:getClientToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getClientToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

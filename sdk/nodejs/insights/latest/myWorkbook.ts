@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Application Insights private workbook definition.
  * Latest API Version: 2020-10-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.
  */
 export class MyWorkbook extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MyWorkbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MyWorkbook {
-        pulumi.log.warn("MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'.")
+        pulumi.log.warn("MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.")
         return new MyWorkbook(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:MyWorkbook';
+    public static readonly __pulumiType = 'azure-native:insights/latest:MyWorkbook';
 
     /**
      * Returns true if the given object is an instance of MyWorkbook.  This is designed to work even
@@ -107,9 +107,9 @@ export class MyWorkbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'. */
     constructor(name: string, args: MyWorkbookArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'.")
+        pulumi.log.warn("MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.category === undefined) && !(opts && opts.urn)) {
@@ -166,7 +166,7 @@ export class MyWorkbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:MyWorkbook" }, { type: "azure-nextgen:insights/v20150501:MyWorkbook" }, { type: "azure-nextgen:insights/v20201020:MyWorkbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:MyWorkbook" }, { type: "azure-nextgen:insights:MyWorkbook" }, { type: "azure-native:insights/v20150501:MyWorkbook" }, { type: "azure-nextgen:insights/v20150501:MyWorkbook" }, { type: "azure-native:insights/v20201020:MyWorkbook" }, { type: "azure-nextgen:insights/v20201020:MyWorkbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MyWorkbook.__pulumiType, name, inputs, opts);
     }

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AppPlatform.V20201101Preview
+namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
 {
     /// <summary>
     /// Type of the managed identity

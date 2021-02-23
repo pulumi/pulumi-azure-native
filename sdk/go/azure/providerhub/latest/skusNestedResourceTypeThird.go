@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeThird'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeThird'.
 type SkusNestedResourceTypeThird struct {
 	pulumi.CustomResourceState
 
@@ -51,7 +51,13 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:SkusNestedResourceTypeThird"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeThird"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:SkusNestedResourceTypeThird"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird"),
@@ -59,7 +65,7 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SkusNestedResourceTypeThird
-	err := ctx.RegisterResource("azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/latest:SkusNestedResourceTypeThird", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 func GetSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SkusNestedResourceTypeThirdState, opts ...pulumi.ResourceOption) (*SkusNestedResourceTypeThird, error) {
 	var resource SkusNestedResourceTypeThird
-	err := ctx.ReadResource("azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/latest:SkusNestedResourceTypeThird", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

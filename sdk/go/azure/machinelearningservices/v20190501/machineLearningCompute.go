@@ -44,49 +44,97 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/latest:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20180301preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20181119:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20190601:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20191101:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200101:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200218preview:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200301:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200401:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200601:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200801:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210101:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"),
@@ -94,7 +142,7 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MachineLearningCompute
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices/v20190501:MachineLearningCompute", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +154,7 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 func GetMachineLearningCompute(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineLearningComputeState, opts ...pulumi.ResourceOption) (*MachineLearningCompute, error) {
 	var resource MachineLearningCompute
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices/v20190501:MachineLearningCompute", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

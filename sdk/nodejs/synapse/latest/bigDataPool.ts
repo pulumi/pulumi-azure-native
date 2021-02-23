@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A Big Data pool
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.
  */
 export class BigDataPool extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BigDataPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BigDataPool {
-        pulumi.log.warn("BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'.")
+        pulumi.log.warn("BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.")
         return new BigDataPool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:BigDataPool';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:BigDataPool';
 
     /**
      * Returns true if the given object is an instance of BigDataPool.  This is designed to work even
@@ -135,9 +135,9 @@ export class BigDataPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'. */
     constructor(name: string, args: BigDataPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:BigDataPool'.")
+        pulumi.log.warn("BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -203,7 +203,7 @@ export class BigDataPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:BigDataPool" }, { type: "azure-nextgen:synapse/v20190601preview:BigDataPool" }, { type: "azure-nextgen:synapse/v20201201:BigDataPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:BigDataPool" }, { type: "azure-nextgen:synapse:BigDataPool" }, { type: "azure-native:synapse/v20190601preview:BigDataPool" }, { type: "azure-nextgen:synapse/v20190601preview:BigDataPool" }, { type: "azure-native:synapse/v20201201:BigDataPool" }, { type: "azure-nextgen:synapse/v20201201:BigDataPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BigDataPool.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a Configuration.
  * Latest API Version: 2017-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getConfiguration'. */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-    pulumi.log.warn("getConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getConfiguration'.")
+    pulumi.log.warn("getConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/latest:getConfiguration", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/latest:getConfiguration", {
         "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

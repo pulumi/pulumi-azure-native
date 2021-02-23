@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20160330.Inputs
+namespace Pulumi.AzureNative.Compute.V20160330.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330.Inputs
         /// The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Compute.V20160330.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20160330.ResourceIdentityType>? Type { get; set; }
 
         public VirtualMachineScaleSetIdentityArgs()
         {

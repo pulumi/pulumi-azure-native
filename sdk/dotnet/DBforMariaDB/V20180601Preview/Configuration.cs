@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
 {
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformariadb/v20180601preview:Configuration")]
+    [AzureNativeResourceType("azure-native:dbformariadb/v20180601preview:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/v20180601preview:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformariadb/v20180601preview:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Configuration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb/v20180601preview:Configuration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformariadb/v20180601preview:Configuration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Configuration"},
                 },
             };

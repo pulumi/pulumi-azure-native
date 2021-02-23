@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Device resource.
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridnetwork:Device")]
+    [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridnetwork:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Device(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:Device", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridnetwork:Device", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:Device"},
                 },
             };
@@ -135,7 +136,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// The type of the device.
         /// </summary>
         [Input("deviceType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.DeviceType> DeviceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.DeviceType> DeviceType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

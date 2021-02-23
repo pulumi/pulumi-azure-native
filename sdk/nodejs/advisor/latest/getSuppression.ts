@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'. */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
-    pulumi.log.warn("getSuppression is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'.")
+    pulumi.log.warn("getSuppression is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:advisor/latest:getSuppression", {
+    return pulumi.runtime.invoke("azure-native:advisor/latest:getSuppression", {
         "name": args.name,
         "recommendationId": args.recommendationId,
         "resourceUri": args.resourceUri,

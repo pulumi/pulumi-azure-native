@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
+namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
         /// Day of week to apply the patch on.
         /// </summary>
         [Input("dayOfWeek")]
-        public Input<Pulumi.AzureNextGen.SqlVirtualMachine.DayOfWeek>? DayOfWeek { get; set; }
+        public Input<Pulumi.AzureNative.SqlVirtualMachine.DayOfWeek>? DayOfWeek { get; set; }
 
         /// <summary>
         /// Enable or disable autopatching on SQL virtual machine.

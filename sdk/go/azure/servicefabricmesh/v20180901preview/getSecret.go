@@ -10,7 +10,7 @@ import (
 // This type describes a secret resource.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh/v20180901preview:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh/v20180901preview:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

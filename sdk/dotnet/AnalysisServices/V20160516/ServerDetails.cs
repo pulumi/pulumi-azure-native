@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
+namespace Pulumi.AzureNative.AnalysisServices.V20160516
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:analysisservices/v20160516:ServerDetails")]
+    [AzureNativeResourceType("azure-native:analysisservices/v20160516:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerDetails(string name, ServerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/v20160516:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:analysisservices/v20160516:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/v20160516:ServerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:analysisservices/v20160516:ServerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,10 +112,15 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/latest:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/latest:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801beta:ServerDetails"},
                 },
             };

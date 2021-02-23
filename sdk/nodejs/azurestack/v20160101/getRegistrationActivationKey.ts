@@ -16,7 +16,7 @@ export function getRegistrationActivationKey(args: GetRegistrationActivationKeyA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/v20160101:getRegistrationActivationKey", {
+    return pulumi.runtime.invoke("azure-native:azurestack/v20160101:getRegistrationActivationKey", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);

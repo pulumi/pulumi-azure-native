@@ -17,7 +17,7 @@ export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode", {
+    return pulumi.runtime.invoke("azure-native:vmwarecloudsimple:getDedicatedCloudNode", {
         "dedicatedCloudNodeName": args.dedicatedCloudNodeName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20190322Preview
+namespace Pulumi.AzureNative.Devices.V20190322Preview
 {
     /// <summary>
     /// The description of the IoT hub.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devices/v20190322preview:IotHubResource")]
+    [AzureNativeResourceType("azure-native:devices/v20190322preview:IotHubResource")]
     public partial class IotHubResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Devices.V20190322Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotHubResource(string name, IotHubResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/v20190322preview:IotHubResource", name, args ?? new IotHubResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/v20190322preview:IotHubResource", name, args ?? new IotHubResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotHubResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/v20190322preview:IotHubResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/v20190322preview:IotHubResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,23 +82,41 @@ namespace Pulumi.AzureNextGen.Devices.V20190322Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/latest:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20160203:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170119:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170119:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170701:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180401:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20181201preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20181201preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190701preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190701preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20191104:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20191104:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:IotHubResource"},
                 },
             };

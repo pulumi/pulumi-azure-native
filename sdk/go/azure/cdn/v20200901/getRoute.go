@@ -10,7 +10,7 @@ import (
 // Friendly Routes name mapping to the any Routes or secret related information.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20200901:getRoute", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20200901:getRoute", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

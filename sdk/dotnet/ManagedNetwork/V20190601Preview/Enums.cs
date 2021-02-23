@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
+namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// Responsibility role under which this Managed Network Group will be created

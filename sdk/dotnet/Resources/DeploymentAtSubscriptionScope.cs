@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources
+namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Deployment information.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources:DeploymentAtSubscriptionScope")]
+    [AzureNativeResourceType("azure-native:resources:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Resources
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentAtSubscriptionScope(string name, DeploymentAtSubscriptionScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources:DeploymentAtSubscriptionScope", name, args ?? new DeploymentAtSubscriptionScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources:DeploymentAtSubscriptionScope", name, args ?? new DeploymentAtSubscriptionScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentAtSubscriptionScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources:DeploymentAtSubscriptionScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources:DeploymentAtSubscriptionScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,16 +71,27 @@ namespace Pulumi.AzureNextGen.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20180501:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190301:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope"},
                 },
             };

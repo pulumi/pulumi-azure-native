@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch
+namespace Pulumi.AzureNative.Batch
 {
     public static class ListBatchAccountKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListBatchAccountKeysResult> InvokeAsync(ListBatchAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-nextgen:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchAccountKeysResult>("azure-native:batch:listBatchAccountKeys", args ?? new ListBatchAccountKeysArgs(), options.WithVersion());
     }
 
 

@@ -16,7 +16,7 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbformysql/v20171201:getVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:dbformysql/v20171201:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

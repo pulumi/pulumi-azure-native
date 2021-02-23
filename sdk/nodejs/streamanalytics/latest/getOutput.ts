@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getOutput'. */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
-    pulumi.log.warn("getOutput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getOutput'.")
+    pulumi.log.warn("getOutput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getOutput'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/latest:getOutput", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/latest:getOutput", {
         "jobName": args.jobName,
         "outputName": args.outputName,
         "resourceGroupName": args.resourceGroupName,

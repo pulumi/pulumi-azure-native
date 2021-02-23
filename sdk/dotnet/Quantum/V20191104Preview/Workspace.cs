@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
+namespace Pulumi.AzureNative.Quantum.V20191104Preview
 {
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:quantum/v20191104preview:Workspace")]
+    [AzureNativeResourceType("azure-native:quantum/v20191104preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:quantum/v20191104preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:quantum/v20191104preview:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:quantum/v20191104preview:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:quantum/v20191104preview:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:quantum:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:quantum:Workspace"},
                 },
             };

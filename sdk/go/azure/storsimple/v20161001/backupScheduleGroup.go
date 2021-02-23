@@ -44,7 +44,13 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BackupScheduleGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupScheduleGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:BackupScheduleGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:BackupScheduleGroup"),
@@ -52,7 +58,7 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupScheduleGroup
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20161001:BackupScheduleGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20161001:BackupScheduleGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 func GetBackupScheduleGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupScheduleGroupState, opts ...pulumi.ResourceOption) (*BackupScheduleGroup, error) {
 	var resource BackupScheduleGroup
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20161001:BackupScheduleGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20161001:BackupScheduleGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

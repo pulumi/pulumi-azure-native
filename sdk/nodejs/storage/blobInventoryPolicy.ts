@@ -23,7 +23,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:BlobInventoryPolicy';
+    public static readonly __pulumiType = 'azure-native:storage:BlobInventoryPolicy';
 
     /**
      * Returns true if the given object is an instance of BlobInventoryPolicy.  This is designed to work even
@@ -98,7 +98,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobInventoryPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/latest:BlobInventoryPolicy" }, { type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobInventoryPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobInventoryPolicy.__pulumiType, name, inputs, opts);
     }

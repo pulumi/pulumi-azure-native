@@ -16,7 +16,7 @@ export function getAttestationAtResourceGroup(args: GetAttestationAtResourceGrou
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/v20210101:getAttestationAtResourceGroup", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/v20210101:getAttestationAtResourceGroup", {
         "attestationName": args.attestationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
     public static class GetOrderCollectionByName
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// Specifies the properties or parameters for an order collection. Order collection is a grouping of one or more orders.
         /// </summary>
         public static Task<GetOrderCollectionByNameResult> InvokeAsync(GetOrderCollectionByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderCollectionByNameResult>("azure-nextgen:edgeorder/v20201201preview:getOrderCollectionByName", args ?? new GetOrderCollectionByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderCollectionByNameResult>("azure-native:edgeorder/v20201201preview:getOrderCollectionByName", args ?? new GetOrderCollectionByNameArgs(), options.WithVersion());
     }
 
 

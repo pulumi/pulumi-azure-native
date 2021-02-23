@@ -16,7 +16,7 @@ export function listSchemaContentCallbackUrl(args: ListSchemaContentCallbackUrlA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20160601:listSchemaContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/v20160601:listSchemaContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "notAfter": args.notAfter,

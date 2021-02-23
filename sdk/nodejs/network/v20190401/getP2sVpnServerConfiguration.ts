@@ -16,7 +16,7 @@ export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190401:getP2sVpnServerConfiguration", {
+    return pulumi.runtime.invoke("azure-native:network/v20190401:getP2sVpnServerConfiguration", {
         "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,
         "resourceGroupName": args.resourceGroupName,
         "virtualWanName": args.virtualWanName,

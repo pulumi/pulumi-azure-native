@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20200401
+namespace Pulumi.AzureNative.Peering.V20200401
 {
     public static class GetRegisteredPrefix
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200401
         /// The customer's prefix that is registered by the peering service provider.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-nextgen:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering/v20200401:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());
     }
 
 

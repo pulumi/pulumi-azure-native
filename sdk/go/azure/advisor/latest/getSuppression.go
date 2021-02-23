@@ -10,10 +10,10 @@ import (
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:advisor:getSuppression'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'.
 func LookupSuppression(ctx *pulumi.Context, args *LookupSuppressionArgs, opts ...pulumi.InvokeOption) (*LookupSuppressionResult, error) {
 	var rv LookupSuppressionResult
-	err := ctx.Invoke("azure-nextgen:advisor/latest:getSuppression", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:advisor/latest:getSuppression", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

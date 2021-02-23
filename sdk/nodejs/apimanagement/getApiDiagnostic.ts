@@ -17,7 +17,7 @@ export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getApiDiagnostic", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getApiDiagnostic", {
         "apiId": args.apiId,
         "diagnosticId": args.diagnosticId,
         "resourceGroupName": args.resourceGroupName,

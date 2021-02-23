@@ -10,10 +10,10 @@ import (
 // Defines the properties of an Experiment
 // Latest API Version: 2019-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExperiment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExperiment'.
 func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentResult, error) {
 	var rv LookupExperimentResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getExperiment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getExperiment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

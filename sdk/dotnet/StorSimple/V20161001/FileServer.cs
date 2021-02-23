@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The file server.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:FileServer")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileServer(string name, FileServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:FileServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:FileServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:FileServer"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:FileServer"},
                 },
             };

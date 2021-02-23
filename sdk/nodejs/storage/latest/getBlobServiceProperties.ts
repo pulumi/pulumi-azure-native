@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of a storage account’s Blob service.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobServiceProperties'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobServiceProperties'. */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
-    pulumi.log.warn("getBlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobServiceProperties'.")
+    pulumi.log.warn("getBlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobServiceProperties'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getBlobServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getBlobServiceProperties", {
         "accountName": args.accountName,
         "blobServicesName": args.blobServicesName,
         "resourceGroupName": args.resourceGroupName,

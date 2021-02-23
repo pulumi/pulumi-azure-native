@@ -10,7 +10,7 @@ import (
 // Compute role.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
 	var rv LookupRoleResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20190801:getRole", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20190801:getRole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

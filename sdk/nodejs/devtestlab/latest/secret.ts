@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * A secret.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Secret'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Secret extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Secret {
-        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Secret'.")
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'.")
         return new Secret(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Secret';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Secret';
 
     /**
      * Returns true if the given object is an instance of Secret.  This is designed to work even
@@ -74,9 +74,9 @@ export class Secret extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Secret'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'. */
     constructor(name: string, args: SecretArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Secret'.")
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -114,7 +114,7 @@ export class Secret extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Secret" }, { type: "azure-nextgen:devtestlab/v20160515:Secret" }, { type: "azure-nextgen:devtestlab/v20180915:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Secret" }, { type: "azure-nextgen:devtestlab:Secret" }, { type: "azure-native:devtestlab/v20160515:Secret" }, { type: "azure-nextgen:devtestlab/v20160515:Secret" }, { type: "azure-native:devtestlab/v20180915:Secret" }, { type: "azure-nextgen:devtestlab/v20180915:Secret" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Secret.__pulumiType, name, inputs, opts);
     }

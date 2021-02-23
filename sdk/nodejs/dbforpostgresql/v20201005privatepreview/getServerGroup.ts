@@ -16,7 +16,7 @@ export function getServerGroup(args: GetServerGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/v20201005privatepreview:getServerGroup", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", {
         "resourceGroupName": args.resourceGroupName,
         "serverGroupName": args.serverGroupName,
     }, opts);

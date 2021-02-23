@@ -10,10 +10,10 @@ import (
 // Domain Topic.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:getDomainTopic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getDomainTopic'.
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	var rv LookupDomainTopicResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/latest:getDomainTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/latest:getDomainTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

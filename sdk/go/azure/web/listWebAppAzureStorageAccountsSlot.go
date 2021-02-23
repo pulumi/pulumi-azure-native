@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsSlotResult, error) {
 	var rv ListWebAppAzureStorageAccountsSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -42,27 +42,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:resources/latest:Deployment":
+            case "azure-native:resources/latest:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:DeploymentAtManagementGroupScope":
+            case "azure-native:resources/latest:DeploymentAtManagementGroupScope":
                 return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:DeploymentAtScope":
+            case "azure-native:resources/latest:DeploymentAtScope":
                 return new DeploymentAtScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:DeploymentAtSubscriptionScope":
+            case "azure-native:resources/latest:DeploymentAtSubscriptionScope":
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:DeploymentAtTenantScope":
+            case "azure-native:resources/latest:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:DeploymentScript":
+            case "azure-native:resources/latest:DeploymentScript":
                 return new DeploymentScript(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:Resource":
+            case "azure-native:resources/latest:Resource":
                 return new Resource(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:ResourceGroup":
+            case "azure-native:resources/latest:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/latest:TagAtScope":
+            case "azure-native:resources/latest:TagAtScope":
                 return new TagAtScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "resources/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "resources/latest", _module)

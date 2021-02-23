@@ -22,7 +22,7 @@ export class Formula extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/v20180915:Formula';
+    public static readonly __pulumiType = 'azure-native:devtestlab/v20180915:Formula';
 
     /**
      * Returns true if the given object is an instance of Formula.  This is designed to work even
@@ -135,7 +135,7 @@ export class Formula extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab/latest:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20160515:Formula" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-native:devtestlab/latest:Formula" }, { type: "azure-nextgen:devtestlab/latest:Formula" }, { type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20160515:Formula" }, { type: "azure-nextgen:devtestlab/v20160515:Formula" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Formula.__pulumiType, name, inputs, opts);
     }

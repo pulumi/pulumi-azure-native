@@ -10,7 +10,7 @@ import (
 // Binding resource payload
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20200701:getBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20200701:getBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

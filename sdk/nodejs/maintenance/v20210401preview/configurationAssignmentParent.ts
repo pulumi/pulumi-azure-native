@@ -22,7 +22,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent';
+    public static readonly __pulumiType = 'azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent';
 
     /**
      * Returns true if the given object is an instance of ConfigurationAssignmentParent.  This is designed to work even

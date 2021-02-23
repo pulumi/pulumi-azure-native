@@ -83,31 +83,61 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:AuthorizationServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:AuthorizationServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:AuthorizationServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:AuthorizationServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"),
@@ -115,7 +145,7 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AuthorizationServer
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:AuthorizationServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20200601preview:AuthorizationServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -127,7 +157,7 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 func GetAuthorizationServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AuthorizationServerState, opts ...pulumi.ResourceOption) (*AuthorizationServer, error) {
 	var resource AuthorizationServer
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:AuthorizationServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20200601preview:AuthorizationServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

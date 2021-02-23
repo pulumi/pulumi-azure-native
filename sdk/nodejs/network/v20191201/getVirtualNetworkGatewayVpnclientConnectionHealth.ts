@@ -16,7 +16,7 @@ export function getVirtualNetworkGatewayVpnclientConnectionHealth(args: GetVirtu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20191201:getVirtualNetworkGatewayVpnclientConnectionHealth", {
+    return pulumi.runtime.invoke("azure-native:network/v20191201:getVirtualNetworkGatewayVpnclientConnectionHealth", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

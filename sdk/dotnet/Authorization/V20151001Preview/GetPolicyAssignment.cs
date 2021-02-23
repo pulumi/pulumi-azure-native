@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20151001Preview
+namespace Pulumi.AzureNative.Authorization.V20151001Preview
 {
     public static class GetPolicyAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20151001Preview
         /// The policy assignment.
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-nextgen:authorization/v20151001preview:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-native:authorization/v20151001preview:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithVersion());
     }
 
 

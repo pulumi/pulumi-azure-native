@@ -17,7 +17,7 @@ export function listSaasSubscriptionLevelAccessToken(args: ListSaasSubscriptionL
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:saas:listSaasSubscriptionLevelAccessToken", {
+    return pulumi.runtime.invoke("azure-native:saas:listSaasSubscriptionLevelAccessToken", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

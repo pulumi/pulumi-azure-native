@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Function information.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'.
  */
 export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppInstanceFunctionSlot {
-        pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.")
+        pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'.")
         return new WebAppInstanceFunctionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppInstanceFunctionSlot';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppInstanceFunctionSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppInstanceFunctionSlot.  This is designed to work even
@@ -115,9 +115,9 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'. */
     constructor(name: string, args: WebAppInstanceFunctionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppInstanceFunctionSlot'.")
+        pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -175,7 +175,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20201001:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppInstanceFunctionSlot.__pulumiType, name, inputs, opts);
     }

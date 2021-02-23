@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Machine Learning service object wrapped into ARM resource envelope.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningService'. */
 export function getMachineLearningService(args: GetMachineLearningServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningServiceResult> {
-    pulumi.log.warn("getMachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getMachineLearningService'.")
+    pulumi.log.warn("getMachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMachineLearningService(args: GetMachineLearningServiceArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:getMachineLearningService", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:getMachineLearningService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

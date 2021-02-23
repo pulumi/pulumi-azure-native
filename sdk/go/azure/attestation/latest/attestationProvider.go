@@ -14,7 +14,7 @@ import (
 // Attestation service response message.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:AttestationProvider'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:attestation:AttestationProvider'.
 type AttestationProvider struct {
 	pulumi.CustomResourceState
 
@@ -53,10 +53,19 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:attestation:AttestationProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:attestation:AttestationProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:attestation/v20180901preview:AttestationProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:attestation/v20180901preview:AttestationProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:attestation/v20201001:AttestationProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:attestation/v20201001:AttestationProvider"),
@@ -64,7 +73,7 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AttestationProvider
-	err := ctx.RegisterResource("azure-nextgen:attestation/latest:AttestationProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:attestation/latest:AttestationProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewAttestationProvider(ctx *pulumi.Context,
 func GetAttestationProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttestationProviderState, opts ...pulumi.ResourceOption) (*AttestationProvider, error) {
 	var resource AttestationProvider
-	err := ctx.ReadResource("azure-nextgen:attestation/latest:AttestationProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:attestation/latest:AttestationProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

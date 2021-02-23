@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// Gets or sets the frequency of the schedule.
         /// </summary>
         [Input("frequency")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.ScheduleFrequency>? Frequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.ScheduleFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// Gets or sets the interval of the schedule.

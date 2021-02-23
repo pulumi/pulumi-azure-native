@@ -36,7 +36,13 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate/latest:VMwareCollector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:VMwareCollector"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20191001:VMwareCollector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:VMwareCollector"),
@@ -44,7 +50,7 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VMwareCollector
-	err := ctx.RegisterResource("azure-nextgen:migrate:VMwareCollector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate:VMwareCollector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +62,7 @@ func NewVMwareCollector(ctx *pulumi.Context,
 func GetVMwareCollector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VMwareCollectorState, opts ...pulumi.ResourceOption) (*VMwareCollector, error) {
 	var resource VMwareCollector
-	err := ctx.ReadResource("azure-nextgen:migrate:VMwareCollector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate:VMwareCollector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

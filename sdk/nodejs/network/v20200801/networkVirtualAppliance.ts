@@ -22,7 +22,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200801:NetworkVirtualAppliance';
+    public static readonly __pulumiType = 'azure-native:network/v20200801:NetworkVirtualAppliance';
 
     /**
      * Returns true if the given object is an instance of NetworkVirtualAppliance.  This is designed to work even
@@ -163,7 +163,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/latest:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200701:NetworkVirtualAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualAppliance" }, { type: "azure-nextgen:network:NetworkVirtualAppliance" }, { type: "azure-native:network/latest:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/latest:NetworkVirtualAppliance" }, { type: "azure-native:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200701:NetworkVirtualAppliance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
     }

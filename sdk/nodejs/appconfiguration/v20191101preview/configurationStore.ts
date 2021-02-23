@@ -22,7 +22,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore';
+    public static readonly __pulumiType = 'azure-native:appconfiguration/v20191101preview:ConfigurationStore';
 
     /**
      * Returns true if the given object is an instance of ConfigurationStore.  This is designed to work even
@@ -135,7 +135,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appconfiguration:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/latest:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration:ConfigurationStore" }, { type: "azure-native:appconfiguration/latest:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/latest:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }

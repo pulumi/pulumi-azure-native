@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01-preview.
 func LookupManagedNetworkPeeringPolicy(ctx *pulumi.Context, args *LookupManagedNetworkPeeringPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkPeeringPolicyResult, error) {
 	var rv LookupManagedNetworkPeeringPolicyResult
-	err := ctx.Invoke("azure-nextgen:managednetwork:getManagedNetworkPeeringPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

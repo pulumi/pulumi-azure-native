@@ -10,7 +10,7 @@ import (
 // Integration runtime status response.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20170901preview:getIntegrationRuntimeStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getIntegrationRuntimeStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The properties of a response to source upload request.
 func ListRegistryBuildSourceUploadUrl(ctx *pulumi.Context, args *ListRegistryBuildSourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*ListRegistryBuildSourceUploadUrlResult, error) {
 	var rv ListRegistryBuildSourceUploadUrlResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

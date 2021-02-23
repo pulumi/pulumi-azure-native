@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Latest.Inputs
 {
 
     /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The type of source control service.
         /// </summary>
         [Input("sourceControlType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SourceControlType> SourceControlType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.Latest.SourceControlType> SourceControlType { get; set; } = null!;
 
         public SourcePropertiesArgs()
         {

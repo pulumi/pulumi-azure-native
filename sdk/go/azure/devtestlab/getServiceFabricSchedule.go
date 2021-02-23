@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupServiceFabricSchedule(ctx *pulumi.Context, args *LookupServiceFabricScheduleArgs, opts ...pulumi.InvokeOption) (*LookupServiceFabricScheduleResult, error) {
 	var rv LookupServiceFabricScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getServiceFabricSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getServiceFabricSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

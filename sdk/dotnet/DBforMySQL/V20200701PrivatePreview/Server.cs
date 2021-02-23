@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
+namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 {
     /// <summary>
     /// Represents a server.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/v20200701privatepreview:Server")]
+    [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -192,12 +192,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20200701privatepreview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/v20200701privatepreview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/v20200701privatepreview:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/v20200701privatepreview:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -208,6 +208,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701preview:Server"},
                 },
             };
@@ -254,7 +255,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// The mode to create a new MySQL server.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Delegated subnet arguments.
@@ -266,7 +267,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Enable HA or not for a server.
         /// </summary>
         [Input("haEnabled")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.HaEnabledEnum>? HaEnabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.HaEnabledEnum>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -278,7 +279,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
         [Input("infrastructureEncryption")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.InfrastructureEncryptionEnum>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.InfrastructureEncryptionEnum>? InfrastructureEncryption { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -332,7 +333,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -356,7 +357,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

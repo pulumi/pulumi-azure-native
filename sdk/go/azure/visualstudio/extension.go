@@ -45,7 +45,13 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:visualstudio/v20140401preview:Extension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:visualstudio/v20140401preview:Extension"),
+		},
+		{
+			Type: pulumi.String("azure-native:visualstudio/v20171101preview:Extension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:visualstudio/v20171101preview:Extension"),
@@ -53,7 +59,7 @@ func NewExtension(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Extension
-	err := ctx.RegisterResource("azure-nextgen:visualstudio:Extension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:visualstudio:Extension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewExtension(ctx *pulumi.Context,
 func GetExtension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExtensionState, opts ...pulumi.ResourceOption) (*Extension, error) {
 	var resource Extension
-	err := ctx.ReadResource("azure-nextgen:visualstudio:Extension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:visualstudio:Extension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

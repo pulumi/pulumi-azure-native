@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     public static class ListWebAppSiteBackups
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Collection of backup items.
         /// </summary>
         public static Task<ListWebAppSiteBackupsResult> InvokeAsync(ListWebAppSiteBackupsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsResult>("azure-nextgen:web/v20190801:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsResult>("azure-native:web/v20190801:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsArgs(), options.WithVersion());
     }
 
 

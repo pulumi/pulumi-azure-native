@@ -14,7 +14,7 @@ import (
 // The Private Endpoint Connection resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:attestation:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:attestation:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:attestation:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:attestation:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:attestation/v20201001:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:attestation/v20201001:PrivateEndpointConnection"),
@@ -56,7 +62,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:attestation/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:attestation/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:attestation/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:attestation/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

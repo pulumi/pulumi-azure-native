@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190801
+namespace Pulumi.AzureNative.Network.V20190801
 {
     public static class GetBastionHost
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// Bastion Host resource.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-nextgen:network/v20190801:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network/v20190801:getBastionHost", args ?? new GetBastionHostArgs(), options.WithVersion());
     }
 
 

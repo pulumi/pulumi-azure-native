@@ -45,7 +45,13 @@ func NewSystemTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:SystemTopic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:SystemTopic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:SystemTopic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopic"),
@@ -53,7 +59,7 @@ func NewSystemTopic(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SystemTopic
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:SystemTopic", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/v20200401preview:SystemTopic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewSystemTopic(ctx *pulumi.Context,
 func GetSystemTopic(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SystemTopicState, opts ...pulumi.ResourceOption) (*SystemTopic, error) {
 	var resource SystemTopic
-	err := ctx.ReadResource("azure-nextgen:eventgrid/v20200401preview:SystemTopic", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/v20200401preview:SystemTopic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

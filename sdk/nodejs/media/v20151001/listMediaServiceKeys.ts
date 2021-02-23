@@ -16,7 +16,7 @@ export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20151001:listMediaServiceKeys", {
+    return pulumi.runtime.invoke("azure-native:media/v20151001:listMediaServiceKeys", {
         "mediaServiceName": args.mediaServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

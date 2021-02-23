@@ -17,7 +17,7 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork:getDevice", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork:getDevice", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

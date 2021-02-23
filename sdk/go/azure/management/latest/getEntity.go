@@ -10,10 +10,10 @@ import (
 // Describes the result of the request to view entities.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'.
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
-	err := ctx.Invoke("azure-nextgen:management/latest:getEntity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/latest:getEntity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

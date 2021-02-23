@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the variable.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getVariable'. */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
-    pulumi.log.warn("getVariable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getVariable'.")
+    pulumi.log.warn("getVariable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getVariable'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getVariable", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getVariable", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "variableName": args.variableName,

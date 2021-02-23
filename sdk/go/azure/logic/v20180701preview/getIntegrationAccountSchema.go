@@ -10,7 +10,7 @@ import (
 // The integration account schema.
 func LookupIntegrationAccountSchema(ctx *pulumi.Context, args *LookupIntegrationAccountSchemaArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountSchemaResult, error) {
 	var rv LookupIntegrationAccountSchemaResult
-	err := ctx.Invoke("azure-nextgen:logic/v20180701preview:getIntegrationAccountSchema", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20180701preview:getIntegrationAccountSchema", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

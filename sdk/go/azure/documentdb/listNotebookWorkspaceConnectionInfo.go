@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func ListNotebookWorkspaceConnectionInfo(ctx *pulumi.Context, args *ListNotebookWorkspaceConnectionInfoArgs, opts ...pulumi.InvokeOption) (*ListNotebookWorkspaceConnectionInfoResult, error) {
 	var rv ListNotebookWorkspaceConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:documentdb:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

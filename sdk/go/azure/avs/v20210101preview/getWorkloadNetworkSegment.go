@@ -10,7 +10,7 @@ import (
 // NSX Segment
 func LookupWorkloadNetworkSegment(ctx *pulumi.Context, args *LookupWorkloadNetworkSegmentArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkSegmentResult, error) {
 	var rv LookupWorkloadNetworkSegmentResult
-	err := ctx.Invoke("azure-nextgen:avs/v20210101preview:getWorkloadNetworkSegment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The gateway definition
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getConnectionGateway'.
 func LookupConnectionGateway(ctx *pulumi.Context, args *LookupConnectionGatewayArgs, opts ...pulumi.InvokeOption) (*LookupConnectionGatewayResult, error) {
 	var rv LookupConnectionGatewayResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getConnectionGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getConnectionGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

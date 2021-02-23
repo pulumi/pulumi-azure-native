@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-20-preview.
 func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListCommunicationServiceKeysResult, error) {
 	var rv ListCommunicationServiceKeysResult
-	err := ctx.Invoke("azure-nextgen:communication:listCommunicationServiceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:communication:listCommunicationServiceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

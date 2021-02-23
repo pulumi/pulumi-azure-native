@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Friendly Routes name mapping to the any Routes or secret related information.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRoute'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRoute'. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-    pulumi.log.warn("getRoute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRoute'.")
+    pulumi.log.warn("getRoute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRoute'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getRoute", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getRoute", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

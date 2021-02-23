@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// The connector mapping resource format.
     /// API Version: 2017-04-26.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights:ConnectorMapping")]
+    [AzureNativeResourceType("azure-native:customerinsights:ConnectorMapping")]
     public partial class ConnectorMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -127,12 +127,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorMapping(string name, ConnectorMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:ConnectorMapping", name, args ?? new ConnectorMappingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights:ConnectorMapping", name, args ?? new ConnectorMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights:ConnectorMapping", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights:ConnectorMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -143,8 +143,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:ConnectorMapping"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:ConnectorMapping"},
                 },
             };
@@ -179,7 +182,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Type of connector.
         /// </summary>
         [Input("connectorType")]
-        public InputUnion<string, Pulumi.AzureNextGen.CustomerInsights.ConnectorTypes>? ConnectorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CustomerInsights.ConnectorTypes>? ConnectorType { get; set; }
 
         /// <summary>
         /// The description of the connector mapping.
@@ -197,7 +200,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// Defines which entity type the file should map to.
         /// </summary>
         [Input("entityType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.EntityTypes> EntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.EntityTypes> EntityType { get; set; } = null!;
 
         /// <summary>
         /// The mapping entity name.

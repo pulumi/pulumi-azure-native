@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20181101.Inputs
+namespace Pulumi.AzureNative.Web.V20181101.Inputs
 {
 
     /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101.Inputs
         /// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
         /// </summary>
         [Input("tag")]
-        public Input<Pulumi.AzureNextGen.Web.V20181101.IpFilterTag>? Tag { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20181101.IpFilterTag>? Tag { get; set; }
 
         /// <summary>
         /// Virtual network resource id

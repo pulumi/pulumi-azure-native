@@ -35,12 +35,15 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:CostAllocationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:CostAllocationRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource CostAllocationRule
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/v20200301preview:CostAllocationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +55,7 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 func GetCostAllocationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CostAllocationRuleState, opts ...pulumi.ResourceOption) (*CostAllocationRule, error) {
 	var resource CostAllocationRule
-	err := ctx.ReadResource("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/v20200301preview:CostAllocationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

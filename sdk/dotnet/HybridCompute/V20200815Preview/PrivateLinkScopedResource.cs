@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
+namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// A private link scoped resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource")]
+    [AzureNativeResourceType("azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScopedResource(string name, PrivateLinkScopedResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScopedResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScopedResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:PrivateLinkScopedResource"},
                 },
             };

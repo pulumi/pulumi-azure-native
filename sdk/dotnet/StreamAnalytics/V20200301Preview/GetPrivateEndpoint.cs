@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
+namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
 {
     public static class GetPrivateEndpoint
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// Complete information about the private endpoint.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-nextgen:streamanalytics/v20200301preview:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics/v20200301preview:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());
     }
 
 

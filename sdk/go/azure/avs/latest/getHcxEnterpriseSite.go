@@ -10,10 +10,10 @@ import (
 // An HCX Enterprise Site resource
 // Latest API Version: 2020-03-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:avs:getHcxEnterpriseSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:avs:getHcxEnterpriseSite'.
 func LookupHcxEnterpriseSite(ctx *pulumi.Context, args *LookupHcxEnterpriseSiteArgs, opts ...pulumi.InvokeOption) (*LookupHcxEnterpriseSiteResult, error) {
 	var rv LookupHcxEnterpriseSiteResult
-	err := ctx.Invoke("azure-nextgen:avs/latest:getHcxEnterpriseSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs/latest:getHcxEnterpriseSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

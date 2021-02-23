@@ -11,7 +11,7 @@ import (
 // API Version: 2018-11-01-preview.
 func LookupBlueprint(ctx *pulumi.Context, args *LookupBlueprintArgs, opts ...pulumi.InvokeOption) (*LookupBlueprintResult, error) {
 	var rv LookupBlueprintResult
-	err := ctx.Invoke("azure-nextgen:blueprint:getBlueprint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint:getBlueprint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

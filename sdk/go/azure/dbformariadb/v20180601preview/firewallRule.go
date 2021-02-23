@@ -46,10 +46,19 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/latest:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/latest:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:FirewallRule"),
@@ -57,7 +66,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/v20180601preview:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/v20180601preview:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/v20180601preview:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/v20180601preview:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

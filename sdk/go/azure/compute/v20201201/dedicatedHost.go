@@ -61,19 +61,37 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DedicatedHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHost"),
@@ -81,7 +99,7 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHost
-	err := ctx.RegisterResource("azure-nextgen:compute/v20201201:DedicatedHost", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20201201:DedicatedHost", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +111,7 @@ func NewDedicatedHost(ctx *pulumi.Context,
 func GetDedicatedHost(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedHostState, opts ...pulumi.ResourceOption) (*DedicatedHost, error) {
 	var resource DedicatedHost
-	err := ctx.ReadResource("azure-nextgen:compute/v20201201:DedicatedHost", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20201201:DedicatedHost", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

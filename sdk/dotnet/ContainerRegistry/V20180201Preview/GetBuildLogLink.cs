@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
     public static class GetBuildLogLink
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
         /// The result of get log link operation.
         /// </summary>
         public static Task<GetBuildLogLinkResult> InvokeAsync(GetBuildLogLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-nextgen:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-native:containerregistry/v20180201preview:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithVersion());
     }
 
 

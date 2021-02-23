@@ -10,7 +10,7 @@ import (
 // Static Site ARM resource.
 func LookupStaticSite(ctx *pulumi.Context, args *LookupStaticSiteArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteResult, error) {
 	var rv LookupStaticSiteResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:getStaticSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:getStaticSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-11-03-preview.
 func LookupHanaInstance(ctx *pulumi.Context, args *LookupHanaInstanceArgs, opts ...pulumi.InvokeOption) (*LookupHanaInstanceResult, error) {
 	var rv LookupHanaInstanceResult
-	err := ctx.Invoke("azure-nextgen:hanaonazure:getHanaInstance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hanaonazure:getHanaInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

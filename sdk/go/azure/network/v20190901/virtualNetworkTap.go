@@ -51,58 +51,115 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkTap"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkTap"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualNetworkTap"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetworkTap"),
@@ -110,7 +167,7 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkTap
-	err := ctx.RegisterResource("azure-nextgen:network/v20190901:VirtualNetworkTap", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190901:VirtualNetworkTap", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +179,7 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 func GetVirtualNetworkTap(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkTapState, opts ...pulumi.ResourceOption) (*VirtualNetworkTap, error) {
 	var resource VirtualNetworkTap
-	err := ctx.ReadResource("azure-nextgen:network/v20190901:VirtualNetworkTap", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190901:VirtualNetworkTap", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

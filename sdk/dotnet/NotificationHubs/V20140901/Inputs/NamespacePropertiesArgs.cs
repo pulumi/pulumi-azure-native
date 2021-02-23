@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NotificationHubs.V20140901.Inputs
+namespace Pulumi.AzureNative.NotificationHubs.V20140901.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901.Inputs
         /// Gets or sets the namespace type.
         /// </summary>
         [Input("namespaceType")]
-        public Input<Pulumi.AzureNextGen.NotificationHubs.V20140901.NamespaceType>? NamespaceType { get; set; }
+        public Input<Pulumi.AzureNative.NotificationHubs.V20140901.NamespaceType>? NamespaceType { get; set; }
 
         /// <summary>
         /// Gets or sets provisioning state of the Namespace.

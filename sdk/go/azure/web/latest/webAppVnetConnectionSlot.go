@@ -14,7 +14,7 @@ import (
 // Virtual Network information contract.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnectionSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnectionSlot'.
 type WebAppVnetConnectionSlot struct {
 	pulumi.CustomResourceState
 
@@ -61,28 +61,55 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppVnetConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppVnetConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppVnetConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppVnetConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppVnetConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppVnetConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppVnetConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppVnetConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppVnetConnectionSlot"),
@@ -90,7 +117,7 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnectionSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppVnetConnectionSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppVnetConnectionSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +129,7 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 func GetWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppVnetConnectionSlotState, opts ...pulumi.ResourceOption) (*WebAppVnetConnectionSlot, error) {
 	var resource WebAppVnetConnectionSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppVnetConnectionSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppVnetConnectionSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

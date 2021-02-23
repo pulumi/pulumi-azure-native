@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserEnvironments'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserEnvironments'.")]
     public static class ListGlobalUserEnvironments
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Latest API Version: 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserEnvironmentsResult> InvokeAsync(ListGlobalUserEnvironmentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-nextgen:labservices/latest:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-native:labservices/latest:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithVersion());
     }
 
 

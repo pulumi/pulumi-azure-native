@@ -33,7 +33,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-azure-nextgen/sdk/go",
+			"github.com/pulumi/pulumi-azure-nextgen/sdk/go", // TODO: rename to native when the repo is renamed
 		},
 	})
 

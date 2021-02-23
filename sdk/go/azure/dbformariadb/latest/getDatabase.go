@@ -10,10 +10,10 @@ import (
 // Represents a Database.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformariadb:getDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getDatabase'.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb/latest:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb/latest:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // An object that represents a webhook for a container registry.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhook'.
 func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.InvokeOption) (*LookupWebhookResult, error) {
 	var rv LookupWebhookResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:getWebhook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:getWebhook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

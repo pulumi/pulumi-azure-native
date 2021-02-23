@@ -68,43 +68,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20190301:AvailabilitySet":
+            case "azure-native:compute/v20190301:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:DedicatedHost":
+            case "azure-native:compute/v20190301:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:DedicatedHostGroup":
+            case "azure-native:compute/v20190301:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:Disk":
+            case "azure-native:compute/v20190301:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:Gallery":
+            case "azure-native:compute/v20190301:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:GalleryApplication":
+            case "azure-native:compute/v20190301:GalleryApplication":
                 return new GalleryApplication(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:GalleryApplicationVersion":
+            case "azure-native:compute/v20190301:GalleryApplicationVersion":
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:GalleryImage":
+            case "azure-native:compute/v20190301:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:GalleryImageVersion":
+            case "azure-native:compute/v20190301:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:Image":
+            case "azure-native:compute/v20190301:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:ProximityPlacementGroup":
+            case "azure-native:compute/v20190301:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:Snapshot":
+            case "azure-native:compute/v20190301:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:VirtualMachine":
+            case "azure-native:compute/v20190301:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:VirtualMachineExtension":
+            case "azure-native:compute/v20190301:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:VirtualMachineScaleSet":
+            case "azure-native:compute/v20190301:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:VirtualMachineScaleSetExtension":
+            case "azure-native:compute/v20190301:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM":
+            case "azure-native:compute/v20190301:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20190301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20190301", _module)

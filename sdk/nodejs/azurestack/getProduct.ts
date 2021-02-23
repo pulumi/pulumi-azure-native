@@ -17,7 +17,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack:getProduct", {
+    return pulumi.runtime.invoke("azure-native:azurestack:getProduct", {
         "productName": args.productName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

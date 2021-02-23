@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Certificate signing request object
  * Latest API Version: 2015-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificateCsr'. */
 export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateCsrResult> {
-    pulumi.log.warn("getCertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'.")
+    pulumi.log.warn("getCertificateCsr is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificateCsr'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getCertificateCsr", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getCertificateCsr", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

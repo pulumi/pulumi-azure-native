@@ -1,11 +1,11 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure-nextgen";
+import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
-const managedClustersAzureNextgenAksNameParam = config.get("managedClustersAzureNextgenAksNameParam") || "azure-nextgen-aks";
-const publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam = config.get("publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam") || "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_azure-nextgen-go_azure-nextgen-aks_westus/providers/Microsoft.Network/publicIPAddresses/87a245ee-edc1-470c-a08e-c456659d9861";
+const managedClustersAzureNativeAksNameParam = config.get("managedClustersAzureNativeAksNameParam") || "azure-native-aks";
+const publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam = config.get("publicIPAddresses87a245eeEdc1470cA08eC456659d9861ExternalidParam") || "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_azure-native-go_azure-native-aks_westus/providers/Microsoft.Network/publicIPAddresses/87a245ee-edc1-470c-a08e-c456659d9861";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const managedClusterResource = new azure_nextgen.containerservice.v20200701.ManagedCluster("managedClusterResource", {
+const managedClusterResource = new azure_native.containerservice.v20200701.ManagedCluster("managedClusterResource", {
     addonProfiles: {
         KubeDashboard: {
             enabled: true,
@@ -23,7 +23,7 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200701.Mana
         type: "VirtualMachineScaleSets",
         vmSize: "Standard_DS2_v2",
     }],
-    dnsPrefix: "azurenextgenprovider",
+    dnsPrefix: "azurenativeprovider",
     enableRBAC: true,
     kubernetesVersion: "1.16.10",
     linuxProfile: {
@@ -52,9 +52,9 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200701.Mana
         podCidr: "10.244.0.0/16",
         serviceCidr: "10.0.0.0/16",
     },
-    nodeResourceGroup: `MC_azure-nextgen-go_${managedClustersAzureNextgenAksNameParam}_westus`,
+    nodeResourceGroup: `MC_azure-native-go_${managedClustersAzureNativeAksNameParam}_westus`,
     resourceGroupName: resourceGroupNameParam,
-    resourceName: managedClustersAzureNextgenAksNameParam,
+    resourceName: managedClustersAzureNativeAksNameParam,
     servicePrincipalProfile: {
         clientId: "265097a5-0e6d-4315-8c76-998e743f5e2d",
     },
@@ -63,8 +63,8 @@ const managedClusterResource = new azure_nextgen.containerservice.v20200701.Mana
         tier: "Free",
     },
 });
-const agentPoolResource = new azure_nextgen.containerservice.v20200701.AgentPool("agentPoolResource", {
-    agentPoolName: `${managedClustersAzureNextgenAksNameParam}/agentpool`,
+const agentPoolResource = new azure_native.containerservice.v20200701.AgentPool("agentPoolResource", {
+    agentPoolName: `${managedClustersAzureNativeAksNameParam}/agentpool`,
     count: 3,
     maxPods: 110,
     mode: "System",

@@ -10,7 +10,7 @@ import (
 // A managed database resource.
 func LookupManagedDatabase(ctx *pulumi.Context, args *LookupManagedDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseResult, error) {
 	var rv LookupManagedDatabaseResult
-	err := ctx.Invoke("azure-nextgen:sql/v20170301preview:getManagedDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20170301preview:getManagedDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

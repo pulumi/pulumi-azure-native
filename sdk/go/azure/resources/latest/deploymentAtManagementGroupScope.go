@@ -14,7 +14,7 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentAtManagementGroupScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtManagementGroupScope'.
 type DeploymentAtManagementGroupScope struct {
 	pulumi.CustomResourceState
 
@@ -45,28 +45,55 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190501:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190510:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope"),
@@ -74,7 +101,7 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtManagementGroupScope
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:DeploymentAtManagementGroupScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:DeploymentAtManagementGroupScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +113,7 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 func GetDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentAtManagementGroupScopeState, opts ...pulumi.ResourceOption) (*DeploymentAtManagementGroupScope, error) {
 	var resource DeploymentAtManagementGroupScope
-	err := ctx.ReadResource("azure-nextgen:resources/latest:DeploymentAtManagementGroupScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:DeploymentAtManagementGroupScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.Inputs
+namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.DigitalTwinsSku> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.V20200301Preview.DigitalTwinsSku> Name { get; set; } = null!;
 
         public DigitalTwinsSkuInfoArgs()
         {

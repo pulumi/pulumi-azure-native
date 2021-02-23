@@ -17,7 +17,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp:getAccount", {
+    return pulumi.runtime.invoke("azure-native:netapp:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

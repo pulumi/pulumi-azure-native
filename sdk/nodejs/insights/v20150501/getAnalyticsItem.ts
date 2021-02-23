@@ -16,7 +16,7 @@ export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20150501:getAnalyticsItem", {
+    return pulumi.runtime.invoke("azure-native:insights/v20150501:getAnalyticsItem", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

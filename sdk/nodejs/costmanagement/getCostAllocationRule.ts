@@ -17,7 +17,7 @@ export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement:getCostAllocationRule", {
+    return pulumi.runtime.invoke("azure-native:costmanagement:getCostAllocationRule", {
         "billingAccountId": args.billingAccountId,
         "ruleName": args.ruleName,
     }, opts);

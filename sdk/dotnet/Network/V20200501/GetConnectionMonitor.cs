@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200501
+namespace Pulumi.AzureNative.Network.V20200501
 {
     public static class GetConnectionMonitor
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// Information about the connection monitor.
         /// </summary>
         public static Task<GetConnectionMonitorResult> InvokeAsync(GetConnectionMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-nextgen:network/v20200501:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorResult>("azure-native:network/v20200501:getConnectionMonitor", args ?? new GetConnectionMonitorArgs(), options.WithVersion());
     }
 
 

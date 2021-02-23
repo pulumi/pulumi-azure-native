@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20150601
+namespace Pulumi.AzureNative.KeyVault.V20150601
 {
     [EnumType]
     public readonly struct CertificatePermissions : IEquatable<CertificatePermissions>

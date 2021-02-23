@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Get Storage Account ManagementPolicies operation response.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getManagementPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getManagementPolicy'. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
-    pulumi.log.warn("getManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getManagementPolicy'.")
+    pulumi.log.warn("getManagementPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getManagementPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getManagementPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getManagementPolicy", {
         "accountName": args.accountName,
         "managementPolicyName": args.managementPolicyName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DocumentDB.Inputs
         /// The datatype for which the indexing behavior is applied to.
         /// </summary>
         [Input("dataType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.DataType>? DataType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.DataType>? DataType { get; set; }
 
         /// <summary>
         /// Indicates the type of index.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.IndexKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.IndexKind>? Kind { get; set; }
 
         /// <summary>
         /// The precision of the index. -1 is maximum precision.

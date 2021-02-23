@@ -10,7 +10,7 @@ import (
 // Redis cache access keys.
 func ListRedisKeys(ctx *pulumi.Context, args *ListRedisKeysArgs, opts ...pulumi.InvokeOption) (*ListRedisKeysResult, error) {
 	var rv ListRedisKeysResult
-	err := ctx.Invoke("azure-nextgen:cache/v20170201:listRedisKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20170201:listRedisKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteInstanceDeployment")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteInstanceDeployment")]
     public partial class SiteInstanceDeployment : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteInstanceDeployment(string name, SiteInstanceDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteInstanceDeployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,7 +124,9 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteInstanceDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteInstanceDeployment"},
                 },
             };

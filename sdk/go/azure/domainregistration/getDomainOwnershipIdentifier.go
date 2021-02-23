@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupDomainOwnershipIdentifierResult, error) {
 	var rv LookupDomainOwnershipIdentifierResult
-	err := ctx.Invoke("azure-nextgen:domainregistration:getDomainOwnershipIdentifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration:getDomainOwnershipIdentifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

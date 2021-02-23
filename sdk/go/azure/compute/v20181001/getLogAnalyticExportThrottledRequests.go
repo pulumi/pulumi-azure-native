@@ -10,7 +10,7 @@ import (
 // LogAnalytics operation status response
 func GetLogAnalyticExportThrottledRequests(ctx *pulumi.Context, args *GetLogAnalyticExportThrottledRequestsArgs, opts ...pulumi.InvokeOption) (*GetLogAnalyticExportThrottledRequestsResult, error) {
 	var rv GetLogAnalyticExportThrottledRequestsResult
-	err := ctx.Invoke("azure-nextgen:compute/v20181001:getLogAnalyticExportThrottledRequests", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20181001:getLogAnalyticExportThrottledRequests", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

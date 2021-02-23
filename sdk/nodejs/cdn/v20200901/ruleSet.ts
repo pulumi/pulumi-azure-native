@@ -22,7 +22,7 @@ export class RuleSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn/v20200901:RuleSet';
+    public static readonly __pulumiType = 'azure-native:cdn/v20200901:RuleSet';
 
     /**
      * Returns true if the given object is an instance of RuleSet.  This is designed to work even
@@ -91,7 +91,7 @@ export class RuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:RuleSet" }, { type: "azure-nextgen:cdn/latest:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:RuleSet" }, { type: "azure-nextgen:cdn:RuleSet" }, { type: "azure-native:cdn/latest:RuleSet" }, { type: "azure-nextgen:cdn/latest:RuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RuleSet.__pulumiType, name, inputs, opts);
     }

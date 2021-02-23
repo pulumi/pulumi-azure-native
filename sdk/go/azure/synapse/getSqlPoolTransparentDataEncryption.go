@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupSqlPoolTransparentDataEncryption(ctx *pulumi.Context, args *LookupSqlPoolTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolTransparentDataEncryptionResult, error) {
 	var rv LookupSqlPoolTransparentDataEncryptionResult
-	err := ctx.Invoke("azure-nextgen:synapse:getSqlPoolTransparentDataEncryption", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getSqlPoolTransparentDataEncryption", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

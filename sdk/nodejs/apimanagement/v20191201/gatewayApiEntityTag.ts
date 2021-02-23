@@ -22,7 +22,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201:GatewayApiEntityTag';
 
     /**
      * Returns true if the given object is an instance of GatewayApiEntityTag.  This is designed to work even
@@ -189,7 +189,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayApiEntityTag.__pulumiType, name, inputs, opts);
     }

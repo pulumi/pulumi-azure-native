@@ -22,7 +22,7 @@ export class Export extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20190901:Export';
+    public static readonly __pulumiType = 'azure-native:costmanagement/v20190901:Export';
 
     /**
      * Returns true if the given object is an instance of Export.  This is designed to work even
@@ -108,7 +108,7 @@ export class Export extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:Export" }, { type: "azure-nextgen:costmanagement/latest:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }, { type: "azure-nextgen:costmanagement/v20200601:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-nextgen:costmanagement:Export" }, { type: "azure-native:costmanagement/latest:Export" }, { type: "azure-nextgen:costmanagement/latest:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-nextgen:costmanagement/v20200601:Export" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Export.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB Cassandra keyspace.
 func LookupCassandraResourceCassandraKeyspace(ctx *pulumi.Context, args *LookupCassandraResourceCassandraKeyspaceArgs, opts ...pulumi.InvokeOption) (*LookupCassandraResourceCassandraKeyspaceResult, error) {
 	var rv LookupCassandraResourceCassandraKeyspaceResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200601preview:getCassandraResourceCassandraKeyspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getCassandraResourceCassandraKeyspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

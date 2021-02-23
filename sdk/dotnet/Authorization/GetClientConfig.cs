@@ -7,15 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     public static class GetClientConfig
     {
         /// <summary>
-        /// Use this function to access the current configuration of the Azure NextGen provider.
+        /// Use this function to access the current configuration of the native Azure provider.
         /// </summary>
         public static Task<GetClientConfigResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azure-nextgen:authorization:getClientConfig", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azure-native:authorization:getClientConfig", InvokeArgs.Empty, options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Shared access keys of the Topic
 func ListTopicSharedAccessKeys(ctx *pulumi.Context, args *ListTopicSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListTopicSharedAccessKeysResult, error) {
 	var rv ListTopicSharedAccessKeysResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20190201preview:listTopicSharedAccessKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20190201preview:listTopicSharedAccessKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

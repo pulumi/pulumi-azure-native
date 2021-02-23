@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Data connector.
  * Latest API Version: 2020-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:DataConnector'.
  */
 export class DataConnector extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DataConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataConnector {
-        pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")
+        pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:DataConnector'.")
         return new DataConnector(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/latest:DataConnector';
+    public static readonly __pulumiType = 'azure-native:securityinsights/latest:DataConnector';
 
     /**
      * Returns true if the given object is an instance of DataConnector.  This is designed to work even
@@ -63,9 +63,9 @@ export class DataConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:DataConnector'. */
     constructor(name: string, args: DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")
+        pulumi.log.warn("DataConnector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:DataConnector'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class DataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:DataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:DataConnector" }, { type: "azure-nextgen:securityinsights:DataConnector" }, { type: "azure-native:securityinsights/v20200101:DataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:DataConnector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataConnector.__pulumiType, name, inputs, opts);
     }

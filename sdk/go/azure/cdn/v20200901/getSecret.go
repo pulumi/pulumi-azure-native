@@ -10,7 +10,7 @@ import (
 // Friendly Secret name mapping to the any Secret or secret related information.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20200901:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20200901:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

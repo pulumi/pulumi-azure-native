@@ -10,7 +10,7 @@ import (
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:search/v20191001preview:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search/v20191001preview:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // A notebook workspace resource
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:NotebookWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 
@@ -43,25 +43,49 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:NotebookWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:NotebookWorkspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:NotebookWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:NotebookWorkspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:NotebookWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:NotebookWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:NotebookWorkspace"),
@@ -69,7 +93,7 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotebookWorkspace
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:NotebookWorkspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:NotebookWorkspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +105,7 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 func GetNotebookWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotebookWorkspaceState, opts ...pulumi.ResourceOption) (*NotebookWorkspace, error) {
 	var resource NotebookWorkspace
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:NotebookWorkspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:NotebookWorkspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupPeering(ctx *pulumi.Context, args *LookupPeeringArgs, opts ...pulumi.InvokeOption) (*LookupPeeringResult, error) {
 	var rv LookupPeeringResult
-	err := ctx.Invoke("azure-nextgen:peering:getPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering:getPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

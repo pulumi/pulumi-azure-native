@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
+namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Disk configuration to apply to SQL Server.
         /// </summary>
         [Input("diskConfigurationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.DiskConfigurationType>? DiskConfigurationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.DiskConfigurationType>? DiskConfigurationType { get; set; }
 
         /// <summary>
         /// SQL Server Data Storage Settings.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Storage workload type.
         /// </summary>
         [Input("storageWorkloadType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.StorageWorkloadType>? StorageWorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.StorageWorkloadType>? StorageWorkloadType { get; set; }
 
         public StorageConfigurationSettingsArgs()
         {

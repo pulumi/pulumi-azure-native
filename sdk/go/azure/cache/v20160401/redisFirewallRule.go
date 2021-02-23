@@ -46,22 +46,43 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/latest:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/latest:RedisFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20170201:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20171001:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:RedisFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20180301:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:RedisFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:RedisFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:RedisFirewallRule"),
@@ -69,7 +90,7 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RedisFirewallRule
-	err := ctx.RegisterResource("azure-nextgen:cache/v20160401:RedisFirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/v20160401:RedisFirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +102,7 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 func GetRedisFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RedisFirewallRuleState, opts ...pulumi.ResourceOption) (*RedisFirewallRule, error) {
 	var resource RedisFirewallRule
-	err := ctx.ReadResource("azure-nextgen:cache/v20160401:RedisFirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/v20160401:RedisFirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

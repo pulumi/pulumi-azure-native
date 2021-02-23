@@ -23,7 +23,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:search:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:search:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -83,7 +83,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:search/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200313:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200801:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200801preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:search/latest:PrivateEndpointConnection" }, { type: "azure-native:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20200313:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200313:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200801:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801preview:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200801preview:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration:getConfigurationStore", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration:getConfigurationStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

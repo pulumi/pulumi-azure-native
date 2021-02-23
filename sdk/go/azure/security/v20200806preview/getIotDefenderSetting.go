@@ -10,7 +10,7 @@ import (
 // IoT Defender settings
 func LookupIotDefenderSetting(ctx *pulumi.Context, args *LookupIotDefenderSettingArgs, opts ...pulumi.InvokeOption) (*LookupIotDefenderSettingResult, error) {
 	var rv LookupIotDefenderSettingResult
-	err := ctx.Invoke("azure-nextgen:security/v20200806preview:getIotDefenderSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20200806preview:getIotDefenderSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

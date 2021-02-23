@@ -45,43 +45,85 @@ func NewBastionHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:BastionHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:BastionHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:BastionHost"),
@@ -89,7 +131,7 @@ func NewBastionHost(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BastionHost
-	err := ctx.RegisterResource("azure-nextgen:network/v20191101:BastionHost", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20191101:BastionHost", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +143,7 @@ func NewBastionHost(ctx *pulumi.Context,
 func GetBastionHost(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BastionHostState, opts ...pulumi.ResourceOption) (*BastionHost, error) {
 	var resource BastionHost
-	err := ctx.ReadResource("azure-nextgen:network/v20191101:BastionHost", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20191101:BastionHost", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

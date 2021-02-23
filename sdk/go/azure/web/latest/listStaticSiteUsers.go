@@ -10,10 +10,10 @@ import (
 // Collection of static site custom users.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteUsers'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteUsers'.
 func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteUsersResult, error) {
 	var rv ListStaticSiteUsersResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listStaticSiteUsers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listStaticSiteUsers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

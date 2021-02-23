@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20200701
+namespace Pulumi.AzureNative.ContainerService.V20200701
 {
     /// <summary>
     /// AgentPoolMode represents mode of an agent pool

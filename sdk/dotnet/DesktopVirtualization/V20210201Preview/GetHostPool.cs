@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210201Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 {
     public static class GetHostPool
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210201Preview
         /// Represents a HostPool definition.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-nextgen:desktopvirtualization/v20210201preview:getHostPool", args ?? new GetHostPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization/v20210201preview:getHostPool", args ?? new GetHostPoolArgs(), options.WithVersion());
     }
 
 

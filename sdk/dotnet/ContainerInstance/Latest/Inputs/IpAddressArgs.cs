@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerInstance.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Inputs
         /// Specifies if the IP is exposed to the public internet or private VNET.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.Latest.ContainerGroupIpAddressType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.Latest.ContainerGroupIpAddressType> Type { get; set; } = null!;
 
         public IpAddressArgs()
         {

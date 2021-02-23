@@ -17,7 +17,7 @@ export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearning:getCommitmentPlan", {
+    return pulumi.runtime.invoke("azure-native:machinelearning:getCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

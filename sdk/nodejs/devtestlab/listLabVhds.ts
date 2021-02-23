@@ -17,7 +17,7 @@ export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:listLabVhds", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:listLabVhds", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

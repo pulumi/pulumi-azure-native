@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceProviderManifestPropertiesFeaturesRuleArgs : Pulumi.ResourceArgs
     {
         [Input("requiredFeaturesPolicy", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.FeaturesPolicy> RequiredFeaturesPolicy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.FeaturesPolicy> RequiredFeaturesPolicy { get; set; } = null!;
 
         public ResourceProviderManifestPropertiesFeaturesRuleArgs()
         {

@@ -22,7 +22,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm';
+    public static readonly __pulumiType = 'azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm';
 
     /**
      * Returns true if the given object is an instance of DedicatedHsm.  This is designed to work even
@@ -122,7 +122,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hardwaresecuritymodules:DedicatedHsm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:DedicatedHsm" }, { type: "azure-nextgen:hardwaresecuritymodules:DedicatedHsm" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedHsm.__pulumiType, name, inputs, opts);
     }

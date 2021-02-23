@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Network function resource response.
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridnetwork:NetworkFunction")]
+    [AzureNativeResourceType("azure-native:hybridnetwork:NetworkFunction")]
     public partial class NetworkFunction : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkFunction(string name, NetworkFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:NetworkFunction", name, args ?? new NetworkFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridnetwork:NetworkFunction", name, args ?? new NetworkFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridnetwork:NetworkFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridnetwork:NetworkFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction"},
                 },
             };

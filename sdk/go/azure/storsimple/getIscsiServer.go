@@ -11,7 +11,7 @@ import (
 // API Version: 2016-10-01.
 func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ...pulumi.InvokeOption) (*LookupIscsiServerResult, error) {
 	var rv LookupIscsiServerResult
-	err := ctx.Invoke("azure-nextgen:storsimple:getIscsiServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:getIscsiServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

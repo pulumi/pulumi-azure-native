@@ -22,7 +22,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering:RegisteredAsn';
+    public static readonly __pulumiType = 'azure-native:peering:RegisteredAsn';
 
     /**
      * Returns true if the given object is an instance of RegisteredAsn.  This is designed to work even
@@ -94,7 +94,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering/latest:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200401:RegisteredAsn" }, { type: "azure-nextgen:peering/v20201001:RegisteredAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering/latest:RegisteredAsn" }, { type: "azure-nextgen:peering/latest:RegisteredAsn" }, { type: "azure-native:peering/v20200101preview:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredAsn" }, { type: "azure-native:peering/v20200401:RegisteredAsn" }, { type: "azure-nextgen:peering/v20200401:RegisteredAsn" }, { type: "azure-native:peering/v20201001:RegisteredAsn" }, { type: "azure-nextgen:peering/v20201001:RegisteredAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredAsn.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function getManagedInstanceAdministrator(args: GetManagedInstanceAdminist
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getManagedInstanceAdministrator", {
+    return pulumi.runtime.invoke("azure-native:sql:getManagedInstanceAdministrator", {
         "administratorName": args.administratorName,
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,

@@ -22,7 +22,7 @@ export class ProductApi extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:ProductApi';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20170301:ProductApi';
 
     /**
      * Returns true if the given object is an instance of ProductApi.  This is designed to work even
@@ -164,7 +164,7 @@ export class ProductApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ProductApi" }, { type: "azure-nextgen:apimanagement/latest:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductApi" }, { type: "azure-nextgen:apimanagement:ProductApi" }, { type: "azure-native:apimanagement/latest:ProductApi" }, { type: "azure-nextgen:apimanagement/latest:ProductApi" }, { type: "azure-native:apimanagement/v20180101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180101:ProductApi" }, { type: "azure-native:apimanagement/v20180601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductApi" }, { type: "azure-native:apimanagement/v20190101:ProductApi" }, { type: "azure-nextgen:apimanagement/v20190101:ProductApi" }, { type: "azure-native:apimanagement/v20191201:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201:ProductApi" }, { type: "azure-native:apimanagement/v20191201preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductApi" }, { type: "azure-native:apimanagement/v20200601preview:ProductApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProductApi.__pulumiType, name, inputs, opts);
     }

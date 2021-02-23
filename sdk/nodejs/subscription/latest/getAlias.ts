@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Subscription Information with the alias.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:subscription:getAlias'. */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    pulumi.log.warn("getAlias is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:subscription:getAlias'.")
+    pulumi.log.warn("getAlias is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:subscription:getAlias'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:subscription/latest:getAlias", {
+    return pulumi.runtime.invoke("azure-native:subscription/latest:getAlias", {
         "aliasName": args.aliasName,
     }, opts);
 }

@@ -54,10 +54,19 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:ManagedInstanceAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstanceAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstanceAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator"),
@@ -65,7 +74,7 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstanceAdministrator
-	err := ctx.RegisterResource("azure-nextgen:sql:ManagedInstanceAdministrator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ManagedInstanceAdministrator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +86,7 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 func GetManagedInstanceAdministrator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedInstanceAdministratorState, opts ...pulumi.ResourceOption) (*ManagedInstanceAdministrator, error) {
 	var resource ManagedInstanceAdministrator
-	err := ctx.ReadResource("azure-nextgen:sql:ManagedInstanceAdministrator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ManagedInstanceAdministrator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

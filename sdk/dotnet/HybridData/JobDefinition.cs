@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData
+namespace Pulumi.AzureNative.HybridData
 {
     /// <summary>
     /// Job Definition.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybriddata:JobDefinition")]
+    [AzureNativeResourceType("azure-native:hybriddata:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.HybridData
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybriddata:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybriddata:JobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybriddata:JobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,8 +107,11 @@ namespace Pulumi.AzureNextGen.HybridData
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/latest:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/latest:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:JobDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:JobDefinition"},
                 },
             };
@@ -197,7 +200,7 @@ namespace Pulumi.AzureNextGen.HybridData
         /// This is the preferred geo location for the job to run.
         /// </summary>
         [Input("runLocation")]
-        public Input<Pulumi.AzureNextGen.HybridData.RunLocation>? RunLocation { get; set; }
+        public Input<Pulumi.AzureNative.HybridData.RunLocation>? RunLocation { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.ScheduleArgs>? _schedules;
@@ -215,17 +218,17 @@ namespace Pulumi.AzureNextGen.HybridData
         /// State of the job definition.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.HybridData.State> State { get; set; } = null!;
+        public Input<Pulumi.AzureNative.HybridData.State> State { get; set; } = null!;
 
         /// <summary>
         /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         /// </summary>
         [Input("userConfirmation")]
-        public Input<Pulumi.AzureNextGen.HybridData.UserConfirmation>? UserConfirmation { get; set; }
+        public Input<Pulumi.AzureNative.HybridData.UserConfirmation>? UserConfirmation { get; set; }
 
         public JobDefinitionArgs()
         {
-            UserConfirmation = Pulumi.AzureNextGen.HybridData.UserConfirmation.NotRequired;
+            UserConfirmation = Pulumi.AzureNative.HybridData.UserConfirmation.NotRequired;
         }
     }
 }

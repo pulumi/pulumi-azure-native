@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Quantum
+namespace Pulumi.AzureNative.Quantum
 {
     public static class GetWorkspace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Quantum
         /// API Version: 2019-11-04-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-nextgen:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
 
 

@@ -50,19 +50,37 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Cache"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Cache"),
@@ -70,7 +88,7 @@ func NewCache(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cache
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20200601preview:Cache", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20200601preview:Cache", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +100,7 @@ func NewCache(ctx *pulumi.Context,
 func GetCache(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CacheState, opts ...pulumi.ResourceOption) (*Cache, error) {
 	var resource Cache
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20200601preview:Cache", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20200601preview:Cache", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

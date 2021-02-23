@@ -21,95 +21,95 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:network/v20181001:ApplicationGateway":
+	case "azure-native:network/v20181001:ApplicationGateway":
 		r, err = NewApplicationGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ApplicationSecurityGroup":
+	case "azure-native:network/v20181001:ApplicationSecurityGroup":
 		r, err = NewApplicationSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:AzureFirewall":
+	case "azure-native:network/v20181001:AzureFirewall":
 		r, err = NewAzureFirewall(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ConnectionMonitor":
+	case "azure-native:network/v20181001:ConnectionMonitor":
 		r, err = NewConnectionMonitor(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:DdosProtectionPlan":
+	case "azure-native:network/v20181001:DdosProtectionPlan":
 		r, err = NewDdosProtectionPlan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteCircuit":
+	case "azure-native:network/v20181001:ExpressRouteCircuit":
 		r, err = NewExpressRouteCircuit(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteCircuitAuthorization":
+	case "azure-native:network/v20181001:ExpressRouteCircuitAuthorization":
 		r, err = NewExpressRouteCircuitAuthorization(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteCircuitConnection":
+	case "azure-native:network/v20181001:ExpressRouteCircuitConnection":
 		r, err = NewExpressRouteCircuitConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteCircuitPeering":
+	case "azure-native:network/v20181001:ExpressRouteCircuitPeering":
 		r, err = NewExpressRouteCircuitPeering(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteConnection":
+	case "azure-native:network/v20181001:ExpressRouteConnection":
 		r, err = NewExpressRouteConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteCrossConnectionPeering":
+	case "azure-native:network/v20181001:ExpressRouteCrossConnectionPeering":
 		r, err = NewExpressRouteCrossConnectionPeering(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRouteGateway":
+	case "azure-native:network/v20181001:ExpressRouteGateway":
 		r, err = NewExpressRouteGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ExpressRoutePort":
+	case "azure-native:network/v20181001:ExpressRoutePort":
 		r, err = NewExpressRoutePort(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:InboundNatRule":
+	case "azure-native:network/v20181001:InboundNatRule":
 		r, err = NewInboundNatRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:InterfaceEndpoint":
+	case "azure-native:network/v20181001:InterfaceEndpoint":
 		r, err = NewInterfaceEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:LoadBalancer":
+	case "azure-native:network/v20181001:LoadBalancer":
 		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:LocalNetworkGateway":
+	case "azure-native:network/v20181001:LocalNetworkGateway":
 		r, err = NewLocalNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:NetworkInterface":
+	case "azure-native:network/v20181001:NetworkInterface":
 		r, err = NewNetworkInterface(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:NetworkInterfaceTapConfiguration":
+	case "azure-native:network/v20181001:NetworkInterfaceTapConfiguration":
 		r, err = NewNetworkInterfaceTapConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:NetworkProfile":
+	case "azure-native:network/v20181001:NetworkProfile":
 		r, err = NewNetworkProfile(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:NetworkSecurityGroup":
+	case "azure-native:network/v20181001:NetworkSecurityGroup":
 		r, err = NewNetworkSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:NetworkWatcher":
+	case "azure-native:network/v20181001:NetworkWatcher":
 		r, err = NewNetworkWatcher(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:P2sVpnGateway":
+	case "azure-native:network/v20181001:P2sVpnGateway":
 		r, err = NewP2sVpnGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:P2sVpnServerConfiguration":
+	case "azure-native:network/v20181001:P2sVpnServerConfiguration":
 		r, err = NewP2sVpnServerConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:PacketCapture":
+	case "azure-native:network/v20181001:PacketCapture":
 		r, err = NewPacketCapture(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:PublicIPAddress":
+	case "azure-native:network/v20181001:PublicIPAddress":
 		r, err = NewPublicIPAddress(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:PublicIPPrefix":
+	case "azure-native:network/v20181001:PublicIPPrefix":
 		r, err = NewPublicIPPrefix(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:Route":
+	case "azure-native:network/v20181001:Route":
 		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:RouteFilter":
+	case "azure-native:network/v20181001:RouteFilter":
 		r, err = NewRouteFilter(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:RouteFilterRule":
+	case "azure-native:network/v20181001:RouteFilterRule":
 		r, err = NewRouteFilterRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:RouteTable":
+	case "azure-native:network/v20181001:RouteTable":
 		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:SecurityRule":
+	case "azure-native:network/v20181001:SecurityRule":
 		r, err = NewSecurityRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ServiceEndpointPolicy":
+	case "azure-native:network/v20181001:ServiceEndpointPolicy":
 		r, err = NewServiceEndpointPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:ServiceEndpointPolicyDefinition":
+	case "azure-native:network/v20181001:ServiceEndpointPolicyDefinition":
 		r, err = NewServiceEndpointPolicyDefinition(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:Subnet":
+	case "azure-native:network/v20181001:Subnet":
 		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualHub":
+	case "azure-native:network/v20181001:VirtualHub":
 		r, err = NewVirtualHub(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualNetwork":
+	case "azure-native:network/v20181001:VirtualNetwork":
 		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualNetworkGateway":
+	case "azure-native:network/v20181001:VirtualNetworkGateway":
 		r, err = NewVirtualNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection":
+	case "azure-native:network/v20181001:VirtualNetworkGatewayConnection":
 		r, err = NewVirtualNetworkGatewayConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualNetworkPeering":
+	case "azure-native:network/v20181001:VirtualNetworkPeering":
 		r, err = NewVirtualNetworkPeering(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualNetworkTap":
+	case "azure-native:network/v20181001:VirtualNetworkTap":
 		r, err = NewVirtualNetworkTap(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VirtualWan":
+	case "azure-native:network/v20181001:VirtualWan":
 		r, err = NewVirtualWan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VpnConnection":
+	case "azure-native:network/v20181001:VpnConnection":
 		r, err = NewVpnConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VpnGateway":
+	case "azure-native:network/v20181001:VpnGateway":
 		r, err = NewVpnGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:network/v20181001:VpnSite":
+	case "azure-native:network/v20181001:VpnSite":
 		r, err = NewVpnSite(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -124,7 +124,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"network/v20181001",
 		&module{version},
 	)

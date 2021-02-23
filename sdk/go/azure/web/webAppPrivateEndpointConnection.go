@@ -46,16 +46,31 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"),
@@ -63,7 +78,7 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppPrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +90,7 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 func GetWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppPrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*WebAppPrivateEndpointConnection, error) {
 	var resource WebAppPrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:web:WebAppPrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppPrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

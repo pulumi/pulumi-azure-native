@@ -10,7 +10,7 @@ import (
 // Backend details.
 func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.InvokeOption) (*LookupBackendResult, error) {
 	var rv LookupBackendResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:getBackend", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getBackend", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

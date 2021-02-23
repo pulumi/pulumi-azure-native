@@ -21,7 +21,7 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datalakeanalytics/v20161101:FirewallRule';
+    public static readonly __pulumiType = 'azure-native:datalakeanalytics/v20161101:FirewallRule';
 
     /**
      * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
@@ -93,7 +93,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakeanalytics:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/latest:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics:FirewallRule" }, { type: "azure-native:datalakeanalytics/latest:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/latest:FirewallRule" }, { type: "azure-native:datalakeanalytics/v20151001preview:FirewallRule" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

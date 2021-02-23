@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform.Latest
+namespace Pulumi.AzureNative.AppPlatform.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getBinding'.")]
     public static class GetBinding
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
         /// Latest API Version: 2020-07-01.
         /// </summary>
         public static Task<GetBindingResult> InvokeAsync(GetBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-nextgen:appplatform/latest:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBindingResult>("azure-native:appplatform/latest:getBinding", args ?? new GetBindingArgs(), options.WithVersion());
     }
 
 

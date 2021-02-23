@@ -68,49 +68,97 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20150501preview:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20150501preview:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20150615:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20150615:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20160101:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20160101:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20161201:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20161201:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20170601:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20170601:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20171001:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20171001:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20180201:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20180201:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180301preview:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180301preview:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20180701:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20180701:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20181101:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190401:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:StorageAccount"),
@@ -118,7 +166,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccount
-	err := ctx.RegisterResource("azure-nextgen:storage/v20160501:StorageAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20160501:StorageAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -130,7 +178,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 func GetStorageAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountState, opts ...pulumi.ResourceOption) (*StorageAccount, error) {
 	var resource StorageAccount
-	err := ctx.ReadResource("azure-nextgen:storage/v20160501:StorageAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20160501:StorageAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

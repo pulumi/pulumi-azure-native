@@ -17,7 +17,7 @@ export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage:listStorageAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:storage:listStorageAccountKeys", {
         "accountName": args.accountName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

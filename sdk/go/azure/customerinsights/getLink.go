@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
 	var rv LookupLinkResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

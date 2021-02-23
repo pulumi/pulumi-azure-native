@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
+namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
 {
     /// <summary>
     /// Authentication Mode.

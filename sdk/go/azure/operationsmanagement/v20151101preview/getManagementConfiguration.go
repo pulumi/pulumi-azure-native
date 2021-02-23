@@ -10,7 +10,7 @@ import (
 // The container for solution.
 func LookupManagementConfiguration(ctx *pulumi.Context, args *LookupManagementConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupManagementConfigurationResult, error) {
 	var rv LookupManagementConfigurationResult
-	err := ctx.Invoke("azure-nextgen:operationsmanagement/v20151101preview:getManagementConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

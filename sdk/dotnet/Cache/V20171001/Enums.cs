@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cache.V20171001
+namespace Pulumi.AzureNative.Cache.V20171001
 {
     /// <summary>
     /// Day of the week when a cache can be patched.

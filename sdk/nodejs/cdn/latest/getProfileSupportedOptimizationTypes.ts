@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The result of the GetSupportedOptimizationTypes API
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfileSupportedOptimizationTypes'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getProfileSupportedOptimizationTypes'. */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
-    pulumi.log.warn("getProfileSupportedOptimizationTypes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getProfileSupportedOptimizationTypes'.")
+    pulumi.log.warn("getProfileSupportedOptimizationTypes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getProfileSupportedOptimizationTypes'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getProfileSupportedOptimizationTypes", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getProfileSupportedOptimizationTypes", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

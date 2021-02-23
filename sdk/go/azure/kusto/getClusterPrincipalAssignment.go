@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-18.
 func LookupClusterPrincipalAssignment(ctx *pulumi.Context, args *LookupClusterPrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupClusterPrincipalAssignmentResult, error) {
 	var rv LookupClusterPrincipalAssignmentResult
-	err := ctx.Invoke("azure-nextgen:kusto:getClusterPrincipalAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto:getClusterPrincipalAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

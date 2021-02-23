@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200717Preview
+namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     public static class GetWorkloadNetworkDhcp
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// NSX DHCP
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-nextgen:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20200717preview:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Communication.V20200820Preview
+namespace Pulumi.AzureNative.Communication.V20200820Preview
 {
     public static class ListCommunicationServiceKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
         /// A class representing the access keys of a CommunicationService.
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-nextgen:communication/v20200820preview:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication/v20200820preview:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
     }
 
 

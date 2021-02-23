@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// A virtual machine.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:VirtualMachine")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
@@ -260,12 +260,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -276,9 +276,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualMachine"},
                 },
             };
@@ -541,7 +545,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Tells source of creation of lab virtual machine. Output property only.
         /// </summary>
         [Input("virtualMachineCreationSource")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
 
         public VirtualMachineArgs()
         {

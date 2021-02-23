@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.V20170401
+namespace Pulumi.AzureNative.Relay.V20170401
 {
     public static class GetHybridConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         /// Description of hybrid connection resource.
         /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-nextgen:relay/v20170401:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay/v20170401:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithVersion());
     }
 
 

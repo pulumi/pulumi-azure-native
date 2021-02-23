@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Inputs
         /// the reference to the load balancer probe used by the load balancing rule.
         /// </summary>
         [Input("probeProtocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.ProbeProtocol> ProbeProtocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ProbeProtocol> ProbeProtocol { get; set; } = null!;
 
         /// <summary>
         /// The probe request path. Only supported for HTTP/HTTPS probes.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.Protocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.Protocol> Protocol { get; set; } = null!;
 
         public LoadBalancingRuleArgs()
         {

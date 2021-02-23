@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The response body for a ListKeys API.
  * Latest API Version: 2015-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceKeys'. */
 export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceKeysResult> {
-    pulumi.log.warn("listMediaServiceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceKeys'.")
+    pulumi.log.warn("listMediaServiceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listMediaServiceKeys", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listMediaServiceKeys", {
         "mediaServiceName": args.mediaServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

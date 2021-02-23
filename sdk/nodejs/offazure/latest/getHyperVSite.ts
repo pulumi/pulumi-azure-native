@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Site REST Resource.
  * Latest API Version: 2020-07-07.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'. */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
-    pulumi.log.warn("getHyperVSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'.")
+    pulumi.log.warn("getHyperVSite is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:offazure/latest:getHyperVSite", {
+    return pulumi.runtime.invoke("azure-native:offazure/latest:getHyperVSite", {
         "resourceGroupName": args.resourceGroupName,
         "siteName": args.siteName,
     }, opts);

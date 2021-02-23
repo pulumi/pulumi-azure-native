@@ -21,7 +21,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:windowsiot/v20190601:Service';
+    public static readonly __pulumiType = 'azure-native:windowsiot/v20190601:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -119,7 +119,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:windowsiot:Service" }, { type: "azure-nextgen:windowsiot/latest:Service" }, { type: "azure-nextgen:windowsiot/v20180216preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:windowsiot:Service" }, { type: "azure-nextgen:windowsiot:Service" }, { type: "azure-native:windowsiot/latest:Service" }, { type: "azure-nextgen:windowsiot/latest:Service" }, { type: "azure-native:windowsiot/v20180216preview:Service" }, { type: "azure-nextgen:windowsiot/v20180216preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

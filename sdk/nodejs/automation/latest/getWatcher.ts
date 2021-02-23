@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the watcher type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWatcher'. */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
-    pulumi.log.warn("getWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'.")
+    pulumi.log.warn("getWatcher is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWatcher'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getWatcher", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getWatcher", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "watcherName": args.watcherName,

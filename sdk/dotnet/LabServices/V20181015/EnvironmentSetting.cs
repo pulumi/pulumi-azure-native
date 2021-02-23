@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents settings of an environment, from which environment instances would be created
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:EnvironmentSetting")]
+    [AzureNativeResourceType("azure-native:labservices/v20181015:EnvironmentSetting")]
     public partial class EnvironmentSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnvironmentSetting(string name, EnvironmentSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:EnvironmentSetting", name, args ?? new EnvironmentSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/v20181015:EnvironmentSetting", name, args ?? new EnvironmentSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnvironmentSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:EnvironmentSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/v20181015:EnvironmentSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,7 +124,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:EnvironmentSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:EnvironmentSetting"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:EnvironmentSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:EnvironmentSetting"},
                 },
             };
@@ -153,7 +155,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Describes the user's progress in configuring their environment setting
         /// </summary>
         [Input("configurationState")]
-        public InputUnion<string, Pulumi.AzureNextGen.LabServices.V20181015.ConfigurationState>? ConfigurationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.LabServices.V20181015.ConfigurationState>? ConfigurationState { get; set; }
 
         /// <summary>
         /// Describes the environment and its resource settings

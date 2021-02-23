@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount":
+            case "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount":
                 return new RemoteRenderingAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "mixedreality/v20200406preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "mixedreality/v20200406preview", _module)

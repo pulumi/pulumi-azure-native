@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ObjectReplicationPolicy {
-        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.")
+        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.")
         return new ObjectReplicationPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage/latest:ObjectReplicationPolicy';
+    public static readonly __pulumiType = 'azure-native:storage/latest:ObjectReplicationPolicy';
 
     /**
      * Returns true if the given object is an instance of ObjectReplicationPolicy.  This is designed to work even
@@ -75,9 +75,9 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'. */
     constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:ObjectReplicationPolicy'.")
+        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -118,7 +118,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20210101:ObjectReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210101:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20210101:ObjectReplicationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
     }

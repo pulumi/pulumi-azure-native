@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class of response for listPaths action
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorPaths'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listStreamingLocatorPaths'. */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
-    pulumi.log.warn("listStreamingLocatorPaths is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorPaths'.")
+    pulumi.log.warn("listStreamingLocatorPaths is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listStreamingLocatorPaths'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listStreamingLocatorPaths", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listStreamingLocatorPaths", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingLocatorName": args.streamingLocatorName,

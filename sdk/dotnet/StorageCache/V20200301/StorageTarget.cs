@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.V20200301
+namespace Pulumi.AzureNative.StorageCache.V20200301
 {
     /// <summary>
     /// Type of the Storage Target.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagecache/v20200301:StorageTarget")]
+    [AzureNativeResourceType("azure-native:storagecache/v20200301:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageTarget(string name, StorageTargetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/v20200301:StorageTarget", name, args ?? new StorageTargetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagecache/v20200301:StorageTarget", name, args ?? new StorageTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageTarget(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/v20200301:StorageTarget", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagecache/v20200301:StorageTarget", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,10 +100,15 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagecache:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/latest:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/latest:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20190801preview:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20191101:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20201001:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:StorageTarget"},
                 },
             };
@@ -162,7 +167,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.V20200301.ProvisioningStateType>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.V20200301.ProvisioningStateType>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.
@@ -180,7 +185,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// Type of the Storage Target.
         /// </summary>
         [Input("targetType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.V20200301.StorageTargetType> TargetType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.V20200301.StorageTargetType> TargetType { get; set; } = null!;
 
         /// <summary>
         /// Properties when targetType is unknown.

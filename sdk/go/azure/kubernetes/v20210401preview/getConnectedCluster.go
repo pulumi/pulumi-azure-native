@@ -10,7 +10,7 @@ import (
 // Represents a connected cluster.
 func LookupConnectedCluster(ctx *pulumi.Context, args *LookupConnectedClusterArgs, opts ...pulumi.InvokeOption) (*LookupConnectedClusterResult, error) {
 	var rv LookupConnectedClusterResult
-	err := ctx.Invoke("azure-nextgen:kubernetes/v20210401preview:getConnectedCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetes/v20210401preview:getConnectedCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

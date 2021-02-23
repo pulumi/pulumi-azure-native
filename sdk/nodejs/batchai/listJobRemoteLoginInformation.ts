@@ -17,7 +17,7 @@ export function listJobRemoteLoginInformation(args: ListJobRemoteLoginInformatio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai:listJobRemoteLoginInformation", {
+    return pulumi.runtime.invoke("azure-native:batchai:listJobRemoteLoginInformation", {
         "experimentName": args.experimentName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

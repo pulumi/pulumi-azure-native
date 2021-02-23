@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine Extension.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineExtension'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineExtension'. */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
-    pulumi.log.warn("getVirtualMachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineExtension'.")
+    pulumi.log.warn("getVirtualMachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineExtension'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getVirtualMachineExtension", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getVirtualMachineExtension", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "vmExtensionName": args.vmExtensionName,

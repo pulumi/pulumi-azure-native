@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func ListSecretValue(ctx *pulumi.Context, args *ListSecretValueArgs, opts ...pulumi.InvokeOption) (*ListSecretValueResult, error) {
 	var rv ListSecretValueResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh:listSecretValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh:listSecretValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

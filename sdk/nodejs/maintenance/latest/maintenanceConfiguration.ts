@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Maintenance configuration record type
  * Latest API Version: 2020-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MaintenanceConfiguration {
-        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.")
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'.")
         return new MaintenanceConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:maintenance/latest:MaintenanceConfiguration';
+    public static readonly __pulumiType = 'azure-native:maintenance/latest:MaintenanceConfiguration';
 
     /**
      * Returns true if the given object is an instance of MaintenanceConfiguration.  This is designed to work even
@@ -75,9 +75,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'. */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:maintenance:MaintenanceConfiguration'.")
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:maintenance:MaintenanceConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +108,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

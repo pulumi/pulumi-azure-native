@@ -10,7 +10,7 @@ import (
 // The autoscale setting resource.
 func LookupAutoscaleSetting(ctx *pulumi.Context, args *LookupAutoscaleSettingArgs, opts ...pulumi.InvokeOption) (*LookupAutoscaleSettingResult, error) {
 	var rv LookupAutoscaleSettingResult
-	err := ctx.Invoke("azure-nextgen:insights/v20150401:getAutoscaleSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20150401:getAutoscaleSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

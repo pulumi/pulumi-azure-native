@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     public static class GetEntitiesGetTimeline
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The entity timeline result operation response.
         /// </summary>
         public static Task<GetEntitiesGetTimelineResult> InvokeAsync(GetEntitiesGetTimelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-nextgen:securityinsights/v20190101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitiesGetTimelineResult>("azure-native:securityinsights/v20190101preview:getEntitiesGetTimeline", args ?? new GetEntitiesGetTimelineArgs(), options.WithVersion());
     }
 
 
@@ -34,14 +34,14 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public string EntityId { get; set; } = null!;
 
         [Input("kinds")]
-        private List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>>? _kinds;
+        private List<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>>? _kinds;
 
         /// <summary>
         /// Array of timeline Item kinds.
         /// </summary>
-        public List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>> Kinds
+        public List<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>> Kinds
         {
-            get => _kinds ?? (_kinds = new List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>>());
+            get => _kinds ?? (_kinds = new List<Union<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.EntityTimelineKind>>());
             set => _kinds = value;
         }
 

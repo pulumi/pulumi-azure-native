@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Automation.V20180115
+namespace Pulumi.AzureNative.Automation.V20180115
 {
     /// <summary>
     /// Gets or sets the content source type.

@@ -10,7 +10,7 @@ import (
 // Class representing the config for the solution in the migrate project.
 func GetSolutionConfig(ctx *pulumi.Context, args *GetSolutionConfigArgs, opts ...pulumi.InvokeOption) (*GetSolutionConfigResult, error) {
 	var rv GetSolutionConfigResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20180901preview:getSolutionConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20180901preview:getSolutionConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

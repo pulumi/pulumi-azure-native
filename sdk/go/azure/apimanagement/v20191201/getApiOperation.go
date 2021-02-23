@@ -10,7 +10,7 @@ import (
 // Api Operation details.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201:getApiOperation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201:getApiOperation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

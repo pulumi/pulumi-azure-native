@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
  * Latest API Version: 2020-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RecordSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RecordSet {
-        pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.")
+        pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.")
         return new RecordSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:RecordSet';
+    public static readonly __pulumiType = 'azure-native:network/latest:RecordSet';
 
     /**
      * Returns true if the given object is an instance of RecordSet.  This is designed to work even
@@ -107,9 +107,9 @@ export class RecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'. */
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.")
+        pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
@@ -164,7 +164,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:RecordSet" }, { type: "azure-nextgen:network/v20180901:RecordSet" }, { type: "azure-nextgen:network/v20200101:RecordSet" }, { type: "azure-nextgen:network/v20200601:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RecordSet" }, { type: "azure-nextgen:network:RecordSet" }, { type: "azure-native:network/v20180901:RecordSet" }, { type: "azure-nextgen:network/v20180901:RecordSet" }, { type: "azure-native:network/v20200101:RecordSet" }, { type: "azure-nextgen:network/v20200101:RecordSet" }, { type: "azure-native:network/v20200601:RecordSet" }, { type: "azure-nextgen:network/v20200601:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

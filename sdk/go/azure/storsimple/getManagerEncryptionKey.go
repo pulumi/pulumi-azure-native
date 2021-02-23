@@ -11,7 +11,7 @@ import (
 // API Version: 2016-10-01.
 func GetManagerEncryptionKey(ctx *pulumi.Context, args *GetManagerEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetManagerEncryptionKeyResult, error) {
 	var rv GetManagerEncryptionKeyResult
-	err := ctx.Invoke("azure-nextgen:storsimple:getManagerEncryptionKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:getManagerEncryptionKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

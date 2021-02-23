@@ -51,7 +51,13 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azuredata:SqlManagedInstance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azuredata:SqlManagedInstance"),
+		},
+		{
+			Type: pulumi.String("azure-native:azuredata/v20200908preview:SqlManagedInstance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azuredata/v20200908preview:SqlManagedInstance"),
@@ -59,7 +65,7 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlManagedInstance
-	err := ctx.RegisterResource("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azuredata/v20190724preview:SqlManagedInstance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 func GetSqlManagedInstance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlManagedInstanceState, opts ...pulumi.ResourceOption) (*SqlManagedInstance, error) {
 	var resource SqlManagedInstance
-	err := ctx.ReadResource("azure-nextgen:azuredata/v20190724preview:SqlManagedInstance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azuredata/v20190724preview:SqlManagedInstance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

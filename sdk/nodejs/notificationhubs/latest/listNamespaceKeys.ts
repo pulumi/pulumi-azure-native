@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The response of the List Namespace operation.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNamespaceKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNamespaceKeys'. */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
-    pulumi.log.warn("listNamespaceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNamespaceKeys'.")
+    pulumi.log.warn("listNamespaceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNamespaceKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notificationhubs/latest:listNamespaceKeys", {
+    return pulumi.runtime.invoke("azure-native:notificationhubs/latest:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

@@ -14,7 +14,7 @@ import (
 // The details of subscription under management group.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:ManagementGroupSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroupSubscription'.
 type ManagementGroupSubscription struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +44,13 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:management:ManagementGroupSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management:ManagementGroupSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20200501:ManagementGroupSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:ManagementGroupSubscription"),
@@ -52,7 +58,7 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroupSubscription
-	err := ctx.RegisterResource("azure-nextgen:management/latest:ManagementGroupSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:management/latest:ManagementGroupSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 func GetManagementGroupSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementGroupSubscriptionState, opts ...pulumi.ResourceOption) (*ManagementGroupSubscription, error) {
 	var resource ManagementGroupSubscription
-	err := ctx.ReadResource("azure-nextgen:management/latest:ManagementGroupSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:management/latest:ManagementGroupSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

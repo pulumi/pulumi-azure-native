@@ -10,10 +10,10 @@ import (
 // The management group details.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getManagementGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroup'.
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
 	var rv LookupManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:management/latest:getManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/latest:getManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

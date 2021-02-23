@@ -16,7 +16,7 @@ export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation:listKeyByAutomationAccount", {
+    return pulumi.runtime.invoke("azure-native:automation:listKeyByAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

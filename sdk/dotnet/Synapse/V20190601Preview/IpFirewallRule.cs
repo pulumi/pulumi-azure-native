@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// IP firewall rule
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:IpFirewallRule")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:IpFirewallRule")]
     public partial class IpFirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpFirewallRule(string name, IpFirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:IpFirewallRule", name, args ?? new IpFirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:IpFirewallRule", name, args ?? new IpFirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpFirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:IpFirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:IpFirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:IpFirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IpFirewallRule"},
                 },
             };

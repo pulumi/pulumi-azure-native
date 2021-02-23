@@ -24,17 +24,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/v20191017preview:PrivateEndpointConnection":
+            case "azure-native:insights/v20191017preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20191017preview:PrivateLinkScope":
+            case "azure-native:insights/v20191017preview:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20191017preview:PrivateLinkScopedResource":
+            case "azure-native:insights/v20191017preview:PrivateLinkScopedResource":
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/v20191017preview:WorkbookTemplate":
+            case "azure-native:insights/v20191017preview:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/v20191017preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/v20191017preview", _module)

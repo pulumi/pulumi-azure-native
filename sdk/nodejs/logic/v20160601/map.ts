@@ -22,7 +22,7 @@ export class Map extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20160601:Map';
+    public static readonly __pulumiType = 'azure-native:logic/v20160601:Map';
 
     /**
      * Returns true if the given object is an instance of Map.  This is designed to work even
@@ -139,7 +139,7 @@ export class Map extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:Map" }, { type: "azure-nextgen:logic/latest:Map" }, { type: "azure-nextgen:logic/v20150801preview:Map" }, { type: "azure-nextgen:logic/v20180701preview:Map" }, { type: "azure-nextgen:logic/v20190501:Map" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:Map" }, { type: "azure-nextgen:logic:Map" }, { type: "azure-native:logic/latest:Map" }, { type: "azure-nextgen:logic/latest:Map" }, { type: "azure-native:logic/v20150801preview:Map" }, { type: "azure-nextgen:logic/v20150801preview:Map" }, { type: "azure-native:logic/v20180701preview:Map" }, { type: "azure-nextgen:logic/v20180701preview:Map" }, { type: "azure-native:logic/v20190501:Map" }, { type: "azure-nextgen:logic/v20190501:Map" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Map.__pulumiType, name, inputs, opts);
     }

@@ -21,33 +21,33 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storage/latest:BlobContainer":
+	case "azure-native:storage/latest:BlobContainer":
 		r, err = NewBlobContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy":
+	case "azure-native:storage/latest:BlobContainerImmutabilityPolicy":
 		r, err = NewBlobContainerImmutabilityPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:BlobInventoryPolicy":
+	case "azure-native:storage/latest:BlobInventoryPolicy":
 		r, err = NewBlobInventoryPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:BlobServiceProperties":
+	case "azure-native:storage/latest:BlobServiceProperties":
 		r, err = NewBlobServiceProperties(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:FileServiceProperties":
+	case "azure-native:storage/latest:FileServiceProperties":
 		r, err = NewFileServiceProperties(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:FileShare":
+	case "azure-native:storage/latest:FileShare":
 		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:ManagementPolicy":
+	case "azure-native:storage/latest:ManagementPolicy":
 		r, err = NewManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:ObjectReplicationPolicy":
+	case "azure-native:storage/latest:ObjectReplicationPolicy":
 		r, err = NewObjectReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:PrivateEndpointConnection":
+	case "azure-native:storage/latest:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:Queue":
+	case "azure-native:storage/latest:Queue":
 		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:QueueServiceProperties":
+	case "azure-native:storage/latest:QueueServiceProperties":
 		r, err = NewQueueServiceProperties(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:StorageAccount":
+	case "azure-native:storage/latest:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:Table":
+	case "azure-native:storage/latest:Table":
 		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storage/latest:TableServiceProperties":
+	case "azure-native:storage/latest:TableServiceProperties":
 		r, err = NewTableServiceProperties(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -62,7 +62,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storage/latest",
 		&module{version},
 	)

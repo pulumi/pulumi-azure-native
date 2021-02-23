@@ -14,7 +14,7 @@ import (
 // HealthBot resource definition
 // Latest API Version: 2020-12-08.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:healthbot:Bot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthbot:Bot'.
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -49,16 +49,31 @@ func NewBot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:healthbot:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthbot/v20201020:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201020:Bot"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthbot/v20201020preview:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201020preview:Bot"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthbot/v20201208:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201208:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthbot/v20201208preview:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201208preview:Bot"),
@@ -66,7 +81,7 @@ func NewBot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Bot
-	err := ctx.RegisterResource("azure-nextgen:healthbot/latest:Bot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:healthbot/latest:Bot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewBot(ctx *pulumi.Context,
 func GetBot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BotState, opts ...pulumi.ResourceOption) (*Bot, error) {
 	var resource Bot
-	err := ctx.ReadResource("azure-nextgen:healthbot/latest:Bot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:healthbot/latest:Bot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

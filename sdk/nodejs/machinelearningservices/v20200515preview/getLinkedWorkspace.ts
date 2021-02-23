@@ -16,7 +16,7 @@ export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20200515preview:getLinkedWorkspace", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200515preview:getLinkedWorkspace", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

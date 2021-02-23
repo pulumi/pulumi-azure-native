@@ -17,7 +17,7 @@ export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform:listServiceTestKeys", {
+    return pulumi.runtime.invoke("azure-native:appplatform:listServiceTestKeys", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);

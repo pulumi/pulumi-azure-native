@@ -21,31 +21,31 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:logic/latest:IntegrationAccount":
+	case "azure-native:logic/latest:IntegrationAccount":
 		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountAgreement":
+	case "azure-native:logic/latest:IntegrationAccountAgreement":
 		r, err = NewIntegrationAccountAgreement(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountAssembly":
+	case "azure-native:logic/latest:IntegrationAccountAssembly":
 		r, err = NewIntegrationAccountAssembly(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration":
+	case "azure-native:logic/latest:IntegrationAccountBatchConfiguration":
 		r, err = NewIntegrationAccountBatchConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountCertificate":
+	case "azure-native:logic/latest:IntegrationAccountCertificate":
 		r, err = NewIntegrationAccountCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountMap":
+	case "azure-native:logic/latest:IntegrationAccountMap":
 		r, err = NewIntegrationAccountMap(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountPartner":
+	case "azure-native:logic/latest:IntegrationAccountPartner":
 		r, err = NewIntegrationAccountPartner(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountSchema":
+	case "azure-native:logic/latest:IntegrationAccountSchema":
 		r, err = NewIntegrationAccountSchema(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationAccountSession":
+	case "azure-native:logic/latest:IntegrationAccountSession":
 		r, err = NewIntegrationAccountSession(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationServiceEnvironment":
+	case "azure-native:logic/latest:IntegrationServiceEnvironment":
 		r, err = NewIntegrationServiceEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi":
+	case "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi":
 		r, err = NewIntegrationServiceEnvironmentManagedApi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:RosettaNetProcessConfiguration":
+	case "azure-native:logic/latest:RosettaNetProcessConfiguration":
 		r, err = NewRosettaNetProcessConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:logic/latest:Workflow":
+	case "azure-native:logic/latest:Workflow":
 		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -60,7 +60,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"logic/latest",
 		&module{version},
 	)

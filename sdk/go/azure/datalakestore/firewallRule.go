@@ -47,7 +47,13 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore/latest:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore/latest:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/v20161101:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:FirewallRule"),
@@ -55,7 +61,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:datalakestore:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:datalakestore:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

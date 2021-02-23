@@ -22,7 +22,7 @@ export class Container extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20200901:Container';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20200901:Container';
 
     /**
      * Returns true if the given object is an instance of Container.  This is designed to work even
@@ -113,7 +113,7 @@ export class Container extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Container" }, { type: "azure-nextgen:databoxedge/latest:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-nextgen:databoxedge:Container" }, { type: "azure-native:databoxedge/latest:Container" }, { type: "azure-nextgen:databoxedge/latest:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Container.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-07-24-preview.
 func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerRegistrationResult, error) {
 	var rv LookupSqlServerRegistrationResult
-	err := ctx.Invoke("azure-nextgen:azuredata:getSqlServerRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azuredata:getSqlServerRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

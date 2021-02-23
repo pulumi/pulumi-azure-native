@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
-	err := ctx.Invoke("azure-nextgen:media:getJob", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Describes a Virtual Machine.
 func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
 	var rv LookupVirtualMachineResult
-	err := ctx.Invoke("azure-nextgen:compute/v20191201:getVirtualMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20191201:getVirtualMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

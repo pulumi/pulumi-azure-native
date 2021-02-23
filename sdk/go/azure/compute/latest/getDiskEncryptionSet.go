@@ -10,10 +10,10 @@ import (
 // disk encryption set resource.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDiskEncryptionSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskEncryptionSet'.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getDiskEncryptionSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getDiskEncryptionSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

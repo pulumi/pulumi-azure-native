@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple
+namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Disk's independence mode type

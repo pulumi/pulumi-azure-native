@@ -22,7 +22,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20200401preview:PartnerRegistration';
+    public static readonly __pulumiType = 'azure-native:eventgrid/v20200401preview:PartnerRegistration';
 
     /**
      * Returns true if the given object is an instance of PartnerRegistration.  This is designed to work even
@@ -170,7 +170,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:PartnerRegistration" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerRegistration" }, { type: "azure-nextgen:eventgrid:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PartnerRegistration.__pulumiType, name, inputs, opts);
     }

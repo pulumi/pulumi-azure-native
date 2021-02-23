@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * List of deployments for a remediation.
  * Latest API Version: 2019-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtResource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResource'. */
 export function listRemediationDeploymentsAtResource(args: ListRemediationDeploymentsAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceResult> {
-    pulumi.log.warn("listRemediationDeploymentsAtResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:listRemediationDeploymentsAtResource'.")
+    pulumi.log.warn("listRemediationDeploymentsAtResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRemediationDeploymentsAtResource(args: ListRemediationDeploy
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/latest:listRemediationDeploymentsAtResource", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/latest:listRemediationDeploymentsAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,
         "top": args.top,

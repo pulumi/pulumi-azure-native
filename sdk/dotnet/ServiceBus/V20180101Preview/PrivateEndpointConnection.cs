@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:servicebus/v20180101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20180101preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20180101preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:PrivateEndpointConnection"},
                 },
             };
@@ -122,7 +123,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20180101Preview.EndPointProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20180101Preview.EndPointProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Profile of a lab user.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:User'.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): User {
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.")
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:User'.")
         return new User(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:User';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -83,9 +83,9 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:User'. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:User'.")
+        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:User'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -123,7 +123,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:User" }, { type: "azure-nextgen:devtestlab/v20160515:User" }, { type: "azure-nextgen:devtestlab/v20180915:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:User" }, { type: "azure-nextgen:devtestlab:User" }, { type: "azure-native:devtestlab/v20160515:User" }, { type: "azure-nextgen:devtestlab/v20160515:User" }, { type: "azure-native:devtestlab/v20180915:User" }, { type: "azure-nextgen:devtestlab/v20180915:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

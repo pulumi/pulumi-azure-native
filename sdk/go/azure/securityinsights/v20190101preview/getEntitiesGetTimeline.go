@@ -10,7 +10,7 @@ import (
 // The entity timeline result operation response.
 func GetEntitiesGetTimeline(ctx *pulumi.Context, args *GetEntitiesGetTimelineArgs, opts ...pulumi.InvokeOption) (*GetEntitiesGetTimelineResult, error) {
 	var rv GetEntitiesGetTimelineResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getEntitiesGetTimeline", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getEntitiesGetTimeline", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Container service
 func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArgs, opts ...pulumi.InvokeOption) (*LookupContainerServiceResult, error) {
 	var rv LookupContainerServiceResult
-	err := ctx.Invoke("azure-nextgen:containerservice/v20151101preview:getContainerService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/v20151101preview:getContainerService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

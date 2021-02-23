@@ -16,11 +16,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:redhatopenshift/latest:OpenShiftCluster":
+            case "azure-native:redhatopenshift/latest:OpenShiftCluster":
                 return new OpenShiftCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "redhatopenshift/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "redhatopenshift/latest", _module)

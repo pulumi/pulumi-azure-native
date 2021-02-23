@@ -52,12 +52,15 @@ func NewTaskRun(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20190601preview:TaskRun"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190601preview:TaskRun"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource TaskRun
-	err := ctx.RegisterResource("azure-nextgen:containerregistry:TaskRun", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry:TaskRun", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +72,7 @@ func NewTaskRun(ctx *pulumi.Context,
 func GetTaskRun(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskRunState, opts ...pulumi.ResourceOption) (*TaskRun, error) {
 	var resource TaskRun
-	err := ctx.ReadResource("azure-nextgen:containerregistry:TaskRun", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry:TaskRun", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

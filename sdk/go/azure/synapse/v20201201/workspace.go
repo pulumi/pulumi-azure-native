@@ -71,10 +71,19 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:Workspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/latest:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:Workspace"),
@@ -82,7 +91,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20201201:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20201201:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +103,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:synapse/v20201201:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20201201:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

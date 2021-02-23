@@ -14,7 +14,7 @@ import (
 // Represents the serial port of the parent resource.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:serialconsole:SerialPort'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:serialconsole:SerialPort'.
 type SerialPort struct {
 	pulumi.CustomResourceState
 
@@ -47,7 +47,13 @@ func NewSerialPort(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:serialconsole:SerialPort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:serialconsole:SerialPort"),
+		},
+		{
+			Type: pulumi.String("azure-native:serialconsole/v20180501:SerialPort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:serialconsole/v20180501:SerialPort"),
@@ -55,7 +61,7 @@ func NewSerialPort(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SerialPort
-	err := ctx.RegisterResource("azure-nextgen:serialconsole/latest:SerialPort", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:serialconsole/latest:SerialPort", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewSerialPort(ctx *pulumi.Context,
 func GetSerialPort(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SerialPortState, opts ...pulumi.ResourceOption) (*SerialPort, error) {
 	var resource SerialPort
-	err := ctx.ReadResource("azure-nextgen:serialconsole/latest:SerialPort", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:serialconsole/latest:SerialPort", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Trigger resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Trigger'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Trigger'.
 type Trigger struct {
 	pulumi.CustomResourceState
 
@@ -46,10 +46,19 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:Trigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Trigger"),
@@ -57,7 +66,7 @@ func NewTrigger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Trigger
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:Trigger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:Trigger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewTrigger(ctx *pulumi.Context,
 func GetTrigger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TriggerState, opts ...pulumi.ResourceOption) (*Trigger, error) {
 	var resource Trigger
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:Trigger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:Trigger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

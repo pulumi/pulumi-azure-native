@@ -10,10 +10,10 @@ import (
 // Description of a Namespace AuthorizationRules.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:getNamespaceAuthorizationRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNamespaceAuthorizationRule'.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/latest:getNamespaceAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/latest:getNamespaceAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

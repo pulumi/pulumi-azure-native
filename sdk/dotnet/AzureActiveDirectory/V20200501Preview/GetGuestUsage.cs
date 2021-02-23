@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
+namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
 {
     public static class GetGuestUsage
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
         /// Guest Usages Resource
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-nextgen:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Pageable list of products.
 func GetProducts(ctx *pulumi.Context, args *GetProductsArgs, opts ...pulumi.InvokeOption) (*GetProductsResult, error) {
 	var rv GetProductsResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20160101:getProducts", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20160101:getProducts", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

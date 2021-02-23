@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * External OAuth authorization server settings.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AuthorizationServer {
-        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.")
+        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.")
         return new AuthorizationServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:AuthorizationServer';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:AuthorizationServer';
 
     /**
      * Returns true if the given object is an instance of AuthorizationServer.  This is designed to work even
@@ -119,9 +119,9 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'. */
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:AuthorizationServer'.")
+        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
@@ -193,7 +193,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationServer" }, { type: "azure-nextgen:apimanagement:AuthorizationServer" }, { type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }

@@ -22,7 +22,7 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20210101preview:Datastore';
+    public static readonly __pulumiType = 'azure-native:avs/v20210101preview:Datastore';
 
     /**
      * Returns true if the given object is an instance of Datastore.  This is designed to work even

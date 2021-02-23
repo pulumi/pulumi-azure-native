@@ -9,7 +9,7 @@ import (
 
 func LookupController(ctx *pulumi.Context, args *LookupControllerArgs, opts ...pulumi.InvokeOption) (*LookupControllerResult, error) {
 	var rv LookupControllerResult
-	err := ctx.Invoke("azure-nextgen:devspaces/v20190401:getController", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devspaces/v20190401:getController", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

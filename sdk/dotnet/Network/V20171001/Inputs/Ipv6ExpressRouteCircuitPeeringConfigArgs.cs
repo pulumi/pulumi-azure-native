@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20171001.Inputs
+namespace Pulumi.AzureNative.Network.V20171001.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001.Inputs
         /// The state of peering. Possible values are: 'Disabled' and 'Enabled'
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20171001.ExpressRouteCircuitPeeringState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20171001.ExpressRouteCircuitPeeringState>? State { get; set; }
 
         public Ipv6ExpressRouteCircuitPeeringConfigArgs()
         {

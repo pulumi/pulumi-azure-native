@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupAFDCustomDomain(ctx *pulumi.Context, args *LookupAFDCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupAFDCustomDomainResult, error) {
 	var rv LookupAFDCustomDomainResult
-	err := ctx.Invoke("azure-nextgen:cdn:getAFDCustomDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getAFDCustomDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Subscription Information with the alias.
 func LookupSubscriptionAlias(ctx *pulumi.Context, args *LookupSubscriptionAliasArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionAliasResult, error) {
 	var rv LookupSubscriptionAliasResult
-	err := ctx.Invoke("azure-nextgen:subscription/v20191001preview:getSubscriptionAlias", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:subscription/v20191001preview:getSubscriptionAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

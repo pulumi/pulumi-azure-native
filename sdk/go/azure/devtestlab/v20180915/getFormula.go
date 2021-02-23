@@ -10,7 +10,7 @@ import (
 // A formula for creating a VM, specifying an image base and other parameters
 func LookupFormula(ctx *pulumi.Context, args *LookupFormulaArgs, opts ...pulumi.InvokeOption) (*LookupFormulaResult, error) {
 	var rv LookupFormulaResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20180915:getFormula", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getFormula", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

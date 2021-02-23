@@ -10,7 +10,7 @@ import (
 // A Media Services account.
 func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
 	var rv LookupMediaServiceResult
-	err := ctx.Invoke("azure-nextgen:media/v20180601preview:getMediaService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180601preview:getMediaService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

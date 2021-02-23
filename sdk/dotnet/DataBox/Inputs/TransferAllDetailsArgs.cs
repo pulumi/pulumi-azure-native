@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Inputs
+namespace Pulumi.AzureNative.DataBox.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.Inputs
         /// Type of the account of data
         /// </summary>
         [Input("dataAccountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.DataAccountType> DataAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.DataAccountType> DataAccountType { get; set; } = null!;
 
         /// <summary>
         /// To indicate if all Azure blobs have to be transferred

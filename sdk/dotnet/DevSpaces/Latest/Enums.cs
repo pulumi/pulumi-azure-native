@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DevSpaces.Latest
+namespace Pulumi.AzureNative.DevSpaces.Latest
 {
     /// <summary>
     /// The name of the SKU for Azure Dev Spaces Controller.

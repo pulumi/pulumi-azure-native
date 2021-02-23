@@ -10,7 +10,7 @@ import (
 // Experiment information.
 func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentResult, error) {
 	var rv LookupExperimentResult
-	err := ctx.Invoke("azure-nextgen:batchai/v20180501:getExperiment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/v20180501:getExperiment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

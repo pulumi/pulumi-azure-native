@@ -10,10 +10,10 @@ import (
 // Policy Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiPolicy'.
 func LookupApiPolicy(ctx *pulumi.Context, args *LookupApiPolicyArgs, opts ...pulumi.InvokeOption) (*LookupApiPolicyResult, error) {
 	var rv LookupApiPolicyResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

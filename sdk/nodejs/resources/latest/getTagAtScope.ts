@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Wrapper resource for tags API requests and responses.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'. */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
-    pulumi.log.warn("getTagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getTagAtScope'.")
+    pulumi.log.warn("getTagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getTagAtScope", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getTagAtScope", {
         "scope": args.scope,
     }, opts);
 }

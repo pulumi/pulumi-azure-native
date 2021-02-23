@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The IpGroups resource information.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getIpGroup'. */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
-    pulumi.log.warn("getIpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpGroup'.")
+    pulumi.log.warn("getIpGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getIpGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getIpGroup", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getIpGroup", {
         "expand": args.expand,
         "ipGroupsName": args.ipGroupsName,
         "resourceGroupName": args.resourceGroupName,

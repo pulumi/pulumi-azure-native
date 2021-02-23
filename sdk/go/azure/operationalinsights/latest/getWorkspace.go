@@ -10,10 +10,10 @@ import (
 // The top level Workspace resource container.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

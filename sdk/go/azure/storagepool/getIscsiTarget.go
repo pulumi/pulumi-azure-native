@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-15-preview.
 func LookupIscsiTarget(ctx *pulumi.Context, args *LookupIscsiTargetArgs, opts ...pulumi.InvokeOption) (*LookupIscsiTargetResult, error) {
 	var rv LookupIscsiTargetResult
-	err := ctx.Invoke("azure-nextgen:storagepool:getIscsiTarget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagepool:getIscsiTarget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

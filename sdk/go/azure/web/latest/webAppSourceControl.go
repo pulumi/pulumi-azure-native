@@ -14,7 +14,7 @@ import (
 // Source control configuration for an app.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSourceControl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControl'.
 type WebAppSourceControl struct {
 	pulumi.CustomResourceState
 
@@ -55,28 +55,55 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControl"),
@@ -84,7 +111,7 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSourceControl
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppSourceControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppSourceControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +123,7 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 func GetWebAppSourceControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSourceControlState, opts ...pulumi.ResourceOption) (*WebAppSourceControl, error) {
 	var resource WebAppSourceControl
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppSourceControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppSourceControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The properties of a response to source upload request.
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRegistryBuildSourceUploadUrl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryBuildSourceUploadUrl'.
 func ListRegistryBuildSourceUploadUrl(ctx *pulumi.Context, args *ListRegistryBuildSourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*ListRegistryBuildSourceUploadUrlResult, error) {
 	var rv ListRegistryBuildSourceUploadUrlResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/latest:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/latest:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.
  */
 export class Output extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Output extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Output {
-        pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.")
+        pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.")
         return new Output(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:streamanalytics/latest:Output';
+    public static readonly __pulumiType = 'azure-native:streamanalytics/latest:Output';
 
     /**
      * Returns true if the given object is an instance of Output.  This is designed to work even
@@ -71,9 +71,9 @@ export class Output extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'. */
     constructor(name: string, args: OutputArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.")
+        pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
@@ -106,7 +106,7 @@ export class Output extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics:Output" }, { type: "azure-nextgen:streamanalytics/v20160301:Output" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Output" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-nextgen:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-nextgen:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Output" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Output.__pulumiType, name, inputs, opts);
     }

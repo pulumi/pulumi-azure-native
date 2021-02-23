@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
+namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// Backup schedule type.

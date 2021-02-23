@@ -21,7 +21,7 @@ export class SupportPlanType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:addons/v20170515:SupportPlanType';
+    public static readonly __pulumiType = 'azure-native:addons/v20170515:SupportPlanType';
 
     /**
      * Returns true if the given object is an instance of SupportPlanType.  This is designed to work even
@@ -77,7 +77,7 @@ export class SupportPlanType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-nextgen:addons/latest:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:addons:SupportPlanType" }, { type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-native:addons/latest:SupportPlanType" }, { type: "azure-nextgen:addons/latest:SupportPlanType" }, { type: "azure-native:addons/v20180301:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SupportPlanType.__pulumiType, name, inputs, opts);
     }

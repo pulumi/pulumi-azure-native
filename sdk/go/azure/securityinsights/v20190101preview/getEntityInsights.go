@@ -10,7 +10,7 @@ import (
 // The Get Insights result operation response.
 func GetEntityInsights(ctx *pulumi.Context, args *GetEntityInsightsArgs, opts ...pulumi.InvokeOption) (*GetEntityInsightsResult, error) {
 	var rv GetEntityInsightsResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getEntityInsights", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getEntityInsights", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

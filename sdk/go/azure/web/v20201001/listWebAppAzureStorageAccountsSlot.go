@@ -10,7 +10,7 @@ import (
 // AzureStorageInfo dictionary resource.
 func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsSlotResult, error) {
 	var rv ListWebAppAzureStorageAccountsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

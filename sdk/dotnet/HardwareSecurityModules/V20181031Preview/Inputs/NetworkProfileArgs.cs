@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview.Inputs
+namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview.Inputs
 {
 
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs

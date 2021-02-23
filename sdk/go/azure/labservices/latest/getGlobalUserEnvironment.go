@@ -10,10 +10,10 @@ import (
 // Represents the environments details
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserEnvironment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserEnvironment'.
 func GetGlobalUserEnvironment(ctx *pulumi.Context, args *GetGlobalUserEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserEnvironmentResult, error) {
 	var rv GetGlobalUserEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:getGlobalUserEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:getGlobalUserEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

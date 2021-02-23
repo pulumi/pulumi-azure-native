@@ -10,10 +10,10 @@ import (
 // Private link service resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateLinkService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateLinkService'.
 func LookupPrivateLinkService(ctx *pulumi.Context, args *LookupPrivateLinkServiceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkServiceResult, error) {
 	var rv LookupPrivateLinkServiceResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getPrivateLinkService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getPrivateLinkService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Api details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayApiEntityTag'.
  */
 export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GatewayApiEntityTag {
-        pulumi.log.warn("GatewayApiEntityTag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.")
+        pulumi.log.warn("GatewayApiEntityTag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayApiEntityTag'.")
         return new GatewayApiEntityTag(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:GatewayApiEntityTag';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:GatewayApiEntityTag';
 
     /**
      * Returns true if the given object is an instance of GatewayApiEntityTag.  This is designed to work even
@@ -127,9 +127,9 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayApiEntityTag'. */
     constructor(name: string, args: GatewayApiEntityTagArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GatewayApiEntityTag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayApiEntityTag'.")
+        pulumi.log.warn("GatewayApiEntityTag is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayApiEntityTag'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
@@ -195,7 +195,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayApiEntityTag.__pulumiType, name, inputs, opts);
     }

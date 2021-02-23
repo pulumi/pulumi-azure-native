@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getCache", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getCache", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

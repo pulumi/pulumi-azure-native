@@ -17,7 +17,7 @@ export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSet
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listWebAppApplicationSettingsSlot", {
+    return pulumi.runtime.invoke("azure-native:web:listWebAppApplicationSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

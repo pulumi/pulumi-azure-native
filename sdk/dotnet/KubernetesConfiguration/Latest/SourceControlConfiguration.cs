@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
+namespace Pulumi.AzureNative.KubernetesConfiguration.Latest
 {
     /// <summary>
     /// The SourceControl Configuration object returned in Get &amp; Put response.
     /// Latest API Version: 2021-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kubernetesconfiguration:SourceControlConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kubernetesconfiguration:SourceControlConfiguration'.")]
+    [AzureNativeResourceType("azure-native:kubernetesconfiguration/latest:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SourceControlConfiguration(string name, SourceControlConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration", name, args ?? new SourceControlConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kubernetesconfiguration/latest:SourceControlConfiguration", name, args ?? new SourceControlConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SourceControlConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kubernetesconfiguration/latest:SourceControlConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,9 +138,13 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
                 },
             };
@@ -229,13 +233,13 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.Latest
         /// Scope at which the operator will be installed.
         /// </summary>
         [Input("operatorScope")]
-        public InputUnion<string, Pulumi.AzureNextGen.KubernetesConfiguration.Latest.OperatorScopeType>? OperatorScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KubernetesConfiguration.Latest.OperatorScopeType>? OperatorScope { get; set; }
 
         /// <summary>
         /// Type of the operator
         /// </summary>
         [Input("operatorType")]
-        public InputUnion<string, Pulumi.AzureNextGen.KubernetesConfiguration.Latest.OperatorType>? OperatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KubernetesConfiguration.Latest.OperatorType>? OperatorType { get; set; }
 
         /// <summary>
         /// Url of the SourceControl Repository.

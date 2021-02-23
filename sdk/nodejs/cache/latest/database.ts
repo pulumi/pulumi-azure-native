@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a database on the RedisEnterprise cluster
  * Latest API Version: 2021-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/latest:Database';
+    public static readonly __pulumiType = 'azure-native:cache/latest:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -87,9 +87,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
@@ -130,7 +130,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }, { type: "azure-nextgen:cache/v20210301:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Database" }, { type: "azure-nextgen:cache:Database" }, { type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210301:Database" }, { type: "azure-nextgen:cache/v20210301:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ import (
 // The top level Linked service resource container.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:LinkedService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:LinkedService'.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
@@ -47,16 +47,31 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20190801preview:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:LinkedService"),
@@ -64,7 +79,7 @@ func NewLinkedService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/latest:LinkedService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/latest:LinkedService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +91,7 @@ func NewLinkedService(ctx *pulumi.Context,
 func GetLinkedService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	var resource LinkedService
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/latest:LinkedService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/latest:LinkedService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

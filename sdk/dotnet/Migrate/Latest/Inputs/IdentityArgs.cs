@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
+namespace Pulumi.AzureNative.Migrate.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest.Inputs
         /// The type of identity used for the resource mover service.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.Latest.ResourceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.Latest.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

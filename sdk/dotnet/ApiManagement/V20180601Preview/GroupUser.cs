@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// User details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:GroupUser")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:GroupUser")]
     public partial class GroupUser : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupUser(string name, GroupUserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:GroupUser", name, args ?? new GroupUserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180601preview:GroupUser", name, args ?? new GroupUserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GroupUser(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:GroupUser", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180601preview:GroupUser", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,13 +100,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GroupUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GroupUser"},
                 },
             };

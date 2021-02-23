@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200301
+namespace Pulumi.AzureNative.Network.V20200301
 {
     public static class GetPrivateLinkService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// Private link service resource.
         /// </summary>
         public static Task<GetPrivateLinkServiceResult> InvokeAsync(GetPrivateLinkServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-nextgen:network/v20200301:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServiceResult>("azure-native:network/v20200301:getPrivateLinkService", args ?? new GetPrivateLinkServiceArgs(), options.WithVersion());
     }
 
 

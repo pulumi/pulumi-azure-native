@@ -10,10 +10,10 @@ import (
 // Lists the labs owned by a user
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'.
 func ListGlobalUserLabs(ctx *pulumi.Context, args *ListGlobalUserLabsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserLabsResult, error) {
 	var rv ListGlobalUserLabsResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:listGlobalUserLabs", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:listGlobalUserLabs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

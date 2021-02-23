@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus
+namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of a namespace authorization rule.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus:NamespaceAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:servicebus:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus:NamespaceAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,10 +59,15 @@ namespace Pulumi.AzureNextGen.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule"},
                 },
             };
@@ -106,14 +111,14 @@ namespace Pulumi.AzureNextGen.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNextGen.ServiceBus.AccessRights>? _rights;
+        private InputList<Pulumi.AzureNative.ServiceBus.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.ServiceBus.AccessRights> Rights
+        public InputList<Pulumi.AzureNative.ServiceBus.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.ServiceBus.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.ServiceBus.AccessRights>());
             set => _rights = value;
         }
 

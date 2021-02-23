@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevOps.Inputs
+namespace Pulumi.AzureNative.DevOps.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DevOps.Inputs
         /// Type of code repository.
         /// </summary>
         [Input("repositoryType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DevOps.CodeRepositoryType> RepositoryType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DevOps.CodeRepositoryType> RepositoryType { get; set; } = null!;
 
         public CodeRepositoryArgs()
         {

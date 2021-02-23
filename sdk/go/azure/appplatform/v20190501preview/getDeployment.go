@@ -10,7 +10,7 @@ import (
 // Deployment resource payload
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20190501preview:getDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20190501preview:getDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

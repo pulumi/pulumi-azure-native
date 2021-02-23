@@ -16,7 +16,7 @@ export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20191201preview:getWebhookCallbackConfig", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/v20191201preview:getWebhookCallbackConfig", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

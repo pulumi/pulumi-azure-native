@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
+namespace Pulumi.AzureNative.HealthcareApis.Latest.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
         /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.HealthcareApis.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HealthcareApis.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         public ServicesPropertiesArgs()
         {

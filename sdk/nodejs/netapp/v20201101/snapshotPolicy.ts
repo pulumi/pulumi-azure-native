@@ -22,7 +22,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20201101:SnapshotPolicy';
+    public static readonly __pulumiType = 'azure-native:netapp/v20201101:SnapshotPolicy';
 
     /**
      * Returns true if the given object is an instance of SnapshotPolicy.  This is designed to work even
@@ -124,7 +124,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-nextgen:netapp/latest:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:SnapshotPolicy" }, { type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/latest:SnapshotPolicy" }, { type: "azure-nextgen:netapp/latest:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

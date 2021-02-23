@@ -44,7 +44,13 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn/latest:SecurityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:SecurityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:SecurityPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:SecurityPolicy"),
@@ -52,7 +58,7 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SecurityPolicy
-	err := ctx.RegisterResource("azure-nextgen:cdn:SecurityPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn:SecurityPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 func GetSecurityPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecurityPolicyState, opts ...pulumi.ResourceOption) (*SecurityPolicy, error) {
 	var resource SecurityPolicy
-	err := ctx.ReadResource("azure-nextgen:cdn:SecurityPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn:SecurityPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

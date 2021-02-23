@@ -10,7 +10,7 @@ import (
 // The SourceControl Configuration object returned in Get & Put response.
 func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceControlConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlConfigurationResult, error) {
 	var rv LookupSourceControlConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kubernetesconfiguration/v20210301:getSourceControlConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetesconfiguration/v20210301:getSourceControlConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

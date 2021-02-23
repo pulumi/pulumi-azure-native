@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd":
+            case "azure-native:aadiam/v20200301preview:privateLinkForAzureAd":
                 return new PrivateLinkForAzureAd(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "aadiam/v20200301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "aadiam/v20200301preview", _module)

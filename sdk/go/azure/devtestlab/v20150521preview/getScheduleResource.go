@@ -10,7 +10,7 @@ import (
 // A schedule.
 func LookupScheduleResource(ctx *pulumi.Context, args *LookupScheduleResourceArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResourceResult, error) {
 	var rv LookupScheduleResourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20150521preview:getScheduleResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getScheduleResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

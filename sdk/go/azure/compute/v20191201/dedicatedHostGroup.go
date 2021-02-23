@@ -46,19 +46,37 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:DedicatedHostGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:DedicatedHostGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DedicatedHostGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHostGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHostGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHostGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHostGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHostGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHostGroup"),
@@ -66,7 +84,7 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHostGroup
-	err := ctx.RegisterResource("azure-nextgen:compute/v20191201:DedicatedHostGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20191201:DedicatedHostGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 func GetDedicatedHostGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedHostGroupState, opts ...pulumi.ResourceOption) (*DedicatedHostGroup, error) {
 	var resource DedicatedHostGroup
-	err := ctx.ReadResource("azure-nextgen:compute/v20191201:DedicatedHostGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20191201:DedicatedHostGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -52,10 +52,19 @@ func NewWCFRelay(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:WCFRelay"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:WCFRelay"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/latest:WCFRelay"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/latest:WCFRelay"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20160701:WCFRelay"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20160701:WCFRelay"),
@@ -63,7 +72,7 @@ func NewWCFRelay(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WCFRelay
-	err := ctx.RegisterResource("azure-nextgen:relay/v20170401:WCFRelay", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/v20170401:WCFRelay", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewWCFRelay(ctx *pulumi.Context,
 func GetWCFRelay(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WCFRelayState, opts ...pulumi.ResourceOption) (*WCFRelay, error) {
 	var resource WCFRelay
-	err := ctx.ReadResource("azure-nextgen:relay/v20170401:WCFRelay", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/v20170401:WCFRelay", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

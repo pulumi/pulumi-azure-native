@@ -16,7 +16,7 @@ export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20190501preview:getLiveOutput", {
+    return pulumi.runtime.invoke("azure-native:media/v20190501preview:getLiveOutput", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,
         "liveOutputName": args.liveOutputName,

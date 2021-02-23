@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20191101
+namespace Pulumi.AzureNative.DataShare.V20191101
 {
     public static class ListShareSynchronizations
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// List response for get ShareSynchronization.
         /// </summary>
         public static Task<ListShareSynchronizationsResult> InvokeAsync(ListShareSynchronizationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-nextgen:datashare/v20191101:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSynchronizationsResult>("azure-native:datashare/v20191101:listShareSynchronizations", args ?? new ListShareSynchronizationsArgs(), options.WithVersion());
     }
 
 

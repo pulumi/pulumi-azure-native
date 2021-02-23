@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
+namespace Pulumi.AzureNative.RecoveryServices.V20160810
 {
     /// <summary>
     /// Storage mapping object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping")]
     public partial class ReplicationStorageClassificationMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationStorageClassificationMapping(string name, ReplicationStorageClassificationMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping", name, args ?? new ReplicationStorageClassificationMappingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping", name, args ?? new ReplicationStorageClassificationMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationStorageClassificationMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping"},
                 },
             };

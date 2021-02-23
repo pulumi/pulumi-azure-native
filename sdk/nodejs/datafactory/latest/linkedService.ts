@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Linked service resource type.
  * Latest API Version: 2018-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class LinkedService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LinkedService {
-        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'.")
+        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'.")
         return new LinkedService(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory/latest:LinkedService';
+    public static readonly __pulumiType = 'azure-native:datafactory/latest:LinkedService';
 
     /**
      * Returns true if the given object is an instance of LinkedService.  This is designed to work even
@@ -63,9 +63,9 @@ export class LinkedService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'. */
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'.")
+        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory/v20170901preview:LinkedService" }, { type: "azure-nextgen:datafactory/v20180601:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-native:datafactory/v20170901preview:LinkedService" }, { type: "azure-nextgen:datafactory/v20170901preview:LinkedService" }, { type: "azure-native:datafactory/v20180601:LinkedService" }, { type: "azure-nextgen:datafactory/v20180601:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

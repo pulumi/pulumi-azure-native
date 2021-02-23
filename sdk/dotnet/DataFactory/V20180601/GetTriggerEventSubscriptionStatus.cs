@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     public static class GetTriggerEventSubscriptionStatus
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Defines the response of a trigger subscription operation.
         /// </summary>
         public static Task<GetTriggerEventSubscriptionStatusResult> InvokeAsync(GetTriggerEventSubscriptionStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerEventSubscriptionStatusResult>("azure-nextgen:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusArgs(), options.WithVersion());
     }
 
 

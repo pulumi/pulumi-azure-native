@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Schema Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiSchema'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiSchema'. */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
-    pulumi.log.warn("getApiSchema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiSchema'.")
+    pulumi.log.warn("getApiSchema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiSchema'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiSchema", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiSchema", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "schemaId": args.schemaId,

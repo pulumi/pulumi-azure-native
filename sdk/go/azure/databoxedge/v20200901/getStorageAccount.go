@@ -10,7 +10,7 @@ import (
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200901:getStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200901:getStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

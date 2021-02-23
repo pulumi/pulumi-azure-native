@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20190101
+namespace Pulumi.AzureNative.EventGrid.V20190101
 {
     /// <summary>
     /// Type of the endpoint for the dead letter destination

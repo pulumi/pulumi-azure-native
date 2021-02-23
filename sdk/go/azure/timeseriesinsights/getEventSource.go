@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-15.
 func LookupEventSource(ctx *pulumi.Context, args *LookupEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupEventSourceResult, error) {
 	var rv LookupEventSourceResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights:getEventSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights:getEventSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

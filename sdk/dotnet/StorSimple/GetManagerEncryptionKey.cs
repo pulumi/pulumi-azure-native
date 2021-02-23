@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetManagerEncryptionKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2016-10-01.
         /// </summary>
         public static Task<GetManagerEncryptionKeyResult> InvokeAsync(GetManagerEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-nextgen:storsimple:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-native:storsimple:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
     }
 
 

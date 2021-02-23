@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Pipeline resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getPipeline'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getPipeline'. */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    pulumi.log.warn("getPipeline is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getPipeline'.")
+    pulumi.log.warn("getPipeline is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getPipeline'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getPipeline", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getPipeline", {
         "factoryName": args.factoryName,
         "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,

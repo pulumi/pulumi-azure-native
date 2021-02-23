@@ -60,13 +60,25 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DscpConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:DscpConfiguration"),
@@ -74,7 +86,7 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscpConfiguration
-	err := ctx.RegisterResource("azure-nextgen:network:DscpConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:DscpConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +98,7 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 func GetDscpConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscpConfigurationState, opts ...pulumi.ResourceOption) (*DscpConfiguration, error) {
 	var resource DscpConfiguration
-	err := ctx.ReadResource("azure-nextgen:network:DscpConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:DscpConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

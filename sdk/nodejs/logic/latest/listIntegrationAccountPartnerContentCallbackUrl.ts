@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The workflow trigger callback URL.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountPartnerContentCallbackUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl'. */
 export function listIntegrationAccountPartnerContentCallbackUrl(args: ListIntegrationAccountPartnerContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountPartnerContentCallbackUrlResult> {
-    pulumi.log.warn("listIntegrationAccountPartnerContentCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountPartnerContentCallbackUrl'.")
+    pulumi.log.warn("listIntegrationAccountPartnerContentCallbackUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIntegrationAccountPartnerContentCallbackUrl(args: ListIntegr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:listIntegrationAccountPartnerContentCallbackUrl", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:listIntegrationAccountPartnerContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,
         "notAfter": args.notAfter,

@@ -10,7 +10,7 @@ import (
 // EventGrid Domain
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20190201preview:getDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20190201preview:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

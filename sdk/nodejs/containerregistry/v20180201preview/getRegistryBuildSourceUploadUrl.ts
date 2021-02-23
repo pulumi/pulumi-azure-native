@@ -16,7 +16,7 @@ export function getRegistryBuildSourceUploadUrl(args: GetRegistryBuildSourceUplo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -17,7 +17,7 @@ export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExport
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getLogAnalyticExportThrottledRequests", {
+    return pulumi.runtime.invoke("azure-native:compute:getLogAnalyticExportThrottledRequests", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,
         "groupByClientApplicationId": args.groupByClientApplicationId,

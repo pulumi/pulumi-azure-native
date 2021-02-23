@@ -23,7 +23,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb:DatabaseAccountCassandraTable';
+    public static readonly __pulumiType = 'azure-native:documentdb:DatabaseAccountCassandraTable';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountCassandraTable.  This is designed to work even
@@ -113,7 +113,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraTable.__pulumiType, name, inputs, opts);
     }

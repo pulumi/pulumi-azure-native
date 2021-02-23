@@ -10,10 +10,10 @@ import (
 // User credentials used for publishing activity.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppPublishingCredentialsSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentialsSlot'.
 func ListWebAppPublishingCredentialsSlot(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsSlotResult, error) {
 	var rv ListWebAppPublishingCredentialsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

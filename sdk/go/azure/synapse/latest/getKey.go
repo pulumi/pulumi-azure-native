@@ -10,10 +10,10 @@ import (
 // A workspace key
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getKey'.
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

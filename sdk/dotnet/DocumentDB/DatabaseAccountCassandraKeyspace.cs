@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
     /// API Version: 2016-03-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace")]
+    [AzureNativeResourceType("azure-native:documentdb:DatabaseAccountCassandraKeyspace")]
     public partial class DatabaseAccountCassandraKeyspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountCassandraKeyspace(string name, DatabaseAccountCassandraKeyspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace", name, args ?? new DatabaseAccountCassandraKeyspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:DatabaseAccountCassandraKeyspace", name, args ?? new DatabaseAccountCassandraKeyspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountCassandraKeyspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:DatabaseAccountCassandraKeyspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,11 +65,17 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace"},
                 },
             };

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Network profile resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkProfile'. */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
-    pulumi.log.warn("getNetworkProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkProfile'.")
+    pulumi.log.warn("getNetworkProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkProfile", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkProfile", {
         "expand": args.expand,
         "networkProfileName": args.networkProfileName,
         "resourceGroupName": args.resourceGroupName,

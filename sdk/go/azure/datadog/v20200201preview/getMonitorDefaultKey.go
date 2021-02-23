@@ -9,7 +9,7 @@ import (
 
 func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, opts ...pulumi.InvokeOption) (*GetMonitorDefaultKeyResult, error) {
 	var rv GetMonitorDefaultKeyResult
-	err := ctx.Invoke("azure-nextgen:datadog/v20200201preview:getMonitorDefaultKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog/v20200201preview:getMonitorDefaultKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

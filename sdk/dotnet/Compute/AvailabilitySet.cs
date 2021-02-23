@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute:AvailabilitySet")]
+    [AzureNativeResourceType("azure-native:compute:AvailabilitySet")]
     public partial class AvailabilitySet : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AvailabilitySet(string name, AvailabilitySetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:AvailabilitySet", name, args ?? new AvailabilitySetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute:AvailabilitySet", name, args ?? new AvailabilitySetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AvailabilitySet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:AvailabilitySet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute:AvailabilitySet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,19 +101,33 @@ namespace Pulumi.AzureNextGen.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20150615:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160330:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:AvailabilitySet"},
                 },
             };

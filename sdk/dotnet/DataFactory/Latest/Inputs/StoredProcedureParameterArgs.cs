@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// Stored procedure parameter type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.StoredProcedureParameterType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.StoredProcedureParameterType>? Type { get; set; }
 
         /// <summary>
         /// Stored procedure parameter value. Type: string (or Expression with resultType string).

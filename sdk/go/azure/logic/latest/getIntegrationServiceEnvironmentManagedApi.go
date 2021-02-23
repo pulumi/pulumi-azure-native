@@ -10,10 +10,10 @@ import (
 // The managed api definition.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironmentManagedApi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironmentManagedApi'.
 func LookupIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentManagedApiArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentManagedApiResult, error) {
 	var rv LookupIntegrationServiceEnvironmentManagedApiResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationServiceEnvironmentManagedApi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationServiceEnvironmentManagedApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

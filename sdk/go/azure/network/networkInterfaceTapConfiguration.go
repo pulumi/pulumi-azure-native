@@ -43,58 +43,115 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkInterfaceTapConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:NetworkInterfaceTapConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:NetworkInterfaceTapConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkInterfaceTapConfiguration"),
@@ -102,7 +159,7 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NetworkInterfaceTapConfiguration
-	err := ctx.RegisterResource("azure-nextgen:network:NetworkInterfaceTapConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:NetworkInterfaceTapConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +171,7 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 func GetNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkInterfaceTapConfigurationState, opts ...pulumi.ResourceOption) (*NetworkInterfaceTapConfiguration, error) {
 	var resource NetworkInterfaceTapConfiguration
-	err := ctx.ReadResource("azure-nextgen:network:NetworkInterfaceTapConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:NetworkInterfaceTapConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

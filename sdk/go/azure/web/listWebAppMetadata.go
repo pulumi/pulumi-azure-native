@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppMetadata(ctx *pulumi.Context, args *ListWebAppMetadataArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataResult, error) {
 	var rv ListWebAppMetadataResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppMetadata", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppMetadata", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

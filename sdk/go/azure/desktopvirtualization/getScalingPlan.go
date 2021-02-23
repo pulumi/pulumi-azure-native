@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-14-preview.
 func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ...pulumi.InvokeOption) (*LookupScalingPlanResult, error) {
 	var rv LookupScalingPlanResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization:getScalingPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization:getScalingPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

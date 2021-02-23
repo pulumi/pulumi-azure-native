@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
     /// Latest API Version: 2020-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualNetworkLink'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualNetworkLink")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetworkLink'.")]
+    [AzureNativeResourceType("azure-native:network/latest:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkLink(string name, VirtualNetworkLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,9 +96,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkLink"},
                 },
             };

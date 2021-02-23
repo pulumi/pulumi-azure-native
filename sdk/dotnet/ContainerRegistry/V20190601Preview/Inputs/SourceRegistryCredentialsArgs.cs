@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Inputs
 {
 
     /// <summary>
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
         /// the source registry during the run.
         /// </summary>
         [Input("loginMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.SourceRegistryLoginMode>? LoginMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190601Preview.SourceRegistryLoginMode>? LoginMode { get; set; }
 
         public SourceRegistryCredentialsArgs()
         {

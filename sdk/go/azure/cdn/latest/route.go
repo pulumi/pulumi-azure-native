@@ -14,7 +14,7 @@ import (
 // Friendly Routes name mapping to the any Routes or secret related information.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Route'.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -74,7 +74,13 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Route"),
@@ -82,7 +88,7 @@ func NewRoute(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Route
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:Route", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:Route", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +100,7 @@ func NewRoute(ctx *pulumi.Context,
 func GetRoute(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
 	var resource Route
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:Route", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:Route", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

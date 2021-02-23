@@ -22,7 +22,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:consumption/v20190401preview:Budget';
+    public static readonly __pulumiType = 'azure-native:consumption/v20190401preview:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even
@@ -132,7 +132,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption:Budget" }, { type: "azure-nextgen:consumption/latest:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption:Budget" }, { type: "azure-nextgen:consumption:Budget" }, { type: "azure-native:consumption/latest:Budget" }, { type: "azure-nextgen:consumption/latest:Budget" }, { type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

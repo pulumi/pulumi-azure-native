@@ -17,7 +17,7 @@ export function getReportByBillingAccount(args: GetReportByBillingAccountArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement:getReportByBillingAccount", {
+    return pulumi.runtime.invoke("azure-native:costmanagement:getReportByBillingAccount", {
         "billingAccountId": args.billingAccountId,
         "reportName": args.reportName,
     }, opts);

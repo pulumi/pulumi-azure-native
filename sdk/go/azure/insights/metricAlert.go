@@ -82,7 +82,13 @@ func NewMetricAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:MetricAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:MetricAlert"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180301:MetricAlert"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180301:MetricAlert"),
@@ -90,7 +96,7 @@ func NewMetricAlert(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MetricAlert
-	err := ctx.RegisterResource("azure-nextgen:insights:MetricAlert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:MetricAlert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +108,7 @@ func NewMetricAlert(ctx *pulumi.Context,
 func GetMetricAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MetricAlertState, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
 	var resource MetricAlert
-	err := ctx.ReadResource("azure-nextgen:insights:MetricAlert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:MetricAlert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

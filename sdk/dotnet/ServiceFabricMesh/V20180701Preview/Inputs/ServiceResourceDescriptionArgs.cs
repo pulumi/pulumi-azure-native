@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The health state of a resource such as Application, Service, or Network.
         /// </summary>
         [Input("healthState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.HealthState>? HealthState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.HealthState>? HealthState { get; set; }
 
         /// <summary>
         /// The name of the resource
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The Operating system type required by the code in service.
         /// </summary>
         [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.OperatingSystemTypes> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The number of replicas of the service to create. Defaults to 1 if not specified.

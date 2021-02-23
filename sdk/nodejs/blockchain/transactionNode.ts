@@ -23,7 +23,7 @@ export class TransactionNode extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:blockchain:TransactionNode';
+    public static readonly __pulumiType = 'azure-native:blockchain:TransactionNode';
 
     /**
      * Returns true if the given object is an instance of TransactionNode.  This is designed to work even
@@ -119,7 +119,7 @@ export class TransactionNode extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blockchain/v20180601preview:TransactionNode" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blockchain/v20180601preview:TransactionNode" }, { type: "azure-nextgen:blockchain/v20180601preview:TransactionNode" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TransactionNode.__pulumiType, name, inputs, opts);
     }

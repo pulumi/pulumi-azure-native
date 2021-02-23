@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     /// <summary>
     /// An object that represents a connected registry for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ConnectedRegistry")]
     public partial class ConnectedRegistry : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectedRegistry(string name, ConnectedRegistryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, args ?? new ConnectedRegistryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20201101preview:ConnectedRegistry", name, args ?? new ConnectedRegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectedRegistry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20201101preview:ConnectedRegistry", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:ConnectedRegistry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ConnectedRegistry"},
                 },
             };
@@ -176,7 +177,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// The mode of the connected registry resource that indicates the permissions of the registry.
         /// </summary>
         [Input("mode", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ConnectedRegistryMode> Mode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.ConnectedRegistryMode> Mode { get; set; } = null!;
 
         /// <summary>
         /// The parent of the connected registry.

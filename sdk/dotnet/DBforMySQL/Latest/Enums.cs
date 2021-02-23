@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest
+namespace Pulumi.AzureNative.DBforMySQL.Latest
 {
     /// <summary>
     /// The type of administrator.

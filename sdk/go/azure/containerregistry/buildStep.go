@@ -42,12 +42,15 @@ func NewBuildStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20180201preview:BuildStep"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20180201preview:BuildStep"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource BuildStep
-	err := ctx.RegisterResource("azure-nextgen:containerregistry:BuildStep", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry:BuildStep", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewBuildStep(ctx *pulumi.Context,
 func GetBuildStep(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BuildStepState, opts ...pulumi.ResourceOption) (*BuildStep, error) {
 	var resource BuildStep
-	err := ctx.ReadResource("azure-nextgen:containerregistry:BuildStep", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry:BuildStep", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

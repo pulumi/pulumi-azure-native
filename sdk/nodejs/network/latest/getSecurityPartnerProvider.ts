@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Security Partner Provider resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSecurityPartnerProvider'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityPartnerProvider'. */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
-    pulumi.log.warn("getSecurityPartnerProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSecurityPartnerProvider'.")
+    pulumi.log.warn("getSecurityPartnerProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityPartnerProvider'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getSecurityPartnerProvider", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getSecurityPartnerProvider", {
         "resourceGroupName": args.resourceGroupName,
         "securityPartnerProviderName": args.securityPartnerProviderName,
     }, opts);

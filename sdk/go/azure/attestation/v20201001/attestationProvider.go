@@ -50,10 +50,19 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:attestation:AttestationProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:attestation:AttestationProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:attestation/latest:AttestationProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:attestation/latest:AttestationProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:attestation/v20180901preview:AttestationProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:attestation/v20180901preview:AttestationProvider"),
@@ -61,7 +70,7 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AttestationProvider
-	err := ctx.RegisterResource("azure-nextgen:attestation/v20201001:AttestationProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:attestation/v20201001:AttestationProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewAttestationProvider(ctx *pulumi.Context,
 func GetAttestationProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttestationProviderState, opts ...pulumi.ResourceOption) (*AttestationProvider, error) {
 	var resource AttestationProvider
-	err := ctx.ReadResource("azure-nextgen:attestation/v20201001:AttestationProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:attestation/v20201001:AttestationProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

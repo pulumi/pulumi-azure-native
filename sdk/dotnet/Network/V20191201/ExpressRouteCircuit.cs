@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191201
+namespace Pulumi.AzureNative.Network.V20191201
 {
     /// <summary>
     /// ExpressRouteCircuit resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20191201:ExpressRouteCircuit")]
+    [AzureNativeResourceType("azure-native:network/v20191201:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
@@ -144,12 +144,12 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteCircuit(string name, ExpressRouteCircuitArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20191201:ExpressRouteCircuit", name, args ?? new ExpressRouteCircuitArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20191201:ExpressRouteCircuit", name, args ?? new ExpressRouteCircuitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExpressRouteCircuit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20191201:ExpressRouteCircuit", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20191201:ExpressRouteCircuit", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,41 +160,77 @@ namespace Pulumi.AzureNextGen.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCircuit"},
                 },
             };
@@ -325,7 +361,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// The ServiceProviderProvisioningState state of the resource.
         /// </summary>
         [Input("serviceProviderProvisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.ServiceProviderProvisioningState>? ServiceProviderProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191201.ServiceProviderProvisioningState>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
         /// The SKU.

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of identifiers.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listSiteIdentifiersAssignedToHostName'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'. */
 export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiersAssignedToHostNameArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteIdentifiersAssignedToHostNameResult> {
-    pulumi.log.warn("listSiteIdentifiersAssignedToHostName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listSiteIdentifiersAssignedToHostName'.")
+    pulumi.log.warn("listSiteIdentifiersAssignedToHostName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiers
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listSiteIdentifiersAssignedToHostName", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listSiteIdentifiersAssignedToHostName", {
         "name": args.name,
     }, opts);
 }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
+namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
     public static class GetSolution
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         /// Solution REST Resource.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-nextgen:migrate/v20180901preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:migrate/v20180901preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
     }
 
 

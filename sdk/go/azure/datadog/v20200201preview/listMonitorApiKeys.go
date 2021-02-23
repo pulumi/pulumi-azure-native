@@ -10,7 +10,7 @@ import (
 // Response of a list operation.
 func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts ...pulumi.InvokeOption) (*ListMonitorApiKeysResult, error) {
 	var rv ListMonitorApiKeysResult
-	err := ctx.Invoke("azure-nextgen:datadog/v20200201preview:listMonitorApiKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog/v20200201preview:listMonitorApiKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

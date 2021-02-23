@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
+namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview
 {
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20170401preview:Input")]
+    [AzureNativeResourceType("azure-native:streamanalytics/v20170401preview:Input")]
     public partial class Input : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Input(string name, InputArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20170401preview:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics/v20170401preview:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Input(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20170401preview:Input", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics/v20170401preview:Input", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/latest:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:Input"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Input"},
                 },
             };

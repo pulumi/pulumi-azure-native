@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
+namespace Pulumi.AzureNative.Batch.Latest.Inputs
 {
 
     public sealed class InboundNatPoolArgs : Pulumi.ResourceArgs
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         }
 
         [Input("protocol", required: true)]
-        public Input<Pulumi.AzureNextGen.Batch.Latest.InboundEndpointProtocol> Protocol { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Batch.Latest.InboundEndpointProtocol> Protocol { get; set; } = null!;
 
         public InboundNatPoolArgs()
         {

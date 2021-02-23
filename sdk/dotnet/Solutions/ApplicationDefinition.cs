@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions
+namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application definition.
     /// API Version: 2019-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:solutions:ApplicationDefinition")]
+    [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -145,12 +145,12 @@ namespace Pulumi.AzureNextGen.Solutions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationDefinition(string name, ApplicationDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions:ApplicationDefinition", name, args ?? new ApplicationDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions:ApplicationDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -161,10 +161,15 @@ namespace Pulumi.AzureNextGen.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions/latest:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:ApplicationDefinition"},
                 },
             };
@@ -259,7 +264,7 @@ namespace Pulumi.AzureNextGen.Solutions
         /// The managed application lock level.
         /// </summary>
         [Input("lockLevel", required: true)]
-        public Input<Pulumi.AzureNextGen.Solutions.ApplicationLockLevel> LockLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Solutions.ApplicationLockLevel> LockLevel { get; set; } = null!;
 
         /// <summary>
         /// The managed application locking policy.

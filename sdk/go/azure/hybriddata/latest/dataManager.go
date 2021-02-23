@@ -14,7 +14,7 @@ import (
 // The DataManager resource.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataManager'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataManager'.
 type DataManager struct {
 	pulumi.CustomResourceState
 
@@ -47,10 +47,19 @@ func NewDataManager(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybriddata:DataManager"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata:DataManager"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybriddata/v20160601:DataManager"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:DataManager"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybriddata/v20190601:DataManager"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:DataManager"),
@@ -58,7 +67,7 @@ func NewDataManager(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataManager
-	err := ctx.RegisterResource("azure-nextgen:hybriddata/latest:DataManager", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybriddata/latest:DataManager", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewDataManager(ctx *pulumi.Context,
 func GetDataManager(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataManagerState, opts ...pulumi.ResourceOption) (*DataManager, error) {
 	var resource DataManager
-	err := ctx.ReadResource("azure-nextgen:hybriddata/latest:DataManager", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybriddata/latest:DataManager", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

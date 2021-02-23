@@ -10,10 +10,10 @@ import (
 // Integration runtime status response.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeStatus'.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getIntegrationRuntimeStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getIntegrationRuntimeStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

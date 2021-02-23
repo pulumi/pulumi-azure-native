@@ -14,7 +14,7 @@ import (
 // An application type version resource for the specified application type name resource.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:ApplicationTypeVersion'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationTypeVersion'.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 
@@ -57,22 +57,43 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:ApplicationTypeVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion"),
@@ -80,7 +101,7 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationTypeVersion
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/latest:ApplicationTypeVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/latest:ApplicationTypeVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +113,7 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 func GetApplicationTypeVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationTypeVersionState, opts ...pulumi.ResourceOption) (*ApplicationTypeVersion, error) {
 	var resource ApplicationTypeVersion
-	err := ctx.ReadResource("azure-nextgen:servicefabric/latest:ApplicationTypeVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/latest:ApplicationTypeVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

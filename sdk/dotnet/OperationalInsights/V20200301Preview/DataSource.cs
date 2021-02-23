@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 {
     /// <summary>
     /// Datasources under OMS Workspace.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200301preview:DataSource")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20200301preview:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:DataSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20200301preview:DataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,9 +76,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:DataSource"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:DataSource"},
                 },
             };
@@ -119,7 +123,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// The kind of the DataSource.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200301Preview.DataSourceKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.V20200301Preview.DataSourceKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The data source properties in raw json format, each kind of data source have it's own schema.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.Inputs
+namespace Pulumi.AzureNative.CognitiveServices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Inputs
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         [Input("keySource")]
-        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.KeySource>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// Properties of KeyVault

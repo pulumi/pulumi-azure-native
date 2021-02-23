@@ -22,7 +22,7 @@ func newStorageAccountStaticWebsite(env *azure.Environment, accountsClient *stor
 	}
 	return &CustomResource{
 		path:   staticWebsitePath,
-		tok:    "azure-nextgen:storage:StorageAccountStaticWebsite",
+		tok:    "azure-native:storage:StorageAccountStaticWebsite",
 		Create: r.createOrUpdate,
 		Update: r.createOrUpdate,
 		Read:   r.read,
@@ -223,13 +223,13 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 	}
 	return &CustomResource{
 		path:   blobPath,
-		tok:    "azure-nextgen:storage:Blob",
+		tok:    "azure-native:storage:Blob",
 		Create: r.create,
 		Update: r.update,
 		Delete: r.delete,
 		Read:   r.read,
 		Types: map[string]schema.ComplexTypeSpec{
-			"azure-nextgen:storage:BlobAccessTier": {
+			"azure-native:storage:BlobAccessTier": {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Description: "The access tier of a storage blob.",
 					Type:        "string",
@@ -249,7 +249,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					},
 				},
 			},
-			"azure-nextgen:storage:BlobType": {
+			"azure-native:storage:BlobType": {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Description: "The type of a storage blob to be created.",
 					Type:        "string",
@@ -273,7 +273,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 				Properties: map[string]schema.PropertySpec{
 					accessTier: {
 						Description: "The access tier of the storage blob.",
-						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-nextgen:storage:BlobAccessTier"},
+						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 					},
 					contentMd5: {
 						Description: "The MD5 sum of the blob contents.",
@@ -293,7 +293,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					},
 					typeProp: {
 						Description: "The type of the storage blob to be created.",
-						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-nextgen:storage:BlobType"},
+						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobType"},
 					},
 					url: {
 						Description: "The URL of the blob.",
@@ -305,7 +305,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 			InputProperties: map[string]schema.PropertySpec{
 				accessTier: {
 					Description: "The access tier of the storage blob.",
-					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-nextgen:storage:BlobAccessTier"},
+					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
 				},
 				accountName: {
 					Description: "Specifies the storage account in which to create the storage container.",
@@ -341,7 +341,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 				},
 				typeProp: {
 					Description: "The type of the storage blob to be created. Defaults to 'Block'.",
-					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-nextgen:storage:BlobType"},
+					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobType"},
 					Default:     "Block",
 				},
 			},

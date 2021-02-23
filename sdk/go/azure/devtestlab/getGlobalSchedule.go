@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func LookupGlobalSchedule(ctx *pulumi.Context, args *LookupGlobalScheduleArgs, opts ...pulumi.InvokeOption) (*LookupGlobalScheduleResult, error) {
 	var rv LookupGlobalScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getGlobalSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getGlobalSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

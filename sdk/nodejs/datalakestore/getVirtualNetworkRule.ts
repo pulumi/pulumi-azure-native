@@ -17,7 +17,7 @@ export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakestore:getVirtualNetworkRule", {
+    return pulumi.runtime.invoke("azure-native:datalakestore:getVirtualNetworkRule", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkRuleName": args.virtualNetworkRuleName,

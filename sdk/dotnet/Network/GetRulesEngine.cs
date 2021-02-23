@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetRulesEngine
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetRulesEngineResult> InvokeAsync(GetRulesEngineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-nextgen:network:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesEngineResult>("azure-native:network:getRulesEngine", args ?? new GetRulesEngineArgs(), options.WithVersion());
     }
 
 

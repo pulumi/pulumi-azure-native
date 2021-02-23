@@ -10,7 +10,7 @@ import (
 // Inbound NAT rule of the load balancer.
 func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupInboundNatRuleResult, error) {
 	var rv LookupInboundNatRuleResult
-	err := ctx.Invoke("azure-nextgen:network/v20180701:getInboundNatRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180701:getInboundNatRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

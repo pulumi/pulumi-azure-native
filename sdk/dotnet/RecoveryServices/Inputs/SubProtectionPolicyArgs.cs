@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Type of backup policy type
         /// </summary>
         [Input("policyType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.PolicyType>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.PolicyType>? PolicyType { get; set; }
 
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.

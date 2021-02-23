@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:synapse:getIpFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getIpFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

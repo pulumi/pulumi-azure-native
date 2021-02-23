@@ -23,7 +23,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:TableServiceProperties';
+    public static readonly __pulumiType = 'azure-native:storage:TableServiceProperties';
 
     /**
      * Returns true if the given object is an instance of TableServiceProperties.  This is designed to work even
@@ -83,7 +83,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:TableServiceProperties" }, { type: "azure-nextgen:storage/v20190601:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }, { type: "azure-nextgen:storage/v20210101:TableServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:TableServiceProperties" }, { type: "azure-nextgen:storage/latest:TableServiceProperties" }, { type: "azure-native:storage/v20190601:TableServiceProperties" }, { type: "azure-nextgen:storage/v20190601:TableServiceProperties" }, { type: "azure-native:storage/v20200801preview:TableServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:TableServiceProperties" }, { type: "azure-native:storage/v20210101:TableServiceProperties" }, { type: "azure-nextgen:storage/v20210101:TableServiceProperties" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableServiceProperties.__pulumiType, name, inputs, opts);
     }

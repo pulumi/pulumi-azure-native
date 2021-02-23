@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Interface endpoint resource.
  * Latest API Version: 2019-02-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInterfaceEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInterfaceEndpoint'. */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
-    pulumi.log.warn("getInterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInterfaceEndpoint'.")
+    pulumi.log.warn("getInterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInterfaceEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getInterfaceEndpoint", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getInterfaceEndpoint", {
         "expand": args.expand,
         "interfaceEndpointName": args.interfaceEndpointName,
         "resourceGroupName": args.resourceGroupName,

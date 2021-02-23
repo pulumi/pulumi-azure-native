@@ -22,7 +22,7 @@ export class SqlDatabase extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20200401preview:SqlDatabase';
+    public static readonly __pulumiType = 'azure-native:synapse/v20200401preview:SqlDatabase';
 
     /**
      * Returns true if the given object is an instance of SqlDatabase.  This is designed to work even

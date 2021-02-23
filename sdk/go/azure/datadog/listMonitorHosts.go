@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-01-preview.
 func ListMonitorHosts(ctx *pulumi.Context, args *ListMonitorHostsArgs, opts ...pulumi.InvokeOption) (*ListMonitorHostsResult, error) {
 	var rv ListMonitorHostsResult
-	err := ctx.Invoke("azure-nextgen:datadog:listMonitorHosts", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog:listMonitorHosts", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

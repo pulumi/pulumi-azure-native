@@ -16,7 +16,7 @@ export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubsc
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20201015preview:getPartnerTopicEventSubscription", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getPartnerTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "partnerTopicName": args.partnerTopicName,
         "resourceGroupName": args.resourceGroupName,

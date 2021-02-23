@@ -35,15 +35,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hybriddata:DataManager":
+            case "azure-native:hybriddata:DataManager":
                 return new DataManager(name, <any>undefined, { urn })
-            case "azure-nextgen:hybriddata:DataStore":
+            case "azure-native:hybriddata:DataStore":
                 return new DataStore(name, <any>undefined, { urn })
-            case "azure-nextgen:hybriddata:JobDefinition":
+            case "azure-native:hybriddata:JobDefinition":
                 return new JobDefinition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hybriddata", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hybriddata", _module)

@@ -50,19 +50,37 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:RedisLinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:RedisLinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/latest:RedisLinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/latest:RedisLinkedServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20171001:RedisLinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:RedisLinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20180301:RedisLinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:RedisLinkedServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:RedisLinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:RedisLinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:RedisLinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:RedisLinkedServer"),
@@ -70,7 +88,7 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RedisLinkedServer
-	err := ctx.RegisterResource("azure-nextgen:cache/v20170201:RedisLinkedServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/v20170201:RedisLinkedServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +100,7 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 func GetRedisLinkedServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RedisLinkedServerState, opts ...pulumi.ResourceOption) (*RedisLinkedServer, error) {
 	var resource RedisLinkedServer
-	err := ctx.ReadResource("azure-nextgen:cache/v20170201:RedisLinkedServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/v20170201:RedisLinkedServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

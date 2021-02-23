@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190930Preview
+namespace Pulumi.AzureNative.ContainerService.V20190930Preview
 {
     /// <summary>
     /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.

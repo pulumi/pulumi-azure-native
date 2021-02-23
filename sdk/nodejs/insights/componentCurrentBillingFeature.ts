@@ -23,7 +23,7 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:ComponentCurrentBillingFeature';
+    public static readonly __pulumiType = 'azure-native:insights:ComponentCurrentBillingFeature';
 
     /**
      * Returns true if the given object is an instance of ComponentCurrentBillingFeature.  This is designed to work even
@@ -76,7 +76,7 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:ComponentCurrentBillingFeature" }, { type: "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:ComponentCurrentBillingFeature" }, { type: "azure-nextgen:insights/latest:ComponentCurrentBillingFeature" }, { type: "azure-native:insights/v20150501:ComponentCurrentBillingFeature" }, { type: "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ComponentCurrentBillingFeature.__pulumiType, name, inputs, opts);
     }

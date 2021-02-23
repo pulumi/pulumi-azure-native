@@ -17,7 +17,7 @@ export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntime
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory:getIntegrationRuntimeObjectMetadatum", {
+    return pulumi.runtime.invoke("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", {
         "factoryName": args.factoryName,
         "integrationRuntimeName": args.integrationRuntimeName,
         "metadataPath": args.metadataPath,

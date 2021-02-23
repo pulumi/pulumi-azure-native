@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The response of a list operation.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listLabVhds'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listLabVhds'. */
 export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions): Promise<ListLabVhdsResult> {
-    pulumi.log.warn("listLabVhds is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listLabVhds'.")
+    pulumi.log.warn("listLabVhds is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listLabVhds'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:listLabVhds", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:listLabVhds", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

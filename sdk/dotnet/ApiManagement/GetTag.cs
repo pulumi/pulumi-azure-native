@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     public static class GetTag
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-nextgen:apimanagement:getTag", args ?? new GetTagArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-native:apimanagement:getTag", args ?? new GetTagArgs(), options.WithVersion());
     }
 
 

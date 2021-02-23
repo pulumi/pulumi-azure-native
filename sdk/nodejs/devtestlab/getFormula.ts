@@ -17,7 +17,7 @@ export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:getFormula", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:getFormula", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

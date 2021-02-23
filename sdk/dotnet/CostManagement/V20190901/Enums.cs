@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190901
+namespace Pulumi.AzureNative.CostManagement.V20190901
 {
     /// <summary>
     /// The type of the query.

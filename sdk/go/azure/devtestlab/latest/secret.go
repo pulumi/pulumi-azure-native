@@ -14,7 +14,7 @@ import (
 // A secret.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Secret'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'.
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -52,10 +52,19 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:Secret"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Secret"),
@@ -63,7 +72,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

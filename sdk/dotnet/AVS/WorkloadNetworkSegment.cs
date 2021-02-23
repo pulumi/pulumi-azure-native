@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX Segment
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:WorkloadNetworkSegment")]
+    [AzureNativeResourceType("azure-native:avs:WorkloadNetworkSegment")]
     public partial class WorkloadNetworkSegment : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadNetworkSegment(string name, WorkloadNetworkSegmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkSegment", name, args ?? new WorkloadNetworkSegmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:WorkloadNetworkSegment", name, args ?? new WorkloadNetworkSegmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadNetworkSegment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkSegment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:WorkloadNetworkSegment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkSegment"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkSegment"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment"},
                 },
             };

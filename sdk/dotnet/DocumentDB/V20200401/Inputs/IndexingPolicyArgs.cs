@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
+namespace Pulumi.AzureNative.DocumentDB.V20200401.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
         /// Indicates the indexing mode.
         /// </summary>
         [Input("indexingMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200401.IndexingMode>? IndexingMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20200401.IndexingMode>? IndexingMode { get; set; }
 
         [Input("spatialIndexes")]
         private InputList<Inputs.SpatialSpecArgs>? _spatialIndexes;

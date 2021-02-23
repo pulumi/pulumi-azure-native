@@ -14,7 +14,7 @@ import (
 // Class representing an data connection.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:DataConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:DataConnection'.
 type DataConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,25 +49,49 @@ func NewDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190121:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190121:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20190515:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190515:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:DataConnection"),
@@ -75,7 +99,7 @@ func NewDataConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataConnection
-	err := ctx.RegisterResource("azure-nextgen:kusto/latest:DataConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/latest:DataConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +111,7 @@ func NewDataConnection(ctx *pulumi.Context,
 func GetDataConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataConnectionState, opts ...pulumi.ResourceOption) (*DataConnection, error) {
 	var resource DataConnection
-	err := ctx.ReadResource("azure-nextgen:kusto/latest:DataConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/latest:DataConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

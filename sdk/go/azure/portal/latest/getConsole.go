@@ -10,10 +10,10 @@ import (
 // Cloud shell console
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'.
 func LookupConsole(ctx *pulumi.Context, args *LookupConsoleArgs, opts ...pulumi.InvokeOption) (*LookupConsoleResult, error) {
 	var rv LookupConsoleResult
-	err := ctx.Invoke("azure-nextgen:portal/latest:getConsole", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/latest:getConsole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

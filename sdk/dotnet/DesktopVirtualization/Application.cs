@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Schema for Application properties.
     /// API Version: 2021-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization:Application")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,14 +131,23 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:Application"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:Application"},
                 },
             };
@@ -179,7 +188,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// Resource Type of Application.
         /// </summary>
         [Input("applicationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.RemoteApplicationType>? ApplicationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.RemoteApplicationType>? ApplicationType { get; set; }
 
         /// <summary>
         /// Command Line Arguments for Application.
@@ -191,7 +200,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
         /// </summary>
         [Input("commandLineSetting", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.CommandLineSetting> CommandLineSetting { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.CommandLineSetting> CommandLineSetting { get; set; } = null!;
 
         /// <summary>
         /// Description of Application.

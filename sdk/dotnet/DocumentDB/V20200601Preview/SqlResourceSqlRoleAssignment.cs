@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment")]
+    [AzureNativeResourceType("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlRoleAssignment(string name, SqlResourceSqlRoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args ?? new SqlResourceSqlRoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args ?? new SqlResourceSqlRoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlRoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlRoleAssignment"},
                 },
             };

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of the WCF relay resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelay'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelay'. */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
-    pulumi.log.warn("getWCFRelay is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getWCFRelay'.")
+    pulumi.log.warn("getWCFRelay is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getWCFRelay'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:getWCFRelay", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:getWCFRelay", {
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,

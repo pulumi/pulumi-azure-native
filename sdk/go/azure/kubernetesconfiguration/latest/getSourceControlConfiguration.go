@@ -10,10 +10,10 @@ import (
 // The SourceControl Configuration object returned in Get & Put response.
 // Latest API Version: 2021-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kubernetesconfiguration:getSourceControlConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kubernetesconfiguration:getSourceControlConfiguration'.
 func LookupSourceControlConfiguration(ctx *pulumi.Context, args *LookupSourceControlConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlConfigurationResult, error) {
 	var rv LookupSourceControlConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kubernetesconfiguration/latest:getSourceControlConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetesconfiguration/latest:getSourceControlConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

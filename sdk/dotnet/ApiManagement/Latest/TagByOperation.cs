@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Tag Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:TagByOperation'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:TagByOperation")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:TagByOperation'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:TagByOperation")]
     public partial class TagByOperation : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagByOperation(string name, TagByOperationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:TagByOperation", name, args ?? new TagByOperationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:TagByOperation", name, args ?? new TagByOperationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagByOperation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:TagByOperation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:TagByOperation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,13 +60,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:TagByOperation"},
                 },
             };

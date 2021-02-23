@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobRemoteLoginInformation'.")]
     public static class ListJobRemoteLoginInformation
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// Latest API Version: 2018-05-01.
         /// </summary>
         public static Task<ListJobRemoteLoginInformationResult> InvokeAsync(ListJobRemoteLoginInformationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListJobRemoteLoginInformationResult>("azure-nextgen:batchai/latest:listJobRemoteLoginInformation", args ?? new ListJobRemoteLoginInformationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListJobRemoteLoginInformationResult>("azure-native:batchai/latest:listJobRemoteLoginInformation", args ?? new ListJobRemoteLoginInformationArgs(), options.WithVersion());
     }
 
 

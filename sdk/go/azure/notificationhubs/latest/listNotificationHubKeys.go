@@ -10,10 +10,10 @@ import (
 // Namespace/NotificationHub Connection String
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:notificationhubs:listNotificationHubKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNotificationHubKeys'.
 func ListNotificationHubKeys(ctx *pulumi.Context, args *ListNotificationHubKeysArgs, opts ...pulumi.InvokeOption) (*ListNotificationHubKeysResult, error) {
 	var rv ListNotificationHubKeysResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/latest:listNotificationHubKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/latest:listNotificationHubKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

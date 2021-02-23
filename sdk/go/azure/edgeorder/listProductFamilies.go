@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01-preview.
 func ListProductFamilies(ctx *pulumi.Context, args *ListProductFamiliesArgs, opts ...pulumi.InvokeOption) (*ListProductFamiliesResult, error) {
 	var rv ListProductFamiliesResult
-	err := ctx.Invoke("azure-nextgen:edgeorder:listProductFamilies", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder:listProductFamilies", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

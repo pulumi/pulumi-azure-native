@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger
+namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     /// API Version: 2020-12-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:confidentialledger:Ledger")]
+    [AzureNativeResourceType("azure-native:confidentialledger:Ledger")]
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ledger(string name, LedgerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confidentialledger:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:confidentialledger:Ledger", name, args ?? new LedgerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Ledger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confidentialledger:Ledger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:confidentialledger:Ledger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger/v20201201preview:Ledger"},
                     new Pulumi.Alias { Type = "azure-nextgen:confidentialledger/v20201201preview:Ledger"},
                 },
             };

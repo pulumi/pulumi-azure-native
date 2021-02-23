@@ -10,10 +10,10 @@ import (
 // The bandwidth schedule details.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getBandwidthSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getBandwidthSchedule'.
 func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthScheduleResult, error) {
 	var rv LookupBandwidthScheduleResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getBandwidthSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getBandwidthSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

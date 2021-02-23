@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
+namespace Pulumi.AzureNative.EventHub.V20180101Preview.Inputs
 {
 
     /// <summary>
@@ -31,11 +31,11 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
         /// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.EventHub.V20180101Preview.IdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.EventHub.V20180101Preview.IdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {
-            Type = Pulumi.AzureNextGen.EventHub.V20180101Preview.IdentityType.SystemAssigned;
+            Type = Pulumi.AzureNative.EventHub.V20180101Preview.IdentityType.SystemAssigned;
         }
     }
 }

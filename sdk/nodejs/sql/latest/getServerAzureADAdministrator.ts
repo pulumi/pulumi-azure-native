@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An server Active Directory Administrator.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerAzureADAdministrator'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerAzureADAdministrator'. */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
-    pulumi.log.warn("getServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerAzureADAdministrator'.")
+    pulumi.log.warn("getServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerAzureADAdministrator'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerAzureADAdministrator(args: GetServerAzureADAdministrato
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getServerAzureADAdministrator", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

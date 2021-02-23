@@ -22,13 +22,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:streamanalytics/v20200301preview:Cluster":
+            case "azure-native:streamanalytics/v20200301preview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint":
+            case "azure-native:streamanalytics/v20200301preview:PrivateEndpoint":
                 return new PrivateEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "streamanalytics/v20200301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "streamanalytics/v20200301preview", _module)

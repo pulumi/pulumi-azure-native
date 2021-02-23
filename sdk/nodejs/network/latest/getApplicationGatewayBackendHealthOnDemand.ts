@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Result of on demand test probe.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'. */
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
-    pulumi.log.warn("getApplicationGatewayBackendHealthOnDemand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand'.")
+    pulumi.log.warn("getApplicationGatewayBackendHealthOnDemand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationG
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getApplicationGatewayBackendHealthOnDemand", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getApplicationGatewayBackendHealthOnDemand", {
         "applicationGatewayName": args.applicationGatewayName,
         "backendAddressPool": args.backendAddressPool,
         "backendHttpSettings": args.backendHttpSettings,

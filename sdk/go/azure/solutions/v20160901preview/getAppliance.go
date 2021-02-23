@@ -10,7 +10,7 @@ import (
 // Information about appliance.
 func LookupAppliance(ctx *pulumi.Context, args *LookupApplianceArgs, opts ...pulumi.InvokeOption) (*LookupApplianceResult, error) {
 	var rv LookupApplianceResult
-	err := ctx.Invoke("azure-nextgen:solutions/v20160901preview:getAppliance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions/v20160901preview:getAppliance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

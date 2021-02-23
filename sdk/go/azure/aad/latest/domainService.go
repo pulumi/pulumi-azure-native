@@ -14,7 +14,7 @@ import (
 // Domain service.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:DomainService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:DomainService'.
 type DomainService struct {
 	pulumi.CustomResourceState
 
@@ -72,13 +72,25 @@ func NewDomainService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:aad:DomainService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad:DomainService"),
+		},
+		{
+			Type: pulumi.String("azure-native:aad/v20170101:DomainService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20170101:DomainService"),
 		},
 		{
+			Type: pulumi.String("azure-native:aad/v20170601:DomainService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aad/v20170601:DomainService"),
+		},
+		{
+			Type: pulumi.String("azure-native:aad/v20200101:DomainService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:aad/v20200101:DomainService"),
@@ -86,7 +98,7 @@ func NewDomainService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DomainService
-	err := ctx.RegisterResource("azure-nextgen:aad/latest:DomainService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:aad/latest:DomainService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +110,7 @@ func NewDomainService(ctx *pulumi.Context,
 func GetDomainService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainServiceState, opts ...pulumi.ResourceOption) (*DomainService, error) {
 	var resource DomainService
-	err := ctx.ReadResource("azure-nextgen:aad/latest:DomainService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:aad/latest:DomainService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

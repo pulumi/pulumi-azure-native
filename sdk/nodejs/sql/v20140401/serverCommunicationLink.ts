@@ -21,7 +21,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20140401:ServerCommunicationLink';
+    public static readonly __pulumiType = 'azure-native:sql/v20140401:ServerCommunicationLink';
 
     /**
      * Returns true if the given object is an instance of ServerCommunicationLink.  This is designed to work even
@@ -102,7 +102,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ServerCommunicationLink" }, { type: "azure-nextgen:sql/latest:ServerCommunicationLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerCommunicationLink" }, { type: "azure-nextgen:sql:ServerCommunicationLink" }, { type: "azure-native:sql/latest:ServerCommunicationLink" }, { type: "azure-nextgen:sql/latest:ServerCommunicationLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerCommunicationLink.__pulumiType, name, inputs, opts);
     }

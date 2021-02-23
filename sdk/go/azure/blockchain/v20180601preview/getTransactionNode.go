@@ -10,7 +10,7 @@ import (
 // Payload of the transaction node which is the request/response of the resource provider.
 func LookupTransactionNode(ctx *pulumi.Context, args *LookupTransactionNodeArgs, opts ...pulumi.InvokeOption) (*LookupTransactionNodeResult, error) {
 	var rv LookupTransactionNodeResult
-	err := ctx.Invoke("azure-nextgen:blockchain/v20180601preview:getTransactionNode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain/v20180601preview:getTransactionNode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

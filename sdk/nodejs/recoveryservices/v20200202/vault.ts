@@ -22,7 +22,7 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20200202:Vault';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20200202:Vault';
 
     /**
      * Returns true if the given object is an instance of Vault.  This is designed to work even
@@ -108,7 +108,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-native:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vault.__pulumiType, name, inputs, opts);
     }

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The connector setting
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:Connector")]
+    [AzureNativeResourceType("azure-native:security:Connector")]
     public partial class Connector : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connector(string name, ConnectorArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:Connector", name, args ?? new ConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:Connector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:Connector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101preview:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101preview:Connector"},
                 },
             };

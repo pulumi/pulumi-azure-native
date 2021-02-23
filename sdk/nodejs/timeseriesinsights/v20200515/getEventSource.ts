@@ -16,7 +16,7 @@ export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights/v20200515:getEventSource", {
+    return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20200515:getEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,
         "resourceGroupName": args.resourceGroupName,

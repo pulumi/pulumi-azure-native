@@ -10,7 +10,7 @@ import (
 // Configuration Assignment
 func LookupConfigurationAssignmentParent(ctx *pulumi.Context, args *LookupConfigurationAssignmentParentArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationAssignmentParentResult, error) {
 	var rv LookupConfigurationAssignmentParentResult
-	err := ctx.Invoke("azure-nextgen:maintenance/v20210401preview:getConfigurationAssignmentParent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maintenance/v20210401preview:getConfigurationAssignmentParent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

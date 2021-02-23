@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of credential result response.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterUserCredentials'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterUserCredentials'. */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
-    pulumi.log.warn("listManagedClusterUserCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterUserCredentials'.")
+    pulumi.log.warn("listManagedClusterUserCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterUserCredentials'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listManagedClusterUserCredentials(args: ListManagedClusterUserCr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:listManagedClusterUserCredentials", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:listManagedClusterUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

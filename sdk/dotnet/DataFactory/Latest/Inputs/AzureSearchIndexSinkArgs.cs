@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// Specify the write behavior when upserting documents into Azure Search Index.
         /// </summary>
         [Input("writeBehavior")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.AzureSearchIndexWriteBehaviorType>? WriteBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.AzureSearchIndexWriteBehaviorType>? WriteBehavior { get; set; }
 
         public AzureSearchIndexSinkArgs()
         {

@@ -17,7 +17,7 @@ export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listWebAppHybridConnectionKeys", {
+    return pulumi.runtime.invoke("azure-native:web:listWebAppHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

@@ -56,12 +56,15 @@ func NewMachineGroup(ctx *pulumi.Context,
 	args.Kind = pulumi.String("machineGroup")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:MachineGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:MachineGroup"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource MachineGroup
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20151101preview:MachineGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20151101preview:MachineGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +76,7 @@ func NewMachineGroup(ctx *pulumi.Context,
 func GetMachineGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineGroupState, opts ...pulumi.ResourceOption) (*MachineGroup, error) {
 	var resource MachineGroup
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20151101preview:MachineGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20151101preview:MachineGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

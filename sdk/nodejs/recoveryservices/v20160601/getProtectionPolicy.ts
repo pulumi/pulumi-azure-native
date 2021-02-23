@@ -16,7 +16,7 @@ export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20160601:getProtectionPolicy", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/v20160601:getProtectionPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

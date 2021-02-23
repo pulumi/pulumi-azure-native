@@ -57,10 +57,19 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Pipeline"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Pipeline"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Pipeline"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Pipeline"),
@@ -68,7 +77,7 @@ func NewPipeline(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Pipeline
-	err := ctx.RegisterResource("azure-nextgen:datafactory:Pipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory:Pipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +89,7 @@ func NewPipeline(ctx *pulumi.Context,
 func GetPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	var resource Pipeline
-	err := ctx.ReadResource("azure-nextgen:datafactory:Pipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory:Pipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

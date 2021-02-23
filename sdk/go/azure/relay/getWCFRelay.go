@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayResult, error) {
 	var rv LookupWCFRelayResult
-	err := ctx.Invoke("azure-nextgen:relay:getWCFRelay", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:getWCFRelay", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Virtual machine guest diagnostic settings resource.
 func LookupGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context, args *LookupGuestDiagnosticsSettingsAssociationArgs, opts ...pulumi.InvokeOption) (*LookupGuestDiagnosticsSettingsAssociationResult, error) {
 	var rv LookupGuestDiagnosticsSettingsAssociationResult
-	err := ctx.Invoke("azure-nextgen:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

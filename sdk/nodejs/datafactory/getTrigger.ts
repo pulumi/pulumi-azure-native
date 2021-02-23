@@ -17,7 +17,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory:getTrigger", {
+    return pulumi.runtime.invoke("azure-native:datafactory:getTrigger", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
         "triggerName": args.triggerName,

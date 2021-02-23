@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Product details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProduct'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProduct'. */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    pulumi.log.warn("getProduct is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProduct'.")
+    pulumi.log.warn("getProduct is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProduct'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getProduct", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getProduct", {
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

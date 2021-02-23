@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest
+namespace Pulumi.AzureNative.ContainerService.Latest
 {
     /// <summary>
     /// Managed cluster.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerservice:ManagedCluster'.")]
-    [AzureNextGenResourceType("azure-nextgen:containerservice/latest:ManagedCluster")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.")]
+    [AzureNativeResourceType("azure-native:containerservice/latest:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -200,12 +200,12 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedCluster(string name, ManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/latest:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice/latest:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice/latest:ManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice/latest:ManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -216,24 +216,43 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20170831:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170831:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180331:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180331:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20180801preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180801preview:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190401:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190401:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190601:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190601:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190801:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190801:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191001:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191001:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191101:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200101:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200301:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200301:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200401:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200401:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200901:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201101:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:ManagedCluster"},
                 },
             };

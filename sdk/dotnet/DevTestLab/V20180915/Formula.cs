@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A formula for creating a VM, specifying an image base and other parameters
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:Formula")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:Formula")]
     public partial class Formula : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Formula(string name, FormulaArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:Formula", name, args ?? new FormulaArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:Formula", name, args ?? new FormulaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Formula(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:Formula", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:Formula", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,9 +112,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Formula"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Formula"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Formula"},
                 },
             };

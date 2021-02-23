@@ -10,7 +10,7 @@ import (
 // String dictionary resource
 func ListSiteMetadata(ctx *pulumi.Context, args *ListSiteMetadataArgs, opts ...pulumi.InvokeOption) (*ListSiteMetadataResult, error) {
 	var rv ListSiteMetadataResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteMetadata", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteMetadata", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

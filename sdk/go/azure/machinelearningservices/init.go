@@ -21,25 +21,25 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:machinelearningservices:LabelingJob":
+	case "azure-native:machinelearningservices:LabelingJob":
 		r, err = NewLabelingJob(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:LinkedService":
+	case "azure-native:machinelearningservices:LinkedService":
 		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:LinkedWorkspace":
+	case "azure-native:machinelearningservices:LinkedWorkspace":
 		r, err = NewLinkedWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:MachineLearningCompute":
+	case "azure-native:machinelearningservices:MachineLearningCompute":
 		r, err = NewMachineLearningCompute(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:MachineLearningDataset":
+	case "azure-native:machinelearningservices:MachineLearningDataset":
 		r, err = NewMachineLearningDataset(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:MachineLearningDatastore":
+	case "azure-native:machinelearningservices:MachineLearningDatastore":
 		r, err = NewMachineLearningDatastore(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:MachineLearningService":
+	case "azure-native:machinelearningservices:MachineLearningService":
 		r, err = NewMachineLearningService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:PrivateEndpointConnection":
+	case "azure-native:machinelearningservices:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:Workspace":
+	case "azure-native:machinelearningservices:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices:WorkspaceConnection":
+	case "azure-native:machinelearningservices:WorkspaceConnection":
 		r, err = NewWorkspaceConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -54,7 +54,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"machinelearningservices",
 		&module{version},
 	)

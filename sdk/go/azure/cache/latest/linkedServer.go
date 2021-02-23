@@ -14,7 +14,7 @@ import (
 // Response to put/get linked server (with properties) for Redis cache.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'.
 type LinkedServer struct {
 	pulumi.CustomResourceState
 
@@ -53,19 +53,37 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:LinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20170201:LinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:LinkedServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20171001:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:LinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20180301:LinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:LinkedServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:LinkedServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:LinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:LinkedServer"),
@@ -73,7 +91,7 @@ func NewLinkedServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedServer
-	err := ctx.RegisterResource("azure-nextgen:cache/latest:LinkedServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/latest:LinkedServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +103,7 @@ func NewLinkedServer(ctx *pulumi.Context,
 func GetLinkedServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServerState, opts ...pulumi.ResourceOption) (*LinkedServer, error) {
 	var resource LinkedServer
-	err := ctx.ReadResource("azure-nextgen:cache/latest:LinkedServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/latest:LinkedServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

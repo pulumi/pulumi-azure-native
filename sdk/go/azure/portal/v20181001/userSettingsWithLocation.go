@@ -34,7 +34,13 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal:UserSettingsWithLocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettingsWithLocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/latest:UserSettingsWithLocation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/latest:UserSettingsWithLocation"),
@@ -42,7 +48,7 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource UserSettingsWithLocation
-	err := ctx.RegisterResource("azure-nextgen:portal/v20181001:UserSettingsWithLocation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal/v20181001:UserSettingsWithLocation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +60,7 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 func GetUserSettingsWithLocation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserSettingsWithLocationState, opts ...pulumi.ResourceOption) (*UserSettingsWithLocation, error) {
 	var resource UserSettingsWithLocation
-	err := ctx.ReadResource("azure-nextgen:portal/v20181001:UserSettingsWithLocation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal/v20181001:UserSettingsWithLocation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

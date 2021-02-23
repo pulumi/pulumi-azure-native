@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
+namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview
 {
     /// <summary>
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile")]
+    [AzureNativeResourceType("azure-native:changeanalysis/v20200401preview:ConfigurationProfile")]
     public partial class ConfigurationProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationProfile(string name, ConfigurationProfileArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, args ?? new ConfigurationProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:changeanalysis/v20200401preview:ConfigurationProfile", name, args ?? new ConfigurationProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:changeanalysis/v20200401preview:ConfigurationProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:changeanalysis:ConfigurationProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:changeanalysis:ConfigurationProfile"},
                 },
             };

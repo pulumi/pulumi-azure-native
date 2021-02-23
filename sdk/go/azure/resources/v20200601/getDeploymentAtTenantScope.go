@@ -10,7 +10,7 @@ import (
 // Deployment information.
 func LookupDeploymentAtTenantScope(ctx *pulumi.Context, args *LookupDeploymentAtTenantScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtTenantScopeResult, error) {
 	var rv LookupDeploymentAtTenantScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/v20200601:getDeploymentAtTenantScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20200601:getDeploymentAtTenantScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

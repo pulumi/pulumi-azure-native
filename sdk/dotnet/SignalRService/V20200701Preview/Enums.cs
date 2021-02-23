@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
+namespace Pulumi.AzureNative.SignalRService.V20200701Preview
 {
     /// <summary>
     /// Default action when no other rule matches

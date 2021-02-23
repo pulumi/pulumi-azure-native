@@ -9,7 +9,7 @@ import (
 
 func ListWorkspaceKeys(ctx *pulumi.Context, args *ListWorkspaceKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceKeysResult, error) {
 	var rv ListWorkspaceKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20190501:listWorkspaceKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20190501:listWorkspaceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Domain service.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
-	err := ctx.Invoke("azure-nextgen:aad/v20200101:getDomainService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aad/v20200101:getDomainService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

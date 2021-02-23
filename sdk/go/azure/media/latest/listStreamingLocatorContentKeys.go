@@ -10,10 +10,10 @@ import (
 // Class of response for listContentKeys action
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorContentKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listStreamingLocatorContentKeys'.
 func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLocatorContentKeysArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorContentKeysResult, error) {
 	var rv ListStreamingLocatorContentKeysResult
-	err := ctx.Invoke("azure-nextgen:media/latest:listStreamingLocatorContentKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:listStreamingLocatorContentKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

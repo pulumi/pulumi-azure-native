@@ -16,7 +16,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:netapp/v20190501:getPool", {
+    return pulumi.runtime.invoke("azure-native:netapp/v20190501:getPool", {
         "accountName": args.accountName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,

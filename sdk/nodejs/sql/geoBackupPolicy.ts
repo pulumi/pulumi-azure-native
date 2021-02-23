@@ -23,7 +23,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:GeoBackupPolicy';
+    public static readonly __pulumiType = 'azure-native:sql:GeoBackupPolicy';
 
     /**
      * Returns true if the given object is an instance of GeoBackupPolicy.  This is designed to work even
@@ -108,7 +108,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:GeoBackupPolicy" }, { type: "azure-nextgen:sql/latest:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GeoBackupPolicy.__pulumiType, name, inputs, opts);
     }

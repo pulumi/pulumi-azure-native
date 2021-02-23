@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Collection of consent links
  * Latest API Version: 2016-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listConnectionConsentLinks'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listConnectionConsentLinks'. */
 export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionConsentLinksResult> {
-    pulumi.log.warn("listConnectionConsentLinks is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listConnectionConsentLinks'.")
+    pulumi.log.warn("listConnectionConsentLinks is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listConnectionConsentLinks'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listConnectionConsentLinks", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listConnectionConsentLinks", {
         "connectionName": args.connectionName,
         "parameters": args.parameters,
         "resourceGroupName": args.resourceGroupName,

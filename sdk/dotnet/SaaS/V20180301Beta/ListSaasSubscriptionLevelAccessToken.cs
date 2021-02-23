@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
+namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
     public static class ListSaasSubscriptionLevelAccessToken
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
         /// the ISV access token result response.
         /// </summary>
         public static Task<ListSaasSubscriptionLevelAccessTokenResult> InvokeAsync(ListSaasSubscriptionLevelAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasSubscriptionLevelAccessTokenResult>("azure-nextgen:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasSubscriptionLevelAccessTokenResult>("azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args ?? new ListSaasSubscriptionLevelAccessTokenArgs(), options.WithVersion());
     }
 
 

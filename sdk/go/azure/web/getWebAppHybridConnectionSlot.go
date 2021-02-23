@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppHybridConnectionSlot(ctx *pulumi.Context, args *LookupWebAppHybridConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHybridConnectionSlotResult, error) {
 	var rv LookupWebAppHybridConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppHybridConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppHybridConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

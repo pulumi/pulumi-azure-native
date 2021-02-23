@@ -64,16 +64,31 @@ func NewContainerService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerservice:ContainerService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice:ContainerService"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/latest:ContainerService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/latest:ContainerService"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20151101preview:ContainerService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20151101preview:ContainerService"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20160330:ContainerService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20160330:ContainerService"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20170131:ContainerService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20170131:ContainerService"),
@@ -81,7 +96,7 @@ func NewContainerService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ContainerService
-	err := ctx.RegisterResource("azure-nextgen:containerservice/v20160930:ContainerService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerservice/v20160930:ContainerService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +108,7 @@ func NewContainerService(ctx *pulumi.Context,
 func GetContainerService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContainerServiceState, opts ...pulumi.ResourceOption) (*ContainerService, error) {
 	var resource ContainerService
-	err := ctx.ReadResource("azure-nextgen:containerservice/v20160930:ContainerService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerservice/v20160930:ContainerService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

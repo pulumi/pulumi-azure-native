@@ -16,7 +16,7 @@ export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getWorkloadGroup", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getWorkloadGroup", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

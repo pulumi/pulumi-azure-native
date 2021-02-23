@@ -23,7 +23,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:JobTargetGroup';
+    public static readonly __pulumiType = 'azure-native:sql:JobTargetGroup';
 
     /**
      * Returns true if the given object is an instance of JobTargetGroup.  This is designed to work even
@@ -90,7 +90,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200202preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200202preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200801preview:JobTargetGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobTargetGroup.__pulumiType, name, inputs, opts);
     }

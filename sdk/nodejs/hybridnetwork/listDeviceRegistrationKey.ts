@@ -17,7 +17,7 @@ export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork:listDeviceRegistrationKey", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

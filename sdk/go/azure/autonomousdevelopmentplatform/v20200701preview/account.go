@@ -43,12 +43,15 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:autonomousdevelopmentplatform:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform:Account"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:autonomousdevelopmentplatform/v20200701preview:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:autonomousdevelopmentplatform/v20200701preview:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

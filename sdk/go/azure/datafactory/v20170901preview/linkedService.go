@@ -43,10 +43,19 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:LinkedService"),
@@ -54,7 +63,7 @@ func NewLinkedService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService
-	err := ctx.RegisterResource("azure-nextgen:datafactory/v20170901preview:LinkedService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/v20170901preview:LinkedService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewLinkedService(ctx *pulumi.Context,
 func GetLinkedService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	var resource LinkedService
-	err := ctx.ReadResource("azure-nextgen:datafactory/v20170901preview:LinkedService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/v20170901preview:LinkedService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batch/v20190801:Certificate';
+    public static readonly __pulumiType = 'azure-native:batch/v20190801:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -132,7 +132,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch:Certificate" }, { type: "azure-nextgen:batch/latest:Certificate" }, { type: "azure-nextgen:batch/v20170901:Certificate" }, { type: "azure-nextgen:batch/v20181201:Certificate" }, { type: "azure-nextgen:batch/v20190401:Certificate" }, { type: "azure-nextgen:batch/v20200301:Certificate" }, { type: "azure-nextgen:batch/v20200501:Certificate" }, { type: "azure-nextgen:batch/v20200901:Certificate" }, { type: "azure-nextgen:batch/v20210101:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:Certificate" }, { type: "azure-nextgen:batch:Certificate" }, { type: "azure-native:batch/latest:Certificate" }, { type: "azure-nextgen:batch/latest:Certificate" }, { type: "azure-native:batch/v20170901:Certificate" }, { type: "azure-nextgen:batch/v20170901:Certificate" }, { type: "azure-native:batch/v20181201:Certificate" }, { type: "azure-nextgen:batch/v20181201:Certificate" }, { type: "azure-native:batch/v20190401:Certificate" }, { type: "azure-nextgen:batch/v20190401:Certificate" }, { type: "azure-native:batch/v20200301:Certificate" }, { type: "azure-nextgen:batch/v20200301:Certificate" }, { type: "azure-native:batch/v20200501:Certificate" }, { type: "azure-nextgen:batch/v20200501:Certificate" }, { type: "azure-native:batch/v20200901:Certificate" }, { type: "azure-nextgen:batch/v20200901:Certificate" }, { type: "azure-native:batch/v20210101:Certificate" }, { type: "azure-nextgen:batch/v20210101:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

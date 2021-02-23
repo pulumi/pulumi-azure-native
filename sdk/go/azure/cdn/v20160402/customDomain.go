@@ -48,40 +48,79 @@ func NewCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20150601:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20161002:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20161002:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20170402:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20170402:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20171012:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20171012:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190415:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190415:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20190615:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190615preview:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615preview:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20191231:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200415:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:CustomDomain"),
@@ -89,7 +128,7 @@ func NewCustomDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomDomain
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20160402:CustomDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20160402:CustomDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +140,7 @@ func NewCustomDomain(ctx *pulumi.Context,
 func GetCustomDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomDomainState, opts ...pulumi.ResourceOption) (*CustomDomain, error) {
 	var resource CustomDomain
-	err := ctx.ReadResource("azure-nextgen:cdn/v20160402:CustomDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20160402:CustomDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:maps:getCreator", {
+    return pulumi.runtime.invoke("azure-native:maps:getCreator", {
         "accountName": args.accountName,
         "creatorName": args.creatorName,
         "resourceGroupName": args.resourceGroupName,

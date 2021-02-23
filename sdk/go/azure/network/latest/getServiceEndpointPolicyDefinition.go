@@ -10,10 +10,10 @@ import (
 // Service Endpoint policy definitions.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicyDefinition'.
 func LookupServiceEndpointPolicyDefinition(ctx *pulumi.Context, args *LookupServiceEndpointPolicyDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointPolicyDefinitionResult, error) {
 	var rv LookupServiceEndpointPolicyDefinitionResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getServiceEndpointPolicyDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getServiceEndpointPolicyDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

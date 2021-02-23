@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// A domain specific resource identifier.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot")]
     public partial class WebAppDomainOwnershipIdentifierSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppDomainOwnershipIdentifierSlot(string name, WebAppDomainOwnershipIdentifierSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot", name, args ?? new WebAppDomainOwnershipIdentifierSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot", name, args ?? new WebAppDomainOwnershipIdentifierSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppDomainOwnershipIdentifierSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,13 +64,21 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot"},
                 },
             };

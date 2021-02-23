@@ -10,7 +10,7 @@ import (
 // An application type version resource for the specified application type name resource.
 func LookupApplicationTypeVersion(ctx *pulumi.Context, args *LookupApplicationTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeVersionResult, error) {
 	var rv LookupApplicationTypeVersionResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/v20170701preview:getApplicationTypeVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/v20170701preview:getApplicationTypeVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

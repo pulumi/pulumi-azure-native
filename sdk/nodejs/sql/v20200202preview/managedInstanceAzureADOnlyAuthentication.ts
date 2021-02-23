@@ -21,7 +21,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication';
+    public static readonly __pulumiType = 'azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication';
 
     /**
      * Returns true if the given object is an instance of ManagedInstanceAzureADOnlyAuthentication.  This is designed to work even
@@ -84,7 +84,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
+namespace Pulumi.AzureNative.RedHatOpenShift.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:getOpenShiftCluster'.")]
     public static class GetOpenShiftCluster
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
         /// Latest API Version: 2020-04-30.
         /// </summary>
         public static Task<GetOpenShiftClusterResult> InvokeAsync(GetOpenShiftClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-nextgen:redhatopenshift/latest:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftClusterResult>("azure-native:redhatopenshift/latest:getOpenShiftCluster", args ?? new GetOpenShiftClusterArgs(), options.WithVersion());
     }
 
 

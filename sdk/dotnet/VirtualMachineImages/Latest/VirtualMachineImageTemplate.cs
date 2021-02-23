@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
+namespace Pulumi.AzureNative.VirtualMachineImages.Latest
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// Latest API Version: 2020-02-14.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate'.")]
-    [AzureNextGenResourceType("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:virtualmachineimages:VirtualMachineImageTemplate'.")]
+    [AzureNativeResourceType("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -104,12 +104,12 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineImageTemplate(string name, VirtualMachineImageTemplateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate", name, args ?? new VirtualMachineImageTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineImageTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:virtualmachineimages/latest:VirtualMachineImageTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -120,10 +120,15 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                 },
             };

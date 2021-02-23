@@ -10,7 +10,7 @@ import (
 // Sync Group object.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
-	err := ctx.Invoke("azure-nextgen:storagesync/v20191001:getSyncGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/v20191001:getSyncGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

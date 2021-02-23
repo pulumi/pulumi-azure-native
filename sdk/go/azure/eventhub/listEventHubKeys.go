@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListEventHubKeys(ctx *pulumi.Context, args *ListEventHubKeysArgs, opts ...pulumi.InvokeOption) (*ListEventHubKeysResult, error) {
 	var rv ListEventHubKeysResult
-	err := ctx.Invoke("azure-nextgen:eventhub:listEventHubKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:listEventHubKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

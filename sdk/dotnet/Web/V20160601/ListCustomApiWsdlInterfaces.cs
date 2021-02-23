@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160601
+namespace Pulumi.AzureNative.Web.V20160601
 {
     public static class ListCustomApiWsdlInterfaces
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// A list of custom API WSDL interfaces
         /// </summary>
         public static Task<ListCustomApiWsdlInterfacesResult> InvokeAsync(ListCustomApiWsdlInterfacesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-nextgen:web/v20160601:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListCustomApiWsdlInterfacesResult>("azure-native:web/v20160601:listCustomApiWsdlInterfaces", args ?? new ListCustomApiWsdlInterfacesArgs(), options.WithVersion());
     }
 
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// The WSDL import method
         /// </summary>
         [Input("importMethod")]
-        public Union<string, Pulumi.AzureNextGen.Web.V20160601.WsdlImportMethod>? ImportMethod { get; set; }
+        public Union<string, Pulumi.AzureNative.Web.V20160601.WsdlImportMethod>? ImportMethod { get; set; }
 
         /// <summary>
         /// The location

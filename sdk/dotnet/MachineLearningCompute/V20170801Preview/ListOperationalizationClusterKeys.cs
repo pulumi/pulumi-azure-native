@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview
 {
     public static class ListOperationalizationClusterKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// Credentials to resources in the cluster.
         /// </summary>
         public static Task<ListOperationalizationClusterKeysResult> InvokeAsync(ListOperationalizationClusterKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-nextgen:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOperationalizationClusterKeysResult>("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args ?? new ListOperationalizationClusterKeysArgs(), options.WithVersion());
     }
 
 

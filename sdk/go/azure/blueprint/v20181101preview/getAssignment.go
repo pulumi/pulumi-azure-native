@@ -10,7 +10,7 @@ import (
 // Represents a blueprint assignment.
 func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupAssignmentResult, error) {
 	var rv LookupAssignmentResult
-	err := ctx.Invoke("azure-nextgen:blueprint/v20181101preview:getAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint/v20181101preview:getAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

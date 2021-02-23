@@ -9,7 +9,7 @@ import (
 
 func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualMachineImageTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineImageTemplateResult, error) {
 	var rv LookupVirtualMachineImageTemplateResult
-	err := ctx.Invoke("azure-nextgen:virtualmachineimages/v20180201preview:getVirtualMachineImageTemplate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:virtualmachineimages/v20180201preview:getVirtualMachineImageTemplate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

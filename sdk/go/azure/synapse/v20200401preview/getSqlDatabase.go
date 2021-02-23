@@ -10,7 +10,7 @@ import (
 // A sql database resource.
 func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlDatabaseResult, error) {
 	var rv LookupSqlDatabaseResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20200401preview:getSqlDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20200401preview:getSqlDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

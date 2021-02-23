@@ -45,7 +45,13 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"),
@@ -53,7 +59,7 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DiskAccessAPrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 func GetDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskAccessAPrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*DiskAccessAPrivateEndpointConnection, error) {
 	var resource DiskAccessAPrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

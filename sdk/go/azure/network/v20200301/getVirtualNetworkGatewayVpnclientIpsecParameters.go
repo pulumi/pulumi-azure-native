@@ -10,7 +10,7 @@ import (
 // An IPSec parameters for a virtual network gateway P2S connection.
 func GetVirtualNetworkGatewayVpnclientIpsecParameters(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientIpsecParametersResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientIpsecParametersResult
-	err := ctx.Invoke("azure-nextgen:network/v20200301:getVirtualNetworkGatewayVpnclientIpsecParameters", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200301:getVirtualNetworkGatewayVpnclientIpsecParameters", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

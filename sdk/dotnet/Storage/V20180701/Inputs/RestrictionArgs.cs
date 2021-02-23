@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20180701.Inputs
+namespace Pulumi.AzureNative.Storage.V20180701.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180701.Inputs
         /// The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
         /// </summary>
         [Input("reasonCode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20180701.ReasonCode>? ReasonCode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.V20180701.ReasonCode>? ReasonCode { get; set; }
 
         public RestrictionArgs()
         {

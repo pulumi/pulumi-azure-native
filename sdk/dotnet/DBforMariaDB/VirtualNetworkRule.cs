@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB
+namespace Pulumi.AzureNative.DBforMariaDB
 {
     /// <summary>
     /// A virtual network rule.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbformariadb:VirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:dbformariadb:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformariadb:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformariadb:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformariadb:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.DBforMariaDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule"},
                 },
             };

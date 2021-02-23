@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
+namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
 {
     public static class GetMachine
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// Describes a hybrid machine.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-nextgen:hybridcompute/v20190802preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute/v20190802preview:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
     }
 
 

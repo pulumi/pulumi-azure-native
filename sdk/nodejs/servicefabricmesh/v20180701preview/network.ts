@@ -22,7 +22,7 @@ export class Network extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabricmesh/v20180701preview:Network';
+    public static readonly __pulumiType = 'azure-native:servicefabricmesh/v20180701preview:Network';
 
     /**
      * Returns true if the given object is an instance of Network.  This is designed to work even
@@ -111,7 +111,7 @@ export class Network extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh:Network" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:Network" }, { type: "azure-nextgen:servicefabricmesh:Network" }, { type: "azure-native:servicefabricmesh/v20180901preview:Network" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Network" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Network.__pulumiType, name, inputs, opts);
     }

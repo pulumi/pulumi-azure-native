@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest.Outputs
+namespace Pulumi.AzureNative.RedHatOpenShift.Latest.Outputs
 {
 
     [OutputType]

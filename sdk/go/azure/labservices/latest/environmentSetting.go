@@ -14,7 +14,7 @@ import (
 // Represents settings of an environment, from which environment instances would be created
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:EnvironmentSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:EnvironmentSetting'.
 type EnvironmentSetting struct {
 	pulumi.CustomResourceState
 
@@ -69,7 +69,13 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:labservices:EnvironmentSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices:EnvironmentSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/v20181015:EnvironmentSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:EnvironmentSetting"),
@@ -77,7 +83,7 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EnvironmentSetting
-	err := ctx.RegisterResource("azure-nextgen:labservices/latest:EnvironmentSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:labservices/latest:EnvironmentSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +95,7 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 func GetEnvironmentSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnvironmentSettingState, opts ...pulumi.ResourceOption) (*EnvironmentSetting, error) {
 	var resource EnvironmentSetting
-	err := ctx.ReadResource("azure-nextgen:labservices/latest:EnvironmentSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:labservices/latest:EnvironmentSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

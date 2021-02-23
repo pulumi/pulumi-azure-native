@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegrationAccountCertificateArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountCertificateResult, error) {
 	var rv LookupIntegrationAccountCertificateResult
-	err := ctx.Invoke("azure-nextgen:logic:getIntegrationAccountCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getIntegrationAccountCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

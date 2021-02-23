@@ -10,10 +10,10 @@ import (
 // Connection information for encrypting the on-premises data source credentials.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeConnectionInfo'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeConnectionInfo'.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

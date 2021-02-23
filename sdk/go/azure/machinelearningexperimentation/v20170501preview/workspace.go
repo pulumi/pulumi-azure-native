@@ -55,12 +55,15 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningexperimentation:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningexperimentation:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningexperimentation/v20170501preview:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +75,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningexperimentation/v20170501preview:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger
+namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Type of Confidential Ledger

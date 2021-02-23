@@ -10,7 +10,7 @@ import (
 // An application package which represents a particular version of an application.
 func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackageArgs, opts ...pulumi.InvokeOption) (*LookupApplicationPackageResult, error) {
 	var rv LookupApplicationPackageResult
-	err := ctx.Invoke("azure-nextgen:batch/v20170101:getApplicationPackage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch/v20170101:getApplicationPackage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

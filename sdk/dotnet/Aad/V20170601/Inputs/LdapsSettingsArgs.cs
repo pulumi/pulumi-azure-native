@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.V20170601.Inputs
+namespace Pulumi.AzureNative.Aad.V20170601.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Aad.V20170601.Inputs
         /// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
         /// </summary>
         [Input("externalAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20170601.ExternalAccess>? ExternalAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.V20170601.ExternalAccess>? ExternalAccess { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not Secure LDAP is enabled or disabled.
         /// </summary>
         [Input("ldaps")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.V20170601.Ldaps>? Ldaps { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.V20170601.Ldaps>? Ldaps { get; set; }
 
         /// <summary>
         /// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.

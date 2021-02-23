@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupNetworkFunction(ctx *pulumi.Context, args *LookupNetworkFunctionArgs, opts ...pulumi.InvokeOption) (*LookupNetworkFunctionResult, error) {
 	var rv LookupNetworkFunctionResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork:getNetworkFunction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork:getNetworkFunction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

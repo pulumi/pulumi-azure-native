@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20201101
+namespace Pulumi.AzureNative.NetApp.V20201101
 {
     public static class GetSnapshot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
         /// Snapshot of a Volume
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-nextgen:netapp/v20201101:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:netapp/v20201101:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
 
 

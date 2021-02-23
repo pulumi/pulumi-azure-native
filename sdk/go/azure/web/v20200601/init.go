@@ -21,105 +21,105 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:web/v20200601:AppServiceEnvironment":
+	case "azure-native:web/v20200601:AppServiceEnvironment":
 		r, err = NewAppServiceEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:AppServicePlan":
+	case "azure-native:web/v20200601:AppServicePlan":
 		r, err = NewAppServicePlan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet":
+	case "azure-native:web/v20200601:AppServicePlanRouteForVnet":
 		r, err = NewAppServicePlanRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:Certificate":
+	case "azure-native:web/v20200601:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:StaticSite":
+	case "azure-native:web/v20200601:StaticSite":
 		r, err = NewStaticSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebApp":
+	case "azure-native:web/v20200601:WebApp":
 		r, err = NewWebApp(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppApplicationSettings":
+	case "azure-native:web/v20200601:WebAppApplicationSettings":
 		r, err = NewWebAppApplicationSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppApplicationSettingsSlot":
+	case "azure-native:web/v20200601:WebAppApplicationSettingsSlot":
 		r, err = NewWebAppApplicationSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAuthSettings":
+	case "azure-native:web/v20200601:WebAppAuthSettings":
 		r, err = NewWebAppAuthSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot":
+	case "azure-native:web/v20200601:WebAppAuthSettingsSlot":
 		r, err = NewWebAppAuthSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAuthSettingsV2":
+	case "azure-native:web/v20200601:WebAppAuthSettingsV2":
 		r, err = NewWebAppAuthSettingsV2(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot":
+	case "azure-native:web/v20200601:WebAppAuthSettingsV2Slot":
 		r, err = NewWebAppAuthSettingsV2Slot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAzureStorageAccounts":
+	case "azure-native:web/v20200601:WebAppAzureStorageAccounts":
 		r, err = NewWebAppAzureStorageAccounts(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot":
+	case "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot":
 		r, err = NewWebAppAzureStorageAccountsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppBackupConfiguration":
+	case "azure-native:web/v20200601:WebAppBackupConfiguration":
 		r, err = NewWebAppBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppBackupConfigurationSlot":
+	case "azure-native:web/v20200601:WebAppBackupConfigurationSlot":
 		r, err = NewWebAppBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppConnectionStrings":
+	case "azure-native:web/v20200601:WebAppConnectionStrings":
 		r, err = NewWebAppConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppConnectionStringsSlot":
+	case "azure-native:web/v20200601:WebAppConnectionStringsSlot":
 		r, err = NewWebAppConnectionStringsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppDeployment":
+	case "azure-native:web/v20200601:WebAppDeployment":
 		r, err = NewWebAppDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppDeploymentSlot":
+	case "azure-native:web/v20200601:WebAppDeploymentSlot":
 		r, err = NewWebAppDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration":
+	case "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration":
 		r, err = NewWebAppDiagnosticLogsConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier":
+	case "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier":
 		r, err = NewWebAppDomainOwnershipIdentifier(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot":
+	case "azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot":
 		r, err = NewWebAppDomainOwnershipIdentifierSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppFunction":
+	case "azure-native:web/v20200601:WebAppFunction":
 		r, err = NewWebAppFunction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppHostNameBinding":
+	case "azure-native:web/v20200601:WebAppHostNameBinding":
 		r, err = NewWebAppHostNameBinding(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppHostNameBindingSlot":
+	case "azure-native:web/v20200601:WebAppHostNameBindingSlot":
 		r, err = NewWebAppHostNameBindingSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppHybridConnection":
+	case "azure-native:web/v20200601:WebAppHybridConnection":
 		r, err = NewWebAppHybridConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot":
+	case "azure-native:web/v20200601:WebAppHybridConnectionSlot":
 		r, err = NewWebAppHybridConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot":
+	case "azure-native:web/v20200601:WebAppInstanceFunctionSlot":
 		r, err = NewWebAppInstanceFunctionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppMetadata":
+	case "azure-native:web/v20200601:WebAppMetadata":
 		r, err = NewWebAppMetadata(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppMetadataSlot":
+	case "azure-native:web/v20200601:WebAppMetadataSlot":
 		r, err = NewWebAppMetadataSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppPremierAddOn":
+	case "azure-native:web/v20200601:WebAppPremierAddOn":
 		r, err = NewWebAppPremierAddOn(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot":
+	case "azure-native:web/v20200601:WebAppPremierAddOnSlot":
 		r, err = NewWebAppPremierAddOnSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection":
+	case "azure-native:web/v20200601:WebAppPrivateEndpointConnection":
 		r, err = NewWebAppPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppPublicCertificate":
+	case "azure-native:web/v20200601:WebAppPublicCertificate":
 		r, err = NewWebAppPublicCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot":
+	case "azure-native:web/v20200601:WebAppPublicCertificateSlot":
 		r, err = NewWebAppPublicCertificateSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppRelayServiceConnection":
+	case "azure-native:web/v20200601:WebAppRelayServiceConnection":
 		r, err = NewWebAppRelayServiceConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot":
+	case "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot":
 		r, err = NewWebAppRelayServiceConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSiteExtension":
+	case "azure-native:web/v20200601:WebAppSiteExtension":
 		r, err = NewWebAppSiteExtension(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSiteExtensionSlot":
+	case "azure-native:web/v20200601:WebAppSiteExtensionSlot":
 		r, err = NewWebAppSiteExtensionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSitePushSettings":
+	case "azure-native:web/v20200601:WebAppSitePushSettings":
 		r, err = NewWebAppSitePushSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot":
+	case "azure-native:web/v20200601:WebAppSitePushSettingsSlot":
 		r, err = NewWebAppSitePushSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSlot":
+	case "azure-native:web/v20200601:WebAppSlot":
 		r, err = NewWebAppSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSlotConfigurationNames":
+	case "azure-native:web/v20200601:WebAppSlotConfigurationNames":
 		r, err = NewWebAppSlotConfigurationNames(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSourceControl":
+	case "azure-native:web/v20200601:WebAppSourceControl":
 		r, err = NewWebAppSourceControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSourceControlSlot":
+	case "azure-native:web/v20200601:WebAppSourceControlSlot":
 		r, err = NewWebAppSourceControlSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection":
+	case "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection":
 		r, err = NewWebAppSwiftVirtualNetworkConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot":
+	case "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot":
 		r, err = NewWebAppSwiftVirtualNetworkConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppVnetConnection":
+	case "azure-native:web/v20200601:WebAppVnetConnection":
 		r, err = NewWebAppVnetConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot":
+	case "azure-native:web/v20200601:WebAppVnetConnectionSlot":
 		r, err = NewWebAppVnetConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -134,7 +134,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"web/v20200601",
 		&module{version},
 	)

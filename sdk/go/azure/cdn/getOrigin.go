@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupOrigin(ctx *pulumi.Context, args *LookupOriginArgs, opts ...pulumi.InvokeOption) (*LookupOriginResult, error) {
 	var rv LookupOriginResult
-	err := ctx.Invoke("azure-nextgen:cdn:getOrigin", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getOrigin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

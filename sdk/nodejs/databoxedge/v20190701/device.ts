@@ -22,7 +22,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20190701:Device';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20190701:Device';
 
     /**
      * Returns true if the given object is an instance of Device.  This is designed to work even
@@ -180,7 +180,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Device" }, { type: "azure-nextgen:databoxedge:Device" }, { type: "azure-native:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }

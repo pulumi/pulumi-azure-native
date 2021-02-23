@@ -10,7 +10,7 @@ import (
 // Function information.
 func LookupWebAppInstanceFunctionSlot(ctx *pulumi.Context, args *LookupWebAppInstanceFunctionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppInstanceFunctionSlotResult, error) {
 	var rv LookupWebAppInstanceFunctionSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20190801:getWebAppInstanceFunctionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20190801:getWebAppInstanceFunctionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

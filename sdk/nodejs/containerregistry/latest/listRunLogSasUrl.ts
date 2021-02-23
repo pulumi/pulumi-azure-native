@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The result of get log link operation.
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRunLogSasUrl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRunLogSasUrl'. */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
-    pulumi.log.warn("listRunLogSasUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:listRunLogSasUrl'.")
+    pulumi.log.warn("listRunLogSasUrl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRunLogSasUrl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:listRunLogSasUrl", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:listRunLogSasUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "runId": args.runId,

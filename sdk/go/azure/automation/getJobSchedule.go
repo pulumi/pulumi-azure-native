@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupJobSchedule(ctx *pulumi.Context, args *LookupJobScheduleArgs, opts ...pulumi.InvokeOption) (*LookupJobScheduleResult, error) {
 	var rv LookupJobScheduleResult
-	err := ctx.Invoke("azure-nextgen:automation:getJobSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getJobSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

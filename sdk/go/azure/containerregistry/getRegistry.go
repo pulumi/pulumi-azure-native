@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	var rv LookupRegistryResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getRegistry", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

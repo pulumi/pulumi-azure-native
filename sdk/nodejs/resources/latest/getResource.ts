@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Resource information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'. */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    pulumi.log.warn("getResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResource'.")
+    pulumi.log.warn("getResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getResource", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getResource", {
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

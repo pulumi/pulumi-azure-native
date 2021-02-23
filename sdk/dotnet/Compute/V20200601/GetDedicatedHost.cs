@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200601
+namespace Pulumi.AzureNative.Compute.V20200601
 {
     public static class GetDedicatedHost
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// Specifies information about the Dedicated host.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-nextgen:compute/v20200601:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute/v20200601:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
     }
 
 

@@ -17,7 +17,7 @@ export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityT
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights:getImageUploadUrlForEntityType", {
+    return pulumi.runtime.invoke("azure-native:customerinsights:getImageUploadUrlForEntityType", {
         "entityType": args.entityType,
         "entityTypeName": args.entityTypeName,
         "hubName": args.hubName,

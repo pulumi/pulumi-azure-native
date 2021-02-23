@@ -17,7 +17,7 @@ export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices:getReplicationPolicy", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

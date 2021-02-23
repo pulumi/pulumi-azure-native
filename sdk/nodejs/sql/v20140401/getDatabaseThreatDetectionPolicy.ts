@@ -16,7 +16,7 @@ export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20140401:getDatabaseThreatDetectionPolicy", {
+    return pulumi.runtime.invoke("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "securityAlertPolicyName": args.securityAlertPolicyName,

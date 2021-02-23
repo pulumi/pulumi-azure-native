@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
+namespace Pulumi.AzureNative.Compute.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.EncryptionType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.EncryptionType>? Type { get; set; }
 
         public EncryptionArgs()
         {

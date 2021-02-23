@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
-	err := ctx.Invoke("azure-nextgen:network:getCustomIPPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getCustomIPPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

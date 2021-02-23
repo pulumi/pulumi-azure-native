@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEnvironment'.")]
     public static class GetEnvironment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// Latest API Version: 2020-05-15.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:timeseriesinsights/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:timeseriesinsights/latest:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }
 
 

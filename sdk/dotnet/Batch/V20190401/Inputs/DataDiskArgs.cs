@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
+namespace Pulumi.AzureNative.Batch.V20190401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
         ///  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNextGen.Batch.V20190401.CachingType>? Caching { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20190401.CachingType>? Caching { get; set; }
 
         [Input("diskSizeGB", required: true)]
         public Input<int> DiskSizeGB { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
         ///  Premium_LRS - The data disk should use premium locally redundant storage.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<Pulumi.AzureNextGen.Batch.V20190401.StorageAccountType>? StorageAccountType { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20190401.StorageAccountType>? StorageAccountType { get; set; }
 
         public DataDiskArgs()
         {

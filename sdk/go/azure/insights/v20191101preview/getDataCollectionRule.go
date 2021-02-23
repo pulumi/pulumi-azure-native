@@ -10,7 +10,7 @@ import (
 // Definition of ARM tracked top level resource.
 func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRuleArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleResult, error) {
 	var rv LookupDataCollectionRuleResult
-	err := ctx.Invoke("azure-nextgen:insights/v20191101preview:getDataCollectionRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20191101preview:getDataCollectionRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

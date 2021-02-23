@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Workload classifier operations for a data warehouse
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadClassifier'. */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
-    pulumi.log.warn("getSqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadClassifier'.")
+    pulumi.log.warn("getSqlPoolWorkloadClassifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadClassifier'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getSqlPoolWorkloadClassifier", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getSqlPoolWorkloadClassifier", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "workloadClassifierName": args.workloadClassifierName,

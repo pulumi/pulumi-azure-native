@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A database geo backup policy.
  * Latest API Version: 2014-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.
  */
 export class GeoBackupPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GeoBackupPolicy {
-        pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'.")
+        pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.")
         return new GeoBackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/latest:GeoBackupPolicy';
+    public static readonly __pulumiType = 'azure-native:sql/latest:GeoBackupPolicy';
 
     /**
      * Returns true if the given object is an instance of GeoBackupPolicy.  This is designed to work even
@@ -71,9 +71,9 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'. */
     constructor(name: string, args: GeoBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:GeoBackupPolicy'.")
+        pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
@@ -113,7 +113,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-nextgen:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GeoBackupPolicy.__pulumiType, name, inputs, opts);
     }

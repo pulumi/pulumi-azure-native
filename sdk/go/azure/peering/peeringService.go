@@ -46,19 +46,37 @@ func NewPeeringService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering/latest:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/latest:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20190801preview:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:PeeringService"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20190901preview:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:PeeringService"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:PeeringService"),
@@ -66,7 +84,7 @@ func NewPeeringService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PeeringService
-	err := ctx.RegisterResource("azure-nextgen:peering:PeeringService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering:PeeringService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewPeeringService(ctx *pulumi.Context,
 func GetPeeringService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PeeringServiceState, opts ...pulumi.ResourceOption) (*PeeringService, error) {
 	var resource PeeringService
-	err := ctx.ReadResource("azure-nextgen:peering:PeeringService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering:PeeringService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

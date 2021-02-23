@@ -14,7 +14,7 @@ import (
 // A task resource
 // Latest API Version: 2018-04-19.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Task'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datamigration:Task'.
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -46,19 +46,37 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20171115preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180315preview:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180315preview:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180331preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180331preview:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180419:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180419:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180715preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Task"),
@@ -66,7 +84,7 @@ func NewTask(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Task
-	err := ctx.RegisterResource("azure-nextgen:datamigration/latest:Task", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration/latest:Task", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewTask(ctx *pulumi.Context,
 func GetTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
 	var resource Task
-	err := ctx.ReadResource("azure-nextgen:datamigration/latest:Task", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration/latest:Task", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

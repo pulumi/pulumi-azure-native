@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getResourceTypeRegistration'.
 func LookupResourceTypeRegistration(ctx *pulumi.Context, args *LookupResourceTypeRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupResourceTypeRegistrationResult, error) {
 	var rv LookupResourceTypeRegistrationResult
-	err := ctx.Invoke("azure-nextgen:providerhub/latest:getResourceTypeRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/latest:getResourceTypeRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

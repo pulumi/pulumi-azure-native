@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Workspace active directory administrator
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceSqlAadAdmin'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspaceSqlAadAdmin'. */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
-    pulumi.log.warn("getWorkspaceSqlAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getWorkspaceSqlAadAdmin'.")
+    pulumi.log.warn("getWorkspaceSqlAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspaceSqlAadAdmin'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getWorkspaceSqlAadAdmin", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getWorkspaceSqlAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

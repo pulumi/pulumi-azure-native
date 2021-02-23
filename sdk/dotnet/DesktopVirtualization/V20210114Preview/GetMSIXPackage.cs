@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
 {
     public static class GetMSIXPackage
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20210114Preview
         /// Schema for MSIX Package properties.
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-nextgen:desktopvirtualization/v20210114preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20210114preview:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithVersion());
     }
 
 

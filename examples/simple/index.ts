@@ -1,11 +1,11 @@
 import * as pulumi from "@pulumi/pulumi";
 
-import * as compute from "@pulumi/azure-nextgen/compute";
-import * as eventgrid from "@pulumi/azure-nextgen/eventgrid";
-import * as network from "@pulumi/azure-nextgen/network";
-import * as resources from "@pulumi/azure-nextgen/resources";
-import * as storage from "@pulumi/azure-nextgen/storage";
-import * as web from "@pulumi/azure-nextgen/web";
+import * as compute from "@pulumi/azure-native/compute";
+import * as eventgrid from "@pulumi/azure-native/eventgrid";
+import * as network from "@pulumi/azure-native/network";
+import * as resources from "@pulumi/azure-native/resources";
+import * as storage from "@pulumi/azure-native/storage";
+import * as web from "@pulumi/azure-native/web";
 
 const resourceGroup = new resources.ResourceGroup("rg", {
     location: "eastus2", // explicit location is here to test the location propagation from resource group to other resources

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
     /// API Version: 2019-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:NetworkExperimentProfile")]
+    [AzureNativeResourceType("azure-native:network:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkExperimentProfile(string name, NetworkExperimentProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:NetworkExperimentProfile", name, args ?? new NetworkExperimentProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkExperimentProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:NetworkExperimentProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkExperimentProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkExperimentProfile"},
                 },
             };
@@ -112,7 +114,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The state of the Experiment
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.State>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.State>? EnabledState { get; set; }
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.

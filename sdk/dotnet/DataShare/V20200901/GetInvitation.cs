@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20200901
+namespace Pulumi.AzureNative.DataShare.V20200901
 {
     public static class GetInvitation
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// A Invitation data transfer object.
         /// </summary>
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-nextgen:datashare/v20200901:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare/v20200901:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
     }
 
 

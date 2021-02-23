@@ -74,109 +74,217 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171101:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180101:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180201:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ExpressRouteCircuitPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuitPeering"),
@@ -184,7 +292,7 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitPeering
-	err := ctx.RegisterResource("azure-nextgen:network/v20180801:ExpressRouteCircuitPeering", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180801:ExpressRouteCircuitPeering", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -196,7 +304,7 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 func GetExpressRouteCircuitPeering(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExpressRouteCircuitPeeringState, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitPeering, error) {
 	var resource ExpressRouteCircuitPeering
-	err := ctx.ReadResource("azure-nextgen:network/v20180801:ExpressRouteCircuitPeering", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180801:ExpressRouteCircuitPeering", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

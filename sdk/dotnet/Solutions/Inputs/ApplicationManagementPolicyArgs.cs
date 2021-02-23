@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Inputs
+namespace Pulumi.AzureNative.Solutions.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Solutions.Inputs
         /// The managed application management mode.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Solutions.ApplicationManagementMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Solutions.ApplicationManagementMode>? Mode { get; set; }
 
         public ApplicationManagementPolicyArgs()
         {

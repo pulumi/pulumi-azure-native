@@ -10,10 +10,10 @@ import (
 // The workflow type.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getWorkflow'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'.
 func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowResult, error) {
 	var rv LookupWorkflowResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getWorkflow", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getWorkflow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

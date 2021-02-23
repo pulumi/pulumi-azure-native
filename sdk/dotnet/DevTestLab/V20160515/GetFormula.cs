@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     public static class GetFormula
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// A formula for creating a VM, specifying an image base and other parameters
         /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-nextgen:devtestlab/v20160515:getFormula", args ?? new GetFormulaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-native:devtestlab/v20160515:getFormula", args ?? new GetFormulaArgs(), options.WithVersion());
     }
 
 

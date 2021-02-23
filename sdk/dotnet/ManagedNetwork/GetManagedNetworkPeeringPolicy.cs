@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork
+namespace Pulumi.AzureNative.ManagedNetwork
 {
     public static class GetManagedNetworkPeeringPolicy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetManagedNetworkPeeringPolicyResult> InvokeAsync(GetManagedNetworkPeeringPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-nextgen:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkPeeringPolicyResult>("azure-native:managednetwork:getManagedNetworkPeeringPolicy", args ?? new GetManagedNetworkPeeringPolicyArgs(), options.WithVersion());
     }
 
 

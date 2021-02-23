@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Public certificate object
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificateSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPublicCertificateSlot'. */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
-    pulumi.log.warn("getWebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPublicCertificateSlot'.")
+    pulumi.log.warn("getWebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPublicCertificateSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppPublicCertificateSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppPublicCertificateSlot", {
         "name": args.name,
         "publicCertificateName": args.publicCertificateName,
         "resourceGroupName": args.resourceGroupName,

@@ -79,7 +79,13 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic/latest:RosettaNetProcessConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/latest:RosettaNetProcessConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20160601:RosettaNetProcessConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"),
@@ -87,7 +93,7 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration
-	err := ctx.RegisterResource("azure-nextgen:logic:RosettaNetProcessConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic:RosettaNetProcessConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +105,7 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 func GetRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RosettaNetProcessConfigurationState, opts ...pulumi.ResourceOption) (*RosettaNetProcessConfiguration, error) {
 	var resource RosettaNetProcessConfiguration
-	err := ctx.ReadResource("azure-nextgen:logic:RosettaNetProcessConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic:RosettaNetProcessConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

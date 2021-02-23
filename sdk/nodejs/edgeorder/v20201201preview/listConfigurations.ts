@@ -16,7 +16,7 @@ export function listConfigurations(args: ListConfigurationsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:edgeorder/v20201201preview:listConfigurations", {
+    return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:listConfigurations", {
         "configurationFilters": args.configurationFilters,
         "customerSubscriptionDetails": args.customerSubscriptionDetails,
         "skipToken": args.skipToken,

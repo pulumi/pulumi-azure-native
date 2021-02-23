@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
+namespace Pulumi.AzureNative.Scheduler.Latest.Inputs
 {
 
     public sealed class OAuthAuthenticationArgs : Pulumi.ResourceArgs

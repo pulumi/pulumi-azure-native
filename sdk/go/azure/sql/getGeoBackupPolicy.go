@@ -11,7 +11,7 @@ import (
 // API Version: 2014-04-01.
 func LookupGeoBackupPolicy(ctx *pulumi.Context, args *LookupGeoBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupGeoBackupPolicyResult, error) {
 	var rv LookupGeoBackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql:getGeoBackupPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getGeoBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

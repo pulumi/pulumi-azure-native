@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeFirst'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeFirst'. */
 export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFirstArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeFirstResult> {
-    pulumi.log.warn("getSkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkusNestedResourceTypeFirst'.")
+    pulumi.log.warn("getSkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeFirst'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getSkusNestedResourceTypeFirst(args: GetSkusNestedResourceTypeFi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/latest:getSkusNestedResourceTypeFirst", {
+    return pulumi.runtime.invoke("azure-native:providerhub/latest:getSkusNestedResourceTypeFirst", {
         "nestedResourceTypeFirst": args.nestedResourceTypeFirst,
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,

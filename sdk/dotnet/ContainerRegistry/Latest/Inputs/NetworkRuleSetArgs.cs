@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The default action of allow or deny when no other rules match.
         /// </summary>
         [Input("defaultAction", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.DefaultAction> DefaultAction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.Latest.DefaultAction> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;

@@ -22,7 +22,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20151106:DatabaseAccountSqlContainer';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountSqlContainer.  This is designed to work even
@@ -148,7 +148,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/latest:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountSqlContainer.__pulumiType, name, inputs, opts);
     }

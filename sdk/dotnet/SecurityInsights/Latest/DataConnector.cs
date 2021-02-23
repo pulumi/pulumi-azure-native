@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
     /// <summary>
     /// Data connector.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:DataConnector'.")]
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:DataConnector")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:DataConnector'.")]
+    [AzureNativeResourceType("azure-native:securityinsights/latest:DataConnector")]
     public partial class DataConnector : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataConnector(string name, DataConnectorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:DataConnector", name, args ?? new DataConnectorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/latest:DataConnector", name, args ?? new DataConnectorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataConnector(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:DataConnector", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/latest:DataConnector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:DataConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:DataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:DataConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:DataConnector"},
                 },
             };
@@ -107,7 +109,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// The data connector kind
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.DataConnectorKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.DataConnectorKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

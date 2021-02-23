@@ -17,7 +17,7 @@ export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCreden
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials", {
+    return pulumi.runtime.invoke("azure-native:redhatopenshift:listOpenShiftClusterCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

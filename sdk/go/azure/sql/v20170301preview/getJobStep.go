@@ -10,7 +10,7 @@ import (
 // A job step.
 func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.InvokeOption) (*LookupJobStepResult, error) {
 	var rv LookupJobStepResult
-	err := ctx.Invoke("azure-nextgen:sql/v20170301preview:getJobStep", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20170301preview:getJobStep", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

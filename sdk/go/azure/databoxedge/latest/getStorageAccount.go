@@ -10,10 +10,10 @@ import (
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getStorageAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccount'.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

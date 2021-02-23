@@ -68,7 +68,13 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:Volume"),
@@ -76,7 +82,7 @@ func NewVolume(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Volume
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:Volume", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:Volume", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +94,7 @@ func NewVolume(ctx *pulumi.Context,
 func GetVolume(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VolumeState, opts ...pulumi.ResourceOption) (*Volume, error) {
 	var resource Volume
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:Volume", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:Volume", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

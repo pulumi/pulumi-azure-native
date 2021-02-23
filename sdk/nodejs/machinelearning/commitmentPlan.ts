@@ -23,7 +23,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearning:CommitmentPlan';
+    public static readonly __pulumiType = 'azure-native:machinelearning:CommitmentPlan';
 
     /**
      * Returns true if the given object is an instance of CommitmentPlan.  This is designed to work even
@@ -103,7 +103,7 @@ export class CommitmentPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearning/v20160501preview:CommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearning/v20160501preview:CommitmentPlan" }, { type: "azure-nextgen:machinelearning/v20160501preview:CommitmentPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CommitmentPlan.__pulumiType, name, inputs, opts);
     }

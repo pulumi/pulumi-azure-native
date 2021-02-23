@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
+namespace Pulumi.AzureNative.Batch.Latest.Inputs
 {
 
     public sealed class ContainerConfigurationArgs : Pulumi.ResourceArgs
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         }
 
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Batch.Latest.ContainerType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Batch.Latest.ContainerType> Type { get; set; } = null!;
 
         public ContainerConfigurationArgs()
         {

@@ -17,7 +17,7 @@ export function getCommunicationService(args: GetCommunicationServiceArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:communication:getCommunicationService", {
+    return pulumi.runtime.invoke("azure-native:communication:getCommunicationService", {
         "communicationServiceName": args.communicationServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -45,37 +45,73 @@ func NewImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20170330:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20171201:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:Image"),
@@ -83,7 +119,7 @@ func NewImage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Image
-	err := ctx.RegisterResource("azure-nextgen:compute/v20191201:Image", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20191201:Image", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +131,7 @@ func NewImage(ctx *pulumi.Context,
 func GetImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImageState, opts ...pulumi.ResourceOption) (*Image, error) {
 	var resource Image
-	err := ctx.ReadResource("azure-nextgen:compute/v20191201:Image", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20191201:Image", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

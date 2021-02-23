@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitConnection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitConnection'.")]
     public static class GetExpressRouteCircuitConnection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitConnectionResult> InvokeAsync(GetExpressRouteCircuitConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitConnectionResult>("azure-nextgen:network/latest:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitConnectionResult>("azure-native:network/latest:getExpressRouteCircuitConnection", args ?? new GetExpressRouteCircuitConnectionArgs(), options.WithVersion());
     }
 
 

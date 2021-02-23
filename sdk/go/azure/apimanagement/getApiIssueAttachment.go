@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueAttachmentResult, error) {
 	var rv LookupApiIssueAttachmentResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiIssueAttachment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiIssueAttachment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

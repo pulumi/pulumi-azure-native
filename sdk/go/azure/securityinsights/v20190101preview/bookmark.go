@@ -72,7 +72,7 @@ func NewBookmark(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource Bookmark
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Bookmark", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:Bookmark", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func NewBookmark(ctx *pulumi.Context,
 func GetBookmark(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BookmarkState, opts ...pulumi.ResourceOption) (*Bookmark, error) {
 	var resource Bookmark
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:Bookmark", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:Bookmark", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

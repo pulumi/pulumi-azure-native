@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB Gremlin database.
 func LookupDatabaseAccountGremlinDatabase(ctx *pulumi.Context, args *LookupDatabaseAccountGremlinDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountGremlinDatabaseResult, error) {
 	var rv LookupDatabaseAccountGremlinDatabaseResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20150408:getDatabaseAccountGremlinDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20150408:getDatabaseAccountGremlinDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
+namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
     public static class GetDedicatedCloudNode
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// Dedicated cloud node model
         /// </summary>
         public static Task<GetDedicatedCloudNodeResult> InvokeAsync(GetDedicatedCloudNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-nextgen:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
     }
 
 

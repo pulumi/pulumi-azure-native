@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-02.
 func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupMachineExtensionResult, error) {
 	var rv LookupMachineExtensionResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute:getMachineExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute:getMachineExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

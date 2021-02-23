@@ -10,10 +10,10 @@ import (
 // Status Details of the long running operation for an environment
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationStatus'.
 func GetGlobalUserOperationStatus(ctx *pulumi.Context, args *GetGlobalUserOperationStatusArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserOperationStatusResult, error) {
 	var rv GetGlobalUserOperationStatusResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:getGlobalUserOperationStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:getGlobalUserOperationStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

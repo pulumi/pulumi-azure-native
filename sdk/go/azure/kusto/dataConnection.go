@@ -47,25 +47,49 @@ func NewDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto/latest:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/latest:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190121:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190121:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20190515:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190515:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:DataConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:DataConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:DataConnection"),
@@ -73,7 +97,7 @@ func NewDataConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataConnection
-	err := ctx.RegisterResource("azure-nextgen:kusto:DataConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto:DataConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +109,7 @@ func NewDataConnection(ctx *pulumi.Context,
 func GetDataConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataConnectionState, opts ...pulumi.ResourceOption) (*DataConnection, error) {
 	var resource DataConnection
-	err := ctx.ReadResource("azure-nextgen:kusto:DataConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto:DataConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

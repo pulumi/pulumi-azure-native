@@ -10,10 +10,10 @@ import (
 // Premier add-on.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOn'.
 func LookupWebAppPremierAddOn(ctx *pulumi.Context, args *LookupWebAppPremierAddOnArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnResult, error) {
 	var rv LookupWebAppPremierAddOnResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppPremierAddOn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppPremierAddOn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

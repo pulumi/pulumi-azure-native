@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Hub resource.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getHub'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getHub'. */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    pulumi.log.warn("getHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getHub'.")
+    pulumi.log.warn("getHub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getHub'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getHub", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getHub", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

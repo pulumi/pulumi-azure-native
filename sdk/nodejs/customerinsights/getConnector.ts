@@ -17,7 +17,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights:getConnector", {
+    return pulumi.runtime.invoke("azure-native:customerinsights:getConnector", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

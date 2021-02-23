@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Latest
+namespace Pulumi.AzureNative.Devices.Latest
 {
     /// <summary>
     /// The X509 Certificate.
     /// Latest API Version: 2020-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:DpsCertificate'.")]
-    [AzureNextGenResourceType("azure-nextgen:devices/latest:DpsCertificate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:DpsCertificate'.")]
+    [AzureNativeResourceType("azure-native:devices/latest:DpsCertificate")]
     public partial class DpsCertificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DpsCertificate(string name, DpsCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:DpsCertificate", name, args ?? new DpsCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/latest:DpsCertificate", name, args ?? new DpsCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DpsCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:DpsCertificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/latest:DpsCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,12 +66,19 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200101:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200101:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:DpsCertificate"},
                 },
             };

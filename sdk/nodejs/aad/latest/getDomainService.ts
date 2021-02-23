@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Domain service.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
-    pulumi.log.warn("getDomainService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getDomainService'.")
+    pulumi.log.warn("getDomainService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aad/latest:getDomainService", {
+    return pulumi.runtime.invoke("azure-native:aad/latest:getDomainService", {
         "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

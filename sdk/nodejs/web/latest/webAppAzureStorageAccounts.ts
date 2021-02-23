@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * AzureStorageInfo dictionary resource.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.
  */
 export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppAzureStorageAccounts {
-        pulumi.log.warn("WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'.")
+        pulumi.log.warn("WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.")
         return new WebAppAzureStorageAccounts(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:WebAppAzureStorageAccounts';
+    public static readonly __pulumiType = 'azure-native:web/latest:WebAppAzureStorageAccounts';
 
     /**
      * Returns true if the given object is an instance of WebAppAzureStorageAccounts.  This is designed to work even
@@ -67,9 +67,9 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'. */
     constructor(name: string, args: WebAppAzureStorageAccountsArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'.")
+        pulumi.log.warn("WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -98,7 +98,7 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200601:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20200601:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200601:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20201001:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAzureStorageAccounts.__pulumiType, name, inputs, opts);
     }

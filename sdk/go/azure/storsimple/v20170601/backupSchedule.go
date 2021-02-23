@@ -65,7 +65,13 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BackupSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:BackupSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:BackupSchedule"),
@@ -73,7 +79,7 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupSchedule
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:BackupSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:BackupSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +91,7 @@ func NewBackupSchedule(ctx *pulumi.Context,
 func GetBackupSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupScheduleState, opts ...pulumi.ResourceOption) (*BackupSchedule, error) {
 	var resource BackupSchedule
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:BackupSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:BackupSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

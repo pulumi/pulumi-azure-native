@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The rental and lease key type.
         /// </summary>
         [Input("rentalAndLeaseKeyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.ContentKeyPolicyFairPlayRentalAndLeaseKeyType> RentalAndLeaseKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.ContentKeyPolicyFairPlayRentalAndLeaseKeyType> RentalAndLeaseKeyType { get; set; } = null!;
 
         /// <summary>
         /// The rental duration. Must be greater than or equal to 0.

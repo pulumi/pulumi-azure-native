@@ -16,7 +16,7 @@ export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/v20180915:getCustomImage", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getCustomImage", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

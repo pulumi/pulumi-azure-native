@@ -10,7 +10,7 @@ import (
 // Connection information for encrypting the on-premises data source credentials.
 func GetIntegrationRuntimeConnectionInfo(ctx *pulumi.Context, args *GetIntegrationRuntimeConnectionInfoArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeConnectionInfoResult, error) {
 	var rv GetIntegrationRuntimeConnectionInfoResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20190601preview:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20190601preview:getIntegrationRuntimeConnectionInfo", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

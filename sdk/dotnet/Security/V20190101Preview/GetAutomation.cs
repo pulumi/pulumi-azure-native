@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview
+namespace Pulumi.AzureNative.Security.V20190101Preview
 {
     public static class GetAutomation
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// The security automation resource.
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-nextgen:security/v20190101preview:getAutomation", args ?? new GetAutomationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security/v20190101preview:getAutomation", args ?? new GetAutomationArgs(), options.WithVersion());
     }
 
 

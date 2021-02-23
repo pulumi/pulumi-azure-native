@@ -14,7 +14,7 @@ import (
 // A Database Migration Service resource
 // Latest API Version: 2018-04-19.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datamigration:Service'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datamigration:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -55,19 +55,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20171115preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180315preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180315preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180331preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180331preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180419:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180419:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180715preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Service"),
@@ -75,7 +93,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:datamigration/latest:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration/latest:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +105,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:datamigration/latest:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration/latest:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

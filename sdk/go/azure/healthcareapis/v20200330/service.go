@@ -45,19 +45,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:healthcareapis:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/latest:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthcareapis/v20180820preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20180820preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20190916:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20190916:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:healthcareapis/v20200315:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200315:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20210111:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20210111:Service"),
@@ -65,7 +83,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:healthcareapis/v20200330:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:healthcareapis/v20200330:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +95,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:healthcareapis/v20200330:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:healthcareapis/v20200330:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

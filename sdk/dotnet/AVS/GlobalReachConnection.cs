@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A global reach connection resource
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:GlobalReachConnection")]
+    [AzureNativeResourceType("azure-native:avs:GlobalReachConnection")]
     public partial class GlobalReachConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalReachConnection(string name, GlobalReachConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:GlobalReachConnection", name, args ?? new GlobalReachConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:GlobalReachConnection", name, args ?? new GlobalReachConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalReachConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:GlobalReachConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:GlobalReachConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:GlobalReachConnection"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:GlobalReachConnection"},
                 },
             };

@@ -10,7 +10,7 @@ import (
 // Specifies information about the proximity placement group.
 func LookupProximityPlacementGroup(ctx *pulumi.Context, args *LookupProximityPlacementGroupArgs, opts ...pulumi.InvokeOption) (*LookupProximityPlacementGroupResult, error) {
 	var rv LookupProximityPlacementGroupResult
-	err := ctx.Invoke("azure-nextgen:compute/v20180601:getProximityPlacementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20180601:getProximityPlacementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

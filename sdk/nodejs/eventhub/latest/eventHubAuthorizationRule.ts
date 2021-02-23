@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get AuthorizationRule operation
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHubAuthorizationRule'.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHubAuthorizationRule {
-        pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.")
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHubAuthorizationRule'.")
         return new EventHubAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/latest:EventHubAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:eventhub/latest:EventHubAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of EventHubAuthorizationRule.  This is designed to work even
@@ -59,9 +59,9 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHubAuthorizationRule'. */
     constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHubAuthorizationRule'.")
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHubAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

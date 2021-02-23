@@ -51,37 +51,73 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualRouter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualRouter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualRouter"),
@@ -89,7 +125,7 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualRouter
-	err := ctx.RegisterResource("azure-nextgen:network/v20200401:VirtualRouter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200401:VirtualRouter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +137,7 @@ func NewVirtualRouter(ctx *pulumi.Context,
 func GetVirtualRouter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualRouterState, opts ...pulumi.ResourceOption) (*VirtualRouter, error) {
 	var resource VirtualRouter
-	err := ctx.ReadResource("azure-nextgen:network/v20200401:VirtualRouter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200401:VirtualRouter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:management:getManagementGroup", {
+    return pulumi.runtime.invoke("azure-native:management:getManagementGroup", {
         "expand": args.expand,
         "filter": args.filter,
         "groupId": args.groupId,

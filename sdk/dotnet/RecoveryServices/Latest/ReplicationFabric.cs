@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Fabric definition.
     /// Latest API Version: 2018-07-10.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.")]
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ReplicationFabric")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationFabric'.")]
+    [AzureNativeResourceType("azure-native:recoveryservices/latest:ReplicationFabric")]
     public partial class ReplicationFabric : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationFabric(string name, ReplicationFabricArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationFabric", name, args ?? new ReplicationFabricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/latest:ReplicationFabric", name, args ?? new ReplicationFabricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationFabric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ReplicationFabric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/latest:ReplicationFabric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,9 +66,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationFabric"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationFabric"},
                 },
             };

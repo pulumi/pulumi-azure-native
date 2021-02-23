@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
+namespace Pulumi.AzureNative.HybridNetwork.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.Inputs
         /// The type of the VM switch.
         /// </summary>
         [Input("vmSwitchType")]
-        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.VMSwitchType>? VmSwitchType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.VMSwitchType>? VmSwitchType { get; set; }
 
         public NetworkInterfaceArgs()
         {

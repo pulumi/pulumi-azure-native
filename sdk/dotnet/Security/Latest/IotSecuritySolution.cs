@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest
+namespace Pulumi.AzureNative.Security.Latest
 {
     /// <summary>
     /// IoT Security solution configuration and resource information.
     /// Latest API Version: 2019-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:IotSecuritySolution'.")]
-    [AzureNextGenResourceType("azure-nextgen:security/latest:IotSecuritySolution")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.")]
+    [AzureNativeResourceType("azure-native:security/latest:IotSecuritySolution")]
     public partial class IotSecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
@@ -122,12 +122,12 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSecuritySolution(string name, IotSecuritySolutionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/latest:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/latest:IotSecuritySolution", name, args ?? new IotSecuritySolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSecuritySolution(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/latest:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/latest:IotSecuritySolution", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -138,8 +138,11 @@ namespace Pulumi.AzureNextGen.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190801:IotSecuritySolution"},
                 },
             };
@@ -177,14 +180,14 @@ namespace Pulumi.AzureNextGen.Security.Latest
         }
 
         [Input("disabledDataSources")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.DataSource>>? _disabledDataSources;
+        private InputList<Union<string, Pulumi.AzureNative.Security.Latest.DataSource>>? _disabledDataSources;
 
         /// <summary>
         /// Disabled data sources. Disabling these data sources compromises the system.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.DataSource>> DisabledDataSources
+        public InputList<Union<string, Pulumi.AzureNative.Security.Latest.DataSource>> DisabledDataSources
         {
-            get => _disabledDataSources ?? (_disabledDataSources = new InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.DataSource>>());
+            get => _disabledDataSources ?? (_disabledDataSources = new InputList<Union<string, Pulumi.AzureNative.Security.Latest.DataSource>>());
             set => _disabledDataSources = value;
         }
 
@@ -195,14 +198,14 @@ namespace Pulumi.AzureNextGen.Security.Latest
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("export")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.ExportData>>? _export;
+        private InputList<Union<string, Pulumi.AzureNative.Security.Latest.ExportData>>? _export;
 
         /// <summary>
         /// List of additional options for exporting to workspace data.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.ExportData>> Export
+        public InputList<Union<string, Pulumi.AzureNative.Security.Latest.ExportData>> Export
         {
-            get => _export ?? (_export = new InputList<Union<string, Pulumi.AzureNextGen.Security.Latest.ExportData>>());
+            get => _export ?? (_export = new InputList<Union<string, Pulumi.AzureNative.Security.Latest.ExportData>>());
             set => _export = value;
         }
 
@@ -252,7 +255,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Status of the IoT Security solution.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.SecuritySolutionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.SecuritySolutionStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -270,7 +273,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Unmasked IP address logging status
         /// </summary>
         [Input("unmaskedIpLoggingStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.UnmaskedIpLoggingStatus>? UnmaskedIpLoggingStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.UnmaskedIpLoggingStatus>? UnmaskedIpLoggingStatus { get; set; }
 
         /// <summary>
         /// Properties of the IoT Security solution's user defined resources.

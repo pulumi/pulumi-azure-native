@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupBatchAccount(ctx *pulumi.Context, args *LookupBatchAccountArgs, opts ...pulumi.InvokeOption) (*LookupBatchAccountResult, error) {
 	var rv LookupBatchAccountResult
-	err := ctx.Invoke("azure-nextgen:batch:getBatchAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch:getBatchAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

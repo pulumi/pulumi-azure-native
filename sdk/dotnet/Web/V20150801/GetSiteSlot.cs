@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteSlot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Represents a web app
         /// </summary>
         public static Task<GetSiteSlotResult> InvokeAsync(GetSiteSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotResult>("azure-nextgen:web/v20150801:getSiteSlot", args ?? new GetSiteSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteSlotResult>("azure-native:web/v20150801:getSiteSlot", args ?? new GetSiteSlotArgs(), options.WithVersion());
     }
 
 

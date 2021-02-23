@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:operationalinsights/latest:Cluster":
+	case "azure-native:operationalinsights/latest:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:DataExport":
+	case "azure-native:operationalinsights/latest:DataExport":
 		r, err = NewDataExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:DataSource":
+	case "azure-native:operationalinsights/latest:DataSource":
 		r, err = NewDataSource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:LinkedService":
+	case "azure-native:operationalinsights/latest:LinkedService":
 		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:LinkedStorageAccount":
+	case "azure-native:operationalinsights/latest:LinkedStorageAccount":
 		r, err = NewLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:SavedSearch":
+	case "azure-native:operationalinsights/latest:SavedSearch":
 		r, err = NewSavedSearch(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:StorageInsightConfig":
+	case "azure-native:operationalinsights/latest:StorageInsightConfig":
 		r, err = NewStorageInsightConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/latest:Workspace":
+	case "azure-native:operationalinsights/latest:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"operationalinsights/latest",
 		&module{version},
 	)

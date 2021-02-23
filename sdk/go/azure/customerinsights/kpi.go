@@ -81,10 +81,19 @@ func NewKpi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Kpi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Kpi"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Kpi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Kpi"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Kpi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Kpi"),
@@ -92,7 +101,7 @@ func NewKpi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Kpi
-	err := ctx.RegisterResource("azure-nextgen:customerinsights:Kpi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights:Kpi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +113,7 @@ func NewKpi(ctx *pulumi.Context,
 func GetKpi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KpiState, opts ...pulumi.ResourceOption) (*Kpi, error) {
 	var resource Kpi
-	err := ctx.ReadResource("azure-nextgen:customerinsights:Kpi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights:Kpi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

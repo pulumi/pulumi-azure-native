@@ -36,12 +36,15 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:changeanalysis/v20200401preview:ConfigurationProfile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationProfile
-	err := ctx.RegisterResource("azure-nextgen:changeanalysis:ConfigurationProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:changeanalysis:ConfigurationProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +56,7 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 func GetConfigurationProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationProfileState, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
 	var resource ConfigurationProfile
-	err := ctx.ReadResource("azure-nextgen:changeanalysis:ConfigurationProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:changeanalysis:ConfigurationProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

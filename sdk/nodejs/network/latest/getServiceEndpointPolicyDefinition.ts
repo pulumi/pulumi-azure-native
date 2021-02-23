@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Service Endpoint policy definitions.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicyDefinition'. */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
-    pulumi.log.warn("getServiceEndpointPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getServiceEndpointPolicyDefinition'.")
+    pulumi.log.warn("getServiceEndpointPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicyDefinition'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolic
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getServiceEndpointPolicyDefinition", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getServiceEndpointPolicyDefinition", {
         "resourceGroupName": args.resourceGroupName,
         "serviceEndpointPolicyDefinitionName": args.serviceEndpointPolicyDefinitionName,
         "serviceEndpointPolicyName": args.serviceEndpointPolicyName,

@@ -41,12 +41,15 @@ func NewLedger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:confidentialledger:Ledger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confidentialledger:Ledger"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Ledger
-	err := ctx.RegisterResource("azure-nextgen:confidentialledger/v20201201preview:Ledger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:confidentialledger/v20201201preview:Ledger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +61,7 @@ func NewLedger(ctx *pulumi.Context,
 func GetLedger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LedgerState, opts ...pulumi.ResourceOption) (*Ledger, error) {
 	var resource Ledger
-	err := ctx.ReadResource("azure-nextgen:confidentialledger/v20201201preview:Ledger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:confidentialledger/v20201201preview:Ledger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

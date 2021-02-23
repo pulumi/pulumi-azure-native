@@ -21,29 +21,29 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:databoxedge:Addon":
+	case "azure-native:databoxedge:Addon":
 		r, err = NewAddon(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:BandwidthSchedule":
+	case "azure-native:databoxedge:BandwidthSchedule":
 		r, err = NewBandwidthSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Container":
+	case "azure-native:databoxedge:Container":
 		r, err = NewContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Device":
+	case "azure-native:databoxedge:Device":
 		r, err = NewDevice(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:MonitoringConfig":
+	case "azure-native:databoxedge:MonitoringConfig":
 		r, err = NewMonitoringConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Order":
+	case "azure-native:databoxedge:Order":
 		r, err = NewOrder(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Role":
+	case "azure-native:databoxedge:Role":
 		r, err = NewRole(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Share":
+	case "azure-native:databoxedge:Share":
 		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:StorageAccount":
+	case "azure-native:databoxedge:StorageAccount":
 		r, err = NewStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:StorageAccountCredential":
+	case "azure-native:databoxedge:StorageAccountCredential":
 		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:Trigger":
+	case "azure-native:databoxedge:Trigger":
 		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:databoxedge:User":
+	case "azure-native:databoxedge:User":
 		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -58,7 +58,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"databoxedge",
 		&module{version},
 	)

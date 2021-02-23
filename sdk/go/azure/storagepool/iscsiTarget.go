@@ -48,12 +48,15 @@ func NewIscsiTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagepool/v20200315preview:IscsiTarget"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagepool/v20200315preview:IscsiTarget"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiTarget
-	err := ctx.RegisterResource("azure-nextgen:storagepool:IscsiTarget", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagepool:IscsiTarget", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +68,7 @@ func NewIscsiTarget(ctx *pulumi.Context,
 func GetIscsiTarget(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IscsiTargetState, opts ...pulumi.ResourceOption) (*IscsiTarget, error) {
 	var resource IscsiTarget
-	err := ctx.ReadResource("azure-nextgen:storagepool:IscsiTarget", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagepool:IscsiTarget", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationship'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationship'.")]
     public static class GetRelationship
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetRelationshipResult> InvokeAsync(GetRelationshipArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-nextgen:customerinsights/latest:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRelationshipResult>("azure-native:customerinsights/latest:getRelationship", args ?? new GetRelationshipArgs(), options.WithVersion());
     }
 
 

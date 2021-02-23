@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager endpoint.
  * Latest API Version: 2018-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Endpoint'.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Endpoint {
-        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.")
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Endpoint'.")
         return new Endpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:Endpoint';
+    public static readonly __pulumiType = 'azure-native:network/latest:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even
@@ -99,9 +99,9 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Endpoint'. */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Endpoint'.")
+        pulumi.log.warn("Endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Endpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.endpointType === undefined) && !(opts && opts.urn)) {
@@ -153,7 +153,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20170501:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Endpoint" }, { type: "azure-nextgen:network:Endpoint" }, { type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-nextgen:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

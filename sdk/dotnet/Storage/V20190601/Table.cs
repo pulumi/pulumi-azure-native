@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20190601
+namespace Pulumi.AzureNative.Storage.V20190601
 {
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/v20190601:Table")]
+    [AzureNativeResourceType("azure-native:storage/v20190601:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190601:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20190601:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Table(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20190601:Table", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20190601:Table", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,9 +58,13 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:Table"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:Table"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Table"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Table"},
                 },
             };

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Event Subscription
  * Latest API Version: 2020-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventSubscription {
-        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.")
+        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.")
         return new EventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventgrid/latest:EventSubscription';
+    public static readonly __pulumiType = 'azure-native:eventgrid/latest:EventSubscription';
 
     /**
      * Returns true if the given object is an instance of EventSubscription.  This is designed to work even
@@ -91,9 +91,9 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'. */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.")
+        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
@@ -132,7 +132,7 @@ export class EventSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventSubscription" }, { type: "azure-nextgen:eventgrid:EventSubscription" }, { type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:EventSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }

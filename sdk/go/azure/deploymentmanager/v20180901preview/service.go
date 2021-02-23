@@ -50,7 +50,13 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:deploymentmanager:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:deploymentmanager/v20191101preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20191101preview:Service"),
@@ -58,7 +64,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:deploymentmanager/v20180901preview:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:deploymentmanager/v20180901preview:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:deploymentmanager/v20180901preview:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:deploymentmanager/v20180901preview:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

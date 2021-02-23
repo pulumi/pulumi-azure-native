@@ -44,7 +44,13 @@ func NewDataFlow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:DataFlow"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:DataFlow"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:DataFlow"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:DataFlow"),
@@ -52,7 +58,7 @@ func NewDataFlow(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataFlow
-	err := ctx.RegisterResource("azure-nextgen:datafactory:DataFlow", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory:DataFlow", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewDataFlow(ctx *pulumi.Context,
 func GetDataFlow(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataFlowState, opts ...pulumi.ResourceOption) (*DataFlow, error) {
 	var resource DataFlow
-	err := ctx.ReadResource("azure-nextgen:datafactory:DataFlow", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory:DataFlow", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

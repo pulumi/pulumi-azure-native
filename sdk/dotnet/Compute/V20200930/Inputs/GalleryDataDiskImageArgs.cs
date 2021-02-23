@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200930.Inputs
+namespace Pulumi.AzureNative.Compute.V20200930.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930.Inputs
         /// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         /// </summary>
         [Input("hostCaching")]
-        public Input<Pulumi.AzureNextGen.Compute.V20200930.HostCaching>? HostCaching { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20200930.HostCaching>? HostCaching { get; set; }
 
         /// <summary>
         /// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.

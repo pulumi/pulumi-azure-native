@@ -44,7 +44,7 @@ func NewQueryPack(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource QueryPack
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20190901preview:QueryPack", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20190901preview:QueryPack", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewQueryPack(ctx *pulumi.Context,
 func GetQueryPack(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueryPackState, opts ...pulumi.ResourceOption) (*QueryPack, error) {
 	var resource QueryPack
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20190901preview:QueryPack", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20190901preview:QueryPack", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform/v20190501preview:Service';
+    public static readonly __pulumiType = 'azure-native:appplatform/v20190501preview:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -96,7 +96,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform:Service" }, { type: "azure-nextgen:appplatform/latest:Service" }, { type: "azure-nextgen:appplatform/v20200701:Service" }, { type: "azure-nextgen:appplatform/v20201101preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Service" }, { type: "azure-nextgen:appplatform:Service" }, { type: "azure-native:appplatform/latest:Service" }, { type: "azure-nextgen:appplatform/latest:Service" }, { type: "azure-native:appplatform/v20200701:Service" }, { type: "azure-nextgen:appplatform/v20200701:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-nextgen:appplatform/v20201101preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

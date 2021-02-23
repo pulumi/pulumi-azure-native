@@ -16,7 +16,7 @@ export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/v20190101preview:getAutomation", {
+    return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAutomation", {
         "automationName": args.automationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

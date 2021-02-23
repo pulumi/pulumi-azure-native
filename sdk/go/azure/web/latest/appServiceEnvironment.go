@@ -14,7 +14,7 @@ import (
 // App Service Environment ARM resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:AppServiceEnvironment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServiceEnvironment'.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -126,25 +126,49 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:AppServiceEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160901:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160901:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:AppServiceEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:AppServiceEnvironment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:AppServiceEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServiceEnvironment"),
@@ -152,7 +176,7 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceEnvironment
-	err := ctx.RegisterResource("azure-nextgen:web/latest:AppServiceEnvironment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:AppServiceEnvironment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -164,7 +188,7 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 func GetAppServiceEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppServiceEnvironmentState, opts ...pulumi.ResourceOption) (*AppServiceEnvironment, error) {
 	var resource AppServiceEnvironment
-	err := ctx.ReadResource("azure-nextgen:web/latest:AppServiceEnvironment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:AppServiceEnvironment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

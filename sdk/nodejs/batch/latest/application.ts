@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Contains information about an application in a Batch account.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Application'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Application'.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Application'.")
+        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Application'.")
         return new Application(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batch/latest:Application';
+    public static readonly __pulumiType = 'azure-native:batch/latest:Application';
 
     /**
      * Returns true if the given object is an instance of Application.  This is designed to work even
@@ -70,9 +70,9 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Application'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Application'. */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Application'.")
+        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Application'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -105,7 +105,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch:Application" }, { type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170501:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20181201:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }, { type: "azure-nextgen:batch/v20200901:Application" }, { type: "azure-nextgen:batch/v20210101:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:Application" }, { type: "azure-nextgen:batch:Application" }, { type: "azure-native:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-native:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-native:batch/v20170501:Application" }, { type: "azure-nextgen:batch/v20170501:Application" }, { type: "azure-native:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-native:batch/v20181201:Application" }, { type: "azure-nextgen:batch/v20181201:Application" }, { type: "azure-native:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-native:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-native:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-native:batch/v20200501:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }, { type: "azure-native:batch/v20200901:Application" }, { type: "azure-nextgen:batch/v20200901:Application" }, { type: "azure-native:batch/v20210101:Application" }, { type: "azure-nextgen:batch/v20210101:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

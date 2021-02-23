@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azurestackhci/v20200301preview:Cluster';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20200301preview:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -156,7 +156,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestackhci:Cluster" }, { type: "azure-nextgen:azurestackhci/latest:Cluster" }, { type: "azure-nextgen:azurestackhci/v20201001:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:Cluster" }, { type: "azure-nextgen:azurestackhci:Cluster" }, { type: "azure-native:azurestackhci/latest:Cluster" }, { type: "azure-nextgen:azurestackhci/latest:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-nextgen:azurestackhci/v20201001:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

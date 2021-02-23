@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     [EnumType]
     public readonly struct ExtensionCategory : IEquatable<ExtensionCategory>

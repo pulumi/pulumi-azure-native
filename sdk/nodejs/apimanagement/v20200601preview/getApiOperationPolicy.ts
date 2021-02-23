@@ -16,7 +16,7 @@ export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20200601preview:getApiOperationPolicy", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getApiOperationPolicy", {
         "apiId": args.apiId,
         "format": args.format,
         "operationId": args.operationId,

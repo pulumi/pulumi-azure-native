@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     public static class GetExportConfiguration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Properties that define a Continuous Export configuration.
         /// </summary>
         public static Task<GetExportConfigurationResult> InvokeAsync(GetExportConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-nextgen:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationArgs(), options.WithVersion());
     }
 
 

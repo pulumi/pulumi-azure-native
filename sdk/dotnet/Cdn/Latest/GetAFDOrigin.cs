@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOrigin'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDOrigin'.")]
     public static class GetAFDOrigin
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Latest API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-nextgen:cdn/latest:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn/latest:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithVersion());
     }
 
 

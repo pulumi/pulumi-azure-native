@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
 	var rv GetDeviceExtendedInformationResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:getDeviceExtendedInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:getDeviceExtendedInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

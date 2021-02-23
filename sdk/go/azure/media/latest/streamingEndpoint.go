@@ -14,7 +14,7 @@ import (
 // The streaming endpoint.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:StreamingEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingEndpoint'.
 type StreamingEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -80,19 +80,37 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:StreamingEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180330preview:StreamingEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:StreamingEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:StreamingEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180701:StreamingEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:StreamingEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20190501preview:StreamingEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20190501preview:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:StreamingEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:StreamingEndpoint"),
@@ -100,7 +118,7 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StreamingEndpoint
-	err := ctx.RegisterResource("azure-nextgen:media/latest:StreamingEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/latest:StreamingEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +130,7 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 func GetStreamingEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamingEndpointState, opts ...pulumi.ResourceOption) (*StreamingEndpoint, error) {
 	var resource StreamingEndpoint
-	err := ctx.ReadResource("azure-nextgen:media/latest:StreamingEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/latest:StreamingEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

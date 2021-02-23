@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
+namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Shared/Dedicated workers
         /// </summary>
         [Input("computeMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.ComputeModeOptions>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// If true it includes basic sites
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Size of the machines
         /// </summary>
         [Input("workerSize")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.WorkerSizeOptions>? WorkerSize { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.WorkerSizeOptions>? WorkerSize { get; set; }
 
         /// <summary>
         /// Size Id of machines: 

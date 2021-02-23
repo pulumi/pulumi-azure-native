@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupInboundNatRuleResult, error) {
 	var rv LookupInboundNatRuleResult
-	err := ctx.Invoke("azure-nextgen:network:getInboundNatRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getInboundNatRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

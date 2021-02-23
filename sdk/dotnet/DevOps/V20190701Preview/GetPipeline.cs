@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
+namespace Pulumi.AzureNative.DevOps.V20190701Preview
 {
     public static class GetPipeline
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-nextgen:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Represents a scaling plan definition.
 func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ...pulumi.InvokeOption) (*LookupScalingPlanResult, error) {
 	var rv LookupScalingPlanResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization/v20201110preview:getScalingPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization/v20201110preview:getScalingPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

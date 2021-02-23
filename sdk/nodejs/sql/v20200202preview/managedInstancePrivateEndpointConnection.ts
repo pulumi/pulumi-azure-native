@@ -22,7 +22,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of ManagedInstancePrivateEndpointConnection.  This is designed to work even
@@ -94,7 +94,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstancePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices
+namespace Pulumi.AzureNative.AnalysisServices
 {
     public static class ListServerGatewayStatus
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices
         /// API Version: 2017-08-01.
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-nextgen:analysisservices:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
     }
 
 

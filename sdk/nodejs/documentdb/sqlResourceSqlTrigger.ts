@@ -23,7 +23,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb:SqlResourceSqlTrigger';
+    public static readonly __pulumiType = 'azure-native:documentdb:SqlResourceSqlTrigger';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlTrigger.  This is designed to work even
@@ -104,7 +104,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/latest:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlTrigger" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlTrigger.__pulumiType, name, inputs, opts);
     }

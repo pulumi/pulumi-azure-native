@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     /// <summary>
     /// Virtual Appliance Site resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200701:VirtualApplianceSite")]
+    [AzureNativeResourceType("azure-native:network/v20200701:VirtualApplianceSite")]
     public partial class VirtualApplianceSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualApplianceSite(string name, VirtualApplianceSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200701:VirtualApplianceSite", name, args ?? new VirtualApplianceSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200701:VirtualApplianceSite", name, args ?? new VirtualApplianceSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualApplianceSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200701:VirtualApplianceSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200701:VirtualApplianceSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,10 +76,15 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualApplianceSite"},
                 },
             };

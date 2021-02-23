@@ -16,7 +16,7 @@ export function listWebAppHostKeysSlot(args: ListWebAppHostKeysSlotArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20200601:listWebAppHostKeysSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20200601:listWebAppHostKeysSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

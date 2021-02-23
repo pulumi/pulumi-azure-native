@@ -17,7 +17,7 @@ export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getVirtualHub", {
+    return pulumi.runtime.invoke("azure-native:network:getVirtualHub", {
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,
     }, opts);

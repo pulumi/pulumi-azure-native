@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Represents a Sql pool transparent data encryption configuration.
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse:SqlPoolTransparentDataEncryption")]
+    [AzureNativeResourceType("azure-native:synapse:SqlPoolTransparentDataEncryption")]
     public partial class SqlPoolTransparentDataEncryption : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPoolTransparentDataEncryption(string name, SqlPoolTransparentDataEncryptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:SqlPoolTransparentDataEncryption", name, args ?? new SqlPoolTransparentDataEncryptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse:SqlPoolTransparentDataEncryption", name, args ?? new SqlPoolTransparentDataEncryptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPoolTransparentDataEncryption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:SqlPoolTransparentDataEncryption", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse:SqlPoolTransparentDataEncryption", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption"},
                 },
             };
@@ -107,7 +110,7 @@ namespace Pulumi.AzureNextGen.Synapse
         /// The status of the database transparent data encryption.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Synapse.TransparentDataEncryptionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Synapse.TransparentDataEncryptionStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the transparent data encryption configuration.

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Contract details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:ProductGroup")]
+    [AzureNativeResourceType("azure-native:apimanagement:ProductGroup")]
     public partial class ProductGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductGroup(string name, ProductGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ProductGroup", name, args ?? new ProductGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:ProductGroup", name, args ?? new ProductGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProductGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ProductGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:ProductGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,13 +77,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ProductGroup"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ProductGroup"},
                 },
             };

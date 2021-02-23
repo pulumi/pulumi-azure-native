@@ -14,7 +14,7 @@ import (
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Origin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Origin'.
 type Origin struct {
 	pulumi.CustomResourceState
 
@@ -75,22 +75,43 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20150601:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20160402:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20160402:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20191231:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:Origin"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200415:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Origin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Origin"),
@@ -98,7 +119,7 @@ func NewOrigin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Origin
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:Origin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:Origin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +131,7 @@ func NewOrigin(ctx *pulumi.Context,
 func GetOrigin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OriginState, opts ...pulumi.ResourceOption) (*Origin, error) {
 	var resource Origin
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:Origin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:Origin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

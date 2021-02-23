@@ -14,7 +14,7 @@ import (
 // Definition of the job schedule.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:JobSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:JobSchedule'.
 type JobSchedule struct {
 	pulumi.CustomResourceState
 
@@ -55,13 +55,25 @@ func NewJobSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:JobSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:JobSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:JobSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:JobSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:JobSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:JobSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:JobSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:JobSchedule"),
@@ -69,7 +81,7 @@ func NewJobSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobSchedule
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:JobSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:JobSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +93,7 @@ func NewJobSchedule(ctx *pulumi.Context,
 func GetJobSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobScheduleState, opts ...pulumi.ResourceOption) (*JobSchedule, error) {
 	var resource JobSchedule
-	err := ctx.ReadResource("azure-nextgen:automation/latest:JobSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:JobSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

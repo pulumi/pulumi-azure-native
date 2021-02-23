@@ -10,7 +10,7 @@ import (
 // The list Kusto database principals operation response.
 func ListClusterFollowerDatabases(ctx *pulumi.Context, args *ListClusterFollowerDatabasesArgs, opts ...pulumi.InvokeOption) (*ListClusterFollowerDatabasesResult, error) {
 	var rv ListClusterFollowerDatabasesResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20200614:listClusterFollowerDatabases", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20200614:listClusterFollowerDatabases", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

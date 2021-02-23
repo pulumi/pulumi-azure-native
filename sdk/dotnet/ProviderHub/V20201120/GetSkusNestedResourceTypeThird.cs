@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     public static class GetSkusNestedResourceTypeThird
     {
         public static Task<GetSkusNestedResourceTypeThirdResult> InvokeAsync(GetSkusNestedResourceTypeThirdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeThirdResult>("azure-nextgen:providerhub/v20201120:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeThirdResult>("azure-native:providerhub/v20201120:getSkusNestedResourceTypeThird", args ?? new GetSkusNestedResourceTypeThirdArgs(), options.WithVersion());
     }
 
 

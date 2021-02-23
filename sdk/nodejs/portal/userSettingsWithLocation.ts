@@ -23,7 +23,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal:UserSettingsWithLocation';
+    public static readonly __pulumiType = 'azure-native:portal:UserSettingsWithLocation';
 
     /**
      * Returns true if the given object is an instance of UserSettingsWithLocation.  This is designed to work even
@@ -70,7 +70,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/latest:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/latest:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/latest:UserSettingsWithLocation" }, { type: "azure-native:portal/v20181001:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // Description of a backup which will be performed
 func ListSiteBackupConfigurationSlot(ctx *pulumi.Context, args *ListSiteBackupConfigurationSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteBackupConfigurationSlotResult, error) {
 	var rv ListSiteBackupConfigurationSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteBackupConfigurationSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteBackupConfigurationSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

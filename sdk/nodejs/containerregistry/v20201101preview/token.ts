@@ -22,7 +22,7 @@ export class Token extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20201101preview:Token';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20201101preview:Token';
 
     /**
      * Returns true if the given object is an instance of Token.  This is designed to work even
@@ -112,7 +112,7 @@ export class Token extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Token" }, { type: "azure-nextgen:containerregistry/v20190501preview:Token" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Token" }, { type: "azure-nextgen:containerregistry:Token" }, { type: "azure-native:containerregistry/v20190501preview:Token" }, { type: "azure-nextgen:containerregistry/v20190501preview:Token" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Token.__pulumiType, name, inputs, opts);
     }

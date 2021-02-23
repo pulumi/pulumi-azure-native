@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")]
     public static class GetEnterpriseKnowledgeGraph
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
         /// Latest API Version: 2018-12-03.
         /// </summary>
         public static Task<GetEnterpriseKnowledgeGraphResult> InvokeAsync(GetEnterpriseKnowledgeGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-nextgen:enterpriseknowledgegraph/latest:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseKnowledgeGraphResult>("azure-native:enterpriseknowledgegraph/latest:getEnterpriseKnowledgeGraph", args ?? new GetEnterpriseKnowledgeGraphArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Inputs
+namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
     public sealed class ServiceBusTopicMessageArgs : Pulumi.ResourceArgs
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Inputs
         /// Gets or sets the transport type.
         /// </summary>
         [Input("transportType")]
-        public Input<Pulumi.AzureNextGen.Scheduler.ServiceBusTransportType>? TransportType { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.ServiceBusTransportType>? TransportType { get; set; }
 
         public ServiceBusTopicMessageArgs()
         {

@@ -46,67 +46,133 @@ func NewVirtualWAN(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualWAN"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualWAN"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualWAN"),
@@ -114,7 +180,7 @@ func NewVirtualWAN(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualWAN
-	err := ctx.RegisterResource("azure-nextgen:network/v20180601:VirtualWAN", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180601:VirtualWAN", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +192,7 @@ func NewVirtualWAN(ctx *pulumi.Context,
 func GetVirtualWAN(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualWANState, opts ...pulumi.ResourceOption) (*VirtualWAN, error) {
 	var resource VirtualWAN
-	err := ctx.ReadResource("azure-nextgen:network/v20180601:VirtualWAN", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180601:VirtualWAN", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

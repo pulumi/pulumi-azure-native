@@ -82,31 +82,61 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVM"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:VirtualMachineScaleSetVM"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineScaleSetVM"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachineScaleSetVM"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachineScaleSetVM"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:VirtualMachineScaleSetVM"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:VirtualMachineScaleSetVM"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachineScaleSetVM"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSetVM"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSetVM"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVM"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM"),
@@ -114,7 +144,7 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetVM
-	err := ctx.RegisterResource("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20201201:VirtualMachineScaleSetVM", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +156,7 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 func GetVirtualMachineScaleSetVM(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScaleSetVMState, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVM, error) {
 	var resource VirtualMachineScaleSetVM
-	err := ctx.ReadResource("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20201201:VirtualMachineScaleSetVM", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

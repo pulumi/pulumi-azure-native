@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration runtime authentication keys.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:listIntegrationRuntimeAuthKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:listIntegrationRuntimeAuthKey'. */
 export function listIntegrationRuntimeAuthKey(args: ListIntegrationRuntimeAuthKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeyResult> {
-    pulumi.log.warn("listIntegrationRuntimeAuthKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:listIntegrationRuntimeAuthKey'.")
+    pulumi.log.warn("listIntegrationRuntimeAuthKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:listIntegrationRuntimeAuthKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIntegrationRuntimeAuthKey(args: ListIntegrationRuntimeAuthKe
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:listIntegrationRuntimeAuthKey", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:listIntegrationRuntimeAuthKey", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-01-preview.
 func LookupCreator(ctx *pulumi.Context, args *LookupCreatorArgs, opts ...pulumi.InvokeOption) (*LookupCreatorResult, error) {
 	var rv LookupCreatorResult
-	err := ctx.Invoke("azure-nextgen:maps:getCreator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maps:getCreator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

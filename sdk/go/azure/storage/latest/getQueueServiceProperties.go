@@ -10,10 +10,10 @@ import (
 // The properties of a storage account’s Queue service.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getQueueServiceProperties'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getQueueServiceProperties'.
 func LookupQueueServiceProperties(ctx *pulumi.Context, args *LookupQueueServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupQueueServicePropertiesResult, error) {
 	var rv LookupQueueServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/latest:getQueueServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/latest:getQueueServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

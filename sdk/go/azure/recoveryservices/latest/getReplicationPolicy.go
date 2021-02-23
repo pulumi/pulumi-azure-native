@@ -10,10 +10,10 @@ import (
 // Protection profile details.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationPolicy'.
 func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupReplicationPolicyResult, error) {
 	var rv LookupReplicationPolicyResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

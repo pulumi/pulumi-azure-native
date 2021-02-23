@@ -14,7 +14,7 @@ import (
 // A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Job'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -70,16 +70,31 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180330preview:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:Job"),
@@ -87,7 +102,7 @@ func NewJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:media/latest:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/latest:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +114,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:media/latest:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/latest:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

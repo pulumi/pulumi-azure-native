@@ -21,7 +21,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20190801:WebAppSitePushSettings';
+    public static readonly __pulumiType = 'azure-native:web/v20190801:WebAppSitePushSettings';
 
     /**
      * Returns true if the given object is an instance of WebAppSitePushSettings.  This is designed to work even
@@ -109,7 +109,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSitePushSettings" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSitePushSettings" }, { type: "azure-nextgen:web:WebAppSitePushSettings" }, { type: "azure-native:web/latest:WebAppSitePushSettings" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettings" }, { type: "azure-native:web/v20160801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettings" }, { type: "azure-native:web/v20180201:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettings" }, { type: "azure-native:web/v20181101:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettings" }, { type: "azure-native:web/v20200601:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettings" }, { type: "azure-native:web/v20200901:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettings" }, { type: "azure-native:web/v20201001:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSitePushSettings.__pulumiType, name, inputs, opts);
     }

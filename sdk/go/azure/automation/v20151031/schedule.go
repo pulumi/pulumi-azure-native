@@ -73,13 +73,25 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Schedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Schedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:Schedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Schedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Schedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Schedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Schedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Schedule"),
@@ -87,7 +99,7 @@ func NewSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Schedule
-	err := ctx.RegisterResource("azure-nextgen:automation/v20151031:Schedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20151031:Schedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +111,7 @@ func NewSchedule(ctx *pulumi.Context,
 func GetSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduleState, opts ...pulumi.ResourceOption) (*Schedule, error) {
 	var resource Schedule
-	err := ctx.ReadResource("azure-nextgen:automation/v20151031:Schedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20151031:Schedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

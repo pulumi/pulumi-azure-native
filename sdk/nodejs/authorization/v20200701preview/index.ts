@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/v20200701preview:PolicyExemption":
+            case "azure-native:authorization/v20200701preview:PolicyExemption":
                 return new PolicyExemption(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "authorization/v20200701preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "authorization/v20200701preview", _module)

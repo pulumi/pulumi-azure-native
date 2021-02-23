@@ -22,7 +22,7 @@ export class ServerFarm extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:ServerFarm';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:ServerFarm';
 
     /**
      * Returns true if the given object is an instance of ServerFarm.  This is designed to work even
@@ -164,7 +164,7 @@ export class ServerFarm extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ServerFarm" }, { type: "azure-nextgen:web/latest:ServerFarm" }, { type: "azure-nextgen:web/v20160901:ServerFarm" }, { type: "azure-nextgen:web/v20180201:ServerFarm" }, { type: "azure-nextgen:web/v20190801:ServerFarm" }, { type: "azure-nextgen:web/v20200601:ServerFarm" }, { type: "azure-nextgen:web/v20200901:ServerFarm" }, { type: "azure-nextgen:web/v20201001:ServerFarm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarm" }, { type: "azure-nextgen:web:ServerFarm" }, { type: "azure-native:web/latest:ServerFarm" }, { type: "azure-nextgen:web/latest:ServerFarm" }, { type: "azure-native:web/v20160901:ServerFarm" }, { type: "azure-nextgen:web/v20160901:ServerFarm" }, { type: "azure-native:web/v20180201:ServerFarm" }, { type: "azure-nextgen:web/v20180201:ServerFarm" }, { type: "azure-native:web/v20190801:ServerFarm" }, { type: "azure-nextgen:web/v20190801:ServerFarm" }, { type: "azure-native:web/v20200601:ServerFarm" }, { type: "azure-nextgen:web/v20200601:ServerFarm" }, { type: "azure-native:web/v20200901:ServerFarm" }, { type: "azure-nextgen:web/v20200901:ServerFarm" }, { type: "azure-native:web/v20201001:ServerFarm" }, { type: "azure-nextgen:web/v20201001:ServerFarm" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerFarm.__pulumiType, name, inputs, opts);
     }

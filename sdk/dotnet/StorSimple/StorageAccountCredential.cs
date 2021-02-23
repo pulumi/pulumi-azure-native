@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The storage account credential.
     /// API Version: 2017-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:StorageAccountCredential")]
+    [AzureNativeResourceType("azure-native:storsimple:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountCredential(string name, StorageAccountCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,8 +83,11 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:StorageAccountCredential"},
                 },
             };
@@ -125,7 +128,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.StorSimple.Kind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.StorSimple.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name
@@ -143,7 +146,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
         [Input("sslStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.SslStatus> SslStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.SslStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// The storage account credential name.

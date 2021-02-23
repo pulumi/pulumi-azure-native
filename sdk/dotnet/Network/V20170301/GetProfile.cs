@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170301
+namespace Pulumi.AzureNative.Network.V20170301
 {
     public static class GetProfile
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// Class representing a Traffic Manager profile.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:network/v20170301:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network/v20170301:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }
 
 

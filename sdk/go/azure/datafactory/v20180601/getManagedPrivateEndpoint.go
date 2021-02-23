@@ -10,7 +10,7 @@ import (
 // Managed private endpoint resource type.
 func LookupManagedPrivateEndpoint(ctx *pulumi.Context, args *LookupManagedPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrivateEndpointResult, error) {
 	var rv LookupManagedPrivateEndpointResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20180601:getManagedPrivateEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel';
+    public static readonly __pulumiType = 'azure-native:sql/v20200202preview:ManagedDatabaseSensitivityLabel';
 
     /**
      * Returns true if the given object is an instance of ManagedDatabaseSensitivityLabel.  This is designed to work even
@@ -146,7 +146,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql:ManagedDatabaseSensitivityLabel" }, { type: "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabaseSensitivityLabel.__pulumiType, name, inputs, opts);
     }

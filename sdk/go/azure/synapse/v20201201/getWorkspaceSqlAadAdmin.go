@@ -10,7 +10,7 @@ import (
 // Workspace active directory administrator
 func LookupWorkspaceSqlAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceSqlAadAdminArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSqlAadAdminResult, error) {
 	var rv LookupWorkspaceSqlAadAdminResult
-	err := ctx.Invoke("azure-nextgen:synapse/v20201201:getWorkspaceSqlAadAdmin", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/v20201201:getWorkspaceSqlAadAdmin", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

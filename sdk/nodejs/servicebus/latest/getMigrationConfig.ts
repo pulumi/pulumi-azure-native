@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Single item in List or Get Migration Config operation
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getMigrationConfig'. */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
-    pulumi.log.warn("getMigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getMigrationConfig'.")
+    pulumi.log.warn("getMigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getMigrationConfig'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getMigrationConfig", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getMigrationConfig", {
         "configName": args.configName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

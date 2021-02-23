@@ -10,10 +10,10 @@ import (
 // Action for alert rule.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getAction'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/latest:getAction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/latest:getAction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

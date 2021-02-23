@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A consumer side list of share subscription synchronizations
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizations'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizations'. */
 export function listShareSubscriptionSynchronizations(args: ListShareSubscriptionSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationsResult> {
-    pulumi.log.warn("listShareSubscriptionSynchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:listShareSubscriptionSynchronizations'.")
+    pulumi.log.warn("listShareSubscriptionSynchronizations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizations'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listShareSubscriptionSynchronizations(args: ListShareSubscriptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:listShareSubscriptionSynchronizations", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:listShareSubscriptionSynchronizations", {
         "accountName": args.accountName,
         "filter": args.filter,
         "orderby": args.orderby,

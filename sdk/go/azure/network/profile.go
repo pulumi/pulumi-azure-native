@@ -52,22 +52,43 @@ func NewProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20151101:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20151101:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170501:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170501:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:Profile"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180301:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180301:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:Profile"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Profile"),
@@ -75,7 +96,7 @@ func NewProfile(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Profile
-	err := ctx.RegisterResource("azure-nextgen:network:Profile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:Profile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +108,7 @@ func NewProfile(ctx *pulumi.Context,
 func GetProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProfileState, opts ...pulumi.ResourceOption) (*Profile, error) {
 	var resource Profile
-	err := ctx.ReadResource("azure-nextgen:network:Profile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:Profile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

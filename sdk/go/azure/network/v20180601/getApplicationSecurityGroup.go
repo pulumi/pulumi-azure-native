@@ -10,7 +10,7 @@ import (
 // An application security group in a resource group.
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplicationSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSecurityGroupResult, error) {
 	var rv LookupApplicationSecurityGroupResult
-	err := ctx.Invoke("azure-nextgen:network/v20180601:getApplicationSecurityGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180601:getApplicationSecurityGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

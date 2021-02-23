@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Asset Filter.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetFilter'. */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
-    pulumi.log.warn("getAssetFilter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAssetFilter'.")
+    pulumi.log.warn("getAssetFilter is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAssetFilter'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getAssetFilter", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getAssetFilter", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "filterName": args.filterName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Retention schedule format type for monthly retention policy.
         /// </summary>
         [Input("retentionScheduleFormatType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
 
         /// <summary>
         /// Weekly retention format for monthly retention policy.

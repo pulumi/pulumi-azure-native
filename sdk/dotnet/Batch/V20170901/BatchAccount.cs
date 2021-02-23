@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20170901
+namespace Pulumi.AzureNative.Batch.V20170901
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batch/v20170901:BatchAccount")]
+    [AzureNativeResourceType("azure-native:batch/v20170901:BatchAccount")]
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BatchAccount(string name, BatchAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20170901:BatchAccount", name, args ?? new BatchAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch/v20170901:BatchAccount", name, args ?? new BatchAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BatchAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20170901:BatchAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch/v20170901:BatchAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,17 +106,29 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/latest:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170101:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170501:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:BatchAccount"},
                 },
             };
@@ -169,7 +181,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         /// </summary>
         [Input("poolAllocationMode")]
-        public Input<Pulumi.AzureNextGen.Batch.V20170901.PoolAllocationMode>? PoolAllocationMode { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20170901.PoolAllocationMode>? PoolAllocationMode { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

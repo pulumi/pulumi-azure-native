@@ -23,7 +23,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:SensitivityLabel';
+    public static readonly __pulumiType = 'azure-native:sql:SensitivityLabel';
 
     /**
      * Returns true if the given object is an instance of SensitivityLabel.  This is designed to work even
@@ -147,7 +147,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:SensitivityLabel" }, { type: "azure-nextgen:sql/v20200202preview:SensitivityLabel" }, { type: "azure-nextgen:sql/v20200801preview:SensitivityLabel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:SensitivityLabel" }, { type: "azure-nextgen:sql/v20170301preview:SensitivityLabel" }, { type: "azure-native:sql/v20200202preview:SensitivityLabel" }, { type: "azure-nextgen:sql/v20200202preview:SensitivityLabel" }, { type: "azure-native:sql/v20200801preview:SensitivityLabel" }, { type: "azure-nextgen:sql/v20200801preview:SensitivityLabel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SensitivityLabel.__pulumiType, name, inputs, opts);
     }

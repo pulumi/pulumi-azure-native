@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:cache/latest:Database":
+	case "azure-native:cache/latest:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:FirewallRule":
+	case "azure-native:cache/latest:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:LinkedServer":
+	case "azure-native:cache/latest:LinkedServer":
 		r, err = NewLinkedServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:PatchSchedule":
+	case "azure-native:cache/latest:PatchSchedule":
 		r, err = NewPatchSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:PrivateEndpointConnection":
+	case "azure-native:cache/latest:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:Redis":
+	case "azure-native:cache/latest:Redis":
 		r, err = NewRedis(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:cache/latest:RedisEnterprise":
+	case "azure-native:cache/latest:RedisEnterprise":
 		r, err = NewRedisEnterprise(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"cache/latest",
 		&module{version},
 	)

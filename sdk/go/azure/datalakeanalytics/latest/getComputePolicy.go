@@ -10,10 +10,10 @@ import (
 // Data Lake Analytics compute policy information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getComputePolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'.
 func LookupComputePolicy(ctx *pulumi.Context, args *LookupComputePolicyArgs, opts ...pulumi.InvokeOption) (*LookupComputePolicyResult, error) {
 	var rv LookupComputePolicyResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics/latest:getComputePolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics/latest:getComputePolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

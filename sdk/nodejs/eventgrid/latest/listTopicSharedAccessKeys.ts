@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Shared access keys of the Topic
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listTopicSharedAccessKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:listTopicSharedAccessKeys'. */
 export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicSharedAccessKeysResult> {
-    pulumi.log.warn("listTopicSharedAccessKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listTopicSharedAccessKeys'.")
+    pulumi.log.warn("listTopicSharedAccessKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:listTopicSharedAccessKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:listTopicSharedAccessKeys", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/latest:listTopicSharedAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
     }, opts);

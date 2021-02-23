@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901:Container")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901:Container")]
     public partial class Container : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Container(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901:Container", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901:Container", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
                 },
             };
@@ -120,7 +125,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901
         /// DataFormat for Container
         /// </summary>
         [Input("dataFormat", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901.AzureContainerDataFormat> DataFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901.AzureContainerDataFormat> DataFormat { get; set; } = null!;
 
         /// <summary>
         /// The device name.

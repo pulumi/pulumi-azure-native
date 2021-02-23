@@ -10,7 +10,7 @@ import (
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/v20200601:getConfigurationStore", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/v20200601:getConfigurationStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

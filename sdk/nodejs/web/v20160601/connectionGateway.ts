@@ -22,7 +22,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20160601:ConnectionGateway';
+    public static readonly __pulumiType = 'azure-native:web/v20160601:ConnectionGateway';
 
     /**
      * Returns true if the given object is an instance of ConnectionGateway.  This is designed to work even
@@ -94,7 +94,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ConnectionGateway" }, { type: "azure-nextgen:web/latest:ConnectionGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:ConnectionGateway" }, { type: "azure-nextgen:web:ConnectionGateway" }, { type: "azure-native:web/latest:ConnectionGateway" }, { type: "azure-nextgen:web/latest:ConnectionGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionGateway.__pulumiType, name, inputs, opts);
     }

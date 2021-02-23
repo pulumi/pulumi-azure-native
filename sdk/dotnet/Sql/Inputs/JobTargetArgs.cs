@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Inputs
+namespace Pulumi.AzureNative.Sql.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Sql.Inputs
         /// Whether the target is included or excluded from the group.
         /// </summary>
         [Input("membershipType")]
-        public Input<Pulumi.AzureNextGen.Sql.JobTargetGroupMembershipType>? MembershipType { get; set; }
+        public Input<Pulumi.AzureNative.Sql.JobTargetGroupMembershipType>? MembershipType { get; set; }
 
         /// <summary>
         /// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
@@ -55,11 +55,11 @@ namespace Pulumi.AzureNextGen.Sql.Inputs
         /// The target type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.JobTargetType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.JobTargetType> Type { get; set; } = null!;
 
         public JobTargetArgs()
         {
-            MembershipType = Pulumi.AzureNextGen.Sql.JobTargetGroupMembershipType.Include;
+            MembershipType = Pulumi.AzureNative.Sql.JobTargetGroupMembershipType.Include;
         }
     }
 }

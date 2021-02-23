@@ -14,7 +14,7 @@ import (
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:AFDCustomDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:AFDCustomDomain'.
 type AFDCustomDomain struct {
 	pulumi.CustomResourceState
 
@@ -57,7 +57,13 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:AFDCustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:AFDCustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:AFDCustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDCustomDomain"),
@@ -65,7 +71,7 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDCustomDomain
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:AFDCustomDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:AFDCustomDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +83,7 @@ func NewAFDCustomDomain(ctx *pulumi.Context,
 func GetAFDCustomDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDCustomDomainState, opts ...pulumi.ResourceOption) (*AFDCustomDomain, error) {
 	var resource AFDCustomDomain
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:AFDCustomDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:AFDCustomDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

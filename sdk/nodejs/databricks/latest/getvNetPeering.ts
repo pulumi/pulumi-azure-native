@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Peerings in a VirtualNetwork resource
  * Latest API Version: 2018-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getvNetPeering'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'. */
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
-    pulumi.log.warn("getvNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getvNetPeering'.")
+    pulumi.log.warn("getvNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databricks/latest:getvNetPeering", {
+    return pulumi.runtime.invoke("azure-native:databricks/latest:getvNetPeering", {
         "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

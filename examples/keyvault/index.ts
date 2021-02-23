@@ -1,10 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
-import * as authorization from "@pulumi/azure-nextgen/authorization";
-import * as containerinstance from "@pulumi/azure-nextgen/containerinstance";
-import * as keyvault from "@pulumi/azure-nextgen/keyvault";
-import * as managedidentity from "@pulumi/azure-nextgen/managedidentity";
-import * as resources from "@pulumi/azure-nextgen/resources";
+import * as authorization from "@pulumi/azure-native/authorization";
+import * as containerinstance from "@pulumi/azure-native/containerinstance";
+import * as keyvault from "@pulumi/azure-native/keyvault";
+import * as managedidentity from "@pulumi/azure-native/managedidentity";
+import * as resources from "@pulumi/azure-native/resources";
 
 const resourceGroup = new resources.ResourceGroup("rg");
 

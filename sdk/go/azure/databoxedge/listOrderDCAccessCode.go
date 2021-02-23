@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
-	err := ctx.Invoke("azure-nextgen:databoxedge:listOrderDCAccessCode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge:listOrderDCAccessCode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

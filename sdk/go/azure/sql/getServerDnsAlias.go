@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupServerDnsAlias(ctx *pulumi.Context, args *LookupServerDnsAliasArgs, opts ...pulumi.InvokeOption) (*LookupServerDnsAliasResult, error) {
 	var rv LookupServerDnsAliasResult
-	err := ctx.Invoke("azure-nextgen:sql:getServerDnsAlias", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getServerDnsAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

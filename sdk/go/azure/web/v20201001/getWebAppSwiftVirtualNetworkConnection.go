@@ -10,7 +10,7 @@ import (
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 func LookupWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:getWebAppSwiftVirtualNetworkConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:getWebAppSwiftVirtualNetworkConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
     /// <summary>
     /// The agentpool that has the ARM resource and properties.
     /// The agentpool will have all information to create an agent pool.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190601preview:AgentPool")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20190601preview:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20190601preview:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20190601preview:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:AgentPool"},
                 },
             };
@@ -147,7 +148,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// The OS of agent machine
         /// </summary>
         [Input("os")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.OS>? Os { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190601Preview.OS>? Os { get; set; }
 
         /// <summary>
         /// The name of the container registry.

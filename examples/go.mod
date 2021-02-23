@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azure-nextgen/examples
+module github.com/pulumi/pulumi-azure-native/examples
 
 go 1.14
 

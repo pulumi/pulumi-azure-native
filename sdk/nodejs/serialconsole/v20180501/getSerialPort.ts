@@ -16,7 +16,7 @@ export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:serialconsole/v20180501:getSerialPort", {
+    return pulumi.runtime.invoke("azure-native:serialconsole/v20180501:getSerialPort", {
         "parentResource": args.parentResource,
         "parentResourceType": args.parentResourceType,
         "resourceGroupName": args.resourceGroupName,

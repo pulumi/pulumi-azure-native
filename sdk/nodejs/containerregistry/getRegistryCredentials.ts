@@ -17,7 +17,7 @@ export function getRegistryCredentials(args: GetRegistryCredentialsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getRegistryCredentials", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getRegistryCredentials", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

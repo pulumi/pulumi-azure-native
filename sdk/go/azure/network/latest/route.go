@@ -14,7 +14,7 @@ import (
 // Route resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Route'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Route'.
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -54,109 +54,217 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150501preview:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150615:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160330:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160601:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160901:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20161201:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170301:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170601:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170801:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170901:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171001:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171101:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180101:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:Route"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:Route"),
@@ -164,7 +272,7 @@ func NewRoute(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Route
-	err := ctx.RegisterResource("azure-nextgen:network/latest:Route", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:Route", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -176,7 +284,7 @@ func NewRoute(ctx *pulumi.Context,
 func GetRoute(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
 	var resource Route
-	err := ctx.ReadResource("azure-nextgen:network/latest:Route", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:Route", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-31.
 func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *LookupIotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceEventHubConsumerGroupResult, error) {
 	var rv LookupIotHubResourceEventHubConsumerGroupResult
-	err := ctx.Invoke("azure-nextgen:devices:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

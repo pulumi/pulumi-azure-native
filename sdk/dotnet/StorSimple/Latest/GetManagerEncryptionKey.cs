@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getManagerEncryptionKey'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getManagerEncryptionKey'.")]
     public static class GetManagerEncryptionKey
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2016-10-01.
         /// </summary>
         public static Task<GetManagerEncryptionKeyResult> InvokeAsync(GetManagerEncryptionKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-nextgen:storsimple/latest:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerEncryptionKeyResult>("azure-native:storsimple/latest:getManagerEncryptionKey", args ?? new GetManagerEncryptionKeyArgs(), options.WithVersion());
     }
 
 

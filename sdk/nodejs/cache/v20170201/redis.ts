@@ -22,7 +22,7 @@ export class Redis extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/v20170201:Redis';
+    public static readonly __pulumiType = 'azure-native:cache/v20170201:Redis';
 
     /**
      * Returns true if the given object is an instance of Redis.  This is designed to work even
@@ -170,7 +170,7 @@ export class Redis extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Redis" }, { type: "azure-nextgen:cache/latest:Redis" }, { type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-nextgen:cache:Redis" }, { type: "azure-native:cache/latest:Redis" }, { type: "azure-nextgen:cache/latest:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-native:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-nextgen:cache/v20190701:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Redis.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     public static class GetGallery
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies information about the Shared Image Gallery that you want to create or update.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-nextgen:compute/v20190301:getGallery", args ?? new GetGalleryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute/v20190301:getGallery", args ?? new GetGalleryArgs(), options.WithVersion());
     }
 
 

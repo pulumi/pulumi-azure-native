@@ -44,19 +44,37 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration/latest:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/latest:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20171115preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180315preview:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180315preview:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180331preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180331preview:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:datamigration/v20180419:Task"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180419:Task"),
+		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20180715preview:Task"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Task"),
@@ -64,7 +82,7 @@ func NewTask(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Task
-	err := ctx.RegisterResource("azure-nextgen:datamigration:Task", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration:Task", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +94,7 @@ func NewTask(ctx *pulumi.Context,
 func GetTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
 	var resource Task
-	err := ctx.ReadResource("azure-nextgen:datamigration:Task", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration:Task", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

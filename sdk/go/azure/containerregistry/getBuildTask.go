@@ -11,7 +11,7 @@ import (
 // API Version: 2018-02-01-preview.
 func LookupBuildTask(ctx *pulumi.Context, args *LookupBuildTaskArgs, opts ...pulumi.InvokeOption) (*LookupBuildTaskResult, error) {
 	var rv LookupBuildTaskResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getBuildTask", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getBuildTask", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection":
+            case "azure-native:dbformysql/v20180601:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformysql/v20180601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformysql/v20180601", _module)

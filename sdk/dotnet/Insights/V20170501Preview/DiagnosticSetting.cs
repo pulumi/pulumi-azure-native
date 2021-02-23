@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20170501Preview
+namespace Pulumi.AzureNative.Insights.V20170501Preview
 {
     /// <summary>
     /// The diagnostic setting resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20170501preview:DiagnosticSetting")]
+    [AzureNativeResourceType("azure-native:insights/v20170501preview:DiagnosticSetting")]
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20170501preview:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20170501preview:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20170501preview:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20170501preview:DiagnosticSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:DiagnosticSetting"},
                 },
             };

@@ -21,7 +21,7 @@ export class ContentType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20200601preview:ContentType';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20200601preview:ContentType';
 
     /**
      * Returns true if the given object is an instance of ContentType.  This is designed to work even
@@ -93,7 +93,7 @@ export class ContentType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement/latest:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-native:apimanagement/latest:ContentType" }, { type: "azure-nextgen:apimanagement/latest:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentType.__pulumiType, name, inputs, opts);
     }

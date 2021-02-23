@@ -17,7 +17,7 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform:getDeployment", {
+    return pulumi.runtime.invoke("azure-native:appplatform:getDeployment", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,

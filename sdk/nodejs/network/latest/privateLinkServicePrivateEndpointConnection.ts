@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * PrivateEndpointConnection resource.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.
  */
 export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkServicePrivateEndpointConnection {
-        pulumi.log.warn("PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'.")
+        pulumi.log.warn("PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.")
         return new PrivateLinkServicePrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:network/latest:PrivateLinkServicePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicePrivateEndpointConnection.  This is designed to work even
@@ -75,9 +75,9 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'. */
     constructor(name: string, args: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'.")
+        pulumi.log.warn("PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -113,7 +113,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateLinkServicePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

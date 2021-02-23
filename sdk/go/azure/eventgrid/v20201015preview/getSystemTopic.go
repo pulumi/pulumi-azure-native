@@ -10,7 +10,7 @@ import (
 // EventGrid System Topic.
 func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
 	var rv LookupSystemTopicResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20201015preview:getSystemTopic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getSystemTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -59,25 +59,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datafactory:DataFlow":
+            case "azure-native:datafactory:DataFlow":
                 return new DataFlow(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:Dataset":
+            case "azure-native:datafactory:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:Factory":
+            case "azure-native:datafactory:Factory":
                 return new Factory(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:IntegrationRuntime":
+            case "azure-native:datafactory:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:LinkedService":
+            case "azure-native:datafactory:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:ManagedPrivateEndpoint":
+            case "azure-native:datafactory:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:Pipeline":
+            case "azure-native:datafactory:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory:Trigger":
+            case "azure-native:datafactory:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datafactory", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datafactory", _module)

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20190901Preview.Inputs
+namespace Pulumi.AzureNative.Peering.V20190901Preview.Inputs
 {
 
     /// <summary>
@@ -19,25 +19,25 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview.Inputs
         /// The family of the peering SKU.
         /// </summary>
         [Input("family")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190901Preview.Family>? Family { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190901Preview.Family>? Family { get; set; }
 
         /// <summary>
         /// The name of the peering SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190901Preview.Name>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190901Preview.Name>? Name { get; set; }
 
         /// <summary>
         /// The size of the peering SKU.
         /// </summary>
         [Input("size")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190901Preview.Size>? Size { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190901Preview.Size>? Size { get; set; }
 
         /// <summary>
         /// The tier of the peering SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190901Preview.Tier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20190901Preview.Tier>? Tier { get; set; }
 
         public PeeringSkuArgs()
         {

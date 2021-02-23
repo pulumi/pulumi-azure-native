@@ -22,7 +22,7 @@ export class MigrationConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:MigrationConfig';
+    public static readonly __pulumiType = 'azure-native:servicebus:MigrationConfig';
 
     /**
      * Returns true if the given object is an instance of MigrationConfig.  This is designed to work even
@@ -112,7 +112,7 @@ export class MigrationConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20170401:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:MigrationConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:MigrationConfig" }, { type: "azure-nextgen:servicebus/latest:MigrationConfig" }, { type: "azure-native:servicebus/v20170401:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20170401:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:MigrationConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MigrationConfig.__pulumiType, name, inputs, opts);
     }

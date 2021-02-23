@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
+namespace Pulumi.AzureNative.Network.V20180801.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Type of Actions
         /// </summary>
         [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Action> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180801.Action> Action { get; set; } = null!;
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;
@@ -61,17 +61,17 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Describes type of rule
         /// </summary>
         [Input("ruleType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.RuleType> RuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180801.RuleType> RuleType { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20180801.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20180801.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.Transform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.V20180801.Transform>>());
             set => _transforms = value;
         }
 

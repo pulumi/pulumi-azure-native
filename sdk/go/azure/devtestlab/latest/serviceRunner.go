@@ -14,7 +14,7 @@ import (
 // A container for a managed identity to execute DevTest lab services.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceRunner'.
 type ServiceRunner struct {
 	pulumi.CustomResourceState
 
@@ -45,10 +45,19 @@ func NewServiceRunner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceRunner"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:ServiceRunner"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceRunner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceRunner"),
@@ -56,7 +65,7 @@ func NewServiceRunner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceRunner
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:ServiceRunner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:ServiceRunner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewServiceRunner(ctx *pulumi.Context,
 func GetServiceRunner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceRunnerState, opts ...pulumi.ResourceOption) (*ServiceRunner, error) {
 	var resource ServiceRunner
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:ServiceRunner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:ServiceRunner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

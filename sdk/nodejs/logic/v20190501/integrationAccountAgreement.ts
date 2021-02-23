@@ -22,7 +22,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20190501:IntegrationAccountAgreement';
+    public static readonly __pulumiType = 'azure-native:logic/v20190501:IntegrationAccountAgreement';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccountAgreement.  This is designed to work even
@@ -160,7 +160,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/latest:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic:IntegrationAccountAgreement" }, { type: "azure-native:logic/latest:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/latest:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
     }

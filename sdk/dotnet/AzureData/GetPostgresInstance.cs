@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData
+namespace Pulumi.AzureNative.AzureData
 {
     public static class GetPostgresInstance
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AzureData
         /// API Version: 2020-09-08-preview.
         /// </summary>
         public static Task<GetPostgresInstanceResult> InvokeAsync(GetPostgresInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPostgresInstanceResult>("azure-nextgen:azuredata:getPostgresInstance", args ?? new GetPostgresInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPostgresInstanceResult>("azure-native:azuredata:getPostgresInstance", args ?? new GetPostgresInstanceArgs(), options.WithVersion());
     }
 
 

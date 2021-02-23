@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
+namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
 {
     /// <summary>
     /// The remediation definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup")]
+    [AzureNativeResourceType("azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup")]
     public partial class RemediationAtResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemediationAtResourceGroup(string name, RemediationAtResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup", name, args ?? new RemediationAtResourceGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup", name, args ?? new RemediationAtResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemediationAtResourceGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup"},
                 },
             };

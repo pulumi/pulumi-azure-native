@@ -21,7 +21,7 @@ export class ScopeAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managednetwork/v20190601preview:ScopeAssignment';
+    public static readonly __pulumiType = 'azure-native:managednetwork/v20190601preview:ScopeAssignment';
 
     /**
      * Returns true if the given object is an instance of ScopeAssignment.  This is designed to work even
@@ -95,7 +95,7 @@ export class ScopeAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managednetwork:ScopeAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetwork:ScopeAssignment" }, { type: "azure-nextgen:managednetwork:ScopeAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScopeAssignment.__pulumiType, name, inputs, opts);
     }

@@ -50,31 +50,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:securityinsights/v20190101preview:Action":
+            case "azure-native:securityinsights/v20190101preview:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:AlertRule":
+            case "azure-native:securityinsights/v20190101preview:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:Bookmark":
+            case "azure-native:securityinsights/v20190101preview:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:BookmarkRelation":
+            case "azure-native:securityinsights/v20190101preview:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:DataConnector":
+            case "azure-native:securityinsights/v20190101preview:DataConnector":
                 return new DataConnector(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:Incident":
+            case "azure-native:securityinsights/v20190101preview:Incident":
                 return new Incident(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:IncidentComment":
+            case "azure-native:securityinsights/v20190101preview:IncidentComment":
                 return new IncidentComment(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:IncidentRelation":
+            case "azure-native:securityinsights/v20190101preview:IncidentRelation":
                 return new IncidentRelation(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:ProductSetting":
+            case "azure-native:securityinsights/v20190101preview:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator":
+            case "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator":
                 return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:Watchlist":
+            case "azure-native:securityinsights/v20190101preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "securityinsights/v20190101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "securityinsights/v20190101preview", _module)

@@ -10,10 +10,10 @@ import (
 // The metric alert resource.
 // Latest API Version: 2018-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'.
 func LookupMetricAlert(ctx *pulumi.Context, args *LookupMetricAlertArgs, opts ...pulumi.InvokeOption) (*LookupMetricAlertResult, error) {
 	var rv LookupMetricAlertResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getMetricAlert", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getMetricAlert", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

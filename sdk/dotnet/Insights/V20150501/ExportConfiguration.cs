@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// Properties that define a Continuous Export configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:ExportConfiguration")]
+    [AzureNativeResourceType("azure-native:insights/v20150501:ExportConfiguration")]
     public partial class ExportConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExportConfiguration(string name, ExportConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:ExportConfiguration", name, args ?? new ExportConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20150501:ExportConfiguration", name, args ?? new ExportConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExportConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:ExportConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20150501:ExportConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,7 +154,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ExportConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ExportConfiguration"},
                 },
             };

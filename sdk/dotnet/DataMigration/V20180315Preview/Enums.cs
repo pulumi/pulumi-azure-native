@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview
+namespace Pulumi.AzureNative.DataMigration.V20180315Preview
 {
     /// <summary>
     /// Authentication type to use for connection

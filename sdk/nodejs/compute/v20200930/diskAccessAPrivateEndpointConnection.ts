@@ -22,7 +22,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of DiskAccessAPrivateEndpointConnection.  This is designed to work even
@@ -97,7 +97,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20190601:getRunbook", {
+    return pulumi.runtime.invoke("azure-native:automation/v20190601:getRunbook", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "runbookName": args.runbookName,

@@ -17,7 +17,7 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights:getAlertRule", {
+    return pulumi.runtime.invoke("azure-native:securityinsights:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,
         "workspaceName": args.workspaceName,

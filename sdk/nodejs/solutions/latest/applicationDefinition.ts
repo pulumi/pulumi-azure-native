@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Information about managed application definition.
  * Latest API Version: 2019-07-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:ApplicationDefinition'.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationDefinition {
-        pulumi.log.warn("ApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'.")
+        pulumi.log.warn("ApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:ApplicationDefinition'.")
         return new ApplicationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:solutions/latest:ApplicationDefinition';
+    public static readonly __pulumiType = 'azure-native:solutions/latest:ApplicationDefinition';
 
     /**
      * Returns true if the given object is an instance of ApplicationDefinition.  This is designed to work even
@@ -127,9 +127,9 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:ApplicationDefinition'. */
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:ApplicationDefinition'.")
+        pulumi.log.warn("ApplicationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:ApplicationDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
@@ -189,7 +189,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20170901:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20180601:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-nextgen:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplicationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationDefinition.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityGroupResult, error) {
 	var rv LookupNetworkSecurityGroupResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkSecurityGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkSecurityGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

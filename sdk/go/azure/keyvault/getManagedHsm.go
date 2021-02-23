@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupManagedHsm(ctx *pulumi.Context, args *LookupManagedHsmArgs, opts ...pulumi.InvokeOption) (*LookupManagedHsmResult, error) {
 	var rv LookupManagedHsmResult
-	err := ctx.Invoke("azure-nextgen:keyvault:getManagedHsm", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault:getManagedHsm", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

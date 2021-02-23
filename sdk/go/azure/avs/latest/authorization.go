@@ -14,7 +14,7 @@ import (
 // ExpressRoute Circuit Authorization
 // Latest API Version: 2020-03-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.
 type Authorization struct {
 	pulumi.CustomResourceState
 
@@ -45,13 +45,25 @@ func NewAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:Authorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:Authorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200320:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Authorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:Authorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Authorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Authorization"),
@@ -59,7 +71,7 @@ func NewAuthorization(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Authorization
-	err := ctx.RegisterResource("azure-nextgen:avs/latest:Authorization", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/latest:Authorization", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +83,7 @@ func NewAuthorization(ctx *pulumi.Context,
 func GetAuthorization(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AuthorizationState, opts ...pulumi.ResourceOption) (*Authorization, error) {
 	var resource Authorization
-	err := ctx.ReadResource("azure-nextgen:avs/latest:Authorization", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/latest:Authorization", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

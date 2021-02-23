@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeFirst'.
  */
 export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SkusNestedResourceTypeFirst {
-        pulumi.log.warn("SkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'.")
+        pulumi.log.warn("SkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeFirst'.")
         return new SkusNestedResourceTypeFirst(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst';
+    public static readonly __pulumiType = 'azure-native:providerhub/latest:SkusNestedResourceTypeFirst';
 
     /**
      * Returns true if the given object is an instance of SkusNestedResourceTypeFirst.  This is designed to work even
@@ -55,9 +55,9 @@ export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeFirst'. */
     constructor(name: string, args: SkusNestedResourceTypeFirstArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:SkusNestedResourceTypeFirst'.")
+        pulumi.log.warn("SkusNestedResourceTypeFirst is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:SkusNestedResourceTypeFirst'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.nestedResourceTypeFirst === undefined) && !(opts && opts.urn)) {
@@ -92,7 +92,7 @@ export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:SkusNestedResourceTypeFirst" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub:SkusNestedResourceTypeFirst" }, { type: "azure-nextgen:providerhub:SkusNestedResourceTypeFirst" }, { type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SkusNestedResourceTypeFirst.__pulumiType, name, inputs, opts);
     }

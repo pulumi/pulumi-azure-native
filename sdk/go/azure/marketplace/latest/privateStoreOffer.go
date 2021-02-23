@@ -14,7 +14,7 @@ import (
 // The privateStore offer data structure.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:marketplace:PrivateStoreOffer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:marketplace:PrivateStoreOffer'.
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 
@@ -58,7 +58,13 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:marketplace:PrivateStoreOffer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
+		},
+		{
+			Type: pulumi.String("azure-native:marketplace/v20200101:PrivateStoreOffer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:marketplace/v20200101:PrivateStoreOffer"),
@@ -66,7 +72,7 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateStoreOffer
-	err := ctx.RegisterResource("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:marketplace/latest:PrivateStoreOffer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +84,7 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 func GetPrivateStoreOffer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateStoreOfferState, opts ...pulumi.ResourceOption) (*PrivateStoreOffer, error) {
 	var resource PrivateStoreOffer
-	err := ctx.ReadResource("azure-nextgen:marketplace/latest:PrivateStoreOffer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:marketplace/latest:PrivateStoreOffer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

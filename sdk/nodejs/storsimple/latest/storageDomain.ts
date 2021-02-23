@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The storage domain.
  * Latest API Version: 2016-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.
  */
 export class StorageDomain extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class StorageDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageDomain {
-        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.")
+        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.")
         return new StorageDomain(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:StorageDomain';
+    public static readonly __pulumiType = 'azure-native:storsimple/latest:StorageDomain';
 
     /**
      * Returns true if the given object is an instance of StorageDomain.  This is designed to work even
@@ -67,9 +67,9 @@ export class StorageDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'. */
     constructor(name: string, args: StorageDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:StorageDomain'.")
+        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.encryptionStatus === undefined) && !(opts && opts.urn)) {
@@ -106,7 +106,7 @@ export class StorageDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:StorageDomain" }, { type: "azure-nextgen:storsimple:StorageDomain" }, { type: "azure-native:storsimple/v20161001:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageDomain.__pulumiType, name, inputs, opts);
     }

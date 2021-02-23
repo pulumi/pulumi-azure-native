@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
+namespace Pulumi.AzureNative.Logic.Latest.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The encryption algorithm.
         /// </summary>
         [Input("encryptionAlgorithm", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// The number of days to look back for duplicate interchange.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The signing algorithm.
         /// </summary>
         [Input("signingAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.SigningAlgorithm>? SigningAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.SigningAlgorithm>? SigningAlgorithm { get; set; }
 
         public AS2ValidationSettingsArgs()
         {

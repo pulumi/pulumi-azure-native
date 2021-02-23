@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Describes an identity resource.
  * Latest API Version: 2018-11-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedidentity:UserAssignedIdentity'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedidentity:UserAssignedIdentity'.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserAssignedIdentity {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedidentity:UserAssignedIdentity'.")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedidentity:UserAssignedIdentity'.")
         return new UserAssignedIdentity(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managedidentity/latest:UserAssignedIdentity';
+    public static readonly __pulumiType = 'azure-native:managedidentity/latest:UserAssignedIdentity';
 
     /**
      * Returns true if the given object is an instance of UserAssignedIdentity.  This is designed to work even
@@ -74,9 +74,9 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedidentity:UserAssignedIdentity'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedidentity:UserAssignedIdentity'. */
     constructor(name: string, args: UserAssignedIdentityArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedidentity:UserAssignedIdentity'.")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedidentity:UserAssignedIdentity'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +107,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedidentity:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20181130:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }

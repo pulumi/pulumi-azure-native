@@ -14,7 +14,7 @@ import (
 // Response to put/get patch schedules for Redis cache.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:PatchSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:PatchSchedule'.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 
@@ -44,16 +44,31 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:PatchSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:PatchSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20171001:PatchSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:PatchSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20180301:PatchSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:PatchSchedule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:PatchSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:PatchSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:PatchSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:PatchSchedule"),
@@ -61,7 +76,7 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PatchSchedule
-	err := ctx.RegisterResource("azure-nextgen:cache/latest:PatchSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/latest:PatchSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +88,7 @@ func NewPatchSchedule(ctx *pulumi.Context,
 func GetPatchSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PatchScheduleState, opts ...pulumi.ResourceOption) (*PatchSchedule, error) {
 	var resource PatchSchedule
-	err := ctx.ReadResource("azure-nextgen:cache/latest:PatchSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/latest:PatchSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

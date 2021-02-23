@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A report config resource.
  * Latest API Version: 2018-05-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.
  */
 export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReportConfigByResourceGroupName {
-        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.")
+        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.")
         return new ReportConfigByResourceGroupName(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName';
+    public static readonly __pulumiType = 'azure-native:costmanagement/latest:ReportConfigByResourceGroupName';
 
     /**
      * Returns true if the given object is an instance of ReportConfigByResourceGroupName.  This is designed to work even
@@ -75,9 +75,9 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'. */
     constructor(name: string, args: ReportConfigByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.")
+        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
@@ -114,7 +114,7 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:ReportConfigByResourceGroupName" }, { type: "azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportConfigByResourceGroupName" }, { type: "azure-nextgen:costmanagement:ReportConfigByResourceGroupName" }, { type: "azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName" }, { type: "azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportConfigByResourceGroupName.__pulumiType, name, inputs, opts);
     }

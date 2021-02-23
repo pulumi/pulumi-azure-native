@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// We currently support Main. Default is Auto.
         /// </summary>
         [Input("profile")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.H265VideoProfile>? Profile { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.H265VideoProfile>? Profile { get; set; }
 
         /// <summary>
         /// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.

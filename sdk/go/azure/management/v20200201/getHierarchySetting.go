@@ -10,7 +10,7 @@ import (
 // Settings defined at the Management Group scope.
 func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArgs, opts ...pulumi.InvokeOption) (*LookupHierarchySettingResult, error) {
 	var rv LookupHierarchySettingResult
-	err := ctx.Invoke("azure-nextgen:management/v20200201:getHierarchySetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management/v20200201:getHierarchySetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

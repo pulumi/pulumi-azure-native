@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Subscription.V20200901
+namespace Pulumi.AzureNative.Subscription.V20200901
 {
     /// <summary>
     /// The workload type of the subscription. It can be either Production or DevTest.

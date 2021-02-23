@@ -10,7 +10,7 @@ import (
 // The gateway definition
 func LookupConnectionGateway(ctx *pulumi.Context, args *LookupConnectionGatewayArgs, opts ...pulumi.InvokeOption) (*LookupConnectionGatewayResult, error) {
 	var rv LookupConnectionGatewayResult
-	err := ctx.Invoke("azure-nextgen:web/v20160601:getConnectionGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160601:getConnectionGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

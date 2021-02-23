@@ -10,7 +10,7 @@ import (
 // Peering in an ExpressRoute Cross Connection resource.
 func LookupExpressRouteCrossConnectionPeering(ctx *pulumi.Context, args *LookupExpressRouteCrossConnectionPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCrossConnectionPeeringResult, error) {
 	var rv LookupExpressRouteCrossConnectionPeeringResult
-	err := ctx.Invoke("azure-nextgen:network/v20190401:getExpressRouteCrossConnectionPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190401:getExpressRouteCrossConnectionPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

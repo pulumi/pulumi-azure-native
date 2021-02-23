@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:streamanalytics/v20160301:Function":
+            case "azure-native:streamanalytics/v20160301:Function":
                 return new Function(name, <any>undefined, { urn })
-            case "azure-nextgen:streamanalytics/v20160301:Input":
+            case "azure-native:streamanalytics/v20160301:Input":
                 return new Input(name, <any>undefined, { urn })
-            case "azure-nextgen:streamanalytics/v20160301:Output":
+            case "azure-native:streamanalytics/v20160301:Output":
                 return new Output(name, <any>undefined, { urn })
-            case "azure-nextgen:streamanalytics/v20160301:StreamingJob":
+            case "azure-native:streamanalytics/v20160301:StreamingJob":
                 return new StreamingJob(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "streamanalytics/v20160301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "streamanalytics/v20160301", _module)

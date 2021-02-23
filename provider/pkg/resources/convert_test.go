@@ -11,7 +11,7 @@ import (
 
 var resourceMap = &AzureAPIMetadata{
 	Types: map[string]AzureAPIType{
-		"azure-nextgen:testing:Structure": {
+		"azure-native:testing:Structure": {
 			Properties: map[string]AzureAPIProperty{
 				"v1": {},
 				"v2": {},
@@ -24,7 +24,7 @@ var resourceMap = &AzureAPIMetadata{
 				},
 			},
 		},
-		"azure-nextgen:testing:StructureResponse": {
+		"azure-native:testing:StructureResponse": {
 			Properties: map[string]AzureAPIProperty{
 				"v1": {},
 				"v2": {},
@@ -38,22 +38,22 @@ var resourceMap = &AzureAPIMetadata{
 				"v5ReadOnly": {},
 			},
 		},
-		"azure-nextgen:testing:More": {
+		"azure-native:testing:More": {
 			Properties: map[string]AzureAPIProperty{
 				"items": {
 					Items: &AzureAPIProperty{
-						Ref: "#/types/azure-nextgen:testing:MoreItem",
+						Ref: "#/types/azure-native:testing:MoreItem",
 					},
 				},
 				"itemsMap": {
 					Type: "object",
 					AdditionalProperties: &AzureAPIProperty{
-						Ref: "#/types/azure-nextgen:testing:MoreItem",
+						Ref: "#/types/azure-native:testing:MoreItem",
 					},
 				},
 			},
 		},
-		"azure-nextgen:testing:MoreItem": {
+		"azure-native:testing:MoreItem": {
 			Properties: map[string]AzureAPIProperty{
 				"aaa": {
 					SdkName: "Aaa",
@@ -63,7 +63,7 @@ var resourceMap = &AzureAPIMetadata{
 				},
 			},
 		},
-		"azure-nextgen:testing:OptionA": {
+		"azure-native:testing:OptionA": {
 			Properties: map[string]AzureAPIProperty{
 				"type": {
 					Const: "AAA",
@@ -73,7 +73,7 @@ var resourceMap = &AzureAPIMetadata{
 				},
 			},
 		},
-		"azure-nextgen:testing:OptionB": {
+		"azure-native:testing:OptionB": {
 			Properties: map[string]AzureAPIProperty{
 				"type": {
 					Const: "BBB",
@@ -96,7 +96,7 @@ var resourceMap = &AzureAPIMetadata{
 								SdkName: "threshold",
 							},
 							"structure": {
-								Ref: "#/types/azure-nextgen:testing:Structure",
+								Ref: "#/types/azure-native:testing:Structure",
 							},
 							"p1": {
 								Containers: []string{"properties"},
@@ -109,10 +109,10 @@ var resourceMap = &AzureAPIMetadata{
 							},
 							"more": {
 								Containers: []string{"properties"},
-								Ref:        "#/types/azure-nextgen:testing:More",
+								Ref:        "#/types/azure-native:testing:More",
 							},
 							"union": {
-								OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
+								OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
 							},
 							"tags":         {},
 							"untypedArray": {},
@@ -141,7 +141,7 @@ var resourceMap = &AzureAPIMetadata{
 					SdkName: "threshold",
 				},
 				"structure": {
-					Ref: "#/types/azure-nextgen:testing:StructureResponse",
+					Ref: "#/types/azure-native:testing:StructureResponse",
 				},
 				"p1": {
 					Containers: []string{"properties"},
@@ -154,10 +154,10 @@ var resourceMap = &AzureAPIMetadata{
 				},
 				"more": {
 					Containers: []string{"properties"},
-					Ref:        "#/types/azure-nextgen:testing:More",
+					Ref:        "#/types/azure-native:testing:More",
 				},
 				"union": {
-					OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
+					OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
 				},
 				"tags":         {},
 				"untypedArray": {},

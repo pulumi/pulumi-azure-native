@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourceResult, error) {
 	var rv LookupIotDpsResourceResult
-	err := ctx.Invoke("azure-nextgen:devices:getIotDpsResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getIotDpsResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

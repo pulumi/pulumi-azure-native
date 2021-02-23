@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents the list of environments owned by a user
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserEnvironments'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserEnvironments'. */
 export function listGlobalUserEnvironments(args: ListGlobalUserEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserEnvironmentsResult> {
-    pulumi.log.warn("listGlobalUserEnvironments is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserEnvironments'.")
+    pulumi.log.warn("listGlobalUserEnvironments is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserEnvironments'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listGlobalUserEnvironments(args: ListGlobalUserEnvironmentsArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:listGlobalUserEnvironments", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:listGlobalUserEnvironments", {
         "labId": args.labId,
         "userName": args.userName,
     }, opts);

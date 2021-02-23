@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
+namespace Pulumi.AzureNative.Logic.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The signing or hashing algorithm.
         /// </summary>
         [Input("micHashingAlgorithm", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.HashingAlgorithm> MicHashingAlgorithm { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.HashingAlgorithm> MicHashingAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether to send or request a MDN.

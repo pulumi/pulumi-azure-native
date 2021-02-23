@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.V20200101PrivatePreview
+namespace Pulumi.AzureNative.DBforMySQL.V20200101PrivatePreview
 {
     /// <summary>
     /// The key type like 'AzureKeyVault'.

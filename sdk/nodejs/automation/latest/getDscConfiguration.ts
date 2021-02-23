@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the configuration type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscConfiguration'. */
 export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscConfigurationResult> {
-    pulumi.log.warn("getDscConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscConfiguration'.")
+    pulumi.log.warn("getDscConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getDscConfiguration", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getDscConfiguration", {
         "automationAccountName": args.automationAccountName,
         "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,

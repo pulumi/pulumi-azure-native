@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Media.V20180701
+namespace Pulumi.AzureNative.Media.V20180701
 {
     /// <summary>
     /// The encoding profile to be used when encoding audio with AAC.

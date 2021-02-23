@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnectionSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnectionSlot'. */
 export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionSlotResult> {
-    pulumi.log.warn("getWebAppHybridConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppHybridConnectionSlot'.")
+    pulumi.log.warn("getWebAppHybridConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnectionSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppHybridConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppHybridConnectionSlot", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

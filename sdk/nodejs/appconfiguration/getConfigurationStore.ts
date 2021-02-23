@@ -17,7 +17,7 @@ export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appconfiguration:getConfigurationStore", {
+    return pulumi.runtime.invoke("azure-native:appconfiguration:getConfigurationStore", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

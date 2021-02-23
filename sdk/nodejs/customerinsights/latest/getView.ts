@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The view resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getView'. */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-    pulumi.log.warn("getView is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getView'.")
+    pulumi.log.warn("getView is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getView'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getView", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getView", {
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,
         "userId": args.userId,

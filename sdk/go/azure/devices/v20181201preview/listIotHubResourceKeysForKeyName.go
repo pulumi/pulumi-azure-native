@@ -10,7 +10,7 @@ import (
 // The properties of an IoT hub shared access policy.
 func ListIotHubResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotHubResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotHubResourceKeysForKeyNameResult, error) {
 	var rv ListIotHubResourceKeysForKeyNameResult
-	err := ctx.Invoke("azure-nextgen:devices/v20181201preview:listIotHubResourceKeysForKeyName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20181201preview:listIotHubResourceKeysForKeyName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

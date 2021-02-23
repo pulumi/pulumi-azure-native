@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20170901.Inputs
+namespace Pulumi.AzureNative.Batch.V20170901.Inputs
 {
 
     public sealed class OSDiskArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170901.Inputs
         /// Default value is none.
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNextGen.Batch.V20170901.CachingType>? Caching { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20170901.CachingType>? Caching { get; set; }
 
         public OSDiskArgs()
         {

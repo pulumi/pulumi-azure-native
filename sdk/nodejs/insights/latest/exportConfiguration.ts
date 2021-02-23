@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Properties that define a Continuous Export configuration.
  * Latest API Version: 2015-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.
  */
 export class ExportConfiguration extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExportConfiguration {
-        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.")
+        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.")
         return new ExportConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:ExportConfiguration';
+    public static readonly __pulumiType = 'azure-native:insights/latest:ExportConfiguration';
 
     /**
      * Returns true if the given object is an instance of ExportConfiguration.  This is designed to work even
@@ -122,9 +122,9 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'. */
     constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ExportConfiguration'.")
+        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -185,7 +185,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ExportConfiguration" }, { type: "azure-nextgen:insights/v20150501:ExportConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ExportConfiguration" }, { type: "azure-nextgen:insights:ExportConfiguration" }, { type: "azure-native:insights/v20150501:ExportConfiguration" }, { type: "azure-nextgen:insights/v20150501:ExportConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExportConfiguration.__pulumiType, name, inputs, opts);
     }

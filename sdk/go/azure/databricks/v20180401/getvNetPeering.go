@@ -10,7 +10,7 @@ import (
 // Peerings in a VirtualNetwork resource
 func GetvNetPeering(ctx *pulumi.Context, args *GetvNetPeeringArgs, opts ...pulumi.InvokeOption) (*GetvNetPeeringResult, error) {
 	var rv GetvNetPeeringResult
-	err := ctx.Invoke("azure-nextgen:databricks/v20180401:getvNetPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databricks/v20180401:getvNetPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

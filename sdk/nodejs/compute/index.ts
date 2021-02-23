@@ -134,57 +134,57 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute:AvailabilitySet":
+            case "azure-native:compute:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:DedicatedHost":
+            case "azure-native:compute:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:DedicatedHostGroup":
+            case "azure-native:compute:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:Disk":
+            case "azure-native:compute:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:DiskAccess":
+            case "azure-native:compute:DiskAccess":
                 return new DiskAccess(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection":
+            case "azure-native:compute:DiskAccessAPrivateEndpointConnection":
                 return new DiskAccessAPrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:DiskEncryptionSet":
+            case "azure-native:compute:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:Gallery":
+            case "azure-native:compute:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:GalleryApplication":
+            case "azure-native:compute:GalleryApplication":
                 return new GalleryApplication(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:GalleryApplicationVersion":
+            case "azure-native:compute:GalleryApplicationVersion":
                 return new GalleryApplicationVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:GalleryImage":
+            case "azure-native:compute:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:GalleryImageVersion":
+            case "azure-native:compute:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:Image":
+            case "azure-native:compute:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:ProximityPlacementGroup":
+            case "azure-native:compute:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:Snapshot":
+            case "azure-native:compute:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:SshPublicKey":
+            case "azure-native:compute:SshPublicKey":
                 return new SshPublicKey(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachine":
+            case "azure-native:compute:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineExtension":
+            case "azure-native:compute:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine":
+            case "azure-native:compute:VirtualMachineRunCommandByVirtualMachine":
                 return new VirtualMachineRunCommandByVirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineScaleSet":
+            case "azure-native:compute:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineScaleSetExtension":
+            case "azure-native:compute:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineScaleSetVM":
+            case "azure-native:compute:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineScaleSetVMExtension":
+            case "azure-native:compute:VirtualMachineScaleSetVMExtension":
                 return new VirtualMachineScaleSetVMExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand":
+            case "azure-native:compute:VirtualMachineScaleSetVMRunCommand":
                 return new VirtualMachineScaleSetVMRunCommand(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute", _module)

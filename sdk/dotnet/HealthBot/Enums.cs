@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HealthBot
+namespace Pulumi.AzureNative.HealthBot
 {
     /// <summary>
     /// The name of the HealthBot SKU

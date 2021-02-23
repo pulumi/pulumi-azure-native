@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     public static class GetImage
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-nextgen:compute:getImage", args ?? new GetImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageArgs(), options.WithVersion());
     }
 
 

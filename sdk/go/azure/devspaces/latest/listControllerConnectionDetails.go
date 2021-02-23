@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devspaces:listControllerConnectionDetails'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:listControllerConnectionDetails'.
 func ListControllerConnectionDetails(ctx *pulumi.Context, args *ListControllerConnectionDetailsArgs, opts ...pulumi.InvokeOption) (*ListControllerConnectionDetailsResult, error) {
 	var rv ListControllerConnectionDetailsResult
-	err := ctx.Invoke("azure-nextgen:devspaces/latest:listControllerConnectionDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devspaces/latest:listControllerConnectionDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

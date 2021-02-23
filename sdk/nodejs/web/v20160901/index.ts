@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:web/v20160901:AppServiceEnvironment":
+            case "azure-native:web/v20160901:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160901:AppServicePlan":
+            case "azure-native:web/v20160901:AppServicePlan":
                 return new AppServicePlan(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet":
+            case "azure-native:web/v20160901:AppServicePlanRouteForVnet":
                 return new AppServicePlanRouteForVnet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "web/v20160901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "web/v20160901", _module)

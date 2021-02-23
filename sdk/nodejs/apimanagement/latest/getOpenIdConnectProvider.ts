@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * OpenId Connect Provider details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getOpenIdConnectProvider'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getOpenIdConnectProvider'. */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
-    pulumi.log.warn("getOpenIdConnectProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getOpenIdConnectProvider'.")
+    pulumi.log.warn("getOpenIdConnectProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getOpenIdConnectProvider'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getOpenIdConnectProvider", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getOpenIdConnectProvider", {
         "opid": args.opid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

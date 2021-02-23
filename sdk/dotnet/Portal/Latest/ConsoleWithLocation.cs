@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest
+namespace Pulumi.AzureNative.Portal.Latest
 {
     /// <summary>
     /// Cloud shell console
     /// Latest API Version: 2018-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:ConsoleWithLocation'.")]
-    [AzureNextGenResourceType("azure-nextgen:portal/latest:ConsoleWithLocation")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:ConsoleWithLocation'.")]
+    [AzureNativeResourceType("azure-native:portal/latest:ConsoleWithLocation")]
     public partial class ConsoleWithLocation : Pulumi.CustomResource
     {
         /// <summary>
@@ -32,12 +32,12 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConsoleWithLocation(string name, ConsoleWithLocationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/latest:ConsoleWithLocation", name, args ?? new ConsoleWithLocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal/latest:ConsoleWithLocation", name, args ?? new ConsoleWithLocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConsoleWithLocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/latest:ConsoleWithLocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal/latest:ConsoleWithLocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -48,7 +48,9 @@ namespace Pulumi.AzureNextGen.Portal.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:ConsoleWithLocation"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20181001:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:ConsoleWithLocation"},
                 },
             };

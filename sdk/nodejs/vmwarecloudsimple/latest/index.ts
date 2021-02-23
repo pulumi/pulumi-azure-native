@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode":
+            case "azure-native:vmwarecloudsimple/latest:DedicatedCloudNode":
                 return new DedicatedCloudNode(name, <any>undefined, { urn })
-            case "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService":
+            case "azure-native:vmwarecloudsimple/latest:DedicatedCloudService":
                 return new DedicatedCloudService(name, <any>undefined, { urn })
-            case "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine":
+            case "azure-native:vmwarecloudsimple/latest:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "vmwarecloudsimple/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "vmwarecloudsimple/latest", _module)

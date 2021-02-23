@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of subscription resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getSubscription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getSubscription'. */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
-    pulumi.log.warn("getSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getSubscription'.")
+    pulumi.log.warn("getSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getSubscription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getSubscription", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getSubscription", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionName": args.subscriptionName,

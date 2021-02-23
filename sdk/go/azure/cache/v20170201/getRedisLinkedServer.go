@@ -10,7 +10,7 @@ import (
 // Response to put/get linked server (with properties) for Redis cache.
 func LookupRedisLinkedServer(ctx *pulumi.Context, args *LookupRedisLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupRedisLinkedServerResult, error) {
 	var rv LookupRedisLinkedServerResult
-	err := ctx.Invoke("azure-nextgen:cache/v20170201:getRedisLinkedServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20170201:getRedisLinkedServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

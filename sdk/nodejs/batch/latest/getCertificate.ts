@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Contains information about a certificate.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getCertificate'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getCertificate'. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getCertificate'.")
+    pulumi.log.warn("getCertificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getCertificate'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/latest:getCertificate", {
+    return pulumi.runtime.invoke("azure-native:batch/latest:getCertificate", {
         "accountName": args.accountName,
         "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,

@@ -164,105 +164,105 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20190201:ApplicationGateway":
+            case "azure-native:network/v20190201:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ApplicationSecurityGroup":
+            case "azure-native:network/v20190201:ApplicationSecurityGroup":
                 return new ApplicationSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:AzureFirewall":
+            case "azure-native:network/v20190201:AzureFirewall":
                 return new AzureFirewall(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ConnectionMonitor":
+            case "azure-native:network/v20190201:ConnectionMonitor":
                 return new ConnectionMonitor(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:DdosCustomPolicy":
+            case "azure-native:network/v20190201:DdosCustomPolicy":
                 return new DdosCustomPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:DdosProtectionPlan":
+            case "azure-native:network/v20190201:DdosProtectionPlan":
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteCircuit":
+            case "azure-native:network/v20190201:ExpressRouteCircuit":
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteCircuitAuthorization":
+            case "azure-native:network/v20190201:ExpressRouteCircuitAuthorization":
                 return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteCircuitConnection":
+            case "azure-native:network/v20190201:ExpressRouteCircuitConnection":
                 return new ExpressRouteCircuitConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteCircuitPeering":
+            case "azure-native:network/v20190201:ExpressRouteCircuitPeering":
                 return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteConnection":
+            case "azure-native:network/v20190201:ExpressRouteConnection":
                 return new ExpressRouteConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteCrossConnectionPeering":
+            case "azure-native:network/v20190201:ExpressRouteCrossConnectionPeering":
                 return new ExpressRouteCrossConnectionPeering(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRouteGateway":
+            case "azure-native:network/v20190201:ExpressRouteGateway":
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ExpressRoutePort":
+            case "azure-native:network/v20190201:ExpressRoutePort":
                 return new ExpressRoutePort(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:InboundNatRule":
+            case "azure-native:network/v20190201:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:InterfaceEndpoint":
+            case "azure-native:network/v20190201:InterfaceEndpoint":
                 return new InterfaceEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:LoadBalancer":
+            case "azure-native:network/v20190201:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:LocalNetworkGateway":
+            case "azure-native:network/v20190201:LocalNetworkGateway":
                 return new LocalNetworkGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NatGateway":
+            case "azure-native:network/v20190201:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NetworkInterface":
+            case "azure-native:network/v20190201:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NetworkInterfaceTapConfiguration":
+            case "azure-native:network/v20190201:NetworkInterfaceTapConfiguration":
                 return new NetworkInterfaceTapConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NetworkProfile":
+            case "azure-native:network/v20190201:NetworkProfile":
                 return new NetworkProfile(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NetworkSecurityGroup":
+            case "azure-native:network/v20190201:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:NetworkWatcher":
+            case "azure-native:network/v20190201:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:P2sVpnGateway":
+            case "azure-native:network/v20190201:P2sVpnGateway":
                 return new P2sVpnGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:P2sVpnServerConfiguration":
+            case "azure-native:network/v20190201:P2sVpnServerConfiguration":
                 return new P2sVpnServerConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:PacketCapture":
+            case "azure-native:network/v20190201:PacketCapture":
                 return new PacketCapture(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:PublicIPAddress":
+            case "azure-native:network/v20190201:PublicIPAddress":
                 return new PublicIPAddress(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:PublicIPPrefix":
+            case "azure-native:network/v20190201:PublicIPPrefix":
                 return new PublicIPPrefix(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:Route":
+            case "azure-native:network/v20190201:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:RouteFilter":
+            case "azure-native:network/v20190201:RouteFilter":
                 return new RouteFilter(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:RouteFilterRule":
+            case "azure-native:network/v20190201:RouteFilterRule":
                 return new RouteFilterRule(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:RouteTable":
+            case "azure-native:network/v20190201:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:SecurityRule":
+            case "azure-native:network/v20190201:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ServiceEndpointPolicy":
+            case "azure-native:network/v20190201:ServiceEndpointPolicy":
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:ServiceEndpointPolicyDefinition":
+            case "azure-native:network/v20190201:ServiceEndpointPolicyDefinition":
                 return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:Subnet":
+            case "azure-native:network/v20190201:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualHub":
+            case "azure-native:network/v20190201:VirtualHub":
                 return new VirtualHub(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualNetwork":
+            case "azure-native:network/v20190201:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualNetworkGateway":
+            case "azure-native:network/v20190201:VirtualNetworkGateway":
                 return new VirtualNetworkGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection":
+            case "azure-native:network/v20190201:VirtualNetworkGatewayConnection":
                 return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualNetworkPeering":
+            case "azure-native:network/v20190201:VirtualNetworkPeering":
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualNetworkTap":
+            case "azure-native:network/v20190201:VirtualNetworkTap":
                 return new VirtualNetworkTap(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VirtualWan":
+            case "azure-native:network/v20190201:VirtualWan":
                 return new VirtualWan(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VpnConnection":
+            case "azure-native:network/v20190201:VpnConnection":
                 return new VpnConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VpnGateway":
+            case "azure-native:network/v20190201:VpnGateway":
                 return new VpnGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:VpnSite":
+            case "azure-native:network/v20190201:VpnSite":
                 return new VpnSite(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20190201:WebApplicationFirewallPolicy":
+            case "azure-native:network/v20190201:WebApplicationFirewallPolicy":
                 return new WebApplicationFirewallPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20190201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20190201", _module)

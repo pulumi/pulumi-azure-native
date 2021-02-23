@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.EnableStatus>? Status { get; set; }
 
         /// <summary>
         /// Time in minutes before event at which notification will be sent.

@@ -16,7 +16,7 @@ export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getEntitiesGetTimeline", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getEntitiesGetTimeline", {
         "endTime": args.endTime,
         "entityId": args.entityId,
         "kinds": args.kinds,

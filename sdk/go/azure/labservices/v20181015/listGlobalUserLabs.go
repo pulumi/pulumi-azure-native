@@ -10,7 +10,7 @@ import (
 // Lists the labs owned by a user
 func ListGlobalUserLabs(ctx *pulumi.Context, args *ListGlobalUserLabsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserLabsResult, error) {
 	var rv ListGlobalUserLabsResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:listGlobalUserLabs", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:listGlobalUserLabs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

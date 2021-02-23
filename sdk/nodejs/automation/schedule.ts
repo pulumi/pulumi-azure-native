@@ -23,7 +23,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation:Schedule';
+    public static readonly __pulumiType = 'azure-native:automation:Schedule';
 
     /**
      * Returns true if the given object is an instance of Schedule.  This is designed to work even
@@ -170,7 +170,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:Schedule" }, { type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:Schedule" }, { type: "azure-nextgen:automation/latest:Schedule" }, { type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schedule.__pulumiType, name, inputs, opts);
     }

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
+namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
     /// <summary>
     /// Specifies the authentication type being used for connecting to the endpoint.

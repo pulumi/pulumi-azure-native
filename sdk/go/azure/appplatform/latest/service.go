@@ -14,7 +14,7 @@ import (
 // Service resource
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:Service'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -44,13 +44,25 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20201101preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:Service"),
@@ -58,7 +70,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:appplatform/latest:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/latest:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:appplatform/latest:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/latest:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

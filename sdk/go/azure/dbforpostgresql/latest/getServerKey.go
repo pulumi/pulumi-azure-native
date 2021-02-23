@@ -10,10 +10,10 @@ import (
 // A PostgreSQL Server key.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServerKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getServerKey'.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql/latest:getServerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql/latest:getServerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

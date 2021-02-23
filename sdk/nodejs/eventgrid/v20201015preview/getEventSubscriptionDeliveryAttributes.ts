@@ -16,7 +16,7 @@ export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/v20201015preview:getEventSubscriptionDeliveryAttributes", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);

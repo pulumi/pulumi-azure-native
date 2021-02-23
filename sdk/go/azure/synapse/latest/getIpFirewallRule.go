@@ -10,10 +10,10 @@ import (
 // IP firewall rule
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIpFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIpFirewallRule'.
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getIpFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getIpFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

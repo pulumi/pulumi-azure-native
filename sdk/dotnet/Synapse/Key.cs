@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse
+namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace key
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse:Key")]
+    [AzureNativeResourceType("azure-native:synapse:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Synapse
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Key(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse:Key", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse:Key", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:Key"},
                 },
             };

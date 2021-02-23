@@ -45,7 +45,13 @@ func NewPartner(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managementpartner:Partner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managementpartner:Partner"),
+		},
+		{
+			Type: pulumi.String("azure-native:managementpartner/latest:Partner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managementpartner/latest:Partner"),
@@ -53,7 +59,7 @@ func NewPartner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Partner
-	err := ctx.RegisterResource("azure-nextgen:managementpartner/v20180201:Partner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managementpartner/v20180201:Partner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +71,7 @@ func NewPartner(ctx *pulumi.Context,
 func GetPartner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PartnerState, opts ...pulumi.ResourceOption) (*Partner, error) {
 	var resource Partner
-	err := ctx.ReadResource("azure-nextgen:managementpartner/v20180201:Partner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managementpartner/v20180201:Partner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

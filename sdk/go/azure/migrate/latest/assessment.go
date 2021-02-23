@@ -14,7 +14,7 @@ import (
 // An assessment created for a group in the Migration project.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Assessment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:Assessment'.
 type Assessment struct {
 	pulumi.CustomResourceState
 
@@ -49,7 +49,13 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:Assessment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:Assessment"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20191001:Assessment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:Assessment"),
@@ -57,7 +63,7 @@ func NewAssessment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Assessment
-	err := ctx.RegisterResource("azure-nextgen:migrate/latest:Assessment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/latest:Assessment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewAssessment(ctx *pulumi.Context,
 func GetAssessment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssessmentState, opts ...pulumi.ResourceOption) (*Assessment, error) {
 	var resource Assessment
-	err := ctx.ReadResource("azure-nextgen:migrate/latest:Assessment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/latest:Assessment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

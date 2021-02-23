@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A class represents the access keys of SignalR service.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:listSignalRKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:listSignalRKeys'. */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
-    pulumi.log.warn("listSignalRKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:listSignalRKeys'.")
+    pulumi.log.warn("listSignalRKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:listSignalRKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:signalrservice/latest:listSignalRKeys", {
+    return pulumi.runtime.invoke("azure-native:signalrservice/latest:listSignalRKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

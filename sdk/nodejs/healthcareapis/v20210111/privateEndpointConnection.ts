@@ -22,7 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:healthcareapis/v20210111:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -103,7 +103,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

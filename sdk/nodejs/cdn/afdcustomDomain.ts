@@ -23,7 +23,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn:AFDCustomDomain';
+    public static readonly __pulumiType = 'azure-native:cdn:AFDCustomDomain';
 
     /**
      * Returns true if the given object is an instance of AFDCustomDomain.  This is designed to work even
@@ -125,7 +125,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:AFDCustomDomain" }, { type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:AFDCustomDomain" }, { type: "azure-nextgen:cdn/latest:AFDCustomDomain" }, { type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AFDCustomDomain.__pulumiType, name, inputs, opts);
     }

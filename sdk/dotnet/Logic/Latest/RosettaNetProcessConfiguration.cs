@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The integration account RosettaNet process configuration.
     /// Latest API Version: 2016-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:RosettaNetProcessConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:RosettaNetProcessConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:RosettaNetProcessConfiguration'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -110,12 +110,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RosettaNetProcessConfiguration(string name, RosettaNetProcessConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:RosettaNetProcessConfiguration", name, args ?? new RosettaNetProcessConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RosettaNetProcessConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:RosettaNetProcessConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -126,7 +126,9 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:RosettaNetProcessConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"},
                 },
             };

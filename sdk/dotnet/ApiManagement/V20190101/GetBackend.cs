@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20190101
+namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
     public static class GetBackend
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// Backend details.
         /// </summary>
         public static Task<GetBackendResult> InvokeAsync(GetBackendArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-nextgen:apimanagement/v20190101:getBackend", args ?? new GetBackendArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendResult>("azure-native:apimanagement/v20190101:getBackend", args ?? new GetBackendArgs(), options.WithVersion());
     }
 
 

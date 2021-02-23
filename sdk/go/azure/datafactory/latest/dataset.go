@@ -14,7 +14,7 @@ import (
 // Dataset resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Dataset'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Dataset'.
 type Dataset struct {
 	pulumi.CustomResourceState
 
@@ -46,10 +46,19 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:Dataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:Dataset"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Dataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Dataset"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Dataset"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Dataset"),
@@ -57,7 +66,7 @@ func NewDataset(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Dataset
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:Dataset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:Dataset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewDataset(ctx *pulumi.Context,
 func GetDataset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatasetState, opts ...pulumi.ResourceOption) (*Dataset, error) {
 	var resource Dataset
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:Dataset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:Dataset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

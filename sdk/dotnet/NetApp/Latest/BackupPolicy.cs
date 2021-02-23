@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.Latest
+namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Backup policy information
     /// Latest API Version: 2020-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:netapp/latest:BackupPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.")]
+    [AzureNativeResourceType("azure-native:netapp/latest:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupPolicy(string name, BackupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:BackupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp/latest:BackupPolicy", name, args ?? new BackupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:BackupPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp/latest:BackupPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,12 +114,19 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:BackupPolicy"},
                 },
             };

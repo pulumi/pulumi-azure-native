@@ -23,7 +23,7 @@ export class ServiceFabric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab:ServiceFabric';
+    public static readonly __pulumiType = 'azure-native:devtestlab:ServiceFabric';
 
     /**
      * Returns true if the given object is an instance of ServiceFabric.  This is designed to work even
@@ -122,7 +122,7 @@ export class ServiceFabric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:ServiceFabric" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/latest:ServiceFabric" }, { type: "azure-nextgen:devtestlab/latest:ServiceFabric" }, { type: "azure-native:devtestlab/v20180915:ServiceFabric" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceFabric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabric.__pulumiType, name, inputs, opts);
     }

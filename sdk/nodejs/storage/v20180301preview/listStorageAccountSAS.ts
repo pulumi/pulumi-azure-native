@@ -16,7 +16,7 @@ export function listStorageAccountSAS(args: ListStorageAccountSASArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20180301preview:listStorageAccountSAS", {
+    return pulumi.runtime.invoke("azure-native:storage/v20180301preview:listStorageAccountSAS", {
         "accountName": args.accountName,
         "iPAddressOrRange": args.iPAddressOrRange,
         "keyToSign": args.keyToSign,

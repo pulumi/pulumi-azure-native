@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Shared access keys of the Domain.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:listDomainSharedAccessKeys'. */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
-    pulumi.log.warn("listDomainSharedAccessKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventgrid:listDomainSharedAccessKeys'.")
+    pulumi.log.warn("listDomainSharedAccessKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:listDomainSharedAccessKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid/latest:listDomainSharedAccessKeys", {
+    return pulumi.runtime.invoke("azure-native:eventgrid/latest:listDomainSharedAccessKeys", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

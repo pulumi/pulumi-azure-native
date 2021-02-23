@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
+namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// The criteria operator.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.ConditionOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20200501Preview.ConditionOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Log query alert
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// Aggregation type
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.TimeAggregation> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20200501Preview.TimeAggregation> TimeAggregation { get; set; } = null!;
 
         public ConditionArgs()
         {

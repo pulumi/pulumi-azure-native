@@ -53,7 +53,7 @@ const (
 	createBeforeDeleteFlag = "__createBeforeDelete"
 )
 
-type azureNextGenProvider struct {
+type azureNativeProvider struct {
 	host            *provider.HostClient
 	name            string
 	version         string
@@ -83,7 +83,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	}
 
 	// Return the new provider
-	return &azureNextGenProvider{
+	return &azureNativeProvider{
 		host:          host,
 		name:          name,
 		version:       version,
@@ -115,10 +115,10 @@ func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, e
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (k *azureNextGenProvider) Configure(ctx context.Context,
+func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 	for key, val := range req.GetVariables() {
-		k.config[strings.TrimPrefix(key, "azure-nextgen:config:")] = val
+		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
 	}
 
 	k.setLoggingContext(ctx)
@@ -155,7 +155,7 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 }
 
 // Invoke dynamically executes a built-in function in the provider.
-func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
+func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
 	logging.V(9).Infof("%s executing", label)
 
@@ -168,7 +168,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 	var outputs map[string]interface{}
 	switch req.Tok {
-	case "azure-nextgen:authorization:getClientConfig":
+	case "azure-native:authorization:getClientConfig":
 		auth, err := k.getAuthConfig()
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)
@@ -183,7 +183,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 			"subscriptionId": auth.SubscriptionID,
 			"tenantId":       auth.TenantID,
 		}
-	case "azure-nextgen:authorization:getClientToken":
+	case "azure-native:authorization:getClientToken":
 		auth, err := k.getAuthConfig()
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)
@@ -197,7 +197,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 			return nil, err
 		}
 		outputs = map[string]interface{}{"token": token}
-	case "azure-nextgen:armtemplate:decode":
+	case "azure-native:armtemplate:decode":
 		var text string
 		if textArg := args["text"]; textArg.HasValue() && textArg.IsString() {
 			text = textArg.StringValue()
@@ -275,7 +275,7 @@ func (k *azureNextGenProvider) Invoke(ctx context.Context, req *rpc.InvokeReques
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
-func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
+func (k *azureNativeProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
 	panic("StreamInvoke not implemented")
 }
 
@@ -285,7 +285,7 @@ func (k *azureNextGenProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.Resource
 // representation of the properties as present in the program inputs. Though this rule is not
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
-func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -356,7 +356,7 @@ func (k *azureNextGenProvider) Check(ctx context.Context, req *rpc.CheckRequest)
 }
 
 // Get a default location property for the given inputs.
-func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, olds, news resource.PropertyMap) *resource.PropertyValue {
+func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news resource.PropertyMap) *resource.PropertyValue {
 	result := func(s string) *resource.PropertyValue {
 		p := resource.NewStringProperty(s)
 		return &p
@@ -409,7 +409,7 @@ func (k *azureNextGenProvider) getDefaultLocation(ctx context.Context, olds, new
 	return result(v)
 }
 
-func (k *azureNextGenProvider) getDefaultName(urn string, strategy resources.AutoNameKind, key resource.PropertyKey,
+func (k *azureNativeProvider) getDefaultName(urn string, strategy resources.AutoNameKind, key resource.PropertyKey,
 	olds resource.PropertyMap) (resource.PropertyValue, bool) {
 	if v, ok := olds[key]; ok {
 		if vf, ok := olds[createBeforeDeleteFlag]; ok && vf.IsBool() {
@@ -435,7 +435,7 @@ func (k *azureNextGenProvider) getDefaultName(urn string, strategy resources.Aut
 }
 
 // Apply default values (e.g., location) to user's inputs.
-func (k *azureNextGenProvider) applyDefaults(ctx context.Context, urn string, res resources.AzureAPIResource,
+func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, res resources.AzureAPIResource,
 	olds, news resource.PropertyMap) {
 	for _, par := range res.PutParameters {
 		// Auto-naming.
@@ -461,7 +461,7 @@ func (k *azureNextGenProvider) applyDefaults(ctx context.Context, urn string, re
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
-func (k *azureNextGenProvider) validateType(ctx string, typ *resources.AzureAPIType,
+func (k *azureNativeProvider) validateType(ctx string, typ *resources.AzureAPIType,
 	values map[string]interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
@@ -477,7 +477,7 @@ func (k *azureNextGenProvider) validateType(ctx string, typ *resources.AzureAPIT
 			}
 			reason := fmt.Sprintf("missing required property '%s'", propCtx)
 			if propCtx == "location" {
-				reason += ". Either set it explicitly or configure it with 'pulumi config set azure-nextgen:location <value>'."
+				reason += ". Either set it explicitly or configure it with 'pulumi config set azure-native:location <value>'."
 			}
 			failures = append(failures, &rpc.CheckFailure{
 				Reason: reason,
@@ -505,7 +505,7 @@ func (k *azureNextGenProvider) validateType(ctx string, typ *resources.AzureAPIT
 }
 
 // validateProperty checks the property value against its metadata.
-func (k *azureNextGenProvider) validateProperty(ctx string, prop *resources.AzureAPIProperty,
+func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.AzureAPIProperty,
 	value interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
@@ -601,7 +601,7 @@ func (k *azureNextGenProvider) validateProperty(ctx string, prop *resources.Azur
 	return failures
 }
 
-func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -625,12 +625,12 @@ func (k *azureNextGenProvider) GetSchema(_ context.Context, req *rpc.GetSchemaRe
 }
 
 // CheckConfig validates the configuration for this provider.
-func (k *azureNextGenProvider) CheckConfig(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+func (k *azureNativeProvider) CheckConfig(_ context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
 	return &rpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
 // DiffConfig diffs the configuration for this provider.
-func (k *azureNextGenProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNativeProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	return &rpc.DiffResponse{
 		Changes:             0,
 		Replaces:            []string{},
@@ -640,7 +640,7 @@ func (k *azureNextGenProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*r
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -747,7 +747,7 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 }
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
-func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
+func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -861,7 +861,7 @@ func (k *azureNextGenProvider) Create(ctx context.Context, req *rpc.CreateReques
 }
 
 // Read the current live state associated with a resource.
-func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
+func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -972,7 +972,7 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 }
 
 // Update updates an existing resource with new values.
-func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
+func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1075,7 +1075,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
-func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
+func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1131,12 +1131,12 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 }
 
 // Construct creates a new component resource.
-func (k *azureNextGenProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
+func (k *azureNativeProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
 	panic("Construct not implemented")
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.
-func (k *azureNextGenProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
+func (k *azureNativeProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
 	return &rpc.PluginInfo{
 		Version: k.version,
 	}, nil
@@ -1147,12 +1147,12 @@ func (k *azureNextGenProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*
 // creation error or an initialization error). Since Cancel is advisory and non-blocking, it is up
 // to the host to decide how long to wait after Cancel is called before (e.g.)
 // hard-closing any gRPC connection.
-func (k *azureNextGenProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
+func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	// TODO
 	return &pbempty.Empty{}, nil
 }
 
-func (k *azureNextGenProvider) azureCreateOrUpdate(
+func (k *azureNativeProvider) azureCreateOrUpdate(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
@@ -1216,7 +1216,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 	return outputs, nil
 }
 
-func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {
+func (k *azureNativeProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -1280,7 +1280,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 
 // azureCanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
-func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
+func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
 	queryParameters := map[string]interface{}{
 		"api-version": res.APIVersion,
 	}
@@ -1361,7 +1361,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	}
 }
 
-func (k *azureNextGenProvider) azureHead(ctx context.Context, id string, apiVersion string) error {
+func (k *azureNativeProvider) azureHead(ctx context.Context, id string, apiVersion string) error {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -1390,7 +1390,7 @@ func (k *azureNextGenProvider) azureHead(ctx context.Context, id string, apiVers
 	return err
 }
 
-func (k *azureNextGenProvider) azureGet(ctx context.Context, id string,
+func (k *azureNativeProvider) azureGet(ctx context.Context, id string,
 	apiVersion string) (map[string]interface{}, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
@@ -1448,7 +1448,7 @@ func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder
 	})
 }
 
-func (k *azureNextGenProvider) azurePost(
+func (k *azureNativeProvider) azurePost(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
@@ -1487,7 +1487,7 @@ func (k *azureNextGenProvider) azurePost(
 	return outputs, nil
 }
 
-func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, methodInputs,
+func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	params := map[string]map[string]interface{}{
@@ -1526,11 +1526,11 @@ func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []
 	return id, params["body"], params["query"], nil
 }
 
-func (k *azureNextGenProvider) setLoggingContext(ctx context.Context) {
+func (k *azureNativeProvider) setLoggingContext(ctx context.Context) {
 	log.SetOutput(NewTerraformLogRedirector(ctx, k.host))
 }
 
-func (k *azureNextGenProvider) getConfig(configName, envName string) string {
+func (k *azureNativeProvider) getConfig(configName, envName string) string {
 	if val, ok := k.config[configName]; ok {
 		return val
 	}
@@ -1538,7 +1538,7 @@ func (k *azureNextGenProvider) getConfig(configName, envName string) string {
 	return os.Getenv(envName)
 }
 
-func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
+func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
@@ -1575,9 +1575,9 @@ func (k *azureNextGenProvider) getAuthConfig() (*authentication.Config, error) {
 	return builder.Build()
 }
 
-func (k *azureNextGenProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
+func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) (tokenAuth autorest.Authorizer,
 	bearerAuth autorest.Authorizer, err error) {
-	buildSender := sender.BuildSender("AzureNextGen")
+	buildSender := sender.BuildSender("AzureNative")
 	oauthConfig, err := authConfig.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	if err != nil {
 		return nil, nil, err
@@ -1596,8 +1596,8 @@ func (k *azureNextGenProvider) getAuthorizers(authConfig *authentication.Config)
 	return tokenAuth, bearerAuth, nil
 }
 
-func (k *azureNextGenProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
-	buildSender := sender.BuildSender("AzureNextGen")
+func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authentication.Config, endpoint string) (string, error) {
+	buildSender := sender.BuildSender("AzureNative")
 	oauthConfig, err := auth.BuildOAuthConfig(k.environment.ActiveDirectoryEndpoint)
 	authorizer, err := auth.GetAuthorizationToken(buildSender, oauthConfig, endpoint)
 	if err != nil {
@@ -1625,7 +1625,7 @@ func (k *azureNextGenProvider) getOAuthToken(ctx context.Context, auth *authenti
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
-func (k *azureNextGenProvider) getUserAgent() string {
+func (k *azureNativeProvider) getUserAgent() string {
 	partnerID := PulumiPartnerID
 	customPartnerID := k.getConfig("partnerId", "ARM_PARTNER_ID")
 	if customPartnerID != "" {
@@ -1641,7 +1641,7 @@ func (k *azureNextGenProvider) getUserAgent() string {
 
 // buildUserAgent composes a User Agent string with the provided partner ID.
 func buildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-nextgen/%s",
+	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
 		autorest.UserAgent(), version.Version))
 
 	// append the CloudShell version to the user agent if it exists
@@ -1654,7 +1654,7 @@ func buildUserAgent(partnerID string) (userAgent string) {
 		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
 	}
 
-	logging.V(9).Infof("AzureNextGen User Agent: %s", userAgent)
+	logging.V(9).Infof("AzureNative User Agent: %s", userAgent)
 	return
 }
 

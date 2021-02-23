@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsV2'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:WebAppAuthSettingsV2")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAuthSettingsV2'.")]
+    [AzureNativeResourceType("azure-native:web/latest:WebAppAuthSettingsV2")]
     public partial class WebAppAuthSettingsV2 : Pulumi.CustomResource
     {
         [Output("globalValidation")]
@@ -64,12 +64,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppAuthSettingsV2(string name, WebAppAuthSettingsV2Args args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppAuthSettingsV2", name, args ?? new WebAppAuthSettingsV2Args(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:WebAppAuthSettingsV2", name, args ?? new WebAppAuthSettingsV2Args(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppAuthSettingsV2(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:WebAppAuthSettingsV2", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:WebAppAuthSettingsV2", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,9 +80,13 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettingsV2"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAuthSettingsV2"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettingsV2"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAuthSettingsV2"},
                 },
             };

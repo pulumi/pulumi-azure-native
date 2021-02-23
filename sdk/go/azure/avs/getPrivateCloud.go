@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-20.
 func LookupPrivateCloud(ctx *pulumi.Context, args *LookupPrivateCloudArgs, opts ...pulumi.InvokeOption) (*LookupPrivateCloudResult, error) {
 	var rv LookupPrivateCloudResult
-	err := ctx.Invoke("azure-nextgen:avs:getPrivateCloud", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getPrivateCloud", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

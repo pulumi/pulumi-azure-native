@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the dsc node configuration.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscNodeConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscNodeConfiguration'. */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
-    pulumi.log.warn("getDscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscNodeConfiguration'.")
+    pulumi.log.warn("getDscNodeConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscNodeConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getDscNodeConfiguration", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,
         "nodeConfigurationName": args.nodeConfigurationName,
         "resourceGroupName": args.resourceGroupName,

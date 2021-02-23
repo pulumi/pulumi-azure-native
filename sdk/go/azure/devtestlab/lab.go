@@ -80,13 +80,25 @@ func NewLab(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:Lab"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:Lab"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Lab"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Lab"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:Lab"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Lab"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:Lab"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Lab"),
@@ -94,7 +106,7 @@ func NewLab(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Lab
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:Lab", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:Lab", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +118,7 @@ func NewLab(ctx *pulumi.Context,
 func GetLab(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LabState, opts ...pulumi.ResourceOption) (*Lab, error) {
 	var resource Lab
-	err := ctx.ReadResource("azure-nextgen:devtestlab:Lab", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:Lab", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

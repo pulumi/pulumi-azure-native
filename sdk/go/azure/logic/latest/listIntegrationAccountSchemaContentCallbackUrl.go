@@ -10,10 +10,10 @@ import (
 // The workflow trigger callback URL.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountSchemaContentCallbackUrl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountSchemaContentCallbackUrl'.
 func ListIntegrationAccountSchemaContentCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountSchemaContentCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountSchemaContentCallbackUrlResult, error) {
 	var rv ListIntegrationAccountSchemaContentCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:listIntegrationAccountSchemaContentCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:listIntegrationAccountSchemaContentCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

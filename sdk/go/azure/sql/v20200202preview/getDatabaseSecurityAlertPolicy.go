@@ -10,7 +10,7 @@ import (
 // A database security alert policy.
 func LookupDatabaseSecurityAlertPolicy(ctx *pulumi.Context, args *LookupDatabaseSecurityAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseSecurityAlertPolicyResult, error) {
 	var rv LookupDatabaseSecurityAlertPolicyResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getDatabaseSecurityAlertPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getDatabaseSecurityAlertPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

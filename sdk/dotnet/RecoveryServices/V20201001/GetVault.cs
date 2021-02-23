@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
+namespace Pulumi.AzureNative.RecoveryServices.V20201001
 {
     public static class GetVault
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// Resource information, as returned by the resource provider.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-nextgen:recoveryservices/v20201001:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices/v20201001:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }
 
 

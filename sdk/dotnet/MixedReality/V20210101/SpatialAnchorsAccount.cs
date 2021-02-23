@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.V20210101
+namespace Pulumi.AzureNative.MixedReality.V20210101
 {
     /// <summary>
     /// SpatialAnchorsAccount Response.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount")]
+    [AzureNativeResourceType("azure-native:mixedreality/v20210101:SpatialAnchorsAccount")]
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SpatialAnchorsAccount(string name, SpatialAnchorsAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount", name, args ?? new SpatialAnchorsAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:mixedreality/v20210101:SpatialAnchorsAccount", name, args ?? new SpatialAnchorsAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SpatialAnchorsAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:mixedreality/v20210101:SpatialAnchorsAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,11 +112,17 @@ namespace Pulumi.AzureNextGen.MixedReality.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/latest:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/latest:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"},
                 },
             };

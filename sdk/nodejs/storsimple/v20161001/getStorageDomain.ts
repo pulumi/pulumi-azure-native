@@ -16,7 +16,7 @@ export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/v20161001:getStorageDomain", {
+    return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getStorageDomain", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
         "storageDomainName": args.storageDomainName,

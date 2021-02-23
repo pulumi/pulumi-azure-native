@@ -16,7 +16,7 @@ export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/v20191001preview:getMoveResource", {
+    return pulumi.runtime.invoke("azure-native:migrate/v20191001preview:getMoveResource", {
         "moveCollectionName": args.moveCollectionName,
         "moveResourceName": args.moveResourceName,
         "resourceGroupName": args.resourceGroupName,

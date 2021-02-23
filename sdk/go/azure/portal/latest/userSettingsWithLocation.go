@@ -14,7 +14,7 @@ import (
 // Response to get user settings
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:UserSettingsWithLocation'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:UserSettingsWithLocation'.
 type UserSettingsWithLocation struct {
 	pulumi.CustomResourceState
 
@@ -37,7 +37,13 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal:UserSettingsWithLocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettingsWithLocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001:UserSettingsWithLocation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:UserSettingsWithLocation"),
@@ -45,7 +51,7 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource UserSettingsWithLocation
-	err := ctx.RegisterResource("azure-nextgen:portal/latest:UserSettingsWithLocation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal/latest:UserSettingsWithLocation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +63,7 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 func GetUserSettingsWithLocation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserSettingsWithLocationState, opts ...pulumi.ResourceOption) (*UserSettingsWithLocation, error) {
 	var resource UserSettingsWithLocation
-	err := ctx.ReadResource("azure-nextgen:portal/latest:UserSettingsWithLocation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal/latest:UserSettingsWithLocation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

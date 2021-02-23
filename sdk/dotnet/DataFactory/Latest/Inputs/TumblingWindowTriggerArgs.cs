@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The frequency of the time windows.
         /// </summary>
         [Input("frequency", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.TumblingWindowFrequency> Frequency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.TumblingWindowFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// The interval of the time windows. The minimum interval allowed is 15 Minutes.

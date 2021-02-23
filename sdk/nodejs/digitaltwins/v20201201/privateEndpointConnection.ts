@@ -22,7 +22,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:digitaltwins/v20201201:PrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpointConnection.  This is designed to work even
@@ -82,7 +82,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins:PrivateEndpointConnection" }, { type: "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins:PrivateEndpointConnection" }, { type: "azure-nextgen:digitaltwins:PrivateEndpointConnection" }, { type: "azure-native:digitaltwins/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

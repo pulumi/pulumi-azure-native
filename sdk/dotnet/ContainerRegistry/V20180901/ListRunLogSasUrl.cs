@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
+namespace Pulumi.AzureNative.ContainerRegistry.V20180901
 {
     public static class ListRunLogSasUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// The result of get log link operation.
         /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-nextgen:containerregistry/v20180901:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-native:containerregistry/v20180901:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithVersion());
     }
 
 

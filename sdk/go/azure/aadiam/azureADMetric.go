@@ -39,12 +39,15 @@ func NewAzureADMetric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:aadiam/v20200701preview:azureADMetric"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:aadiam/v20200701preview:azureADMetric"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AzureADMetric
-	err := ctx.RegisterResource("azure-nextgen:aadiam:azureADMetric", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:aadiam:azureADMetric", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +59,7 @@ func NewAzureADMetric(ctx *pulumi.Context,
 func GetAzureADMetric(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AzureADMetricState, opts ...pulumi.ResourceOption) (*AzureADMetric, error) {
 	var resource AzureADMetric
-	err := ctx.ReadResource("azure-nextgen:aadiam:azureADMetric", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:aadiam:azureADMetric", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

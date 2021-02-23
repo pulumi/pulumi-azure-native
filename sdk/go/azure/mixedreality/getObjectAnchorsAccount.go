@@ -11,7 +11,7 @@ import (
 // API Version: 2021-03-01-preview.
 func LookupObjectAnchorsAccount(ctx *pulumi.Context, args *LookupObjectAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupObjectAnchorsAccountResult, error) {
 	var rv LookupObjectAnchorsAccountResult
-	err := ctx.Invoke("azure-nextgen:mixedreality:getObjectAnchorsAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality:getObjectAnchorsAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

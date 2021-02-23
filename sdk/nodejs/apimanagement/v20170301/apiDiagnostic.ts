@@ -21,7 +21,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:ApiDiagnostic';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20170301:ApiDiagnostic';
 
     /**
      * Returns true if the given object is an instance of ApiDiagnostic.  This is designed to work even
@@ -88,7 +88,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/latest:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement:ApiDiagnostic" }, { type: "azure-native:apimanagement/latest:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/latest:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20180601preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20191201preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20200601preview:ApiDiagnostic" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiDiagnostic.__pulumiType, name, inputs, opts);
     }

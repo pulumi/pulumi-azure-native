@@ -22,7 +22,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb:Database';
+    public static readonly __pulumiType = 'azure-native:dbformariadb:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/latest:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/latest:Database" }, { type: "azure-nextgen:dbformariadb/latest:Database" }, { type: "azure-native:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-native:dbformariadb/v20180601preview:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // A Redis item in CreateOrUpdate Operation response.
 func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.InvokeOption) (*LookupRedisResult, error) {
 	var rv LookupRedisResult
-	err := ctx.Invoke("azure-nextgen:cache/v20150801:getRedis", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20150801:getRedis", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

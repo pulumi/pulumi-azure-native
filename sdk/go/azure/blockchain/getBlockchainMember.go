@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func LookupBlockchainMember(ctx *pulumi.Context, args *LookupBlockchainMemberArgs, opts ...pulumi.InvokeOption) (*LookupBlockchainMemberResult, error) {
 	var rv LookupBlockchainMemberResult
-	err := ctx.Invoke("azure-nextgen:blockchain:getBlockchainMember", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blockchain:getBlockchainMember", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

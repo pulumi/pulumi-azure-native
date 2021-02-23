@@ -22,7 +22,7 @@ export class IscsiTarget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storagepool/v20200315preview:IscsiTarget';
+    public static readonly __pulumiType = 'azure-native:storagepool/v20200315preview:IscsiTarget';
 
     /**
      * Returns true if the given object is an instance of IscsiTarget.  This is designed to work even
@@ -103,7 +103,7 @@ export class IscsiTarget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagepool:IscsiTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagepool:IscsiTarget" }, { type: "azure-nextgen:storagepool:IscsiTarget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiTarget.__pulumiType, name, inputs, opts);
     }

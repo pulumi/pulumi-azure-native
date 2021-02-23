@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Tag Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180601preview:TagByApi")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:TagByApi")]
     public partial class TagByApi : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagByApi(string name, TagByApiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:TagByApi", name, args ?? new TagByApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180601preview:TagByApi", name, args ?? new TagByApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagByApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180601preview:TagByApi", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180601preview:TagByApi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,13 +58,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:TagByApi"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:TagByApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:TagByApi"},
                 },
             };

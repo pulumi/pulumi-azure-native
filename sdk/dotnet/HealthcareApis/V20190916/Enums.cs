@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.V20190916
+namespace Pulumi.AzureNative.HealthcareApis.V20190916
 {
     /// <summary>
     /// The kind of the service.

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupTableResourceTable(ctx *pulumi.Context, args *LookupTableResourceTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResourceTableResult, error) {
 	var rv LookupTableResourceTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getTableResourceTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getTableResourceTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

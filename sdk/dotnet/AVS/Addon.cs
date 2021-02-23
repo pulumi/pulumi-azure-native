@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An addon resource
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:Addon")]
+    [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Addon(string name, AddonArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Addon(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:Addon", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:Addon", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Addon"},
                 },
             };
@@ -106,7 +108,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// The type of private cloud addon
         /// </summary>
         [Input("addonType")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.AddonType>? AddonType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.AddonType>? AddonType { get; set; }
 
         /// <summary>
         /// The SRM license

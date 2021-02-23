@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...pulumi.InvokeOption) (*LookupNamedValueResult, error) {
 	var rv LookupNamedValueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getNamedValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getNamedValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

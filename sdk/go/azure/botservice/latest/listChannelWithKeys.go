@@ -10,10 +10,10 @@ import (
 // Bot channel resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listChannelWithKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listChannelWithKeys'.
 func ListChannelWithKeys(ctx *pulumi.Context, args *ListChannelWithKeysArgs, opts ...pulumi.InvokeOption) (*ListChannelWithKeysResult, error) {
 	var rv ListChannelWithKeysResult
-	err := ctx.Invoke("azure-nextgen:botservice/latest:listChannelWithKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/latest:listChannelWithKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

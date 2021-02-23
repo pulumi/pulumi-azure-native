@@ -22,7 +22,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managedidentity:UserAssignedIdentity';
+    public static readonly __pulumiType = 'azure-native:managedidentity:UserAssignedIdentity';
 
     /**
      * Returns true if the given object is an instance of UserAssignedIdentity.  This is designed to work even
@@ -102,7 +102,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedidentity/latest:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/latest:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/latest:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20181130:UserAssignedIdentity" }, { type: "azure-nextgen:managedidentity/v20181130:UserAssignedIdentity" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }

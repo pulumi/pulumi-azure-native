@@ -16,7 +16,7 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20190301:getGalleryApplicationVersion", {
+    return pulumi.runtime.invoke("azure-native:compute/v20190301:getGalleryApplicationVersion", {
         "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,
         "galleryApplicationVersionName": args.galleryApplicationVersionName,

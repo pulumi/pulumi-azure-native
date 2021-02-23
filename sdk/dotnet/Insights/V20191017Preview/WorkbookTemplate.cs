@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20191017Preview
+namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
     /// <summary>
     /// An Application Insights workbook template definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20191017preview:WorkbookTemplate")]
+    [AzureNativeResourceType("azure-native:insights/v20191017preview:WorkbookTemplate")]
     public partial class WorkbookTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkbookTemplate(string name, WorkbookTemplateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191017preview:WorkbookTemplate", name, args ?? new WorkbookTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20191017preview:WorkbookTemplate", name, args ?? new WorkbookTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkbookTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191017preview:WorkbookTemplate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20191017preview:WorkbookTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:WorkbookTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:WorkbookTemplate"},
                 },
             };

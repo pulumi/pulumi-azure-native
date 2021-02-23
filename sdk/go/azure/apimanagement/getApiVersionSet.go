@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiVersionSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiVersionSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

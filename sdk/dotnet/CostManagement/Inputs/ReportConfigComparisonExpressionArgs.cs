@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// The operator to use for comparison.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.OperatorType> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.OperatorType> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

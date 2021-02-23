@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160601
+namespace Pulumi.AzureNative.Web.V20160601
 {
     public static class GetConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// API connection
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-nextgen:web/v20160601:getConnection", args ?? new GetConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:web/v20160601:getConnection", args ?? new GetConnectionArgs(), options.WithVersion());
     }
 
 

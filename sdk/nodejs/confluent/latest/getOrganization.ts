@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Organization resource.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:confluent:getOrganization'. */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
-    pulumi.log.warn("getOrganization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:confluent:getOrganization'.")
+    pulumi.log.warn("getOrganization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:confluent:getOrganization'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:confluent/latest:getOrganization", {
+    return pulumi.runtime.invoke("azure-native:confluent/latest:getOrganization", {
         "organizationName": args.organizationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

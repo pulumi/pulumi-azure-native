@@ -41,27 +41,27 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:providerhub/v20201120:DefaultRollout":
+            case "azure-native:providerhub/v20201120:DefaultRollout":
                 return new DefaultRollout(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:NotificationRegistration":
+            case "azure-native:providerhub/v20201120:NotificationRegistration":
                 return new NotificationRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration":
+            case "azure-native:providerhub/v20201120:OperationByProviderRegistration":
                 return new OperationByProviderRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:ProviderRegistration":
+            case "azure-native:providerhub/v20201120:ProviderRegistration":
                 return new ProviderRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration":
+            case "azure-native:providerhub/v20201120:ResourceTypeRegistration":
                 return new ResourceTypeRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:Skus":
+            case "azure-native:providerhub/v20201120:Skus":
                 return new Skus(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst":
+            case "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst":
                 return new SkusNestedResourceTypeFirst(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond":
+            case "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond":
                 return new SkusNestedResourceTypeSecond(name, <any>undefined, { urn })
-            case "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird":
+            case "azure-native:providerhub/v20201120:SkusNestedResourceTypeThird":
                 return new SkusNestedResourceTypeThird(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "providerhub/v20201120", _module)
+pulumi.runtime.registerResourceModule("azure-native", "providerhub/v20201120", _module)

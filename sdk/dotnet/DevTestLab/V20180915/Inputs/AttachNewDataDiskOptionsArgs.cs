@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// The storage type for the disk (i.e. Standard, Premium).
         /// </summary>
         [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.StorageType>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.StorageType>? DiskType { get; set; }
 
         public AttachNewDataDiskOptionsArgs()
         {

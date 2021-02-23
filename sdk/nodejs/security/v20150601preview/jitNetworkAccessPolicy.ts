@@ -19,7 +19,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy';
+    public static readonly __pulumiType = 'azure-native:security/v20150601preview:JitNetworkAccessPolicy';
 
     /**
      * Returns true if the given object is an instance of JitNetworkAccessPolicy.  This is designed to work even
@@ -103,7 +103,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/latest:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/v20200101:JitNetworkAccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security:JitNetworkAccessPolicy" }, { type: "azure-native:security/latest:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/latest:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20200101:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/v20200101:JitNetworkAccessPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JitNetworkAccessPolicy.__pulumiType, name, inputs, opts);
     }

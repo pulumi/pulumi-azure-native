@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context, args *LookupIotDpsResourcePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourcePrivateEndpointConnectionResult, error) {
 	var rv LookupIotDpsResourcePrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:devices:getIotDpsResourcePrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:getIotDpsResourcePrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

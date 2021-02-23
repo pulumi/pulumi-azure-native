@@ -22,7 +22,7 @@ export class SignalR extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:signalrservice/v20200501:SignalR';
+    public static readonly __pulumiType = 'azure-native:signalrservice/v20200501:SignalR';
 
     /**
      * Returns true if the given object is an instance of SignalR.  This is designed to work even
@@ -174,7 +174,7 @@ export class SignalR extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice/latest:SignalR" }, { type: "azure-nextgen:signalrservice/v20180301preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-native:signalrservice/latest:SignalR" }, { type: "azure-nextgen:signalrservice/latest:SignalR" }, { type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalR.__pulumiType, name, inputs, opts);
     }

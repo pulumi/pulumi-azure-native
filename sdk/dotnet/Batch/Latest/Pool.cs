@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest
+namespace Pulumi.AzureNative.Batch.Latest
 {
     /// <summary>
     /// Contains information about a pool.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batch:Pool'.")]
-    [AzureNextGenResourceType("azure-nextgen:batch/latest:Pool")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Pool'.")]
+    [AzureNativeResourceType("azure-native:batch/latest:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         [Output("allocationState")]
@@ -176,12 +176,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pool(string name, PoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/latest:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch/latest:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/latest:Pool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch/latest:Pool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -192,14 +192,23 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Pool"},
                 },
             };
@@ -288,7 +297,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         [Input("interNodeCommunication")]
-        public Input<Pulumi.AzureNextGen.Batch.Latest.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
+        public Input<Pulumi.AzureNative.Batch.Latest.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
 
         [Input("metadata")]
         private InputList<Inputs.MetadataItemArgs>? _metadata;

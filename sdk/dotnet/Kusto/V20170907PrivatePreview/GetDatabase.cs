@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
+namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
     public static class GetDatabase
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// Class representing a Kusto database.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-nextgen:kusto/v20170907privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:kusto/v20170907privatepreview:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
 
 

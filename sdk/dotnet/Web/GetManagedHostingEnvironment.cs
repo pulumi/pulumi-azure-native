@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetManagedHostingEnvironment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2015-08-01.
         /// </summary>
         public static Task<GetManagedHostingEnvironmentResult> InvokeAsync(GetManagedHostingEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-nextgen:web:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHostingEnvironmentResult>("azure-native:web:getManagedHostingEnvironment", args ?? new GetManagedHostingEnvironmentArgs(), options.WithVersion());
     }
 
 

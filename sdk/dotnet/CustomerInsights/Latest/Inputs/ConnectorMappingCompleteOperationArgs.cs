@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
+namespace Pulumi.AzureNative.CustomerInsights.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// The type of completion operation.
         /// </summary>
         [Input("completionOperationType")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.CompletionOperationTypes>? CompletionOperationType { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.Latest.CompletionOperationTypes>? CompletionOperationType { get; set; }
 
         /// <summary>
         /// The destination folder where files will be moved to once the import is done.

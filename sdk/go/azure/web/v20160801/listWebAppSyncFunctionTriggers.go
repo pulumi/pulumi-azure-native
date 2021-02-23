@@ -10,7 +10,7 @@ import (
 // Function secrets.
 func ListWebAppSyncFunctionTriggers(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersResult, error) {
 	var rv ListWebAppSyncFunctionTriggersResult
-	err := ctx.Invoke("azure-nextgen:web/v20160801:listWebAppSyncFunctionTriggers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160801:listWebAppSyncFunctionTriggers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

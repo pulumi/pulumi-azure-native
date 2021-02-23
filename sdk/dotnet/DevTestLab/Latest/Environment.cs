@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// An environment, which is essentially an ARM template deployment.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:Environment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Environment'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,8 +102,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Environment"},
                 },
             };

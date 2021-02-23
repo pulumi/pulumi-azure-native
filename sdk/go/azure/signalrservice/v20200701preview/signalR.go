@@ -72,16 +72,31 @@ func NewSignalR(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:signalrservice:SignalR"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice:SignalR"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/latest:SignalR"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/latest:SignalR"),
 		},
 		{
+			Type: pulumi.String("azure-native:signalrservice/v20180301preview:SignalR"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20180301preview:SignalR"),
 		},
 		{
+			Type: pulumi.String("azure-native:signalrservice/v20181001:SignalR"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20181001:SignalR"),
+		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20200501:SignalR"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:signalrservice/v20200501:SignalR"),
@@ -89,7 +104,7 @@ func NewSignalR(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SignalR
-	err := ctx.RegisterResource("azure-nextgen:signalrservice/v20200701preview:SignalR", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:signalrservice/v20200701preview:SignalR", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +116,7 @@ func NewSignalR(ctx *pulumi.Context,
 func GetSignalR(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SignalRState, opts ...pulumi.ResourceOption) (*SignalR, error) {
 	var resource SignalR
-	err := ctx.ReadResource("azure-nextgen:signalrservice/v20200701preview:SignalR", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:signalrservice/v20200701preview:SignalR", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

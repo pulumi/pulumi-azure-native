@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// Latest API Version: 2020-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.")]
-    [AzureNextGenResourceType("azure-nextgen:cache/latest:LinkedServer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'.")]
+    [AzureNativeResourceType("azure-native:cache/latest:LinkedServer")]
     public partial class LinkedServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedServer(string name, LinkedServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:LinkedServer", name, args ?? new LinkedServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/latest:LinkedServer", name, args ?? new LinkedServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:LinkedServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/latest:LinkedServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,11 +78,17 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:LinkedServer"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:LinkedServer"},
                 },
             };
@@ -141,7 +147,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Role of the linked server.
         /// </summary>
         [Input("serverRole", required: true)]
-        public Input<Pulumi.AzureNextGen.Cache.Latest.ReplicationRole> ServerRole { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Cache.Latest.ReplicationRole> ServerRole { get; set; } = null!;
 
         public LinkedServerArgs()
         {

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Latest
+namespace Pulumi.AzureNative.EventHub.Latest
 {
     /// <summary>
     /// Description of NetworkRuleSet resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:NamespaceNetworkRuleSet'.")]
-    [AzureNextGenResourceType("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:NamespaceNetworkRuleSet'.")]
+    [AzureNativeResourceType("azure-native:eventhub/latest:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/latest:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceNetworkRuleSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/latest:NamespaceNetworkRuleSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,8 +72,11 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
                 },
             };
@@ -102,7 +105,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// Default Action for Network Rule Set
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.Latest.DefaultAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventHub.Latest.DefaultAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.NWRuleSetIpRulesArgs>? _ipRules;

@@ -17,7 +17,7 @@ export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managementpartner:getPartner", {
+    return pulumi.runtime.invoke("azure-native:managementpartner:getPartner", {
         "partnerId": args.partnerId,
     }, opts);
 }

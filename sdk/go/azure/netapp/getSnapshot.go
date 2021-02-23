@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
-	err := ctx.Invoke("azure-nextgen:netapp:getSnapshot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

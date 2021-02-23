@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     /// <summary>
     /// User credentials used for publishing activity.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20200601:WebAppDeployment")]
+    [AzureNativeResourceType("azure-native:web/v20200601:WebAppDeployment")]
     public partial class WebAppDeployment : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppDeployment(string name, WebAppDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:WebAppDeployment", name, args ?? new WebAppDeploymentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20200601:WebAppDeployment", name, args ?? new WebAppDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppDeployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:WebAppDeployment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20200601:WebAppDeployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,14 +112,23 @@ namespace Pulumi.AzureNextGen.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDeployment"},
                 },
             };

@@ -22,7 +22,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails';
+    public static readonly __pulumiType = 'azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails';
 
     /**
      * Returns true if the given object is an instance of DelegatedSubnetServiceDetails.  This is designed to work even
@@ -108,7 +108,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DelegatedSubnetServiceDetails.__pulumiType, name, inputs, opts);
     }

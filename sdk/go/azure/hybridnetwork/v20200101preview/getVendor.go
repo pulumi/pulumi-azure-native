@@ -10,7 +10,7 @@ import (
 // Vendor resource.
 func LookupVendor(ctx *pulumi.Context, args *LookupVendorArgs, opts ...pulumi.InvokeOption) (*LookupVendorResult, error) {
 	var rv LookupVendorResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork/v20200101preview:getVendor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getVendor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

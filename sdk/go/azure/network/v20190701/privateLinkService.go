@@ -57,43 +57,85 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateLinkService"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PrivateLinkService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateLinkService"),
@@ -101,7 +143,7 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkService
-	err := ctx.RegisterResource("azure-nextgen:network/v20190701:PrivateLinkService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190701:PrivateLinkService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +155,7 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 func GetPrivateLinkService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkServiceState, opts ...pulumi.ResourceOption) (*PrivateLinkService, error) {
 	var resource PrivateLinkService
-	err := ctx.ReadResource("azure-nextgen:network/v20190701:PrivateLinkService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190701:PrivateLinkService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering
+namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:peering:RegisteredAsn")]
+    [AzureNativeResourceType("azure-native:peering:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Peering
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegisteredAsn(string name, RegisteredAsnArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering:RegisteredAsn", name, args ?? new RegisteredAsnArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:peering:RegisteredAsn", name, args ?? new RegisteredAsnArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegisteredAsn(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering:RegisteredAsn", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:peering:RegisteredAsn", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,9 +71,13 @@ namespace Pulumi.AzureNextGen.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:peering/latest:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredAsn"},
                 },
             };

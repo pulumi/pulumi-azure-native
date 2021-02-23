@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listServiceFabricApplicableSchedules'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listServiceFabricApplicableSchedules'. */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
-    pulumi.log.warn("listServiceFabricApplicableSchedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listServiceFabricApplicableSchedules'.")
+    pulumi.log.warn("listServiceFabricApplicableSchedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listServiceFabricApplicableSchedules'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listServiceFabricApplicableSchedules(args: ListServiceFabricAppl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:listServiceFabricApplicableSchedules", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:listServiceFabricApplicableSchedules", {
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
+namespace Pulumi.AzureNative.Storage.V20200801Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         /// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         /// </summary>
         [Input("keyType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20200801Preview.KeyType>? KeyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.V20200801Preview.KeyType>? KeyType { get; set; }
 
         public EncryptionServiceArgs()
         {

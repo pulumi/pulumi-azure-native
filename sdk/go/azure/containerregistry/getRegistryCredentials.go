@@ -11,7 +11,7 @@ import (
 // API Version: 2016-06-27-preview.
 func GetRegistryCredentials(ctx *pulumi.Context, args *GetRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*GetRegistryCredentialsResult, error) {
 	var rv GetRegistryCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getRegistryCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getRegistryCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

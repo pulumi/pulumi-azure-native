@@ -22,7 +22,7 @@ export class MasterSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:offazure/v20200707:MasterSite';
+    public static readonly __pulumiType = 'azure-native:offazure/v20200707:MasterSite';
 
     /**
      * Returns true if the given object is an instance of MasterSite.  This is designed to work even
@@ -90,7 +90,7 @@ export class MasterSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure:MasterSite" }, { type: "azure-nextgen:offazure/latest:MasterSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:MasterSite" }, { type: "azure-nextgen:offazure:MasterSite" }, { type: "azure-native:offazure/latest:MasterSite" }, { type: "azure-nextgen:offazure/latest:MasterSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MasterSite.__pulumiType, name, inputs, opts);
     }

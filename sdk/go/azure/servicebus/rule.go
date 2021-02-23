@@ -51,10 +51,19 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus/latest:Rule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Rule"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:Rule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Rule"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:Rule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Rule"),
@@ -62,7 +71,7 @@ func NewRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Rule
-	err := ctx.RegisterResource("azure-nextgen:servicebus:Rule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus:Rule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +83,7 @@ func NewRule(ctx *pulumi.Context,
 func GetRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RuleState, opts ...pulumi.ResourceOption) (*Rule, error) {
 	var resource Rule
-	err := ctx.ReadResource("azure-nextgen:servicebus:Rule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus:Rule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

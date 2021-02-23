@@ -53,10 +53,19 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:View"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:View"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:View"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:View"),
@@ -64,7 +73,7 @@ func NewView(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource View
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/v20170426:View", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/v20170426:View", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +85,7 @@ func NewView(ctx *pulumi.Context,
 func GetView(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ViewState, opts ...pulumi.ResourceOption) (*View, error) {
 	var resource View
-	err := ctx.ReadResource("azure-nextgen:customerinsights/v20170426:View", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/v20170426:View", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

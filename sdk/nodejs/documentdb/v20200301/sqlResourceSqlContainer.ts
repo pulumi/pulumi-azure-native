@@ -22,7 +22,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20200301:SqlResourceSqlContainer';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlContainer.  This is designed to work even
@@ -104,7 +104,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/latest:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlContainer" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlContainer.__pulumiType, name, inputs, opts);
     }

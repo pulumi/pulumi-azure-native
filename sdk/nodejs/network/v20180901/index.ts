@@ -21,15 +21,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20180901:PrivateZone":
+            case "azure-native:network/v20180901:PrivateZone":
                 return new PrivateZone(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20180901:RecordSet":
+            case "azure-native:network/v20180901:RecordSet":
                 return new RecordSet(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20180901:VirtualNetworkLink":
+            case "azure-native:network/v20180901:VirtualNetworkLink":
                 return new VirtualNetworkLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20180901", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20180901", _module)

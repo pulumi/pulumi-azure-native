@@ -10,7 +10,7 @@ import (
 // Linked service.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200901preview:getLinkedService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200901preview:getLinkedService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

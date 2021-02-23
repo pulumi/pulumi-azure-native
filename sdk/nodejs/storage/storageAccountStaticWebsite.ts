@@ -21,7 +21,7 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:StorageAccountStaticWebsite';
+    public static readonly __pulumiType = 'azure-native:storage:StorageAccountStaticWebsite';
 
     /**
      * Returns true if the given object is an instance of StorageAccountStaticWebsite.  This is designed to work even

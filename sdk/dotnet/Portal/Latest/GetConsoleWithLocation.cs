@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.Latest
+namespace Pulumi.AzureNative.Portal.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsoleWithLocation'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsoleWithLocation'.")]
     public static class GetConsoleWithLocation
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Portal.Latest
         /// Latest API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleWithLocationResult> InvokeAsync(GetConsoleWithLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azure-nextgen:portal/latest:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleWithLocationResult>("azure-native:portal/latest:getConsoleWithLocation", args ?? new GetConsoleWithLocationArgs(), options.WithVersion());
     }
 
 

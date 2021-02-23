@@ -10,10 +10,10 @@ import (
 // Collection of identifiers.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listSiteIdentifiersAssignedToHostName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'.
 func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteIdentifiersAssignedToHostNameArgs, opts ...pulumi.InvokeOption) (*ListSiteIdentifiersAssignedToHostNameResult, error) {
 	var rv ListSiteIdentifiersAssignedToHostNameResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

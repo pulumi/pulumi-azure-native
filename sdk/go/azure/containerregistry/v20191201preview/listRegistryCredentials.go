@@ -10,7 +10,7 @@ import (
 // The response from the ListCredentials operation.
 func ListRegistryCredentials(ctx *pulumi.Context, args *ListRegistryCredentialsArgs, opts ...pulumi.InvokeOption) (*ListRegistryCredentialsResult, error) {
 	var rv ListRegistryCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20191201preview:listRegistryCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20191201preview:listRegistryCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

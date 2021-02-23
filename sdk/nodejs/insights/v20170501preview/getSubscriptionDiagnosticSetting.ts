@@ -16,7 +16,7 @@ export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnostic
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20170501preview:getSubscriptionDiagnosticSetting", {
+    return pulumi.runtime.invoke("azure-native:insights/v20170501preview:getSubscriptionDiagnosticSetting", {
         "name": args.name,
     }, opts);
 }

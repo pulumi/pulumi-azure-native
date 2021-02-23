@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     public static class GetNotificationRegistration
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-nextgen:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithVersion());
     }
 
 

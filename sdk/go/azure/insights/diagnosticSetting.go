@@ -50,12 +50,15 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/v20170501preview:DiagnosticSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20170501preview:DiagnosticSetting"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DiagnosticSetting
-	err := ctx.RegisterResource("azure-nextgen:insights:DiagnosticSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:DiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +70,7 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 func GetDiagnosticSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiagnosticSettingState, opts ...pulumi.ResourceOption) (*DiagnosticSetting, error) {
 	var resource DiagnosticSetting
-	err := ctx.ReadResource("azure-nextgen:insights:DiagnosticSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:DiagnosticSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

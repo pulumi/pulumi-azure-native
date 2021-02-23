@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
     /// <summary>
     /// Description of topic resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Topic'.")]
-    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Topic")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Topic'.")]
+    [AzureNativeResourceType("azure-native:servicebus/latest:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
@@ -134,12 +134,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/latest:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Topic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Topic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/latest:Topic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -150,10 +150,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Topic"},
                 },
             };
@@ -242,7 +247,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.Latest.EntityStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.Latest.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// Value that indicates whether the topic supports ordering.

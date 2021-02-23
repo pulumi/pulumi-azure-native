@@ -22,7 +22,7 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppAzureStorageAccounts';
+    public static readonly __pulumiType = 'azure-native:web/v20200601:WebAppAzureStorageAccounts';
 
     /**
      * Returns true if the given object is an instance of WebAppAzureStorageAccounts.  This is designed to work even
@@ -86,7 +86,7 @@ export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/latest:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web:WebAppAzureStorageAccounts" }, { type: "azure-native:web/latest:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/latest:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20180201:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20181101:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts" }, { type: "azure-native:web/v20201001:WebAppAzureStorageAccounts" }, { type: "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppAzureStorageAccounts.__pulumiType, name, inputs, opts);
     }

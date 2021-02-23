@@ -10,7 +10,7 @@ import (
 // Describes the source control configuration for web app
 func LookupSiteSourceControl(ctx *pulumi.Context, args *LookupSiteSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSiteSourceControlResult, error) {
 	var rv LookupSiteSourceControlResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteSourceControl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteSourceControl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

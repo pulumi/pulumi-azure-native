@@ -51,16 +51,31 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/latest:ReferenceDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:ReferenceDataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:ReferenceDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"),
@@ -68,7 +83,7 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReferenceDataSet
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +95,7 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 func GetReferenceDataSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReferenceDataSetState, opts ...pulumi.ResourceOption) (*ReferenceDataSet, error) {
 	var resource ReferenceDataSet
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

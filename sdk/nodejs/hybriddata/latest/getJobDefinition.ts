@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Job Definition.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'. */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
-    pulumi.log.warn("getJobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'.")
+    pulumi.log.warn("getJobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata/latest:getJobDefinition", {
+    return pulumi.runtime.invoke("azure-native:hybriddata/latest:getJobDefinition", {
         "dataManagerName": args.dataManagerName,
         "dataServiceName": args.dataServiceName,
         "jobDefinitionName": args.jobDefinitionName,

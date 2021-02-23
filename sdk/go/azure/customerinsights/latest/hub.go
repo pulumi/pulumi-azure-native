@@ -14,7 +14,7 @@ import (
 // Hub resource.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Hub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Hub'.
 type Hub struct {
 	pulumi.CustomResourceState
 
@@ -50,10 +50,19 @@ func NewHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:Hub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:Hub"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Hub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Hub"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Hub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Hub"),
@@ -61,7 +70,7 @@ func NewHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Hub
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:Hub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:Hub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewHub(ctx *pulumi.Context,
 func GetHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HubState, opts ...pulumi.ResourceOption) (*Hub, error) {
 	var resource Hub
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:Hub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:Hub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

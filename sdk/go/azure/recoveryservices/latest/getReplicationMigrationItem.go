@@ -10,10 +10,10 @@ import (
 // Migration item.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationMigrationItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationMigrationItem'.
 func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplicationMigrationItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationMigrationItemResult, error) {
 	var rv LookupReplicationMigrationItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationMigrationItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationMigrationItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

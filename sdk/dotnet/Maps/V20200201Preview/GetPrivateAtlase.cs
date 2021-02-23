@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps.V20200201Preview
+namespace Pulumi.AzureNative.Maps.V20200201Preview
 {
     public static class GetPrivateAtlase
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Maps.V20200201Preview
         /// An Azure resource which represents which will provision the ability to create private location data.
         /// </summary>
         public static Task<GetPrivateAtlaseResult> InvokeAsync(GetPrivateAtlaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-nextgen:maps/v20200201preview:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAtlaseResult>("azure-native:maps/v20200201preview:getPrivateAtlase", args ?? new GetPrivateAtlaseArgs(), options.WithVersion());
     }
 
 

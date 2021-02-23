@@ -14,7 +14,7 @@ import (
 // Represents a container on the  Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.
 type Container struct {
 	pulumi.CustomResourceState
 
@@ -55,16 +55,31 @@ func NewContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Container"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Container"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Container"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Container"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Container"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Container"),
@@ -72,7 +87,7 @@ func NewContainer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Container
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:Container", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:Container", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +99,7 @@ func NewContainer(ctx *pulumi.Context,
 func GetContainer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContainerState, opts ...pulumi.ResourceOption) (*Container, error) {
 	var resource Container
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:Container", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:Container", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

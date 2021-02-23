@@ -10,10 +10,10 @@ import (
 // Represents the PersonalPreferences for the user
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserPersonalPreferences'.
 func GetGlobalUserPersonalPreferences(ctx *pulumi.Context, args *GetGlobalUserPersonalPreferencesArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserPersonalPreferencesResult, error) {
 	var rv GetGlobalUserPersonalPreferencesResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:getGlobalUserPersonalPreferences", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:getGlobalUserPersonalPreferences", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Network profile resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkProfile'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:NetworkProfile")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkProfile'.")]
+    [AzureNativeResourceType("azure-native:network/latest:NetworkProfile")]
     public partial class NetworkProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkProfile(string name, NetworkProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkProfile", name, args ?? new NetworkProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:NetworkProfile", name, args ?? new NetworkProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:NetworkProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:NetworkProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,24 +96,43 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkProfile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkProfile"},
                 },
             };

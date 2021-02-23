@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Network.Inputs
     public sealed class RoutingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("acceptedProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.FrontDoorProtocol>>? _acceptedProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.FrontDoorProtocol>>? _acceptedProtocols;
 
         /// <summary>
         /// Protocol schemes to match for this rule
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.FrontDoorProtocol>> AcceptedProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.FrontDoorProtocol>> AcceptedProtocols
         {
-            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.FrontDoorProtocol>>());
+            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.FrontDoorProtocol>>());
             set => _acceptedProtocols = value;
         }
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.RoutingRuleEnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.RoutingRuleEnabledState>? EnabledState { get; set; }
 
         [Input("frontendEndpoints")]
         private InputList<Inputs.SubResourceArgs>? _frontendEndpoints;

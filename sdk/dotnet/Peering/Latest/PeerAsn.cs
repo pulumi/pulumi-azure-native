@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.Latest
+namespace Pulumi.AzureNative.Peering.Latest
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.")]
-    [AzureNextGenResourceType("azure-nextgen:peering/latest:PeerAsn")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.")]
+    [AzureNativeResourceType("azure-native:peering/latest:PeerAsn")]
     public partial class PeerAsn : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PeerAsn(string name, PeerAsnArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/latest:PeerAsn", name, args ?? new PeerAsnArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:peering/latest:PeerAsn", name, args ?? new PeerAsnArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PeerAsn(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/latest:PeerAsn", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:peering/latest:PeerAsn", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,11 +84,17 @@ namespace Pulumi.AzureNextGen.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:peering:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:PeerAsn"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:PeerAsn"},
                 },
             };
@@ -147,7 +153,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// The validation state of the ASN associated with the peer.
         /// </summary>
         [Input("validationState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.Latest.ValidationState>? ValidationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.Latest.ValidationState>? ValidationState { get; set; }
 
         public PeerAsnArgs()
         {

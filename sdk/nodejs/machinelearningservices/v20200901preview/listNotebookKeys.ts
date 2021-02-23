@@ -13,7 +13,7 @@ export function listNotebookKeys(args: ListNotebookKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/v20200901preview:listNotebookKeys", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200901preview:listNotebookKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);

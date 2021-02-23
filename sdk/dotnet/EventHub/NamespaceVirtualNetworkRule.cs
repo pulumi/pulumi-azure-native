@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub
+namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in a List or Get VirtualNetworkRules operation
     /// API Version: 2018-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub:NamespaceVirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:eventhub:NamespaceVirtualNetworkRule")]
     public partial class NamespaceVirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceVirtualNetworkRule(string name, NamespaceVirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceVirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceVirtualNetworkRule"},
                 },
             };

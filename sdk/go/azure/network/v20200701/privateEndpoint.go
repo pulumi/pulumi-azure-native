@@ -51,43 +51,85 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PrivateEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PrivateEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateEndpoint"),
@@ -95,7 +137,7 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpoint
-	err := ctx.RegisterResource("azure-nextgen:network/v20200701:PrivateEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200701:PrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +149,7 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 func GetPrivateEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointState, opts ...pulumi.ResourceOption) (*PrivateEndpoint, error) {
 	var resource PrivateEndpoint
-	err := ctx.ReadResource("azure-nextgen:network/v20200701:PrivateEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200701:PrivateEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

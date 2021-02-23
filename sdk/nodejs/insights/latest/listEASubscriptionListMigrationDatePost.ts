@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Subscription migrate date information properties
  * Latest API Version: 2017-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:listEASubscriptionListMigrationDatePost'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:listEASubscriptionListMigrationDatePost'. */
 export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptionListMigrationDatePostArgs, opts?: pulumi.InvokeOptions): Promise<ListEASubscriptionListMigrationDatePostResult> {
-    pulumi.log.warn("listEASubscriptionListMigrationDatePost is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:listEASubscriptionListMigrationDatePost'.")
+    pulumi.log.warn("listEASubscriptionListMigrationDatePost is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:listEASubscriptionListMigrationDatePost'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:listEASubscriptionListMigrationDatePost", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:listEASubscriptionListMigrationDatePost", {
     }, opts);
 }
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-02-01-preview.
 func ListBuildTaskSourceRepositoryProperties(ctx *pulumi.Context, args *ListBuildTaskSourceRepositoryPropertiesArgs, opts ...pulumi.InvokeOption) (*ListBuildTaskSourceRepositoryPropertiesResult, error) {
 	var rv ListBuildTaskSourceRepositoryPropertiesResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listBuildTaskSourceRepositoryProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200501.Inputs
+namespace Pulumi.AzureNative.Compute.V20200501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501.Inputs
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200501.SnapshotStorageAccountTypes>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20200501.SnapshotStorageAccountTypes>? Name { get; set; }
 
         public SnapshotSkuArgs()
         {

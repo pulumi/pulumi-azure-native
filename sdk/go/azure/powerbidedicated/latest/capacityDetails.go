@@ -14,7 +14,7 @@ import (
 // Represents an instance of a Dedicated Capacity resource.
 // Latest API Version: 2017-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:powerbidedicated:CapacityDetails'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 
@@ -51,7 +51,13 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:powerbidedicated:CapacityDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated:CapacityDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:powerbidedicated/v20171001:CapacityDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated/v20171001:CapacityDetails"),
@@ -59,7 +65,7 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CapacityDetails
-	err := ctx.RegisterResource("azure-nextgen:powerbidedicated/latest:CapacityDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:powerbidedicated/latest:CapacityDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewCapacityDetails(ctx *pulumi.Context,
 func GetCapacityDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CapacityDetailsState, opts ...pulumi.ResourceOption) (*CapacityDetails, error) {
 	var resource CapacityDetails
-	err := ctx.ReadResource("azure-nextgen:powerbidedicated/latest:CapacityDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:powerbidedicated/latest:CapacityDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

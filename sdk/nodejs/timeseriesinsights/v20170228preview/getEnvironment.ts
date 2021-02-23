@@ -16,7 +16,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights/v20170228preview:getEnvironment", {
+    return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20170228preview:getEnvironment", {
         "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

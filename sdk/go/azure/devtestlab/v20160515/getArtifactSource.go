@@ -10,7 +10,7 @@ import (
 // Properties of an artifact source.
 func LookupArtifactSource(ctx *pulumi.Context, args *LookupArtifactSourceArgs, opts ...pulumi.InvokeOption) (*LookupArtifactSourceResult, error) {
 	var rv LookupArtifactSourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/v20160515:getArtifactSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/v20160515:getArtifactSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

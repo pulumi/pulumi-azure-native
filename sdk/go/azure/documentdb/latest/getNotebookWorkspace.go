@@ -10,10 +10,10 @@ import (
 // A notebook workspace resource
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getNotebookWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getNotebookWorkspace'.
 func LookupNotebookWorkspace(ctx *pulumi.Context, args *LookupNotebookWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupNotebookWorkspaceResult, error) {
 	var rv LookupNotebookWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getNotebookWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getNotebookWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -66,13 +66,25 @@ func NewViewByScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/latest:ViewByScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:ViewByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190401preview:ViewByScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190401preview:ViewByScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20191101:ViewByScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:ViewByScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20200601:ViewByScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:ViewByScope"),
@@ -80,7 +92,7 @@ func NewViewByScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ViewByScope
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:ViewByScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:ViewByScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +104,7 @@ func NewViewByScope(ctx *pulumi.Context,
 func GetViewByScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ViewByScopeState, opts ...pulumi.ResourceOption) (*ViewByScope, error) {
 	var resource ViewByScope
-	err := ctx.ReadResource("azure-nextgen:costmanagement:ViewByScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:ViewByScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

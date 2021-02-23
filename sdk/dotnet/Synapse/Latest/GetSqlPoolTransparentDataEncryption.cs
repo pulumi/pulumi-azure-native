@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest
+namespace Pulumi.AzureNative.Synapse.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolTransparentDataEncryption'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolTransparentDataEncryption'.")]
     public static class GetSqlPoolTransparentDataEncryption
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetSqlPoolTransparentDataEncryptionResult> InvokeAsync(GetSqlPoolTransparentDataEncryptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-nextgen:synapse/latest:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolTransparentDataEncryptionResult>("azure-native:synapse/latest:getSqlPoolTransparentDataEncryption", args ?? new GetSqlPoolTransparentDataEncryptionArgs(), options.WithVersion());
     }
 
 

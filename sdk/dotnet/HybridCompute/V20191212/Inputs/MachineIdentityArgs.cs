@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
+namespace Pulumi.AzureNative.HybridCompute.V20191212.Inputs
 {
 
     public sealed class MachineIdentityArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.HybridCompute.V20191212.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.HybridCompute.V20191212.ResourceIdentityType>? Type { get; set; }
 
         public MachineIdentityArgs()
         {

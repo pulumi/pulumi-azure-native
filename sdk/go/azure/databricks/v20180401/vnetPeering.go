@@ -59,7 +59,13 @@ func NewVNetPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databricks:vNetPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databricks:vNetPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:databricks/latest:vNetPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databricks/latest:vNetPeering"),
@@ -67,7 +73,7 @@ func NewVNetPeering(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VNetPeering
-	err := ctx.RegisterResource("azure-nextgen:databricks/v20180401:vNetPeering", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databricks/v20180401:vNetPeering", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +85,7 @@ func NewVNetPeering(ctx *pulumi.Context,
 func GetVNetPeering(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VNetPeeringState, opts ...pulumi.ResourceOption) (*VNetPeering, error) {
 	var resource VNetPeering
-	err := ctx.ReadResource("azure-nextgen:databricks/v20180401:vNetPeering", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databricks/v20180401:vNetPeering", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

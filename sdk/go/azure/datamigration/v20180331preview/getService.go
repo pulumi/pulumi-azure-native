@@ -10,7 +10,7 @@ import (
 // A Data Migration Service resource
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:datamigration/v20180331preview:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datamigration/v20180331preview:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getDatabaseAccountTable(args: GetDatabaseAccountTableArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getDatabaseAccountTable", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getDatabaseAccountTable", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableName": args.tableName,

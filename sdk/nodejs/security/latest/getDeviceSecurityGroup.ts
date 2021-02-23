@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The device security group resource
  * Latest API Version: 2019-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getDeviceSecurityGroup'. */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
-    pulumi.log.warn("getDeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'.")
+    pulumi.log.warn("getDeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getDeviceSecurityGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security/latest:getDeviceSecurityGroup", {
+    return pulumi.runtime.invoke("azure-native:security/latest:getDeviceSecurityGroup", {
         "deviceSecurityGroupName": args.deviceSecurityGroupName,
         "resourceId": args.resourceId,
     }, opts);

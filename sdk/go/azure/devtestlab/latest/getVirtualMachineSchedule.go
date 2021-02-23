@@ -10,10 +10,10 @@ import (
 // A schedule.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getVirtualMachineSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachineSchedule'.
 func LookupVirtualMachineSchedule(ctx *pulumi.Context, args *LookupVirtualMachineScheduleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScheduleResult, error) {
 	var rv LookupVirtualMachineScheduleResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getVirtualMachineSchedule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getVirtualMachineSchedule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
+namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
     /// <summary>
     /// Action for alert rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20200101:Action")]
+    [AzureNativeResourceType("azure-native:securityinsights/v20200101:Action")]
     public partial class Action : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Action(string name, ActionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20200101:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/v20200101:Action", name, args ?? new ActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Action(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20200101:Action", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/v20200101:Action", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Action"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/latest:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Action"},
                 },
             };

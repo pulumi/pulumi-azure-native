@@ -22,7 +22,7 @@ export class Backend extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20170301:Backend';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20170301:Backend';
 
     /**
      * Returns true if the given object is an instance of Backend.  This is designed to work even
@@ -136,7 +136,7 @@ export class Backend extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Backend" }, { type: "azure-nextgen:apimanagement/latest:Backend" }, { type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }, { type: "azure-nextgen:apimanagement/v20200601preview:Backend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Backend" }, { type: "azure-nextgen:apimanagement:Backend" }, { type: "azure-native:apimanagement/latest:Backend" }, { type: "azure-nextgen:apimanagement/latest:Backend" }, { type: "azure-native:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-native:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-native:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-native:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-native:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-native:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-native:apimanagement/v20191201preview:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }, { type: "azure-native:apimanagement/v20200601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20200601preview:Backend" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backend.__pulumiType, name, inputs, opts);
     }

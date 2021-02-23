@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170901.Inputs
+namespace Pulumi.AzureNative.Network.V20170901.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901.Inputs
         /// The family of the SKU. Possible values are: 'UnlimitedData' and 'MeteredData'.
         /// </summary>
         [Input("family")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170901.ExpressRouteCircuitSkuFamily>? Family { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20170901.ExpressRouteCircuitSkuFamily>? Family { get; set; }
 
         /// <summary>
         /// The name of the SKU.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20170901.Inputs
         /// The tier of the SKU. Possible values are 'Standard' and 'Premium'.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170901.ExpressRouteCircuitSkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20170901.ExpressRouteCircuitSkuTier>? Tier { get; set; }
 
         public ExpressRouteCircuitSkuArgs()
         {

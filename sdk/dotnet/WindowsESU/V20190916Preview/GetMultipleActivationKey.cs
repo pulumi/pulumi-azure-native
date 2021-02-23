@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
+namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
 {
     public static class GetMultipleActivationKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// MAK key details.
         /// </summary>
         public static Task<GetMultipleActivationKeyResult> InvokeAsync(GetMultipleActivationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-nextgen:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMultipleActivationKeyResult>("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", args ?? new GetMultipleActivationKeyArgs(), options.WithVersion());
     }
 
 

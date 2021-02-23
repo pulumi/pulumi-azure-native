@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration
+namespace Pulumi.AzureNative.GuestConfiguration
 {
     public static class GetGuestConfigurationAssignment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration
         /// API Version: 2020-06-25.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-nextgen:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
     }
 
 

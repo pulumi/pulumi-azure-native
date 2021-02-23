@@ -10,7 +10,7 @@ import (
 // A hostname binding object.
 func LookupWebAppHostNameBindingSlot(ctx *pulumi.Context, args *LookupWebAppHostNameBindingSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingSlotResult, error) {
 	var rv LookupWebAppHostNameBindingSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:getWebAppHostNameBindingSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:getWebAppHostNameBindingSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

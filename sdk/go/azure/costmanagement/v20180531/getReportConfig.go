@@ -10,7 +10,7 @@ import (
 // A report config resource.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/v20180531:getReportConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/v20180531:getReportConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

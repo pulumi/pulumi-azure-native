@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:netapp/v20200601:Account":
+	case "azure-native:netapp/v20200601:Account":
 		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:Backup":
+	case "azure-native:netapp/v20200601:Backup":
 		r, err = NewBackup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:BackupPolicy":
+	case "azure-native:netapp/v20200601:BackupPolicy":
 		r, err = NewBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:Pool":
+	case "azure-native:netapp/v20200601:Pool":
 		r, err = NewPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:Snapshot":
+	case "azure-native:netapp/v20200601:Snapshot":
 		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:SnapshotPolicy":
+	case "azure-native:netapp/v20200601:SnapshotPolicy":
 		r, err = NewSnapshotPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:netapp/v20200601:Volume":
+	case "azure-native:netapp/v20200601:Volume":
 		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"netapp/v20200601",
 		&module{version},
 	)

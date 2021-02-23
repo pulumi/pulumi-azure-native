@@ -17,7 +17,7 @@ export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices:getEnvironmentSetting", {
+    return pulumi.runtime.invoke("azure-native:labservices:getEnvironmentSetting", {
         "environmentSettingName": args.environmentSettingName,
         "expand": args.expand,
         "labAccountName": args.labAccountName,

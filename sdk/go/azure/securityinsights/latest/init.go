@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:securityinsights/latest:Action":
+	case "azure-native:securityinsights/latest:Action":
 		r, err = NewAction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:securityinsights/latest:AlertRule":
+	case "azure-native:securityinsights/latest:AlertRule":
 		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:securityinsights/latest:Bookmark":
+	case "azure-native:securityinsights/latest:Bookmark":
 		r, err = NewBookmark(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:securityinsights/latest:DataConnector":
+	case "azure-native:securityinsights/latest:DataConnector":
 		r, err = NewDataConnector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:securityinsights/latest:Incident":
+	case "azure-native:securityinsights/latest:Incident":
 		r, err = NewIncident(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"securityinsights/latest",
 		&module{version},
 	)

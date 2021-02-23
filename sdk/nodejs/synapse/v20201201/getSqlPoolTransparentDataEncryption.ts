@@ -16,7 +16,7 @@ export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentD
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getSqlPoolTransparentDataEncryption", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPoolTransparentDataEncryption", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "transparentDataEncryptionName": args.transparentDataEncryptionName,

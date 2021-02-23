@@ -47,22 +47,43 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/latest:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20150701:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20171001preview:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20171001preview:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180901preview:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180901preview:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20200301preview:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200401preview:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200401preview:RoleAssignment"),
@@ -70,7 +91,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RoleAssignment
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20180101preview:RoleAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20180101preview:RoleAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +103,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 func GetRoleAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleAssignmentState, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
 	var resource RoleAssignment
-	err := ctx.ReadResource("azure-nextgen:authorization/v20180101preview:RoleAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20180101preview:RoleAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

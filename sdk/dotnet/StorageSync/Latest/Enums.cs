@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StorageSync.Latest
+namespace Pulumi.AzureNative.StorageSync.Latest
 {
     /// <summary>
     /// Offline data transfer

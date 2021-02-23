@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An environment, which is essentially an ARM template deployment.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Environment'.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Environment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Environment {
-        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.")
+        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Environment'.")
         return new Environment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:Environment';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even
@@ -87,9 +87,9 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Environment'. */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:Environment'.")
+        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Environment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -133,7 +133,7 @@ export class Environment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:Environment" }, { type: "azure-nextgen:devtestlab/v20160515:Environment" }, { type: "azure-nextgen:devtestlab/v20180915:Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Environment" }, { type: "azure-nextgen:devtestlab:Environment" }, { type: "azure-native:devtestlab/v20160515:Environment" }, { type: "azure-nextgen:devtestlab/v20160515:Environment" }, { type: "azure-native:devtestlab/v20180915:Environment" }, { type: "azure-nextgen:devtestlab/v20180915:Environment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Environment.__pulumiType, name, inputs, opts);
     }

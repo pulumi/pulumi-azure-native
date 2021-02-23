@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Cloud Endpoint object.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getCloudEndpoint'. */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
-    pulumi.log.warn("getCloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'.")
+    pulumi.log.warn("getCloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getCloudEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync/latest:getCloudEndpoint", {
+    return pulumi.runtime.invoke("azure-native:storagesync/latest:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,

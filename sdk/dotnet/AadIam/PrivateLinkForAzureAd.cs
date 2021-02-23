@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam
+namespace Pulumi.AzureNative.AadIam
 {
     /// <summary>
     /// PrivateLink Policy configuration object.
     /// API Version: 2020-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:aadiam:privateLinkForAzureAd")]
+    [AzureNativeResourceType("azure-native:aadiam:privateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.AadIam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkForAzureAd(string name, PrivateLinkForAzureAdArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam:privateLinkForAzureAd", name, args ?? new PrivateLinkForAzureAdArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkForAzureAd(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:aadiam:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam:privateLinkForAzureAd", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd"},
                 },
             };

@@ -10,10 +10,10 @@ import (
 // The callback url.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:listIntegrationAccountCallbackUrl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountCallbackUrl'.
 func ListIntegrationAccountCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountCallbackUrlResult, error) {
 	var rv ListIntegrationAccountCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:listIntegrationAccountCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:listIntegrationAccountCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

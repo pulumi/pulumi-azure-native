@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview.Outputs
+namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Outputs
 {
 
     [OutputType]

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20200101.Inputs
+namespace Pulumi.AzureNative.SecurityInsights.V20200101.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101.Inputs
         /// The severity of the incident
         /// </summary>
         [Input("severity")]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20200101.CaseSeverity>? Severity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20200101.CaseSeverity>? Severity { get; set; }
 
         /// <summary>
         /// The title of the incident

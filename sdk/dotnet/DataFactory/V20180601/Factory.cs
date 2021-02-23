@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Factory resource type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory/v20180601:Factory")]
+    [AzureNativeResourceType("azure-native:datafactory/v20180601:Factory")]
     public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Factory(string name, FactoryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/v20180601:Factory", name, args ?? new FactoryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/v20180601:Factory", name, args ?? new FactoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Factory(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/v20180601:Factory", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/v20180601:Factory", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,8 +118,11 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Factory"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Factory"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Factory"},
                 },
             };
@@ -184,7 +187,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Whether or not public network access is allowed for the data factory.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Git repo information of the factory.

@@ -44,13 +44,25 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization/latest:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:RoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20150701:RoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/v20180101preview:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180101preview:RoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20200301preview:RoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleDefinition"),
@@ -58,7 +70,7 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RoleDefinition
-	err := ctx.RegisterResource("azure-nextgen:authorization:RoleDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization:RoleDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewRoleDefinition(ctx *pulumi.Context,
 func GetRoleDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleDefinitionState, opts ...pulumi.ResourceOption) (*RoleDefinition, error) {
 	var resource RoleDefinition
-	err := ctx.ReadResource("azure-nextgen:authorization:RoleDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization:RoleDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// The type of the auto trigger for base image dependency updates.
         /// </summary>
         [Input("baseImageTriggerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.BaseImageTriggerType> BaseImageTriggerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.BaseImageTriggerType> BaseImageTriggerType { get; set; } = null!;
 
         /// <summary>
         /// The name of the trigger.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190401.TriggerStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190401.TriggerStatus>? Status { get; set; }
 
         public BaseImageTriggerArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HDInsight.Inputs
+namespace Pulumi.AzureNative.HDInsight.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.HDInsight.Inputs
     public sealed class AutoscaleScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days")]
-        private InputList<Pulumi.AzureNextGen.HDInsight.DaysOfWeek>? _days;
+        private InputList<Pulumi.AzureNative.HDInsight.DaysOfWeek>? _days;
 
         /// <summary>
         /// Days of the week for a schedule-based autoscale rule
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.HDInsight.DaysOfWeek> Days
+        public InputList<Pulumi.AzureNative.HDInsight.DaysOfWeek> Days
         {
-            get => _days ?? (_days = new InputList<Pulumi.AzureNextGen.HDInsight.DaysOfWeek>());
+            get => _days ?? (_days = new InputList<Pulumi.AzureNative.HDInsight.DaysOfWeek>());
             set => _days = value;
         }
 

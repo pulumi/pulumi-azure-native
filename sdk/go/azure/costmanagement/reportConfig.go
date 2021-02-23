@@ -47,7 +47,13 @@ func NewReportConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/latest:ReportConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:ReportConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20180531:ReportConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfig"),
@@ -55,7 +61,7 @@ func NewReportConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfig
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:ReportConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:ReportConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewReportConfig(ctx *pulumi.Context,
 func GetReportConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReportConfigState, opts ...pulumi.ResourceOption) (*ReportConfig, error) {
 	var resource ReportConfig
-	err := ctx.ReadResource("azure-nextgen:costmanagement:ReportConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:ReportConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The prediction resource format.
  * Latest API Version: 2017-04-26.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.
  */
 export class Prediction extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Prediction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Prediction {
-        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")
+        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.")
         return new Prediction(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights/latest:Prediction';
+    public static readonly __pulumiType = 'azure-native:customerinsights/latest:Prediction';
 
     /**
      * Returns true if the given object is an instance of Prediction.  This is designed to work even
@@ -123,9 +123,9 @@ export class Prediction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'. */
     constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Prediction'.")
+        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.autoAnalyze === undefined) && !(opts && opts.urn)) {
@@ -204,7 +204,7 @@ export class Prediction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Prediction" }, { type: "azure-nextgen:customerinsights:Prediction" }, { type: "azure-native:customerinsights/v20170426:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prediction.__pulumiType, name, inputs, opts);
     }

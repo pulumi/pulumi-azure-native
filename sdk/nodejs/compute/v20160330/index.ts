@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20160330:AvailabilitySet":
+            case "azure-native:compute/v20160330:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160330:VirtualMachine":
+            case "azure-native:compute/v20160330:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160330:VirtualMachineExtension":
+            case "azure-native:compute/v20160330:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160330:VirtualMachineScaleSet":
+            case "azure-native:compute/v20160330:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20160330", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20160330", _module)

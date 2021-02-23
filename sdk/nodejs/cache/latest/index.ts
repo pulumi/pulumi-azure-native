@@ -38,23 +38,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cache/latest:Database":
+            case "azure-native:cache/latest:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:FirewallRule":
+            case "azure-native:cache/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:LinkedServer":
+            case "azure-native:cache/latest:LinkedServer":
                 return new LinkedServer(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:PatchSchedule":
+            case "azure-native:cache/latest:PatchSchedule":
                 return new PatchSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:PrivateEndpointConnection":
+            case "azure-native:cache/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:Redis":
+            case "azure-native:cache/latest:Redis":
                 return new Redis(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/latest:RedisEnterprise":
+            case "azure-native:cache/latest:RedisEnterprise":
                 return new RedisEnterprise(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cache/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cache/latest", _module)

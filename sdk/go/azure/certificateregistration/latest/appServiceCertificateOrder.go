@@ -14,7 +14,7 @@ import (
 // SSL certificate purchase order.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:certificateregistration:AppServiceCertificateOrder'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrder'.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 
@@ -91,22 +91,43 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:certificateregistration:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:certificateregistration:AppServiceCertificateOrder"),
+		},
+		{
+			Type: pulumi.String("azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"),
 		},
 		{
+			Type: pulumi.String("azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"),
+		},
+		{
+			Type: pulumi.String("azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"),
 		},
 		{
+			Type: pulumi.String("azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"),
 		},
 		{
+			Type: pulumi.String("azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"),
+		},
+		{
+			Type: pulumi.String("azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"),
@@ -114,7 +135,7 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceCertificateOrder
-	err := ctx.RegisterResource("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:certificateregistration/latest:AppServiceCertificateOrder", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +147,7 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 func GetAppServiceCertificateOrder(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppServiceCertificateOrderState, opts ...pulumi.ResourceOption) (*AppServiceCertificateOrder, error) {
 	var resource AppServiceCertificateOrder
-	err := ctx.ReadResource("azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:certificateregistration/latest:AppServiceCertificateOrder", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

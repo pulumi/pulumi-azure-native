@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Base class for backup ProtectionIntent.
  * Latest API Version: 2017-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionIntent'. */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
-    pulumi.log.warn("getProtectionIntent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionIntent'.")
+    pulumi.log.warn("getProtectionIntent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionIntent'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getProtectionIntent", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getProtectionIntent", {
         "fabricName": args.fabricName,
         "intentObjectName": args.intentObjectName,
         "resourceGroupName": args.resourceGroupName,

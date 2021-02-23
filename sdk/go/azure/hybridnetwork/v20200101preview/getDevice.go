@@ -10,7 +10,7 @@ import (
 // Device resource.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork/v20200101preview:getDevice", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getDevice", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

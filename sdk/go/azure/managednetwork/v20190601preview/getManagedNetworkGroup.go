@@ -10,7 +10,7 @@ import (
 // The Managed Network Group resource
 func LookupManagedNetworkGroup(ctx *pulumi.Context, args *LookupManagedNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagedNetworkGroupResult, error) {
 	var rv LookupManagedNetworkGroupResult
-	err := ctx.Invoke("azure-nextgen:managednetwork/v20190601preview:getManagedNetworkGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managednetwork/v20190601preview:getManagedNetworkGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The image definition.
 func GetImageUploadUrlForEntityType(ctx *pulumi.Context, args *GetImageUploadUrlForEntityTypeArgs, opts ...pulumi.InvokeOption) (*GetImageUploadUrlForEntityTypeResult, error) {
 	var rv GetImageUploadUrlForEntityTypeResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getImageUploadUrlForEntityType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

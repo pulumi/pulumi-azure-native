@@ -21,7 +21,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteInstanceDeployment';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteInstanceDeployment';
 
     /**
      * Returns true if the given object is an instance of SiteInstanceDeployment.  This is designed to work even
@@ -150,7 +150,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteInstanceDeployment" }, { type: "azure-nextgen:web/latest:SiteInstanceDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteInstanceDeployment" }, { type: "azure-nextgen:web:SiteInstanceDeployment" }, { type: "azure-native:web/latest:SiteInstanceDeployment" }, { type: "azure-nextgen:web/latest:SiteInstanceDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteInstanceDeployment.__pulumiType, name, inputs, opts);
     }

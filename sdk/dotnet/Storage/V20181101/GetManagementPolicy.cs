@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20181101
+namespace Pulumi.AzureNative.Storage.V20181101
 {
     public static class GetManagementPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-nextgen:storage/v20181101:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/v20181101:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());
     }
 
 

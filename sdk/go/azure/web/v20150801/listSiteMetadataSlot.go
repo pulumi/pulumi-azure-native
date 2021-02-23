@@ -10,7 +10,7 @@ import (
 // String dictionary resource
 func ListSiteMetadataSlot(ctx *pulumi.Context, args *ListSiteMetadataSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteMetadataSlotResult, error) {
 	var rv ListSiteMetadataSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteMetadataSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteMetadataSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

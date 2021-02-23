@@ -14,7 +14,7 @@ import (
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 // Latest API Version: 2020-04-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:redhatopenshift:OpenShiftCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:redhatopenshift:OpenShiftCluster'.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 
@@ -58,7 +58,13 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:redhatopenshift:OpenShiftCluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift:OpenShiftCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:redhatopenshift/v20200430:OpenShiftCluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster"),
@@ -66,7 +72,7 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource OpenShiftCluster
-	err := ctx.RegisterResource("azure-nextgen:redhatopenshift/latest:OpenShiftCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:redhatopenshift/latest:OpenShiftCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +84,7 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 func GetOpenShiftCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OpenShiftClusterState, opts ...pulumi.ResourceOption) (*OpenShiftCluster, error) {
 	var resource OpenShiftCluster
-	err := ctx.ReadResource("azure-nextgen:redhatopenshift/latest:OpenShiftCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:redhatopenshift/latest:OpenShiftCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

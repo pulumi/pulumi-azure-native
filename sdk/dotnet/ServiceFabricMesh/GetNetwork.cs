@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh
+namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     public static class GetNetwork
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetNetworkResult> InvokeAsync(GetNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-nextgen:servicefabricmesh:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("azure-native:servicefabricmesh:getNetwork", args ?? new GetNetworkArgs(), options.WithVersion());
     }
 
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01-preview.
 func GetClusterGatewaySettings(ctx *pulumi.Context, args *GetClusterGatewaySettingsArgs, opts ...pulumi.InvokeOption) (*GetClusterGatewaySettingsResult, error) {
 	var rv GetClusterGatewaySettingsResult
-	err := ctx.Invoke("azure-nextgen:hdinsight:getClusterGatewaySettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hdinsight:getClusterGatewaySettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

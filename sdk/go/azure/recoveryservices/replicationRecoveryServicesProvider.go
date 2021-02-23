@@ -47,10 +47,19 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"),
@@ -58,7 +67,7 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryServicesProvider
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ReplicationRecoveryServicesProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 func GetReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationRecoveryServicesProviderState, opts ...pulumi.ResourceOption) (*ReplicationRecoveryServicesProvider, error) {
 	var resource ReplicationRecoveryServicesProvider
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ReplicationRecoveryServicesProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

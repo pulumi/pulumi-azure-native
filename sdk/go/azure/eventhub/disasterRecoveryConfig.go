@@ -47,10 +47,19 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub/latest:DisasterRecoveryConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:DisasterRecoveryConfig"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:DisasterRecoveryConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:DisasterRecoveryConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig"),
@@ -58,7 +67,7 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfig
-	err := ctx.RegisterResource("azure-nextgen:eventhub:DisasterRecoveryConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub:DisasterRecoveryConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 func GetDisasterRecoveryConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DisasterRecoveryConfigState, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfig, error) {
 	var resource DisasterRecoveryConfig
-	err := ctx.ReadResource("azure-nextgen:eventhub:DisasterRecoveryConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub:DisasterRecoveryConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

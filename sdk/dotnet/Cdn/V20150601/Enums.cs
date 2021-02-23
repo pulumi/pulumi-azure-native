@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cdn.V20150601
+namespace Pulumi.AzureNative.Cdn.V20150601
 {
     /// <summary>
     /// Defines the query string caching behavior.

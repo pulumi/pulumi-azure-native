@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Product details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:Product'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:Product")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Product'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:Product")]
     public partial class Product : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Product(string name, ProductArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Product", name, args ?? new ProductArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:Product", name, args ?? new ProductArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Product(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:Product", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:Product", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,15 +96,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Product"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Product"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Product"},
                 },
             };
@@ -169,7 +179,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.ApiManagement.Latest.ProductState>? State { get; set; }
+        public Input<Pulumi.AzureNative.ApiManagement.Latest.ProductState>? State { get; set; }
 
         /// <summary>
         /// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.

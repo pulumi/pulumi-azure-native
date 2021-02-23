@@ -10,7 +10,7 @@ import (
 // A export resource.
 func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.InvokeOption) (*LookupExportResult, error) {
 	var rv LookupExportResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/v20190901:getExport", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/v20190901:getExport", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

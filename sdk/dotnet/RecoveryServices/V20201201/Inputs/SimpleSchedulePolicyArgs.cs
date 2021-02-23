@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20201201.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20201201.Inputs
 {
 
     /// <summary>
@@ -23,14 +23,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201201.Inputs
         public Input<string> SchedulePolicyType { get; set; } = null!;
 
         [Input("scheduleRunDays")]
-        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20201201.DayOfWeek>? _scheduleRunDays;
+        private InputList<Pulumi.AzureNative.RecoveryServices.V20201201.DayOfWeek>? _scheduleRunDays;
 
         /// <summary>
         /// List of days of week this schedule has to be run.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20201201.DayOfWeek> ScheduleRunDays
+        public InputList<Pulumi.AzureNative.RecoveryServices.V20201201.DayOfWeek> ScheduleRunDays
         {
-            get => _scheduleRunDays ?? (_scheduleRunDays = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20201201.DayOfWeek>());
+            get => _scheduleRunDays ?? (_scheduleRunDays = new InputList<Pulumi.AzureNative.RecoveryServices.V20201201.DayOfWeek>());
             set => _scheduleRunDays = value;
         }
 
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201201.Inputs
         /// Frequency of the schedule operation of this policy.
         /// </summary>
         [Input("scheduleRunFrequency")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201201.ScheduleRunType>? ScheduleRunFrequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20201201.ScheduleRunType>? ScheduleRunFrequency { get; set; }
 
         [Input("scheduleRunTimes")]
         private InputList<string>? _scheduleRunTimes;

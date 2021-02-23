@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents a lab account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:LabAccount")]
+    [AzureNativeResourceType("azure-native:labservices/v20181015:LabAccount")]
     public partial class LabAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabAccount(string name, LabAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/v20181015:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:LabAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/v20181015:LabAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:LabAccount"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:LabAccount"},
                 },
             };

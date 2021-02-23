@@ -10,7 +10,7 @@ import (
 // Describes a Virtual Machine Extension.
 func LookupVirtualMachineExtension(ctx *pulumi.Context, args *LookupVirtualMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineExtensionResult, error) {
 	var rv LookupVirtualMachineExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/v20180401:getVirtualMachineExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20180401:getVirtualMachineExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

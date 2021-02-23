@@ -10,10 +10,10 @@ import (
 // Tap configuration in a Network Interface.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterfaceTapConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterfaceTapConfiguration'.
 func LookupNetworkInterfaceTapConfiguration(ctx *pulumi.Context, args *LookupNetworkInterfaceTapConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceTapConfigurationResult, error) {
 	var rv LookupNetworkInterfaceTapConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // A list of SSIS object metadata.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getIntegrationRuntimeObjectMetadatum'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeObjectMetadatum'.
 func GetIntegrationRuntimeObjectMetadatum(ctx *pulumi.Context, args *GetIntegrationRuntimeObjectMetadatumArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeObjectMetadatumResult, error) {
 	var rv GetIntegrationRuntimeObjectMetadatumResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getIntegrationRuntimeObjectMetadatum", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

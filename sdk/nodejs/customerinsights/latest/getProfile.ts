@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The profile resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getProfile'. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getProfile'.")
+    pulumi.log.warn("getProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getProfile", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getProfile", {
         "hubName": args.hubName,
         "localeCode": args.localeCode,
         "profileName": args.profileName,

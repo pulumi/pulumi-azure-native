@@ -10,7 +10,7 @@ import (
 // Namespace/Relay Connection String
 func ListWCFRelayKeys(ctx *pulumi.Context, args *ListWCFRelayKeysArgs, opts ...pulumi.InvokeOption) (*ListWCFRelayKeysResult, error) {
 	var rv ListWCFRelayKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/v20170401:listWCFRelayKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20170401:listWCFRelayKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

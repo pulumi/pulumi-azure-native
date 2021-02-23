@@ -17,7 +17,7 @@ export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage:getBlobContainer", {
+    return pulumi.runtime.invoke("azure-native:storage:getBlobContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,

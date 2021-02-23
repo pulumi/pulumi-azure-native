@@ -17,7 +17,7 @@ export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getPrivateCloud", {
+    return pulumi.runtime.invoke("azure-native:avs:getPrivateCloud", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

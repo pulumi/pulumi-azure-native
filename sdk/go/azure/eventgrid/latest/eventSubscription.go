@@ -14,7 +14,7 @@ import (
 // Event Subscription
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:EventSubscription'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
@@ -54,40 +54,79 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20170615preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170615preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20170915preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20170915preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20180101:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180101:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20180501preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180501preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20180915preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20180915preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190101:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190101:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20190201preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190601:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200101preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventSubscription"),
@@ -95,7 +134,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventSubscription
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/latest:EventSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/latest:EventSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +146,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 func GetEventSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventSubscriptionState, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
 	var resource EventSubscription
-	err := ctx.ReadResource("azure-nextgen:eventgrid/latest:EventSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/latest:EventSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

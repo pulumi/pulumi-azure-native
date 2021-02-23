@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The description of the Windows IoT Device Service.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:windowsiot:getService'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:windowsiot:getService'. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:windowsiot:getService'.")
+    pulumi.log.warn("getService is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:windowsiot:getService'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:windowsiot/latest:getService", {
+    return pulumi.runtime.invoke("azure-native:windowsiot/latest:getService", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
     /// <summary>
     /// Represents an incident in Azure Security Insights.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Incident'.")]
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:Incident")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Incident'.")]
+    [AzureNativeResourceType("azure-native:securityinsights/latest:Incident")]
     public partial class Incident : Pulumi.CustomResource
     {
         /// <summary>
@@ -146,12 +146,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Incident(string name, IncidentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Incident", name, args ?? new IncidentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/latest:Incident", name, args ?? new IncidentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Incident(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:Incident", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/latest:Incident", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -162,7 +162,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:Incident"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Incident"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Incident"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Incident"},
                 },
             };
@@ -191,7 +193,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// The reason the incident was closed
         /// </summary>
         [Input("classification")]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.IncidentClassification>? Classification { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.IncidentClassification>? Classification { get; set; }
 
         /// <summary>
         /// Describes the reason the incident was closed
@@ -203,7 +205,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// The classification reason the incident was closed with
         /// </summary>
         [Input("classificationReason")]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.IncidentClassificationReason>? ClassificationReason { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.IncidentClassificationReason>? ClassificationReason { get; set; }
 
         /// <summary>
         /// The description of the incident
@@ -263,13 +265,13 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// The severity of the incident
         /// </summary>
         [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.IncidentSeverity> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.IncidentSeverity> Severity { get; set; } = null!;
 
         /// <summary>
         /// The status of the incident
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.IncidentStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.IncidentStatus> Status { get; set; } = null!;
 
         /// <summary>
         /// The title of the incident

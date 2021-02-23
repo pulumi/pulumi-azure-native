@@ -21,7 +21,7 @@ export class SiteAppSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteAppSettings';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteAppSettings';
 
     /**
      * Returns true if the given object is an instance of SiteAppSettings.  This is designed to work even
@@ -98,7 +98,7 @@ export class SiteAppSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteAppSettings" }, { type: "azure-nextgen:web/latest:SiteAppSettings" }, { type: "azure-nextgen:web/v20160801:SiteAppSettings" }, { type: "azure-nextgen:web/v20180201:SiteAppSettings" }, { type: "azure-nextgen:web/v20181101:SiteAppSettings" }, { type: "azure-nextgen:web/v20190801:SiteAppSettings" }, { type: "azure-nextgen:web/v20200601:SiteAppSettings" }, { type: "azure-nextgen:web/v20200901:SiteAppSettings" }, { type: "azure-nextgen:web/v20201001:SiteAppSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAppSettings" }, { type: "azure-nextgen:web:SiteAppSettings" }, { type: "azure-native:web/latest:SiteAppSettings" }, { type: "azure-nextgen:web/latest:SiteAppSettings" }, { type: "azure-native:web/v20160801:SiteAppSettings" }, { type: "azure-nextgen:web/v20160801:SiteAppSettings" }, { type: "azure-native:web/v20180201:SiteAppSettings" }, { type: "azure-nextgen:web/v20180201:SiteAppSettings" }, { type: "azure-native:web/v20181101:SiteAppSettings" }, { type: "azure-nextgen:web/v20181101:SiteAppSettings" }, { type: "azure-native:web/v20190801:SiteAppSettings" }, { type: "azure-nextgen:web/v20190801:SiteAppSettings" }, { type: "azure-native:web/v20200601:SiteAppSettings" }, { type: "azure-nextgen:web/v20200601:SiteAppSettings" }, { type: "azure-native:web/v20200901:SiteAppSettings" }, { type: "azure-nextgen:web/v20200901:SiteAppSettings" }, { type: "azure-native:web/v20201001:SiteAppSettings" }, { type: "azure-nextgen:web/v20201001:SiteAppSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteAppSettings.__pulumiType, name, inputs, opts);
     }

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
+namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
     /// <summary>
     /// Provisioning state of the migrate project.

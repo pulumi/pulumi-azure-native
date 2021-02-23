@@ -63,13 +63,25 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/latest:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:View"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190401preview:View"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190401preview:View"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20191101:View"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:View"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20200601:View"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:View"),
@@ -77,7 +89,7 @@ func NewView(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource View
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:View", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:View", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +101,7 @@ func NewView(ctx *pulumi.Context,
 func GetView(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ViewState, opts ...pulumi.ResourceOption) (*View, error) {
 	var resource View
-	err := ctx.ReadResource("azure-nextgen:costmanagement:View", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:View", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

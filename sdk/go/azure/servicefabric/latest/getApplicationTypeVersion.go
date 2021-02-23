@@ -10,10 +10,10 @@ import (
 // An application type version resource for the specified application type name resource.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationTypeVersion'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getApplicationTypeVersion'.
 func LookupApplicationTypeVersion(ctx *pulumi.Context, args *LookupApplicationTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeVersionResult, error) {
 	var rv LookupApplicationTypeVersionResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/latest:getApplicationTypeVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/latest:getApplicationTypeVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

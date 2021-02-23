@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetIscsiServer
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2016-10-01.
         /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-nextgen:storsimple:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
     }
 
 

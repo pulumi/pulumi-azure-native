@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure
+namespace Pulumi.AzureNative.HanaOnAzure
 {
     /// <summary>
     /// HANA instance info on Azure (ARM properties and HANA properties)
     /// API Version: 2017-11-03-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hanaonazure:HanaInstance")]
+    [AzureNativeResourceType("azure-native:hanaonazure:HanaInstance")]
     public partial class HanaInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HanaInstance(string name, HanaInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure:HanaInstance", name, args ?? new HanaInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hanaonazure:HanaInstance", name, args ?? new HanaInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HanaInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure:HanaInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hanaonazure:HanaInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hanaonazure/v20171103preview:HanaInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20171103preview:HanaInstance"},
                 },
             };
@@ -201,13 +202,13 @@ namespace Pulumi.AzureNextGen.HanaOnAzure
         /// Resource power state
         /// </summary>
         [Input("powerState")]
-        public InputUnion<string, Pulumi.AzureNextGen.HanaOnAzure.HanaInstancePowerStateEnum>? PowerState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.HanaInstancePowerStateEnum>? PowerState { get; set; }
 
         /// <summary>
         /// State of provisioning of the HanaInstance
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.HanaOnAzure.HanaProvisioningStatesEnum>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.HanaProvisioningStatesEnum>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Resource proximity placement group

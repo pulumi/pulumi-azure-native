@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.V20210101
+namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
     /// <summary>
     /// The compliance state that should be set on the resource.

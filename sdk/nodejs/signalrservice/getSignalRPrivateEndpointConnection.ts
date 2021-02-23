@@ -17,7 +17,7 @@ export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:signalrservice:getSignalRPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:signalrservice:getSignalRPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

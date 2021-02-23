@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
 {
     /// <summary>
     /// Linked storage accounts top level resource container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount")]
     public partial class LinkedStorageAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedStorageAccount(string name, LinkedStorageAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount", name, args ?? new LinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount", name, args ?? new LinkedStorageAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedStorageAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20200301preview:LinkedStorageAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount"},
                 },
             };

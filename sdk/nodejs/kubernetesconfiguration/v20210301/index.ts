@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration":
+            case "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration":
                 return new SourceControlConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "kubernetesconfiguration/v20210301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "kubernetesconfiguration/v20210301", _module)

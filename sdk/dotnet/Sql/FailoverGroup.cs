@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A failover group.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:FailoverGroup")]
+    [AzureNativeResourceType("azure-native:sql:FailoverGroup")]
     public partial class FailoverGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FailoverGroup(string name, FailoverGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:FailoverGroup", name, args ?? new FailoverGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:FailoverGroup", name, args ?? new FailoverGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FailoverGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:FailoverGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:FailoverGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,8 +101,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FailoverGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:FailoverGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:FailoverGroup"},
                 },
             };

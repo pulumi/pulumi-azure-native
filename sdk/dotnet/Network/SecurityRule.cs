@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network security rule.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:SecurityRule")]
+    [AzureNativeResourceType("azure-native:network:SecurityRule")]
     public partial class SecurityRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityRule(string name, SecurityRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:SecurityRule", name, args ?? new SecurityRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:SecurityRule", name, args ?? new SecurityRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:SecurityRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:SecurityRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,41 +155,77 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityRule"},
                 },
             };
@@ -218,7 +254,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The network traffic is allowed or denied.
         /// </summary>
         [Input("access", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.SecurityRuleAccess> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.SecurityRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
@@ -278,7 +314,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         /// </summary>
         [Input("direction", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.SecurityRuleDirection> Direction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.SecurityRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.
@@ -308,7 +344,7 @@ namespace Pulumi.AzureNextGen.Network
         /// Network protocol this rule applies to.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.SecurityRuleProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.SecurityRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

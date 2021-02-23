@@ -53,22 +53,43 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:netapp/latest:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/latest:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200501:SnapshotPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200501:SnapshotPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200601:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200601:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20200701:SnapshotPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200701:SnapshotPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200801:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200801:SnapshotPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:netapp/v20200901:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:netapp/v20200901:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201101:SnapshotPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:SnapshotPolicy"),
@@ -76,7 +97,7 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SnapshotPolicy
-	err := ctx.RegisterResource("azure-nextgen:netapp:SnapshotPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:netapp:SnapshotPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +109,7 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 func GetSnapshotPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SnapshotPolicyState, opts ...pulumi.ResourceOption) (*SnapshotPolicy, error) {
 	var resource SnapshotPolicy
-	err := ctx.ReadResource("azure-nextgen:netapp:SnapshotPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:netapp:SnapshotPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * DC Access code in the case of Self Managed Shipping.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:listOrderDCAccessCode'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'. */
 export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pulumi.InvokeOptions): Promise<ListOrderDCAccessCodeResult> {
-    pulumi.log.warn("listOrderDCAccessCode is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:listOrderDCAccessCode'.")
+    pulumi.log.warn("listOrderDCAccessCode is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:listOrderDCAccessCode", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:listOrderDCAccessCode", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

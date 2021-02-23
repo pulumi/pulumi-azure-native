@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Resource for OuContainer.
  * Latest API Version: 2020-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:OuContainer'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.
  */
 export class OuContainer extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class OuContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OuContainer {
-        pulumi.log.warn("OuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:OuContainer'.")
+        pulumi.log.warn("OuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.")
         return new OuContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:aad/latest:OuContainer';
+    public static readonly __pulumiType = 'azure-native:aad/latest:OuContainer';
 
     /**
      * Returns true if the given object is an instance of OuContainer.  This is designed to work even
@@ -99,9 +99,9 @@ export class OuContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:OuContainer'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'. */
     constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:aad:OuContainer'.")
+        pulumi.log.warn("OuContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.domainServiceName === undefined) && !(opts && opts.urn)) {
@@ -151,7 +151,7 @@ export class OuContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad:OuContainer" }, { type: "azure-nextgen:aad/v20170601:OuContainer" }, { type: "azure-nextgen:aad/v20200101:OuContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aad:OuContainer" }, { type: "azure-nextgen:aad:OuContainer" }, { type: "azure-native:aad/v20170601:OuContainer" }, { type: "azure-nextgen:aad/v20170601:OuContainer" }, { type: "azure-native:aad/v20200101:OuContainer" }, { type: "azure-nextgen:aad/v20200101:OuContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OuContainer.__pulumiType, name, inputs, opts);
     }

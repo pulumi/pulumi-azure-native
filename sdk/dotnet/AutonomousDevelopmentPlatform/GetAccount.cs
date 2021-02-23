@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
+namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     public static class GetAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-nextgen:autonomousdevelopmentplatform:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:autonomousdevelopmentplatform:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
 
 

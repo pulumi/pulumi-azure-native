@@ -65,7 +65,13 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databricks/latest:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databricks/latest:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:databricks/v20180401:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databricks/v20180401:Workspace"),
@@ -73,7 +79,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:databricks:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databricks:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +91,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:databricks:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databricks:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

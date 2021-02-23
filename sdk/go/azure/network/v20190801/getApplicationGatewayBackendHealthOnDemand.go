@@ -10,7 +10,7 @@ import (
 // Result of on demand test probe.
 func GetApplicationGatewayBackendHealthOnDemand(ctx *pulumi.Context, args *GetApplicationGatewayBackendHealthOnDemandArgs, opts ...pulumi.InvokeOption) (*GetApplicationGatewayBackendHealthOnDemandResult, error) {
 	var rv GetApplicationGatewayBackendHealthOnDemandResult
-	err := ctx.Invoke("azure-nextgen:network/v20190801:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190801:getApplicationGatewayBackendHealthOnDemand", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

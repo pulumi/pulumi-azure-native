@@ -47,13 +47,25 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem"),
@@ -61,7 +73,7 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectedItem
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ReplicationProtectedItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ReplicationProtectedItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 func GetReplicationProtectedItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationProtectedItemState, opts ...pulumi.ResourceOption) (*ReplicationProtectedItem, error) {
 	var resource ReplicationProtectedItem
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ReplicationProtectedItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ReplicationProtectedItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

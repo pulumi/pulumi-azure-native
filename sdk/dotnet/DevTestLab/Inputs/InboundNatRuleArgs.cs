@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Inputs
         /// The transport protocol for the endpoint.
         /// </summary>
         [Input("transportProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.TransportProtocol>? TransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.TransportProtocol>? TransportProtocol { get; set; }
 
         public InboundNatRuleArgs()
         {

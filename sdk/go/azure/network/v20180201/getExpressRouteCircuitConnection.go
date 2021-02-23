@@ -10,7 +10,7 @@ import (
 // Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
 func LookupExpressRouteCircuitConnection(ctx *pulumi.Context, args *LookupExpressRouteCircuitConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitConnectionResult, error) {
 	var rv LookupExpressRouteCircuitConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20180201:getExpressRouteCircuitConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180201:getExpressRouteCircuitConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

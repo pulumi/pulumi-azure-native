@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute
+namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// A private endpoint connection
     /// API Version: 2020-08-15-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridcompute:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:hybridcompute:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.HybridCompute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcompute:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcompute:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"},
                 },
             };

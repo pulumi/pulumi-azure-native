@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  * Latest API Version: 2017-04-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:getAccount'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:getAccount'. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:getAccount'.")
+    pulumi.log.warn("getAccount is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:getAccount'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cognitiveservices/latest:getAccount", {
+    return pulumi.runtime.invoke("azure-native:cognitiveservices/latest:getAccount", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupApiTagDescription(ctx *pulumi.Context, args *LookupApiTagDescriptionArgs, opts ...pulumi.InvokeOption) (*LookupApiTagDescriptionResult, error) {
 	var rv LookupApiTagDescriptionResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiTagDescription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiTagDescription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

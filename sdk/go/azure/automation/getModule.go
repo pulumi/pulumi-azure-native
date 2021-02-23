@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupModule(ctx *pulumi.Context, args *LookupModuleArgs, opts ...pulumi.InvokeOption) (*LookupModuleResult, error) {
 	var rv LookupModuleResult
-	err := ctx.Invoke("azure-nextgen:automation:getModule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getModule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

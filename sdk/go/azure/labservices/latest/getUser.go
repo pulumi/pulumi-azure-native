@@ -10,10 +10,10 @@ import (
 // The User registered to a lab
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getUser'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getUser'.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
-	err := ctx.Invoke("azure-nextgen:labservices/latest:getUser", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/latest:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

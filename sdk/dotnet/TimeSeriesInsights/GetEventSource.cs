@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights
+namespace Pulumi.AzureNative.TimeSeriesInsights
 {
     public static class GetEventSource
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-nextgen:timeseriesinsights:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("azure-native:timeseriesinsights:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
     }
 
 

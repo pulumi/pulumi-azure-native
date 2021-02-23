@@ -16,7 +16,7 @@ export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscripti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/v20190801:getDeploymentAtSubscriptionScope", {
+    return pulumi.runtime.invoke("azure-native:resources/v20190801:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,
     }, opts);
 }

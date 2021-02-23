@@ -49,31 +49,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storsimple/v20161001:AccessControlRecord":
+            case "azure-native:storsimple/v20161001:AccessControlRecord":
                 return new AccessControlRecord(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:BackupScheduleGroup":
+            case "azure-native:storsimple/v20161001:BackupScheduleGroup":
                 return new BackupScheduleGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:ChapSetting":
+            case "azure-native:storsimple/v20161001:ChapSetting":
                 return new ChapSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:FileServer":
+            case "azure-native:storsimple/v20161001:FileServer":
                 return new FileServer(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:FileShare":
+            case "azure-native:storsimple/v20161001:FileShare":
                 return new FileShare(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:IscsiDisk":
+            case "azure-native:storsimple/v20161001:IscsiDisk":
                 return new IscsiDisk(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:IscsiServer":
+            case "azure-native:storsimple/v20161001:IscsiServer":
                 return new IscsiServer(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:Manager":
+            case "azure-native:storsimple/v20161001:Manager":
                 return new Manager(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo":
+            case "azure-native:storsimple/v20161001:ManagerExtendedInfo":
                 return new ManagerExtendedInfo(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:StorageAccountCredential":
+            case "azure-native:storsimple/v20161001:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:storsimple/v20161001:StorageDomain":
+            case "azure-native:storsimple/v20161001:StorageDomain":
                 return new StorageDomain(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storsimple/v20161001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storsimple/v20161001", _module)

@@ -18,7 +18,7 @@ export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getTask", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getTask", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskName": args.taskName,

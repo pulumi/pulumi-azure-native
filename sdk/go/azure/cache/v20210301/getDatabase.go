@@ -10,7 +10,7 @@ import (
 // Describes a database on the RedisEnterprise cluster
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:cache/v20210301:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/v20210301:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

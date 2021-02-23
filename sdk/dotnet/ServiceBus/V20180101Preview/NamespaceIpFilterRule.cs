@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule")]
+    [AzureNativeResourceType("azure-native:servicebus/v20180101preview:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceIpFilterRule(string name, NamespaceIpFilterRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20180101preview:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceIpFilterRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20180101preview:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:NamespaceIpFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceIpFilterRule"},
                 },
             };
@@ -98,7 +99,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// The IP Filter Action
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20180101Preview.IPAction>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20180101Preview.IPAction>? Action { get; set; }
 
         /// <summary>
         /// IP Filter name

@@ -10,7 +10,7 @@ import (
 // User credentials used for publishing activity.
 func ListWebAppPublishingCredentialsSlot(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsSlotResult, error) {
 	var rv ListWebAppPublishingCredentialsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20190801:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20190801:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

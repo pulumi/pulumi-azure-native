@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
+namespace Pulumi.AzureNative.Logic.V20160601.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The frequency.
         /// </summary>
         [Input("frequency")]
-        public Input<Pulumi.AzureNextGen.Logic.V20160601.RecurrenceFrequency>? Frequency { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20160601.RecurrenceFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// The interval.

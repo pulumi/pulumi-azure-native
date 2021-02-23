@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The properties of an IoT hub shared access policy.
  * Latest API Version: 2020-08-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeysForKeyName'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeysForKeyName'. */
 export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysForKeyNameResult> {
-    pulumi.log.warn("listIotHubResourceKeysForKeyName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeysForKeyName'.")
+    pulumi.log.warn("listIotHubResourceKeysForKeyName is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeysForKeyName'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysFor
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:listIotHubResourceKeysForKeyName", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:listIotHubResourceKeysForKeyName", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

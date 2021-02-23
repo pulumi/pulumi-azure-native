@@ -10,10 +10,10 @@ import (
 // The device security group resource
 // Latest API Version: 2019-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getDeviceSecurityGroup'.
 func LookupDeviceSecurityGroup(ctx *pulumi.Context, args *LookupDeviceSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupDeviceSecurityGroupResult, error) {
 	var rv LookupDeviceSecurityGroupResult
-	err := ctx.Invoke("azure-nextgen:security/latest:getDeviceSecurityGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/latest:getDeviceSecurityGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

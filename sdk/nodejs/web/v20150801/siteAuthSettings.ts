@@ -22,7 +22,7 @@ export class SiteAuthSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteAuthSettings';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteAuthSettings';
 
     /**
      * Returns true if the given object is an instance of SiteAuthSettings.  This is designed to work even
@@ -249,7 +249,7 @@ export class SiteAuthSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteAuthSettings" }, { type: "azure-nextgen:web/latest:SiteAuthSettings" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettings" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettings" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettings" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettings" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettings" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettings" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAuthSettings" }, { type: "azure-nextgen:web:SiteAuthSettings" }, { type: "azure-native:web/latest:SiteAuthSettings" }, { type: "azure-nextgen:web/latest:SiteAuthSettings" }, { type: "azure-native:web/v20160801:SiteAuthSettings" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettings" }, { type: "azure-native:web/v20180201:SiteAuthSettings" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettings" }, { type: "azure-native:web/v20181101:SiteAuthSettings" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettings" }, { type: "azure-native:web/v20190801:SiteAuthSettings" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettings" }, { type: "azure-native:web/v20200601:SiteAuthSettings" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettings" }, { type: "azure-native:web/v20200901:SiteAuthSettings" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettings" }, { type: "azure-native:web/v20201001:SiteAuthSettings" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteAuthSettings.__pulumiType, name, inputs, opts);
     }

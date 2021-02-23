@@ -14,7 +14,7 @@ import (
 // Represents a and external administrator to be created.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerAdministrator'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerAdministrator'.
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 
@@ -59,10 +59,19 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql:ServerAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:ServerAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:ServerAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:ServerAdministrator"),
@@ -70,7 +79,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerAdministrator
-	err := ctx.RegisterResource("azure-nextgen:dbformysql/latest:ServerAdministrator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql/latest:ServerAdministrator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 func GetServerAdministrator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerAdministratorState, opts ...pulumi.ResourceOption) (*ServerAdministrator, error) {
 	var resource ServerAdministrator
-	err := ctx.ReadResource("azure-nextgen:dbformysql/latest:ServerAdministrator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql/latest:ServerAdministrator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

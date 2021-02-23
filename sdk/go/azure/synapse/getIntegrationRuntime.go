@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntimeArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationRuntimeResult, error) {
 	var rv LookupIntegrationRuntimeResult
-	err := ctx.Invoke("azure-nextgen:synapse:getIntegrationRuntime", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getIntegrationRuntime", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

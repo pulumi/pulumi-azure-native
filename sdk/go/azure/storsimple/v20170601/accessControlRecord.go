@@ -45,10 +45,19 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:AccessControlRecord"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:AccessControlRecord"),
 		},
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:AccessControlRecord"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:AccessControlRecord"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:AccessControlRecord"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:AccessControlRecord"),
@@ -56,7 +65,7 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AccessControlRecord
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:AccessControlRecord", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:AccessControlRecord", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 func GetAccessControlRecord(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessControlRecordState, opts ...pulumi.ResourceOption) (*AccessControlRecord, error) {
 	var resource AccessControlRecord
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:AccessControlRecord", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:AccessControlRecord", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

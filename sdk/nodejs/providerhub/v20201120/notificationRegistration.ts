@@ -22,7 +22,7 @@ export class NotificationRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub/v20201120:NotificationRegistration';
+    public static readonly __pulumiType = 'azure-native:providerhub/v20201120:NotificationRegistration';
 
     /**
      * Returns true if the given object is an instance of NotificationRegistration.  This is designed to work even
@@ -75,7 +75,7 @@ export class NotificationRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub/latest:NotificationRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-native:providerhub/latest:NotificationRegistration" }, { type: "azure-nextgen:providerhub/latest:NotificationRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationRegistration.__pulumiType, name, inputs, opts);
     }

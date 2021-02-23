@@ -10,7 +10,7 @@ import (
 // A server key.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getServerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getServerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

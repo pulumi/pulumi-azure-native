@@ -22,7 +22,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningexperimentation:Workspace';
+    public static readonly __pulumiType = 'azure-native:machinelearningexperimentation:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -127,7 +127,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningexperimentation/v20170501preview:Workspace" }, { type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

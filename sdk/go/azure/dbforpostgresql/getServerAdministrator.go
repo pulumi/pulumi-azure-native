@@ -11,7 +11,7 @@ import (
 // API Version: 2017-12-01.
 func LookupServerAdministrator(ctx *pulumi.Context, args *LookupServerAdministratorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdministratorResult, error) {
 	var rv LookupServerAdministratorResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql:getServerAdministrator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql:getServerAdministrator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

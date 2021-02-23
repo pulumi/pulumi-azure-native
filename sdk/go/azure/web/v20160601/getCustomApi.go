@@ -10,7 +10,7 @@ import (
 // A custom API
 func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pulumi.InvokeOption) (*LookupCustomApiResult, error) {
 	var rv LookupCustomApiResult
-	err := ctx.Invoke("azure-nextgen:web/v20160601:getCustomApi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160601:getCustomApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

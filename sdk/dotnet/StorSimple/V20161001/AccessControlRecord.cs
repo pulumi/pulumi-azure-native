@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The access control record
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:AccessControlRecord")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:AccessControlRecord")]
     public partial class AccessControlRecord : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessControlRecord(string name, AccessControlRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:AccessControlRecord", name, args ?? new AccessControlRecordArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:AccessControlRecord", name, args ?? new AccessControlRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessControlRecord(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:AccessControlRecord", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:AccessControlRecord", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:AccessControlRecord"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:AccessControlRecord"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:AccessControlRecord"},
                 },
             };

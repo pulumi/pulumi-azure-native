@@ -10,7 +10,7 @@ import (
 // List response for get ShareSynchronization.
 func ListShareSynchronizations(ctx *pulumi.Context, args *ListShareSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSynchronizationsResult, error) {
 	var rv ListShareSynchronizationsResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:listShareSynchronizations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:listShareSynchronizations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

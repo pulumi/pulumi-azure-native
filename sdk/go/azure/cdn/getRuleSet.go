@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupRuleSet(ctx *pulumi.Context, args *LookupRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupRuleSetResult, error) {
 	var rv LookupRuleSetResult
-	err := ctx.Invoke("azure-nextgen:cdn:getRuleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

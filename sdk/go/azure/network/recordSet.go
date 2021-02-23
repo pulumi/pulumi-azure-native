@@ -66,13 +66,25 @@ func NewRecordSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:RecordSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180901:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180901:RecordSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:RecordSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:RecordSet"),
@@ -80,7 +92,7 @@ func NewRecordSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RecordSet
-	err := ctx.RegisterResource("azure-nextgen:network:RecordSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:RecordSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +104,7 @@ func NewRecordSet(ctx *pulumi.Context,
 func GetRecordSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RecordSetState, opts ...pulumi.ResourceOption) (*RecordSet, error) {
 	var resource RecordSet
-	err := ctx.ReadResource("azure-nextgen:network:RecordSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:RecordSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

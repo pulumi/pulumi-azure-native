@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An object that represents a container registry.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getRegistry'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getRegistry'. */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    pulumi.log.warn("getRegistry is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getRegistry'.")
+    pulumi.log.warn("getRegistry is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getRegistry'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getRegistry", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:getRegistry", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

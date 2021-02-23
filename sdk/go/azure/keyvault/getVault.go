@@ -11,7 +11,7 @@ import (
 // API Version: 2019-09-01.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
-	err := ctx.Invoke("azure-nextgen:keyvault:getVault", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:keyvault:getVault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

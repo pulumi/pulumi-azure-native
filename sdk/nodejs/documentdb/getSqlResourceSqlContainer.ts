@@ -17,7 +17,7 @@ export function getSqlResourceSqlContainer(args: GetSqlResourceSqlContainerArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getSqlResourceSqlContainer", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlContainer", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,

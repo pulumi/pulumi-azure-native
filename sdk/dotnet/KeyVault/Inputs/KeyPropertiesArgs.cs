@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Inputs
+namespace Pulumi.AzureNative.KeyVault.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.KeyVault.Inputs
         /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         /// </summary>
         [Input("curveName")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.JsonWebKeyCurveName>? CurveName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.JsonWebKeyCurveName>? CurveName { get; set; }
 
         [Input("keyOps")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.JsonWebKeyOperation>>? _keyOps;
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.JsonWebKeyOperation>> KeyOps
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.JsonWebKeyOperation>>? _keyOps;
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.JsonWebKeyOperation>> KeyOps
         {
-            get => _keyOps ?? (_keyOps = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.JsonWebKeyOperation>>());
+            get => _keyOps ?? (_keyOps = new InputList<Union<string, Pulumi.AzureNative.KeyVault.JsonWebKeyOperation>>());
             set => _keyOps = value;
         }
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Inputs
         /// The type of the key. For valid values, see JsonWebKeyType.
         /// </summary>
         [Input("kty")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.JsonWebKeyType>? Kty { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.JsonWebKeyType>? Kty { get; set; }
 
         public KeyPropertiesArgs()
         {

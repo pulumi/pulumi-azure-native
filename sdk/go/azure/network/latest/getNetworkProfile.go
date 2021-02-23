@@ -10,10 +10,10 @@ import (
 // Network profile resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkProfile'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkProfile'.
 func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkProfileResult, error) {
 	var rv LookupNetworkProfileResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNetworkProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

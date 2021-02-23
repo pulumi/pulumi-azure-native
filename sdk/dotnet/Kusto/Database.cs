@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a Kusto database.
     /// API Version: 2020-09-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto:Database")]
+    [AzureNativeResourceType("azure-native:kusto:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,15 +65,25 @@ namespace Pulumi.AzureNextGen.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto/latest:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Database"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Database"},
                 },
             };
@@ -114,7 +124,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// Kind of the database
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.Kind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// operating system of target machines
         /// </summary>
         [Input("operatingSystem", required: true)]
-        public Input<Pulumi.AzureNextGen.Automation.OperatingSystemType> OperatingSystem { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Automation.OperatingSystemType> OperatingSystem { get; set; } = null!;
 
         /// <summary>
         /// Group targets for the software update configuration.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview.Inputs
         /// Specifies what orchestrator will be used to manage container cluster resources.
         /// </summary>
         [Input("orchestratorType")]
-        public Input<Pulumi.AzureNextGen.ContainerService.V20151101Preview.ContainerServiceOchestratorTypes>? OrchestratorType { get; set; }
+        public Input<Pulumi.AzureNative.ContainerService.V20151101Preview.ContainerServiceOchestratorTypes>? OrchestratorType { get; set; }
 
         public ContainerServiceOrchestratorProfileArgs()
         {

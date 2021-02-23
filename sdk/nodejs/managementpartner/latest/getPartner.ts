@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * this is the management partner operations response
  * Latest API Version: 2018-02-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managementpartner:getPartner'. */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
-    pulumi.log.warn("getPartner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managementpartner:getPartner'.")
+    pulumi.log.warn("getPartner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managementpartner:getPartner'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managementpartner/latest:getPartner", {
+    return pulumi.runtime.invoke("azure-native:managementpartner/latest:getPartner", {
         "partnerId": args.partnerId,
     }, opts);
 }

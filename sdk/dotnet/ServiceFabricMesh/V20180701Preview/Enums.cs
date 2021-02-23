@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// The kind of DiagnosticsSink.

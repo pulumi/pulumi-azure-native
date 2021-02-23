@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.")]
-    [AzureNextGenResourceType("azure-nextgen:compute/latest:Image")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Image'.")]
+    [AzureNativeResourceType("azure-native:compute/latest:Image")]
     public partial class Image : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/latest:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Image(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/latest:Image", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/latest:Image", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,17 +96,29 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20170330:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20171201:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:Image"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Image"},
                 },
             };
@@ -141,7 +153,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
         /// </summary>
         [Input("hyperVGeneration")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.HyperVGenerationTypes>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.Latest.HyperVGenerationTypes>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// The name of the image.

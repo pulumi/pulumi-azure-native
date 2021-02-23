@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The description of the provisioning service.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResource'. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
-    pulumi.log.warn("getIotDpsResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:getIotDpsResource'.")
+    pulumi.log.warn("getIotDpsResource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:getIotDpsResource", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:getIotDpsResource", {
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

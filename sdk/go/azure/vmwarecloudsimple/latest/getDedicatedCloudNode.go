@@ -10,10 +10,10 @@ import (
 // Dedicated cloud node model
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudNode'.
 func LookupDedicatedCloudNode(ctx *pulumi.Context, args *LookupDedicatedCloudNodeArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudNodeResult, error) {
 	var rv LookupDedicatedCloudNodeResult
-	err := ctx.Invoke("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudNode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:vmwarecloudsimple/latest:getDedicatedCloudNode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

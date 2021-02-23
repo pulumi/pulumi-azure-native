@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Synchronization Setting data transfer object.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getSynchronizationSetting'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getSynchronizationSetting'. */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
-    pulumi.log.warn("getSynchronizationSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getSynchronizationSetting'.")
+    pulumi.log.warn("getSynchronizationSetting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getSynchronizationSetting'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datashare/latest:getSynchronizationSetting", {
+    return pulumi.runtime.invoke("azure-native:datashare/latest:getSynchronizationSetting", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,

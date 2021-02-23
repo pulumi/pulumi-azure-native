@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Inputs
+namespace Pulumi.AzureNative.Sql.Inputs
 {
 
     /// <summary>
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Sql.Inputs
         /// Schedule interval type
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Sql.JobScheduleType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Sql.JobScheduleType>? Type { get; set; }
 
         public JobScheduleArgs()
         {
             EndTime = "9999-12-31T11:59:59+00:00";
             StartTime = "0001-01-01T00:00:00+00:00";
-            Type = Pulumi.AzureNextGen.Sql.JobScheduleType.Once;
+            Type = Pulumi.AzureNative.Sql.JobScheduleType.Once;
         }
     }
 }

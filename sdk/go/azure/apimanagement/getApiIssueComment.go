@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupApiIssueComment(ctx *pulumi.Context, args *LookupApiIssueCommentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueCommentResult, error) {
 	var rv LookupApiIssueCommentResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiIssueComment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiIssueComment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

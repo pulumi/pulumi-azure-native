@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService
+namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Agent Pool.
     /// API Version: 2020-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerservice:AgentPool")]
+    [AzureNativeResourceType("azure-native:containerservice:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -217,12 +217,12 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerservice:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerservice:AgentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerservice:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -233,21 +233,37 @@ namespace Pulumi.AzureNextGen.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190401:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190401:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190601:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190601:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20190801:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190801:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191001:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191001:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20191101:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20191101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200101:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200301:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200301:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200401:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200401:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200601:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200601:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200701:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200701:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20200901:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200901:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201101:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:AgentPool"},
                 },
             };
@@ -324,7 +340,7 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         /// </summary>
         [Input("kubeletDiskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.KubeletDiskType>? KubeletDiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.KubeletDiskType>? KubeletDiskType { get; set; }
 
         /// <summary>
         /// LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -354,7 +370,7 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// AgentPoolMode represents mode of an agent pool
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.AgentPoolMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolMode>? Mode { get; set; }
 
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
@@ -396,13 +412,13 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         /// </summary>
         [Input("osDiskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.OSDiskType>? OsDiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSDiskType>? OsDiskType { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.OSType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -432,13 +448,13 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
 
         /// <summary>
         /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         /// </summary>
         [Input("scaleSetPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
         /// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
@@ -462,7 +478,7 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.AgentPoolType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Settings for upgrading the agentpool
@@ -474,7 +490,7 @@ namespace Pulumi.AzureNextGen.ContainerService
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ContainerServiceVMSizeTypes>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods

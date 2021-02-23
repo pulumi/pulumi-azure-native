@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Inputs
+namespace Pulumi.AzureNative.Devices.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.Inputs
         /// Allocation policy to be used by this provisioning service.
         /// </summary>
         [Input("allocationPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.AllocationPolicy>? AllocationPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.AllocationPolicy>? AllocationPolicy { get; set; }
 
         [Input("authorizationPolicies")]
         private InputList<Inputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs>? _authorizationPolicies;
@@ -79,13 +79,13 @@ namespace Pulumi.AzureNextGen.Devices.Inputs
         /// Whether requests from Public Network are allowed
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Current state of the provisioning service.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.State>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.State>? State { get; set; }
 
         public IotDpsPropertiesDescriptionArgs()
         {

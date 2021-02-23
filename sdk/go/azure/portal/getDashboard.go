@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01-preview.
 func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pulumi.InvokeOption) (*LookupDashboardResult, error) {
 	var rv LookupDashboardResult
-	err := ctx.Invoke("azure-nextgen:portal:getDashboard", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal:getDashboard", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

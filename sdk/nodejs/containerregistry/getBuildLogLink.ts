@@ -17,7 +17,7 @@ export function getBuildLogLink(args: GetBuildLogLinkArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:getBuildLogLink", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:getBuildLogLink", {
         "buildId": args.buildId,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

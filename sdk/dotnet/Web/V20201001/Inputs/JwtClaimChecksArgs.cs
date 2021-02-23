@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001.Inputs
+namespace Pulumi.AzureNative.Web.V20201001.Inputs
 {
 
     public sealed class JwtClaimChecksArgs : Pulumi.ResourceArgs

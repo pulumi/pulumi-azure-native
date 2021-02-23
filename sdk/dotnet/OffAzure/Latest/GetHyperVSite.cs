@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure.Latest
+namespace Pulumi.AzureNative.OffAzure.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getHyperVSite'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'.")]
     public static class GetHyperVSite
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
         /// Latest API Version: 2020-07-07.
         /// </summary>
         public static Task<GetHyperVSiteResult> InvokeAsync(GetHyperVSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-nextgen:offazure/latest:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVSiteResult>("azure-native:offazure/latest:getHyperVSite", args ?? new GetHyperVSiteArgs(), options.WithVersion());
     }
 
 

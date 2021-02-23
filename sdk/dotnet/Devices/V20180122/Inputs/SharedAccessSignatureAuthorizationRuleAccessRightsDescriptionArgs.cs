@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20180122.Inputs
+namespace Pulumi.AzureNative.Devices.V20180122.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20180122.Inputs
         /// Rights that this key has.
         /// </summary>
         [Input("rights", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20180122.AccessRightsDescription> Rights { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20180122.AccessRightsDescription> Rights { get; set; } = null!;
 
         /// <summary>
         /// Secondary SAS key value.

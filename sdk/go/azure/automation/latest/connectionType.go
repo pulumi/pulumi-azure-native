@@ -14,7 +14,7 @@ import (
 // Definition of the connection type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:ConnectionType'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:ConnectionType'.
 type ConnectionType struct {
 	pulumi.CustomResourceState
 
@@ -55,13 +55,25 @@ func NewConnectionType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:ConnectionType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:ConnectionType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:ConnectionType"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:ConnectionType"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:ConnectionType"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:ConnectionType"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:ConnectionType"),
@@ -69,7 +81,7 @@ func NewConnectionType(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionType
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:ConnectionType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:ConnectionType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +93,7 @@ func NewConnectionType(ctx *pulumi.Context,
 func GetConnectionType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionTypeState, opts ...pulumi.ResourceOption) (*ConnectionType, error) {
 	var resource ConnectionType
-	err := ctx.ReadResource("azure-nextgen:automation/latest:ConnectionType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:ConnectionType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

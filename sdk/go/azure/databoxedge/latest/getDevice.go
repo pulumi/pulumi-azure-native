@@ -10,10 +10,10 @@ import (
 // The Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDevice'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDevice'.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getDevice", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getDevice", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

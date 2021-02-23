@@ -17,7 +17,7 @@ export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice:getContainerService", {
+    return pulumi.runtime.invoke("azure-native:containerservice:getContainerService", {
         "containerServiceName": args.containerServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

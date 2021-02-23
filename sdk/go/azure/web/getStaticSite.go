@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupStaticSite(ctx *pulumi.Context, args *LookupStaticSiteArgs, opts ...pulumi.InvokeOption) (*LookupStaticSiteResult, error) {
 	var rv LookupStaticSiteResult
-	err := ctx.Invoke("azure-nextgen:web:getStaticSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getStaticSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

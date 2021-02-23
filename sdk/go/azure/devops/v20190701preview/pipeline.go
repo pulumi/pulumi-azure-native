@@ -54,7 +54,13 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devops:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devops:Pipeline"),
+		},
+		{
+			Type: pulumi.String("azure-native:devops/v20200713preview:Pipeline"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devops/v20200713preview:Pipeline"),
@@ -62,7 +68,7 @@ func NewPipeline(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Pipeline
-	err := ctx.RegisterResource("azure-nextgen:devops/v20190701preview:Pipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devops/v20190701preview:Pipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewPipeline(ctx *pulumi.Context,
 func GetPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	var resource Pipeline
-	err := ctx.ReadResource("azure-nextgen:devops/v20190701preview:Pipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devops/v20190701preview:Pipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

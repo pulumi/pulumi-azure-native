@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
-	err := ctx.Invoke("azure-nextgen:storagecache:getStorageTarget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagecache:getStorageTarget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

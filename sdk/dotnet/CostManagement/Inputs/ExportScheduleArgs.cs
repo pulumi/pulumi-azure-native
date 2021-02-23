@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// The schedule recurrence.
         /// </summary>
         [Input("recurrence")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.RecurrenceType>? Recurrence { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.RecurrenceType>? Recurrence { get; set; }
 
         /// <summary>
         /// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.StatusType>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.StatusType>? Status { get; set; }
 
         public ExportScheduleArgs()
         {

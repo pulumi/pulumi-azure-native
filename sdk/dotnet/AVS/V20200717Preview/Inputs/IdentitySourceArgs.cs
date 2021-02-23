@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200717Preview.Inputs
+namespace Pulumi.AzureNative.AVS.V20200717Preview.Inputs
 {
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview.Inputs
         /// Protect LDAP communication using SSL certificate (LDAPS)
         /// </summary>
         [Input("ssl")]
-        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.SslEnum>? Ssl { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AVS.V20200717Preview.SslEnum>? Ssl { get; set; }
 
         /// <summary>
         /// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group

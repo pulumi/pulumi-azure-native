@@ -21,39 +21,39 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:automation/latest:AutomationAccount":
+	case "azure-native:automation/latest:AutomationAccount":
 		r, err = NewAutomationAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Certificate":
+	case "azure-native:automation/latest:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Connection":
+	case "azure-native:automation/latest:Connection":
 		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:ConnectionType":
+	case "azure-native:automation/latest:ConnectionType":
 		r, err = NewConnectionType(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Credential":
+	case "azure-native:automation/latest:Credential":
 		r, err = NewCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:DscConfiguration":
+	case "azure-native:automation/latest:DscConfiguration":
 		r, err = NewDscConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:DscNodeConfiguration":
+	case "azure-native:automation/latest:DscNodeConfiguration":
 		r, err = NewDscNodeConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:JobSchedule":
+	case "azure-native:automation/latest:JobSchedule":
 		r, err = NewJobSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Module":
+	case "azure-native:automation/latest:Module":
 		r, err = NewModule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Python2Package":
+	case "azure-native:automation/latest:Python2Package":
 		r, err = NewPython2Package(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Runbook":
+	case "azure-native:automation/latest:Runbook":
 		r, err = NewRunbook(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Schedule":
+	case "azure-native:automation/latest:Schedule":
 		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName":
+	case "azure-native:automation/latest:SoftwareUpdateConfigurationByName":
 		r, err = NewSoftwareUpdateConfigurationByName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:SourceControl":
+	case "azure-native:automation/latest:SourceControl":
 		r, err = NewSourceControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Variable":
+	case "azure-native:automation/latest:Variable":
 		r, err = NewVariable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Watcher":
+	case "azure-native:automation/latest:Watcher":
 		r, err = NewWatcher(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:automation/latest:Webhook":
+	case "azure-native:automation/latest:Webhook":
 		r, err = NewWebhook(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -68,7 +68,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"automation/latest",
 		&module{version},
 	)

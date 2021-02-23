@@ -10,7 +10,7 @@ import (
 // Single item in a List or Get VirtualNetworkRules operation
 func LookupNamespaceVirtualNetworkRule(ctx *pulumi.Context, args *LookupNamespaceVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceVirtualNetworkRuleResult, error) {
 	var rv LookupNamespaceVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

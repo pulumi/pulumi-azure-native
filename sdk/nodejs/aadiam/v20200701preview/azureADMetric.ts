@@ -22,7 +22,7 @@ export class AzureADMetric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:aadiam/v20200701preview:azureADMetric';
+    public static readonly __pulumiType = 'azure-native:aadiam/v20200701preview:azureADMetric';
 
     /**
      * Returns true if the given object is an instance of AzureADMetric.  This is designed to work even
@@ -87,7 +87,7 @@ export class AzureADMetric extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam:azureADMetric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:azureADMetric" }, { type: "azure-nextgen:aadiam:azureADMetric" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AzureADMetric.__pulumiType, name, inputs, opts);
     }

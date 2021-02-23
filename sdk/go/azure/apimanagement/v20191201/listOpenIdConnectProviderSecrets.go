@@ -10,7 +10,7 @@ import (
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConnectProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListOpenIdConnectProviderSecretsResult, error) {
 	var rv ListOpenIdConnectProviderSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201:listOpenIdConnectProviderSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201:listOpenIdConnectProviderSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

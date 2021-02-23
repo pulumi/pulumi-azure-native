@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
  * Latest API Version: 2020-05-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEnvironment'. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getEnvironment'.")
+    pulumi.log.warn("getEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:timeseriesinsights/latest:getEnvironment", {
+    return pulumi.runtime.invoke("azure-native:timeseriesinsights/latest:getEnvironment", {
         "environmentName": args.environmentName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

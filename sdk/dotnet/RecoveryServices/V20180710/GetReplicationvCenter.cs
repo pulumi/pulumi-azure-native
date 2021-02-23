@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
+namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     public static class GetReplicationvCenter
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
         /// vCenter definition.
         /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-nextgen:recoveryservices/v20180710:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-native:recoveryservices/v20180710:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
     }
 
 

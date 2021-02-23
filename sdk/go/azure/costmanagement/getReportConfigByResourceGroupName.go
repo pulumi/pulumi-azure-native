@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-31.
 func LookupReportConfigByResourceGroupName(ctx *pulumi.Context, args *LookupReportConfigByResourceGroupNameArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigByResourceGroupNameResult, error) {
 	var rv LookupReportConfigByResourceGroupNameResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getReportConfigByResourceGroupName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getReportConfigByResourceGroupName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

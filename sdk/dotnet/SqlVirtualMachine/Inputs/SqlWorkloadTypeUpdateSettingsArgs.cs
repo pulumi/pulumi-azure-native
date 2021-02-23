@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
+namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.Inputs
         /// SQL Server workload type.
         /// </summary>
         [Input("sqlWorkloadType")]
-        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.SqlWorkloadType>? SqlWorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlWorkloadType>? SqlWorkloadType { get; set; }
 
         public SqlWorkloadTypeUpdateSettingsArgs()
         {

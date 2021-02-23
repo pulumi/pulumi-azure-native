@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     public static class GetDevice
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-nextgen:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
     }
 
 

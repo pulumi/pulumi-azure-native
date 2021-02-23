@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
     /// API Version: 2020-09-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto:ClusterPrincipalAssignment")]
+    [AzureNativeResourceType("azure-native:kusto:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterPrincipalAssignment(string name, ClusterPrincipalAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:ClusterPrincipalAssignment", name, args ?? new ClusterPrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto:ClusterPrincipalAssignment", name, args ?? new ClusterPrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClusterPrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:ClusterPrincipalAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto:ClusterPrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,10 +95,15 @@ namespace Pulumi.AzureNextGen.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto/latest:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment"},
                 },
             };
@@ -145,7 +150,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// Principal type.
         /// </summary>
         [Input("principalType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.PrincipalType> PrincipalType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.PrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -157,7 +162,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// Cluster principal role.
         /// </summary>
         [Input("role", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.ClusterPrincipalRole> Role { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.ClusterPrincipalRole> Role { get; set; } = null!;
 
         /// <summary>
         /// The tenant id of the principal

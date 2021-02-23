@@ -21,7 +21,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/v20200113preview:Certificate';
+    public static readonly __pulumiType = 'azure-native:automation/v20200113preview:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -118,7 +118,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Certificate" }, { type: "azure-nextgen:automation/latest:Certificate" }, { type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Certificate" }, { type: "azure-nextgen:automation:Certificate" }, { type: "azure-native:automation/latest:Certificate" }, { type: "azure-nextgen:automation/latest:Certificate" }, { type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

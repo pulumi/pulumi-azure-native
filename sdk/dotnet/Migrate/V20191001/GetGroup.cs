@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001
+namespace Pulumi.AzureNative.Migrate.V20191001
 {
     public static class GetGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// A group created in a Migration project.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-nextgen:migrate/v20191001:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure-native:migrate/v20191001:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
 
 

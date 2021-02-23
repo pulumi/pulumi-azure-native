@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
+namespace Pulumi.AzureNative.DataLakeAnalytics.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:listStorageAccountSasTokens'.")]
     public static class ListStorageAccountSasTokens
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// Latest API Version: 2016-11-01.
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-nextgen:datalakeanalytics/latest:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics/latest:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
     }
 
 

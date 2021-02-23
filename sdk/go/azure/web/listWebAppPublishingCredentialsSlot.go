@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppPublishingCredentialsSlot(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsSlotResult, error) {
 	var rv ListWebAppPublishingCredentialsSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

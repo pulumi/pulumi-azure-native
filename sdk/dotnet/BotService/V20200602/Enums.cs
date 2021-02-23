@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.BotService.V20200602
+namespace Pulumi.AzureNative.BotService.V20200602
 {
     /// <summary>
     /// Required. Gets or sets the Kind of the resource.

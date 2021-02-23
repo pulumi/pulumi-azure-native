@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Content type contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'. */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
-    pulumi.log.warn("getContentItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getContentItem'.")
+    pulumi.log.warn("getContentItem is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getContentItem", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getContentItem", {
         "contentItemId": args.contentItemId,
         "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,

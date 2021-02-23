@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListWorkflowVersionTriggerCallbackUrl(ctx *pulumi.Context, args *ListWorkflowVersionTriggerCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListWorkflowVersionTriggerCallbackUrlResult, error) {
 	var rv ListWorkflowVersionTriggerCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic:listWorkflowVersionTriggerCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

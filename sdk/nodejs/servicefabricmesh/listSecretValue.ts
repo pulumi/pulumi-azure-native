@@ -17,7 +17,7 @@ export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh:listSecretValue", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh:listSecretValue", {
         "resourceGroupName": args.resourceGroupName,
         "secretResourceName": args.secretResourceName,
         "secretValueResourceName": args.secretValueResourceName,

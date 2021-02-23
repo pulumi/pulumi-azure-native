@@ -10,7 +10,7 @@ import (
 // Represents the list of environments owned by a user
 func ListGlobalUserEnvironments(ctx *pulumi.Context, args *ListGlobalUserEnvironmentsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserEnvironmentsResult, error) {
 	var rv ListGlobalUserEnvironmentsResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:listGlobalUserEnvironments", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:listGlobalUserEnvironments", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

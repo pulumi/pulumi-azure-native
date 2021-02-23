@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.V20190701
+namespace Pulumi.AzureNative.Solutions.V20190701
 {
     public static class GetApplicationDefinition
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// Information about managed application definition.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-nextgen:solutions/v20190701:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions/v20190701:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
     }
 
 

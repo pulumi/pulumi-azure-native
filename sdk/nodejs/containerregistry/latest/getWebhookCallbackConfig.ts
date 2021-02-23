@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The configuration of service URI and custom headers for the webhook.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhookCallbackConfig'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhookCallbackConfig'. */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
-    pulumi.log.warn("getWebhookCallbackConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getWebhookCallbackConfig'.")
+    pulumi.log.warn("getWebhookCallbackConfig is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getWebhookCallbackConfig'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getWebhookCallbackConfig", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:getWebhookCallbackConfig", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "webhookName": args.webhookName,

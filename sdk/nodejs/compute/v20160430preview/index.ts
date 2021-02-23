@@ -36,23 +36,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20160430preview:AvailabilitySet":
+            case "azure-native:compute/v20160430preview:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:Disk":
+            case "azure-native:compute/v20160430preview:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:Image":
+            case "azure-native:compute/v20160430preview:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:Snapshot":
+            case "azure-native:compute/v20160430preview:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:VirtualMachine":
+            case "azure-native:compute/v20160430preview:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:VirtualMachineExtension":
+            case "azure-native:compute/v20160430preview:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet":
+            case "azure-native:compute/v20160430preview:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20160430preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20160430preview", _module)

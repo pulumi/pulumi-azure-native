@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationsManagement
+namespace Pulumi.AzureNative.OperationsManagement
 {
     public static class GetSolution
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-nextgen:operationsmanagement:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
     }
 
 

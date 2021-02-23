@@ -17,7 +17,7 @@ export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitCon
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getExpressRouteCircuitConnection", {
+    return pulumi.runtime.invoke("azure-native:network:getExpressRouteCircuitConnection", {
         "circuitName": args.circuitName,
         "connectionName": args.connectionName,
         "peeringName": args.peeringName,

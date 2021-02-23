@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01-preview.
 func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJobsArgs, opts ...pulumi.InvokeOption) (*ListClusterStreamingJobsResult, error) {
 	var rv ListClusterStreamingJobsResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics:listClusterStreamingJobs", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics:listClusterStreamingJobs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

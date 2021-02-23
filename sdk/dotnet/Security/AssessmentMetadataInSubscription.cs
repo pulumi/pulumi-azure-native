@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security assessment metadata
     /// API Version: 2020-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:AssessmentMetadataInSubscription")]
+    [AzureNativeResourceType("azure-native:security:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentMetadataInSubscription(string name, AssessmentMetadataInSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:AssessmentMetadataInSubscription", name, args ?? new AssessmentMetadataInSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:AssessmentMetadataInSubscription", name, args ?? new AssessmentMetadataInSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssessmentMetadataInSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:AssessmentMetadataInSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:AssessmentMetadataInSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,8 +119,11 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/latest:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"},
                 },
             };
@@ -155,13 +158,13 @@ namespace Pulumi.AzureNextGen.Security
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         /// </summary>
         [Input("assessmentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.AssessmentType> AssessmentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.AssessmentType> AssessmentType { get; set; } = null!;
 
         [Input("category")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Category>>? _category;
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Category>> Category
+        private InputList<Union<string, Pulumi.AzureNative.Security.Category>>? _category;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Category>> Category
         {
-            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNextGen.Security.Category>>());
+            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNative.Security.Category>>());
             set => _category = value;
         }
 
@@ -181,7 +184,7 @@ namespace Pulumi.AzureNextGen.Security
         /// The implementation effort required to remediate this assessment
         /// </summary>
         [Input("implementationEffort")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.ImplementationEffort>? ImplementationEffort { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.ImplementationEffort>? ImplementationEffort { get; set; }
 
         /// <summary>
         /// Describes the partner that created the assessment
@@ -205,13 +208,13 @@ namespace Pulumi.AzureNextGen.Security
         /// The severity level of the assessment
         /// </summary>
         [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Severity> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Severity> Severity { get; set; } = null!;
 
         [Input("threats")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Security.Threats>>? _threats;
-        public InputList<Union<string, Pulumi.AzureNextGen.Security.Threats>> Threats
+        private InputList<Union<string, Pulumi.AzureNative.Security.Threats>>? _threats;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Threats>> Threats
         {
-            get => _threats ?? (_threats = new InputList<Union<string, Pulumi.AzureNextGen.Security.Threats>>());
+            get => _threats ?? (_threats = new InputList<Union<string, Pulumi.AzureNative.Security.Threats>>());
             set => _threats = value;
         }
 
@@ -219,7 +222,7 @@ namespace Pulumi.AzureNextGen.Security
         /// The user impact of the assessment
         /// </summary>
         [Input("userImpact")]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.UserImpact>? UserImpact { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Security.UserImpact>? UserImpact { get; set; }
 
         public AssessmentMetadataInSubscriptionArgs()
         {

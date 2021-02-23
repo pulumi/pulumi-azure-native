@@ -10,7 +10,7 @@ import (
 // Protection profile details.
 func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupReplicationPolicyResult, error) {
 	var rv LookupReplicationPolicyResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20160810:getReplicationPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20160810:getReplicationPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

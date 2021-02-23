@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetTestResultFile
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2020-02-10-preview.
         /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-nextgen:insights:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithVersion());
     }
 
 

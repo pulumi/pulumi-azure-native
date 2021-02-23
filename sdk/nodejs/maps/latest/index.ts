@@ -16,11 +16,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:maps/latest:Account":
+            case "azure-native:maps/latest:Account":
                 return new Account(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "maps/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "maps/latest", _module)

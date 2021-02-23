@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170301.Inputs
+namespace Pulumi.AzureNative.Network.V20170301.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301.Inputs
         /// AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
         /// </summary>
         [Input("advertisedPublicPrefixesState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170301.ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>? AdvertisedPublicPrefixesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20170301.ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>? AdvertisedPublicPrefixesState { get; set; }
 
         /// <summary>
         /// The CustomerASN of the peering.

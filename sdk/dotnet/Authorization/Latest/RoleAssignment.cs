@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Latest
+namespace Pulumi.AzureNative.Authorization.Latest
 {
     /// <summary>
     /// Role Assignments
     /// Latest API Version: 2015-07-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:RoleAssignment'.")]
-    [AzureNextGenResourceType("azure-nextgen:authorization/latest:RoleAssignment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleAssignment'.")]
+    [AzureNativeResourceType("azure-native:authorization/latest:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssignment(string name, RoleAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/latest:RoleAssignment", name, args ?? new RoleAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoleAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/latest:RoleAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/latest:RoleAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,12 +60,19 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180901preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
                 },
             };

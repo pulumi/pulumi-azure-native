@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20201201
+namespace Pulumi.AzureNative.Synapse.V20201201
 {
     /// <summary>
     /// A workspace key
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20201201:Key")]
+    [AzureNativeResourceType("azure-native:synapse/v20201201:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20201201:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20201201:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Key(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20201201:Key", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20201201:Key", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Key"},
                 },
             };

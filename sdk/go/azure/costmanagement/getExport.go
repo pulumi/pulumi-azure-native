@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupExport(ctx *pulumi.Context, args *LookupExportArgs, opts ...pulumi.InvokeOption) (*LookupExportResult, error) {
 	var rv LookupExportResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getExport", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getExport", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

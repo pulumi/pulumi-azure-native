@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Class representing a Traffic Manager profile.
  * Latest API Version: 2018-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Profile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Profile {
-        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.")
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'.")
         return new Profile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:Profile';
+    public static readonly __pulumiType = 'azure-native:network/latest:Profile';
 
     /**
      * Returns true if the given object is an instance of Profile.  This is designed to work even
@@ -91,9 +91,9 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'. */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Profile'.")
+        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -133,7 +133,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }, { type: "azure-nextgen:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

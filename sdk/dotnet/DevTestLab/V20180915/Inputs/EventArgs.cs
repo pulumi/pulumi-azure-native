@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         /// </summary>
         [Input("eventName")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.NotificationChannelEventType>? EventName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.NotificationChannelEventType>? EventName { get; set; }
 
         public EventArgs()
         {

@@ -10,7 +10,7 @@ import (
 // The container for solution.
 func LookupManagementAssociation(ctx *pulumi.Context, args *LookupManagementAssociationArgs, opts ...pulumi.InvokeOption) (*LookupManagementAssociationResult, error) {
 	var rv LookupManagementAssociationResult
-	err := ctx.Invoke("azure-nextgen:operationsmanagement/v20151101preview:getManagementAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20191001
+namespace Pulumi.AzureNative.Resources.V20191001
 {
     public static class GetResourceGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
         /// Resource group information.
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-nextgen:resources/v20191001:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources/v20191001:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
     }
 
 

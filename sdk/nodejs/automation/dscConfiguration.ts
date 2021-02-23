@@ -23,7 +23,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation:DscConfiguration';
+    public static readonly __pulumiType = 'azure-native:automation:DscConfiguration';
 
     /**
      * Returns true if the given object is an instance of DscConfiguration.  This is designed to work even
@@ -159,7 +159,7 @@ export class DscConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:DscConfiguration" }, { type: "azure-nextgen:automation/v20151031:DscConfiguration" }, { type: "azure-nextgen:automation/v20190601:DscConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:DscConfiguration" }, { type: "azure-nextgen:automation/latest:DscConfiguration" }, { type: "azure-native:automation/v20151031:DscConfiguration" }, { type: "azure-nextgen:automation/v20151031:DscConfiguration" }, { type: "azure-native:automation/v20190601:DscConfiguration" }, { type: "azure-nextgen:automation/v20190601:DscConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscConfiguration.__pulumiType, name, inputs, opts);
     }

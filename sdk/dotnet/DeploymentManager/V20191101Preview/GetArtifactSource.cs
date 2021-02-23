@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
+namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
     public static class GetArtifactSource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// The resource that defines the source location where the artifacts are located.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager/v20191101preview:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // Certificate signing request object
 func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, opts ...pulumi.InvokeOption) (*LookupCertificateCsrResult, error) {
 	var rv LookupCertificateCsrResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getCertificateCsr", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getCertificateCsr", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

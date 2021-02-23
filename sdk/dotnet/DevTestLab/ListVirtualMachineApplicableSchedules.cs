@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab
+namespace Pulumi.AzureNative.DevTestLab
 {
     public static class ListVirtualMachineApplicableSchedules
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<ListVirtualMachineApplicableSchedulesResult> InvokeAsync(ListVirtualMachineApplicableSchedulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithVersion());
     }
 
 

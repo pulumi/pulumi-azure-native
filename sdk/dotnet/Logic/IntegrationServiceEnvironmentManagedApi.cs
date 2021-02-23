@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The managed api definition.
     /// API Version: 2019-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi")]
+    [AzureNativeResourceType("azure-native:logic:IntegrationServiceEnvironmentManagedApi")]
     public partial class IntegrationServiceEnvironmentManagedApi : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Logic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationServiceEnvironmentManagedApi(string name, IntegrationServiceEnvironmentManagedApiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi", name, args ?? new IntegrationServiceEnvironmentManagedApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic:IntegrationServiceEnvironmentManagedApi", name, args ?? new IntegrationServiceEnvironmentManagedApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationServiceEnvironmentManagedApi(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic:IntegrationServiceEnvironmentManagedApi", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                 },
             };

@@ -22,7 +22,7 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy';
+    public static readonly __pulumiType = 'azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy';
 
     /**
      * Returns true if the given object is an instance of DatabaseSecurityAlertPolicy.  This is designed to work even
@@ -131,7 +131,7 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseSecurityAlertPolicy.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
-	err := ctx.Invoke("azure-nextgen:certificateregistration/v20180201:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:certificateregistration/v20180201:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents a Database.
  * Latest API Version: 2018-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Database'.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Database'.")
         return new Database(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformariadb/latest:Database';
+    public static readonly __pulumiType = 'azure-native:dbformariadb/latest:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -62,9 +62,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Database'. */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:Database'.")
+        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Database'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +93,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:Database" }, { type: "azure-nextgen:dbformariadb:Database" }, { type: "azure-native:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-native:dbformariadb/v20180601preview:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

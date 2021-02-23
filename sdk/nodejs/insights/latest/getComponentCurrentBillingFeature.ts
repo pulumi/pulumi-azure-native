@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Application Insights component billing features
  * Latest API Version: 2015-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getComponentCurrentBillingFeature'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponentCurrentBillingFeature'. */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
-    pulumi.log.warn("getComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getComponentCurrentBillingFeature'.")
+    pulumi.log.warn("getComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponentCurrentBillingFeature'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getComponentCurrentBillingFeature(args: GetComponentCurrentBilli
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getComponentCurrentBillingFeature", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

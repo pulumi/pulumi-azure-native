@@ -17,7 +17,7 @@ export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabric:getApplicationTypeVersion", {
+    return pulumi.runtime.invoke("azure-native:servicefabric:getApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security
+namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security assessment on a resource
     /// API Version: 2020-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security:Assessment")]
+    [AzureNativeResourceType("azure-native:security:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Security
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security/latest:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20190101preview:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:Assessment"},
                 },
             };

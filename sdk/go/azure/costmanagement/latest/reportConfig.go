@@ -14,7 +14,7 @@ import (
 // A report config resource.
 // Latest API Version: 2018-05-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfig'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfig'.
 type ReportConfig struct {
 	pulumi.CustomResourceState
 
@@ -49,7 +49,13 @@ func NewReportConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:ReportConfig"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20180531:ReportConfig"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfig"),
@@ -57,7 +63,7 @@ func NewReportConfig(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfig
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/latest:ReportConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/latest:ReportConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewReportConfig(ctx *pulumi.Context,
 func GetReportConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReportConfigState, opts ...pulumi.ResourceOption) (*ReportConfig, error) {
 	var resource ReportConfig
-	err := ctx.ReadResource("azure-nextgen:costmanagement/latest:ReportConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/latest:ReportConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

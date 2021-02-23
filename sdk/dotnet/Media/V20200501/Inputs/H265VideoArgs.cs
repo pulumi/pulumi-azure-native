@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
+namespace Pulumi.AzureNative.Media.V20200501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
         /// </summary>
         [Input("complexity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.H265Complexity>? Complexity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.H265Complexity>? Complexity { get; set; }
 
         /// <summary>
         /// The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
@@ -62,13 +62,13 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         /// </summary>
         [Input("stretchMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.StretchMode>? StretchMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.StretchMode>? StretchMode { get; set; }
 
         /// <summary>
         /// The Video Sync Mode
         /// </summary>
         [Input("syncMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.VideoSyncMode>? SyncMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.VideoSyncMode>? SyncMode { get; set; }
 
         public H265VideoArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.Inputs
         /// Name of the stage.
         /// </summary>
         [Input("stageName", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EdgeOrder.NotificationStageName> StageName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.NotificationStageName> StageName { get; set; } = null!;
 
         public NotificationPreferenceArgs()
         {

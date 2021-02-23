@@ -53,13 +53,25 @@ func NewPrivateZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:PrivateZone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:PrivateZone"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:PrivateZone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateZone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateZone"),
@@ -67,7 +79,7 @@ func NewPrivateZone(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateZone
-	err := ctx.RegisterResource("azure-nextgen:network/v20180901:PrivateZone", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180901:PrivateZone", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +91,7 @@ func NewPrivateZone(ctx *pulumi.Context,
 func GetPrivateZone(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateZoneState, opts ...pulumi.ResourceOption) (*PrivateZone, error) {
 	var resource PrivateZone
-	err := ctx.ReadResource("azure-nextgen:network/v20180901:PrivateZone", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180901:PrivateZone", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

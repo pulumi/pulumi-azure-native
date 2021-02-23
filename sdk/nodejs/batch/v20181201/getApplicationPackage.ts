@@ -16,7 +16,7 @@ export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batch/v20181201:getApplicationPackage", {
+    return pulumi.runtime.invoke("azure-native:batch/v20181201:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

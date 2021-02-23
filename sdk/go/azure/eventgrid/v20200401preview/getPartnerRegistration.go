@@ -10,7 +10,7 @@ import (
 // Information about a partner registration.
 func LookupPartnerRegistration(ctx *pulumi.Context, args *LookupPartnerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupPartnerRegistrationResult, error) {
 	var rv LookupPartnerRegistrationResult
-	err := ctx.Invoke("azure-nextgen:eventgrid/v20200401preview:getPartnerRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid/v20200401preview:getPartnerRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

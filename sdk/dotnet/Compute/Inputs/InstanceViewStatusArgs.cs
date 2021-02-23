@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Inputs
+namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Compute.Inputs
         /// The level code.
         /// </summary>
         [Input("level")]
-        public Input<Pulumi.AzureNextGen.Compute.StatusLevelTypes>? Level { get; set; }
+        public Input<Pulumi.AzureNative.Compute.StatusLevelTypes>? Level { get; set; }
 
         /// <summary>
         /// The detailed status message, including for alerts and error messages.

@@ -30,17 +30,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:botservice/v20180712:Bot":
+            case "azure-native:botservice/v20180712:Bot":
                 return new Bot(name, <any>undefined, { urn })
-            case "azure-nextgen:botservice/v20180712:BotConnection":
+            case "azure-native:botservice/v20180712:BotConnection":
                 return new BotConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:botservice/v20180712:Channel":
+            case "azure-native:botservice/v20180712:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "azure-nextgen:botservice/v20180712:EnterpriseChannel":
+            case "azure-native:botservice/v20180712:EnterpriseChannel":
                 return new EnterpriseChannel(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "botservice/v20180712", _module)
+pulumi.runtime.registerResourceModule("azure-native", "botservice/v20180712", _module)

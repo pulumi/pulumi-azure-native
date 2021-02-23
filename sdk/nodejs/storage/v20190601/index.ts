@@ -60,37 +60,37 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storage/v20190601:BlobContainer":
+            case "azure-native:storage/v20190601:BlobContainer":
                 return new BlobContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy":
+            case "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy":
                 return new BlobContainerImmutabilityPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:BlobInventoryPolicy":
+            case "azure-native:storage/v20190601:BlobInventoryPolicy":
                 return new BlobInventoryPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:BlobServiceProperties":
+            case "azure-native:storage/v20190601:BlobServiceProperties":
                 return new BlobServiceProperties(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:FileServiceProperties":
+            case "azure-native:storage/v20190601:FileServiceProperties":
                 return new FileServiceProperties(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:FileShare":
+            case "azure-native:storage/v20190601:FileShare":
                 return new FileShare(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:ManagementPolicy":
+            case "azure-native:storage/v20190601:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:ObjectReplicationPolicy":
+            case "azure-native:storage/v20190601:ObjectReplicationPolicy":
                 return new ObjectReplicationPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:PrivateEndpointConnection":
+            case "azure-native:storage/v20190601:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:Queue":
+            case "azure-native:storage/v20190601:Queue":
                 return new Queue(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:QueueServiceProperties":
+            case "azure-native:storage/v20190601:QueueServiceProperties":
                 return new QueueServiceProperties(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:StorageAccount":
+            case "azure-native:storage/v20190601:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:Table":
+            case "azure-native:storage/v20190601:Table":
                 return new Table(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20190601:TableServiceProperties":
+            case "azure-native:storage/v20190601:TableServiceProperties":
                 return new TableServiceProperties(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storage/v20190601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storage/v20190601", _module)

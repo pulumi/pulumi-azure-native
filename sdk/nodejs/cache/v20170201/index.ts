@@ -28,17 +28,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cache/v20170201:FirewallRule":
+            case "azure-native:cache/v20170201:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/v20170201:PatchSchedule":
+            case "azure-native:cache/v20170201:PatchSchedule":
                 return new PatchSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/v20170201:Redis":
+            case "azure-native:cache/v20170201:Redis":
                 return new Redis(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/v20170201:RedisLinkedServer":
+            case "azure-native:cache/v20170201:RedisLinkedServer":
                 return new RedisLinkedServer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cache/v20170201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cache/v20170201", _module)

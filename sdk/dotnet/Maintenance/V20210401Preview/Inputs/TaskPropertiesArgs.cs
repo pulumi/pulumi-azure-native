@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview.Inputs
+namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20210401Preview.Inputs
         /// Global Task execute once when schedule trigger. Resource task execute for each VM.
         /// </summary>
         [Input("taskScope")]
-        public InputUnion<string, Pulumi.AzureNextGen.Maintenance.V20210401Preview.TaskScope>? TaskScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Maintenance.V20210401Preview.TaskScope>? TaskScope { get; set; }
 
         public TaskPropertiesArgs()
         {

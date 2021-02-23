@@ -10,7 +10,7 @@ import (
 // Private Endpoint Connection Response Properties
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/v20200202:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/v20200202:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

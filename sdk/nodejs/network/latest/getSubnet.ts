@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Subnet in a virtual network resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    pulumi.log.warn("getSubnet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getSubnet'.")
+    pulumi.log.warn("getSubnet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getSubnet", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getSubnet", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "subnetName": args.subnetName,

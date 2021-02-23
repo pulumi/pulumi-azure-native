@@ -16,7 +16,7 @@ export function getWorkloadNetworkSegment(args: GetWorkloadNetworkSegmentArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/v20210101preview:getWorkloadNetworkSegment", {
+    return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkSegment", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
         "segmentId": args.segmentId,

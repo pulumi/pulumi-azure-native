@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Lists the labs owned by a user
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'. */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
-    pulumi.log.warn("listGlobalUserLabs is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:listGlobalUserLabs'.")
+    pulumi.log.warn("listGlobalUserLabs is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:listGlobalUserLabs", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:listGlobalUserLabs", {
         "userName": args.userName,
     }, opts);
 }

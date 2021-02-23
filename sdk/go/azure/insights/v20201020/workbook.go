@@ -68,13 +68,25 @@ func NewWorkbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:Workbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:Workbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/latest:Workbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Workbook"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20150501:Workbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Workbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180617preview:Workbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180617preview:Workbook"),
@@ -82,7 +94,7 @@ func NewWorkbook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workbook
-	err := ctx.RegisterResource("azure-nextgen:insights/v20201020:Workbook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20201020:Workbook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +106,7 @@ func NewWorkbook(ctx *pulumi.Context,
 func GetWorkbook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkbookState, opts ...pulumi.ResourceOption) (*Workbook, error) {
 	var resource Workbook
-	err := ctx.ReadResource("azure-nextgen:insights/v20201020:Workbook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20201020:Workbook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

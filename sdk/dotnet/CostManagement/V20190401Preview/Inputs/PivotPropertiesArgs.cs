@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20190401Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview.Inputs
         /// Data type to show in view.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190401Preview.PivotTypeType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20190401Preview.PivotTypeType>? Type { get; set; }
 
         public PivotPropertiesArgs()
         {

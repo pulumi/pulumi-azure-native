@@ -10,7 +10,7 @@ import (
 // Solution REST Resource.
 func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulumi.InvokeOption) (*LookupSolutionResult, error) {
 	var rv LookupSolutionResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20180901preview:getSolution", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20180901preview:getSolution", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

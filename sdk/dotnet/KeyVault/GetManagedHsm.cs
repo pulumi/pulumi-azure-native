@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault
+namespace Pulumi.AzureNative.KeyVault
 {
     public static class GetManagedHsm
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.KeyVault
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-nextgen:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
     }
 
 

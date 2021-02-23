@@ -10,10 +10,10 @@ import (
 // The alert rule information
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:alertsmanagement:getSmartDetectorAlertRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:alertsmanagement:getSmartDetectorAlertRule'.
 func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetectorAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupSmartDetectorAlertRuleResult, error) {
 	var rv LookupSmartDetectorAlertRuleResult
-	err := ctx.Invoke("azure-nextgen:alertsmanagement/latest:getSmartDetectorAlertRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:alertsmanagement/latest:getSmartDetectorAlertRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

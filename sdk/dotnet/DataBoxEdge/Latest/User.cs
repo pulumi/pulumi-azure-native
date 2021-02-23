@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.")]
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:User")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.")]
+    [AzureNativeResourceType("azure-native:databoxedge/latest:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/latest:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/latest:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,12 +78,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:User"},
                 },
             };
@@ -136,7 +143,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Type of the user.
         /// </summary>
         [Input("userType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.UserType>? UserType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.UserType>? UserType { get; set; }
 
         public UserArgs()
         {

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay
+namespace Pulumi.AzureNative.Relay
 {
     /// <summary>
     /// Description of a namespace resource.
     /// API Version: 2017-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:relay:Namespace")]
+    [AzureNativeResourceType("azure-native:relay:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -82,12 +82,12 @@ namespace Pulumi.AzureNextGen.Relay
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:relay:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:relay:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,9 +98,13 @@ namespace Pulumi.AzureNextGen.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:relay/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20180101preview:Namespace"},
                 },
             };

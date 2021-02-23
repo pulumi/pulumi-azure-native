@@ -54,19 +54,37 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:mixedreality/latest:SpatialAnchorsAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/latest:SpatialAnchorsAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:mixedreality/v20200501:SpatialAnchorsAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:mixedreality/v20210101:SpatialAnchorsAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"),
@@ -74,7 +92,7 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SpatialAnchorsAccount
-	err := ctx.RegisterResource("azure-nextgen:mixedreality:SpatialAnchorsAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:mixedreality:SpatialAnchorsAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +104,7 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 func GetSpatialAnchorsAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SpatialAnchorsAccountState, opts ...pulumi.ResourceOption) (*SpatialAnchorsAccount, error) {
 	var resource SpatialAnchorsAccount
-	err := ctx.ReadResource("azure-nextgen:mixedreality:SpatialAnchorsAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:mixedreality:SpatialAnchorsAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -77,34 +77,67 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagesync/latest:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/latest:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20170605preview:RegisteredServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20180402:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180402:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20180701:RegisteredServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20180701:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20181001:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20181001:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190201:RegisteredServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190201:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20190301:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190301:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20190601:RegisteredServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20190601:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20191001:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20191001:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azure-native:storagesync/v20200301:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200301:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storagesync/v20200901:RegisteredServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storagesync/v20200901:RegisteredServer"),
@@ -112,7 +145,7 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredServer
-	err := ctx.RegisterResource("azure-nextgen:storagesync:RegisteredServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagesync:RegisteredServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +157,7 @@ func NewRegisteredServer(ctx *pulumi.Context,
 func GetRegisteredServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegisteredServerState, opts ...pulumi.ResourceOption) (*RegisteredServer, error) {
 	var resource RegisteredServer
-	err := ctx.ReadResource("azure-nextgen:storagesync:RegisteredServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagesync:RegisteredServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

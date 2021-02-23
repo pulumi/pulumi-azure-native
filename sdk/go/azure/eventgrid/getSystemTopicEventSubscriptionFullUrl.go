@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func GetSystemTopicEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetSystemTopicEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetSystemTopicEventSubscriptionFullUrlResult, error) {
 	var rv GetSystemTopicEventSubscriptionFullUrlResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getSystemTopicEventSubscriptionFullUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getSystemTopicEventSubscriptionFullUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

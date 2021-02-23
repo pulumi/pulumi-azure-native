@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest
+namespace Pulumi.AzureNative.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a Database.
     /// Latest API Version: 2017-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:Database'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:Database")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:Database'.")]
+    [AzureNativeResourceType("azure-native:dbformysql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/latest:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:Database"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Database"},
                 },
             };

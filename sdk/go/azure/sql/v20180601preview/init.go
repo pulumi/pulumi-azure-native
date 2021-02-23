@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy":
+	case "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy":
 		r, err = NewDatabaseSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:InstancePool":
+	case "azure-native:sql/v20180601preview:InstancePool":
 		r, err = NewInstancePool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ManagedDatabase":
+	case "azure-native:sql/v20180601preview:ManagedDatabase":
 		r, err = NewManagedDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
+	case "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
 		r, err = NewManagedDatabaseSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ManagedInstance":
+	case "azure-native:sql/v20180601preview:ManagedInstance":
 		r, err = NewManagedInstance(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
+	case "azure-native:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
 		r, err = NewManagedInstanceVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:PrivateEndpointConnection":
+	case "azure-native:sql/v20180601preview:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator":
+	case "azure-native:sql/v20180601preview:ServerAzureADAdministrator":
 		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20180601preview:ServerVulnerabilityAssessment":
+	case "azure-native:sql/v20180601preview:ServerVulnerabilityAssessment":
 		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"sql/v20180601preview",
 		&module{version},
 	)

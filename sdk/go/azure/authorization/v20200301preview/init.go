@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:authorization/v20200301preview:DenyAssignment":
+	case "azure-native:authorization/v20200301preview:DenyAssignment":
 		r, err = NewDenyAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/v20200301preview:RoleAssignment":
+	case "azure-native:authorization/v20200301preview:RoleAssignment":
 		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/v20200301preview:RoleDefinition":
+	case "azure-native:authorization/v20200301preview:RoleDefinition":
 		r, err = NewRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"authorization/v20200301preview",
 		&module{version},
 	)

@@ -10,7 +10,7 @@ import (
 // Resource upload definition payload
 func GetAppResourceUploadUrl(ctx *pulumi.Context, args *GetAppResourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*GetAppResourceUploadUrlResult, error) {
 	var rv GetAppResourceUploadUrlResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20190501preview:getAppResourceUploadUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20190501preview:getAppResourceUploadUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

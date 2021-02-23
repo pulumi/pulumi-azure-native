@@ -10,10 +10,10 @@ import (
 // A MySQL Server key.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbformysql:getServerKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerKey'.
 func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pulumi.InvokeOption) (*LookupServerKeyResult, error) {
 	var rv LookupServerKeyResult
-	err := ctx.Invoke("azure-nextgen:dbformysql/latest:getServerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformysql/latest:getServerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

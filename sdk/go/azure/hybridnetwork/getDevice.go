@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01-preview.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork:getDevice", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork:getDevice", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

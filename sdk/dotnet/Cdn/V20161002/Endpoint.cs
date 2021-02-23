@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20161002
+namespace Pulumi.AzureNative.Cdn.V20161002
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20161002:Endpoint")]
+    [AzureNativeResourceType("azure-native:cdn/v20161002:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -126,12 +126,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20161002:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20161002:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Endpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20161002:Endpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20161002:Endpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -142,18 +142,31 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Endpoint"},
                 },
             };
@@ -236,7 +249,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
         /// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
         /// </summary>
         [Input("optimizationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20161002.OptimizationType>? OptimizationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20161002.OptimizationType>? OptimizationType { get; set; }
 
         /// <summary>
         /// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
@@ -272,7 +285,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
         /// Defines the query string caching behavior
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<Pulumi.AzureNextGen.Cdn.V20161002.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.V20161002.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -11,7 +11,7 @@ import (
 // The task will have all information to schedule a run against it.
 func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pulumi.InvokeOption) (*ListTaskDetailsResult, error) {
 	var rv ListTaskDetailsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20190401:listTaskDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20190401:listTaskDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

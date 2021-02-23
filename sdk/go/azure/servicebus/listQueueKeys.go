@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListQueueKeys(ctx *pulumi.Context, args *ListQueueKeysArgs, opts ...pulumi.InvokeOption) (*ListQueueKeysResult, error) {
 	var rv ListQueueKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus:listQueueKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:listQueueKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

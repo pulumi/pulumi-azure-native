@@ -10,7 +10,7 @@ import (
 // disk encryption set resource.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
-	err := ctx.Invoke("azure-nextgen:compute/v20200630:getDiskEncryptionSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20200630:getDiskEncryptionSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

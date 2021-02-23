@@ -17,7 +17,7 @@ export function getJobStep(args: GetJobStepArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getJobStep", {
+    return pulumi.runtime.invoke("azure-native:sql:getJobStep", {
         "jobAgentName": args.jobAgentName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datalakestore:Account';
+    public static readonly __pulumiType = 'azure-native:datalakestore:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -199,7 +199,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakestore/latest:Account" }, { type: "azure-nextgen:datalakestore/v20161101:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore/latest:Account" }, { type: "azure-nextgen:datalakestore/latest:Account" }, { type: "azure-native:datalakestore/v20161101:Account" }, { type: "azure-nextgen:datalakestore/v20161101:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

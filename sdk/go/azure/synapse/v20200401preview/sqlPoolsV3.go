@@ -54,13 +54,25 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:SqlPoolsV3"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolsV3"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/latest:SqlPoolsV3"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolsV3"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolsV3"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolsV3"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolsV3"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolsV3"),
@@ -68,7 +80,7 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolsV3
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20200401preview:SqlPoolsV3", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20200401preview:SqlPoolsV3", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +92,7 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 func GetSqlPoolsV3(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolsV3State, opts ...pulumi.ResourceOption) (*SqlPoolsV3, error) {
 	var resource SqlPoolsV3
-	err := ctx.ReadResource("azure-nextgen:synapse/v20200401preview:SqlPoolsV3", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20200401preview:SqlPoolsV3", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

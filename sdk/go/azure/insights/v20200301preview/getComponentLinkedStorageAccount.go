@@ -10,7 +10,7 @@ import (
 // An Application Insights component linked storage accounts
 func LookupComponentLinkedStorageAccount(ctx *pulumi.Context, args *LookupComponentLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupComponentLinkedStorageAccountResult, error) {
 	var rv LookupComponentLinkedStorageAccountResult
-	err := ctx.Invoke("azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

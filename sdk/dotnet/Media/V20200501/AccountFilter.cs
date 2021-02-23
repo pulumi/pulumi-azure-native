@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// An Account Filter.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20200501:AccountFilter")]
+    [AzureNativeResourceType("azure-native:media/v20200501:AccountFilter")]
     public partial class AccountFilter : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountFilter(string name, AccountFilterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:AccountFilter", name, args ?? new AccountFilterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20200501:AccountFilter", name, args ?? new AccountFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccountFilter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200501:AccountFilter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20200501:AccountFilter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,8 +76,11 @@ namespace Pulumi.AzureNextGen.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:AccountFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:AccountFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:AccountFilter"},
                 },
             };

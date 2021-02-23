@@ -10,7 +10,7 @@ import (
 // Describes an Azure Cognitive Search service and its current state.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:search/v20191001preview:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search/v20191001preview:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Inputs
         /// Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         /// </summary>
         [Input("hostCaching")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.HostCachingOptions>? HostCaching { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.HostCachingOptions>? HostCaching { get; set; }
 
         public DataDiskPropertiesArgs()
         {

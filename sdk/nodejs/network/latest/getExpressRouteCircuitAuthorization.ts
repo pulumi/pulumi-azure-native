@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Authorization in an ExpressRouteCircuit resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitAuthorization'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitAuthorization'. */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
-    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuitAuthorization'.")
+    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitAuthorization'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuit
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getExpressRouteCircuitAuthorization", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getExpressRouteCircuitAuthorization", {
         "authorizationName": args.authorizationName,
         "circuitName": args.circuitName,
         "resourceGroupName": args.resourceGroupName,

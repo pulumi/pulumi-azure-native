@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * An object that represents a machine learning workspace.
  * Latest API Version: 2016-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearning:Workspace'.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.")
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearning:Workspace'.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearning/latest:Workspace';
+    public static readonly __pulumiType = 'azure-native:machinelearning/latest:Workspace';
 
     /**
      * Returns true if the given object is an instance of Workspace.  This is designed to work even
@@ -94,9 +94,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearning:Workspace'. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearning:Workspace'.")
+        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearning:Workspace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.ownerEmail === undefined) && !(opts && opts.urn)) {
@@ -143,7 +143,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearning:Workspace" }, { type: "azure-nextgen:machinelearning/v20160401:Workspace" }, { type: "azure-nextgen:machinelearning/v20191001:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearning:Workspace" }, { type: "azure-nextgen:machinelearning:Workspace" }, { type: "azure-native:machinelearning/v20160401:Workspace" }, { type: "azure-nextgen:machinelearning/v20160401:Workspace" }, { type: "azure-native:machinelearning/v20191001:Workspace" }, { type: "azure-nextgen:machinelearning/v20191001:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

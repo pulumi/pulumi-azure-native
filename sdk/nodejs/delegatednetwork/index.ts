@@ -31,15 +31,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:delegatednetwork:ControllerDetails":
+            case "azure-native:delegatednetwork:ControllerDetails":
                 return new ControllerDetails(name, <any>undefined, { urn })
-            case "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails":
+            case "azure-native:delegatednetwork:DelegatedSubnetServiceDetails":
                 return new DelegatedSubnetServiceDetails(name, <any>undefined, { urn })
-            case "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails":
+            case "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails":
                 return new OrchestratorInstanceServiceDetails(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "delegatednetwork", _module)
+pulumi.runtime.registerResourceModule("azure-native", "delegatednetwork", _module)

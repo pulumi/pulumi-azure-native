@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20150801
+namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     public static class ListTopicKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Namespace/ServiceBus Connection String
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-nextgen:servicebus/v20150801:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus/v20150801:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithVersion());
     }
 
 

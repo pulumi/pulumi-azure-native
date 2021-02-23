@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysSlotResult, error) {
 	var rv ListWebAppFunctionKeysSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppFunctionKeysSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppFunctionKeysSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

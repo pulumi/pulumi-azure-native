@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The node types on which the script action should be executed.
         /// </summary>
         [Input("roles", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.HdiNodeTypes> Roles { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.HdiNodeTypes> Roles { get; set; } = null!;
 
         /// <summary>
         /// The URI for the script action.

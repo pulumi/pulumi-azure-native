@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
     /// <summary>
     /// Represents a server group for create.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup")]
     public partial class ServerGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -186,12 +186,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerGroup(string name, ServerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup", name, args ?? new ServerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup", name, args ?? new ServerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -250,13 +250,13 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// The Citus version of server group.
         /// </summary>
         [Input("citusVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.CitusVersion>? CitusVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.CitusVersion>? CitusVersion { get; set; }
 
         /// <summary>
         /// The mode to create a new server group.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The delegated subnet arguments for a server group.
@@ -304,7 +304,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview
         /// The PostgreSQL version of server group.
         /// </summary>
         [Input("postgresqlVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20201005PrivatePreview.PostgreSQLVersion>? PostgresqlVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.PostgreSQLVersion>? PostgresqlVersion { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -10,10 +10,10 @@ import (
 // Trigger details.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getTrigger'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getTrigger'.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

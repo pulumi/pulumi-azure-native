@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
     /// API Version: 2021-01-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:MongoDBResourceMongoDBCollection")]
+    [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MongoDBResourceMongoDBCollection(string name, MongoDBResourceMongoDBCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:MongoDBResourceMongoDBCollection", name, args ?? new MongoDBResourceMongoDBCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:MongoDBResourceMongoDBCollection", name, args ?? new MongoDBResourceMongoDBCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MongoDBResourceMongoDBCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:MongoDBResourceMongoDBCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:MongoDBResourceMongoDBCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,13 +71,21 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBCollection"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
+namespace Pulumi.AzureNative.Network.V20190401.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// The access type of the rule.
         /// </summary>
         [Input("access", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.Access> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190401.Access> Access { get; set; } = null!;
 
         [Input("communities", required: true)]
         private InputList<string>? _communities;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// The rule type of the rule.
         /// </summary>
         [Input("routeFilterRuleType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.RouteFilterRuleType> RouteFilterRuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190401.RouteFilterRuleType> RouteFilterRuleType { get; set; } = null!;
 
         public RouteFilterRuleArgs()
         {

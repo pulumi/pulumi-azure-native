@@ -70,25 +70,49 @@ func NewRedis(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:Redis"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:Redis"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/latest:Redis"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/latest:Redis"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20150801:Redis"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20150801:Redis"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20160401:Redis"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20160401:Redis"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20170201:Redis"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:Redis"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20180301:Redis"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:Redis"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:Redis"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:Redis"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:Redis"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:Redis"),
@@ -96,7 +120,7 @@ func NewRedis(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Redis
-	err := ctx.RegisterResource("azure-nextgen:cache/v20171001:Redis", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/v20171001:Redis", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +132,7 @@ func NewRedis(ctx *pulumi.Context,
 func GetRedis(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RedisState, opts ...pulumi.ResourceOption) (*Redis, error) {
 	var resource Redis
-	err := ctx.ReadResource("azure-nextgen:cache/v20171001:Redis", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/v20171001:Redis", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

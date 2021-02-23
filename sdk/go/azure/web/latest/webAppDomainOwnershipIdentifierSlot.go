@@ -14,7 +14,7 @@ import (
 // A domain specific resource identifier.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifierSlot'.
 type WebAppDomainOwnershipIdentifierSlot struct {
 	pulumi.CustomResourceState
 
@@ -48,25 +48,49 @@ func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot"),
@@ -74,7 +98,7 @@ func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDomainOwnershipIdentifierSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppDomainOwnershipIdentifierSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +110,7 @@ func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 func GetWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppDomainOwnershipIdentifierSlotState, opts ...pulumi.ResourceOption) (*WebAppDomainOwnershipIdentifierSlot, error) {
 	var resource WebAppDomainOwnershipIdentifierSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppDomainOwnershipIdentifierSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppDomainOwnershipIdentifierSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

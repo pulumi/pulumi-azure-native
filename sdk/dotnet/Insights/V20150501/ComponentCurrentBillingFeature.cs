@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// An Application Insights component billing features
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature")]
+    [AzureNativeResourceType("azure-native:insights/v20150501:ComponentCurrentBillingFeature")]
     public partial class ComponentCurrentBillingFeature : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ComponentCurrentBillingFeature(string name, ComponentCurrentBillingFeatureArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature", name, args ?? new ComponentCurrentBillingFeatureArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20150501:ComponentCurrentBillingFeature", name, args ?? new ComponentCurrentBillingFeatureArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ComponentCurrentBillingFeature(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20150501:ComponentCurrentBillingFeature", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -52,7 +52,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ComponentCurrentBillingFeature"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ComponentCurrentBillingFeature"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ComponentCurrentBillingFeature"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ComponentCurrentBillingFeature"},
                 },
             };

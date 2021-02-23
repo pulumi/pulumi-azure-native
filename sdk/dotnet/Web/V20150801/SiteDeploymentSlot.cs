@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteDeploymentSlot")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteDeploymentSlot")]
     public partial class SiteDeploymentSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteDeploymentSlot(string name, SiteDeploymentSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteDeploymentSlot", name, args ?? new SiteDeploymentSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteDeploymentSlot", name, args ?? new SiteDeploymentSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteDeploymentSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteDeploymentSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteDeploymentSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,14 +124,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteDeploymentSlot"},
                 },
             };

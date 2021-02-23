@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20191101Preview
+namespace Pulumi.AzureNative.Insights.V20191101Preview
 {
     [EnumType]
     public readonly struct KnownDataFlowStreams : IEquatable<KnownDataFlowStreams>

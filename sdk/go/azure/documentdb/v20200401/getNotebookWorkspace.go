@@ -10,7 +10,7 @@ import (
 // A notebook workspace resource
 func LookupNotebookWorkspace(ctx *pulumi.Context, args *LookupNotebookWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupNotebookWorkspaceResult, error) {
 	var rv LookupNotebookWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200401:getNotebookWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200401:getNotebookWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

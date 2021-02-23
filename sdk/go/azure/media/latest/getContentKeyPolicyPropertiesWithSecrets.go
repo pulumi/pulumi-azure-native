@@ -10,10 +10,10 @@ import (
 // The properties of the Content Key Policy.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicyPropertiesWithSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicyPropertiesWithSecrets'.
 func GetContentKeyPolicyPropertiesWithSecrets(ctx *pulumi.Context, args *GetContentKeyPolicyPropertiesWithSecretsArgs, opts ...pulumi.InvokeOption) (*GetContentKeyPolicyPropertiesWithSecretsResult, error) {
 	var rv GetContentKeyPolicyPropertiesWithSecretsResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getContentKeyPolicyPropertiesWithSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getContentKeyPolicyPropertiesWithSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -23,7 +23,7 @@ export class Binding extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:appplatform:Binding';
+    public static readonly __pulumiType = 'azure-native:appplatform:Binding';
 
     /**
      * Returns true if the given object is an instance of Binding.  This is designed to work even
@@ -87,7 +87,7 @@ export class Binding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/latest:Binding" }, { type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/latest:Binding" }, { type: "azure-nextgen:appplatform/latest:Binding" }, { type: "azure-native:appplatform/v20190501preview:Binding" }, { type: "azure-nextgen:appplatform/v20190501preview:Binding" }, { type: "azure-native:appplatform/v20200701:Binding" }, { type: "azure-nextgen:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-nextgen:appplatform/v20201101preview:Binding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Binding.__pulumiType, name, inputs, opts);
     }

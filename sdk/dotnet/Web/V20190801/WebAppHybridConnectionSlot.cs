@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppHybridConnectionSlot")]
     public partial class WebAppHybridConnectionSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppHybridConnectionSlot(string name, WebAppHybridConnectionSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot", name, args ?? new WebAppHybridConnectionSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppHybridConnectionSlot", name, args ?? new WebAppHybridConnectionSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppHybridConnectionSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppHybridConnectionSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,13 +107,21 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHybridConnectionSlot"},
                 },
             };

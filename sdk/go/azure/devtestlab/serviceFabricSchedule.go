@@ -69,7 +69,13 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:ServiceFabricSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceFabricSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceFabricSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule"),
@@ -77,7 +83,7 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabricSchedule
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:ServiceFabricSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:ServiceFabricSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +95,7 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 func GetServiceFabricSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceFabricScheduleState, opts ...pulumi.ResourceOption) (*ServiceFabricSchedule, error) {
 	var resource ServiceFabricSchedule
-	err := ctx.ReadResource("azure-nextgen:devtestlab:ServiceFabricSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:ServiceFabricSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

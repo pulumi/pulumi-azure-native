@@ -14,7 +14,7 @@ import (
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:FrontDoor'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FrontDoor'.
 type FrontDoor struct {
 	pulumi.CustomResourceState
 
@@ -66,22 +66,43 @@ func NewFrontDoor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190501:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190501:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:FrontDoor"),
@@ -89,7 +110,7 @@ func NewFrontDoor(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FrontDoor
-	err := ctx.RegisterResource("azure-nextgen:network/latest:FrontDoor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:FrontDoor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +122,7 @@ func NewFrontDoor(ctx *pulumi.Context,
 func GetFrontDoor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FrontDoorState, opts ...pulumi.ResourceOption) (*FrontDoor, error) {
 	var resource FrontDoor
-	err := ctx.ReadResource("azure-nextgen:network/latest:FrontDoor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:FrontDoor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

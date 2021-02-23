@@ -22,11 +22,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:azurestack/v20160101:Registration":
+            case "azure-native:azurestack/v20160101:Registration":
                 return new Registration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "azurestack/v20160101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "azurestack/v20160101", _module)

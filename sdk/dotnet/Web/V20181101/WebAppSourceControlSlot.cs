@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20181101
+namespace Pulumi.AzureNative.Web.V20181101
 {
     /// <summary>
     /// Source control configuration for an app.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebAppSourceControlSlot")]
+    [AzureNativeResourceType("azure-native:web/v20181101:WebAppSourceControlSlot")]
     public partial class WebAppSourceControlSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSourceControlSlot(string name, WebAppSourceControlSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20181101:WebAppSourceControlSlot", name, args ?? new WebAppSourceControlSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20181101:WebAppSourceControlSlot", name, args ?? new WebAppSourceControlSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSourceControlSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20181101:WebAppSourceControlSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20181101:WebAppSourceControlSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,14 +88,23 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSourceControlSlot"},
                 },
             };

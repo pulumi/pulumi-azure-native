@@ -10,10 +10,10 @@ import (
 // The Private Endpoint Connection resource.
 // Latest API Version: 2021-01-11.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthcareapis:getPrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:healthcareapis:getPrivateEndpointConnection'.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:healthcareapis/latest:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:healthcareapis/latest:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

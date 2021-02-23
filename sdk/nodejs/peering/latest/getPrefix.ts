@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The peering service prefix class.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'. */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
-    pulumi.log.warn("getPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'.")
+    pulumi.log.warn("getPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/latest:getPrefix", {
+    return pulumi.runtime.invoke("azure-native:peering/latest:getPrefix", {
         "expand": args.expand,
         "peeringServiceName": args.peeringServiceName,
         "prefixName": args.prefixName,

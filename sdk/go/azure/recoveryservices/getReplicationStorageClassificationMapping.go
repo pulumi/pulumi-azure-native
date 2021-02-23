@@ -11,7 +11,7 @@ import (
 // API Version: 2018-07-10.
 func LookupReplicationStorageClassificationMapping(ctx *pulumi.Context, args *LookupReplicationStorageClassificationMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationStorageClassificationMappingResult, error) {
 	var rv LookupReplicationStorageClassificationMappingResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getReplicationStorageClassificationMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getReplicationStorageClassificationMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

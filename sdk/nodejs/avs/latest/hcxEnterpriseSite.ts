@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * An HCX Enterprise Site resource
  * Latest API Version: 2020-03-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:HcxEnterpriseSite'.
  */
 export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HcxEnterpriseSite {
-        pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.")
+        pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:HcxEnterpriseSite'.")
         return new HcxEnterpriseSite(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/latest:HcxEnterpriseSite';
+    public static readonly __pulumiType = 'azure-native:avs/latest:HcxEnterpriseSite';
 
     /**
      * Returns true if the given object is an instance of HcxEnterpriseSite.  This is designed to work even
@@ -62,9 +62,9 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:HcxEnterpriseSite'. */
     constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:HcxEnterpriseSite'.")
+        pulumi.log.warn("HcxEnterpriseSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:HcxEnterpriseSite'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +93,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }

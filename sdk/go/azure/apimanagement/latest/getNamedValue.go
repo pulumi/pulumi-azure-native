@@ -10,10 +10,10 @@ import (
 // NamedValue details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getNamedValue'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getNamedValue'.
 func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...pulumi.InvokeOption) (*LookupNamedValueResult, error) {
 	var rv LookupNamedValueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getNamedValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getNamedValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

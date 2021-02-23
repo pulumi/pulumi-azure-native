@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFlowLog'.")]
     public static class GetFlowLog
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-nextgen:network/latest:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("azure-native:network/latest:getFlowLog", args ?? new GetFlowLogArgs(), options.WithVersion());
     }
 
 

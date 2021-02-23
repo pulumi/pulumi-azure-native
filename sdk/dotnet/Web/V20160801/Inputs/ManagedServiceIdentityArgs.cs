@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
+namespace Pulumi.AzureNative.Web.V20160801.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801.Inputs
         /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.V20160801.ManagedServiceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.V20160801.ManagedServiceIdentityType>? Type { get; set; }
 
         public ManagedServiceIdentityArgs()
         {

@@ -10,7 +10,7 @@ import (
 // Snapshot resource.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
-	err := ctx.Invoke("azure-nextgen:compute/v20190301:getSnapshot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20190301:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

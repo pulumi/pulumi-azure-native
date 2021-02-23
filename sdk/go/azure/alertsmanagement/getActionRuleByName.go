@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-05-preview.
 func LookupActionRuleByName(ctx *pulumi.Context, args *LookupActionRuleByNameArgs, opts ...pulumi.InvokeOption) (*LookupActionRuleByNameResult, error) {
 	var rv LookupActionRuleByNameResult
-	err := ctx.Invoke("azure-nextgen:alertsmanagement:getActionRuleByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:alertsmanagement:getActionRuleByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

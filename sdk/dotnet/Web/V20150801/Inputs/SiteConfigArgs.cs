@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
+namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
     /// <summary>
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Site load balancing
         /// </summary>
         [Input("loadBalancing")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.SiteLoadBalancing>? LoadBalancing { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.SiteLoadBalancing>? LoadBalancing { get; set; }
 
         /// <summary>
         /// Local mysql enabled
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Managed pipeline mode
         /// </summary>
         [Input("managedPipelineMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.ManagedPipelineMode>? ManagedPipelineMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20150801.ManagedPipelineMode>? ManagedPipelineMode { get; set; }
 
         [Input("metadata")]
         private InputList<Inputs.NameValuePairArgs>? _metadata;

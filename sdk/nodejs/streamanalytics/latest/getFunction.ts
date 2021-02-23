@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getFunction'. */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-    pulumi.log.warn("getFunction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'.")
+    pulumi.log.warn("getFunction is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getFunction'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/latest:getFunction", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/latest:getFunction", {
         "functionName": args.functionName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

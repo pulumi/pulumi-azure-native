@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:devices/v20190322:Certificate":
+	case "azure-native:devices/v20190322:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devices/v20190322:IotHubResource":
+	case "azure-native:devices/v20190322:IotHubResource":
 		r, err = NewIotHubResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup":
+	case "azure-native:devices/v20190322:IotHubResourceEventHubConsumerGroup":
 		r, err = NewIotHubResourceEventHubConsumerGroup(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"devices/v20190322",
 		&module{version},
 	)

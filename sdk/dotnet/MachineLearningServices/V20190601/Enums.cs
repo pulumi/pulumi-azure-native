@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20190601
+namespace Pulumi.AzureNative.MachineLearningServices.V20190601
 {
     /// <summary>
     /// The type of compute

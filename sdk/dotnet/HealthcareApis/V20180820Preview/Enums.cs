@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
+namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
 {
     /// <summary>
     /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.

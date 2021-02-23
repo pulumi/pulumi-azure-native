@@ -10,10 +10,10 @@ import (
 // A lab.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getLab'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getLab'.
 func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
 	var rv LookupLabResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getLab", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getLab", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

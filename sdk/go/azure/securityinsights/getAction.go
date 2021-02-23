@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupAction(ctx *pulumi.Context, args *LookupActionArgs, opts ...pulumi.InvokeOption) (*LookupActionResult, error) {
 	var rv LookupActionResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getAction", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getAction", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

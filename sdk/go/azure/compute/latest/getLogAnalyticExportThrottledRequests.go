@@ -10,10 +10,10 @@ import (
 // LogAnalytics operation status response
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getLogAnalyticExportThrottledRequests'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportThrottledRequests'.
 func GetLogAnalyticExportThrottledRequests(ctx *pulumi.Context, args *GetLogAnalyticExportThrottledRequestsArgs, opts ...pulumi.InvokeOption) (*GetLogAnalyticExportThrottledRequestsResult, error) {
 	var rv GetLogAnalyticExportThrottledRequestsResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getLogAnalyticExportThrottledRequests", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getLogAnalyticExportThrottledRequests", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

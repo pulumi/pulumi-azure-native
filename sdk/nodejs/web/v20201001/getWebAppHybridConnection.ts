@@ -16,7 +16,7 @@ export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20201001:getWebAppHybridConnection", {
+    return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppHybridConnection", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

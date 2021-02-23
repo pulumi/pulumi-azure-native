@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as documentdb from "@pulumi/azure-nextgen/documentdb";
-import * as resources from "@pulumi/azure-nextgen/resources";
-import { documentdb as documentdbInputs } from "@pulumi/azure-nextgen/types/input";
+import * as documentdb from "@pulumi/azure-native/documentdb";
+import * as resources from "@pulumi/azure-native/resources";
+import { documentdb as documentdbInputs } from "@pulumi/azure-native/types/input";
 
 export type Location =
     "eastasia"           |

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Private dns zone group resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateDnsZoneGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateDnsZoneGroup'. */
 export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsZoneGroupResult> {
-    pulumi.log.warn("getPrivateDnsZoneGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateDnsZoneGroup'.")
+    pulumi.log.warn("getPrivateDnsZoneGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateDnsZoneGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getPrivateDnsZoneGroup", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getPrivateDnsZoneGroup", {
         "privateDnsZoneGroupName": args.privateDnsZoneGroupName,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,

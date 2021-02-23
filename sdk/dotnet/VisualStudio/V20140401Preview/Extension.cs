@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
+namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
 {
     /// <summary>
     /// The response to an extension resource GET request.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:visualstudio/v20140401preview:Extension")]
+    [AzureNativeResourceType("azure-native:visualstudio/v20140401preview:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Extension(string name, ExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio/v20140401preview:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:visualstudio/v20140401preview:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Extension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio/v20140401preview:Extension", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:visualstudio/v20140401preview:Extension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:visualstudio:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20171101preview:Extension"},
                 },
             };

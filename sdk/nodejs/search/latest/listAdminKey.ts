@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listAdminKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:listAdminKey'. */
 export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListAdminKeyResult> {
-    pulumi.log.warn("listAdminKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:search:listAdminKey'.")
+    pulumi.log.warn("listAdminKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:listAdminKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:search/latest:listAdminKey", {
+    return pulumi.runtime.invoke("azure-native:search/latest:listAdminKey", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
     }, opts);

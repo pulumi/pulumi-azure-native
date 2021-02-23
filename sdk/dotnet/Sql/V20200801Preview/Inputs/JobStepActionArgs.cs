@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
+namespace Pulumi.AzureNative.Sql.V20200801Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// The source of the action to execute.
         /// </summary>
         [Input("source")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.JobStepActionSource>? Source { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200801Preview.JobStepActionSource>? Source { get; set; }
 
         /// <summary>
         /// Type of action being executed by the job step.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.JobStepActionType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200801Preview.JobStepActionType>? Type { get; set; }
 
         /// <summary>
         /// The action value, for example the text of the T-SQL script to execute.

@@ -1,5 +1,5 @@
 {
-    "name": "azure-nextgen-appservice",
+    "name": "azure-native-appservice",
     "version": "0.1.0",
     "devDependencies": {
         "@types/node": "latest"

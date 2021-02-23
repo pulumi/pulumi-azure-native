@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Tag Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByApi'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTagByApi'. */
 export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByApiResult> {
-    pulumi.log.warn("getTagByApi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTagByApi'.")
+    pulumi.log.warn("getTagByApi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTagByApi'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getTagByApi", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getTagByApi", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

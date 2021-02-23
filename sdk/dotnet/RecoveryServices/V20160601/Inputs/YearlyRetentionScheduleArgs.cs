@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
     public sealed class YearlyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("monthsOfYear")]
-        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20160601.MonthOfYear>? _monthsOfYear;
+        private InputList<Pulumi.AzureNative.RecoveryServices.V20160601.MonthOfYear>? _monthsOfYear;
 
         /// <summary>
         /// List of the months of year for the yearly retention policy.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20160601.MonthOfYear> MonthsOfYear
+        public InputList<Pulumi.AzureNative.RecoveryServices.V20160601.MonthOfYear> MonthsOfYear
         {
-            get => _monthsOfYear ?? (_monthsOfYear = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20160601.MonthOfYear>());
+            get => _monthsOfYear ?? (_monthsOfYear = new InputList<Pulumi.AzureNative.RecoveryServices.V20160601.MonthOfYear>());
             set => _monthsOfYear = value;
         }
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
         /// Retention schedule format for the yearly retention policy.
         /// </summary>
         [Input("retentionScheduleFormatType")]
-        public Input<Pulumi.AzureNextGen.RecoveryServices.V20160601.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
+        public Input<Pulumi.AzureNative.RecoveryServices.V20160601.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
 
         /// <summary>
         /// Weekly retention format for the yearly retention policy.

@@ -10,7 +10,7 @@ import (
 // Description of a Namespace resource.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/v20170401:getNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/v20170401:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

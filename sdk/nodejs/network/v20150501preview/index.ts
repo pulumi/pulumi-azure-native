@@ -54,35 +54,35 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20150501preview:ApplicationGateway":
+            case "azure-native:network/v20150501preview:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:ExpressRouteCircuit":
+            case "azure-native:network/v20150501preview:ExpressRouteCircuit":
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:ExpressRouteCircuitAuthorization":
+            case "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization":
                 return new ExpressRouteCircuitAuthorization(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:ExpressRouteCircuitPeering":
+            case "azure-native:network/v20150501preview:ExpressRouteCircuitPeering":
                 return new ExpressRouteCircuitPeering(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:LoadBalancer":
+            case "azure-native:network/v20150501preview:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:NetworkInterface":
+            case "azure-native:network/v20150501preview:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:NetworkSecurityGroup":
+            case "azure-native:network/v20150501preview:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:PublicIpAddress":
+            case "azure-native:network/v20150501preview:PublicIpAddress":
                 return new PublicIpAddress(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:Route":
+            case "azure-native:network/v20150501preview:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:RouteTable":
+            case "azure-native:network/v20150501preview:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:SecurityRule":
+            case "azure-native:network/v20150501preview:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:Subnet":
+            case "azure-native:network/v20150501preview:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
-            case "azure-nextgen:network/v20150501preview:VirtualNetwork":
+            case "azure-native:network/v20150501preview:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20150501preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20150501preview", _module)

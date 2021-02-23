@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
 {
     public static class GetLinkedService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
         /// The top level Linked service resource container.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-nextgen:operationalinsights/v20190801preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:operationalinsights/v20190801preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
     }
 
 

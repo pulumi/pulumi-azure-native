@@ -10,7 +10,7 @@ import (
 // DSCP Configuration in a resource group.
 func LookupDscpConfiguration(ctx *pulumi.Context, args *LookupDscpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscpConfigurationResult, error) {
 	var rv LookupDscpConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/v20200801:getDscpConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200801:getDscpConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

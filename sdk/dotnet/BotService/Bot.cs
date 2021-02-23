@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService
+namespace Pulumi.AzureNative.BotService
 {
     /// <summary>
     /// Bot resource definition
     /// API Version: 2020-06-02.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:botservice:Bot")]
+    [AzureNativeResourceType("azure-native:botservice:Bot")]
     public partial class Bot : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.BotService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bot(string name, BotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:botservice:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:botservice:Bot", name, args ?? new BotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:botservice:Bot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:botservice:Bot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,9 +89,13 @@ namespace Pulumi.AzureNextGen.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:botservice/latest:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/latest:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20171201:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20180712:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Bot"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:Bot"},
                 },
             };
@@ -126,7 +130,7 @@ namespace Pulumi.AzureNextGen.BotService
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.BotService.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BotService.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.

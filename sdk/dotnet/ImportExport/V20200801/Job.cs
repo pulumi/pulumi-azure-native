@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport.V20200801
+namespace Pulumi.AzureNative.ImportExport.V20200801
 {
     /// <summary>
     /// Contains the job information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:importexport/v20200801:Job")]
+    [AzureNativeResourceType("azure-native:importexport/v20200801:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:importexport/v20200801:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:importexport/v20200801:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:importexport/v20200801:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:importexport/v20200801:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:importexport:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport:Job"},
+                    new Pulumi.Alias { Type = "azure-native:importexport/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/v20161101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:importexport/v20210101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/v20210101:Job"},
                 },
             };

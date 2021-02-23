@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppMetadata'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppMetadata'.
 func ListWebAppMetadata(ctx *pulumi.Context, args *ListWebAppMetadataArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataResult, error) {
 	var rv ListWebAppMetadataResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppMetadata", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppMetadata", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

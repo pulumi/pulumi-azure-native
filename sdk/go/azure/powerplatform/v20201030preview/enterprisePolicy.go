@@ -44,7 +44,7 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EnterprisePolicy
-	err := ctx.RegisterResource("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:powerplatform/v20201030preview:EnterprisePolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 func GetEnterprisePolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnterprisePolicyState, opts ...pulumi.ResourceOption) (*EnterprisePolicy, error) {
 	var resource EnterprisePolicy
-	err := ctx.ReadResource("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:powerplatform/v20201030preview:EnterprisePolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

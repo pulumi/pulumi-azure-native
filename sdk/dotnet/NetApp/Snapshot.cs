@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp
+namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot of a Volume
     /// API Version: 2020-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:netapp:Snapshot")]
+    [AzureNativeResourceType("azure-native:netapp:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Snapshot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:Snapshot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp:Snapshot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,21 +77,37 @@ namespace Pulumi.AzureNextGen.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Snapshot"},
                 },
             };

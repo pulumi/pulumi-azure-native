@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
-	err := ctx.Invoke("azure-nextgen:containerinstance:getContainerGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerinstance:getContainerGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

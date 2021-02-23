@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
 {
 
     public sealed class CustomerSubscriptionRegisteredFeaturesArgs : Pulumi.InvokeArgs

@@ -25,11 +25,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:confidentialledger:Ledger":
+            case "azure-native:confidentialledger:Ledger":
                 return new Ledger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "confidentialledger", _module)
+pulumi.runtime.registerResourceModule("azure-native", "confidentialledger", _module)

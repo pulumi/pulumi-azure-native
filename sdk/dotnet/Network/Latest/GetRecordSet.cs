@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRecordSet'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRecordSet'.")]
     public static class GetRecordSet
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-nextgen:network/latest:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network/latest:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
     }
 
 

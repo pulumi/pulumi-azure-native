@@ -10,7 +10,7 @@ import (
 // The policy definition.
 func LookupPolicyDefinitionAtManagementGroup(ctx *pulumi.Context, args *LookupPolicyDefinitionAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPolicyDefinitionAtManagementGroupResult, error) {
 	var rv LookupPolicyDefinitionAtManagementGroupResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20200301:getPolicyDefinitionAtManagementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Inbound NAT rule of the load balancer.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInboundNatRule'. */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
-    pulumi.log.warn("getInboundNatRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getInboundNatRule'.")
+    pulumi.log.warn("getInboundNatRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInboundNatRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getInboundNatRule", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getInboundNatRule", {
         "expand": args.expand,
         "inboundNatRuleName": args.inboundNatRuleName,
         "loadBalancerName": args.loadBalancerName,

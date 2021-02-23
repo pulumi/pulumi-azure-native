@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
+namespace Pulumi.AzureNative.OperationalInsights.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.WorkspaceSkuNameEnum> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.WorkspaceSkuNameEnum> Name { get; set; } = null!;
 
         public WorkspaceSkuArgs()
         {

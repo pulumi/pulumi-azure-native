@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200501
+namespace Pulumi.AzureNative.Network.V20200501
 {
     public static class GetVirtualHub
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// VirtualHub Resource.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-nextgen:network/v20200501:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network/v20200501:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
     }
 
 

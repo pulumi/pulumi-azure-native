@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
+namespace Pulumi.AzureNative.Compute.V20201201.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
         /// Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
         /// </summary>
         [Input("securityType")]
-        public Input<Pulumi.AzureNextGen.Compute.V20201201.SecurityTypes>? SecurityType { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20201201.SecurityTypes>? SecurityType { get; set; }
 
         /// <summary>
         /// Specifies the security settings like secure boot and vTPM used while creating the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-12-01

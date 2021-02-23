@@ -17,7 +17,7 @@ export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azuredata:getSqlServerRegistration", {
+    return pulumi.runtime.invoke("azure-native:azuredata:getSqlServerRegistration", {
         "resourceGroupName": args.resourceGroupName,
         "sqlServerRegistrationName": args.sqlServerRegistrationName,
     }, opts);

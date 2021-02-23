@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Consumption.Latest
+namespace Pulumi.AzureNative.Consumption.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudgetByResourceGroupName'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudgetByResourceGroupName'.")]
     public static class GetBudgetByResourceGroupName
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Consumption.Latest
         /// Latest API Version: 2018-10-01.
         /// </summary>
         public static Task<GetBudgetByResourceGroupNameResult> InvokeAsync(GetBudgetByResourceGroupNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetByResourceGroupNameResult>("azure-nextgen:consumption/latest:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetByResourceGroupNameResult>("azure-native:consumption/latest:getBudgetByResourceGroupName", args ?? new GetBudgetByResourceGroupNameArgs(), options.WithVersion());
     }
 
 

@@ -10,10 +10,10 @@ import (
 // The list of credential result response.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterMonitoringUserCredentials'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterMonitoringUserCredentials'.
 func ListManagedClusterMonitoringUserCredentials(ctx *pulumi.Context, args *ListManagedClusterMonitoringUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterMonitoringUserCredentialsResult, error) {
 	var rv ListManagedClusterMonitoringUserCredentialsResult
-	err := ctx.Invoke("azure-nextgen:containerservice/latest:listManagedClusterMonitoringUserCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/latest:listManagedClusterMonitoringUserCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

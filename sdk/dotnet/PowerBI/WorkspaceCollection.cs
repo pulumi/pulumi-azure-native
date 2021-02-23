@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBI
+namespace Pulumi.AzureNative.PowerBI
 {
     /// <summary>
     /// API Version: 2016-01-29.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:powerbi:WorkspaceCollection")]
+    [AzureNativeResourceType("azure-native:powerbi:WorkspaceCollection")]
     public partial class WorkspaceCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.PowerBI
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkspaceCollection(string name, WorkspaceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbi:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:powerbi:WorkspaceCollection", name, args ?? new WorkspaceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkspaceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbi:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:powerbi:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.PowerBI
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:powerbi/latest:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/latest:WorkspaceCollection"},
+                    new Pulumi.Alias { Type = "azure-native:powerbi/v20160129:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20160129:WorkspaceCollection"},
                 },
             };

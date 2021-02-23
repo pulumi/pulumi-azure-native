@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
+namespace Pulumi.AzureNative.StreamAnalytics.V20160301
 {
     public static class GetInput
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-nextgen:streamanalytics/v20160301:getInput", args ?? new GetInputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics/v20160301:getInput", args ?? new GetInputArgs(), options.WithVersion());
     }
 
 

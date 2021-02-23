@@ -17,7 +17,7 @@ export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay:getHybridConnection", {
+    return pulumi.runtime.invoke("azure-native:relay:getHybridConnection", {
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

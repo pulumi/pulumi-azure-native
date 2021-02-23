@@ -74,45 +74,45 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devtestlab/latest:ArtifactSource":
+            case "azure-native:devtestlab/latest:ArtifactSource":
                 return new ArtifactSource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:CustomImage":
+            case "azure-native:devtestlab/latest:CustomImage":
                 return new CustomImage(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Disk":
+            case "azure-native:devtestlab/latest:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Environment":
+            case "azure-native:devtestlab/latest:Environment":
                 return new Environment(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Formula":
+            case "azure-native:devtestlab/latest:Formula":
                 return new Formula(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:GlobalSchedule":
+            case "azure-native:devtestlab/latest:GlobalSchedule":
                 return new GlobalSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Lab":
+            case "azure-native:devtestlab/latest:Lab":
                 return new Lab(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:NotificationChannel":
+            case "azure-native:devtestlab/latest:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Policy":
+            case "azure-native:devtestlab/latest:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Schedule":
+            case "azure-native:devtestlab/latest:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:Secret":
+            case "azure-native:devtestlab/latest:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:ServiceFabric":
+            case "azure-native:devtestlab/latest:ServiceFabric":
                 return new ServiceFabric(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:ServiceFabricSchedule":
+            case "azure-native:devtestlab/latest:ServiceFabricSchedule":
                 return new ServiceFabricSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:ServiceRunner":
+            case "azure-native:devtestlab/latest:ServiceRunner":
                 return new ServiceRunner(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:User":
+            case "azure-native:devtestlab/latest:User":
                 return new User(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:VirtualMachine":
+            case "azure-native:devtestlab/latest:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:VirtualMachineSchedule":
+            case "azure-native:devtestlab/latest:VirtualMachineSchedule":
                 return new VirtualMachineSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/latest:VirtualNetwork":
+            case "azure-native:devtestlab/latest:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devtestlab/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devtestlab/latest", _module)

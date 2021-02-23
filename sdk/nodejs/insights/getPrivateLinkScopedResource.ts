@@ -17,7 +17,7 @@ export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights:getPrivateLinkScopedResource", {
+    return pulumi.runtime.invoke("azure-native:insights:getPrivateLinkScopedResource", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "scopeName": args.scopeName,

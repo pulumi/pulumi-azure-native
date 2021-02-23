@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:kusto/v20180907preview:Cluster":
+	case "azure-native:kusto/v20180907preview:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto/v20180907preview:Database":
+	case "azure-native:kusto/v20180907preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto/v20180907preview:EventHubConnection":
+	case "azure-native:kusto/v20180907preview:EventHubConnection":
 		r, err = NewEventHubConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"kusto/v20180907preview",
 		&module{version},
 	)

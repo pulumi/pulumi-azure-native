@@ -17,7 +17,7 @@ export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:listPartnerNamespaceSharedAccessKeys", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", {
         "partnerNamespaceName": args.partnerNamespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

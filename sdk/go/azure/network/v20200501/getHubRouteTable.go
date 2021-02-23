@@ -10,7 +10,7 @@ import (
 // RouteTable resource in a virtual hub.
 func LookupHubRouteTable(ctx *pulumi.Context, args *LookupHubRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupHubRouteTableResult, error) {
 	var rv LookupHubRouteTableResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getHubRouteTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getHubRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

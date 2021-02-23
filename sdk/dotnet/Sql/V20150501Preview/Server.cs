@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20150501Preview
+namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
     /// <summary>
     /// An Azure SQL Database server.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20150501preview:Server")]
+    [AzureNativeResourceType("azure-native:sql/v20150501preview:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20150501preview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20150501preview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20150501preview:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20150501preview:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,11 +106,17 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Server"},
                 },
             };

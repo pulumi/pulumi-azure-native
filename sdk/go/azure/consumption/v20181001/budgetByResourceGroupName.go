@@ -61,19 +61,37 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:consumption:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/latest:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/latest:BudgetByResourceGroupName"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20180131:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20180331:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20180630:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20180831:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"),
@@ -81,7 +99,7 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BudgetByResourceGroupName
-	err := ctx.RegisterResource("azure-nextgen:consumption/v20181001:BudgetByResourceGroupName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:consumption/v20181001:BudgetByResourceGroupName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +111,7 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 func GetBudgetByResourceGroupName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BudgetByResourceGroupNameState, opts ...pulumi.ResourceOption) (*BudgetByResourceGroupName, error) {
 	var resource BudgetByResourceGroupName
-	err := ctx.ReadResource("azure-nextgen:consumption/v20181001:BudgetByResourceGroupName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:consumption/v20181001:BudgetByResourceGroupName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

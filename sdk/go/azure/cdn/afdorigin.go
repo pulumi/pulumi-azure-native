@@ -66,7 +66,13 @@ func NewAFDOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn/latest:AFDOrigin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:AFDOrigin"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:AFDOrigin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDOrigin"),
@@ -74,7 +80,7 @@ func NewAFDOrigin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDOrigin
-	err := ctx.RegisterResource("azure-nextgen:cdn:AFDOrigin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn:AFDOrigin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +92,7 @@ func NewAFDOrigin(ctx *pulumi.Context,
 func GetAFDOrigin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDOriginState, opts ...pulumi.ResourceOption) (*AFDOrigin, error) {
 	var resource AFDOrigin
-	err := ctx.ReadResource("azure-nextgen:cdn:AFDOrigin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn:AFDOrigin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

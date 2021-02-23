@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevSpaces.Inputs
+namespace Pulumi.AzureNative.DevSpaces.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DevSpaces.Inputs
         /// The name of the SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DevSpaces.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DevSpaces.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The tier of the SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevSpaces.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevSpaces.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

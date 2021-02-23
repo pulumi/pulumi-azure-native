@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.V20161101.Inputs
+namespace Pulumi.AzureNative.DataLakeStore.V20161101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101.Inputs
         /// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.DataLakeStore.V20161101.EncryptionConfigType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DataLakeStore.V20161101.EncryptionConfigType> Type { get; set; } = null!;
 
         public EncryptionConfigArgs()
         {

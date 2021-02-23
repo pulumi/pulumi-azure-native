@@ -10,7 +10,7 @@ import (
 // Collection of consent links
 func ListConnectionConsentLinks(ctx *pulumi.Context, args *ListConnectionConsentLinksArgs, opts ...pulumi.InvokeOption) (*ListConnectionConsentLinksResult, error) {
 	var rv ListConnectionConsentLinksResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801preview:listConnectionConsentLinks", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801preview:listConnectionConsentLinks", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

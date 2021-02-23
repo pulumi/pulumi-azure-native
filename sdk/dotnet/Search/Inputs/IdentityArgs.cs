@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Search.Inputs
+namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Search.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Search.IdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Search.IdentityType> Type { get; set; } = null!;
 
         public IdentityArgs()
         {

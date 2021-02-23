@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20181001
+namespace Pulumi.AzureNative.Portal.V20181001
 {
     /// <summary>
     /// Response to get user settings
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:portal/v20181001:UserSettings")]
+    [AzureNativeResourceType("azure-native:portal/v20181001:UserSettings")]
     public partial class UserSettings : Pulumi.CustomResource
     {
         /// <summary>
@@ -30,12 +30,12 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserSettings(string name, UserSettingsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20181001:UserSettings", name, args ?? new UserSettingsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal/v20181001:UserSettings", name, args ?? new UserSettingsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserSettings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20181001:UserSettings", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal/v20181001:UserSettings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -46,7 +46,9 @@ namespace Pulumi.AzureNextGen.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal:UserSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:UserSettings"},
+                    new Pulumi.Alias { Type = "azure-native:portal/latest:UserSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/latest:UserSettings"},
                 },
             };

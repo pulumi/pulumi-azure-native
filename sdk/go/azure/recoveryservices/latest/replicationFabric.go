@@ -14,7 +14,7 @@ import (
 // Fabric definition.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationFabric'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationFabric'.
 type ReplicationFabric struct {
 	pulumi.CustomResourceState
 
@@ -43,13 +43,25 @@ func NewReplicationFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationFabric"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationFabric"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationFabric"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationFabric"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationFabric"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationFabric"),
@@ -57,7 +69,7 @@ func NewReplicationFabric(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationFabric
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationFabric", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationFabric", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewReplicationFabric(ctx *pulumi.Context,
 func GetReplicationFabric(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationFabricState, opts ...pulumi.ResourceOption) (*ReplicationFabric, error) {
 	var resource ReplicationFabric
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationFabric", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationFabric", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

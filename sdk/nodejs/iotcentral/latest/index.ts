@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:iotcentral/latest:App":
+            case "azure-native:iotcentral/latest:App":
                 return new App(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "iotcentral/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "iotcentral/latest", _module)

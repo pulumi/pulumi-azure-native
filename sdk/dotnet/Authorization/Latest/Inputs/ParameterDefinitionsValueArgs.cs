@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
+namespace Pulumi.AzureNative.Authorization.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
         /// The data type of the parameter.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.Latest.ParameterType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.Latest.ParameterType>? Type { get; set; }
 
         public ParameterDefinitionsValueArgs()
         {

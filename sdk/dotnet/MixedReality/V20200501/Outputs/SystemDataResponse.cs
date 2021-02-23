@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.V20200501.Outputs
+namespace Pulumi.AzureNative.MixedReality.V20200501.Outputs
 {
 
     [OutputType]

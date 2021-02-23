@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20191001
+namespace Pulumi.AzureNative.Resources.V20191001
 {
     public static class GetTagAtScope
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
         /// Wrapper resource for tags API requests and responses.
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-nextgen:resources/v20191001:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources/v20191001:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());
     }
 
 

@@ -22,7 +22,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20200901:WebAppHybridConnectionSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20200901:WebAppHybridConnectionSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppHybridConnectionSlot.  This is designed to work even
@@ -143,7 +143,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web:WebAppHybridConnectionSlot" }, { type: "azure-native:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppHybridConnectionSlot.__pulumiType, name, inputs, opts);
     }

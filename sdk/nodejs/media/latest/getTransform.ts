@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getTransform'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getTransform'. */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
-    pulumi.log.warn("getTransform is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getTransform'.")
+    pulumi.log.warn("getTransform is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getTransform'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getTransform", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getTransform", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "transformName": args.transformName,

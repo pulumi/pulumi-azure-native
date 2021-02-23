@@ -22,7 +22,7 @@ export class SshPublicKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute:SshPublicKey';
+    public static readonly __pulumiType = 'azure-native:compute:SshPublicKey';
 
     /**
      * Returns true if the given object is an instance of SshPublicKey.  This is designed to work even
@@ -90,7 +90,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-native:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-native:compute/v20200601:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }, { type: "azure-native:compute/v20201201:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

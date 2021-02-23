@@ -17,7 +17,7 @@ export function getSolutionConfig(args: GetSolutionConfigArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate:getSolutionConfig", {
+    return pulumi.runtime.invoke("azure-native:migrate:getSolutionConfig", {
         "migrateProjectName": args.migrateProjectName,
         "resourceGroupName": args.resourceGroupName,
         "solutionName": args.solutionName,

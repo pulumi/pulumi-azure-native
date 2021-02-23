@@ -25,11 +25,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:quantum:Workspace":
+            case "azure-native:quantum:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "quantum", _module)
+pulumi.runtime.registerResourceModule("azure-native", "quantum", _module)

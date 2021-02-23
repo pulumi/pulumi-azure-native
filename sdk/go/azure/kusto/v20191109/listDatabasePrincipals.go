@@ -10,7 +10,7 @@ import (
 // The list Kusto database principals operation response.
 func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArgs, opts ...pulumi.InvokeOption) (*ListDatabasePrincipalsResult, error) {
 	var rv ListDatabasePrincipalsResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20191109:listDatabasePrincipals", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20191109:listDatabasePrincipals", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
+namespace Pulumi.AzureNative.Network.V20161201.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// Gateway SKU name. Possible values are: 'Basic', 'HighPerformance','Standard', and 'UltraPerformance'.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.VirtualNetworkGatewaySkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.VirtualNetworkGatewaySkuName>? Name { get; set; }
 
         /// <summary>
         /// Gateway SKU tier. Possible values are: 'Basic', 'HighPerformance','Standard', and 'UltraPerformance'.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.VirtualNetworkGatewaySkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.VirtualNetworkGatewaySkuTier>? Tier { get; set; }
 
         public VirtualNetworkGatewaySkuArgs()
         {

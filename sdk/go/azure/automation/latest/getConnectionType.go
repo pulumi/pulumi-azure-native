@@ -10,10 +10,10 @@ import (
 // Definition of the connection type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getConnectionType'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getConnectionType'.
 func LookupConnectionType(ctx *pulumi.Context, args *LookupConnectionTypeArgs, opts ...pulumi.InvokeOption) (*LookupConnectionTypeResult, error) {
 	var rv LookupConnectionTypeResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getConnectionType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getConnectionType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

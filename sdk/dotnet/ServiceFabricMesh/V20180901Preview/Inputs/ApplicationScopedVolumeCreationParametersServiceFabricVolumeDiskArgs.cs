@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// Volume size
         /// </summary>
         [Input("sizeDisk", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.SizeTypes> SizeDisk { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.SizeTypes> SizeDisk { get; set; } = null!;
 
         public ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs()
         {

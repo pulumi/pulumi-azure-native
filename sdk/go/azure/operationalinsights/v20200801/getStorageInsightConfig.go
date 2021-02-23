@@ -10,7 +10,7 @@ import (
 // The top level storage insight resource container.
 func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightConfigArgs, opts ...pulumi.InvokeOption) (*LookupStorageInsightConfigResult, error) {
 	var rv LookupStorageInsightConfigResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20200801:getStorageInsightConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getStorageInsightConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

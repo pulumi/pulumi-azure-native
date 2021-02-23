@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     public sealed class DatasetCreateRequestParametersArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
         /// Header type.
         /// </summary>
         [Input("header")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.Header>? Header { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.Header>? Header { get; set; }
 
         /// <summary>
         /// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
         /// Data source type.
         /// </summary>
         [Input("sourceType")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.SourceType>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.SourceType>? SourceType { get; set; }
 
         public DatasetCreateRequestParametersArgs()
         {

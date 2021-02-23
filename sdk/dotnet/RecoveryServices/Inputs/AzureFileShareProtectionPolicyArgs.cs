@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// Type of workload for the backup management
         /// </summary>
         [Input("workLoadType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.WorkloadType>? WorkLoadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.WorkloadType>? WorkLoadType { get; set; }
 
         public AzureFileShareProtectionPolicyArgs()
         {

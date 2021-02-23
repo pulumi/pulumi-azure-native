@@ -10,7 +10,7 @@ import (
 // Site Extension Information.
 func LookupWebAppSiteExtension(ctx *pulumi.Context, args *LookupWebAppSiteExtensionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionResult, error) {
 	var rv LookupWebAppSiteExtensionResult
-	err := ctx.Invoke("azure-nextgen:web/v20190801:getWebAppSiteExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20190801:getWebAppSiteExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

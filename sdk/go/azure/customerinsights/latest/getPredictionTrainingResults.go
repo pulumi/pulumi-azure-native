@@ -10,10 +10,10 @@ import (
 // The training results of the prediction.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionTrainingResults'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionTrainingResults'.
 func GetPredictionTrainingResults(ctx *pulumi.Context, args *GetPredictionTrainingResultsArgs, opts ...pulumi.InvokeOption) (*GetPredictionTrainingResultsResult, error) {
 	var rv GetPredictionTrainingResultsResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getPredictionTrainingResults", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getPredictionTrainingResults", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

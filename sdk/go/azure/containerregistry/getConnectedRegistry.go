@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01-preview.
 func LookupConnectedRegistry(ctx *pulumi.Context, args *LookupConnectedRegistryArgs, opts ...pulumi.InvokeOption) (*LookupConnectedRegistryResult, error) {
 	var rv LookupConnectedRegistryResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:getConnectedRegistry", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:getConnectedRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

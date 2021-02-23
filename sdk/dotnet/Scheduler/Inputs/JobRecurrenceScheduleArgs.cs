@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Inputs
+namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
     public sealed class JobRecurrenceScheduleArgs : Pulumi.ResourceArgs
@@ -61,14 +61,14 @@ namespace Pulumi.AzureNextGen.Scheduler.Inputs
         }
 
         [Input("weekDays")]
-        private InputList<Pulumi.AzureNextGen.Scheduler.DayOfWeek>? _weekDays;
+        private InputList<Pulumi.AzureNative.Scheduler.DayOfWeek>? _weekDays;
 
         /// <summary>
         /// Gets or sets the days of the week that the job should execute on.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.Scheduler.DayOfWeek> WeekDays
+        public InputList<Pulumi.AzureNative.Scheduler.DayOfWeek> WeekDays
         {
-            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNextGen.Scheduler.DayOfWeek>());
+            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNative.Scheduler.DayOfWeek>());
             set => _weekDays = value;
         }
 

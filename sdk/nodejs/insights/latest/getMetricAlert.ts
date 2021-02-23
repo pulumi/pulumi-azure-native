@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The metric alert resource.
  * Latest API Version: 2018-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'. */
 export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricAlertResult> {
-    pulumi.log.warn("getMetricAlert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMetricAlert'.")
+    pulumi.log.warn("getMetricAlert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getMetricAlert", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getMetricAlert", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
     }, opts);

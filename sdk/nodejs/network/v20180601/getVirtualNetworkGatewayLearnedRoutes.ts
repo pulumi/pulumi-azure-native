@@ -16,7 +16,7 @@ export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGat
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20180601:getVirtualNetworkGatewayLearnedRoutes", {
+    return pulumi.runtime.invoke("azure-native:network/v20180601:getVirtualNetworkGatewayLearnedRoutes", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.V20171201
+namespace Pulumi.AzureNative.BotService.V20171201
 {
     public static class GetChannel
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// Bot channel resource definition
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-nextgen:botservice/v20171201:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:botservice/v20171201:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
     }
 
 

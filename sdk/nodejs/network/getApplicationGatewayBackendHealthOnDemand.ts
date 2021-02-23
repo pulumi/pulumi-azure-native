@@ -17,7 +17,7 @@ export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationG
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getApplicationGatewayBackendHealthOnDemand", {
+    return pulumi.runtime.invoke("azure-native:network:getApplicationGatewayBackendHealthOnDemand", {
         "applicationGatewayName": args.applicationGatewayName,
         "backendAddressPool": args.backendAddressPool,
         "backendHttpSettings": args.backendHttpSettings,

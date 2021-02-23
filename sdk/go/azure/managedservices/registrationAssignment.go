@@ -36,19 +36,37 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managedservices/latest:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/latest:RegistrationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20180601preview:RegistrationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:managedservices/v20190401preview:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20190601:RegistrationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190601:RegistrationAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:managedservices/v20190901:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20190901:RegistrationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20200201preview:RegistrationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedservices/v20200201preview:RegistrationAssignment"),
@@ -56,7 +74,7 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegistrationAssignment
-	err := ctx.RegisterResource("azure-nextgen:managedservices:RegistrationAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managedservices:RegistrationAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +86,7 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 func GetRegistrationAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistrationAssignmentState, opts ...pulumi.ResourceOption) (*RegistrationAssignment, error) {
 	var resource RegistrationAssignment
-	err := ctx.ReadResource("azure-nextgen:managedservices:RegistrationAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managedservices:RegistrationAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

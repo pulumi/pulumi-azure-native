@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert":
+            case "azure-native:alertsmanagement/v20200804preview:HealthAlert":
                 return new HealthAlert(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "alertsmanagement/v20200804preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "alertsmanagement/v20200804preview", _module)

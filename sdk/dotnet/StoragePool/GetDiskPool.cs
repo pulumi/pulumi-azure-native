@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StoragePool
+namespace Pulumi.AzureNative.StoragePool
 {
     public static class GetDiskPool
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StoragePool
         /// API Version: 2020-03-15-preview.
         /// </summary>
         public static Task<GetDiskPoolResult> InvokeAsync(GetDiskPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-nextgen:storagepool:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskPoolResult>("azure-native:storagepool:getDiskPool", args ?? new GetDiskPoolArgs(), options.WithVersion());
     }
 
 

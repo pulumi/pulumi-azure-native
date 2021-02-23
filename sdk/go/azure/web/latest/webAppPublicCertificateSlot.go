@@ -14,7 +14,7 @@ import (
 // Public certificate object
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPublicCertificateSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.
 type WebAppPublicCertificateSlot struct {
 	pulumi.CustomResourceState
 
@@ -52,25 +52,49 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppPublicCertificateSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificateSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppPublicCertificateSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppPublicCertificateSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppPublicCertificateSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificateSlot"),
@@ -78,7 +102,7 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificateSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppPublicCertificateSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppPublicCertificateSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +114,7 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 func GetWebAppPublicCertificateSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppPublicCertificateSlotState, opts ...pulumi.ResourceOption) (*WebAppPublicCertificateSlot, error) {
 	var resource WebAppPublicCertificateSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppPublicCertificateSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppPublicCertificateSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

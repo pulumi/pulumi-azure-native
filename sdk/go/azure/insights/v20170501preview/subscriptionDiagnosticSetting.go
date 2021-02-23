@@ -43,12 +43,15 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:SubscriptionDiagnosticSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:SubscriptionDiagnosticSetting"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SubscriptionDiagnosticSetting
-	err := ctx.RegisterResource("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +63,7 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 func GetSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SubscriptionDiagnosticSettingState, opts ...pulumi.ResourceOption) (*SubscriptionDiagnosticSetting, error) {
 	var resource SubscriptionDiagnosticSetting
-	err := ctx.ReadResource("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
+namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 {
     /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.

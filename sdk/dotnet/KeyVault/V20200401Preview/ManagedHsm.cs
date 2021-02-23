@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
+namespace Pulumi.AzureNative.KeyVault.V20200401Preview
 {
     /// <summary>
     /// Resource information with extended details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:keyvault/v20200401preview:ManagedHsm")]
+    [AzureNativeResourceType("azure-native:keyvault/v20200401preview:ManagedHsm")]
     public partial class ManagedHsm : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedHsm(string name, ManagedHsmArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20200401preview:ManagedHsm", name, args ?? new ManagedHsmArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:keyvault/v20200401preview:ManagedHsm", name, args ?? new ManagedHsmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedHsm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:keyvault/v20200401preview:ManagedHsm", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:keyvault/v20200401preview:ManagedHsm", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:keyvault:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:ManagedHsm"},
                 },
             };

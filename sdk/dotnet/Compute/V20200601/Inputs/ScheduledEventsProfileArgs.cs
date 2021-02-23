@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20200601.Inputs
+namespace Pulumi.AzureNative.Compute.V20200601.Inputs
 {
 
     public sealed class ScheduledEventsProfileArgs : Pulumi.ResourceArgs

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A flow log resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFlowLog'. */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
-    pulumi.log.warn("getFlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFlowLog'.")
+    pulumi.log.warn("getFlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFlowLog'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getFlowLog", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getFlowLog", {
         "flowLogName": args.flowLogName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,

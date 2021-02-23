@@ -10,7 +10,7 @@ import (
 // An object that represents a machine learning workspace.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/v20200801:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/v20200801:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

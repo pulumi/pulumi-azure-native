@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// API Version: 2020-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache:FirewallRule")]
+    [AzureNativeResourceType("azure-native:cache:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.Cache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,12 +65,19 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:FirewallRule"},
                 },
             };

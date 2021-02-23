@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// Tells the encoder how to choose its encoding settings. The default value is Balanced.
         /// </summary>
         [Input("complexity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.H264Complexity>? Complexity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180601Preview.H264Complexity>? Complexity { get; set; }
 
         /// <summary>
         /// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         /// </summary>
         [Input("stretchMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.StretchMode>? StretchMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180601Preview.StretchMode>? StretchMode { get; set; }
 
         public H264VideoArgs()
         {

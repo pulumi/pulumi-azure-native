@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Private Endpoint connection on an application gateway.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ApplicationGatewayPrivateEndpointConnection'.
  */
 export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGatewayPrivateEndpointConnection {
-        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.")
+        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ApplicationGatewayPrivateEndpointConnection'.")
         return new ApplicationGatewayPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:network/latest:ApplicationGatewayPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of ApplicationGatewayPrivateEndpointConnection.  This is designed to work even
@@ -75,9 +75,9 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ApplicationGatewayPrivateEndpointConnection'. */
     constructor(name: string, args: ApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection'.")
+        pulumi.log.warn("ApplicationGatewayPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ApplicationGatewayPrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
@@ -113,7 +113,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

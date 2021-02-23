@@ -17,7 +17,7 @@ export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnostics
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights:getGuestDiagnosticsSettingsAssociation", {
+    return pulumi.runtime.invoke("azure-native:insights:getGuestDiagnosticsSettingsAssociation", {
         "associationName": args.associationName,
         "resourceUri": args.resourceUri,
     }, opts);

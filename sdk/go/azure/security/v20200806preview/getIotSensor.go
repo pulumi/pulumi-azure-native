@@ -10,7 +10,7 @@ import (
 // IoT sensor model
 func LookupIotSensor(ctx *pulumi.Context, args *LookupIotSensorArgs, opts ...pulumi.InvokeOption) (*LookupIotSensorResult, error) {
 	var rv LookupIotSensorResult
-	err := ctx.Invoke("azure-nextgen:security/v20200806preview:getIotSensor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20200806preview:getIotSensor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -155,101 +155,101 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:apimanagement/latest:Api":
+            case "azure-native:apimanagement/latest:Api":
                 return new Api(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiDiagnostic":
+            case "azure-native:apimanagement/latest:ApiDiagnostic":
                 return new ApiDiagnostic(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiDiagnosticLogger":
+            case "azure-native:apimanagement/latest:ApiDiagnosticLogger":
                 return new ApiDiagnosticLogger(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiIssue":
+            case "azure-native:apimanagement/latest:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiIssueAttachment":
+            case "azure-native:apimanagement/latest:ApiIssueAttachment":
                 return new ApiIssueAttachment(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiIssueComment":
+            case "azure-native:apimanagement/latest:ApiIssueComment":
                 return new ApiIssueComment(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiManagementService":
+            case "azure-native:apimanagement/latest:ApiManagementService":
                 return new ApiManagementService(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiOperation":
+            case "azure-native:apimanagement/latest:ApiOperation":
                 return new ApiOperation(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiOperationPolicy":
+            case "azure-native:apimanagement/latest:ApiOperationPolicy":
                 return new ApiOperationPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiPolicy":
+            case "azure-native:apimanagement/latest:ApiPolicy":
                 return new ApiPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiRelease":
+            case "azure-native:apimanagement/latest:ApiRelease":
                 return new ApiRelease(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiSchema":
+            case "azure-native:apimanagement/latest:ApiSchema":
                 return new ApiSchema(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiTagDescription":
+            case "azure-native:apimanagement/latest:ApiTagDescription":
                 return new ApiTagDescription(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ApiVersionSet":
+            case "azure-native:apimanagement/latest:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:AuthorizationServer":
+            case "azure-native:apimanagement/latest:AuthorizationServer":
                 return new AuthorizationServer(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Backend":
+            case "azure-native:apimanagement/latest:Backend":
                 return new Backend(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Cache":
+            case "azure-native:apimanagement/latest:Cache":
                 return new Cache(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Certificate":
+            case "azure-native:apimanagement/latest:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ContentItem":
+            case "azure-native:apimanagement/latest:ContentItem":
                 return new ContentItem(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ContentType":
+            case "azure-native:apimanagement/latest:ContentType":
                 return new ContentType(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Diagnostic":
+            case "azure-native:apimanagement/latest:Diagnostic":
                 return new Diagnostic(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:DiagnosticLogger":
+            case "azure-native:apimanagement/latest:DiagnosticLogger":
                 return new DiagnosticLogger(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:EmailTemplate":
+            case "azure-native:apimanagement/latest:EmailTemplate":
                 return new EmailTemplate(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Gateway":
+            case "azure-native:apimanagement/latest:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:GatewayApiEntityTag":
+            case "azure-native:apimanagement/latest:GatewayApiEntityTag":
                 return new GatewayApiEntityTag(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration":
+            case "azure-native:apimanagement/latest:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Group":
+            case "azure-native:apimanagement/latest:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:GroupUser":
+            case "azure-native:apimanagement/latest:GroupUser":
                 return new GroupUser(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:IdentityProvider":
+            case "azure-native:apimanagement/latest:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Logger":
+            case "azure-native:apimanagement/latest:Logger":
                 return new Logger(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:NamedValue":
+            case "azure-native:apimanagement/latest:NamedValue":
                 return new NamedValue(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:NotificationRecipientEmail":
+            case "azure-native:apimanagement/latest:NotificationRecipientEmail":
                 return new NotificationRecipientEmail(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:NotificationRecipientUser":
+            case "azure-native:apimanagement/latest:NotificationRecipientUser":
                 return new NotificationRecipientUser(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:OpenIdConnectProvider":
+            case "azure-native:apimanagement/latest:OpenIdConnectProvider":
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Policy":
+            case "azure-native:apimanagement/latest:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Product":
+            case "azure-native:apimanagement/latest:Product":
                 return new Product(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ProductApi":
+            case "azure-native:apimanagement/latest:ProductApi":
                 return new ProductApi(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ProductGroup":
+            case "azure-native:apimanagement/latest:ProductGroup":
                 return new ProductGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:ProductPolicy":
+            case "azure-native:apimanagement/latest:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Property":
+            case "azure-native:apimanagement/latest:Property":
                 return new Property(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Subscription":
+            case "azure-native:apimanagement/latest:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:Tag":
+            case "azure-native:apimanagement/latest:Tag":
                 return new Tag(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:TagByApi":
+            case "azure-native:apimanagement/latest:TagByApi":
                 return new TagByApi(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:TagByOperation":
+            case "azure-native:apimanagement/latest:TagByOperation":
                 return new TagByOperation(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:TagByProduct":
+            case "azure-native:apimanagement/latest:TagByProduct":
                 return new TagByProduct(name, <any>undefined, { urn })
-            case "azure-nextgen:apimanagement/latest:User":
+            case "azure-native:apimanagement/latest:User":
                 return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "apimanagement/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "apimanagement/latest", _module)

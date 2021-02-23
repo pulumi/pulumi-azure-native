@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The connector resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnector'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnector'. */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    pulumi.log.warn("getConnector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnector'.")
+    pulumi.log.warn("getConnector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnector'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getConnector", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getConnector", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

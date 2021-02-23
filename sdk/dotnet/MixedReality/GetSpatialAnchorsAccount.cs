@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality
+namespace Pulumi.AzureNative.MixedReality
 {
     public static class GetSpatialAnchorsAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MixedReality
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-nextgen:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
     }
 
 

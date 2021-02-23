@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedIdentity.V20181130
+namespace Pulumi.AzureNative.ManagedIdentity.V20181130
 {
     public static class GetUserAssignedIdentity
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20181130
         /// Describes an identity resource.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-nextgen:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
     }
 
 

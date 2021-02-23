@@ -16,7 +16,7 @@ export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190901:getNetworkWatcher", {
+    return pulumi.runtime.invoke("azure-native:network/v20190901:getNetworkWatcher", {
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

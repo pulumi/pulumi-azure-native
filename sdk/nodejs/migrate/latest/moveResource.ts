@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Defines the move resource.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.
  */
 export class MoveResource extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MoveResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MoveResource {
-        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.")
+        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.")
         return new MoveResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:migrate/latest:MoveResource';
+    public static readonly __pulumiType = 'azure-native:migrate/latest:MoveResource';
 
     /**
      * Returns true if the given object is an instance of MoveResource.  This is designed to work even
@@ -59,9 +59,9 @@ export class MoveResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'. */
     constructor(name: string, args: MoveResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.")
+        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.moveCollectionName === undefined) && !(opts && opts.urn)) {
@@ -88,7 +88,7 @@ export class MoveResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:MoveResource" }, { type: "azure-nextgen:migrate/v20191001preview:MoveResource" }, { type: "azure-nextgen:migrate/v20210101:MoveResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:MoveResource" }, { type: "azure-nextgen:migrate:MoveResource" }, { type: "azure-native:migrate/v20191001preview:MoveResource" }, { type: "azure-nextgen:migrate/v20191001preview:MoveResource" }, { type: "azure-native:migrate/v20210101:MoveResource" }, { type: "azure-nextgen:migrate/v20210101:MoveResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MoveResource.__pulumiType, name, inputs, opts);
     }

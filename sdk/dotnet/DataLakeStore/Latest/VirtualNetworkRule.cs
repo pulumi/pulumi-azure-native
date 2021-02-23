@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore.Latest
+namespace Pulumi.AzureNative.DataLakeStore.Latest
 {
     /// <summary>
     /// Data Lake Store virtual network rule information.
     /// Latest API Version: 2016-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:datalakestore/latest:VirtualNetworkRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:VirtualNetworkRule'.")]
+    [AzureNativeResourceType("azure-native:datalakestore/latest:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/latest:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakestore/latest:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakestore/latest:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakestore/latest:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,7 +60,9 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakestore:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:VirtualNetworkRule"},
                 },
             };

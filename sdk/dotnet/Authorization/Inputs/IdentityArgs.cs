@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.Inputs
+namespace Pulumi.AzureNative.Authorization.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Authorization.Inputs
         /// The identity type. This is the only required field when adding a system assigned identity to a resource.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Authorization.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Authorization.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

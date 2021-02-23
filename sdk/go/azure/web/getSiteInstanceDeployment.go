@@ -11,7 +11,7 @@ import (
 // API Version: 2015-08-01.
 func LookupSiteInstanceDeployment(ctx *pulumi.Context, args *LookupSiteInstanceDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteInstanceDeploymentResult, error) {
 	var rv LookupSiteInstanceDeploymentResult
-	err := ctx.Invoke("azure-nextgen:web:getSiteInstanceDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getSiteInstanceDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

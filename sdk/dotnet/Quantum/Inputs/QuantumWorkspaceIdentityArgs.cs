@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Quantum.Inputs
+namespace Pulumi.AzureNative.Quantum.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Quantum.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Quantum.ResourceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Quantum.ResourceIdentityType>? Type { get; set; }
 
         public QuantumWorkspaceIdentityArgs()
         {

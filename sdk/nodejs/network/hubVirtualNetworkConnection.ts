@@ -23,7 +23,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network:HubVirtualNetworkConnection';
+    public static readonly __pulumiType = 'azure-native:network:HubVirtualNetworkConnection';
 
     /**
      * Returns true if the given object is an instance of HubVirtualNetworkConnection.  This is designed to work even
@@ -114,7 +114,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200801:HubVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/latest:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200801:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200801:HubVirtualNetworkConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }

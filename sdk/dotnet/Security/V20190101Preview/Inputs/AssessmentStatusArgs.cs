@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
         /// Programmatic code for the status of the assessment
         /// </summary>
         [Input("code", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.AssessmentStatusCode> Code { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20190101Preview.AssessmentStatusCode> Code { get; set; } = null!;
 
         /// <summary>
         /// Human readable description of the assessment status

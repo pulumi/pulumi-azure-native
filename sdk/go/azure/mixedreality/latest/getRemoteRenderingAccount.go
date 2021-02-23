@@ -10,10 +10,10 @@ import (
 // RemoteRenderingAccount Response.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getRemoteRenderingAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:getRemoteRenderingAccount'.
 func LookupRemoteRenderingAccount(ctx *pulumi.Context, args *LookupRemoteRenderingAccountArgs, opts ...pulumi.InvokeOption) (*LookupRemoteRenderingAccountResult, error) {
 	var rv LookupRemoteRenderingAccountResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/latest:getRemoteRenderingAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/latest:getRemoteRenderingAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

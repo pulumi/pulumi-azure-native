@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Job Resource.
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databox:getJob'. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databox:getJob'.")
+    pulumi.log.warn("getJob is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databox:getJob'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databox/latest:getJob", {
+    return pulumi.runtime.invoke("azure-native:databox/latest:getJob", {
         "expand": args.expand,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

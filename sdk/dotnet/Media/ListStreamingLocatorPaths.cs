@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media
+namespace Pulumi.AzureNative.Media
 {
     public static class ListStreamingLocatorPaths
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListStreamingLocatorPathsResult> InvokeAsync(ListStreamingLocatorPathsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-nextgen:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorPathsResult>("azure-native:media:listStreamingLocatorPaths", args ?? new ListStreamingLocatorPathsArgs(), options.WithVersion());
     }
 
 

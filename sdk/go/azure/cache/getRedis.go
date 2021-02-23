@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.InvokeOption) (*LookupRedisResult, error) {
 	var rv LookupRedisResult
-	err := ctx.Invoke("azure-nextgen:cache:getRedis", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache:getRedis", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

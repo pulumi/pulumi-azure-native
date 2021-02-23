@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The integration account schema.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountSchema'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationAccountSchema")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountSchema'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationAccountSchema")]
     public partial class IntegrationAccountSchema : Pulumi.CustomResource
     {
         /// <summary>
@@ -110,12 +110,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountSchema(string name, IntegrationAccountSchemaArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountSchema", name, args ?? new IntegrationAccountSchemaArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationAccountSchema", name, args ?? new IntegrationAccountSchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountSchema(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationAccountSchema", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationAccountSchema", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -126,10 +126,15 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountSchema"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountSchema"},
                 },
             };
@@ -212,7 +217,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The schema type.
         /// </summary>
         [Input("schemaType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.SchemaType> SchemaType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.SchemaType> SchemaType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

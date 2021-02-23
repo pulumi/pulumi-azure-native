@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:security/v20200701preview:SqlVulnerabilityAssessmentBaselineRule":
+            case "azure-native:security/v20200701preview:SqlVulnerabilityAssessmentBaselineRule":
                 return new SqlVulnerabilityAssessmentBaselineRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "security/v20200701preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "security/v20200701preview", _module)

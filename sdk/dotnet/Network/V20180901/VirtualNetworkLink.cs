@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180901
+namespace Pulumi.AzureNative.Network.V20180901
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20180901:VirtualNetworkLink")]
+    [AzureNativeResourceType("azure-native:network/v20180901:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Network.V20180901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkLink(string name, VirtualNetworkLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180901:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20180901:VirtualNetworkLink", name, args ?? new VirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkLink(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180901:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20180901:VirtualNetworkLink", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,9 +94,13 @@ namespace Pulumi.AzureNextGen.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualNetworkLink"},
                 },
             };

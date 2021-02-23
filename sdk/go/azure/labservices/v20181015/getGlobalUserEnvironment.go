@@ -10,7 +10,7 @@ import (
 // Represents the environments details
 func GetGlobalUserEnvironment(ctx *pulumi.Context, args *GetGlobalUserEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserEnvironmentResult, error) {
 	var rv GetGlobalUserEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getGlobalUserEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getGlobalUserEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

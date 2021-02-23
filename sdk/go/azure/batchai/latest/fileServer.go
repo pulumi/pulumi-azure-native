@@ -14,7 +14,7 @@ import (
 // File Server information.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:FileServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:FileServer'.
 type FileServer struct {
 	pulumi.CustomResourceState
 
@@ -64,7 +64,13 @@ func NewFileServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:FileServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:FileServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/v20180501:FileServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:FileServer"),
@@ -72,7 +78,7 @@ func NewFileServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FileServer
-	err := ctx.RegisterResource("azure-nextgen:batchai/latest:FileServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/latest:FileServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +90,7 @@ func NewFileServer(ctx *pulumi.Context,
 func GetFileServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileServerState, opts ...pulumi.ResourceOption) (*FileServer, error) {
 	var resource FileServer
-	err := ctx.ReadResource("azure-nextgen:batchai/latest:FileServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/latest:FileServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

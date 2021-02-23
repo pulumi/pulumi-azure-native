@@ -10,7 +10,7 @@ import (
 // The connector resource format.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170101:getConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170101:getConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

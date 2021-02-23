@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001
+namespace Pulumi.AzureNative.ContainerRegistry.V20171001
 {
     /// <summary>
     /// The action of virtual network rule.

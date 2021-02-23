@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for backup ProtectionIntent.
     /// API Version: 2017-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ProtectionIntent")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ProtectionIntent")]
     public partial class ProtectionIntent : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionIntent(string name, ProtectionIntentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionIntent", name, args ?? new ProtectionIntentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ProtectionIntent", name, args ?? new ProtectionIntentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectionIntent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ProtectionIntent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ProtectionIntent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ProtectionIntent"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20170701:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20170701:ProtectionIntent"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectionIntent"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectionIntent"},
                 },
             };

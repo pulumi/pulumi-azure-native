@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:Job'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Job extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Job {
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:Job'.")
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.")
         return new Job(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:scheduler/latest:Job';
+    public static readonly __pulumiType = 'azure-native:scheduler/latest:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -58,9 +58,9 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:Job'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'. */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:Job'.")
+        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.jobCollectionName === undefined) && !(opts && opts.urn)) {
@@ -87,7 +87,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:scheduler:Job" }, { type: "azure-nextgen:scheduler/v20140801preview:Job" }, { type: "azure-nextgen:scheduler/v20160101:Job" }, { type: "azure-nextgen:scheduler/v20160301:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scheduler:Job" }, { type: "azure-nextgen:scheduler:Job" }, { type: "azure-native:scheduler/v20140801preview:Job" }, { type: "azure-nextgen:scheduler/v20140801preview:Job" }, { type: "azure-native:scheduler/v20160101:Job" }, { type: "azure-nextgen:scheduler/v20160101:Job" }, { type: "azure-native:scheduler/v20160301:Job" }, { type: "azure-nextgen:scheduler/v20160301:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

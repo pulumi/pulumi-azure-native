@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cache.V20150801
+namespace Pulumi.AzureNative.Cache.V20150801
 {
     /// <summary>
     /// Which family to use. Valid values: (C, P).

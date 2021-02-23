@@ -10,7 +10,7 @@ import (
 // Represents a Watchlist in Azure Security Insights.
 func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistResult, error) {
 	var rv LookupWatchlistResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getWatchlist", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getWatchlist", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

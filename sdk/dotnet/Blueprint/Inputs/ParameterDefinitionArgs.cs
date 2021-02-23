@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.Inputs
+namespace Pulumi.AzureNative.Blueprint.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Blueprint.Inputs
         /// Allowed data types for Resource Manager template parameters.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.TemplateParameterType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.TemplateParameterType> Type { get; set; } = null!;
 
         public ParameterDefinitionArgs()
         {

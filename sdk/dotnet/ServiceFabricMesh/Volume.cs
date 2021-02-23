@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh
+namespace Pulumi.AzureNative.ServiceFabricMesh
 {
     /// <summary>
     /// This type describes a volume resource.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabricmesh:Volume")]
+    [AzureNativeResourceType("azure-native:servicefabricmesh:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabricmesh:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabricmesh:Volume", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabricmesh:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,7 +101,9 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180701preview:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180701preview:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Volume"},
                 },
             };
@@ -148,7 +150,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh
         /// Provider of the volume.
         /// </summary>
         [Input("provider", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.VolumeProvider> Provider { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.VolumeProvider> Provider { get; set; } = null!;
 
         /// <summary>
         /// Azure resource group name

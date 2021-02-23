@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest
+namespace Pulumi.AzureNative.Logic.Latest
 {
     /// <summary>
     /// The integration service environment.
     /// Latest API Version: 2019-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationServiceEnvironment'.")]
-    [AzureNextGenResourceType("azure-nextgen:logic/latest:IntegrationServiceEnvironment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationServiceEnvironment'.")]
+    [AzureNativeResourceType("azure-native:logic/latest:IntegrationServiceEnvironment")]
     public partial class IntegrationServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationServiceEnvironment(string name, IntegrationServiceEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationServiceEnvironment", name, args ?? new IntegrationServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/latest:IntegrationServiceEnvironment", name, args ?? new IntegrationServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationServiceEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/latest:IntegrationServiceEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/latest:IntegrationServiceEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,7 +78,9 @@ namespace Pulumi.AzureNextGen.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationServiceEnvironment"},
                 },
             };

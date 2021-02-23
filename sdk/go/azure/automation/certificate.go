@@ -55,13 +55,25 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Certificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Certificate"),
@@ -69,7 +81,7 @@ func NewCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
-	err := ctx.RegisterResource("azure-nextgen:automation:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +93,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("azure-nextgen:automation:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

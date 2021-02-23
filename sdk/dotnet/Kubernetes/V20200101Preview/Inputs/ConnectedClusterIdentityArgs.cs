@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
+namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
         /// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Kubernetes.V20200101Preview.ResourceIdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Kubernetes.V20200101Preview.ResourceIdentityType> Type { get; set; } = null!;
 
         public ConnectedClusterIdentityArgs()
         {

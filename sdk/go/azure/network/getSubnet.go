@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
-	err := ctx.Invoke("azure-nextgen:network:getSubnet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getSubnet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

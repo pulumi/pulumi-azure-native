@@ -10,10 +10,10 @@ import (
 // Properties of an artifact source.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getArtifactSource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getArtifactSource'.
 func LookupArtifactSource(ctx *pulumi.Context, args *LookupArtifactSourceArgs, opts ...pulumi.InvokeOption) (*LookupArtifactSourceResult, error) {
 	var rv LookupArtifactSourceResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getArtifactSource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getArtifactSource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

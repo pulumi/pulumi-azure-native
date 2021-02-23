@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement
+namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
     /// API Version: 2019-05-05-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:alertsmanagement:ActionRuleByName")]
+    [AzureNativeResourceType("azure-native:alertsmanagement:ActionRuleByName")]
     public partial class ActionRuleByName : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.AlertsManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionRuleByName(string name, ActionRuleByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement:ActionRuleByName", name, args ?? new ActionRuleByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:alertsmanagement:ActionRuleByName", name, args ?? new ActionRuleByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ActionRuleByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement:ActionRuleByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:alertsmanagement:ActionRuleByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,7 +71,9 @@ namespace Pulumi.AzureNextGen.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName"},
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName"},
                 },
             };

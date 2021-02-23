@@ -39,10 +39,19 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:ServerDnsAlias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ServerDnsAlias"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ServerDnsAlias"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerDnsAlias"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ServerDnsAlias"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerDnsAlias"),
@@ -50,7 +59,7 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerDnsAlias
-	err := ctx.RegisterResource("azure-nextgen:sql:ServerDnsAlias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ServerDnsAlias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +71,7 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 func GetServerDnsAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerDnsAliasState, opts ...pulumi.ResourceOption) (*ServerDnsAlias, error) {
 	var resource ServerDnsAlias
-	err := ctx.ReadResource("azure-nextgen:sql:ServerDnsAlias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ServerDnsAlias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

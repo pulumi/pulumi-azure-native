@@ -16,7 +16,7 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20170901preview:getDataset", {
+    return pulumi.runtime.invoke("azure-native:datafactory/v20170901preview:getDataset", {
         "datasetName": args.datasetName,
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,

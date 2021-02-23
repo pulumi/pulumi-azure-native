@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The GZip compression level.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.DatasetCompressionLevel>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.DatasetCompressionLevel>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

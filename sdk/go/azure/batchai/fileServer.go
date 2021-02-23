@@ -62,7 +62,13 @@ func NewFileServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai/latest:FileServer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai/latest:FileServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/v20180501:FileServer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/v20180501:FileServer"),
@@ -70,7 +76,7 @@ func NewFileServer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FileServer
-	err := ctx.RegisterResource("azure-nextgen:batchai:FileServer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai:FileServer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +88,7 @@ func NewFileServer(ctx *pulumi.Context,
 func GetFileServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileServerState, opts ...pulumi.ResourceOption) (*FileServer, error) {
 	var resource FileServer
-	err := ctx.ReadResource("azure-nextgen:batchai:FileServer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai:FileServer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

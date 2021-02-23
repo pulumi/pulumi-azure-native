@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
+namespace Pulumi.AzureNative.Network.V20160901.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// Web application firewall mode. Possible values are: 'Detection' and 'Prevention'.
         /// </summary>
         [Input("firewallMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.ApplicationGatewayFirewallMode>? FirewallMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewayFirewallMode>? FirewallMode { get; set; }
 
         public ApplicationGatewayWebApplicationFirewallConfigurationArgs()
         {

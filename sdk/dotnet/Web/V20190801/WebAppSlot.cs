@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppSlot")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppSlot")]
     public partial class WebAppSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -280,12 +280,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppSlot(string name, WebAppSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppSlot", name, args ?? new WebAppSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppSlot", name, args ?? new WebAppSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -296,14 +296,23 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSlot"},
                 },
             };
@@ -442,7 +451,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<Pulumi.AzureNextGen.Web.V20190801.RedundancyMode>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20190801.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

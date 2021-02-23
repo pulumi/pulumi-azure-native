@@ -22,7 +22,7 @@ export class MSIXPackage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage';
+    public static readonly __pulumiType = 'azure-native:desktopvirtualization/v20210114preview:MSIXPackage';
 
     /**
      * Returns true if the given object is an instance of MSIXPackage.  This is designed to work even
@@ -142,7 +142,7 @@ export class MSIXPackage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MSIXPackage.__pulumiType, name, inputs, opts);
     }

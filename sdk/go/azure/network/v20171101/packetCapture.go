@@ -63,97 +63,193 @@ func NewPacketCapture(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180101:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PacketCapture"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PacketCapture"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PacketCapture"),
@@ -161,7 +257,7 @@ func NewPacketCapture(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PacketCapture
-	err := ctx.RegisterResource("azure-nextgen:network/v20171101:PacketCapture", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20171101:PacketCapture", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -173,7 +269,7 @@ func NewPacketCapture(ctx *pulumi.Context,
 func GetPacketCapture(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PacketCaptureState, opts ...pulumi.ResourceOption) (*PacketCapture, error) {
 	var resource PacketCapture
-	err := ctx.ReadResource("azure-nextgen:network/v20171101:PacketCapture", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20171101:PacketCapture", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

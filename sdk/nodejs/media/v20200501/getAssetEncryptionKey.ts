@@ -16,7 +16,7 @@ export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20200501:getAssetEncryptionKey", {
+    return pulumi.runtime.invoke("azure-native:media/v20200501:getAssetEncryptionKey", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,

@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:automation/v20180630:Python2Package":
+            case "azure-native:automation/v20180630:Python2Package":
                 return new Python2Package(name, <any>undefined, { urn })
-            case "azure-nextgen:automation/v20180630:Runbook":
+            case "azure-native:automation/v20180630:Runbook":
                 return new Runbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "automation/v20180630", _module)
+pulumi.runtime.registerResourceModule("azure-native", "automation/v20180630", _module)

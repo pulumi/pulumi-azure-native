@@ -10,7 +10,7 @@ import (
 // Properties of the PrivateEndpointConnection.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20180101preview:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20180101preview:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

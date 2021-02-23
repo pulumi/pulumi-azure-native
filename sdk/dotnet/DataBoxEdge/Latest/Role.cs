@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
+namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Compute role.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Role'.")]
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/latest:Role")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Role'.")]
+    [AzureNativeResourceType("azure-native:databoxedge/latest:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Role(string name, RoleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:Role", name, args ?? new RoleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/latest:Role", name, args ?? new RoleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Role(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/latest:Role", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/latest:Role", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,12 +66,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Role"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Role"},
                 },
             };
@@ -106,7 +113,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// Role type.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.RoleTypes> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.RoleTypes> Kind { get; set; } = null!;
 
         /// <summary>
         /// The role name.

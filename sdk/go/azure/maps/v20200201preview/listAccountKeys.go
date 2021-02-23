@@ -10,7 +10,7 @@ import (
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:maps/v20200201preview:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maps/v20200201preview:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

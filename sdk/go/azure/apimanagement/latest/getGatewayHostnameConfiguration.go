@@ -10,10 +10,10 @@ import (
 // Gateway hostname configuration details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getGatewayHostnameConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGatewayHostnameConfiguration'.
 func LookupGatewayHostnameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostnameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostnameConfigurationResult, error) {
 	var rv LookupGatewayHostnameConfigurationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getGatewayHostnameConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getGatewayHostnameConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

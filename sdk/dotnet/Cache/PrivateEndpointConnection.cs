@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache
+namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// API Version: 2021-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cache:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:cache:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Cache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:PrivateEndpointConnection"},
                 },
             };

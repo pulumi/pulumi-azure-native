@@ -10,10 +10,10 @@ import (
 // Network watcher in a resource group.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkWatcher'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkWatcher'.
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNetworkWatcher", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNetworkWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

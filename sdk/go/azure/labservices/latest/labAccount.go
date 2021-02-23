@@ -14,7 +14,7 @@ import (
 // Represents a lab account.
 // Latest API Version: 2018-10-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'.
 type LabAccount struct {
 	pulumi.CustomResourceState
 
@@ -50,7 +50,13 @@ func NewLabAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:labservices:LabAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/v20181015:LabAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/v20181015:LabAccount"),
@@ -58,7 +64,7 @@ func NewLabAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LabAccount
-	err := ctx.RegisterResource("azure-nextgen:labservices/latest:LabAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:labservices/latest:LabAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewLabAccount(ctx *pulumi.Context,
 func GetLabAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LabAccountState, opts ...pulumi.ResourceOption) (*LabAccount, error) {
 	var resource LabAccount
-	err := ctx.ReadResource("azure-nextgen:labservices/latest:LabAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:labservices/latest:LabAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

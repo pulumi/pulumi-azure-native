@@ -21,53 +21,53 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:compute/latest:AvailabilitySet":
+	case "azure-native:compute/latest:AvailabilitySet":
 		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:DedicatedHost":
+	case "azure-native:compute/latest:DedicatedHost":
 		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:DedicatedHostGroup":
+	case "azure-native:compute/latest:DedicatedHostGroup":
 		r, err = NewDedicatedHostGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:Disk":
+	case "azure-native:compute/latest:Disk":
 		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:DiskAccess":
+	case "azure-native:compute/latest:DiskAccess":
 		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection":
+	case "azure-native:compute/latest:DiskAccessAPrivateEndpointConnection":
 		r, err = NewDiskAccessAPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:DiskEncryptionSet":
+	case "azure-native:compute/latest:DiskEncryptionSet":
 		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:Gallery":
+	case "azure-native:compute/latest:Gallery":
 		r, err = NewGallery(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:GalleryApplication":
+	case "azure-native:compute/latest:GalleryApplication":
 		r, err = NewGalleryApplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:GalleryApplicationVersion":
+	case "azure-native:compute/latest:GalleryApplicationVersion":
 		r, err = NewGalleryApplicationVersion(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:GalleryImage":
+	case "azure-native:compute/latest:GalleryImage":
 		r, err = NewGalleryImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:GalleryImageVersion":
+	case "azure-native:compute/latest:GalleryImageVersion":
 		r, err = NewGalleryImageVersion(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:Image":
+	case "azure-native:compute/latest:Image":
 		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:ProximityPlacementGroup":
+	case "azure-native:compute/latest:ProximityPlacementGroup":
 		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:Snapshot":
+	case "azure-native:compute/latest:Snapshot":
 		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:SshPublicKey":
+	case "azure-native:compute/latest:SshPublicKey":
 		r, err = NewSshPublicKey(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachine":
+	case "azure-native:compute/latest:VirtualMachine":
 		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineExtension":
+	case "azure-native:compute/latest:VirtualMachineExtension":
 		r, err = NewVirtualMachineExtension(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine":
+	case "azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine":
 		r, err = NewVirtualMachineRunCommandByVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineScaleSet":
+	case "azure-native:compute/latest:VirtualMachineScaleSet":
 		r, err = NewVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineScaleSetExtension":
+	case "azure-native:compute/latest:VirtualMachineScaleSetExtension":
 		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineScaleSetVM":
+	case "azure-native:compute/latest:VirtualMachineScaleSetVM":
 		r, err = NewVirtualMachineScaleSetVM(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension":
+	case "azure-native:compute/latest:VirtualMachineScaleSetVMExtension":
 		r, err = NewVirtualMachineScaleSetVMExtension(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand":
+	case "azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand":
 		r, err = NewVirtualMachineScaleSetVMRunCommand(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -82,7 +82,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"compute/latest",
 		&module{version},
 	)

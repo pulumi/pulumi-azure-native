@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality
+namespace Pulumi.AzureNative.MixedReality
 {
     public static class GetRemoteRenderingAccount
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MixedReality
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetRemoteRenderingAccountResult> InvokeAsync(GetRemoteRenderingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-nextgen:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRenderingAccountResult>("azure-native:mixedreality:getRemoteRenderingAccount", args ?? new GetRemoteRenderingAccountArgs(), options.WithVersion());
     }
 
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	var rv LookupGatewayResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh:getGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh:getGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

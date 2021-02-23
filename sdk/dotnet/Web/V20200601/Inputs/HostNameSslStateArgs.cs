@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
+namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         /// Indicates whether the hostname is a standard or repository hostname.
         /// </summary>
         [Input("hostType")]
-        public Input<Pulumi.AzureNextGen.Web.V20200601.HostType>? HostType { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200601.HostType>? HostType { get; set; }
 
         /// <summary>
         /// Hostname.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         /// SSL type.
         /// </summary>
         [Input("sslState")]
-        public Input<Pulumi.AzureNextGen.Web.V20200601.SslState>? SslState { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200601.SslState>? SslState { get; set; }
 
         /// <summary>
         /// SSL certificate thumbprint.

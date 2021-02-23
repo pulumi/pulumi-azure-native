@@ -21,7 +21,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier';
+    public static readonly __pulumiType = 'azure-native:domainregistration/v20200601:DomainOwnershipIdentifier';
 
     /**
      * Returns true if the given object is an instance of DomainOwnershipIdentifier.  This is designed to work even
@@ -86,7 +86,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/latest:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

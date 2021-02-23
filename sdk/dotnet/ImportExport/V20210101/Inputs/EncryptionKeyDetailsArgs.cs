@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport.V20210101.Inputs
+namespace Pulumi.AzureNative.ImportExport.V20210101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20210101.Inputs
         /// The type of kek encryption key
         /// </summary>
         [Input("kekType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ImportExport.V20210101.EncryptionKekType>? KekType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ImportExport.V20210101.EncryptionKekType>? KekType { get; set; }
 
         /// <summary>
         /// Specifies the url for kek encryption key. 

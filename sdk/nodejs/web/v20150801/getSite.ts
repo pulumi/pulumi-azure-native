@@ -16,7 +16,7 @@ export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20150801:getSite", {
+    return pulumi.runtime.invoke("azure-native:web/v20150801:getSite", {
         "name": args.name,
         "propertiesToInclude": args.propertiesToInclude,
         "resourceGroupName": args.resourceGroupName,

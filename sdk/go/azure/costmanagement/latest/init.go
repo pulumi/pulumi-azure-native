@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:costmanagement/latest:Export":
+	case "azure-native:costmanagement/latest:Export":
 		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement/latest:ReportConfig":
+	case "azure-native:costmanagement/latest:ReportConfig":
 		r, err = NewReportConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName":
+	case "azure-native:costmanagement/latest:ReportConfigByResourceGroupName":
 		r, err = NewReportConfigByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement/latest:View":
+	case "azure-native:costmanagement/latest:View":
 		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:costmanagement/latest:ViewByScope":
+	case "azure-native:costmanagement/latest:ViewByScope":
 		r, err = NewViewByScope(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"costmanagement/latest",
 		&module{version},
 	)

@@ -22,7 +22,7 @@ export class StaticSite extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20201001:StaticSite';
+    public static readonly __pulumiType = 'azure-native:web/v20201001:StaticSite';
 
     /**
      * Returns true if the given object is an instance of StaticSite.  This is designed to work even
@@ -137,7 +137,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:StaticSite" }, { type: "azure-nextgen:web/latest:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSite" }, { type: "azure-nextgen:web:StaticSite" }, { type: "azure-native:web/latest:StaticSite" }, { type: "azure-nextgen:web/latest:StaticSite" }, { type: "azure-native:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-native:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-native:web/v20200901:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StaticSite.__pulumiType, name, inputs, opts);
     }

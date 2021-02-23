@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A network interface in a resource group.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterface'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'. */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
-    pulumi.log.warn("getNetworkInterface is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkInterface'.")
+    pulumi.log.warn("getNetworkInterface is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkInterface", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkInterface", {
         "expand": args.expand,
         "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,

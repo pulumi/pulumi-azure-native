@@ -22,7 +22,7 @@ export class Blob extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storage:Blob';
+    public static readonly __pulumiType = 'azure-native:storage:Blob';
 
     /**
      * Returns true if the given object is an instance of Blob.  This is designed to work even

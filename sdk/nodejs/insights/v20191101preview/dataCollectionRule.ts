@@ -22,7 +22,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20191101preview:DataCollectionRule';
+    public static readonly __pulumiType = 'azure-native:insights/v20191101preview:DataCollectionRule';
 
     /**
      * Returns true if the given object is an instance of DataCollectionRule.  This is designed to work even
@@ -127,7 +127,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:DataCollectionRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:DataCollectionRule" }, { type: "azure-nextgen:insights:DataCollectionRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataCollectionRule.__pulumiType, name, inputs, opts);
     }

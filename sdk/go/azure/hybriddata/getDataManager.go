@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupDataManager(ctx *pulumi.Context, args *LookupDataManagerArgs, opts ...pulumi.InvokeOption) (*LookupDataManagerResult, error) {
 	var rv LookupDataManagerResult
-	err := ctx.Invoke("azure-nextgen:hybriddata:getDataManager", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybriddata:getDataManager", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

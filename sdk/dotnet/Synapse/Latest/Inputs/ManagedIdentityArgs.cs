@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest.Inputs
+namespace Pulumi.AzureNative.Synapse.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Synapse.Latest.Inputs
         /// The type of managed identity for the workspace
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Synapse.Latest.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Synapse.Latest.ResourceIdentityType>? Type { get; set; }
 
         public ManagedIdentityArgs()
         {

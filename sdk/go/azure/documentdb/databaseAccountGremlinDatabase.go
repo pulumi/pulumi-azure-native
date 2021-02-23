@@ -53,19 +53,37 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountGremlinDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase"),
@@ -73,7 +91,7 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountGremlinDatabase
-	err := ctx.RegisterResource("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:DatabaseAccountGremlinDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +103,7 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 func GetDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountGremlinDatabaseState, opts ...pulumi.ResourceOption) (*DatabaseAccountGremlinDatabase, error) {
 	var resource DatabaseAccountGremlinDatabase
-	err := ctx.ReadResource("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:DatabaseAccountGremlinDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

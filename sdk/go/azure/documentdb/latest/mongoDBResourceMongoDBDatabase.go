@@ -14,7 +14,7 @@ import (
 // An Azure Cosmos DB MongoDB database.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBDatabase'.
 type MongoDBResourceMongoDBDatabase struct {
 	pulumi.CustomResourceState
 
@@ -48,25 +48,49 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:MongoDBResourceMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:MongoDBResourceMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:MongoDBResourceMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:MongoDBResourceMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:MongoDBResourceMongoDBDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBDatabase"),
@@ -74,7 +98,7 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoDBDatabase
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +110,7 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 func GetMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MongoDBResourceMongoDBDatabaseState, opts ...pulumi.ResourceOption) (*MongoDBResourceMongoDBDatabase, error) {
 	var resource MongoDBResourceMongoDBDatabase
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -59,25 +59,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datashare:Account":
+            case "azure-native:datashare:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:DataSet":
+            case "azure-native:datashare:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:DataSetMapping":
+            case "azure-native:datashare:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:Invitation":
+            case "azure-native:datashare:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:Share":
+            case "azure-native:datashare:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:ShareSubscription":
+            case "azure-native:datashare:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:SynchronizationSetting":
+            case "azure-native:datashare:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare:Trigger":
+            case "azure-native:datashare:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datashare", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datashare", _module)

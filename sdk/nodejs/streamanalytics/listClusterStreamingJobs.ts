@@ -17,7 +17,7 @@ export function listClusterStreamingJobs(args: ListClusterStreamingJobsArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics:listClusterStreamingJobs", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics:listClusterStreamingJobs", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

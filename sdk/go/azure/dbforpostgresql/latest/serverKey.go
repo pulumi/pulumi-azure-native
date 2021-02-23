@@ -14,7 +14,7 @@ import (
 // A PostgreSQL Server key.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:ServerKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:ServerKey'.
 type ServerKey struct {
 	pulumi.CustomResourceState
 
@@ -50,10 +50,19 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerKey"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200101:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200101:ServerKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200101privatepreview:ServerKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey"),
@@ -61,7 +70,7 @@ func NewServerKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerKey
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/latest:ServerKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/latest:ServerKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewServerKey(ctx *pulumi.Context,
 func GetServerKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerKeyState, opts ...pulumi.ResourceOption) (*ServerKey, error) {
 	var resource ServerKey
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/latest:ServerKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/latest:ServerKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// Workload group operations for a sql pool
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPoolWorkloadGroup(string name, SqlPoolWorkloadGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup", name, args ?? new SqlPoolWorkloadGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup", name, args ?? new SqlPoolWorkloadGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPoolWorkloadGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup"},
                 },
             };

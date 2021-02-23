@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Data flow resource type.
  * Latest API Version: 2018-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:DataFlow'.
  */
 export class DataFlow extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DataFlow extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataFlow {
-        pulumi.log.warn("DataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.")
+        pulumi.log.warn("DataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:DataFlow'.")
         return new DataFlow(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory/latest:DataFlow';
+    public static readonly __pulumiType = 'azure-native:datafactory/latest:DataFlow';
 
     /**
      * Returns true if the given object is an instance of DataFlow.  This is designed to work even
@@ -63,9 +63,9 @@ export class DataFlow extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:DataFlow'. */
     constructor(name: string, args: DataFlowArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.")
+        pulumi.log.warn("DataFlow is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:DataFlow'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class DataFlow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:DataFlow" }, { type: "azure-nextgen:datafactory:DataFlow" }, { type: "azure-native:datafactory/v20180601:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataFlow.__pulumiType, name, inputs, opts);
     }

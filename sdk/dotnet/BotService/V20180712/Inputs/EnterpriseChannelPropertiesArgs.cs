@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BotService.V20180712.Inputs
+namespace Pulumi.AzureNative.BotService.V20180712.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.BotService.V20180712.Inputs
         /// The current state of the Enterprise Channel.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.BotService.V20180712.EnterpriseChannelState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BotService.V20180712.EnterpriseChannelState>? State { get; set; }
 
         public EnterpriseChannelPropertiesArgs()
         {

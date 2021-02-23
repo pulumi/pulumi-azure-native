@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
 {
     public static class GetReferenceDataSet
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
         /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-nextgen:timeseriesinsights/v20200515:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20200515:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
     }
 
 

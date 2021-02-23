@@ -17,7 +17,7 @@ export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getBackupScheduleGroup", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getBackupScheduleGroup", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

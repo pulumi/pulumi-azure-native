@@ -21,7 +21,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:WorkloadGroup';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:WorkloadGroup';
 
     /**
      * Returns true if the given object is an instance of WorkloadGroup.  This is designed to work even
@@ -124,7 +124,7 @@ export class WorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:WorkloadGroup" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadGroup" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-nextgen:sql:WorkloadGroup" }, { type: "azure-native:sql/v20190601preview:WorkloadGroup" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadGroup.__pulumiType, name, inputs, opts);
     }

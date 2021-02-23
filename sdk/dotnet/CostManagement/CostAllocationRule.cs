@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// The cost allocation rule model definition
     /// API Version: 2020-03-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement:CostAllocationRule")]
+    [AzureNativeResourceType("azure-native:costmanagement:CostAllocationRule")]
     public partial class CostAllocationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CostAllocationRule(string name, CostAllocationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:CostAllocationRule", name, args ?? new CostAllocationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement:CostAllocationRule", name, args ?? new CostAllocationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CostAllocationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:CostAllocationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement:CostAllocationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200301preview:CostAllocationRule"},
                 },
             };

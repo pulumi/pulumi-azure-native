@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
     /// <summary>
     /// Data flow resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:DataFlow'.")]
-    [AzureNextGenResourceType("azure-nextgen:datafactory/latest:DataFlow")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:DataFlow'.")]
+    [AzureNativeResourceType("azure-native:datafactory/latest:DataFlow")]
     public partial class DataFlow : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataFlow(string name, DataFlowArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/latest:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataFlow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:DataFlow", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/latest:DataFlow", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:DataFlow"},
                 },
             };

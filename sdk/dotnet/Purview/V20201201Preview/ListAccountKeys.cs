@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.V20201201Preview
+namespace Pulumi.AzureNative.Purview.V20201201Preview
 {
     public static class ListAccountKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// The Account access keys.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:purview/v20201201preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:purview/v20201201preview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

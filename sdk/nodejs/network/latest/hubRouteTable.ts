@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * RouteTable resource in a virtual hub.
  * Latest API Version: 2020-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class HubRouteTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HubRouteTable {
-        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.")
+        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.")
         return new HubRouteTable(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:HubRouteTable';
+    public static readonly __pulumiType = 'azure-native:network/latest:HubRouteTable';
 
     /**
      * Returns true if the given object is an instance of HubRouteTable.  This is designed to work even
@@ -79,9 +79,9 @@ export class HubRouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'. */
     constructor(name: string, args: HubRouteTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubRouteTable'.")
+        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -119,7 +119,7 @@ export class HubRouteTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:HubRouteTable" }, { type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200601:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200801:HubRouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:HubRouteTable" }, { type: "azure-nextgen:network:HubRouteTable" }, { type: "azure-native:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-native:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-native:network/v20200601:HubRouteTable" }, { type: "azure-nextgen:network/v20200601:HubRouteTable" }, { type: "azure-native:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }, { type: "azure-native:network/v20200801:HubRouteTable" }, { type: "azure-nextgen:network/v20200801:HubRouteTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubRouteTable.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
+namespace Pulumi.AzureNative.AadIam.V20200701Preview
 {
     public static class GetazureADMetric
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
         /// AzureADMetrics resource.
         /// </summary>
         public static Task<GetazureADMetricResult> InvokeAsync(GetazureADMetricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-nextgen:aadiam/v20200701preview:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetazureADMetricResult>("azure-native:aadiam/v20200701preview:getazureADMetric", args ?? new GetazureADMetricArgs(), options.WithVersion());
     }
 
 

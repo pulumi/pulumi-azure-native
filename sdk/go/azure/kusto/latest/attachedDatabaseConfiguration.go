@@ -14,7 +14,7 @@ import (
 // Class representing an attached database configuration.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:kusto:AttachedDatabaseConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:AttachedDatabaseConfiguration'.
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -60,19 +60,37 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kusto:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200215:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:kusto/v20200614:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20200918:AttachedDatabaseConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"),
@@ -80,7 +98,7 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AttachedDatabaseConfiguration
-	err := ctx.RegisterResource("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kusto/latest:AttachedDatabaseConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +110,7 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 func GetAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttachedDatabaseConfigurationState, opts ...pulumi.ResourceOption) (*AttachedDatabaseConfiguration, error) {
 	var resource AttachedDatabaseConfiguration
-	err := ctx.ReadResource("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kusto/latest:AttachedDatabaseConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

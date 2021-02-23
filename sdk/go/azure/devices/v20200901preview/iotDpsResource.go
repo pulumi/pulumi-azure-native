@@ -51,22 +51,43 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:IotDpsResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/latest:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/latest:IotDpsResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20170821preview:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20170821preview:IotDpsResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20171115:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20171115:IotDpsResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20180122:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20180122:IotDpsResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200101:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200101:IotDpsResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200301:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:IotDpsResource"),
@@ -74,7 +95,7 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotDpsResource
-	err := ctx.RegisterResource("azure-nextgen:devices/v20200901preview:IotDpsResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/v20200901preview:IotDpsResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +107,7 @@ func NewIotDpsResource(ctx *pulumi.Context,
 func GetIotDpsResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotDpsResourceState, opts ...pulumi.ResourceOption) (*IotDpsResource, error) {
 	var resource IotDpsResource
-	err := ctx.ReadResource("azure-nextgen:devices/v20200901preview:IotDpsResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/v20200901preview:IotDpsResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

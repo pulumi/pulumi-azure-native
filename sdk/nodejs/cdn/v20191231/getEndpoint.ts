@@ -16,7 +16,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20191231:getEndpoint", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20191231:getEndpoint", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

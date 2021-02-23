@@ -33,21 +33,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformysql/v20171201:Configuration":
+            case "azure-native:dbformysql/v20171201:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20171201:Database":
+            case "azure-native:dbformysql/v20171201:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20171201:FirewallRule":
+            case "azure-native:dbformysql/v20171201:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20171201:Server":
+            case "azure-native:dbformysql/v20171201:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20171201:ServerAdministrator":
+            case "azure-native:dbformysql/v20171201:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule":
+            case "azure-native:dbformysql/v20171201:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformysql/v20171201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformysql/v20171201", _module)

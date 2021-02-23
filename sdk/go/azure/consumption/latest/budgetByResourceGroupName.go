@@ -14,7 +14,7 @@ import (
 // A budget resource.
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:BudgetByResourceGroupName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:BudgetByResourceGroupName'.
 type BudgetByResourceGroupName struct {
 	pulumi.CustomResourceState
 
@@ -64,19 +64,37 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:consumption:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20180131:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20180331:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20180630:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"),
 		},
 		{
+			Type: pulumi.String("azure-native:consumption/v20180831:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:consumption/v20181001:BudgetByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:consumption/v20181001:BudgetByResourceGroupName"),
@@ -84,7 +102,7 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BudgetByResourceGroupName
-	err := ctx.RegisterResource("azure-nextgen:consumption/latest:BudgetByResourceGroupName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:consumption/latest:BudgetByResourceGroupName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +114,7 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 func GetBudgetByResourceGroupName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BudgetByResourceGroupNameState, opts ...pulumi.ResourceOption) (*BudgetByResourceGroupName, error) {
 	var resource BudgetByResourceGroupName
-	err := ctx.ReadResource("azure-nextgen:consumption/latest:BudgetByResourceGroupName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:consumption/latest:BudgetByResourceGroupName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

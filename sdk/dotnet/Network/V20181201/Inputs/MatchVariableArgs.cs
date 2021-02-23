@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
+namespace Pulumi.AzureNative.Network.V20181201.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
         /// Match Variable
         /// </summary>
         [Input("variableName", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181201.WebApplicationFirewallMatchVariable> VariableName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181201.WebApplicationFirewallMatchVariable> VariableName { get; set; } = null!;
 
         public MatchVariableArgs()
         {

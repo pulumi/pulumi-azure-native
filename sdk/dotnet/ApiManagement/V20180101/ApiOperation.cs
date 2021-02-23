@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Api Operation details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:ApiOperation")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:ApiOperation")]
     public partial class ApiOperation : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiOperation(string name, ApiOperationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiOperation", name, args ?? new ApiOperationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:ApiOperation", name, args ?? new ApiOperationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiOperation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:ApiOperation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:ApiOperation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,15 +100,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiOperation"},
                 },
             };

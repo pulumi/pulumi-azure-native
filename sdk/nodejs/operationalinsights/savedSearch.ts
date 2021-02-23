@@ -23,7 +23,7 @@ export class SavedSearch extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights:SavedSearch';
+    public static readonly __pulumiType = 'azure-native:operationalinsights:SavedSearch';
 
     /**
      * Returns true if the given object is an instance of SavedSearch.  This is designed to work even
@@ -134,7 +134,7 @@ export class SavedSearch extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200801:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/latest:SavedSearch" }, { type: "azure-nextgen:operationalinsights/latest:SavedSearch" }, { type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200801:SavedSearch" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }

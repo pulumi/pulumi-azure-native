@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
+namespace Pulumi.AzureNative.MachineLearningServices.V20200601
 {
     public static class GetWorkspaceConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
         /// Workspace connection.
         /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-nextgen:machinelearningservices/v20200601:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices/v20200601:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithVersion());
     }
 
 

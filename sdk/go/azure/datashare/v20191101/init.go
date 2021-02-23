@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:datashare/v20191101:Account":
+	case "azure-native:datashare/v20191101:Account":
 		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:DataSet":
+	case "azure-native:datashare/v20191101:DataSet":
 		r, err = NewDataSet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:DataSetMapping":
+	case "azure-native:datashare/v20191101:DataSetMapping":
 		r, err = NewDataSetMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:Invitation":
+	case "azure-native:datashare/v20191101:Invitation":
 		r, err = NewInvitation(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:Share":
+	case "azure-native:datashare/v20191101:Share":
 		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:ShareSubscription":
+	case "azure-native:datashare/v20191101:ShareSubscription":
 		r, err = NewShareSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:SynchronizationSetting":
+	case "azure-native:datashare/v20191101:SynchronizationSetting":
 		r, err = NewSynchronizationSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:datashare/v20191101:Trigger":
+	case "azure-native:datashare/v20191101:Trigger":
 		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"datashare/v20191101",
 		&module{version},
 	)

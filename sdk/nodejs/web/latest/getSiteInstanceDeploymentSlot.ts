@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents user credentials used for publishing activity
  * Latest API Version: 2015-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeploymentSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeploymentSlot'. */
 export function getSiteInstanceDeploymentSlot(args: GetSiteInstanceDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteInstanceDeploymentSlotResult> {
-    pulumi.log.warn("getSiteInstanceDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeploymentSlot'.")
+    pulumi.log.warn("getSiteInstanceDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeploymentSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSiteInstanceDeploymentSlot(args: GetSiteInstanceDeploymentSlo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getSiteInstanceDeploymentSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getSiteInstanceDeploymentSlot", {
         "id": args.id,
         "instanceId": args.instanceId,
         "name": args.name,

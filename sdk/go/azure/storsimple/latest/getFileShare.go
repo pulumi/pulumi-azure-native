@@ -10,10 +10,10 @@ import (
 // The File Share.
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileShare'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileShare'.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getFileShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getFileShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

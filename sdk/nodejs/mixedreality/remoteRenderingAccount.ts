@@ -23,7 +23,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:mixedreality:RemoteRenderingAccount';
+    public static readonly __pulumiType = 'azure-native:mixedreality:RemoteRenderingAccount';
 
     /**
      * Returns true if the given object is an instance of RemoteRenderingAccount.  This is designed to work even
@@ -133,7 +133,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:mixedreality/latest:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/latest:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/latest:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemoteRenderingAccount.__pulumiType, name, inputs, opts);
     }

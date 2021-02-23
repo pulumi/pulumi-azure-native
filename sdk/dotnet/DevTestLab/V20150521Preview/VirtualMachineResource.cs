@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A virtual machine.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:VirtualMachineResource")]
     public partial class VirtualMachineResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -168,12 +168,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineResource(string name, VirtualMachineResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource", name, args ?? new VirtualMachineResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, args ?? new VirtualMachineResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMachineResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -184,9 +184,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachineResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualMachineResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachineResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualMachineResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualMachineResource"},
                 },
             };

@@ -17,7 +17,7 @@ export function listManagedClusterUserCredentials(args: ListManagedClusterUserCr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice:listManagedClusterUserCredentials", {
+    return pulumi.runtime.invoke("azure-native:containerservice:listManagedClusterUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

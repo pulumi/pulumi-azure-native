@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
+namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
     public static class GetRollout
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// Defines the PUT rollout request body.
         /// </summary>
         public static Task<GetRolloutResult> InvokeAsync(GetRolloutArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-nextgen:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-native:deploymentmanager/v20180901preview:getRollout", args ?? new GetRolloutArgs(), options.WithVersion());
     }
 
 

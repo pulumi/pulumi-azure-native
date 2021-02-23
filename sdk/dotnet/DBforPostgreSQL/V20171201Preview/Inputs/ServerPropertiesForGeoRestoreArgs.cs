@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.Inputs
 {
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
         /// Enforce a minimal Tls version for the server.
         /// </summary>
         [Input("minimalTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.MinimalTlsVersionEnum>? MinimalTlsVersion { get; set; }
 
         /// <summary>
         /// The source server id to restore from.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForGeoRestoreArgs()
         {

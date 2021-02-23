@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights
+namespace Pulumi.AzureNative.CustomerInsights
 {
     public static class GetKpi
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights
         /// API Version: 2017-04-26.
         /// </summary>
         public static Task<GetKpiResult> InvokeAsync(GetKpiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-nextgen:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKpiResult>("azure-native:customerinsights:getKpi", args ?? new GetKpiArgs(), options.WithVersion());
     }
 
 

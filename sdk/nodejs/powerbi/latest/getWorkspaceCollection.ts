@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2016-01-29.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbi:getWorkspaceCollection'. */
 export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCollectionResult> {
-    pulumi.log.warn("getWorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbi:getWorkspaceCollection'.")
+    pulumi.log.warn("getWorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbi:getWorkspaceCollection'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:powerbi/latest:getWorkspaceCollection", {
+    return pulumi.runtime.invoke("azure-native:powerbi/latest:getWorkspaceCollection", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceCollectionName": args.workspaceCollectionName,
     }, opts);

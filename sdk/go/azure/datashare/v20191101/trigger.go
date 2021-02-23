@@ -44,16 +44,31 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/latest:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:Trigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20181101preview:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:Trigger"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20200901:Trigger"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Trigger"),
@@ -61,7 +76,7 @@ func NewTrigger(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Trigger
-	err := ctx.RegisterResource("azure-nextgen:datashare/v20191101:Trigger", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare/v20191101:Trigger", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +88,7 @@ func NewTrigger(ctx *pulumi.Context,
 func GetTrigger(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TriggerState, opts ...pulumi.ResourceOption) (*Trigger, error) {
 	var resource Trigger
-	err := ctx.ReadResource("azure-nextgen:datashare/v20191101:Trigger", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare/v20191101:Trigger", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

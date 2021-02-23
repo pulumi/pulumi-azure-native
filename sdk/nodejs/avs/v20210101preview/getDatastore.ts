@@ -16,7 +16,7 @@ export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/v20210101preview:getDatastore", {
+    return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getDatastore", {
         "clusterName": args.clusterName,
         "datastoreName": args.datastoreName,
         "privateCloudName": args.privateCloudName,

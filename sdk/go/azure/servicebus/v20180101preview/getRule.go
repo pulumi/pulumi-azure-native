@@ -10,7 +10,7 @@ import (
 // Description of Rule Resource.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20180101preview:getRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

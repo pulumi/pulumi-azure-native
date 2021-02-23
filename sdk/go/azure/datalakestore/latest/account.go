@@ -14,7 +14,7 @@ import (
 // Data Lake Store account information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:Account'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:Account'.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -78,7 +78,13 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/v20161101:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:Account"),
@@ -86,7 +92,7 @@ func NewAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:datalakestore/latest:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore/latest:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +104,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:datalakestore/latest:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore/latest:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

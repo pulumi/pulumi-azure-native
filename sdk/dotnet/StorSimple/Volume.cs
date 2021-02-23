@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The volume.
     /// API Version: 2017-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple:Volume")]
+    [AzureNativeResourceType("azure-native:storsimple:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple:Volume", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,7 +113,9 @@ namespace Pulumi.AzureNextGen.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:Volume"},
                 },
             };
@@ -160,7 +162,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.StorSimple.Kind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.StorSimple.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name
@@ -172,7 +174,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The monitoring status of the volume.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.MonitoringStatus> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
@@ -202,13 +204,13 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// The volume status.
         /// </summary>
         [Input("volumeStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.VolumeStatus> VolumeStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.VolumeStatus> VolumeStatus { get; set; } = null!;
 
         /// <summary>
         /// The type of the volume.
         /// </summary>
         [Input("volumeType", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.VolumeType> VolumeType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.VolumeType> VolumeType { get; set; } = null!;
 
         public VolumeArgs()
         {

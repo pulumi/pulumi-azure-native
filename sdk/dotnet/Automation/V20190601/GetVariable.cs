@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     public static class GetVariable
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// Definition of the variable.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-nextgen:automation/v20190601:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation/v20190601:getVariable", args ?? new GetVariableArgs(), options.WithVersion());
     }
 
 

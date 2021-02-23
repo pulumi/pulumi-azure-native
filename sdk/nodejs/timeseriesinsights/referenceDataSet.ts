@@ -23,7 +23,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:timeseriesinsights:ReferenceDataSet';
+    public static readonly __pulumiType = 'azure-native:timeseriesinsights:ReferenceDataSet';
 
     /**
      * Returns true if the given object is an instance of ReferenceDataSet.  This is designed to work even
@@ -116,7 +116,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/latest:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20200515:ReferenceDataSet" }, { type: "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReferenceDataSet.__pulumiType, name, inputs, opts);
     }

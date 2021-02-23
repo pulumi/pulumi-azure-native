@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
+namespace Pulumi.AzureNative.Compute.V20190701.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Specifies the ephemeral disk settings for operating system disk.
         /// </summary>
         [Input("option")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.DiffDiskOptions>? Option { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20190701.DiffDiskOptions>? Option { get; set; }
 
         public DiffDiskSettingsArgs()
         {

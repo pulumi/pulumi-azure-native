@@ -40,12 +40,15 @@ func NewServiceTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datamigration:ServiceTask"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datamigration:ServiceTask"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceTask
-	err := ctx.RegisterResource("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datamigration/v20180715preview:ServiceTask", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +60,7 @@ func NewServiceTask(ctx *pulumi.Context,
 func GetServiceTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceTaskState, opts ...pulumi.ResourceOption) (*ServiceTask, error) {
 	var resource ServiceTask
-	err := ctx.ReadResource("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datamigration/v20180715preview:ServiceTask", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

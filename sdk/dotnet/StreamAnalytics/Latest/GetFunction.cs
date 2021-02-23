@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getFunction'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getFunction'.")]
     public static class GetFunction
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// Latest API Version: 2016-03-01.
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-nextgen:streamanalytics/latest:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("azure-native:streamanalytics/latest:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
     }
 
 

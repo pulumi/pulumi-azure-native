@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
+namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Inputs
 {
 
     /// <summary>
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         /// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
         /// </summary>
         [Input("flag", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.FeatureFlags> Flag { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SignalRService.V20200701Preview.FeatureFlags> Flag { get; set; } = null!;
 
         [Input("properties")]
         private InputMap<string>? _properties;

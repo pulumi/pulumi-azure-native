@@ -16,7 +16,7 @@ export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20181001:getPacketCapture", {
+    return pulumi.runtime.invoke("azure-native:network/v20181001:getPacketCapture", {
         "networkWatcherName": args.networkWatcherName,
         "packetCaptureName": args.packetCaptureName,
         "resourceGroupName": args.resourceGroupName,

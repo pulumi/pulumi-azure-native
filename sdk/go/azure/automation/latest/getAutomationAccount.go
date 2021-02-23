@@ -10,10 +10,10 @@ import (
 // Definition of the automation account type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getAutomationAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getAutomationAccount'.
 func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountArgs, opts ...pulumi.InvokeOption) (*LookupAutomationAccountResult, error) {
 	var rv LookupAutomationAccountResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getAutomationAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getAutomationAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

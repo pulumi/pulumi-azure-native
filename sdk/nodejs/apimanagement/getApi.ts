@@ -17,7 +17,7 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getApi", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getApi", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

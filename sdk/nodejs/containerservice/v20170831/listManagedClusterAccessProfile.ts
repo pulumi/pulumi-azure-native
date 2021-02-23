@@ -16,7 +16,7 @@ export function listManagedClusterAccessProfile(args: ListManagedClusterAccessPr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/v20170831:listManagedClusterAccessProfile", {
+    return pulumi.runtime.invoke("azure-native:containerservice/v20170831:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
         "roleName": args.roleName,

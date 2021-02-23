@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200806Preview
+namespace Pulumi.AzureNative.Security.V20200806Preview
 {
     /// <summary>
     /// IoT Defender settings
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security/v20200806preview:IotDefenderSetting")]
+    [AzureNativeResourceType("azure-native:security/v20200806preview:IotDefenderSetting")]
     public partial class IotDefenderSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDefenderSetting(string name, IotDefenderSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200806preview:IotDefenderSetting", name, args ?? new IotDefenderSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20200806preview:IotDefenderSetting", name, args ?? new IotDefenderSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDefenderSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200806preview:IotDefenderSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20200806preview:IotDefenderSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:IotDefenderSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotDefenderSetting"},
                 },
             };

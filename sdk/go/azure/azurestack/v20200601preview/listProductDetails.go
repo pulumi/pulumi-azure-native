@@ -10,7 +10,7 @@ import (
 // Extended description about the product required for installing it into Azure Stack.
 func ListProductDetails(ctx *pulumi.Context, args *ListProductDetailsArgs, opts ...pulumi.InvokeOption) (*ListProductDetailsResult, error) {
 	var rv ListProductDetailsResult
-	err := ctx.Invoke("azure-nextgen:azurestack/v20200601preview:listProductDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/v20200601preview:listProductDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

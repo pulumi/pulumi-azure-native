@@ -17,7 +17,7 @@ export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata:getDataManager", {
+    return pulumi.runtime.invoke("azure-native:hybriddata:getDataManager", {
         "dataManagerName": args.dataManagerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

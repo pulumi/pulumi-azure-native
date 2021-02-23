@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a virtual machine scale set virtual machine.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVM {
-        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.")
+        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.")
         return new VirtualMachineScaleSetVM(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:VirtualMachineScaleSetVM';
+    public static readonly __pulumiType = 'azure-native:compute/latest:VirtualMachineScaleSetVM';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSetVM.  This is designed to work even
@@ -147,9 +147,9 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'. */
     constructor(name: string, args: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVM'.")
+        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -219,7 +219,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
     }

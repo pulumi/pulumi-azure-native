@@ -16,7 +16,7 @@ export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200701:getCustomIPPrefix", {
+    return pulumi.runtime.invoke("azure-native:network/v20200701:getCustomIPPrefix", {
         "customIpPrefixName": args.customIpPrefixName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

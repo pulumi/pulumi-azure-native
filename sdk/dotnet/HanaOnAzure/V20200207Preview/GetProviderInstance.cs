@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
+namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
     public static class GetProviderInstance
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// A provider instance associated with a SAP monitor.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-nextgen:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure/v20200207preview:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithVersion());
     }
 
 

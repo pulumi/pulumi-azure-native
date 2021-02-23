@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Subscription.V20200901
+namespace Pulumi.AzureNative.Subscription.V20200901
 {
     public static class GetAlias
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
         /// Subscription Information with the alias.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-nextgen:subscription/v20200901:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription/v20200901:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
 
 

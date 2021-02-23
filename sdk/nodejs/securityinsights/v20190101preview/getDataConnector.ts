@@ -16,7 +16,7 @@ export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getDataConnector", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getDataConnector", {
         "dataConnectorId": args.dataConnectorId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

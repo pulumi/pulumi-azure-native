@@ -11,7 +11,7 @@ import (
 // API Version: 2015-05-01.
 func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.InvokeOption) (*LookupWebTestResult, error) {
 	var rv LookupWebTestResult
-	err := ctx.Invoke("azure-nextgen:insights:getWebTest", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getWebTest", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Description of WcfRelays Resource.
 func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayResult, error) {
 	var rv LookupWCFRelayResult
-	err := ctx.Invoke("azure-nextgen:relay/v20160701:getWCFRelay", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20160701:getWCFRelay", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

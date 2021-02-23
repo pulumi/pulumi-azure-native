@@ -42,10 +42,19 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:IpFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:IpFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/latest:IpFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:IpFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:IpFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IpFirewallRule"),
@@ -53,7 +62,7 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IpFirewallRule
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20201201:IpFirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20201201:IpFirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 func GetIpFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IpFirewallRuleState, opts ...pulumi.ResourceOption) (*IpFirewallRule, error) {
 	var resource IpFirewallRule
-	err := ctx.ReadResource("azure-nextgen:synapse/v20201201:IpFirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20201201:IpFirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

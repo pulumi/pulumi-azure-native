@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Recovery plan details.
  * Latest API Version: 2018-07-10.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'.
  */
 export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationRecoveryPlan {
-        pulumi.log.warn("ReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.")
+        pulumi.log.warn("ReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'.")
         return new ReplicationRecoveryPlan(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/latest:ReplicationRecoveryPlan';
 
     /**
      * Returns true if the given object is an instance of ReplicationRecoveryPlan.  This is designed to work even
@@ -63,9 +63,9 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'. */
     constructor(name: string, args: ReplicationRecoveryPlanArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationRecoveryPlan'.")
+        pulumi.log.warn("ReplicationRecoveryPlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationRecoveryPlan'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -97,7 +97,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationRecoveryPlan.__pulumiType, name, inputs, opts);
     }

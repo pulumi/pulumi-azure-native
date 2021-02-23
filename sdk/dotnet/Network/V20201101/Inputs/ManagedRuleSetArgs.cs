@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
+namespace Pulumi.AzureNative.Network.V20201101.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101.Inputs
         /// Defines the action to take when a managed rule set score threshold is met.
         /// </summary>
         [Input("ruleSetAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20201101.ManagedRuleSetActionType>? RuleSetAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleSetActionType>? RuleSetAction { get; set; }
 
         /// <summary>
         /// Defines the rule set type to use.

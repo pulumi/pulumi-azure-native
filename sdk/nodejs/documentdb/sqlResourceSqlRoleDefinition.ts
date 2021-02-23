@@ -23,7 +23,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb:SqlResourceSqlRoleDefinition';
+    public static readonly __pulumiType = 'azure-native:documentdb:SqlResourceSqlRoleDefinition';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlRoleDefinition.  This is designed to work even
@@ -95,7 +95,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlRoleDefinition.__pulumiType, name, inputs, opts);
     }

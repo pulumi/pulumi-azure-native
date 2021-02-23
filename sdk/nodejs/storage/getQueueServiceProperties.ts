@@ -17,7 +17,7 @@ export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage:getQueueServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage:getQueueServiceProperties", {
         "accountName": args.accountName,
         "queueServiceName": args.queueServiceName,
         "resourceGroupName": args.resourceGroupName,

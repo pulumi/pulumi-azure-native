@@ -11,7 +11,7 @@ import (
 // API Version: 2018-03-01.
 func LookupSupportPlanType(ctx *pulumi.Context, args *LookupSupportPlanTypeArgs, opts ...pulumi.InvokeOption) (*LookupSupportPlanTypeResult, error) {
 	var rv LookupSupportPlanTypeResult
-	err := ctx.Invoke("azure-nextgen:addons:getSupportPlanType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:addons:getSupportPlanType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

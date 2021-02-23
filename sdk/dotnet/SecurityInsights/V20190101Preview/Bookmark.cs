@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:Bookmark")]
+    [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:Bookmark")]
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Bookmark(string name, BookmarkArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:Bookmark", name, args ?? new BookmarkArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/v20190101preview:Bookmark", name, args ?? new BookmarkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Bookmark(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:Bookmark", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/v20190101preview:Bookmark", name, null, MakeResourceOptions(options, id))
         {
         }
 

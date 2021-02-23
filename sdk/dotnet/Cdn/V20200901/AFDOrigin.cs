@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200901
+namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20200901:AFDOrigin")]
+    [AzureNativeResourceType("azure-native:cdn/v20200901:AFDOrigin")]
     public partial class AFDOrigin : Pulumi.CustomResource
     {
         /// <summary>
@@ -105,12 +105,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AFDOrigin(string name, AFDOriginArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDOrigin", name, args ?? new AFDOriginArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20200901:AFDOrigin", name, args ?? new AFDOriginArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AFDOrigin(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20200901:AFDOrigin", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20200901:AFDOrigin", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -121,7 +121,9 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOrigin"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDOrigin"},
                 },
             };
@@ -156,7 +158,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.

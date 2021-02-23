@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute:getVirtualMachineScaleSetExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

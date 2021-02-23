@@ -10,10 +10,10 @@ import (
 // Dedicated cloud service model
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudService'.
 func LookupDedicatedCloudService(ctx *pulumi.Context, args *LookupDedicatedCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedCloudServiceResult, error) {
 	var rv LookupDedicatedCloudServiceResult
-	err := ctx.Invoke("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:vmwarecloudsimple/latest:getDedicatedCloudService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

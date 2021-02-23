@@ -10,7 +10,7 @@ import (
 // A DDoS protection plan in a resource group.
 func LookupDdosProtectionPlan(ctx *pulumi.Context, args *LookupDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*LookupDdosProtectionPlanResult, error) {
 	var rv LookupDdosProtectionPlanResult
-	err := ctx.Invoke("azure-nextgen:network/v20200401:getDdosProtectionPlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200401:getDdosProtectionPlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

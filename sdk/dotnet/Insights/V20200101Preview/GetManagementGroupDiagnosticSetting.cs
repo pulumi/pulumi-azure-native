@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200101Preview
+namespace Pulumi.AzureNative.Insights.V20200101Preview
 {
     public static class GetManagementGroupDiagnosticSetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200101Preview
         /// The management group diagnostic setting resource.
         /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-nextgen:insights/v20200101preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights/v20200101preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithVersion());
     }
 
 

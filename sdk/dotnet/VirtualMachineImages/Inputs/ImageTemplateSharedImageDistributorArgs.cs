@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VirtualMachineImages.Inputs
+namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Inputs
         /// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNextGen.VirtualMachineImages.SharedImageStorageAccountType>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.VirtualMachineImages.SharedImageStorageAccountType>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Type of distribution.

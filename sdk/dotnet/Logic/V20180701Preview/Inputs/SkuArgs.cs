@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20180701Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         /// The name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20180701Preview.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20180701Preview.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The reference to plan.

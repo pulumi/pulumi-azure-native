@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing a cluster principal assignment.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getClusterPrincipalAssignment'. */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
-    pulumi.log.warn("getClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getClusterPrincipalAssignment'.")
+    pulumi.log.warn("getClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getClusterPrincipalAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmen
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getClusterPrincipalAssignment", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,
         "principalAssignmentName": args.principalAssignmentName,
         "resourceGroupName": args.resourceGroupName,

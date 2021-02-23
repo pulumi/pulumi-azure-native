@@ -10,7 +10,7 @@ import (
 // Enterprise Channel resource definition
 func LookupEnterpriseChannel(ctx *pulumi.Context, args *LookupEnterpriseChannelArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseChannelResult, error) {
 	var rv LookupEnterpriseChannelResult
-	err := ctx.Invoke("azure-nextgen:botservice/v20180712:getEnterpriseChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/v20180712:getEnterpriseChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

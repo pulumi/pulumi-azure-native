@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-01-preview.
 func ListMonitorMonitoredResources(ctx *pulumi.Context, args *ListMonitorMonitoredResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorMonitoredResourcesResult, error) {
 	var rv ListMonitorMonitoredResourcesResult
-	err := ctx.Invoke("azure-nextgen:datadog:listMonitorMonitoredResources", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog:listMonitorMonitoredResources", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Output'.")]
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:Output")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.")]
+    [AzureNativeResourceType("azure-native:streamanalytics/latest:Output")]
     public partial class Output : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Output(string name, OutputArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/latest:Output", name, args ?? new OutputArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics/latest:Output", name, args ?? new OutputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Output(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/latest:Output", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics/latest:Output", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Output"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Output"},
                 },
             };

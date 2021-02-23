@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Private endpoint resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateEndpoint'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:PrivateEndpoint")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateEndpoint'.")]
+    [AzureNativeResourceType("azure-native:network/latest:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpoint(string name, PrivateEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:PrivateEndpoint", name, args ?? new PrivateEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:PrivateEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,19 +114,33 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateEndpoint"},
                 },
             };

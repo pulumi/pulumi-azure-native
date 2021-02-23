@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric
+namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// API Version: 2020-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric:NodeType")]
+    [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : Pulumi.CustomResource
     {
         /// <summary>
@@ -133,12 +133,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NodeType(string name, NodeTypeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:NodeType", name, args ?? new NodeTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric:NodeType", name, args ?? new NodeTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NodeType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:NodeType", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric:NodeType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200101preview:NodeType"},
                 },
             };

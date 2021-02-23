@@ -11,7 +11,7 @@ import (
 // API Version: 2018-11-01-preview.
 func LookupArtifact(ctx *pulumi.Context, args *LookupArtifactArgs, opts ...pulumi.InvokeOption) (*LookupArtifactResult, error) {
 	var rv LookupArtifactResult
-	err := ctx.Invoke("azure-nextgen:blueprint:getArtifact", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:blueprint:getArtifact", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

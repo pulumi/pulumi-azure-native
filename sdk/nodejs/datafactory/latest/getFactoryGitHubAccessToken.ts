@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Get GitHub access token response definition.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryGitHubAccessToken'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryGitHubAccessToken'. */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
-    pulumi.log.warn("getFactoryGitHubAccessToken is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryGitHubAccessToken'.")
+    pulumi.log.warn("getFactoryGitHubAccessToken is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryGitHubAccessToken'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getFactoryGitHubAccessToken", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,
         "gitHubAccessCode": args.gitHubAccessCode,
         "gitHubAccessTokenBaseUrl": args.gitHubAccessTokenBaseUrl,

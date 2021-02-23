@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListStaticSiteFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSiteFunctionAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteFunctionAppSettingsResult, error) {
 	var rv ListStaticSiteFunctionAppSettingsResult
-	err := ctx.Invoke("azure-nextgen:web:listStaticSiteFunctionAppSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listStaticSiteFunctionAppSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

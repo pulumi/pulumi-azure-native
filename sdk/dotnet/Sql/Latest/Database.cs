@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Latest
+namespace Pulumi.AzureNative.Sql.Latest
 {
     /// <summary>
     /// Represents a database.
     /// Latest API Version: 2014-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:Database'.")]
-    [AzureNextGenResourceType("azure-nextgen:sql/latest:Database")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.")]
+    [AzureNativeResourceType("azure-native:sql/latest:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
@@ -250,12 +250,12 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/latest:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/latest:Database", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/latest:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -266,12 +266,19 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Database"},
                 },
             };
@@ -322,7 +329,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.Latest.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database to be operated on (updated or created).
@@ -344,7 +351,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// ````
         /// </summary>
         [Input("edition")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.DatabaseEdition>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.Latest.DatabaseEdition>? Edition { get; set; }
 
         /// <summary>
         /// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
@@ -368,7 +375,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
         /// </summary>
         [Input("readScale")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.ReadScale>? ReadScale { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.Latest.ReadScale>? ReadScale { get; set; }
 
         /// <summary>
         /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
@@ -398,7 +405,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// ````
         /// </summary>
         [Input("requestedServiceObjectiveName")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.ServiceObjectiveName>? RequestedServiceObjectiveName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.Latest.ServiceObjectiveName>? RequestedServiceObjectiveName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -416,7 +423,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
         /// </summary>
         [Input("sampleName")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.SampleName>? SampleName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.Latest.SampleName>? SampleName { get; set; }
 
         /// <summary>
         /// The name of the server.

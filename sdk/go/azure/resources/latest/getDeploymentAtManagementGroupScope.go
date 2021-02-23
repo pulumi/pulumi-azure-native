@@ -10,10 +10,10 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtManagementGroupScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtManagementGroupScope'.
 func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDeploymentAtManagementGroupScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtManagementGroupScopeResult, error) {
 	var rv LookupDeploymentAtManagementGroupScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/latest:getDeploymentAtManagementGroupScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/latest:getDeploymentAtManagementGroupScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

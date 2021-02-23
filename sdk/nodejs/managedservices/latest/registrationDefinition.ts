@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Registration definition.
  * Latest API Version: 2019-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationDefinition {
-        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.")
+        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'.")
         return new RegistrationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:managedservices/latest:RegistrationDefinition';
+    public static readonly __pulumiType = 'azure-native:managedservices/latest:RegistrationDefinition';
 
     /**
      * Returns true if the given object is an instance of RegistrationDefinition.  This is designed to work even
@@ -63,9 +63,9 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'. */
     constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:managedservices:RegistrationDefinition'.")
+        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
@@ -90,7 +90,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationDefinition" }, { type: "azure-nextgen:managedservices:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-native:managedservices/v20200201preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }

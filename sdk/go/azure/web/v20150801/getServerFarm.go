@@ -10,7 +10,7 @@ import (
 // App Service Plan Model
 func LookupServerFarm(ctx *pulumi.Context, args *LookupServerFarmArgs, opts ...pulumi.InvokeOption) (*LookupServerFarmResult, error) {
 	var rv LookupServerFarmResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getServerFarm", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getServerFarm", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

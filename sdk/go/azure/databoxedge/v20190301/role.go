@@ -41,22 +41,43 @@ func NewRole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Role"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Role"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/latest:Role"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:Role"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:Role"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Role"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:Role"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Role"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Role"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Role"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Role"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Role"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Role"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
@@ -64,7 +85,7 @@ func NewRole(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Role
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/v20190301:Role", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/v20190301:Role", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +97,7 @@ func NewRole(ctx *pulumi.Context,
 func GetRole(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleState, opts ...pulumi.ResourceOption) (*Role, error) {
 	var resource Role
-	err := ctx.ReadResource("azure-nextgen:databoxedge/v20190301:Role", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/v20190301:Role", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

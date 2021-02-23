@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A private cloud resource
  * Latest API Version: 2020-03-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class PrivateCloud extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateCloud {
-        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.")
+        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.")
         return new PrivateCloud(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/latest:PrivateCloud';
+    public static readonly __pulumiType = 'azure-native:avs/latest:PrivateCloud';
 
     /**
      * Returns true if the given object is an instance of PrivateCloud.  This is designed to work even
@@ -123,9 +123,9 @@ export class PrivateCloud extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'. */
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.")
+        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.managementCluster === undefined) && !(opts && opts.urn)) {
@@ -189,7 +189,7 @@ export class PrivateCloud extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }, { type: "azure-nextgen:avs/v20200717preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20210101preview:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:PrivateCloud" }, { type: "azure-nextgen:avs:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20210101preview:PrivateCloud" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }

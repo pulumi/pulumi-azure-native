@@ -10,10 +10,10 @@ import (
 // IpAllocation resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getIpAllocation'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getIpAllocation'.
 func LookupIpAllocation(ctx *pulumi.Context, args *LookupIpAllocationArgs, opts ...pulumi.InvokeOption) (*LookupIpAllocationResult, error) {
 	var rv LookupIpAllocationResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getIpAllocation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getIpAllocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

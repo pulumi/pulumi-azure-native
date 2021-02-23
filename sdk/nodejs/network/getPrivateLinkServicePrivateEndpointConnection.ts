@@ -17,7 +17,7 @@ export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateL
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getPrivateLinkServicePrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:network:getPrivateLinkServicePrivateEndpointConnection", {
         "expand": args.expand,
         "peConnectionName": args.peConnectionName,
         "resourceGroupName": args.resourceGroupName,

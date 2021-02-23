@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01-preview.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:purview:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:purview:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
     /// <summary>
     /// Machine Learning dataset object wrapped into ARM resource envelope.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset")]
     public partial class MachineLearningDataset : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningDataset(string name, MachineLearningDatasetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, args ?? new MachineLearningDatasetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset", name, args ?? new MachineLearningDatasetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningDataset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningDataset"},
                 },
             };
@@ -116,7 +117,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// Specifies dataset type.
         /// </summary>
         [Input("datasetType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.DatasetType> DatasetType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200501Preview.DatasetType> DatasetType { get; set; } = null!;
 
         [Input("parameters", required: true)]
         public Input<Inputs.DatasetCreateRequestParametersArgs> Parameters { get; set; } = null!;

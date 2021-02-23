@@ -22,7 +22,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/v20200601:PatchSchedule';
+    public static readonly __pulumiType = 'azure-native:cache/v20200601:PatchSchedule';
 
     /**
      * Returns true if the given object is an instance of PatchSchedule.  This is designed to work even
@@ -84,7 +84,7 @@ export class PatchSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:PatchSchedule" }, { type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:PatchSchedule" }, { type: "azure-nextgen:cache:PatchSchedule" }, { type: "azure-native:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20190701:PatchSchedule" }, { type: "azure-nextgen:cache/v20190701:PatchSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }

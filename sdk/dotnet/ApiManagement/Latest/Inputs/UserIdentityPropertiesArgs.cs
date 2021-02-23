@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest.Inputs
+namespace Pulumi.AzureNative.ApiManagement.Latest.Inputs
 {
 
     public sealed class UserIdentityPropertiesArgs : Pulumi.ResourceArgs

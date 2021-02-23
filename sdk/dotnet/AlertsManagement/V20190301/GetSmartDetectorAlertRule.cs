@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
+namespace Pulumi.AzureNative.AlertsManagement.V20190301
 {
     public static class GetSmartDetectorAlertRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
         /// The alert rule information
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-nextgen:alertsmanagement/v20190301:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement/v20190301:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
     }
 
 

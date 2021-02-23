@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeployment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'.")]
     public static class GetSiteInstanceDeployment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2015-08-01.
         /// </summary>
         public static Task<GetSiteInstanceDeploymentResult> InvokeAsync(GetSiteInstanceDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-nextgen:web/latest:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-native:web/latest:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithVersion());
     }
 
 

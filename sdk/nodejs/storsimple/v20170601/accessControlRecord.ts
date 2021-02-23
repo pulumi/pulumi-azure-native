@@ -22,7 +22,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple/v20170601:AccessControlRecord';
+    public static readonly __pulumiType = 'azure-native:storsimple/v20170601:AccessControlRecord';
 
     /**
      * Returns true if the given object is an instance of AccessControlRecord.  This is designed to work even
@@ -97,7 +97,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:AccessControlRecord" }, { type: "azure-nextgen:storsimple/latest:AccessControlRecord" }, { type: "azure-nextgen:storsimple/v20161001:AccessControlRecord" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-nextgen:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/latest:AccessControlRecord" }, { type: "azure-nextgen:storsimple/latest:AccessControlRecord" }, { type: "azure-native:storsimple/v20161001:AccessControlRecord" }, { type: "azure-nextgen:storsimple/v20161001:AccessControlRecord" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccessControlRecord.__pulumiType, name, inputs, opts);
     }

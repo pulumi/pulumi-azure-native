@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Solutions.V20190701
+namespace Pulumi.AzureNative.Solutions.V20190701
 {
     /// <summary>
     /// The managed application definition artifact type.

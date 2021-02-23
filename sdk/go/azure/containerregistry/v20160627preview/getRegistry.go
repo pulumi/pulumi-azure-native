@@ -10,7 +10,7 @@ import (
 // An object that represents a container registry.
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	var rv LookupRegistryResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20160627preview:getRegistry", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20160627preview:getRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

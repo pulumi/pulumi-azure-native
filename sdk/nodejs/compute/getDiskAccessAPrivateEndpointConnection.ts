@@ -17,7 +17,7 @@ export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPriv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getDiskAccessAPrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:compute:getDiskAccessAPrivateEndpointConnection", {
         "diskAccessName": args.diskAccessName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

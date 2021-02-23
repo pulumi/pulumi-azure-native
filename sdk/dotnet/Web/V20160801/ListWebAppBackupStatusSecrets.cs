@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801
+namespace Pulumi.AzureNative.Web.V20160801
 {
     public static class ListWebAppBackupStatusSecrets
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// Backup description.
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsResult> InvokeAsync(ListWebAppBackupStatusSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsResult>("azure-nextgen:web/v20160801:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20160801:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsArgs(), options.WithVersion());
     }
 
 
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// Type of the backup.
         /// </summary>
         [Input("type")]
-        public Pulumi.AzureNextGen.Web.V20160801.BackupRestoreOperationType? Type { get; set; }
+        public Pulumi.AzureNative.Web.V20160801.BackupRestoreOperationType? Type { get; set; }
 
         public ListWebAppBackupStatusSecretsArgs()
         {

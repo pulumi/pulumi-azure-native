@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
     /// <summary>
     /// Information about a Job.
     /// Latest API Version: 2018-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:Job'.")]
-    [AzureNextGenResourceType("azure-nextgen:batchai/latest:Job")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Job'.")]
+    [AzureNativeResourceType("azure-native:batchai/latest:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -212,12 +212,12 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/latest:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/latest:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -228,7 +228,9 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Job"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Job"},
                 },
             };
@@ -395,7 +397,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// Scheduling priority associated with the job. Possible values: low, normal, high.
         /// </summary>
         [Input("schedulingPriority")]
-        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.Latest.JobPriority>? SchedulingPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BatchAI.Latest.JobPriority>? SchedulingPriority { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.EnvironmentVariableWithSecretValueArgs>? _secrets;

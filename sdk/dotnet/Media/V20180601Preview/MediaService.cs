@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview
+namespace Pulumi.AzureNative.Media.V20180601Preview
 {
     /// <summary>
     /// A Media Services account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20180601preview:MediaService")]
+    [AzureNativeResourceType("azure-native:media/v20180601preview:MediaService")]
     public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MediaService(string name, MediaServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180601preview:MediaService", name, args ?? new MediaServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20180601preview:MediaService", name, args ?? new MediaServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MediaService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20180601preview:MediaService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20180601preview:MediaService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,11 +76,17 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/latest:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20151001:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180330preview:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:MediaService"},
                 },
             };

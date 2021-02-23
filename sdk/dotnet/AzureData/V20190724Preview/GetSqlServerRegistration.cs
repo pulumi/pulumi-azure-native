@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
+namespace Pulumi.AzureNative.AzureData.V20190724Preview
 {
     public static class GetSqlServerRegistration
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// A SQL server registration.
         /// </summary>
         public static Task<GetSqlServerRegistrationResult> InvokeAsync(GetSqlServerRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-nextgen:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationArgs(), options.WithVersion());
     }
 
 

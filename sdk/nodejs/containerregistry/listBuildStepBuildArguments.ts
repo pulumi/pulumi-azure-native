@@ -17,7 +17,7 @@ export function listBuildStepBuildArguments(args: ListBuildStepBuildArgumentsArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:listBuildStepBuildArguments", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:listBuildStepBuildArguments", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

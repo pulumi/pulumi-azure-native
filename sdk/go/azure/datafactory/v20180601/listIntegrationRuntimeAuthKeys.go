@@ -10,7 +10,7 @@ import (
 // The integration runtime authentication keys.
 func ListIntegrationRuntimeAuthKeys(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeysArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeysResult, error) {
 	var rv ListIntegrationRuntimeAuthKeysResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20180601:listIntegrationRuntimeAuthKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20180601:listIntegrationRuntimeAuthKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

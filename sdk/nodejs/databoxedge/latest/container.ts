@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a container on the  Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.
  */
 export class Container extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Container extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Container {
-        pulumi.log.warn("Container is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.")
+        pulumi.log.warn("Container is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.")
         return new Container(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/latest:Container';
+    public static readonly __pulumiType = 'azure-native:databoxedge/latest:Container';
 
     /**
      * Returns true if the given object is an instance of Container.  This is designed to work even
@@ -75,9 +75,9 @@ export class Container extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'. */
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Container is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Container'.")
+        pulumi.log.warn("Container is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
@@ -119,7 +119,7 @@ export class Container extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-nextgen:databoxedge:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901:Container" }, { type: "azure-nextgen:databoxedge/v20200901:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Container.__pulumiType, name, inputs, opts);
     }

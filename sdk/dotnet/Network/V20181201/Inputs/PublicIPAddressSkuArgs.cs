@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
+namespace Pulumi.AzureNative.Network.V20181201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
         /// Name of a public IP address SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181201.PublicIPAddressSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181201.PublicIPAddressSkuName>? Name { get; set; }
 
         public PublicIPAddressSkuArgs()
         {

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190615
+namespace Pulumi.AzureNative.Cdn.V20190615
 {
     /// <summary>
     /// Describes what action to be applied when rule matches

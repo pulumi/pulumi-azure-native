@@ -23,7 +23,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:guestDiagnosticsSetting';
+    public static readonly __pulumiType = 'azure-native:insights:guestDiagnosticsSetting';
 
     /**
      * Returns true if the given object is an instance of GuestDiagnosticsSetting.  This is designed to work even
@@ -100,7 +100,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:guestDiagnosticsSetting" }, { type: "azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestDiagnosticsSetting.__pulumiType, name, inputs, opts);
     }

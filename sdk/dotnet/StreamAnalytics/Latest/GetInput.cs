@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getInput'.")]
     public static class GetInput
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// Latest API Version: 2016-03-01.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-nextgen:streamanalytics/latest:getInput", args ?? new GetInputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics/latest:getInput", args ?? new GetInputArgs(), options.WithVersion());
     }
 
 

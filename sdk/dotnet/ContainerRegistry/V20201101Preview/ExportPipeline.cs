@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:ExportPipeline")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ExportPipeline")]
     public partial class ExportPipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExportPipeline(string name, ExportPipelineArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:ExportPipeline", name, args ?? new ExportPipelineArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20201101preview:ExportPipeline", name, args ?? new ExportPipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExportPipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:ExportPipeline", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20201101preview:ExportPipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:ExportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ExportPipeline"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ExportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:ExportPipeline"},
                 },
             };
@@ -132,14 +134,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         public Input<string>? Location { get; set; }
 
         [Input("options")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PipelineOptions>>? _options;
+        private InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.PipelineOptions>>? _options;
 
         /// <summary>
         /// The list of all options configured for the pipeline.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PipelineOptions>> Options
+        public InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.PipelineOptions>> Options
         {
-            get => _options ?? (_options = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PipelineOptions>>());
+            get => _options ?? (_options = new InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.PipelineOptions>>());
             set => _options = value;
         }
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppSyncFunctionTriggers(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersResult, error) {
 	var rv ListWebAppSyncFunctionTriggersResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppSyncFunctionTriggers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppSyncFunctionTriggers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

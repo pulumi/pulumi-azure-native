@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a link to virtual network for a Private DNS zone.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkLink'. */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
-    pulumi.log.warn("getVirtualNetworkLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkLink'.")
+    pulumi.log.warn("getVirtualNetworkLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkLink'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkLink", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkLink", {
         "privateZoneName": args.privateZoneName,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkLinkName": args.virtualNetworkLinkName,

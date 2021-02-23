@@ -14,7 +14,7 @@ import (
 // Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:AvailabilitySet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:AvailabilitySet'.
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
 
@@ -52,43 +52,85 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20150615:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20150615:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20160330:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20160330:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20170330:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20171201:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180401:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180601:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20181001:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190301:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190701:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20191201:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:AvailabilitySet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:AvailabilitySet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:AvailabilitySet"),
@@ -96,7 +138,7 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AvailabilitySet
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:AvailabilitySet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:AvailabilitySet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +150,7 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 func GetAvailabilitySet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AvailabilitySetState, opts ...pulumi.ResourceOption) (*AvailabilitySet, error) {
 	var resource AvailabilitySet
-	err := ctx.ReadResource("azure-nextgen:compute/latest:AvailabilitySet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:AvailabilitySet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

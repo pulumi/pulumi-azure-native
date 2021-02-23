@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Registration assignment.
  * Latest API Version: 2019-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationAssignment'. */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
-    pulumi.log.warn("getRegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:managedservices:getRegistrationAssignment'.")
+    pulumi.log.warn("getRegistrationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managedservices/latest:getRegistrationAssignment", {
+    return pulumi.runtime.invoke("azure-native:managedservices/latest:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,
         "registrationAssignmentId": args.registrationAssignmentId,
         "scope": args.scope,

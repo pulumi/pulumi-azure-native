@@ -21,7 +21,7 @@ export class HierarchySetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:management/v20200501:HierarchySetting';
+    public static readonly __pulumiType = 'azure-native:management/v20200501:HierarchySetting';
 
     /**
      * Returns true if the given object is an instance of HierarchySetting.  This is designed to work even
@@ -88,7 +88,7 @@ export class HierarchySetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management:HierarchySetting" }, { type: "azure-nextgen:management/latest:HierarchySetting" }, { type: "azure-nextgen:management/v20200201:HierarchySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:management:HierarchySetting" }, { type: "azure-nextgen:management:HierarchySetting" }, { type: "azure-native:management/latest:HierarchySetting" }, { type: "azure-nextgen:management/latest:HierarchySetting" }, { type: "azure-native:management/v20200201:HierarchySetting" }, { type: "azure-nextgen:management/v20200201:HierarchySetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HierarchySetting.__pulumiType, name, inputs, opts);
     }

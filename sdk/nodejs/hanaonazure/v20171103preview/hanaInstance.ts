@@ -22,7 +22,7 @@ export class HanaInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hanaonazure/v20171103preview:HanaInstance';
+    public static readonly __pulumiType = 'azure-native:hanaonazure/v20171103preview:HanaInstance';
 
     /**
      * Returns true if the given object is an instance of HanaInstance.  This is designed to work even
@@ -144,7 +144,7 @@ export class HanaInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hanaonazure:HanaInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure:HanaInstance" }, { type: "azure-nextgen:hanaonazure:HanaInstance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HanaInstance.__pulumiType, name, inputs, opts);
     }

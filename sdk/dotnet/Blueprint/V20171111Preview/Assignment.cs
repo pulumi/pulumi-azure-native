@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
+namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint assignment.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint/v20171111preview:Assignment")]
+    [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint/v20171111preview:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:Assignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint/v20171111preview:Assignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

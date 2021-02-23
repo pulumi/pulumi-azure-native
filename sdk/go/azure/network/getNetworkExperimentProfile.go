@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01.
 func LookupNetworkExperimentProfile(ctx *pulumi.Context, args *LookupNetworkExperimentProfileArgs, opts ...pulumi.InvokeOption) (*LookupNetworkExperimentProfileResult, error) {
 	var rv LookupNetworkExperimentProfileResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkExperimentProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkExperimentProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -67,10 +67,19 @@ func NewJobDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybriddata:JobDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata:JobDefinition"),
 		},
 		{
+			Type: pulumi.String("azure-native:hybriddata/latest:JobDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybriddata/latest:JobDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybriddata/v20160601:JobDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:JobDefinition"),
@@ -78,7 +87,7 @@ func NewJobDefinition(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobDefinition
-	err := ctx.RegisterResource("azure-nextgen:hybriddata/v20190601:JobDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybriddata/v20190601:JobDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +99,7 @@ func NewJobDefinition(ctx *pulumi.Context,
 func GetJobDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobDefinitionState, opts ...pulumi.ResourceOption) (*JobDefinition, error) {
 	var resource JobDefinition
-	err := ctx.ReadResource("azure-nextgen:hybriddata/v20190601:JobDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybriddata/v20190601:JobDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

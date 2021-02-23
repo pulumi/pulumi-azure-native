@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB Gremlin graph.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountGremlinGraph'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountGremlinGraph'.
 func LookupDatabaseAccountGremlinGraph(ctx *pulumi.Context, args *LookupDatabaseAccountGremlinGraphArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountGremlinGraphResult, error) {
 	var rv LookupDatabaseAccountGremlinGraphResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getDatabaseAccountGremlinGraph", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getDatabaseAccountGremlinGraph", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

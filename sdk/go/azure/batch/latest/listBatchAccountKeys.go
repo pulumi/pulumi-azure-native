@@ -10,10 +10,10 @@ import (
 // A set of Azure Batch account keys.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:listBatchAccountKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:listBatchAccountKeys'.
 func ListBatchAccountKeys(ctx *pulumi.Context, args *ListBatchAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchAccountKeysResult, error) {
 	var rv ListBatchAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:batch/latest:listBatchAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch/latest:listBatchAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

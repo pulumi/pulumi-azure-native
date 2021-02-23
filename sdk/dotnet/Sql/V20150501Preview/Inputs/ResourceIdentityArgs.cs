@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20150501Preview.Inputs
+namespace Pulumi.AzureNative.Sql.V20150501Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview.Inputs
         /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20150501Preview.IdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20150501Preview.IdentityType>? Type { get; set; }
 
         public ResourceIdentityArgs()
         {

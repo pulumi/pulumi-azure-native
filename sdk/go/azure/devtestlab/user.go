@@ -51,10 +51,19 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:User"),
@@ -62,7 +71,7 @@ func NewUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource User
-	err := ctx.RegisterResource("azure-nextgen:devtestlab:User", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab:User", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +83,7 @@ func NewUser(ctx *pulumi.Context,
 func GetUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserState, opts ...pulumi.ResourceOption) (*User, error) {
 	var resource User
-	err := ctx.ReadResource("azure-nextgen:devtestlab:User", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab:User", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

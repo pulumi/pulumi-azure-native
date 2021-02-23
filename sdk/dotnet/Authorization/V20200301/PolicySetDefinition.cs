@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20200301
+namespace Pulumi.AzureNative.Authorization.V20200301
 {
     /// <summary>
     /// The policy set definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20200301:PolicySetDefinition")]
+    [AzureNativeResourceType("azure-native:authorization/v20200301:PolicySetDefinition")]
     public partial class PolicySetDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicySetDefinition(string name, PolicySetDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20200301:PolicySetDefinition", name, args ?? new PolicySetDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20200301:PolicySetDefinition", name, args ?? new PolicySetDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicySetDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20200301:PolicySetDefinition", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20200301:PolicySetDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,14 +94,23 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20170601preview:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180301:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20180501:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190101:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190101:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190601:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20190901:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190901:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicySetDefinition"},
                 },
             };
@@ -190,7 +199,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         [Input("policyType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20200301.PolicyType>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20200301.PolicyType>? PolicyType { get; set; }
 
         public PolicySetDefinitionArgs()
         {

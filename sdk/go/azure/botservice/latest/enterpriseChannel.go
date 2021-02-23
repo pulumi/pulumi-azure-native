@@ -14,7 +14,7 @@ import (
 // Enterprise Channel resource definition
 // Latest API Version: 2018-07-12.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:EnterpriseChannel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:botservice:EnterpriseChannel'.
 type EnterpriseChannel struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +48,13 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:EnterpriseChannel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:EnterpriseChannel"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20180712:EnterpriseChannel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:EnterpriseChannel"),
@@ -56,7 +62,7 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseChannel
-	err := ctx.RegisterResource("azure-nextgen:botservice/latest:EnterpriseChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/latest:EnterpriseChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +74,7 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 func GetEnterpriseChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnterpriseChannelState, opts ...pulumi.ResourceOption) (*EnterpriseChannel, error) {
 	var resource EnterpriseChannel
-	err := ctx.ReadResource("azure-nextgen:botservice/latest:EnterpriseChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/latest:EnterpriseChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

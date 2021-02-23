@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ConfidentialLedger.Inputs
+namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ConfidentialLedger.Inputs
         /// Type of Confidential Ledger
         /// </summary>
         [Input("ledgerType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ConfidentialLedger.LedgerType>? LedgerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.LedgerType>? LedgerType { get; set; }
 
         public LedgerPropertiesArgs()
         {

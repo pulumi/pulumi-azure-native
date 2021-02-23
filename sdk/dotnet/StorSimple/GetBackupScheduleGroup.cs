@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple
+namespace Pulumi.AzureNative.StorSimple
 {
     public static class GetBackupScheduleGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorSimple
         /// API Version: 2016-10-01.
         /// </summary>
         public static Task<GetBackupScheduleGroupResult> InvokeAsync(GetBackupScheduleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-nextgen:storsimple:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupScheduleGroupResult>("azure-native:storsimple:getBackupScheduleGroup", args ?? new GetBackupScheduleGroupArgs(), options.WithVersion());
     }
 
 

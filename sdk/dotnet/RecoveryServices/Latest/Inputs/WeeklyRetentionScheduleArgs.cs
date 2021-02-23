@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Latest.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class WeeklyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("daysOfTheWeek")]
-        private InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>? _daysOfTheWeek;
+        private InputList<Pulumi.AzureNative.RecoveryServices.Latest.DayOfWeek>? _daysOfTheWeek;
 
         /// <summary>
         /// List of days of week for weekly retention policy.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek> DaysOfTheWeek
+        public InputList<Pulumi.AzureNative.RecoveryServices.Latest.DayOfWeek> DaysOfTheWeek
         {
-            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>());
+            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<Pulumi.AzureNative.RecoveryServices.Latest.DayOfWeek>());
             set => _daysOfTheWeek = value;
         }
 

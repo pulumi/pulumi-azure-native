@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.WindowsESU
+namespace Pulumi.AzureNative.WindowsESU
 {
     /// <summary>
     /// Type of OS for which the key is requested.

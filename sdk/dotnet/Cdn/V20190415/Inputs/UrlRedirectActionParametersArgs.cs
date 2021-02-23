@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
+namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
         /// Protocol to use for the redirect. The default value is MatchRequest
         /// </summary>
         [Input("destinationProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190415.DestinationProtocol>? DestinationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190415.DestinationProtocol>? DestinationProtocol { get; set; }
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         [Input("redirectType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190415.RedirectType> RedirectType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190415.RedirectType> RedirectType { get; set; } = null!;
 
         public UrlRedirectActionParametersArgs()
         {

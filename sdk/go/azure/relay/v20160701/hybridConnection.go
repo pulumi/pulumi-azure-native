@@ -46,10 +46,19 @@ func NewHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:HybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:HybridConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/latest:HybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/latest:HybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20170401:HybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20170401:HybridConnection"),
@@ -57,7 +66,7 @@ func NewHybridConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HybridConnection
-	err := ctx.RegisterResource("azure-nextgen:relay/v20160701:HybridConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/v20160701:HybridConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewHybridConnection(ctx *pulumi.Context,
 func GetHybridConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HybridConnectionState, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
 	var resource HybridConnection
-	err := ctx.ReadResource("azure-nextgen:relay/v20160701:HybridConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/v20160701:HybridConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

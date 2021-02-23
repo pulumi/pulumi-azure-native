@@ -10,7 +10,7 @@ import (
 // Class representing an attached database configuration.
 func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttachedDatabaseConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDatabaseConfigurationResult, error) {
 	var rv LookupAttachedDatabaseConfigurationResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20200918:getAttachedDatabaseConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20200918:getAttachedDatabaseConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

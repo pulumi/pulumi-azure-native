@@ -51,13 +51,25 @@ func NewDataSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights/latest:DataSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:DataSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:DataSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:DataSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:DataSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:DataSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:DataSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:DataSource"),
@@ -65,7 +77,7 @@ func NewDataSource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataSource
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights:DataSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights:DataSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +89,7 @@ func NewDataSource(ctx *pulumi.Context,
 func GetDataSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataSourceState, opts ...pulumi.ResourceOption) (*DataSource, error) {
 	var resource DataSource
-	err := ctx.ReadResource("azure-nextgen:operationalinsights:DataSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights:DataSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

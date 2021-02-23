@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData
+namespace Pulumi.AzureNative.AzureData
 {
     /// <summary>
     /// Data controller resource
     /// API Version: 2020-09-08-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azuredata:DataController")]
+    [AzureNativeResourceType("azure-native:azuredata:DataController")]
     public partial class DataController : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.AzureData
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataController(string name, DataControllerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata:DataController", name, args ?? new DataControllerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azuredata:DataController", name, args ?? new DataControllerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataController(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata:DataController", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azuredata:DataController", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.AzureData
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:DataController"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:DataController"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20200908preview:DataController"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:DataController"},
                 },
             };

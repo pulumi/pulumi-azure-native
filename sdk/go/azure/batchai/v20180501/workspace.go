@@ -43,7 +43,13 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/latest:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/latest:Workspace"),
@@ -51,7 +57,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workspace
-	err := ctx.RegisterResource("azure-nextgen:batchai/v20180501:Workspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/v20180501:Workspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewWorkspace(ctx *pulumi.Context,
 func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	var resource Workspace
-	err := ctx.ReadResource("azure-nextgen:batchai/v20180501:Workspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/v20180501:Workspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

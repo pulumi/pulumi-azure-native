@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200301
+namespace Pulumi.AzureNative.Network.V20200301
 {
     public static class GetActiveSessions
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// Response for GetActiveSessions.
         /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-nextgen:network/v20200301:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-native:network/v20200301:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithVersion());
     }
 
 

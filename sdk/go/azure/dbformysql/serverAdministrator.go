@@ -57,10 +57,19 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql/latest:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/latest:ServerAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:ServerAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:ServerAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:ServerAdministrator"),
@@ -68,7 +77,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerAdministrator
-	err := ctx.RegisterResource("azure-nextgen:dbformysql:ServerAdministrator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql:ServerAdministrator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +89,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 func GetServerAdministrator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerAdministratorState, opts ...pulumi.ResourceOption) (*ServerAdministrator, error) {
 	var resource ServerAdministrator
-	err := ctx.ReadResource("azure-nextgen:dbformysql:ServerAdministrator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql:ServerAdministrator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

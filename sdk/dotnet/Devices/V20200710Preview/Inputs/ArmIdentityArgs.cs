@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200710Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20200710Preview.Inputs
 {
 
     public sealed class ArmIdentityArgs : Pulumi.ResourceArgs

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
+namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster")]
+    [AzureNativeResourceType("azure-native:redhatopenshift/v20200430:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenShiftCluster(string name, OpenShiftClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster", name, args ?? new OpenShiftClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:redhatopenshift/v20200430:OpenShiftCluster", name, args ?? new OpenShiftClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OpenShiftCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:redhatopenshift/v20200430:OpenShiftCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,7 +118,9 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.V20200430
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift:OpenShiftCluster"},
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/latest:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/latest:OpenShiftCluster"},
                 },
             };

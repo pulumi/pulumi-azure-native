@@ -10,10 +10,10 @@ import (
 // The peering service prefix class.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getPrefix'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'.
 func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPrefixResult, error) {
 	var rv LookupPrefixResult
-	err := ctx.Invoke("azure-nextgen:peering/latest:getPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/latest:getPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:getDataPool", {
+    return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20200701preview:getDataPool", {
         "accountName": args.accountName,
         "dataPoolName": args.dataPoolName,
         "resourceGroupName": args.resourceGroupName,

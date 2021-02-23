@@ -10,10 +10,10 @@ import (
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionPolicy'.
 func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProtectionPolicyResult, error) {
 	var rv LookupProtectionPolicyResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getProtectionPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getProtectionPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:batch/v20190801:Pool';
+    public static readonly __pulumiType = 'azure-native:batch/v20190801:Pool';
 
     /**
      * Returns true if the given object is an instance of Pool.  This is designed to work even
@@ -208,7 +208,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch:Pool" }, { type: "azure-nextgen:batch/latest:Pool" }, { type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }, { type: "azure-nextgen:batch/v20200901:Pool" }, { type: "azure-nextgen:batch/v20210101:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:Pool" }, { type: "azure-nextgen:batch:Pool" }, { type: "azure-native:batch/latest:Pool" }, { type: "azure-nextgen:batch/latest:Pool" }, { type: "azure-native:batch/v20170901:Pool" }, { type: "azure-nextgen:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-nextgen:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-nextgen:batch/v20190401:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-nextgen:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-nextgen:batch/v20200501:Pool" }, { type: "azure-native:batch/v20200901:Pool" }, { type: "azure-nextgen:batch/v20200901:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-nextgen:batch/v20210101:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }

@@ -10,10 +10,10 @@ import (
 // Fabric definition.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationFabric'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationFabric'.
 func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricArgs, opts ...pulumi.InvokeOption) (*LookupReplicationFabricResult, error) {
 	var rv LookupReplicationFabricResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationFabric", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationFabric", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

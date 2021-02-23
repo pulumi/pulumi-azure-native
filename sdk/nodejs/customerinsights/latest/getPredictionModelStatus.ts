@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The prediction model status.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'. */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
-    pulumi.log.warn("getPredictionModelStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionModelStatus'.")
+    pulumi.log.warn("getPredictionModelStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getPredictionModelStatus", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getPredictionModelStatus", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,
         "resourceGroupName": args.resourceGroupName,

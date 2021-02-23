@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * NetworkVirtualAppliance Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkVirtualAppliance'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkVirtualAppliance'. */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
-    pulumi.log.warn("getNetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkVirtualAppliance'.")
+    pulumi.log.warn("getNetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkVirtualAppliance'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkVirtualAppliance", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkVirtualAppliance", {
         "expand": args.expand,
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,

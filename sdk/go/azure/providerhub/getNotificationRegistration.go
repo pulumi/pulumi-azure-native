@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-20.
 func LookupNotificationRegistration(ctx *pulumi.Context, args *LookupNotificationRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationRegistrationResult, error) {
 	var rv LookupNotificationRegistrationResult
-	err := ctx.Invoke("azure-nextgen:providerhub:getNotificationRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub:getNotificationRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

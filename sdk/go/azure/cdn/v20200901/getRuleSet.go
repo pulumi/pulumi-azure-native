@@ -10,7 +10,7 @@ import (
 // Friendly RuleSet name mapping to the any RuleSet or secret related information.
 func LookupRuleSet(ctx *pulumi.Context, args *LookupRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupRuleSetResult, error) {
 	var rv LookupRuleSetResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20200901:getRuleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20200901:getRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

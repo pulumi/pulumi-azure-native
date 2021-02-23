@@ -10,10 +10,10 @@ import (
 // Represents an incident in Azure Security Insights.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getIncident'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getIncident'.
 func LookupIncident(ctx *pulumi.Context, args *LookupIncidentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentResult, error) {
 	var rv LookupIncidentResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/latest:getIncident", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/latest:getIncident", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

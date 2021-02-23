@@ -16,7 +16,7 @@ export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAsso
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20191101preview:getDataCollectionRuleAssociation", {
+    return pulumi.runtime.invoke("azure-native:insights/v20191101preview:getDataCollectionRuleAssociation", {
         "associationName": args.associationName,
         "resourceUri": args.resourceUri,
     }, opts);

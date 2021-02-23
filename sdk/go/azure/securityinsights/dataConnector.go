@@ -44,7 +44,13 @@ func NewDataConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights/latest:DataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights/latest:DataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:DataConnector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:DataConnector"),
@@ -52,7 +58,7 @@ func NewDataConnector(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataConnector
-	err := ctx.RegisterResource("azure-nextgen:securityinsights:DataConnector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights:DataConnector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewDataConnector(ctx *pulumi.Context,
 func GetDataConnector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataConnectorState, opts ...pulumi.ResourceOption) (*DataConnector, error) {
 	var resource DataConnector
-	err := ctx.ReadResource("azure-nextgen:securityinsights:DataConnector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights:DataConnector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

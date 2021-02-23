@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
+namespace Pulumi.AzureNative.EventGrid.V20190201Preview
 {
     public static class GetDomainTopic
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
         /// Domain Topic
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-nextgen:eventgrid/v20190201preview:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-native:eventgrid/v20190201preview:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20200415
+namespace Pulumi.AzureNative.Cdn.V20200415
 {
     public static class GetProfile
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200415
         /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-nextgen:cdn/v20200415:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn/v20200415:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }
 
 

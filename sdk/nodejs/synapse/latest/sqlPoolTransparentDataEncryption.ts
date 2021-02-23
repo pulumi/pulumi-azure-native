@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a Sql pool transparent data encryption configuration.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolTransparentDataEncryption'.
  */
 export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolTransparentDataEncryption {
-        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.")
+        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolTransparentDataEncryption'.")
         return new SqlPoolTransparentDataEncryption(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:SqlPoolTransparentDataEncryption';
 
     /**
      * Returns true if the given object is an instance of SqlPoolTransparentDataEncryption.  This is designed to work even
@@ -63,9 +63,9 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolTransparentDataEncryption'. */
     constructor(name: string, args: SqlPoolTransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolTransparentDataEncryption'.")
+        pulumi.log.warn("SqlPoolTransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolTransparentDataEncryption'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -98,7 +98,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolTransparentDataEncryption.__pulumiType, name, inputs, opts);
     }

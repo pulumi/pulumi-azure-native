@@ -40,25 +40,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devtestlab/v20150521preview:ArtifactSourceResource":
+            case "azure-native:devtestlab/v20150521preview:ArtifactSourceResource":
                 return new ArtifactSourceResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:CustomImageResource":
+            case "azure-native:devtestlab/v20150521preview:CustomImageResource":
                 return new CustomImageResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:FormulaResource":
+            case "azure-native:devtestlab/v20150521preview:FormulaResource":
                 return new FormulaResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:LabResource":
+            case "azure-native:devtestlab/v20150521preview:LabResource":
                 return new LabResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:PolicyResource":
+            case "azure-native:devtestlab/v20150521preview:PolicyResource":
                 return new PolicyResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:ScheduleResource":
+            case "azure-native:devtestlab/v20150521preview:ScheduleResource":
                 return new ScheduleResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource":
+            case "azure-native:devtestlab/v20150521preview:VirtualMachineResource":
                 return new VirtualMachineResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource":
+            case "azure-native:devtestlab/v20150521preview:VirtualNetworkResource":
                 return new VirtualNetworkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devtestlab/v20150521preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devtestlab/v20150521preview", _module)

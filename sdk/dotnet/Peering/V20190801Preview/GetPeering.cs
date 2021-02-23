@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20190801Preview
+namespace Pulumi.AzureNative.Peering.V20190801Preview
 {
     public static class GetPeering
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-nextgen:peering/v20190801preview:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-native:peering/v20190801preview:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
     }
 
 

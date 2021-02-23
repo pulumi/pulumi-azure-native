@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
+namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
 {
     public static class GetB2CTenant
     {
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-nextgen:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory/v20190101preview:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithVersion());
     }
 
 

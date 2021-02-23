@@ -61,58 +61,115 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRoutePort"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ExpressRoutePort"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRoutePort"),
@@ -120,7 +177,7 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRoutePort
-	err := ctx.RegisterResource("azure-nextgen:network/v20190601:ExpressRoutePort", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190601:ExpressRoutePort", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -132,7 +189,7 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 func GetExpressRoutePort(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExpressRoutePortState, opts ...pulumi.ResourceOption) (*ExpressRoutePort, error) {
 	var resource ExpressRoutePort
-	err := ctx.ReadResource("azure-nextgen:network/v20190601:ExpressRoutePort", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190601:ExpressRoutePort", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

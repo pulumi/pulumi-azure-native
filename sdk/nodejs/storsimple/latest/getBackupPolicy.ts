@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The backup policy.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupPolicy'. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-    pulumi.log.warn("getBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupPolicy'.")
+    pulumi.log.warn("getBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getBackupPolicy", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,

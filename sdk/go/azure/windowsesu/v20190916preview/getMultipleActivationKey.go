@@ -10,7 +10,7 @@ import (
 // MAK key details.
 func LookupMultipleActivationKey(ctx *pulumi.Context, args *LookupMultipleActivationKeyArgs, opts ...pulumi.InvokeOption) (*LookupMultipleActivationKeyResult, error) {
 	var rv LookupMultipleActivationKeyResult
-	err := ctx.Invoke("azure-nextgen:windowsesu/v20190916preview:getMultipleActivationKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

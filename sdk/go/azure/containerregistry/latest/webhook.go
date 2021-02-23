@@ -14,7 +14,7 @@ import (
 // An object that represents a webhook for a container registry.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:containerregistry:Webhook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Webhook'.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -57,19 +57,37 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Webhook"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Webhook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Webhook"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20171001:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Webhook"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20190501:Webhook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Webhook"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:Webhook"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Webhook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Webhook"),
@@ -77,7 +95,7 @@ func NewWebhook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Webhook
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/latest:Webhook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/latest:Webhook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +107,7 @@ func NewWebhook(ctx *pulumi.Context,
 func GetWebhook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebhookState, opts ...pulumi.ResourceOption) (*Webhook, error) {
 	var resource Webhook
-	err := ctx.ReadResource("azure-nextgen:containerregistry/latest:Webhook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/latest:Webhook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

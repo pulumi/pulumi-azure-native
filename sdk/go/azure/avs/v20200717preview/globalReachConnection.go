@@ -46,7 +46,13 @@ func NewGlobalReachConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:GlobalReachConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:GlobalReachConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:GlobalReachConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:GlobalReachConnection"),
@@ -54,7 +60,7 @@ func NewGlobalReachConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GlobalReachConnection
-	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:GlobalReachConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20200717preview:GlobalReachConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewGlobalReachConnection(ctx *pulumi.Context,
 func GetGlobalReachConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalReachConnectionState, opts ...pulumi.ResourceOption) (*GlobalReachConnection, error) {
 	var resource GlobalReachConnection
-	err := ctx.ReadResource("azure-nextgen:avs/v20200717preview:GlobalReachConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20200717preview:GlobalReachConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

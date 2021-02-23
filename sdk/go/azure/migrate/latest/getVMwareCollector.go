@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getVMwareCollector'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'.
 func LookupVMwareCollector(ctx *pulumi.Context, args *LookupVMwareCollectorArgs, opts ...pulumi.InvokeOption) (*LookupVMwareCollectorResult, error) {
 	var rv LookupVMwareCollectorResult
-	err := ctx.Invoke("azure-nextgen:migrate/latest:getVMwareCollector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/latest:getVMwareCollector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

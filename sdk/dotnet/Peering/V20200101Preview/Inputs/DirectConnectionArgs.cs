@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20200101Preview.Inputs
+namespace Pulumi.AzureNative.Peering.V20200101Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview.Inputs
         /// The field indicating if Microsoft provides session ip addresses.
         /// </summary>
         [Input("sessionAddressProvider")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20200101Preview.SessionAddressProvider>? SessionAddressProvider { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.V20200101Preview.SessionAddressProvider>? SessionAddressProvider { get; set; }
 
         /// <summary>
         /// The flag that indicates whether or not the connection is used for peering service.

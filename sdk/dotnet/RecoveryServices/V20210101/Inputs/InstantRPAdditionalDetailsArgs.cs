@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20210101.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20210101.Inputs
 {
 
     public sealed class InstantRPAdditionalDetailsArgs : Pulumi.ResourceArgs

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20180701Preview
+namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
     /// <summary>
     /// The integration account partner.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:logic/v20180701preview:IntegrationAccountPartner")]
+    [AzureNativeResourceType("azure-native:logic/v20180701preview:IntegrationAccountPartner")]
     public partial class IntegrationAccountPartner : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationAccountPartner(string name, IntegrationAccountPartnerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20180701preview:IntegrationAccountPartner", name, args ?? new IntegrationAccountPartnerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20180701preview:IntegrationAccountPartner", name, args ?? new IntegrationAccountPartnerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationAccountPartner(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20180701preview:IntegrationAccountPartner", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20180701preview:IntegrationAccountPartner", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,10 +94,15 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountPartner"},
+                    new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountPartner"},
                 },
             };
@@ -156,7 +161,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// The partner type.
         /// </summary>
         [Input("partnerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20180701Preview.PartnerType> PartnerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.V20180701Preview.PartnerType> PartnerType { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Intune
+namespace Pulumi.AzureNative.Intune
 {
     /// <summary>
     /// Android Policy entity for Intune MAM.
     /// API Version: 2015-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:intune:AndroidMAMPolicyByName")]
+    [AzureNativeResourceType("azure-native:intune:AndroidMAMPolicyByName")]
     public partial class AndroidMAMPolicyByName : Pulumi.CustomResource
     {
         [Output("accessRecheckOfflineTimeout")]
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.Intune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AndroidMAMPolicyByName(string name, AndroidMAMPolicyByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:intune:AndroidMAMPolicyByName", name, args ?? new AndroidMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:intune:AndroidMAMPolicyByName", name, args ?? new AndroidMAMPolicyByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AndroidMAMPolicyByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:intune:AndroidMAMPolicyByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:intune:AndroidMAMPolicyByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,7 +125,9 @@ namespace Pulumi.AzureNextGen.Intune
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114preview:AndroidMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName"},
+                    new Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"},
                 },
             };

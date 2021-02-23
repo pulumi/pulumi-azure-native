@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -36,15 +36,15 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("streams", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownExtensionDataSourceStreams>>? _streams;
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownExtensionDataSourceStreams>>? _streams;
 
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownExtensionDataSourceStreams>> Streams
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownExtensionDataSourceStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.KnownExtensionDataSourceStreams>>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownExtensionDataSourceStreams>>());
             set => _streams = value;
         }
 

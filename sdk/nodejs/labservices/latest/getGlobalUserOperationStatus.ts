@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Status Details of the long running operation for an environment
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationStatus'. */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
-    pulumi.log.warn("getGlobalUserOperationStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserOperationStatus'.")
+    pulumi.log.warn("getGlobalUserOperationStatus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationStatus'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getGlobalUserOperationStatus", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getGlobalUserOperationStatus", {
         "operationUrl": args.operationUrl,
         "userName": args.userName,
     }, opts);

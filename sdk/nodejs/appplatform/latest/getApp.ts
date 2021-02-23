@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * App resource payload
  * Latest API Version: 2020-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getApp'. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    pulumi.log.warn("getApp is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getApp'.")
+    pulumi.log.warn("getApp is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getApp'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/latest:getApp", {
+    return pulumi.runtime.invoke("azure-native:appplatform/latest:getApp", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

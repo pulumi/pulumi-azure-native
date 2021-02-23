@@ -38,12 +38,15 @@ func NewAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customproviders/v20180901preview:Association"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customproviders/v20180901preview:Association"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Association
-	err := ctx.RegisterResource("azure-nextgen:customproviders:Association", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customproviders:Association", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +58,7 @@ func NewAssociation(ctx *pulumi.Context,
 func GetAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssociationState, opts ...pulumi.ResourceOption) (*Association, error) {
 	var resource Association
-	err := ctx.ReadResource("azure-nextgen:customproviders:Association", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customproviders:Association", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180419.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20180419.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419.Inputs
         /// Backup Mode to specify whether to use existing backup or create new backup.
         /// </summary>
         [Input("backupMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180419.BackupMode>? BackupMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.V20180419.BackupMode>? BackupMode { get; set; }
 
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigrateSqlServerSqlMIDatabaseInputArgs>? _selectedDatabases;

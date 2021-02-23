@@ -33,19 +33,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storage/v20180301preview:BlobContainer":
+            case "azure-native:storage/v20180301preview:BlobContainer":
                 return new BlobContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy":
+            case "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy":
                 return new BlobContainerImmutabilityPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20180301preview:ManagementPolicy":
+            case "azure-native:storage/v20180301preview:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20180301preview:StorageAccount":
+            case "azure-native:storage/v20180301preview:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies":
+            case "azure-native:storage/v20180301preview:StorageAccountManagementPolicies":
                 return new StorageAccountManagementPolicies(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storage/v20180301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storage/v20180301preview", _module)

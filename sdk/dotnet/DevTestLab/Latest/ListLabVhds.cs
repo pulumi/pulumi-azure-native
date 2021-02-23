@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listLabVhds'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listLabVhds'.")]
     public static class ListLabVhds
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Latest API Version: 2018-09-15.
         /// </summary>
         public static Task<ListLabVhdsResult> InvokeAsync(ListLabVhdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-nextgen:devtestlab/latest:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLabVhdsResult>("azure-native:devtestlab/latest:listLabVhds", args ?? new ListLabVhdsArgs(), options.WithVersion());
     }
 
 

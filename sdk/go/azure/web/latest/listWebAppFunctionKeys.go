@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppFunctionKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeys'.
 func ListWebAppFunctionKeys(ctx *pulumi.Context, args *ListWebAppFunctionKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysResult, error) {
 	var rv ListWebAppFunctionKeysResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppFunctionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppFunctionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

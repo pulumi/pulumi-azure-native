@@ -10,7 +10,7 @@ import (
 // Describes a DNS zone.
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
-	err := ctx.Invoke("azure-nextgen:network/v20160401:getZone", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20160401:getZone", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

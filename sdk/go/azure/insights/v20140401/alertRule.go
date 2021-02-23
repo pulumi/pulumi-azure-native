@@ -60,10 +60,19 @@ func NewAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:AlertRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/latest:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:AlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20160301:AlertRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20160301:AlertRule"),
@@ -71,7 +80,7 @@ func NewAlertRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AlertRule
-	err := ctx.RegisterResource("azure-nextgen:insights/v20140401:AlertRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20140401:AlertRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +92,7 @@ func NewAlertRule(ctx *pulumi.Context,
 func GetAlertRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AlertRuleState, opts ...pulumi.ResourceOption) (*AlertRule, error) {
 	var resource AlertRule
-	err := ctx.ReadResource("azure-nextgen:insights/v20140401:AlertRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20140401:AlertRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

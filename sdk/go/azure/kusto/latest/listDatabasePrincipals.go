@@ -10,10 +10,10 @@ import (
 // The list Kusto database principals operation response.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listDatabasePrincipals'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listDatabasePrincipals'.
 func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArgs, opts ...pulumi.InvokeOption) (*ListDatabasePrincipalsResult, error) {
 	var rv ListDatabasePrincipalsResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:listDatabasePrincipals", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:listDatabasePrincipals", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

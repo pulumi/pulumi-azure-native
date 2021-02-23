@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a bookmark in Azure Security Insights.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getBookmark'. */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
-    pulumi.log.warn("getBookmark is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'.")
+    pulumi.log.warn("getBookmark is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getBookmark'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/latest:getBookmark", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/latest:getBookmark", {
         "bookmarkId": args.bookmarkId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

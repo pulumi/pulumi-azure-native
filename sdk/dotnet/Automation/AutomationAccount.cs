@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the automation account type.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:AutomationAccount")]
+    [AzureNativeResourceType("azure-native:automation:AutomationAccount")]
     public partial class AutomationAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutomationAccount(string name, AutomationAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:AutomationAccount", name, args ?? new AutomationAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:AutomationAccount", name, args ?? new AutomationAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutomationAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:AutomationAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:AutomationAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,9 +107,13 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:AutomationAccount"},
                 },
             };

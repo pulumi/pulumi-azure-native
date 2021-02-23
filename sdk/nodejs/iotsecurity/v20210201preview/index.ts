@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting":
+            case "azure-native:iotsecurity/v20210201preview:DefenderSetting":
                 return new DefenderSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "iotsecurity/v20210201preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "iotsecurity/v20210201preview", _module)

@@ -25,15 +25,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datalakeanalytics/latest:Account":
+            case "azure-native:datalakeanalytics/latest:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datalakeanalytics/latest:ComputePolicy":
+            case "azure-native:datalakeanalytics/latest:ComputePolicy":
                 return new ComputePolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:datalakeanalytics/latest:FirewallRule":
+            case "azure-native:datalakeanalytics/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datalakeanalytics/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datalakeanalytics/latest", _module)

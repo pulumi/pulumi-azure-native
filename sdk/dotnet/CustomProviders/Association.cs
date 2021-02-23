@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders
+namespace Pulumi.AzureNative.CustomProviders
 {
     /// <summary>
     /// The resource definition of this association.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customproviders:Association")]
+    [AzureNativeResourceType("azure-native:customproviders:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.CustomProviders
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customproviders:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Association(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders:Association", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customproviders:Association", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.CustomProviders
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:Association"},
                     new Pulumi.Alias { Type = "azure-nextgen:customproviders/v20180901preview:Association"},
                 },
             };

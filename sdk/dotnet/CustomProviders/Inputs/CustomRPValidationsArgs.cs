@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders.Inputs
+namespace Pulumi.AzureNative.CustomProviders.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.Inputs
         /// The type of validation to run against a matching request.
         /// </summary>
         [Input("validationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.CustomProviders.ValidationType>? ValidationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CustomProviders.ValidationType>? ValidationType { get; set; }
 
         public CustomRPValidationsArgs()
         {

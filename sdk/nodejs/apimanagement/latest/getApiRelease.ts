@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * ApiRelease details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiRelease'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiRelease'. */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
-    pulumi.log.warn("getApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiRelease'.")
+    pulumi.log.warn("getApiRelease is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiRelease'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiRelease", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiRelease", {
         "apiId": args.apiId,
         "releaseId": args.releaseId,
         "resourceGroupName": args.resourceGroupName,

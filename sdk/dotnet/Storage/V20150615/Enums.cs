@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Storage.V20150615
+namespace Pulumi.AzureNative.Storage.V20150615
 {
     /// <summary>
     /// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.

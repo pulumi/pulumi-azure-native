@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     public static class GetWorkloadNetworkVMGroup
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkVMGroupResult> InvokeAsync(GetWorkloadNetworkVMGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkVMGroupResult>("azure-nextgen:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupArgs(), options.WithVersion());
     }
 
 

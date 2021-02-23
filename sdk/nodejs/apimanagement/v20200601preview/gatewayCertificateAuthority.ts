@@ -21,7 +21,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority';
 
     /**
      * Returns true if the given object is an instance of GatewayCertificateAuthority.  This is designed to work even
@@ -85,7 +85,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayCertificateAuthority" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayCertificateAuthority" }, { type: "azure-nextgen:apimanagement:GatewayCertificateAuthority" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayCertificateAuthority.__pulumiType, name, inputs, opts);
     }

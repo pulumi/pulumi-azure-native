@@ -14,7 +14,7 @@ import (
 // An Activity Log Alert rule resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 
@@ -65,10 +65,19 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ActivityLogAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ActivityLogAlert"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20170401:ActivityLogAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActivityLogAlert"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20201001:ActivityLogAlert"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20201001:ActivityLogAlert"),
@@ -76,7 +85,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ActivityLogAlert
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:ActivityLogAlert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:ActivityLogAlert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +97,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 func GetActivityLogAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActivityLogAlertState, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
 	var resource ActivityLogAlert
-	err := ctx.ReadResource("azure-nextgen:insights/latest:ActivityLogAlert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:ActivityLogAlert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

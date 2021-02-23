@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
+namespace Pulumi.AzureNative.Storage.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// The type of the extended location.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.ExtendedLocationTypes>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.ExtendedLocationTypes>? Type { get; set; }
 
         public ExtendedLocationArgs()
         {

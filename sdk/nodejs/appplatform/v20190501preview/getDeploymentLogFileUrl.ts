@@ -16,7 +16,7 @@ export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform/v20190501preview:getDeploymentLogFileUrl", {
+    return pulumi.runtime.invoke("azure-native:appplatform/v20190501preview:getDeploymentLogFileUrl", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,
         "resourceGroupName": args.resourceGroupName,

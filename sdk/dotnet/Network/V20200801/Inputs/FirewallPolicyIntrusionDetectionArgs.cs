@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200801.Inputs
+namespace Pulumi.AzureNative.Network.V20200801.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200801.Inputs
         /// Intrusion detection general state.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200801.FirewallPolicyIntrusionDetectionStateType>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200801.FirewallPolicyIntrusionDetectionStateType>? Mode { get; set; }
 
         public FirewallPolicyIntrusionDetectionArgs()
         {

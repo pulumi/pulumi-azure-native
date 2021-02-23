@@ -14,7 +14,7 @@ import (
 // Server communication link.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:ServerCommunicationLink'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerCommunicationLink'.
 type ServerCommunicationLink struct {
 	pulumi.CustomResourceState
 
@@ -50,7 +50,13 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:ServerCommunicationLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:ServerCommunicationLink"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:ServerCommunicationLink"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:ServerCommunicationLink"),
@@ -58,7 +64,7 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerCommunicationLink
-	err := ctx.RegisterResource("azure-nextgen:sql/latest:ServerCommunicationLink", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/latest:ServerCommunicationLink", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 func GetServerCommunicationLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerCommunicationLinkState, opts ...pulumi.ResourceOption) (*ServerCommunicationLink, error) {
 	var resource ServerCommunicationLink
-	err := ctx.ReadResource("azure-nextgen:sql/latest:ServerCommunicationLink", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/latest:ServerCommunicationLink", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

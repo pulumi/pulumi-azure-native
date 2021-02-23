@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20191212
+namespace Pulumi.AzureNative.DocumentDB.V20191212
 {
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure")]
+    [AzureNativeResourceType("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure")]
     public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlStoredProcedure(string name, SqlResourceSqlStoredProcedureArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure", name, args ?? new SqlResourceSqlStoredProcedureArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure", name, args ?? new SqlResourceSqlStoredProcedureArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlStoredProcedure(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -67,13 +67,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
                 },
             };

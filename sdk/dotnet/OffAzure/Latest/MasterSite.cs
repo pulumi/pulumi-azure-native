@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OffAzure.Latest
+namespace Pulumi.AzureNative.OffAzure.Latest
 {
     /// <summary>
     /// Site REST Resource.
     /// Latest API Version: 2020-07-07.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:MasterSite'.")]
-    [AzureNextGenResourceType("azure-nextgen:offazure/latest:MasterSite")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:MasterSite'.")]
+    [AzureNativeResourceType("azure-native:offazure/latest:MasterSite")]
     public partial class MasterSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MasterSite(string name, MasterSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure/latest:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:offazure/latest:MasterSite", name, args ?? new MasterSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MasterSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:offazure/latest:MasterSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:offazure/latest:MasterSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:offazure:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure:MasterSite"},
+                    new Pulumi.Alias { Type = "azure-native:offazure/v20200707:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:MasterSite"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     public static class GetInstancePool
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// An Azure SQL instance pool.
         /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-nextgen:sql/v20200202preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql/v20200202preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
     }
 
 

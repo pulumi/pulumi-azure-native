@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200801
+namespace Pulumi.AzureNative.Network.V20200801
 {
     /// <summary>
     /// Private Endpoint connection on an application gateway.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection")]
     public partial class ApplicationGatewayPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGatewayPrivateEndpointConnection(string name, ApplicationGatewayPrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection", name, args ?? new ApplicationGatewayPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection", name, args ?? new ApplicationGatewayPrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationGatewayPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,10 +82,15 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };

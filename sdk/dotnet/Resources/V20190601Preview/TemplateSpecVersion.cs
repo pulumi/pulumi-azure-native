@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20190601Preview
+namespace Pulumi.AzureNative.Resources.V20190601Preview
 {
     /// <summary>
     /// Template Spec Version object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20190601preview:TemplateSpecVersion")]
+    [AzureNativeResourceType("azure-native:resources/v20190601preview:TemplateSpecVersion")]
     public partial class TemplateSpecVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TemplateSpecVersion(string name, TemplateSpecVersionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190601preview:TemplateSpecVersion", name, args ?? new TemplateSpecVersionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/v20190601preview:TemplateSpecVersion", name, args ?? new TemplateSpecVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TemplateSpecVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190601preview:TemplateSpecVersion", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/v20190601preview:TemplateSpecVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:TemplateSpecVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:TemplateSpecVersion"},
                 },
             };

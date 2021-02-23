@@ -10,7 +10,7 @@ import (
 // Sku sub resource.
 func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkusResult, error) {
 	var rv LookupVendorSkusResult
-	err := ctx.Invoke("azure-nextgen:hybridnetwork/v20200101preview:getVendorSkus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridnetwork/v20200101preview:getVendorSkus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200401:getSubnet", {
+    return pulumi.runtime.invoke("azure-native:network/v20200401:getSubnet", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "subnetName": args.subnetName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
+namespace Pulumi.AzureNative.Network.V20150615.Inputs
 {
 
     /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615.Inputs
         /// Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150615.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150615.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

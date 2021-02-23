@@ -14,7 +14,7 @@ import (
 // A private endpoint connection
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appconfiguration:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appconfiguration:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -48,13 +48,25 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appconfiguration:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20191101preview:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200601:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection"),
@@ -62,7 +74,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:appconfiguration/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appconfiguration/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:appconfiguration/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appconfiguration/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

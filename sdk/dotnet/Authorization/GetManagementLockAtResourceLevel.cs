@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     public static class GetManagementLockAtResourceLevel
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// API Version: 2016-09-01.
         /// </summary>
         public static Task<GetManagementLockAtResourceLevelResult> InvokeAsync(GetManagementLockAtResourceLevelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceLevelResult>("azure-nextgen:authorization:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceLevelResult>("azure-native:authorization:getManagementLockAtResourceLevel", args ?? new GetManagementLockAtResourceLevelArgs(), options.WithVersion());
     }
 
 

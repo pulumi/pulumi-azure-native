@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:migrate:Assessment":
+	case "azure-native:migrate:Assessment":
 		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:Group":
+	case "azure-native:migrate:Group":
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:HyperVCollector":
+	case "azure-native:migrate:HyperVCollector":
 		r, err = NewHyperVCollector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:MigrateProject":
+	case "azure-native:migrate:MigrateProject":
 		r, err = NewMigrateProject(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:MoveCollection":
+	case "azure-native:migrate:MoveCollection":
 		r, err = NewMoveCollection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:MoveResource":
+	case "azure-native:migrate:MoveResource":
 		r, err = NewMoveResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:Project":
+	case "azure-native:migrate:Project":
 		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:Solution":
+	case "azure-native:migrate:Solution":
 		r, err = NewSolution(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:migrate:VMwareCollector":
+	case "azure-native:migrate:VMwareCollector":
 		r, err = NewVMwareCollector(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"migrate",
 		&module{version},
 	)

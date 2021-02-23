@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
+namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
 {
 
     /// <summary>
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// Tells source of creation of lab virtual machine. Output property only.
         /// </summary>
         [Input("virtualMachineCreationSource")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
 
         public LabVirtualMachineCreationParameterArgs()
         {

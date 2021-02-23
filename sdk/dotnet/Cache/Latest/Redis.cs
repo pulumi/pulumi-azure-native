@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
     /// Latest API Version: 2020-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Redis'.")]
-    [AzureNextGenResourceType("azure-nextgen:cache/latest:Redis")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Redis'.")]
+    [AzureNativeResourceType("azure-native:cache/latest:Redis")]
     public partial class Redis : Pulumi.CustomResource
     {
         /// <summary>
@@ -170,12 +170,12 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Redis(string name, RedisArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/latest:Redis", name, args ?? new RedisArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Redis(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:Redis", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/latest:Redis", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -186,13 +186,21 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20150801:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20170201:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20180301:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:Redis"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:Redis"},
                 },
             };
@@ -233,7 +241,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         /// </summary>
         [Input("minimumTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.TlsVersion>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the Redis cache.
@@ -245,7 +253,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         [Input("redisConfiguration")]
         private InputMap<string>? _redisConfiguration;

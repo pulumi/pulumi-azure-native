@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// Connector status

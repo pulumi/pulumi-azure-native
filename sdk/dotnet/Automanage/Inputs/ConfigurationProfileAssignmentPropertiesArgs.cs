@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automanage.Inputs
+namespace Pulumi.AzureNative.Automanage.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Automanage.Inputs
         /// A value indicating configuration profile.
         /// </summary>
         [Input("configurationProfile")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automanage.ConfigurationProfile>? ConfigurationProfile { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automanage.ConfigurationProfile>? ConfigurationProfile { get; set; }
 
         /// <summary>
         /// The configuration profile custom preferences ARM resource URI

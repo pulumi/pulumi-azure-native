@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetBuildStep
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<GetBuildStepResult> InvokeAsync(GetBuildStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-nextgen:containerregistry:getBuildStep", args ?? new GetBuildStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-native:containerregistry:getBuildStep", args ?? new GetBuildStepArgs(), options.WithVersion());
     }
 
 

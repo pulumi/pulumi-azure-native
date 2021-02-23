@@ -10,10 +10,10 @@ import (
 // Agent Pool.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getAgentPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
 	var rv LookupAgentPoolResult
-	err := ctx.Invoke("azure-nextgen:containerservice/latest:getAgentPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerservice/latest:getAgentPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Interface endpoint resource.
  * Latest API Version: 2019-02-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InterfaceEndpoint'.
  */
 export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InterfaceEndpoint {
-        pulumi.log.warn("InterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.")
+        pulumi.log.warn("InterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InterfaceEndpoint'.")
         return new InterfaceEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:InterfaceEndpoint';
+    public static readonly __pulumiType = 'azure-native:network/latest:InterfaceEndpoint';
 
     /**
      * Returns true if the given object is an instance of InterfaceEndpoint.  This is designed to work even
@@ -91,9 +91,9 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InterfaceEndpoint'. */
     constructor(name: string, args: InterfaceEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("InterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InterfaceEndpoint'.")
+        pulumi.log.warn("InterfaceEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InterfaceEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -133,7 +133,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20180801:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181001:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181101:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181201:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20190201:InterfaceEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:InterfaceEndpoint" }, { type: "azure-nextgen:network:InterfaceEndpoint" }, { type: "azure-native:network/v20180801:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20180801:InterfaceEndpoint" }, { type: "azure-native:network/v20181001:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181001:InterfaceEndpoint" }, { type: "azure-native:network/v20181101:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181101:InterfaceEndpoint" }, { type: "azure-native:network/v20181201:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181201:InterfaceEndpoint" }, { type: "azure-native:network/v20190201:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20190201:InterfaceEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InterfaceEndpoint.__pulumiType, name, inputs, opts);
     }

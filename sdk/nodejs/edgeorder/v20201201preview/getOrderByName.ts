@@ -16,7 +16,7 @@ export function getOrderByName(args: GetOrderByNameArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:edgeorder/v20201201preview:getOrderByName", {
+    return pulumi.runtime.invoke("azure-native:edgeorder/v20201201preview:getOrderByName", {
         "orderName": args.orderName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

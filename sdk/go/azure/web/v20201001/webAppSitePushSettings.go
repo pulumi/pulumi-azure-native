@@ -54,25 +54,49 @@ func NewWebAppSitePushSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSitePushSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSitePushSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSitePushSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSitePushSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSitePushSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSitePushSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSitePushSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSitePushSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSitePushSettings"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSitePushSettings"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSitePushSettings"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSitePushSettings"),
@@ -80,7 +104,7 @@ func NewWebAppSitePushSettings(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSitePushSettings
-	err := ctx.RegisterResource("azure-nextgen:web/v20201001:WebAppSitePushSettings", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20201001:WebAppSitePushSettings", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +116,7 @@ func NewWebAppSitePushSettings(ctx *pulumi.Context,
 func GetWebAppSitePushSettings(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSitePushSettingsState, opts ...pulumi.ResourceOption) (*WebAppSitePushSettings, error) {
 	var resource WebAppSitePushSettings
-	err := ctx.ReadResource("azure-nextgen:web/v20201001:WebAppSitePushSettings", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20201001:WebAppSitePushSettings", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

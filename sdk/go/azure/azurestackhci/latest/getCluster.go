@@ -10,10 +10,10 @@ import (
 // Cluster details.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestackhci:getCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestackhci:getCluster'.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:azurestackhci/latest:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestackhci/latest:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-01-01-preview.
 func LookupIncidentComment(ctx *pulumi.Context, args *LookupIncidentCommentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCommentResult, error) {
 	var rv LookupIncidentCommentResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getIncidentComment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getIncidentComment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -43,13 +43,25 @@ func NewAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs/latest:Authorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/latest:Authorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200320:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Authorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:Authorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Authorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Authorization"),
@@ -57,7 +69,7 @@ func NewAuthorization(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Authorization
-	err := ctx.RegisterResource("azure-nextgen:avs:Authorization", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs:Authorization", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewAuthorization(ctx *pulumi.Context,
 func GetAuthorization(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AuthorizationState, opts ...pulumi.ResourceOption) (*Authorization, error) {
 	var resource Authorization
-	err := ctx.ReadResource("azure-nextgen:avs:Authorization", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs:Authorization", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

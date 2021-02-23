@@ -22,7 +22,7 @@ export class Addon extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge/v20200901:Addon';
+    public static readonly __pulumiType = 'azure-native:databoxedge/v20200901:Addon';
 
     /**
      * Returns true if the given object is an instance of Addon.  This is designed to work even
@@ -95,7 +95,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge/latest:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-native:databoxedge/latest:Addon" }, { type: "azure-nextgen:databoxedge/latest:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Addon.__pulumiType, name, inputs, opts);
     }

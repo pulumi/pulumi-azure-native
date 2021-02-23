@@ -10,7 +10,7 @@ import (
 // An object that represents a machine learning team account.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:machinelearningexperimentation/v20170501preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningexperimentation/v20170501preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

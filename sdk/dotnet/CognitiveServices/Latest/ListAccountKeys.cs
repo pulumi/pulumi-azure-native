@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.Latest
+namespace Pulumi.AzureNative.CognitiveServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cognitiveservices:listAccountKeys'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cognitiveservices:listAccountKeys'.")]
     public static class ListAccountKeys
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// Latest API Version: 2017-04-18.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:cognitiveservices/latest:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:cognitiveservices/latest:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// The group type.
         /// </summary>
         [Input("groupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.RecoveryPlanGroupType> GroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.RecoveryPlanGroupType> GroupType { get; set; } = null!;
 
         [Input("replicationProtectedItems")]
         private InputList<Inputs.RecoveryPlanProtectedItemArgs>? _replicationProtectedItems;

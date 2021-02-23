@@ -16,7 +16,7 @@ export function getNetworkFunction(args: GetNetworkFunctionArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybridnetwork/v20200101preview:getNetworkFunction", {
+    return pulumi.runtime.invoke("azure-native:hybridnetwork/v20200101preview:getNetworkFunction", {
         "networkFunctionName": args.networkFunctionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

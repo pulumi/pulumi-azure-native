@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20190801
+namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20190801:DatabaseAccount")]
+    [AzureNativeResourceType("azure-native:documentdb/v20190801:DatabaseAccount")]
     public partial class DatabaseAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccount(string name, DatabaseAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20190801:DatabaseAccount", name, args ?? new DatabaseAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20190801:DatabaseAccount", name, args ?? new DatabaseAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20190801:DatabaseAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20190801:DatabaseAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,18 +172,31 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:DatabaseAccount"},
                 },
             };
@@ -230,7 +243,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
         [Input("connectorOffer")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20190801.ConnectorOffer>? ConnectorOffer { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20190801.ConnectorOffer>? ConnectorOffer { get; set; }
 
         /// <summary>
         /// The consistency policy for the Cosmos DB account.
@@ -242,7 +255,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
-        public Input<Pulumi.AzureNextGen.DocumentDB.V20190801.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DocumentDB.V20190801.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
 
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -284,7 +297,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20190801.DatabaseAccountKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20190801.DatabaseAccountKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

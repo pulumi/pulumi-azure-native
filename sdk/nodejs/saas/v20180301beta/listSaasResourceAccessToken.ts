@@ -16,7 +16,7 @@ export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:saas/v20180301beta:listSaasResourceAccessToken", {
+    return pulumi.runtime.invoke("azure-native:saas/v20180301beta:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,
     }, opts);
 }

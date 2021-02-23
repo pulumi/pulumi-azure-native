@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200831Preview.Inputs
+namespace Pulumi.AzureNative.Devices.V20200831Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831Preview.Inputs
         /// The permissions assigned to the shared access policy.
         /// </summary>
         [Input("rights", required: true)]
-        public Input<Pulumi.AzureNextGen.Devices.V20200831Preview.AccessRights> Rights { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Devices.V20200831Preview.AccessRights> Rights { get; set; } = null!;
 
         /// <summary>
         /// The secondary key.

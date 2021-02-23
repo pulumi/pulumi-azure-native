@@ -16,7 +16,7 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh/v20180701preview:getVolume", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180701preview:getVolume", {
         "resourceGroupName": args.resourceGroupName,
         "volumeName": args.volumeName,
     }, opts);

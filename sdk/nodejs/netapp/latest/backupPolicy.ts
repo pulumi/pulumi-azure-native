@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Backup policy information
  * Latest API Version: 2020-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupPolicy {
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.")
+        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.")
         return new BackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:BackupPolicy';
+    public static readonly __pulumiType = 'azure-native:netapp/latest:BackupPolicy';
 
     /**
      * Returns true if the given object is an instance of BackupPolicy.  This is designed to work even
@@ -95,9 +95,9 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'. */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:BackupPolicy'.")
+        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -142,7 +142,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201101:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201101:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

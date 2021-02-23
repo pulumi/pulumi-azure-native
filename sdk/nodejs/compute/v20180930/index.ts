@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20180930:Disk":
+            case "azure-native:compute/v20180930:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180930:Snapshot":
+            case "azure-native:compute/v20180930:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20180930", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20180930", _module)

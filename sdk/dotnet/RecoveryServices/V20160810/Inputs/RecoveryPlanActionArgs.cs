@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20160810.Inputs
 {
 
     /// <summary>
@@ -22,26 +22,26 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
         public Input<string> ActionName { get; set; } = null!;
 
         [Input("failoverDirections", required: true)]
-        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections>? _failoverDirections;
+        private InputList<Pulumi.AzureNative.RecoveryServices.V20160810.PossibleOperationsDirections>? _failoverDirections;
 
         /// <summary>
         /// The list of failover directions.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections> FailoverDirections
+        public InputList<Pulumi.AzureNative.RecoveryServices.V20160810.PossibleOperationsDirections> FailoverDirections
         {
-            get => _failoverDirections ?? (_failoverDirections = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections>());
+            get => _failoverDirections ?? (_failoverDirections = new InputList<Pulumi.AzureNative.RecoveryServices.V20160810.PossibleOperationsDirections>());
             set => _failoverDirections = value;
         }
 
         [Input("failoverTypes", required: true)]
-        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation>? _failoverTypes;
+        private InputList<Pulumi.AzureNative.RecoveryServices.V20160810.ReplicationProtectedItemOperation>? _failoverTypes;
 
         /// <summary>
         /// The list of failover types.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation> FailoverTypes
+        public InputList<Pulumi.AzureNative.RecoveryServices.V20160810.ReplicationProtectedItemOperation> FailoverTypes
         {
-            get => _failoverTypes ?? (_failoverTypes = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation>());
+            get => _failoverTypes ?? (_failoverTypes = new InputList<Pulumi.AzureNative.RecoveryServices.V20160810.ReplicationProtectedItemOperation>());
             set => _failoverTypes = value;
         }
 

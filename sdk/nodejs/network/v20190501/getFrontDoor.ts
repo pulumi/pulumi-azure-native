@@ -16,7 +16,7 @@ export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190501:getFrontDoor", {
+    return pulumi.runtime.invoke("azure-native:network/v20190501:getFrontDoor", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

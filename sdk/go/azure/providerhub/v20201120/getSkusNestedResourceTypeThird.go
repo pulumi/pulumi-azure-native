@@ -9,7 +9,7 @@ import (
 
 func LookupSkusNestedResourceTypeThird(ctx *pulumi.Context, args *LookupSkusNestedResourceTypeThirdArgs, opts ...pulumi.InvokeOption) (*LookupSkusNestedResourceTypeThirdResult, error) {
 	var rv LookupSkusNestedResourceTypeThirdResult
-	err := ctx.Invoke("azure-nextgen:providerhub/v20201120:getSkusNestedResourceTypeThird", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/v20201120:getSkusNestedResourceTypeThird", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

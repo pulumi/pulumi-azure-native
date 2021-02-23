@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101Preview
+namespace Pulumi.AzureNative.Security.V20200101Preview
 {
     public static class GetConnector
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// The connector setting
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-nextgen:security/v20200101preview:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("azure-native:security/v20200101preview:getConnector", args ?? new GetConnectorArgs(), options.WithVersion());
     }
 
 

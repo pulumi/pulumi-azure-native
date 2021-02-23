@@ -10,7 +10,7 @@ import (
 // An Application Insights web test definition.
 func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.InvokeOption) (*LookupWebTestResult, error) {
 	var rv LookupWebTestResult
-	err := ctx.Invoke("azure-nextgen:insights/v20150501:getWebTest", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20150501:getWebTest", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

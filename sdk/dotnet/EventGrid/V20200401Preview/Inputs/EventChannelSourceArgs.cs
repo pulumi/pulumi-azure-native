@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Inputs
+namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Inputs
 {
 
     /// <summary>

@@ -55,19 +55,37 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:GalleryImageVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:GalleryImageVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180601:GalleryImageVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:GalleryImageVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:GalleryImageVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:GalleryImageVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:GalleryImageVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:GalleryImageVersion"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:GalleryImageVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:GalleryImageVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:GalleryImageVersion"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:GalleryImageVersion"),
@@ -75,7 +93,7 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImageVersion
-	err := ctx.RegisterResource("azure-nextgen:compute:GalleryImageVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:GalleryImageVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +105,7 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 func GetGalleryImageVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GalleryImageVersionState, opts ...pulumi.ResourceOption) (*GalleryImageVersion, error) {
 	var resource GalleryImageVersion
-	err := ctx.ReadResource("azure-nextgen:compute:GalleryImageVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:GalleryImageVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

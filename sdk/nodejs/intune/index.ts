@@ -27,13 +27,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:intune:AndroidMAMPolicyByName":
+            case "azure-native:intune:AndroidMAMPolicyByName":
                 return new AndroidMAMPolicyByName(name, <any>undefined, { urn })
-            case "azure-nextgen:intune:IoMAMPolicyByName":
+            case "azure-native:intune:IoMAMPolicyByName":
                 return new IoMAMPolicyByName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "intune", _module)
+pulumi.runtime.registerResourceModule("azure-native", "intune", _module)

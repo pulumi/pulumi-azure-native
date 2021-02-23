@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview
+namespace Pulumi.AzureNative.Media.V20180330Preview
 {
     public static class GetMediaService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// A Media Services account.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-nextgen:media/v20180330preview:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media/v20180330preview:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
     }
 
 

@@ -14,7 +14,7 @@ import (
 // Describes a database on the RedisEnterprise cluster
 // Latest API Version: 2021-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:Database'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Database'.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -55,10 +55,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:Database"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20201001preview:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210301:Database"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20210301:Database"),
@@ -66,7 +75,7 @@ func NewDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Database
-	err := ctx.RegisterResource("azure-nextgen:cache/latest:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/latest:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +87,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("azure-nextgen:cache/latest:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/latest:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

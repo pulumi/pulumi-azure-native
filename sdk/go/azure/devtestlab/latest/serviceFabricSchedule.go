@@ -14,7 +14,7 @@ import (
 // A schedule.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabricSchedule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabricSchedule'.
 type ServiceFabricSchedule struct {
 	pulumi.CustomResourceState
 
@@ -71,7 +71,13 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ServiceFabricSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabricSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceFabricSchedule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule"),
@@ -79,7 +85,7 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabricSchedule
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:ServiceFabricSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:ServiceFabricSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +97,7 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 func GetServiceFabricSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceFabricScheduleState, opts ...pulumi.ResourceOption) (*ServiceFabricSchedule, error) {
 	var resource ServiceFabricSchedule
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:ServiceFabricSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:ServiceFabricSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

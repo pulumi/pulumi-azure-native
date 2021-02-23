@@ -16,7 +16,7 @@ export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20150501:getComponent", {
+    return pulumi.runtime.invoke("azure-native:insights/v20150501:getComponent", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

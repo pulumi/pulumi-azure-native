@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the source control.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'. */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
-    pulumi.log.warn("getSourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'.")
+    pulumi.log.warn("getSourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getSourceControl", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getSourceControl", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "sourceControlName": args.sourceControlName,

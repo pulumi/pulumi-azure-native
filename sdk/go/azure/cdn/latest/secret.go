@@ -14,7 +14,7 @@ import (
 // Friendly Secret name mapping to the any Secret or secret related information.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Secret'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Secret'.
 type Secret struct {
 	pulumi.CustomResourceState
 
@@ -46,7 +46,13 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Secret"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Secret"),
@@ -54,7 +60,7 @@ func NewSecret(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Secret
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:Secret", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:Secret", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewSecret(ctx *pulumi.Context,
 func GetSecret(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
 	var resource Secret
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:Secret", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:Secret", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

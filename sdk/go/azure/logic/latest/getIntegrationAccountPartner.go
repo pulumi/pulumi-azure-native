@@ -10,10 +10,10 @@ import (
 // The integration account partner.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountPartner'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountPartner'.
 func LookupIntegrationAccountPartner(ctx *pulumi.Context, args *LookupIntegrationAccountPartnerArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountPartnerResult, error) {
 	var rv LookupIntegrationAccountPartnerResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationAccountPartner", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationAccountPartner", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteHostNameBinding';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteHostNameBinding';
 
     /**
      * Returns true if the given object is an instance of SiteHostNameBinding.  This is designed to work even
@@ -130,7 +130,7 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteHostNameBinding" }, { type: "azure-nextgen:web/latest:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20201001:SiteHostNameBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteHostNameBinding" }, { type: "azure-nextgen:web:SiteHostNameBinding" }, { type: "azure-native:web/latest:SiteHostNameBinding" }, { type: "azure-nextgen:web/latest:SiteHostNameBinding" }, { type: "azure-native:web/v20160801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20160801:SiteHostNameBinding" }, { type: "azure-native:web/v20180201:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20180201:SiteHostNameBinding" }, { type: "azure-native:web/v20181101:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20181101:SiteHostNameBinding" }, { type: "azure-native:web/v20190801:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20190801:SiteHostNameBinding" }, { type: "azure-native:web/v20200601:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200601:SiteHostNameBinding" }, { type: "azure-native:web/v20200901:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20200901:SiteHostNameBinding" }, { type: "azure-native:web/v20201001:SiteHostNameBinding" }, { type: "azure-nextgen:web/v20201001:SiteHostNameBinding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteHostNameBinding.__pulumiType, name, inputs, opts);
     }

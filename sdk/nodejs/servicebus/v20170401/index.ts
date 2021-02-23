@@ -52,31 +52,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig":
+            case "azure-native:servicebus/v20170401:DisasterRecoveryConfig":
                 return new DisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:MigrationConfig":
+            case "azure-native:servicebus/v20170401:MigrationConfig":
                 return new MigrationConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:Namespace":
+            case "azure-native:servicebus/v20170401:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule":
+            case "azure-native:servicebus/v20170401:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet":
+            case "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:Queue":
+            case "azure-native:servicebus/v20170401:Queue":
                 return new Queue(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:QueueAuthorizationRule":
+            case "azure-native:servicebus/v20170401:QueueAuthorizationRule":
                 return new QueueAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:Rule":
+            case "azure-native:servicebus/v20170401:Rule":
                 return new Rule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:Subscription":
+            case "azure-native:servicebus/v20170401:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:Topic":
+            case "azure-native:servicebus/v20170401:Topic":
                 return new Topic(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule":
+            case "azure-native:servicebus/v20170401:TopicAuthorizationRule":
                 return new TopicAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "servicebus/v20170401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "servicebus/v20170401", _module)

@@ -10,10 +10,10 @@ import (
 // Definition of the watcher type.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getWatcher'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWatcher'.
 func LookupWatcher(ctx *pulumi.Context, args *LookupWatcherArgs, opts ...pulumi.InvokeOption) (*LookupWatcherResult, error) {
 	var rv LookupWatcherResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getWatcher", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

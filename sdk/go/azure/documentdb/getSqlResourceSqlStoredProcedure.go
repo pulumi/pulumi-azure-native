@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-15.
 func LookupSqlResourceSqlStoredProcedure(ctx *pulumi.Context, args *LookupSqlResourceSqlStoredProcedureArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlStoredProcedureResult, error) {
 	var rv LookupSqlResourceSqlStoredProcedureResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getSqlResourceSqlStoredProcedure", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlStoredProcedure", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // A virtual network rule.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getVirtualNetworkRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getVirtualNetworkRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

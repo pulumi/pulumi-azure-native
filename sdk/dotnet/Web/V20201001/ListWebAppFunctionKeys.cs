@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class ListWebAppFunctionKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// String dictionary resource.
         /// </summary>
         public static Task<ListWebAppFunctionKeysResult> InvokeAsync(ListWebAppFunctionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysResult>("azure-nextgen:web/v20201001:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysResult>("azure-native:web/v20201001:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysArgs(), options.WithVersion());
     }
 
 

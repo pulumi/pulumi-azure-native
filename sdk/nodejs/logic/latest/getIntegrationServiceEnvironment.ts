@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration service environment.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironment'. */
 export function getIntegrationServiceEnvironment(args: GetIntegrationServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentResult> {
-    pulumi.log.warn("getIntegrationServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationServiceEnvironment'.")
+    pulumi.log.warn("getIntegrationServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationServiceEnvironment(args: GetIntegrationServiceEnvi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationServiceEnvironment", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getIntegrationServiceEnvironment", {
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
         "resourceGroup": args.resourceGroup,
     }, opts);

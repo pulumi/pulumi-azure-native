@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     public static class GetConsole
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetConsoleResult> InvokeAsync(GetConsoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-nextgen:portal:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsoleResult>("azure-native:portal:getConsole", args ?? new GetConsoleArgs(), options.WithVersion());
     }
 
 

@@ -16,7 +16,7 @@ export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/v20170401:getNamespaceNetworkRuleSet", {
+    return pulumi.runtime.invoke("azure-native:eventhub/v20170401:getNamespaceNetworkRuleSet", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

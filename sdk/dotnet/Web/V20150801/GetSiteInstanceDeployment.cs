@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteInstanceDeployment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Represents user credentials used for publishing activity
         /// </summary>
         public static Task<GetSiteInstanceDeploymentResult> InvokeAsync(GetSiteInstanceDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-nextgen:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentResult>("azure-native:web/v20150801:getSiteInstanceDeployment", args ?? new GetSiteInstanceDeploymentArgs(), options.WithVersion());
     }
 
 

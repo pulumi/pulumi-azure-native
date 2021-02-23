@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
+namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
     public sealed class ProviderRegistrationPropertiesArgs : Pulumi.ResourceArgs
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
         public Input<Inputs.ProviderRegistrationPropertiesProviderHubMetadataArgs>? ProviderHubMetadata { get; set; }
 
         [Input("providerType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ResourceProviderType>? ProviderType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ResourceProviderType>? ProviderType { get; set; }
 
         [Input("providerVersion")]
         public Input<string>? ProviderVersion { get; set; }
 
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
 
         [Input("requestHeaderOptions")]
         public Input<Inputs.ResourceProviderManifestPropertiesRequestHeaderOptionsArgs>? RequestHeaderOptions { get; set; }

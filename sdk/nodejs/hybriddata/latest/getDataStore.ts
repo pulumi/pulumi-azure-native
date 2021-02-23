@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data store.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataStore'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataStore'. */
 export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDataStoreResult> {
-    pulumi.log.warn("getDataStore is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataStore'.")
+    pulumi.log.warn("getDataStore is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataStore'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata/latest:getDataStore", {
+    return pulumi.runtime.invoke("azure-native:hybriddata/latest:getDataStore", {
         "dataManagerName": args.dataManagerName,
         "dataStoreName": args.dataStoreName,
         "resourceGroupName": args.resourceGroupName,

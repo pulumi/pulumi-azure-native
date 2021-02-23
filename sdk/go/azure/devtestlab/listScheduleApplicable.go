@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func ListScheduleApplicable(ctx *pulumi.Context, args *ListScheduleApplicableArgs, opts ...pulumi.InvokeOption) (*ListScheduleApplicableResult, error) {
 	var rv ListScheduleApplicableResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:listScheduleApplicable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:listScheduleApplicable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

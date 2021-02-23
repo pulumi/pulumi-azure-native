@@ -10,10 +10,10 @@ import (
 // A Streaming Locator resource
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingLocator'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingLocator'.
 func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArgs, opts ...pulumi.InvokeOption) (*LookupStreamingLocatorResult, error) {
 	var rv LookupStreamingLocatorResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getStreamingLocator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getStreamingLocator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

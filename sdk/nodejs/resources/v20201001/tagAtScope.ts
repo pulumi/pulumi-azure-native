@@ -22,7 +22,7 @@ export class TagAtScope extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources/v20201001:TagAtScope';
+    public static readonly __pulumiType = 'azure-native:resources/v20201001:TagAtScope';
 
     /**
      * Returns true if the given object is an instance of TagAtScope.  This is designed to work even
@@ -80,7 +80,7 @@ export class TagAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:TagAtScope" }, { type: "azure-nextgen:resources/latest:TagAtScope" }, { type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:TagAtScope" }, { type: "azure-nextgen:resources:TagAtScope" }, { type: "azure-native:resources/latest:TagAtScope" }, { type: "azure-nextgen:resources/latest:TagAtScope" }, { type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }

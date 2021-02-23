@@ -10,10 +10,10 @@ import (
 // Site Extension Information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSiteExtensionSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtensionSlot'.
 func LookupWebAppSiteExtensionSlot(ctx *pulumi.Context, args *LookupWebAppSiteExtensionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionSlotResult, error) {
 	var rv LookupWebAppSiteExtensionSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppSiteExtensionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppSiteExtensionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

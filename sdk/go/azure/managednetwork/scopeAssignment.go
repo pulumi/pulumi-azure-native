@@ -42,12 +42,15 @@ func NewScopeAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managednetwork/v20190601preview:ScopeAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ScopeAssignment
-	err := ctx.RegisterResource("azure-nextgen:managednetwork:ScopeAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managednetwork:ScopeAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewScopeAssignment(ctx *pulumi.Context,
 func GetScopeAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScopeAssignmentState, opts ...pulumi.ResourceOption) (*ScopeAssignment, error) {
 	var resource ScopeAssignment
-	err := ctx.ReadResource("azure-nextgen:managednetwork:ScopeAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managednetwork:ScopeAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

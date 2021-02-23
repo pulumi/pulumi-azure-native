@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.NetApp.V20190701
+namespace Pulumi.AzureNative.NetApp.V20190701
 {
     /// <summary>
     /// The service level of the file system

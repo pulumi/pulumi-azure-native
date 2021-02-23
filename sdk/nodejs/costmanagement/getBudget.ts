@@ -17,7 +17,7 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement:getBudget", {
+    return pulumi.runtime.invoke("azure-native:costmanagement:getBudget", {
         "budgetName": args.budgetName,
         "scope": args.scope,
     }, opts);

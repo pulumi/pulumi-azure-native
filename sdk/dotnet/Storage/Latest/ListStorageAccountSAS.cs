@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:listStorageAccountSAS'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountSAS'.")]
     public static class ListStorageAccountSAS
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-nextgen:storage/latest:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage/latest:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
     }
 
 
@@ -45,13 +45,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
         /// </summary>
         [Input("permissions", required: true)]
-        public Union<string, Pulumi.AzureNextGen.Storage.Latest.Permissions> Permissions { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.Storage.Latest.Permissions> Permissions { get; set; } = null!;
 
         /// <summary>
         /// The protocol permitted for a request made with the account SAS.
         /// </summary>
         [Input("protocols")]
-        public Pulumi.AzureNextGen.Storage.Latest.HttpProtocol? Protocols { get; set; }
+        public Pulumi.AzureNative.Storage.Latest.HttpProtocol? Protocols { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -63,13 +63,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
         /// </summary>
         [Input("resourceTypes", required: true)]
-        public Union<string, Pulumi.AzureNextGen.Storage.Latest.SignedResourceTypes> ResourceTypes { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.Storage.Latest.SignedResourceTypes> ResourceTypes { get; set; } = null!;
 
         /// <summary>
         /// The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
         /// </summary>
         [Input("services", required: true)]
-        public Union<string, Pulumi.AzureNextGen.Storage.Latest.Services> Services { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.Storage.Latest.Services> Services { get; set; } = null!;
 
         /// <summary>
         /// The time at which the shared access signature becomes invalid.

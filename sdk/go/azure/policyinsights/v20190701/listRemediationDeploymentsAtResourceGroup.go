@@ -10,7 +10,7 @@ import (
 // List of deployments for a remediation.
 func ListRemediationDeploymentsAtResourceGroup(ctx *pulumi.Context, args *ListRemediationDeploymentsAtResourceGroupArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtResourceGroupResult, error) {
 	var rv ListRemediationDeploymentsAtResourceGroupResult
-	err := ctx.Invoke("azure-nextgen:policyinsights/v20190701:listRemediationDeploymentsAtResourceGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights/v20190701:listRemediationDeploymentsAtResourceGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

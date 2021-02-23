@@ -50,25 +50,49 @@ func NewProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20190615:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20190615:ProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectedItem"),
@@ -76,7 +100,7 @@ func NewProtectedItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectedItem
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/v20190513:ProtectedItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/v20190513:ProtectedItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +112,7 @@ func NewProtectedItem(ctx *pulumi.Context,
 func GetProtectedItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectedItemState, opts ...pulumi.ResourceOption) (*ProtectedItem, error) {
 	var resource ProtectedItem
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/v20190513:ProtectedItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/v20190513:ProtectedItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

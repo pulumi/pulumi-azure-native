@@ -72,19 +72,37 @@ func NewGalleryImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:GalleryImage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:GalleryImage"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180601:GalleryImage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:GalleryImage"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:GalleryImage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:GalleryImage"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:GalleryImage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:GalleryImage"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:GalleryImage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:GalleryImage"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:GalleryImage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:GalleryImage"),
@@ -92,7 +110,7 @@ func NewGalleryImage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImage
-	err := ctx.RegisterResource("azure-nextgen:compute:GalleryImage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:GalleryImage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +122,7 @@ func NewGalleryImage(ctx *pulumi.Context,
 func GetGalleryImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GalleryImageState, opts ...pulumi.ResourceOption) (*GalleryImage, error) {
 	var resource GalleryImage
-	err := ctx.ReadResource("azure-nextgen:compute:GalleryImage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:GalleryImage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

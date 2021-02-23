@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
+namespace Pulumi.AzureNative.Authorization.V20200701Preview
 {
     /// <summary>
     /// The policy exemption category. Possible values are Waiver and Mitigated.

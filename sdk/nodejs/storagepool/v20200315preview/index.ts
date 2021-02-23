@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storagepool/v20200315preview:DiskPool":
+            case "azure-native:storagepool/v20200315preview:DiskPool":
                 return new DiskPool(name, <any>undefined, { urn })
-            case "azure-nextgen:storagepool/v20200315preview:IscsiTarget":
+            case "azure-native:storagepool/v20200315preview:IscsiTarget":
                 return new IscsiTarget(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storagepool/v20200315preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storagepool/v20200315preview", _module)

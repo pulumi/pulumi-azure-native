@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20200202
+namespace Pulumi.AzureNative.RecoveryServices.V20200202
 {
     /// <summary>
     /// Enabling/Disabling the Double Encryption state

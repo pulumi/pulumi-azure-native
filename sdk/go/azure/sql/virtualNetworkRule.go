@@ -46,10 +46,19 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:VirtualNetworkRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:VirtualNetworkRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:VirtualNetworkRule"),
@@ -57,7 +66,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:sql:VirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	var resource VirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:sql:VirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:VirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

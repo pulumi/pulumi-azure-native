@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupQueueServiceProperties(ctx *pulumi.Context, args *LookupQueueServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupQueueServicePropertiesResult, error) {
 	var rv LookupQueueServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage:getQueueServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getQueueServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

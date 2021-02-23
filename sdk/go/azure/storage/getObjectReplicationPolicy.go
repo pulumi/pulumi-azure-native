@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupObjectReplicationPolicyResult, error) {
 	var rv LookupObjectReplicationPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage:getObjectReplicationPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getObjectReplicationPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

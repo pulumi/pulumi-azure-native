@@ -10,10 +10,10 @@ import (
 // GetBitLockerKeys response
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:importexport:listBitLockerKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:listBitLockerKey'.
 func ListBitLockerKey(ctx *pulumi.Context, args *ListBitLockerKeyArgs, opts ...pulumi.InvokeOption) (*ListBitLockerKeyResult, error) {
 	var rv ListBitLockerKeyResult
-	err := ctx.Invoke("azure-nextgen:importexport/latest:listBitLockerKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:importexport/latest:listBitLockerKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

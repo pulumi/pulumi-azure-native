@@ -10,7 +10,7 @@ import (
 // Represents order contract
 func LookupOrderByName(ctx *pulumi.Context, args *LookupOrderByNameArgs, opts ...pulumi.InvokeOption) (*LookupOrderByNameResult, error) {
 	var rv LookupOrderByNameResult
-	err := ctx.Invoke("azure-nextgen:edgeorder/v20201201preview:getOrderByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder/v20201201preview:getOrderByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

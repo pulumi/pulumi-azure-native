@@ -10,10 +10,10 @@ import (
 // Snapshot policy information
 // Latest API Version: 2020-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:netapp:getSnapshotPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshotPolicy'.
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
-	err := ctx.Invoke("azure-nextgen:netapp/latest:getSnapshotPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/latest:getSnapshotPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

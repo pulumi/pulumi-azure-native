@@ -10,7 +10,7 @@ import (
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	var rv LookupImageResult
-	err := ctx.Invoke("azure-nextgen:compute/v20190701:getImage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20190701:getImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801
+namespace Pulumi.AzureNative.Network.V20180801
 {
     /// <summary>
     /// Defines web application firewall policy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20180801:Policy")]
+    [AzureNativeResourceType("azure-native:network/v20180801:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -81,12 +81,12 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180801:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20180801:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20180801:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20180801:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -97,11 +97,17 @@ namespace Pulumi.AzureNextGen.Network.V20180801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191001:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191001:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Policy"},
                 },
             };

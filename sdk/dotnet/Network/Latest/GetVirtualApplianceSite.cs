@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualApplianceSite'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualApplianceSite'.")]
     public static class GetVirtualApplianceSite
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2020-08-01.
         /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-nextgen:network/latest:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network/latest:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithVersion());
     }
 
 

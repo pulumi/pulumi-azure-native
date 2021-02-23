@@ -14,7 +14,7 @@ import (
 // Linked service resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:LinkedService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
@@ -46,10 +46,19 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:LinkedService"),
@@ -57,7 +66,7 @@ func NewLinkedService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService
-	err := ctx.RegisterResource("azure-nextgen:datafactory/latest:LinkedService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/latest:LinkedService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +78,7 @@ func NewLinkedService(ctx *pulumi.Context,
 func GetLinkedService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	var resource LinkedService
-	err := ctx.ReadResource("azure-nextgen:datafactory/latest:LinkedService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/latest:LinkedService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

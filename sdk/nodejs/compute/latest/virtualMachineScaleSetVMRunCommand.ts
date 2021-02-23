@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine run command.
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.
  */
 export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVMRunCommand {
-        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.")
+        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.")
         return new VirtualMachineScaleSetVMRunCommand(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:VirtualMachineScaleSetVMRunCommand';
+    public static readonly __pulumiType = 'azure-native:compute/latest:VirtualMachineScaleSetVMRunCommand';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSetVMRunCommand.  This is designed to work even
@@ -107,9 +107,9 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'. */
     constructor(name: string, args: VirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand'.")
+        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
@@ -164,7 +164,7 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVMRunCommand.__pulumiType, name, inputs, opts);
     }

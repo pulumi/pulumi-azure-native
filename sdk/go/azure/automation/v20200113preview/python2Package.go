@@ -67,13 +67,25 @@ func NewPython2Package(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Python2Package"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Python2Package"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/latest:Python2Package"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Python2Package"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20180630:Python2Package"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Python2Package"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:Python2Package"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Python2Package"),
@@ -81,7 +93,7 @@ func NewPython2Package(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Python2Package
-	err := ctx.RegisterResource("azure-nextgen:automation/v20200113preview:Python2Package", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/v20200113preview:Python2Package", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +105,7 @@ func NewPython2Package(ctx *pulumi.Context,
 func GetPython2Package(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *Python2PackageState, opts ...pulumi.ResourceOption) (*Python2Package, error) {
 	var resource Python2Package
-	err := ctx.ReadResource("azure-nextgen:automation/v20200113preview:Python2Package", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/v20200113preview:Python2Package", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

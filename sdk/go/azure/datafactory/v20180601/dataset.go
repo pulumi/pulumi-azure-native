@@ -43,10 +43,19 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory:Dataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory:Dataset"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:Dataset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Dataset"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Dataset"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Dataset"),
@@ -54,7 +63,7 @@ func NewDataset(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Dataset
-	err := ctx.RegisterResource("azure-nextgen:datafactory/v20180601:Dataset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory/v20180601:Dataset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +75,7 @@ func NewDataset(ctx *pulumi.Context,
 func GetDataset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatasetState, opts ...pulumi.ResourceOption) (*Dataset, error) {
 	var resource Dataset
-	err := ctx.ReadResource("azure-nextgen:datafactory/v20180601:Dataset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory/v20180601:Dataset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

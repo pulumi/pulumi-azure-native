@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * VpnGateway Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnGateway'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnGateway'. */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
-    pulumi.log.warn("getVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnGateway'.")
+    pulumi.log.warn("getVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnGateway'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVpnGateway", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVpnGateway", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

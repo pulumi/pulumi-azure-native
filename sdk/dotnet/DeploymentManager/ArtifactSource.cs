@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
     /// API Version: 2019-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:deploymentmanager:ArtifactSource")]
+    [AzureNativeResourceType("azure-native:deploymentmanager:ArtifactSource")]
     public partial class ArtifactSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ArtifactSource(string name, ArtifactSourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:ArtifactSource", name, args ?? new ArtifactSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:deploymentmanager:ArtifactSource", name, args ?? new ArtifactSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ArtifactSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:ArtifactSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:deploymentmanager:ArtifactSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:ArtifactSource"},
                 },
             };

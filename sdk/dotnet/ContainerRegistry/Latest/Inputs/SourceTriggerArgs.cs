@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.Latest.Inputs
 {
 
     /// <summary>
@@ -28,14 +28,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         public Input<Inputs.SourcePropertiesArgs> SourceRepository { get; set; } = null!;
 
         [Input("sourceTriggerEvents", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SourceTriggerEvent>>? _sourceTriggerEvents;
+        private InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.Latest.SourceTriggerEvent>>? _sourceTriggerEvents;
 
         /// <summary>
         /// The source event corresponding to the trigger.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SourceTriggerEvent>> SourceTriggerEvents
+        public InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.Latest.SourceTriggerEvent>> SourceTriggerEvents
         {
-            get => _sourceTriggerEvents ?? (_sourceTriggerEvents = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SourceTriggerEvent>>());
+            get => _sourceTriggerEvents ?? (_sourceTriggerEvents = new InputList<Union<string, Pulumi.AzureNative.ContainerRegistry.Latest.SourceTriggerEvent>>());
             set => _sourceTriggerEvents = value;
         }
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The current status of trigger.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.TriggerStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.Latest.TriggerStatus>? Status { get; set; }
 
         public SourceTriggerArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
+namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.StreamingJobSkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20170401Preview.StreamingJobSkuName>? Name { get; set; }
 
         public StreamingJobSkuArgs()
         {

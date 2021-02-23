@@ -17,7 +17,7 @@ export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blueprint:getPublishedBlueprint", {
+    return pulumi.runtime.invoke("azure-native:blueprint:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
         "resourceScope": args.resourceScope,
         "versionId": args.versionId,

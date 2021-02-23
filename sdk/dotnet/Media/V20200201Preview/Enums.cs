@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Media.V20200201Preview
+namespace Pulumi.AzureNative.Media.V20200201Preview
 {
     /// <summary>
     /// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.

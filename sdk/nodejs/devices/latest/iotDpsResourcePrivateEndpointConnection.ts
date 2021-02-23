@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The private endpoint connection of a provisioning service
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'.
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotDpsResourcePrivateEndpointConnection {
-        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.")
+        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'.")
         return new IotDpsResourcePrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of IotDpsResourcePrivateEndpointConnection.  This is designed to work even
@@ -59,9 +59,9 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'. */
     constructor(name: string, args: IotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.")
+        pulumi.log.warn("IotDpsResourcePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -91,7 +91,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

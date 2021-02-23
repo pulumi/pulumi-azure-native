@@ -16,7 +16,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/v20170907privatepreview:getCluster", {
+    return pulumi.runtime.invoke("azure-native:kusto/v20170907privatepreview:getCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

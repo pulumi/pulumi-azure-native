@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:desktopvirtualization/v20210114preview:Application":
+	case "azure-native:desktopvirtualization/v20210114preview:Application":
 		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup":
+	case "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup":
 		r, err = NewApplicationGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:desktopvirtualization/v20210114preview:HostPool":
+	case "azure-native:desktopvirtualization/v20210114preview:HostPool":
 		r, err = NewHostPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage":
+	case "azure-native:desktopvirtualization/v20210114preview:MSIXPackage":
 		r, err = NewMSIXPackage(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan":
+	case "azure-native:desktopvirtualization/v20210114preview:ScalingPlan":
 		r, err = NewScalingPlan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:desktopvirtualization/v20210114preview:Workspace":
+	case "azure-native:desktopvirtualization/v20210114preview:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"desktopvirtualization/v20210114preview",
 		&module{version},
 	)

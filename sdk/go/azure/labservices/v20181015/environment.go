@@ -70,7 +70,13 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:labservices:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:labservices:Environment"),
+		},
+		{
+			Type: pulumi.String("azure-native:labservices/latest:Environment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:labservices/latest:Environment"),
@@ -78,7 +84,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Environment
-	err := ctx.RegisterResource("azure-nextgen:labservices/v20181015:Environment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:labservices/v20181015:Environment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +96,7 @@ func NewEnvironment(ctx *pulumi.Context,
 func GetEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnvironmentState, opts ...pulumi.ResourceOption) (*Environment, error) {
 	var resource Environment
-	err := ctx.ReadResource("azure-nextgen:labservices/v20181015:Environment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:labservices/v20181015:Environment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

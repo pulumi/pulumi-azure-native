@@ -11,7 +11,7 @@ import (
 // API Version: 2015-05-01.
 func LookupAnalyticsItem(ctx *pulumi.Context, args *LookupAnalyticsItemArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsItemResult, error) {
 	var rv LookupAnalyticsItemResult
-	err := ctx.Invoke("azure-nextgen:insights:getAnalyticsItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getAnalyticsItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

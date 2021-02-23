@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Premier add-on.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOn'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOn'. */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
-    pulumi.log.warn("getWebAppPremierAddOn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOn'.")
+    pulumi.log.warn("getWebAppPremierAddOn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOn'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppPremierAddOn", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppPremierAddOn", {
         "name": args.name,
         "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Content Key Policy resource.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicy'. */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
-    pulumi.log.warn("getContentKeyPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getContentKeyPolicy'.")
+    pulumi.log.warn("getContentKeyPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getContentKeyPolicy", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getContentKeyPolicy", {
         "accountName": args.accountName,
         "contentKeyPolicyName": args.contentKeyPolicyName,
         "resourceGroupName": args.resourceGroupName,

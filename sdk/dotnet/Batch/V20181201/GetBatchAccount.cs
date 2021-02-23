@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20181201
+namespace Pulumi.AzureNative.Batch.V20181201
 {
     public static class GetBatchAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
         /// Contains information about an Azure Batch account.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-nextgen:batch/v20181201:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/v20181201:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
     }
 
 

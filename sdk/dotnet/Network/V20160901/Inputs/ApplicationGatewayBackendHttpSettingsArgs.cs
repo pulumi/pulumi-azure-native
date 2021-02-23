@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
+namespace Pulumi.AzureNative.Network.V20160901.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
         /// </summary>
         [Input("cookieBasedAffinity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// Protocol. Possible values are: 'Http' and 'Https'.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160901.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

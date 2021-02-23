@@ -40,22 +40,43 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/latest:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtScope"),
@@ -63,7 +84,7 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtScope
-	err := ctx.RegisterResource("azure-nextgen:resources/v20190701:DeploymentAtScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/v20190701:DeploymentAtScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +96,7 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 func GetDeploymentAtScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentAtScopeState, opts ...pulumi.ResourceOption) (*DeploymentAtScope, error) {
 	var resource DeploymentAtScope
-	err := ctx.ReadResource("azure-nextgen:resources/v20190701:DeploymentAtScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/v20190701:DeploymentAtScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

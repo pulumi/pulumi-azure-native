@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Compute.V20180930
+namespace Pulumi.AzureNative.Compute.V20180930
 {
     /// <summary>
     /// This enumerates the possible sources of a disk's creation.

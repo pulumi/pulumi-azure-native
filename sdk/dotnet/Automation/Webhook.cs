@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the webhook type.
     /// API Version: 2015-10-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:Webhook")]
+    [AzureNativeResourceType("azure-native:automation:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Webhook(string name, WebhookArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Webhook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:Webhook", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:Webhook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,7 +119,9 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Webhook"},
                 },
             };

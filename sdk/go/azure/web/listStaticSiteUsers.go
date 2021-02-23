@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteUsersResult, error) {
 	var rv ListStaticSiteUsersResult
-	err := ctx.Invoke("azure-nextgen:web:listStaticSiteUsers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listStaticSiteUsers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

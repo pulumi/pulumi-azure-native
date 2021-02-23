@@ -16,7 +16,7 @@ export function getPeeringServicePrefix(args: GetPeeringServicePrefixArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/v20190801preview:getPeeringServicePrefix", {
+    return pulumi.runtime.invoke("azure-native:peering/v20190801preview:getPeeringServicePrefix", {
         "peeringServiceName": args.peeringServiceName,
         "prefixName": args.prefixName,
         "resourceGroupName": args.resourceGroupName,

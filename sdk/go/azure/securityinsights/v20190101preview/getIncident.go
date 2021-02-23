@@ -10,7 +10,7 @@ import (
 // Represents an incident in Azure Security Insights.
 func LookupIncident(ctx *pulumi.Context, args *LookupIncidentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentResult, error) {
 	var rv LookupIncidentResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getIncident", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getIncident", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

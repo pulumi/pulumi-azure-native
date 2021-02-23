@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountMongoDBDatabase'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountMongoDBDatabase'.")]
     public static class GetDatabaseAccountMongoDBDatabase
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountMongoDBDatabaseResult> InvokeAsync(GetDatabaseAccountMongoDBDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-nextgen:documentdb/latest:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountMongoDBDatabaseResult>("azure-native:documentdb/latest:getDatabaseAccountMongoDBDatabase", args ?? new GetDatabaseAccountMongoDBDatabaseArgs(), options.WithVersion());
     }
 
 

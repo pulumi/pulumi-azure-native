@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
         /// Type of product filter.
         /// </summary>
         [Input("type", required: true)]
-        public Union<string, Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.SupportedFilterTypes> Type { get; set; } = null!;
+        public Union<string, Pulumi.AzureNative.EdgeOrder.V20201201Preview.SupportedFilterTypes> Type { get; set; } = null!;
 
         public FilterablePropertyArgs()
         {

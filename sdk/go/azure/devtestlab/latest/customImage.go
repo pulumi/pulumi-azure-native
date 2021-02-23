@@ -14,7 +14,7 @@ import (
 // A custom image.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.
 type CustomImage struct {
 	pulumi.CustomResourceState
 
@@ -67,13 +67,25 @@ func NewCustomImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:CustomImage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:CustomImage"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:CustomImage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:CustomImage"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:CustomImage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:CustomImage"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:CustomImage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:CustomImage"),
@@ -81,7 +93,7 @@ func NewCustomImage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomImage
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:CustomImage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:CustomImage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +105,7 @@ func NewCustomImage(ctx *pulumi.Context,
 func GetCustomImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomImageState, opts ...pulumi.ResourceOption) (*CustomImage, error) {
 	var resource CustomImage
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:CustomImage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:CustomImage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

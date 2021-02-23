@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20191001Preview
+namespace Pulumi.AzureNative.Resources.V20191001Preview
 {
     public static class GetDeploymentScript
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
         /// Deployment script object.
         /// </summary>
         public static Task<GetDeploymentScriptResult> InvokeAsync(GetDeploymentScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-nextgen:resources/v20191001preview:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentScriptResult>("azure-native:resources/v20191001preview:getDeploymentScript", args ?? new GetDeploymentScriptArgs(), options.WithVersion());
     }
 
 

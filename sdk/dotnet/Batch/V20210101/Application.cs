@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101
+namespace Pulumi.AzureNative.Batch.V20210101
 {
     /// <summary>
     /// Contains information about an application in a Batch account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batch/v20210101:Application")]
+    [AzureNativeResourceType("azure-native:batch/v20210101:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Batch.V20210101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20210101:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch/v20210101:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch/v20210101:Application", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch/v20210101:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,17 +76,29 @@ namespace Pulumi.AzureNextGen.Batch.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/latest:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20151201:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170101:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170101:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170501:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Application"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Application"},
                 },
             };

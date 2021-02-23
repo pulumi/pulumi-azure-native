@@ -45,16 +45,31 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights/latest:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/latest:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20190801preview:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:LinkedService"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:LinkedService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:LinkedService"),
@@ -62,7 +77,7 @@ func NewLinkedService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights:LinkedService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights:LinkedService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +89,7 @@ func NewLinkedService(ctx *pulumi.Context,
 func GetLinkedService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkedServiceState, opts ...pulumi.ResourceOption) (*LinkedService, error) {
 	var resource LinkedService
-	err := ctx.ReadResource("azure-nextgen:operationalinsights:LinkedService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights:LinkedService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

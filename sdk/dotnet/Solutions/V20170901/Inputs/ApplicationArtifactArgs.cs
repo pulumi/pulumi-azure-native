@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.V20170901.Inputs
+namespace Pulumi.AzureNative.Solutions.V20170901.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901.Inputs
         /// The managed application artifact type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Solutions.V20170901.ApplicationArtifactType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Solutions.V20170901.ApplicationArtifactType>? Type { get; set; }
 
         /// <summary>
         /// The managed application artifact blob uri.

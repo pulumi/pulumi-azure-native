@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Private endpoint resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateEndpoint'. */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
-    pulumi.log.warn("getPrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPrivateEndpoint'.")
+    pulumi.log.warn("getPrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getPrivateEndpoint", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getPrivateEndpoint", {
         "expand": args.expand,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,

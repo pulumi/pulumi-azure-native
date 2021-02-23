@@ -152,61 +152,61 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights:ActionGroup":
+            case "azure-native:insights:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:ActivityLogAlert":
+            case "azure-native:insights:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:AlertRule":
+            case "azure-native:insights:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:AnalyticsItem":
+            case "azure-native:insights:AnalyticsItem":
                 return new AnalyticsItem(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:AutoscaleSetting":
+            case "azure-native:insights:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:Component":
+            case "azure-native:insights:Component":
                 return new Component(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:ComponentCurrentBillingFeature":
+            case "azure-native:insights:ComponentCurrentBillingFeature":
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:ComponentLinkedStorageAccount":
+            case "azure-native:insights:ComponentLinkedStorageAccount":
                 return new ComponentLinkedStorageAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:DataCollectionRule":
+            case "azure-native:insights:DataCollectionRule":
                 return new DataCollectionRule(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:DataCollectionRuleAssociation":
+            case "azure-native:insights:DataCollectionRuleAssociation":
                 return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:DiagnosticSetting":
+            case "azure-native:insights:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:ExportConfiguration":
+            case "azure-native:insights:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:Favorite":
+            case "azure-native:insights:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:GuestDiagnosticsSettingsAssociation":
+            case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
                 return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:LogProfile":
+            case "azure-native:insights:LogProfile":
                 return new LogProfile(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:MetricAlert":
+            case "azure-native:insights:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:MyWorkbook":
+            case "azure-native:insights:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:PrivateEndpointConnection":
+            case "azure-native:insights:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:PrivateLinkScope":
+            case "azure-native:insights:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:PrivateLinkScopedResource":
+            case "azure-native:insights:PrivateLinkScopedResource":
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:ScheduledQueryRule":
+            case "azure-native:insights:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:SubscriptionDiagnosticSetting":
+            case "azure-native:insights:SubscriptionDiagnosticSetting":
                 return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:WebTest":
+            case "azure-native:insights:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:Workbook":
+            case "azure-native:insights:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:WorkbookTemplate":
+            case "azure-native:insights:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
-            case "azure-nextgen:insights:guestDiagnosticsSetting":
+            case "azure-native:insights:guestDiagnosticsSetting":
                 return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights", _module)

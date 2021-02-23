@@ -76,19 +76,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:search/latest:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/latest:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20150819:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20150819:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:search/v20191001preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/v20191001preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20200313:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200313:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:search/v20200801:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/v20200801:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20200801preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200801preview:Service"),
@@ -96,7 +114,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:search:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:search:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +126,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:search:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:search:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

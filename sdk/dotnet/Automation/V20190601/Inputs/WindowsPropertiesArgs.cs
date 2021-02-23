@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601.Inputs
+namespace Pulumi.AzureNative.Automation.V20190601.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601.Inputs
         /// Update classification included in the software update configuration. A comma separated string with required values
         /// </summary>
         [Input("includedUpdateClassifications")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20190601.WindowsUpdateClasses>? IncludedUpdateClassifications { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.V20190601.WindowsUpdateClasses>? IncludedUpdateClassifications { get; set; }
 
         /// <summary>
         /// Reboot setting for the software update configuration.

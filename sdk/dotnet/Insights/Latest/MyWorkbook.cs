@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
     /// <summary>
     /// An Application Insights private workbook definition.
     /// Latest API Version: 2020-10-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MyWorkbook'.")]
-    [AzureNextGenResourceType("azure-nextgen:insights/latest:MyWorkbook")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.")]
+    [AzureNativeResourceType("azure-native:insights/latest:MyWorkbook")]
     public partial class MyWorkbook : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MyWorkbook(string name, MyWorkbookArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:MyWorkbook", name, args ?? new MyWorkbookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/latest:MyWorkbook", name, args ?? new MyWorkbookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MyWorkbook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:MyWorkbook", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/latest:MyWorkbook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,8 +132,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:MyWorkbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:MyWorkbook"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150501:MyWorkbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:MyWorkbook"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20201020:MyWorkbook"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20201020:MyWorkbook"},
                 },
             };
@@ -198,7 +201,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.Kind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.Latest.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location

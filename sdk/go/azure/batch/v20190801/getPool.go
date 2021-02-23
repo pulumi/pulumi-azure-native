@@ -10,7 +10,7 @@ import (
 // Contains information about a pool.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
-	err := ctx.Invoke("azure-nextgen:batch/v20190801:getPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch/v20190801:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

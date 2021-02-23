@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a Private DNS zone.
     /// API Version: 2020-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:PrivateZone")]
+    [AzureNativeResourceType("azure-native:network:PrivateZone")]
     public partial class PrivateZone : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateZone(string name, PrivateZoneArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:PrivateZone", name, args ?? new PrivateZoneArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:PrivateZone", name, args ?? new PrivateZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateZone(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:PrivateZone", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:PrivateZone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,9 +119,13 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateZone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateZone"},
                 },
             };

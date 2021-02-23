@@ -22,7 +22,7 @@ export class ArtifactSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:deploymentmanager/v20191101preview:ArtifactSource';
+    public static readonly __pulumiType = 'azure-native:deploymentmanager/v20191101preview:ArtifactSource';
 
     /**
      * Returns true if the given object is an instance of ArtifactSource.  This is designed to work even
@@ -108,7 +108,7 @@ export class ArtifactSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager:ArtifactSource" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ArtifactSource" }, { type: "azure-nextgen:deploymentmanager:ArtifactSource" }, { type: "azure-native:deploymentmanager/v20180901preview:ArtifactSource" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ArtifactSource.__pulumiType, name, inputs, opts);
     }

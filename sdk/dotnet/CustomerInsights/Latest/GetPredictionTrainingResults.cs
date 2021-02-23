@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Latest
+namespace Pulumi.AzureNative.CustomerInsights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getPredictionTrainingResults'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionTrainingResults'.")]
     public static class GetPredictionTrainingResults
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Latest API Version: 2017-04-26.
         /// </summary>
         public static Task<GetPredictionTrainingResultsResult> InvokeAsync(GetPredictionTrainingResultsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-nextgen:customerinsights/latest:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionTrainingResultsResult>("azure-native:customerinsights/latest:getPredictionTrainingResults", args ?? new GetPredictionTrainingResultsArgs(), options.WithVersion());
     }
 
 

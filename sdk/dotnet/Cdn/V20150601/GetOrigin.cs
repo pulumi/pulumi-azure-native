@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20150601
+namespace Pulumi.AzureNative.Cdn.V20150601
 {
     public static class GetOrigin
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
         /// </summary>
         public static Task<GetOriginResult> InvokeAsync(GetOriginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginResult>("azure-nextgen:cdn/v20150601:getOrigin", args ?? new GetOriginArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginResult>("azure-native:cdn/v20150601:getOrigin", args ?? new GetOriginArgs(), options.WithVersion());
     }
 
 

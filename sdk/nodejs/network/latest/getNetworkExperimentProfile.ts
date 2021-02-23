@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Defines an Network Experiment Profile and lists of Experiments
  * Latest API Version: 2019-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkExperimentProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkExperimentProfile'. */
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
-    pulumi.log.warn("getNetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNetworkExperimentProfile'.")
+    pulumi.log.warn("getNetworkExperimentProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkExperimentProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getNetworkExperimentProfile", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getNetworkExperimentProfile", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

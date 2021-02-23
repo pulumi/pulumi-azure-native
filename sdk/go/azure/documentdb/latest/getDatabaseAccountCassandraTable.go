@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB Cassandra table.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountCassandraTable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraTable'.
 func LookupDatabaseAccountCassandraTable(ctx *pulumi.Context, args *LookupDatabaseAccountCassandraTableArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountCassandraTableResult, error) {
 	var rv LookupDatabaseAccountCassandraTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getDatabaseAccountCassandraTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getDatabaseAccountCassandraTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

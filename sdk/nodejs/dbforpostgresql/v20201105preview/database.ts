@@ -21,7 +21,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbforpostgresql/v20201105preview:Database';
+    public static readonly __pulumiType = 'azure-native:dbforpostgresql/v20201105preview:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even

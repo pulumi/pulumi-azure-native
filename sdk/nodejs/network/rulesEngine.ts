@@ -23,7 +23,7 @@ export class RulesEngine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network:RulesEngine';
+    public static readonly __pulumiType = 'azure-native:network:RulesEngine';
 
     /**
      * Returns true if the given object is an instance of RulesEngine.  This is designed to work even
@@ -89,7 +89,7 @@ export class RulesEngine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:RulesEngine" }, { type: "azure-nextgen:network/latest:RulesEngine" }, { type: "azure-native:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20200501:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }

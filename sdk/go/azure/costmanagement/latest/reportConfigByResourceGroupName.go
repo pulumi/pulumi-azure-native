@@ -14,7 +14,7 @@ import (
 // A report config resource.
 // Latest API Version: 2018-05-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ReportConfigByResourceGroupName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.
 type ReportConfigByResourceGroupName struct {
 	pulumi.CustomResourceState
 
@@ -52,7 +52,13 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:ReportConfigByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfigByResourceGroupName"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName"),
@@ -60,7 +66,7 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfigByResourceGroupName
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/latest:ReportConfigByResourceGroupName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 func GetReportConfigByResourceGroupName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReportConfigByResourceGroupNameState, opts ...pulumi.ResourceOption) (*ReportConfigByResourceGroupName, error) {
 	var resource ReportConfigByResourceGroupName
-	err := ctx.ReadResource("azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/latest:ReportConfigByResourceGroupName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

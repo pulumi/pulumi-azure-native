@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Inputs
         /// Hostname type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.ApiManagement.V20180601Preview.HostnameType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.ApiManagement.V20180601Preview.HostnameType> Type { get; set; } = null!;
 
         public HostnameConfigurationArgs()
         {

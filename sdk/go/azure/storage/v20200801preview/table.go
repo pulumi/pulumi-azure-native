@@ -38,13 +38,25 @@ func NewTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:Table"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:Table"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:Table"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:Table"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:Table"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:Table"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:Table"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:Table"),
@@ -52,7 +64,7 @@ func NewTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Table
-	err := ctx.RegisterResource("azure-nextgen:storage/v20200801preview:Table", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20200801preview:Table", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +76,7 @@ func NewTable(ctx *pulumi.Context,
 func GetTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TableState, opts ...pulumi.ResourceOption) (*Table, error) {
 	var resource Table
-	err := ctx.ReadResource("azure-nextgen:storage/v20200801preview:Table", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20200801preview:Table", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

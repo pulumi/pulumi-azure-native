@@ -17,7 +17,7 @@ export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:getLabelingJob", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:getLabelingJob", {
         "includeJobInstructions": args.includeJobInstructions,
         "includeLabelCategories": args.includeLabelCategories,
         "labelingJobId": args.labelingJobId,

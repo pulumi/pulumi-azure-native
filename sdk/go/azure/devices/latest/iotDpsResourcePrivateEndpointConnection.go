@@ -14,7 +14,7 @@ import (
 // The private endpoint connection of a provisioning service
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'.
 type IotDpsResourcePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -44,10 +44,19 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:IotDpsResourcePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"),
@@ -55,7 +64,7 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotDpsResourcePrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 func GetIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotDpsResourcePrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*IotDpsResourcePrivateEndpointConnection, error) {
 	var resource IotDpsResourcePrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

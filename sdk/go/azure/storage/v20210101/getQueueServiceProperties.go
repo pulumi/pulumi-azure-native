@@ -10,7 +10,7 @@ import (
 // The properties of a storage account’s Queue service.
 func LookupQueueServiceProperties(ctx *pulumi.Context, args *LookupQueueServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupQueueServicePropertiesResult, error) {
 	var rv LookupQueueServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/v20210101:getQueueServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20210101:getQueueServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Represents a Database.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getDatabase'.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql/latest:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql/latest:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

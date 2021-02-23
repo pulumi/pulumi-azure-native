@@ -17,7 +17,7 @@ export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getAzureFirewall", {
+    return pulumi.runtime.invoke("azure-native:network:getAzureFirewall", {
         "azureFirewallName": args.azureFirewallName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

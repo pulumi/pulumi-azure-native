@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.Latest
+namespace Pulumi.AzureNative.AppConfiguration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:getConfigurationStore'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getConfigurationStore'.")]
     public static class GetConfigurationStore
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-nextgen:appconfiguration/latest:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration/latest:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
     }
 
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-07-10.
 func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplicationMigrationItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationMigrationItemResult, error) {
 	var rv LookupReplicationMigrationItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getReplicationMigrationItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getReplicationMigrationItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

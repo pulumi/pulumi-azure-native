@@ -16,7 +16,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/v20170426:getRoleAssignment", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getRoleAssignment", {
         "assignmentName": args.assignmentName,
         "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,

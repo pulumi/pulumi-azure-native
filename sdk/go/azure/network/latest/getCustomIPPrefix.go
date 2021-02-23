@@ -10,10 +10,10 @@ import (
 // Custom IP prefix resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getCustomIPPrefix'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getCustomIPPrefix'.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getCustomIPPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getCustomIPPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

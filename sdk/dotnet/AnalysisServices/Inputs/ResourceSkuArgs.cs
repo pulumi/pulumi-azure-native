@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.Inputs
+namespace Pulumi.AzureNative.AnalysisServices.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.AnalysisServices.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AnalysisServices.SkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

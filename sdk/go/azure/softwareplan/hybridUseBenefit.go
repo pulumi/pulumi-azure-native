@@ -47,7 +47,13 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:softwareplan/v20190601preview:HybridUseBenefit"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit"),
+		},
+		{
+			Type: pulumi.String("azure-native:softwareplan/v20191201:HybridUseBenefit"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:softwareplan/v20191201:HybridUseBenefit"),
@@ -55,7 +61,7 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HybridUseBenefit
-	err := ctx.RegisterResource("azure-nextgen:softwareplan:HybridUseBenefit", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:softwareplan:HybridUseBenefit", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 func GetHybridUseBenefit(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HybridUseBenefitState, opts ...pulumi.ResourceOption) (*HybridUseBenefit, error) {
 	var resource HybridUseBenefit
-	err := ctx.ReadResource("azure-nextgen:softwareplan:HybridUseBenefit", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:softwareplan:HybridUseBenefit", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

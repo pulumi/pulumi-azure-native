@@ -16,7 +16,7 @@ export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20170601:getLocalNetworkGateway", {
+    return pulumi.runtime.invoke("azure-native:network/v20170601:getLocalNetworkGateway", {
         "localNetworkGatewayName": args.localNetworkGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

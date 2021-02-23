@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HardwareSecurityModules
+namespace Pulumi.AzureNative.HardwareSecurityModules
 {
     public static class GetDedicatedHsm
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules
         /// API Version: 2018-10-31-preview.
         /// </summary>
         public static Task<GetDedicatedHsmResult> InvokeAsync(GetDedicatedHsmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-nextgen:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHsmResult>("azure-native:hardwaresecuritymodules:getDedicatedHsm", args ?? new GetDedicatedHsmArgs(), options.WithVersion());
     }
 
 

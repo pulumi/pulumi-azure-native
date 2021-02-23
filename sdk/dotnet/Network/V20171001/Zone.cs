@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20171001
+namespace Pulumi.AzureNative.Network.V20171001
 {
     /// <summary>
     /// Describes a DNS zone.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20171001:Zone")]
+    [AzureNativeResourceType("azure-native:network/v20171001:Zone")]
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20171001:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20171001:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Zone(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20171001:Zone", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20171001:Zone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,12 +100,19 @@ namespace Pulumi.AzureNextGen.Network.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150504preview:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160401:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301preview:Zone"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:Zone"},
                 },
             };
@@ -170,11 +177,11 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// The type of this DNS zone (Public or Private).
         /// </summary>
         [Input("zoneType")]
-        public Input<Pulumi.AzureNextGen.Network.V20171001.ZoneType>? ZoneType { get; set; }
+        public Input<Pulumi.AzureNative.Network.V20171001.ZoneType>? ZoneType { get; set; }
 
         public ZoneArgs()
         {
-            ZoneType = Pulumi.AzureNextGen.Network.V20171001.ZoneType.Public;
+            ZoneType = Pulumi.AzureNative.Network.V20171001.ZoneType.Public;
         }
     }
 }

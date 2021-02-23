@@ -55,28 +55,55 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteSourceControlSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteSourceControlSlot"),
@@ -84,7 +111,7 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteSourceControlSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteSourceControlSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteSourceControlSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +123,7 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 func GetSiteSourceControlSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteSourceControlSlotState, opts ...pulumi.ResourceOption) (*SiteSourceControlSlot, error) {
 	var resource SiteSourceControlSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteSourceControlSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteSourceControlSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -65,13 +65,25 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20190601preview:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:SyncGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncGroup"),
@@ -79,7 +91,7 @@ func NewSyncGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SyncGroup
-	err := ctx.RegisterResource("azure-nextgen:sql/v20200801preview:SyncGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20200801preview:SyncGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +103,7 @@ func NewSyncGroup(ctx *pulumi.Context,
 func GetSyncGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SyncGroupState, opts ...pulumi.ResourceOption) (*SyncGroup, error) {
 	var resource SyncGroup
-	err := ctx.ReadResource("azure-nextgen:sql/v20200801preview:SyncGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20200801preview:SyncGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

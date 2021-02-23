@@ -10,10 +10,10 @@ import (
 // Product details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getProduct'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getProduct'.
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

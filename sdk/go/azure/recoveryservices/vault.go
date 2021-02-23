@@ -48,13 +48,25 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160601:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20200202:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20200202:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20201001:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:Vault"),
@@ -62,7 +74,7 @@ func NewVault(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Vault
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:Vault", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:Vault", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewVault(ctx *pulumi.Context,
 func GetVault(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VaultState, opts ...pulumi.ResourceOption) (*Vault, error) {
 	var resource Vault
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:Vault", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:Vault", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

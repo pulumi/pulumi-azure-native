@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Hybrid Connection for an App Service app.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnectionSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnectionSlot'. */
 export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionSlotResult> {
-    pulumi.log.warn("getWebAppRelayServiceConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppRelayServiceConnectionSlot'.")
+    pulumi.log.warn("getWebAppRelayServiceConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnectionSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppRelayServiceConnectionSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppRelayServiceConnectionSlot", {
         "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

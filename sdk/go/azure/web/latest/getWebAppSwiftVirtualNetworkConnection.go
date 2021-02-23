@@ -10,10 +10,10 @@ import (
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSwiftVirtualNetworkConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSwiftVirtualNetworkConnection'.
 func LookupWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppSwiftVirtualNetworkConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppSwiftVirtualNetworkConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

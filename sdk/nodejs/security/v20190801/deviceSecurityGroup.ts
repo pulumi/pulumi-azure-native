@@ -22,7 +22,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20190801:DeviceSecurityGroup';
+    public static readonly __pulumiType = 'azure-native:security/v20190801:DeviceSecurityGroup';
 
     /**
      * Returns true if the given object is an instance of DeviceSecurityGroup.  This is designed to work even
@@ -96,7 +96,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-native:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-native:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }

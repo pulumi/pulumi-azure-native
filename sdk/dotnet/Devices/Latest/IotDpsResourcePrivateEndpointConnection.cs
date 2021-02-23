@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Latest
+namespace Pulumi.AzureNative.Devices.Latest
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
     /// Latest API Version: 2020-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:IotDpsResourcePrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotDpsResourcePrivateEndpointConnection(string name, IotDpsResourcePrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection", name, args ?? new IotDpsResourcePrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotDpsResourcePrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,11 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                 },
             };

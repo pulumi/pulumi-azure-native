@@ -11,7 +11,7 @@ import (
 // API Version: 2019-03-01-preview.
 func LookupCloudConnector(ctx *pulumi.Context, args *LookupCloudConnectorArgs, opts ...pulumi.InvokeOption) (*LookupCloudConnectorResult, error) {
 	var rv LookupCloudConnectorResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getCloudConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getCloudConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

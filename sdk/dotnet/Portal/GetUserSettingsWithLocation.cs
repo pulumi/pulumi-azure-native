@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal
+namespace Pulumi.AzureNative.Portal
 {
     public static class GetUserSettingsWithLocation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Portal
         /// API Version: 2018-10-01.
         /// </summary>
         public static Task<GetUserSettingsWithLocationResult> InvokeAsync(GetUserSettingsWithLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-nextgen:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSettingsWithLocationResult>("azure-native:portal:getUserSettingsWithLocation", args ?? new GetUserSettingsWithLocationArgs(), options.WithVersion());
     }
 
 

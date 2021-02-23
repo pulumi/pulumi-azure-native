@@ -10,7 +10,7 @@ import (
 // Workload group operations for a data warehouse
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	var rv LookupWorkloadGroupResult
-	err := ctx.Invoke("azure-nextgen:sql/v20190601preview:getWorkloadGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20190601preview:getWorkloadGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:aad:getDomainService", {
+    return pulumi.runtime.invoke("azure-native:aad:getDomainService", {
         "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

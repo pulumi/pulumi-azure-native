@@ -10,7 +10,7 @@ import (
 // NetApp account resource
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20190601:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20190601:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

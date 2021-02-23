@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:operationalinsights/v20200801:Cluster":
+            case "azure-native:operationalinsights/v20200801:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:DataExport":
+            case "azure-native:operationalinsights/v20200801:DataExport":
                 return new DataExport(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:DataSource":
+            case "azure-native:operationalinsights/v20200801:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:LinkedService":
+            case "azure-native:operationalinsights/v20200801:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount":
+            case "azure-native:operationalinsights/v20200801:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:SavedSearch":
+            case "azure-native:operationalinsights/v20200801:SavedSearch":
                 return new SavedSearch(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig":
+            case "azure-native:operationalinsights/v20200801:StorageInsightConfig":
                 return new StorageInsightConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200801:Workspace":
+            case "azure-native:operationalinsights/v20200801:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "operationalinsights/v20200801", _module)
+pulumi.runtime.registerResourceModule("azure-native", "operationalinsights/v20200801", _module)

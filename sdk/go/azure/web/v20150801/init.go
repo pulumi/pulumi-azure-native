@@ -21,69 +21,69 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:web/v20150801:Certificate":
+	case "azure-native:web/v20150801:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:CertificateCsr":
+	case "azure-native:web/v20150801:CertificateCsr":
 		r, err = NewCertificateCsr(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:HostingEnvironment":
+	case "azure-native:web/v20150801:HostingEnvironment":
 		r, err = NewHostingEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:ManagedHostingEnvironment":
+	case "azure-native:web/v20150801:ManagedHostingEnvironment":
 		r, err = NewManagedHostingEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:ServerFarm":
+	case "azure-native:web/v20150801:ServerFarm":
 		r, err = NewServerFarm(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:ServerFarmRouteForVnet":
+	case "azure-native:web/v20150801:ServerFarmRouteForVnet":
 		r, err = NewServerFarmRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:Site":
+	case "azure-native:web/v20150801:Site":
 		r, err = NewSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteAppSettings":
+	case "azure-native:web/v20150801:SiteAppSettings":
 		r, err = NewSiteAppSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteAppSettingsSlot":
+	case "azure-native:web/v20150801:SiteAppSettingsSlot":
 		r, err = NewSiteAppSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteAuthSettings":
+	case "azure-native:web/v20150801:SiteAuthSettings":
 		r, err = NewSiteAuthSettings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteAuthSettingsSlot":
+	case "azure-native:web/v20150801:SiteAuthSettingsSlot":
 		r, err = NewSiteAuthSettingsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteBackupConfiguration":
+	case "azure-native:web/v20150801:SiteBackupConfiguration":
 		r, err = NewSiteBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot":
+	case "azure-native:web/v20150801:SiteBackupConfigurationSlot":
 		r, err = NewSiteBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteConnectionStrings":
+	case "azure-native:web/v20150801:SiteConnectionStrings":
 		r, err = NewSiteConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteConnectionStringsSlot":
+	case "azure-native:web/v20150801:SiteConnectionStringsSlot":
 		r, err = NewSiteConnectionStringsSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteDeployment":
+	case "azure-native:web/v20150801:SiteDeployment":
 		r, err = NewSiteDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteDeploymentSlot":
+	case "azure-native:web/v20150801:SiteDeploymentSlot":
 		r, err = NewSiteDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteHostNameBinding":
+	case "azure-native:web/v20150801:SiteHostNameBinding":
 		r, err = NewSiteHostNameBinding(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteHostNameBindingSlot":
+	case "azure-native:web/v20150801:SiteHostNameBindingSlot":
 		r, err = NewSiteHostNameBindingSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteInstanceDeployment":
+	case "azure-native:web/v20150801:SiteInstanceDeployment":
 		r, err = NewSiteInstanceDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot":
+	case "azure-native:web/v20150801:SiteInstanceDeploymentSlot":
 		r, err = NewSiteInstanceDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteLogsConfig":
+	case "azure-native:web/v20150801:SiteLogsConfig":
 		r, err = NewSiteLogsConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteMetadata":
+	case "azure-native:web/v20150801:SiteMetadata":
 		r, err = NewSiteMetadata(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteMetadataSlot":
+	case "azure-native:web/v20150801:SiteMetadataSlot":
 		r, err = NewSiteMetadataSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
+	case "azure-native:web/v20150801:SiteRelayServiceConnection":
 		r, err = NewSiteRelayServiceConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":
+	case "azure-native:web/v20150801:SiteRelayServiceConnectionSlot":
 		r, err = NewSiteRelayServiceConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteSlot":
+	case "azure-native:web/v20150801:SiteSlot":
 		r, err = NewSiteSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteSlotConfigNames":
+	case "azure-native:web/v20150801:SiteSlotConfigNames":
 		r, err = NewSiteSlotConfigNames(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteSourceControl":
+	case "azure-native:web/v20150801:SiteSourceControl":
 		r, err = NewSiteSourceControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteSourceControlSlot":
+	case "azure-native:web/v20150801:SiteSourceControlSlot":
 		r, err = NewSiteSourceControlSlot(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteVNETConnection":
+	case "azure-native:web/v20150801:SiteVNETConnection":
 		r, err = NewSiteVNETConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20150801:SiteVNETConnectionSlot":
+	case "azure-native:web/v20150801:SiteVNETConnectionSlot":
 		r, err = NewSiteVNETConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -98,7 +98,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"web/v20150801",
 		&module{version},
 	)

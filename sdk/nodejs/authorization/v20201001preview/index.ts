@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicy":
+            case "azure-native:authorization/v20201001preview:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment":
+            case "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "authorization/v20201001preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "authorization/v20201001preview", _module)

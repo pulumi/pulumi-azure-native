@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Latest.Inputs
+namespace Pulumi.AzureNative.Media.Latest.Inputs
 {
 
     public sealed class MediaServiceIdentityArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.ManagedIdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.Latest.ManagedIdentityType> Type { get; set; } = null!;
 
         public MediaServiceIdentityArgs()
         {

@@ -10,7 +10,7 @@ import (
 // A SQL server.
 func LookupSqlServer(ctx *pulumi.Context, args *LookupSqlServerArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerResult, error) {
 	var rv LookupSqlServerResult
-	err := ctx.Invoke("azure-nextgen:azuredata/v20170301preview:getSqlServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azuredata/v20170301preview:getSqlServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20190901preview:getMediaGraph", {
+    return pulumi.runtime.invoke("azure-native:media/v20190901preview:getMediaGraph", {
         "accountName": args.accountName,
         "mediaGraphName": args.mediaGraphName,
         "resourceGroupName": args.resourceGroupName,

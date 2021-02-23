@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20181101
+namespace Pulumi.AzureNative.Web.V20181101
 {
     /// <summary>
     /// String dictionary resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20181101:WebAppMetadataSlot")]
+    [AzureNativeResourceType("azure-native:web/v20181101:WebAppMetadataSlot")]
     public partial class WebAppMetadataSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Web.V20181101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppMetadataSlot(string name, WebAppMetadataSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20181101:WebAppMetadataSlot", name, args ?? new WebAppMetadataSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20181101:WebAppMetadataSlot", name, args ?? new WebAppMetadataSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppMetadataSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20181101:WebAppMetadataSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20181101:WebAppMetadataSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,14 +64,23 @@ namespace Pulumi.AzureNextGen.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppMetadataSlot"},
                 },
             };

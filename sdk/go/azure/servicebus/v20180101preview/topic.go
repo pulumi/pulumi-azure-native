@@ -68,16 +68,31 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/latest:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Topic"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:Topic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Topic"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Topic"),
@@ -85,7 +100,7 @@ func NewTopic(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Topic
-	err := ctx.RegisterResource("azure-nextgen:servicebus/v20180101preview:Topic", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/v20180101preview:Topic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +112,7 @@ func NewTopic(ctx *pulumi.Context,
 func GetTopic(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TopicState, opts ...pulumi.ResourceOption) (*Topic, error) {
 	var resource Topic
-	err := ctx.ReadResource("azure-nextgen:servicebus/v20180101preview:Topic", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/v20180101preview:Topic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

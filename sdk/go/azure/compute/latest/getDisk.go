@@ -10,10 +10,10 @@ import (
 // Disk resource.
 // Latest API Version: 2020-09-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getDisk'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'.
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
 	var rv LookupDiskResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getDisk", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getDisk", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

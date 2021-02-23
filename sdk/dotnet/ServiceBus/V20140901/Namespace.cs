@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20140901
+namespace Pulumi.AzureNative.ServiceBus.V20140901
 {
     /// <summary>
     /// Description of a namespace resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20140901:Namespace")]
+    [AzureNativeResourceType("azure-native:servicebus/v20140901:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20140901:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:Namespace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20140901:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,10 +112,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Namespace"},
                 },
             };
@@ -180,7 +185,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// State of the namespace.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.V20140901.NamespaceState>? Status { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.V20140901.NamespaceState>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

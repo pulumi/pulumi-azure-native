@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DomainRegistration.Latest
+namespace Pulumi.AzureNative.DomainRegistration.Latest
 {
     /// <summary>
     /// Target DNS type (would be used for migration)

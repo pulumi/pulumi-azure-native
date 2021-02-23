@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20150101
+namespace Pulumi.AzureNative.Authorization.V20150101
 {
     /// <summary>
     /// Management lock information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20150101:ManagementLock")]
+    [AzureNativeResourceType("azure-native:authorization/v20150101:ManagementLock")]
     public partial class ManagementLock : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementLock(string name, ManagementLockArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20150101:ManagementLock", name, args ?? new ManagementLockArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20150101:ManagementLock", name, args ?? new ManagementLockArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementLock(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20150101:ManagementLock", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20150101:ManagementLock", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLock"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/latest:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:ManagementLock"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLock"},
                 },
             };
@@ -94,7 +97,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
         /// The lock level of the management lock.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20150101.LockLevel>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20150101.LockLevel>? Level { get; set; }
 
         /// <summary>
         /// The name of lock.

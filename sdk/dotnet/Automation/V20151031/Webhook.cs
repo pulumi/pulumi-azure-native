@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20151031
+namespace Pulumi.AzureNative.Automation.V20151031
 {
     /// <summary>
     /// Definition of the webhook type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20151031:Webhook")]
+    [AzureNativeResourceType("azure-native:automation/v20151031:Webhook")]
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Webhook(string name, WebhookArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20151031:Webhook", name, args ?? new WebhookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Webhook(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20151031:Webhook", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20151031:Webhook", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,7 +118,9 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Webhook"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Webhook"},
                 },
             };

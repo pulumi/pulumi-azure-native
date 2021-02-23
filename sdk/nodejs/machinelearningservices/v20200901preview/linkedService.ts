@@ -22,7 +22,7 @@ export class LinkedService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/v20200901preview:LinkedService';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/v20200901preview:LinkedService';
 
     /**
      * Returns true if the given object is an instance of LinkedService.  This is designed to work even
@@ -94,7 +94,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:LinkedService" }, { type: "azure-nextgen:machinelearningservices:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getResourceTypeRegistration'. */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
-    pulumi.log.warn("getResourceTypeRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getResourceTypeRegistration'.")
+    pulumi.log.warn("getResourceTypeRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getResourceTypeRegistration'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/latest:getResourceTypeRegistration", {
+    return pulumi.runtime.invoke("azure-native:providerhub/latest:getResourceTypeRegistration", {
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,
     }, opts);

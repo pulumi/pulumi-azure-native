@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Define the move collection.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'. */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
-    pulumi.log.warn("getMoveCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:migrate:getMoveCollection'.")
+    pulumi.log.warn("getMoveCollection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:migrate/latest:getMoveCollection", {
+    return pulumi.runtime.invoke("azure-native:migrate/latest:getMoveCollection", {
         "moveCollectionName": args.moveCollectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

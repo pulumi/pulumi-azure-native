@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.Inputs
+namespace Pulumi.AzureNative.Sql.Inputs
 {
 
     public sealed class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs : Pulumi.ResourceArgs

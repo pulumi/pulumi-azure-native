@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// A notification.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:NotificationChannel'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:NotificationChannel")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:NotificationChannel'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationChannel(string name, NotificationChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:NotificationChannel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:NotificationChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,8 +114,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:NotificationChannel"},
                 },
             };

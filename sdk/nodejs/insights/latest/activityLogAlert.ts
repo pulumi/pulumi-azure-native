@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Activity Log Alert rule resource.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ActivityLogAlert {
-        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.")
+        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.")
         return new ActivityLogAlert(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:ActivityLogAlert';
+    public static readonly __pulumiType = 'azure-native:insights/latest:ActivityLogAlert';
 
     /**
      * Returns true if the given object is an instance of ActivityLogAlert.  This is designed to work even
@@ -83,9 +83,9 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'. */
     constructor(name: string, args: ActivityLogAlertArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ActivityLogAlert'.")
+        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
@@ -129,7 +129,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20170401:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-nextgen:insights:ActivityLogAlert" }, { type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }

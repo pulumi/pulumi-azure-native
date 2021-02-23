@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Notebooks
+namespace Pulumi.AzureNative.Notebooks
 {
     public static class GetNotebookProxy
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Notebooks
         /// API Version: 2019-10-11-preview.
         /// </summary>
         public static Task<GetNotebookProxyResult> InvokeAsync(GetNotebookProxyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookProxyResult>("azure-nextgen:notebooks:getNotebookProxy", args ?? new GetNotebookProxyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookProxyResult>("azure-native:notebooks:getNotebookProxy", args ?? new GetNotebookProxyArgs(), options.WithVersion());
     }
 
 

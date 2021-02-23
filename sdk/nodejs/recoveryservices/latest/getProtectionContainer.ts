@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionContainer'. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-    pulumi.log.warn("getProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getProtectionContainer'.")
+    pulumi.log.warn("getProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionContainer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getProtectionContainer", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getProtectionContainer", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,

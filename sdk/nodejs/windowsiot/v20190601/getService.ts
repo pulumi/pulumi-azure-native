@@ -16,7 +16,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:windowsiot/v20190601:getService", {
+    return pulumi.runtime.invoke("azure-native:windowsiot/v20190601:getService", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

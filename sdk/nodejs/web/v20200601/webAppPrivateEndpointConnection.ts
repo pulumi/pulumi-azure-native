@@ -22,7 +22,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:web/v20200601:WebAppPrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of WebAppPrivateEndpointConnection.  This is designed to work even
@@ -96,7 +96,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/latest:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/latest:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/latest:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201001:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

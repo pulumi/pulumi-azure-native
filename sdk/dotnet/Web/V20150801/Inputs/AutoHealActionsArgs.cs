@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
+namespace Pulumi.AzureNative.Web.V20150801.Inputs
 {
 
     /// <summary>
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// ActionType - predefined action to be taken
         /// </summary>
         [Input("actionType", required: true)]
-        public Input<Pulumi.AzureNextGen.Web.V20150801.AutoHealActionType> ActionType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Web.V20150801.AutoHealActionType> ActionType { get; set; } = null!;
 
         /// <summary>
         /// CustomAction - custom action to be taken

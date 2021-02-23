@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-07.
 func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...pulumi.InvokeOption) (*LookupHyperVSiteResult, error) {
 	var rv LookupHyperVSiteResult
-	err := ctx.Invoke("azure-nextgen:offazure:getHyperVSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:offazure:getHyperVSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

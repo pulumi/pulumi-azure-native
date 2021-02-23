@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
+namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// Describes the type of ARM deployment to be performed on the resource.

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * disk access resource.
  * Latest API Version: 2020-09-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccess'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DiskAccess extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskAccess {
-        pulumi.log.warn("DiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccess'.")
+        pulumi.log.warn("DiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'.")
         return new DiskAccess(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:DiskAccess';
+    public static readonly __pulumiType = 'azure-native:compute/latest:DiskAccess';
 
     /**
      * Returns true if the given object is an instance of DiskAccess.  This is designed to work even
@@ -75,9 +75,9 @@ export class DiskAccess extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccess'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'. */
     constructor(name: string, args: DiskAccessArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskAccess'.")
+        pulumi.log.warn("DiskAccess is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -108,7 +108,7 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccess" }, { type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }

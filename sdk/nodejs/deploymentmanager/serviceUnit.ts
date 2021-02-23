@@ -23,7 +23,7 @@ export class ServiceUnit extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:deploymentmanager:ServiceUnit';
+    public static readonly __pulumiType = 'azure-native:deploymentmanager:ServiceUnit';
 
     /**
      * Returns true if the given object is an instance of ServiceUnit.  This is designed to work even
@@ -117,7 +117,7 @@ export class ServiceUnit extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceUnit.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:listGatewayKeys", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:listGatewayKeys", {
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

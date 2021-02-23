@@ -53,12 +53,15 @@ func NewAgentPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:AgentPool"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20190601preview:AgentPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +73,7 @@ func NewAgentPool(ctx *pulumi.Context,
 func GetAgentPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AgentPoolState, opts ...pulumi.ResourceOption) (*AgentPool, error) {
 	var resource AgentPool
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20190601preview:AgentPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

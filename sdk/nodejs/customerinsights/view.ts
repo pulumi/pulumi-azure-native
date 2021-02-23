@@ -22,7 +22,7 @@ export class View extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:customerinsights:View';
+    public static readonly __pulumiType = 'azure-native:customerinsights:View';
 
     /**
      * Returns true if the given object is an instance of View.  This is designed to work even
@@ -120,7 +120,7 @@ export class View extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/latest:View" }, { type: "azure-nextgen:customerinsights/v20170101:View" }, { type: "azure-nextgen:customerinsights/v20170426:View" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:View" }, { type: "azure-nextgen:customerinsights/latest:View" }, { type: "azure-native:customerinsights/v20170101:View" }, { type: "azure-nextgen:customerinsights/v20170101:View" }, { type: "azure-native:customerinsights/v20170426:View" }, { type: "azure-nextgen:customerinsights/v20170426:View" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(View.__pulumiType, name, inputs, opts);
     }

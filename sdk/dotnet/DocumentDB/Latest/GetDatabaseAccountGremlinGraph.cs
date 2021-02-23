@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getDatabaseAccountGremlinGraph'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountGremlinGraph'.")]
     public static class GetDatabaseAccountGremlinGraph
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// Latest API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountGremlinGraphResult> InvokeAsync(GetDatabaseAccountGremlinGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-nextgen:documentdb/latest:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountGremlinGraphResult>("azure-native:documentdb/latest:getDatabaseAccountGremlinGraph", args ?? new GetDatabaseAccountGremlinGraphArgs(), options.WithVersion());
     }
 
 

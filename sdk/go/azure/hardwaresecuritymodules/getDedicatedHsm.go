@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-31-preview.
 func LookupDedicatedHsm(ctx *pulumi.Context, args *LookupDedicatedHsmArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHsmResult, error) {
 	var rv LookupDedicatedHsmResult
-	err := ctx.Invoke("azure-nextgen:hardwaresecuritymodules:getDedicatedHsm", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hardwaresecuritymodules:getDedicatedHsm", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

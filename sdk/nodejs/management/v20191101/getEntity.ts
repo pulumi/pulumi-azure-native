@@ -17,7 +17,7 @@ export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:management/v20191101:getEntity", {
+    return pulumi.runtime.invoke("azure-native:management/v20191101:getEntity", {
         "filter": args.filter,
         "groupName": args.groupName,
         "search": args.search,

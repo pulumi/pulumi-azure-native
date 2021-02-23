@@ -16,7 +16,7 @@ export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20180601preview:getApiIssueComment", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getApiIssueComment", {
         "apiId": args.apiId,
         "commentId": args.commentId,
         "issueId": args.issueId,

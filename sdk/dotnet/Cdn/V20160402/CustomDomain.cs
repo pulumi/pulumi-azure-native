@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20160402
+namespace Pulumi.AzureNative.Cdn.V20160402
 {
     /// <summary>
     /// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20160402:CustomDomain")]
+    [AzureNativeResourceType("azure-native:cdn/v20160402:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDomain(string name, CustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20160402:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20160402:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20160402:CustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20160402:CustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,18 +70,31 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:CustomDomain"},
                 },
             };

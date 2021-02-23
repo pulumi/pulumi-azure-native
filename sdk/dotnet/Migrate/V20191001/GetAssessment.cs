@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20191001
+namespace Pulumi.AzureNative.Migrate.V20191001
 {
     public static class GetAssessment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// An assessment created for a group in the Migration project.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-nextgen:migrate/v20191001:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:migrate/v20191001:getAssessment", args ?? new GetAssessmentArgs(), options.WithVersion());
     }
 
 

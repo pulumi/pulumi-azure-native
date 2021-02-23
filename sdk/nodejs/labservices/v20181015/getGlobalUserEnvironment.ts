@@ -16,7 +16,7 @@ export function getGlobalUserEnvironment(args: GetGlobalUserEnvironmentArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/v20181015:getGlobalUserEnvironment", {
+    return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserEnvironment", {
         "environmentId": args.environmentId,
         "expand": args.expand,
         "userName": args.userName,

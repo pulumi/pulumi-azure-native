@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB container.
  * Latest API Version: 2016-03-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'.
  */
 export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlContainer {
-        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'.")
+        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'.")
         return new DatabaseAccountSqlContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:DatabaseAccountSqlContainer';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountSqlContainer.  This is designed to work even
@@ -95,9 +95,9 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'. */
     constructor(name: string, args: DatabaseAccountSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'.")
+        pulumi.log.warn("DatabaseAccountSqlContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -154,7 +154,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlContainer" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountSqlContainer.__pulumiType, name, inputs, opts);
     }

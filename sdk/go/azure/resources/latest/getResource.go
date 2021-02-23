@@ -10,10 +10,10 @@ import (
 // Resource information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getResource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
-	err := ctx.Invoke("azure-nextgen:resources/latest:getResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/latest:getResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

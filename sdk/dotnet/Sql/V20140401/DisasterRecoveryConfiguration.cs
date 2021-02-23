@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Represents a disaster recovery configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration")]
+    [AzureNativeResourceType("azure-native:sql/v20140401:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DisasterRecoveryConfiguration(string name, DisasterRecoveryConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration", name, args ?? new DisasterRecoveryConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20140401:DisasterRecoveryConfiguration", name, args ?? new DisasterRecoveryConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DisasterRecoveryConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20140401:DisasterRecoveryConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,7 +100,9 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DisasterRecoveryConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DisasterRecoveryConfiguration"},
                 },
             };

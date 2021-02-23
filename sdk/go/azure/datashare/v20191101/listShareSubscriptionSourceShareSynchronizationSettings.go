@@ -10,7 +10,7 @@ import (
 // List response for get source share Synchronization settings
 func ListShareSubscriptionSourceShareSynchronizationSettings(ctx *pulumi.Context, args *ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSourceShareSynchronizationSettingsResult, error) {
 	var rv ListShareSubscriptionSourceShareSynchronizationSettingsResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20191101:listShareSubscriptionSourceShareSynchronizationSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20191101:listShareSubscriptionSourceShareSynchronizationSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

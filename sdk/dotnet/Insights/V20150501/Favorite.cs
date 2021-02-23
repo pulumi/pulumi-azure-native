@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// Properties that define a favorite that is associated to an Application Insights component.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:Favorite")]
+    [AzureNativeResourceType("azure-native:insights/v20150501:Favorite")]
     public partial class Favorite : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Favorite(string name, FavoriteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:Favorite", name, args ?? new FavoriteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20150501:Favorite", name, args ?? new FavoriteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Favorite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:Favorite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20150501:Favorite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,7 +106,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Favorite"},
                 },
             };
@@ -153,7 +155,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("favoriteType")]
-        public Input<Pulumi.AzureNextGen.Insights.V20150501.FavoriteType>? FavoriteType { get; set; }
+        public Input<Pulumi.AzureNative.Insights.V20150501.FavoriteType>? FavoriteType { get; set; }
 
         /// <summary>
         /// Flag denoting wether or not this favorite was generated from a template.

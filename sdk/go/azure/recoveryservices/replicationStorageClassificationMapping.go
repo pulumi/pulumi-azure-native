@@ -47,13 +47,25 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationStorageClassificationMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
@@ -61,7 +73,7 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationStorageClassificationMapping
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ReplicationStorageClassificationMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 func GetReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationStorageClassificationMappingState, opts ...pulumi.ResourceOption) (*ReplicationStorageClassificationMapping, error) {
 	var resource ReplicationStorageClassificationMapping
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ReplicationStorageClassificationMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

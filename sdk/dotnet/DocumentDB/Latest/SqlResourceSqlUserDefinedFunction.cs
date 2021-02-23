@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
     /// Latest API Version: 2021-01-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlUserDefinedFunction'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction")]
     public partial class SqlResourceSqlUserDefinedFunction : Pulumi.CustomResource
     {
         /// <summary>
@@ -53,12 +53,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlUserDefinedFunction(string name, SqlResourceSqlUserDefinedFunctionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction", name, args ?? new SqlResourceSqlUserDefinedFunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction", name, args ?? new SqlResourceSqlUserDefinedFunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlUserDefinedFunction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,13 +69,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"},
                 },
             };

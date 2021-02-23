@@ -16,7 +16,7 @@ export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/v20170401preview:getOutput", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/v20170401preview:getOutput", {
         "jobName": args.jobName,
         "outputName": args.outputName,
         "resourceGroupName": args.resourceGroupName,

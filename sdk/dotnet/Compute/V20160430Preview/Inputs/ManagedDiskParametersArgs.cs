@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
+namespace Pulumi.AzureNative.Compute.V20160430Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
         /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.StorageAccountTypes>? StorageAccountType { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20160430Preview.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public ManagedDiskParametersArgs()
         {

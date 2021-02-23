@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMySQL.Latest
+namespace Pulumi.AzureNative.DBforMySQL.Latest
 {
     /// <summary>
     /// A MySQL Server key.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformysql:ServerKey'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbformysql/latest:ServerKey")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerKey'.")]
+    [AzureNativeResourceType("azure-native:dbformysql/latest:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbformysql/latest:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbformysql/latest:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbformysql/latest:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,11 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbformysql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200101:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200101privatepreview:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101privatepreview:ServerKey"},
                 },
             };
@@ -120,7 +123,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.Latest
         /// The key type like 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.Latest.ServerKeyType> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.Latest.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

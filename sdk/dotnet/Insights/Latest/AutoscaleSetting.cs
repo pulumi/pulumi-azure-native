@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
     /// <summary>
     /// The autoscale setting resource.
     /// Latest API Version: 2015-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.")]
-    [AzureNextGenResourceType("azure-nextgen:insights/latest:AutoscaleSetting")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AutoscaleSetting'.")]
+    [AzureNativeResourceType("azure-native:insights/latest:AutoscaleSetting")]
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AutoscaleSetting(string name, AutoscaleSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/latest:AutoscaleSetting", name, args ?? new AutoscaleSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AutoscaleSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/latest:AutoscaleSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,7 +90,9 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AutoscaleSetting"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150401:AutoscaleSetting"},
                 },
             };

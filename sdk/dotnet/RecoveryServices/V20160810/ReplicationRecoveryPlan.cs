@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
+namespace Pulumi.AzureNative.RecoveryServices.V20160810
 {
     /// <summary>
     /// Recovery plan details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan")]
+    [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationRecoveryPlan(string name, ReplicationRecoveryPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan", name, args ?? new ReplicationRecoveryPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan", name, args ?? new ReplicationRecoveryPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationRecoveryPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,9 +64,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan"},
                 },
             };

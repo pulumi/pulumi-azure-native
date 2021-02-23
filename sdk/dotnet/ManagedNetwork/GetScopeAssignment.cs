@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork
+namespace Pulumi.AzureNative.ManagedNetwork
 {
     public static class GetScopeAssignment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetScopeAssignmentResult> InvokeAsync(GetScopeAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-nextgen:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentArgs(), options.WithVersion());
     }
 
 

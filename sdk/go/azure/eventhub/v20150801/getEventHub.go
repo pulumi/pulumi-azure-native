@@ -10,7 +10,7 @@ import (
 // Single item in List or Get Event Hub operation
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20150801:getEventHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20150801:getEventHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

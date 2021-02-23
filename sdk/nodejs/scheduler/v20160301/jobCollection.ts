@@ -19,7 +19,7 @@ export class JobCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:scheduler/v20160301:JobCollection';
+    public static readonly __pulumiType = 'azure-native:scheduler/v20160301:JobCollection';
 
     /**
      * Returns true if the given object is an instance of JobCollection.  This is designed to work even
@@ -87,7 +87,7 @@ export class JobCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:scheduler:JobCollection" }, { type: "azure-nextgen:scheduler/latest:JobCollection" }, { type: "azure-nextgen:scheduler/v20140801preview:JobCollection" }, { type: "azure-nextgen:scheduler/v20160101:JobCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scheduler:JobCollection" }, { type: "azure-nextgen:scheduler:JobCollection" }, { type: "azure-native:scheduler/latest:JobCollection" }, { type: "azure-nextgen:scheduler/latest:JobCollection" }, { type: "azure-native:scheduler/v20140801preview:JobCollection" }, { type: "azure-nextgen:scheduler/v20140801preview:JobCollection" }, { type: "azure-native:scheduler/v20160101:JobCollection" }, { type: "azure-nextgen:scheduler/v20160101:JobCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobCollection.__pulumiType, name, inputs, opts);
     }

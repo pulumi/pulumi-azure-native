@@ -47,19 +47,37 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace"),
@@ -67,7 +85,7 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraKeyspace
-	err := ctx.RegisterResource("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:DatabaseAccountCassandraKeyspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +97,7 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 func GetDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountCassandraKeyspaceState, opts ...pulumi.ResourceOption) (*DatabaseAccountCassandraKeyspace, error) {
 	var resource DatabaseAccountCassandraKeyspace
-	err := ctx.ReadResource("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:DatabaseAccountCassandraKeyspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

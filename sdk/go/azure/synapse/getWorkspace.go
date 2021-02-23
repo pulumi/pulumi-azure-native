@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:synapse:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

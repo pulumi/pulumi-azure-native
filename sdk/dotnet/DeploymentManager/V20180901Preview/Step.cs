@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
+namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// The resource representation of a rollout step.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:deploymentmanager/v20180901preview:Step")]
+    [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Step")]
     public partial class Step : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Step(string name, StepArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager/v20180901preview:Step", name, args ?? new StepArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:deploymentmanager/v20180901preview:Step", name, args ?? new StepArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Step(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager/v20180901preview:Step", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:deploymentmanager/v20180901preview:Step", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager:Step"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager:Step"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Step"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:Step"},
                 },
             };

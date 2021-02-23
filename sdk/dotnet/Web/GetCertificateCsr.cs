@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     public static class GetCertificateCsr
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Web
         /// API Version: 2015-08-01.
         /// </summary>
         public static Task<GetCertificateCsrResult> InvokeAsync(GetCertificateCsrArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-nextgen:web:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateCsrResult>("azure-native:web:getCertificateCsr", args ?? new GetCertificateCsrArgs(), options.WithVersion());
     }
 
 

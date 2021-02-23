@@ -10,10 +10,10 @@ import (
 // Describes a VMSS VM Extension.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineScaleSetVMExtension'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMExtension'.
 func LookupVirtualMachineScaleSetVMExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetVMExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

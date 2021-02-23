@@ -14,7 +14,7 @@ import (
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RulesEngine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.
 type RulesEngine struct {
 	pulumi.CustomResourceState
 
@@ -43,13 +43,25 @@ func NewRulesEngine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:RulesEngine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:RulesEngine"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200101:RulesEngine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:RulesEngine"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:RulesEngine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:RulesEngine"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:RulesEngine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:RulesEngine"),
@@ -57,7 +69,7 @@ func NewRulesEngine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RulesEngine
-	err := ctx.RegisterResource("azure-nextgen:network/latest:RulesEngine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:RulesEngine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +81,7 @@ func NewRulesEngine(ctx *pulumi.Context,
 func GetRulesEngine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RulesEngineState, opts ...pulumi.ResourceOption) (*RulesEngine, error) {
 	var resource RulesEngine
-	err := ctx.ReadResource("azure-nextgen:network/latest:RulesEngine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:RulesEngine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

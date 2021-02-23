@@ -10,7 +10,7 @@ import (
 // The connection strings for the given database account.
 func ListDatabaseAccountConnectionStrings(ctx *pulumi.Context, args *ListDatabaseAccountConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountConnectionStringsResult, error) {
 	var rv ListDatabaseAccountConnectionStringsResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20150401:listDatabaseAccountConnectionStrings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20150401:listDatabaseAccountConnectionStrings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

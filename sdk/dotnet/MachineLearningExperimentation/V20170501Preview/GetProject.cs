@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
+namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview
 {
     public static class GetProject
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// An object that represents a machine learning project.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-nextgen:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:machinelearningexperimentation/v20170501preview:getProject", args ?? new GetProjectArgs(), options.WithVersion());
     }
 
 

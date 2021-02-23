@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
+namespace Pulumi.AzureNative.StoragePool.V20200315Preview
 {
     /// <summary>
     /// Determines the SKU of VM deployed for Disk pool

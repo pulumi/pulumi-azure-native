@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     public static class GetReplicationRecoveryPlan
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationRecoveryPlanResult> InvokeAsync(GetReplicationRecoveryPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-nextgen:recoveryservices:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryPlanResult>("azure-native:recoveryservices:getReplicationRecoveryPlan", args ?? new GetReplicationRecoveryPlanArgs(), options.WithVersion());
     }
 
 

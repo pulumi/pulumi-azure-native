@@ -10,7 +10,7 @@ import (
 // Slot Config names azure resource
 func LookupSiteSlotConfigNames(ctx *pulumi.Context, args *LookupSiteSlotConfigNamesArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotConfigNamesResult, error) {
 	var rv LookupSiteSlotConfigNamesResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteSlotConfigNames", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteSlotConfigNames", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

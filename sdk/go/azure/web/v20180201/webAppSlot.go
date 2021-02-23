@@ -134,28 +134,55 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlot"),
@@ -163,7 +190,7 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20180201:WebAppSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20180201:WebAppSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -175,7 +202,7 @@ func NewWebAppSlot(ctx *pulumi.Context,
 func GetWebAppSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSlotState, opts ...pulumi.ResourceOption) (*WebAppSlot, error) {
 	var resource WebAppSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20180201:WebAppSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20180201:WebAppSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

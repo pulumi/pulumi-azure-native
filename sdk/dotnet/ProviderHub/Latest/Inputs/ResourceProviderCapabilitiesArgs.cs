@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.Latest.Inputs
+namespace Pulumi.AzureNative.ProviderHub.Latest.Inputs
 {
 
     public sealed class ResourceProviderCapabilitiesArgs : Pulumi.ResourceArgs
     {
         [Input("effect", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.Latest.ResourceProviderCapabilitiesEffect> Effect { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.Latest.ResourceProviderCapabilitiesEffect> Effect { get; set; } = null!;
 
         [Input("quotaId", required: true)]
         public Input<string> QuotaId { get; set; } = null!;

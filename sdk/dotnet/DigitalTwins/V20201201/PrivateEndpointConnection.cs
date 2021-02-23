@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
+namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:digitaltwins/v20201201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -39,12 +39,12 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:digitaltwins/v20201201:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:digitaltwins/v20201201:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -55,7 +55,9 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/latest:PrivateEndpointConnection"},
                 },
             };

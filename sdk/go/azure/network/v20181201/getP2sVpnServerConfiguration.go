@@ -10,7 +10,7 @@ import (
 // P2SVpnServerConfiguration Resource.
 func LookupP2sVpnServerConfiguration(ctx *pulumi.Context, args *LookupP2sVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupP2sVpnServerConfigurationResult, error) {
 	var rv LookupP2sVpnServerConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/v20181201:getP2sVpnServerConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20181201:getP2sVpnServerConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

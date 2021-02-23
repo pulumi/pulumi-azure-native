@@ -46,25 +46,49 @@ func NewTableResourceTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:TableResourceTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801:TableResourceTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20191212:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:TableResourceTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200301:TableResourceTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200401:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:TableResourceTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:TableResourceTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200901:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:TableResourceTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:TableResourceTable"),
@@ -72,7 +96,7 @@ func NewTableResourceTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TableResourceTable
-	err := ctx.RegisterResource("azure-nextgen:documentdb:TableResourceTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:TableResourceTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +108,7 @@ func NewTableResourceTable(ctx *pulumi.Context,
 func GetTableResourceTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TableResourceTableState, opts ...pulumi.ResourceOption) (*TableResourceTable, error) {
 	var resource TableResourceTable
-	err := ctx.ReadResource("azure-nextgen:documentdb:TableResourceTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:TableResourceTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

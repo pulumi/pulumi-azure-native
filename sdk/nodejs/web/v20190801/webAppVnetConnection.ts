@@ -22,7 +22,7 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20190801:WebAppVnetConnection';
+    public static readonly __pulumiType = 'azure-native:web/v20190801:WebAppVnetConnection';
 
     /**
      * Returns true if the given object is an instance of WebAppVnetConnection.  This is designed to work even
@@ -124,7 +124,7 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppVnetConnection" }, { type: "azure-nextgen:web/latest:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppVnetConnection" }, { type: "azure-nextgen:web:WebAppVnetConnection" }, { type: "azure-native:web/latest:WebAppVnetConnection" }, { type: "azure-nextgen:web/latest:WebAppVnetConnection" }, { type: "azure-native:web/v20150801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnection" }, { type: "azure-native:web/v20160801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnection" }, { type: "azure-native:web/v20180201:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnection" }, { type: "azure-native:web/v20181101:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnection" }, { type: "azure-native:web/v20200601:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnection" }, { type: "azure-native:web/v20200901:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnection" }, { type: "azure-native:web/v20201001:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppVnetConnection.__pulumiType, name, inputs, opts);
     }

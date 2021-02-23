@@ -14,7 +14,7 @@ import (
 // Private dns zone group resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateDnsZoneGroup'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateDnsZoneGroup'.
 type PrivateDnsZoneGroup struct {
 	pulumi.CustomResourceState
 
@@ -43,22 +43,43 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateDnsZoneGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:PrivateDnsZoneGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PrivateDnsZoneGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:PrivateDnsZoneGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:PrivateDnsZoneGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PrivateDnsZoneGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateDnsZoneGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateDnsZoneGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:PrivateDnsZoneGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PrivateDnsZoneGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateDnsZoneGroup"),
@@ -66,7 +87,7 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateDnsZoneGroup
-	err := ctx.RegisterResource("azure-nextgen:network/latest:PrivateDnsZoneGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:PrivateDnsZoneGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +99,7 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 func GetPrivateDnsZoneGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateDnsZoneGroupState, opts ...pulumi.ResourceOption) (*PrivateDnsZoneGroup, error) {
 	var resource PrivateDnsZoneGroup
-	err := ctx.ReadResource("azure-nextgen:network/latest:PrivateDnsZoneGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:PrivateDnsZoneGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

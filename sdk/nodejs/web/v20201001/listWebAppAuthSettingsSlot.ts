@@ -16,7 +16,7 @@ export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20201001:listWebAppAuthSettingsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppAuthSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

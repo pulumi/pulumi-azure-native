@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getPipeline", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getPipeline", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

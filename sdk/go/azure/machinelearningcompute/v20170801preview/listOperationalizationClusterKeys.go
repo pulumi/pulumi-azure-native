@@ -10,7 +10,7 @@ import (
 // Credentials to resources in the cluster.
 func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationalizationClusterKeysArgs, opts ...pulumi.InvokeOption) (*ListOperationalizationClusterKeysResult, error) {
 	var rv ListOperationalizationClusterKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningcompute/v20170801preview:listOperationalizationClusterKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

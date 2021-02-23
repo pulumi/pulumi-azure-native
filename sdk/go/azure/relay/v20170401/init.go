@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:relay/v20170401:HybridConnection":
+	case "azure-native:relay/v20170401:HybridConnection":
 		r, err = NewHybridConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule":
+	case "azure-native:relay/v20170401:HybridConnectionAuthorizationRule":
 		r, err = NewHybridConnectionAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:relay/v20170401:Namespace":
+	case "azure-native:relay/v20170401:Namespace":
 		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:relay/v20170401:NamespaceAuthorizationRule":
+	case "azure-native:relay/v20170401:NamespaceAuthorizationRule":
 		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:relay/v20170401:WCFRelay":
+	case "azure-native:relay/v20170401:WCFRelay":
 		r, err = NewWCFRelay(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule":
+	case "azure-native:relay/v20170401:WCFRelayAuthorizationRule":
 		r, err = NewWCFRelayAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"relay/v20170401",
 		&module{version},
 	)

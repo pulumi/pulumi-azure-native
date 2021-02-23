@@ -10,7 +10,7 @@ import (
 // Configures where to store the OMS agent data for workspaces under a scope
 func LookupWorkspaceSetting(ctx *pulumi.Context, args *LookupWorkspaceSettingArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSettingResult, error) {
 	var rv LookupWorkspaceSettingResult
-	err := ctx.Invoke("azure-nextgen:security/v20170801preview:getWorkspaceSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20170801preview:getWorkspaceSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

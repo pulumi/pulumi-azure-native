@@ -10,10 +10,10 @@ import (
 // A secret.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getSecret'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSecret'.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getSecret", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

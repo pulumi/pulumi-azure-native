@@ -47,16 +47,31 @@ func NewDataSetMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare/latest:DataSetMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:DataSetMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20181101preview:DataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:DataSetMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20191101:DataSetMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:DataSetMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20200901:DataSetMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:DataSetMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:DataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:DataSetMapping"),
@@ -64,7 +79,7 @@ func NewDataSetMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataSetMapping
-	err := ctx.RegisterResource("azure-nextgen:datashare:DataSetMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare:DataSetMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +91,7 @@ func NewDataSetMapping(ctx *pulumi.Context,
 func GetDataSetMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataSetMappingState, opts ...pulumi.ResourceOption) (*DataSetMapping, error) {
 	var resource DataSetMapping
-	err := ctx.ReadResource("azure-nextgen:datashare:DataSetMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare:DataSetMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

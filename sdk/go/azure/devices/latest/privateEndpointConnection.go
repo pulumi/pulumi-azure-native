@@ -14,7 +14,7 @@ import (
 // The private endpoint connection of an IotHub
 // Latest API Version: 2020-08-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:PrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -44,25 +44,49 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200301:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200401:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200401:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200615:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200615:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200710preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200801:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200831:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200831preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831preview:PrivateEndpointConnection"),
@@ -70,7 +94,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:devices/latest:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/latest:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +106,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:devices/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/latest:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Specifies information about the Dedicated host.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DedicatedHost'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHost'.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 
@@ -64,19 +64,37 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20191201:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHost"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHost"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHost"),
@@ -84,7 +102,7 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedHost
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:DedicatedHost", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:DedicatedHost", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +114,7 @@ func NewDedicatedHost(ctx *pulumi.Context,
 func GetDedicatedHost(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedHostState, opts ...pulumi.ResourceOption) (*DedicatedHost, error) {
 	var resource DedicatedHost
-	err := ctx.ReadResource("azure-nextgen:compute/latest:DedicatedHost", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:DedicatedHost", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

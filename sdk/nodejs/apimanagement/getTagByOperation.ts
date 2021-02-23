@@ -17,7 +17,7 @@ export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getTagByOperation", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getTagByOperation", {
         "apiId": args.apiId,
         "operationId": args.operationId,
         "resourceGroupName": args.resourceGroupName,

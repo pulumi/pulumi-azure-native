@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The remediation definition.
  * Latest API Version: 2019-07-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResourceGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtResourceGroup'. */
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
-    pulumi.log.warn("getRemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:policyinsights:getRemediationAtResourceGroup'.")
+    pulumi.log.warn("getRemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtResourceGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGrou
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/latest:getRemediationAtResourceGroup", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/latest:getRemediationAtResourceGroup", {
         "remediationName": args.remediationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

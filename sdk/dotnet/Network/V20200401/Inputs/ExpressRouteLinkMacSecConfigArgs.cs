@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
+namespace Pulumi.AzureNative.Network.V20200401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// Mac security cipher.
         /// </summary>
         [Input("cipher")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.ExpressRouteLinkMacSecCipher>? Cipher { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200401.ExpressRouteLinkMacSecCipher>? Cipher { get; set; }
 
         /// <summary>
         /// Keyvault Secret Identifier URL containing Mac security CKN key.

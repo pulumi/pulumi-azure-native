@@ -46,25 +46,49 @@ func NewApiSchema(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiSchema"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiSchema"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiSchema"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiSchema"),
@@ -72,7 +96,7 @@ func NewApiSchema(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiSchema
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20190101:ApiSchema", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20190101:ApiSchema", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +108,7 @@ func NewApiSchema(ctx *pulumi.Context,
 func GetApiSchema(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiSchemaState, opts ...pulumi.ResourceOption) (*ApiSchema, error) {
 	var resource ApiSchema
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20190101:ApiSchema", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20190101:ApiSchema", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

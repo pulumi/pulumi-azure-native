@@ -52,16 +52,31 @@ func NewAsset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:Asset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:Asset"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:Asset"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:Asset"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180330preview:Asset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:Asset"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:Asset"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:Asset"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:Asset"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:Asset"),
@@ -69,7 +84,7 @@ func NewAsset(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Asset
-	err := ctx.RegisterResource("azure-nextgen:media/v20180601preview:Asset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20180601preview:Asset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +96,7 @@ func NewAsset(ctx *pulumi.Context,
 func GetAsset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssetState, opts ...pulumi.ResourceOption) (*Asset, error) {
 	var resource Asset
-	err := ctx.ReadResource("azure-nextgen:media/v20180601preview:Asset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20180601preview:Asset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

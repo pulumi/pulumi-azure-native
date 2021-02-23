@@ -10,7 +10,7 @@ import (
 // A class represent a resource.
 func LookupSignalR(ctx *pulumi.Context, args *LookupSignalRArgs, opts ...pulumi.InvokeOption) (*LookupSignalRResult, error) {
 	var rv LookupSignalRResult
-	err := ctx.Invoke("azure-nextgen:signalrservice/v20200701preview:getSignalR", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:signalrservice/v20200701preview:getSignalR", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

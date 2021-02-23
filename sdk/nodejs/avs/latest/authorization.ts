@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * ExpressRoute Circuit Authorization
  * Latest API Version: 2020-03-20.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.
  */
 export class Authorization extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Authorization extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Authorization {
-        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")
+        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.")
         return new Authorization(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/latest:Authorization';
+    public static readonly __pulumiType = 'azure-native:avs/latest:Authorization';
 
     /**
      * Returns true if the given object is an instance of Authorization.  This is designed to work even
@@ -66,9 +66,9 @@ export class Authorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'. */
     constructor(name: string, args: AuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")
+        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:Authorization" }, { type: "azure-nextgen:avs:Authorization" }, { type: "azure-native:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-native:avs/v20200717preview:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Authorization.__pulumiType, name, inputs, opts);
     }

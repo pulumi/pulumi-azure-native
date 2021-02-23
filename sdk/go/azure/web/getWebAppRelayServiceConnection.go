@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppRelayServiceConnection(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionResult, error) {
 	var rv LookupWebAppRelayServiceConnectionResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppRelayServiceConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppRelayServiceConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

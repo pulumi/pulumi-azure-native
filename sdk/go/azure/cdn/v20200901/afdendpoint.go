@@ -51,7 +51,13 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:AFDEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:AFDEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/latest:AFDEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:AFDEndpoint"),
@@ -59,7 +65,7 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AFDEndpoint
-	err := ctx.RegisterResource("azure-nextgen:cdn/v20200901:AFDEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/v20200901:AFDEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 func GetAFDEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AFDEndpointState, opts ...pulumi.ResourceOption) (*AFDEndpoint, error) {
 	var resource AFDEndpoint
-	err := ctx.ReadResource("azure-nextgen:cdn/v20200901:AFDEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/v20200901:AFDEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

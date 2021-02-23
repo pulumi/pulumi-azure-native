@@ -23,7 +23,7 @@ export class ConnectionType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation:ConnectionType';
+    public static readonly __pulumiType = 'azure-native:automation:ConnectionType';
 
     /**
      * Returns true if the given object is an instance of ConnectionType.  This is designed to work even
@@ -113,7 +113,7 @@ export class ConnectionType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/latest:ConnectionType" }, { type: "azure-nextgen:automation/v20151031:ConnectionType" }, { type: "azure-nextgen:automation/v20190601:ConnectionType" }, { type: "azure-nextgen:automation/v20200113preview:ConnectionType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:ConnectionType" }, { type: "azure-nextgen:automation/latest:ConnectionType" }, { type: "azure-native:automation/v20151031:ConnectionType" }, { type: "azure-nextgen:automation/v20151031:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-nextgen:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }, { type: "azure-nextgen:automation/v20200113preview:ConnectionType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionType.__pulumiType, name, inputs, opts);
     }

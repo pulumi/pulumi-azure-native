@@ -66,28 +66,55 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:Application"),
@@ -95,7 +122,7 @@ func NewApplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Application
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +134,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

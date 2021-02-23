@@ -32,7 +32,13 @@ func NewConsole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal/latest:Console"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal/latest:Console"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001:Console"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:Console"),
@@ -40,7 +46,7 @@ func NewConsole(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Console
-	err := ctx.RegisterResource("azure-nextgen:portal:Console", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal:Console", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +58,7 @@ func NewConsole(ctx *pulumi.Context,
 func GetConsole(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConsoleState, opts ...pulumi.ResourceOption) (*Console, error) {
 	var resource Console
-	err := ctx.ReadResource("azure-nextgen:portal:Console", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal:Console", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

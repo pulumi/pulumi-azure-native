@@ -10,10 +10,10 @@ import (
 // Replication protected item.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationProtectedItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectedItem'.
 func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplicationProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectedItemResult, error) {
 	var rv LookupReplicationProtectedItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices/latest:getReplicationProtectedItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices/latest:getReplicationProtectedItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

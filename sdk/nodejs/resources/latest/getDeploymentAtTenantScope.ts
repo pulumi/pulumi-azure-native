@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Deployment information.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtTenantScope'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtTenantScope'. */
 export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtTenantScopeResult> {
-    pulumi.log.warn("getDeploymentAtTenantScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtTenantScope'.")
+    pulumi.log.warn("getDeploymentAtTenantScope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtTenantScope'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources/latest:getDeploymentAtTenantScope", {
+    return pulumi.runtime.invoke("azure-native:resources/latest:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,
     }, opts);
 }

@@ -16,7 +16,7 @@ export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20170402:getProfileSupportedOptimizationTypes", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20170402:getProfileSupportedOptimizationTypes", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

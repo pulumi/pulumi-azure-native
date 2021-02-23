@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class ListIntegrationAccountKeyVaultKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-nextgen:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithVersion());
     }
 
 

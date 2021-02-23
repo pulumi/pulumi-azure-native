@@ -10,10 +10,10 @@ import (
 // The volume.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getVolume'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getVolume'.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getVolume", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getVolume", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

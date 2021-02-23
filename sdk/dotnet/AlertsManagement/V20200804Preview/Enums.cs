@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
+namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview
 {
     /// <summary>
     /// specifies the type of the alert criterion.

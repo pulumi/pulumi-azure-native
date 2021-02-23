@@ -10,7 +10,7 @@ import (
 // The integration account partner.
 func LookupIntegrationAccountPartner(ctx *pulumi.Context, args *LookupIntegrationAccountPartnerArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountPartnerResult, error) {
 	var rv LookupIntegrationAccountPartnerResult
-	err := ctx.Invoke("azure-nextgen:logic/v20190501:getIntegrationAccountPartner", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20190501:getIntegrationAccountPartner", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

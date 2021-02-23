@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupNetworkInterfaceTapConfiguration(ctx *pulumi.Context, args *LookupNetworkInterfaceTapConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceTapConfigurationResult, error) {
 	var rv LookupNetworkInterfaceTapConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getNetworkInterfaceTapConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

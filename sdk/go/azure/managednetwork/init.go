@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:managednetwork:ManagedNetwork":
+	case "azure-native:managednetwork:ManagedNetwork":
 		r, err = NewManagedNetwork(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:managednetwork:ManagedNetworkGroup":
+	case "azure-native:managednetwork:ManagedNetworkGroup":
 		r, err = NewManagedNetworkGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy":
+	case "azure-native:managednetwork:ManagedNetworkPeeringPolicy":
 		r, err = NewManagedNetworkPeeringPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:managednetwork:ScopeAssignment":
+	case "azure-native:managednetwork:ScopeAssignment":
 		r, err = NewScopeAssignment(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"managednetwork",
 		&module{version},
 	)

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayAuthorizationRuleResult, error) {
 	var rv LookupWCFRelayAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:relay:getWCFRelayAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay:getWCFRelayAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

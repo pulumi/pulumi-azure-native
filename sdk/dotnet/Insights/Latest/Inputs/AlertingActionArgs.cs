@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
+namespace Pulumi.AzureNative.Insights.Latest.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// Severity of the alert
         /// </summary>
         [Input("severity", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.AlertSeverity> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.Latest.AlertSeverity> Severity { get; set; } = null!;
 
         /// <summary>
         /// time (in minutes) for which Alerts should be throttled or suppressed.

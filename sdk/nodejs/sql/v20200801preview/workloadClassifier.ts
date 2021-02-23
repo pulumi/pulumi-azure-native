@@ -21,7 +21,7 @@ export class WorkloadClassifier extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:WorkloadClassifier';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:WorkloadClassifier';
 
     /**
      * Returns true if the given object is an instance of WorkloadClassifier.  This is designed to work even
@@ -122,7 +122,7 @@ export class WorkloadClassifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadClassifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadClassifier" }, { type: "azure-nextgen:sql:WorkloadClassifier" }, { type: "azure-native:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-native:sql/v20200202preview:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadClassifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadClassifier.__pulumiType, name, inputs, opts);
     }

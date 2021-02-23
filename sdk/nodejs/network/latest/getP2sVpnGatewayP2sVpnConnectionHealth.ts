@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * P2SVpnGateway Resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealth'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth'. */
 export function getP2sVpnGatewayP2sVpnConnectionHealth(args: GetP2sVpnGatewayP2sVpnConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
-    pulumi.log.warn("getP2sVpnGatewayP2sVpnConnectionHealth is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnGatewayP2sVpnConnectionHealth'.")
+    pulumi.log.warn("getP2sVpnGatewayP2sVpnConnectionHealth is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getP2sVpnGatewayP2sVpnConnectionHealth(args: GetP2sVpnGatewayP2s
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getP2sVpnGatewayP2sVpnConnectionHealth", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getP2sVpnGatewayP2sVpnConnectionHealth", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

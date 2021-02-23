@@ -10,7 +10,7 @@ import (
 // Property details.
 func LookupProperty(ctx *pulumi.Context, args *LookupPropertyArgs, opts ...pulumi.InvokeOption) (*LookupPropertyResult, error) {
 	var rv LookupPropertyResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20170301:getProperty", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20170301:getProperty", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

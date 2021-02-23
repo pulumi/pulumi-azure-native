@@ -17,7 +17,7 @@ export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getWebAppSiteExtension", {
+    return pulumi.runtime.invoke("azure-native:web:getWebAppSiteExtension", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteExtensionId": args.siteExtensionId,

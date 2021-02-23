@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     public static class GetImageUploadUrlForEntityType
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The image definition.
         /// </summary>
         public static Task<GetImageUploadUrlForEntityTypeResult> InvokeAsync(GetImageUploadUrlForEntityTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-nextgen:customerinsights/v20170426:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeArgs(), options.WithVersion());
     }
 
 

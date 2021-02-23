@@ -10,10 +10,10 @@ import (
 // Describes a database on the RedisEnterprise cluster
 // Latest API Version: 2021-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getDatabase'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getDatabase'.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:cache/latest:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cache/latest:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

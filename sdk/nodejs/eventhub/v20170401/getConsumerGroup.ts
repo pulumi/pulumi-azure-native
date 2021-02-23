@@ -16,7 +16,7 @@ export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/v20170401:getConsumerGroup", {
+    return pulumi.runtime.invoke("azure-native:eventhub/v20170401:getConsumerGroup", {
         "consumerGroupName": args.consumerGroupName,
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

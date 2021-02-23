@@ -23,7 +23,7 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab:Disk';
+    public static readonly __pulumiType = 'azure-native:devtestlab:Disk';
 
     /**
      * Returns true if the given object is an instance of Disk.  This is designed to work even
@@ -152,7 +152,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }, { type: "azure-nextgen:devtestlab/v20180915:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/latest:Disk" }, { type: "azure-nextgen:devtestlab/latest:Disk" }, { type: "azure-native:devtestlab/v20160515:Disk" }, { type: "azure-nextgen:devtestlab/v20160515:Disk" }, { type: "azure-native:devtestlab/v20180915:Disk" }, { type: "azure-nextgen:devtestlab/v20180915:Disk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Disk.__pulumiType, name, inputs, opts);
     }

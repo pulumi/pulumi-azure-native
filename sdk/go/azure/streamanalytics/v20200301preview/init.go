@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:streamanalytics/v20200301preview:Cluster":
+	case "azure-native:streamanalytics/v20200301preview:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint":
+	case "azure-native:streamanalytics/v20200301preview:PrivateEndpoint":
 		r, err = NewPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -38,7 +38,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"streamanalytics/v20200301preview",
 		&module{version},
 	)

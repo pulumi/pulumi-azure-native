@@ -38,7 +38,13 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:powerbi:WorkspaceCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:powerbi:WorkspaceCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:powerbi/latest:WorkspaceCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:powerbi/latest:WorkspaceCollection"),
@@ -46,7 +52,7 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceCollection
-	err := ctx.RegisterResource("azure-nextgen:powerbi/v20160129:WorkspaceCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:powerbi/v20160129:WorkspaceCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +64,7 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 func GetWorkspaceCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceCollectionState, opts ...pulumi.ResourceOption) (*WorkspaceCollection, error) {
 	var resource WorkspaceCollection
-	err := ctx.ReadResource("azure-nextgen:powerbi/v20160129:WorkspaceCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:powerbi/v20160129:WorkspaceCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

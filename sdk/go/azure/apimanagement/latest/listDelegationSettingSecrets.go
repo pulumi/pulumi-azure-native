@@ -10,10 +10,10 @@ import (
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listDelegationSettingSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'.
 func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSettingSecretsArgs, opts ...pulumi.InvokeOption) (*ListDelegationSettingSecretsResult, error) {
 	var rv ListDelegationSettingSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:listDelegationSettingSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:listDelegationSettingSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

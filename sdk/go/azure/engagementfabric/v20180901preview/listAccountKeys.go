@@ -10,7 +10,7 @@ import (
 // The list of the EngagementFabric account keys
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:engagementfabric/v20180901preview:listAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:engagementfabric/v20180901preview:listAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

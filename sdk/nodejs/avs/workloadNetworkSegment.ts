@@ -23,7 +23,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs:WorkloadNetworkSegment';
+    public static readonly __pulumiType = 'azure-native:avs:WorkloadNetworkSegment';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkSegment.  This is designed to work even
@@ -119,7 +119,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkSegment" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkSegment" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkSegment.__pulumiType, name, inputs, opts);
     }

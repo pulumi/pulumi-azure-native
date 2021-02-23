@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class X12EnvelopeOverrideArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The date format.
         /// </summary>
         [Input("dateFormat")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.X12DateFormat>? DateFormat { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.X12DateFormat>? DateFormat { get; set; }
 
         /// <summary>
         /// The functional identifier code.
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The time format.
         /// </summary>
         [Input("timeFormat")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.X12TimeFormat>? TimeFormat { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.X12TimeFormat>? TimeFormat { get; set; }
 
         public X12EnvelopeOverrideArgs()
         {

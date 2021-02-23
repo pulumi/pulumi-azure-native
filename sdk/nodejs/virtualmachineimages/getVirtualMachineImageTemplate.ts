@@ -17,7 +17,7 @@ export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTempl
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate", {
+    return pulumi.runtime.invoke("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", {
         "imageTemplateName": args.imageTemplateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

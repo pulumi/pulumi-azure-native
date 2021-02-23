@@ -16,7 +16,7 @@ export function getguestDiagnosticsSetting(args: GetguestDiagnosticsSettingArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20180601preview:getguestDiagnosticsSetting", {
+    return pulumi.runtime.invoke("azure-native:insights/v20180601preview:getguestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

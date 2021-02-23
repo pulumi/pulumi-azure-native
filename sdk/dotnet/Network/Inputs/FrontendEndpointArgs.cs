@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("sessionAffinityEnabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.SessionAffinityEnabledState>? SessionAffinityEnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.SessionAffinityEnabledState>? SessionAffinityEnabledState { get; set; }
 
         /// <summary>
         /// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.

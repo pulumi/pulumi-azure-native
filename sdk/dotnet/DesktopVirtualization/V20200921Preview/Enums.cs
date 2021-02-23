@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
+namespace Pulumi.AzureNative.DesktopVirtualization.V20200921Preview
 {
     /// <summary>
     /// Resource Type of ApplicationGroup.

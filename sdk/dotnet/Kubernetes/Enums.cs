@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Kubernetes
+namespace Pulumi.AzureNative.Kubernetes
 {
     /// <summary>
     /// The mode of client authentication.

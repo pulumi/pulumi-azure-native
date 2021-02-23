@@ -23,7 +23,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization:AccessReviewScheduleDefinitionById';
+    public static readonly __pulumiType = 'azure-native:authorization:AccessReviewScheduleDefinitionById';
 
     /**
      * Returns true if the given object is an instance of AccessReviewScheduleDefinitionById.  This is designed to work even
@@ -219,7 +219,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AccessReviewScheduleDefinitionById.__pulumiType, name, inputs, opts);
     }

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.Latest
+namespace Pulumi.AzureNative.Compute.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getAvailabilitySet'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getAvailabilitySet'.")]
     public static class GetAvailabilitySet
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-nextgen:compute/latest:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:compute/latest:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
     }
 
 

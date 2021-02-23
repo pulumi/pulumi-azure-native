@@ -11,7 +11,7 @@ import (
 // API Version: 2016-11-01.
 func ListStorageAccountSasTokens(ctx *pulumi.Context, args *ListStorageAccountSasTokensArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountSasTokensResult, error) {
 	var rv ListStorageAccountSasTokensResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics:listStorageAccountSasTokens", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics:listStorageAccountSasTokens", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

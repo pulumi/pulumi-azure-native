@@ -60,12 +60,15 @@ func NewNetworkFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridnetwork/v20200101preview:NetworkFunction"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkFunction
-	err := ctx.RegisterResource("azure-nextgen:hybridnetwork:NetworkFunction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridnetwork:NetworkFunction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +80,7 @@ func NewNetworkFunction(ctx *pulumi.Context,
 func GetNetworkFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkFunctionState, opts ...pulumi.ResourceOption) (*NetworkFunction, error) {
 	var resource NetworkFunction
-	err := ctx.ReadResource("azure-nextgen:hybridnetwork:NetworkFunction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridnetwork:NetworkFunction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

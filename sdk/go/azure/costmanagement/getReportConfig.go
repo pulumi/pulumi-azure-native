@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-31.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getReportConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getReportConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

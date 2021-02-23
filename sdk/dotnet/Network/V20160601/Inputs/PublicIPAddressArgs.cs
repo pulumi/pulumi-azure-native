@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
+namespace Pulumi.AzureNative.Network.V20160601.Inputs
 {
 
     /// <summary>
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets PublicIP address version (IPv4/IPv6)
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.IPVersion>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160601.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// Gets or sets PublicIP allocation method (Static/Dynamic)
         /// </summary>
         [Input("publicIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160601.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// Gets or sets resource guid property of the PublicIP resource

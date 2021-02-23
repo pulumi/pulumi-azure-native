@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio
+namespace Pulumi.AzureNative.VisualStudio
 {
     /// <summary>
     /// The response to an extension resource GET request.
     /// API Version: 2014-04-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:visualstudio:Extension")]
+    [AzureNativeResourceType("azure-native:visualstudio:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.VisualStudio
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Extension(string name, ExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:visualstudio:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Extension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:visualstudio:Extension", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:visualstudio:Extension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.VisualStudio
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20140401preview:Extension"},
+                    new Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20171101preview:Extension"},
                 },
             };

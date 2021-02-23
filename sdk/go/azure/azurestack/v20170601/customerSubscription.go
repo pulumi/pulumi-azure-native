@@ -40,10 +40,19 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azurestack:CustomerSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack:CustomerSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:azurestack/latest:CustomerSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack/latest:CustomerSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:azurestack/v20200601preview:CustomerSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azurestack/v20200601preview:CustomerSubscription"),
@@ -51,7 +60,7 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomerSubscription
-	err := ctx.RegisterResource("azure-nextgen:azurestack/v20170601:CustomerSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azurestack/v20170601:CustomerSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +72,7 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 func GetCustomerSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomerSubscriptionState, opts ...pulumi.ResourceOption) (*CustomerSubscription, error) {
 	var resource CustomerSubscription
-	err := ctx.ReadResource("azure-nextgen:azurestack/v20170601:CustomerSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azurestack/v20170601:CustomerSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

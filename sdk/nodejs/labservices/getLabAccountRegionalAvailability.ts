@@ -17,7 +17,7 @@ export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAva
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices:getLabAccountRegionalAvailability", {
+    return pulumi.runtime.invoke("azure-native:labservices:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

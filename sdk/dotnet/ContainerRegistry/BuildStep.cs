@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// Build step resource properties
     /// API Version: 2018-02-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:BuildStep")]
+    [AzureNativeResourceType("azure-native:containerregistry:BuildStep")]
     public partial class BuildStep : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BuildStep(string name, BuildStepArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:BuildStep", name, args ?? new BuildStepArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:BuildStep", name, args ?? new BuildStepArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BuildStep(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:BuildStep", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:BuildStep", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:BuildStep"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildStep"},
                 },
             };

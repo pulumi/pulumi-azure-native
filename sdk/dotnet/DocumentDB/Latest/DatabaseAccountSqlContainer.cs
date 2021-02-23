@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest
+namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB container.
     /// Latest API Version: 2016-03-31.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountSqlContainer'.")]
-    [AzureNextGenResourceType("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountSqlContainer'.")]
+    [AzureNativeResourceType("azure-native:documentdb/latest:DatabaseAccountSqlContainer")]
     public partial class DatabaseAccountSqlContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountSqlContainer(string name, DatabaseAccountSqlContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer", name, args ?? new DatabaseAccountSqlContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/latest:DatabaseAccountSqlContainer", name, args ?? new DatabaseAccountSqlContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountSqlContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/latest:DatabaseAccountSqlContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,11 +114,17 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer"},
                 },
             };

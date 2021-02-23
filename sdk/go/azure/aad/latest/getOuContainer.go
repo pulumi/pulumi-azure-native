@@ -10,10 +10,10 @@ import (
 // Resource for OuContainer.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
 	var rv LookupOuContainerResult
-	err := ctx.Invoke("azure-nextgen:aad/latest:getOuContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aad/latest:getOuContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

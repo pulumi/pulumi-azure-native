@@ -17,7 +17,7 @@ export function getSiteInstanceDeployment(args: GetSiteInstanceDeploymentArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getSiteInstanceDeployment", {
+    return pulumi.runtime.invoke("azure-native:web:getSiteInstanceDeployment", {
         "id": args.id,
         "instanceId": args.instanceId,
         "name": args.name,

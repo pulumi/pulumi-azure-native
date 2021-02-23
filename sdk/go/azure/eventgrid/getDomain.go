@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

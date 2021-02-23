@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:attestation/latest:AttestationProvider":
+            case "azure-native:attestation/latest:AttestationProvider":
                 return new AttestationProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:attestation/latest:PrivateEndpointConnection":
+            case "azure-native:attestation/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "attestation/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "attestation/latest", _module)

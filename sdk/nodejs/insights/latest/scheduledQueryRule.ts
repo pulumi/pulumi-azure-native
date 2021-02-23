@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The Log Search Rule resource.
  * Latest API Version: 2018-04-16.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ScheduledQueryRule'.
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScheduledQueryRule {
-        pulumi.log.warn("ScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'.")
+        pulumi.log.warn("ScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ScheduledQueryRule'.")
         return new ScheduledQueryRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/latest:ScheduledQueryRule';
+    public static readonly __pulumiType = 'azure-native:insights/latest:ScheduledQueryRule';
 
     /**
      * Returns true if the given object is an instance of ScheduledQueryRule.  This is designed to work even
@@ -111,9 +111,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ScheduledQueryRule'. */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'.")
+        pulumi.log.warn("ScheduledQueryRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ScheduledQueryRule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.action === undefined) && !(opts && opts.urn)) {
@@ -168,7 +168,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20180416:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }

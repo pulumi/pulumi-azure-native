@@ -21,7 +21,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:dbformysql/v20171201:Database';
+    public static readonly __pulumiType = 'azure-native:dbformysql/v20171201:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -87,7 +87,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:Database" }, { type: "azure-nextgen:dbformysql/latest:Database" }, { type: "azure-nextgen:dbformysql/v20171201preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:Database" }, { type: "azure-nextgen:dbformysql:Database" }, { type: "azure-native:dbformysql/latest:Database" }, { type: "azure-nextgen:dbformysql/latest:Database" }, { type: "azure-native:dbformysql/v20171201preview:Database" }, { type: "azure-nextgen:dbformysql/v20171201preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

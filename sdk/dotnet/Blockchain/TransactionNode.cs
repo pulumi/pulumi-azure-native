@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blockchain
+namespace Pulumi.AzureNative.Blockchain
 {
     /// <summary>
     /// Payload of the transaction node which is the request/response of the resource provider.
     /// API Version: 2018-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blockchain:TransactionNode")]
+    [AzureNativeResourceType("azure-native:blockchain:TransactionNode")]
     public partial class TransactionNode : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Blockchain
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransactionNode(string name, TransactionNodeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blockchain:TransactionNode", name, args ?? new TransactionNodeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blockchain:TransactionNode", name, args ?? new TransactionNodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransactionNode(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blockchain:TransactionNode", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blockchain:TransactionNode", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.Blockchain
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:blockchain/v20180601preview:TransactionNode"},
                     new Pulumi.Alias { Type = "azure-nextgen:blockchain/v20180601preview:TransactionNode"},
                 },
             };

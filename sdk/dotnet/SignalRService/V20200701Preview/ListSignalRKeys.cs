@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
+namespace Pulumi.AzureNative.SignalRService.V20200701Preview
 {
     public static class ListSignalRKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-nextgen:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Addons
+namespace Pulumi.AzureNative.Addons
 {
     public static class GetSupportPlanType
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Addons
         /// API Version: 2018-03-01.
         /// </summary>
         public static Task<GetSupportPlanTypeResult> InvokeAsync(GetSupportPlanTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-nextgen:addons:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-native:addons:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
     }
 
 

@@ -10,10 +10,10 @@ import (
 // The streaming endpoint.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingEndpoint'.
 func LookupStreamingEndpoint(ctx *pulumi.Context, args *LookupStreamingEndpointArgs, opts ...pulumi.InvokeOption) (*LookupStreamingEndpointResult, error) {
 	var rv LookupStreamingEndpointResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getStreamingEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getStreamingEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

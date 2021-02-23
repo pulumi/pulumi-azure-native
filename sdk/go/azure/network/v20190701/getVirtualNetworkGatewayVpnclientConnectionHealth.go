@@ -10,7 +10,7 @@ import (
 // List of virtual network gateway vpn client connection health.
 func GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientConnectionHealthResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientConnectionHealthResult
-	err := ctx.Invoke("azure-nextgen:network/v20190701:getVirtualNetworkGatewayVpnclientConnectionHealth", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190701:getVirtualNetworkGatewayVpnclientConnectionHealth", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

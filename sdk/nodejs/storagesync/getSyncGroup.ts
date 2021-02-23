@@ -17,7 +17,7 @@ export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagesync:getSyncGroup", {
+    return pulumi.runtime.invoke("azure-native:storagesync:getSyncGroup", {
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
         "syncGroupName": args.syncGroupName,

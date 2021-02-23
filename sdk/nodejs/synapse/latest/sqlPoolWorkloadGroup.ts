@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Workload group operations for a sql pool
  * Latest API Version: 2020-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.
  */
 export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolWorkloadGroup {
-        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.")
+        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.")
         return new SqlPoolWorkloadGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/latest:SqlPoolWorkloadGroup';
+    public static readonly __pulumiType = 'azure-native:synapse/latest:SqlPoolWorkloadGroup';
 
     /**
      * Returns true if the given object is an instance of SqlPoolWorkloadGroup.  This is designed to work even
@@ -78,9 +78,9 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'. */
     constructor(name: string, args: SqlPoolWorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadGroup'.")
+        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.maxResourcePercent === undefined) && !(opts && opts.urn)) {
@@ -130,7 +130,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
     }

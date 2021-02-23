@@ -16,7 +16,7 @@ export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/v20210101:listRemoteRenderingAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/v20210101:listRemoteRenderingAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
+namespace Pulumi.AzureNative.Compute.V20201201.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNextGen.Compute.V20201201.CachingTypes>? Caching { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20201201.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// The create option.
         /// </summary>
         [Input("createOption", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20201201.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20201201.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.

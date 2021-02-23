@@ -22,7 +22,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:marketplace/v20200101:PrivateStoreOffer';
+    public static readonly __pulumiType = 'azure-native:marketplace/v20200101:PrivateStoreOffer';
 
     /**
      * Returns true if the given object is an instance of PrivateStoreOffer.  This is designed to work even
@@ -137,7 +137,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:marketplace:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/latest:PrivateStoreOffer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:marketplace:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace:PrivateStoreOffer" }, { type: "azure-native:marketplace/latest:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/latest:PrivateStoreOffer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateStoreOffer.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // The list of build arguments for a build step.
 func ListBuildStepBuildArguments(ctx *pulumi.Context, args *ListBuildStepBuildArgumentsArgs, opts ...pulumi.InvokeOption) (*ListBuildStepBuildArgumentsResult, error) {
 	var rv ListBuildStepBuildArgumentsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20180201preview:listBuildStepBuildArguments", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

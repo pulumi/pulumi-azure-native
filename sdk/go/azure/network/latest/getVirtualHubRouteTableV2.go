@@ -10,10 +10,10 @@ import (
 // VirtualHubRouteTableV2 Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualHubRouteTableV2'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHubRouteTableV2'.
 func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRouteTableV2Args, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableV2Result, error) {
 	var rv LookupVirtualHubRouteTableV2Result
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualHubRouteTableV2", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualHubRouteTableV2", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

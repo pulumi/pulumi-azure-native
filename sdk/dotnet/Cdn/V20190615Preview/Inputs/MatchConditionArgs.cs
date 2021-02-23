@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
+namespace Pulumi.AzureNative.Cdn.V20190615Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Match variable to compare against.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.MatchVariable> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190615Preview.MatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes if the result of this condition should be negated.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.Operator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190615Preview.Operator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.TransformType>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.V20190615Preview.TransformType>>? _transforms;
 
         /// <summary>
         /// List of transforms.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.TransformType>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.V20190615Preview.TransformType>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.TransformType>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.V20190615Preview.TransformType>>());
             set => _transforms = value;
         }
 

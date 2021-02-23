@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * SSL certificate purchase order.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:certificateregistration:getAppServiceCertificateOrder'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:certificateregistration:getAppServiceCertificateOrder'. */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
-    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:certificateregistration:getAppServiceCertificateOrder'.")
+    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:certificateregistration:getAppServiceCertificateOrder'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrde
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:certificateregistration/latest:getAppServiceCertificateOrder", {
+    return pulumi.runtime.invoke("azure-native:certificateregistration/latest:getAppServiceCertificateOrder", {
         "certificateOrderName": args.certificateOrderName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

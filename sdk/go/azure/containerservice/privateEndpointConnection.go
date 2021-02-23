@@ -46,19 +46,37 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerservice/latest:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/latest:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200601:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200601:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20200701:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200701:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20200901:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20200901:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerservice/v20201101:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20201201:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"),
@@ -66,7 +84,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:containerservice:PrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerservice:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +96,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
 	var resource PrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:containerservice:PrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerservice:PrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

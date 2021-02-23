@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listWorkspaceNotebookAccessToken'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'.
 func ListWorkspaceNotebookAccessToken(ctx *pulumi.Context, args *ListWorkspaceNotebookAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceNotebookAccessTokenResult, error) {
 	var rv ListWorkspaceNotebookAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices/latest:listWorkspaceNotebookAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices/latest:listWorkspaceNotebookAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

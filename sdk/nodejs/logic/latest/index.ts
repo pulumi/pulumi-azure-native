@@ -66,35 +66,35 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:logic/latest:IntegrationAccount":
+            case "azure-native:logic/latest:IntegrationAccount":
                 return new IntegrationAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountAgreement":
+            case "azure-native:logic/latest:IntegrationAccountAgreement":
                 return new IntegrationAccountAgreement(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountAssembly":
+            case "azure-native:logic/latest:IntegrationAccountAssembly":
                 return new IntegrationAccountAssembly(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration":
+            case "azure-native:logic/latest:IntegrationAccountBatchConfiguration":
                 return new IntegrationAccountBatchConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountCertificate":
+            case "azure-native:logic/latest:IntegrationAccountCertificate":
                 return new IntegrationAccountCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountMap":
+            case "azure-native:logic/latest:IntegrationAccountMap":
                 return new IntegrationAccountMap(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountPartner":
+            case "azure-native:logic/latest:IntegrationAccountPartner":
                 return new IntegrationAccountPartner(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountSchema":
+            case "azure-native:logic/latest:IntegrationAccountSchema":
                 return new IntegrationAccountSchema(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationAccountSession":
+            case "azure-native:logic/latest:IntegrationAccountSession":
                 return new IntegrationAccountSession(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationServiceEnvironment":
+            case "azure-native:logic/latest:IntegrationServiceEnvironment":
                 return new IntegrationServiceEnvironment(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi":
+            case "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi":
                 return new IntegrationServiceEnvironmentManagedApi(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:RosettaNetProcessConfiguration":
+            case "azure-native:logic/latest:RosettaNetProcessConfiguration":
                 return new RosettaNetProcessConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:logic/latest:Workflow":
+            case "azure-native:logic/latest:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "logic/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "logic/latest", _module)

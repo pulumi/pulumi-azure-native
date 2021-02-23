@@ -16,7 +16,7 @@ export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20190301:getProximityPlacementGroup", {
+    return pulumi.runtime.invoke("azure-native:compute/v20190301:getProximityPlacementGroup", {
         "proximityPlacementGroupName": args.proximityPlacementGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

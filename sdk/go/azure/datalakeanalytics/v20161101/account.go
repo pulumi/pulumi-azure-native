@@ -102,10 +102,19 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:datalakeanalytics/latest:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/latest:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakeanalytics/v20151001preview:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:Account"),
@@ -113,7 +122,7 @@ func NewAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:datalakeanalytics/v20161101:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakeanalytics/v20161101:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +134,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:datalakeanalytics/v20161101:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakeanalytics/v20161101:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

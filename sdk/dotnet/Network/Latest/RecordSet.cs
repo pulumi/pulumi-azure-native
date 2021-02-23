@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// Latest API Version: 2020-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:RecordSet'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:RecordSet")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.")]
+    [AzureNativeResourceType("azure-native:network/latest:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecordSet(string name, RecordSetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:RecordSet", name, args ?? new RecordSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecordSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:RecordSet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:RecordSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,9 +132,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180901:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200101:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:RecordSet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:RecordSet"},
                 },
             };

@@ -22,7 +22,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of NotificationHubAuthorizationRule.  This is designed to work even
@@ -108,7 +108,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs:NotificationHubAuthorizationRule" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHubAuthorizationRule" }, { type: "azure-nextgen:notificationhubs:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/latest:NotificationHubAuthorizationRule" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

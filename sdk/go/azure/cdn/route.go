@@ -72,7 +72,13 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn/latest:Route"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/latest:Route"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Route"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Route"),
@@ -80,7 +86,7 @@ func NewRoute(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Route
-	err := ctx.RegisterResource("azure-nextgen:cdn:Route", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn:Route", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +98,7 @@ func NewRoute(ctx *pulumi.Context,
 func GetRoute(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
 	var resource Route
-	err := ctx.ReadResource("azure-nextgen:cdn:Route", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn:Route", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

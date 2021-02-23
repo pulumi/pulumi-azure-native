@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
+namespace Pulumi.AzureNative.KeyVault.V20190901.Inputs
 {
 
     /// <summary>
@@ -16,50 +16,50 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
     public sealed class PermissionsArgs : Pulumi.ResourceArgs
     {
         [Input("certificates")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.CertificatePermissions>>? _certificates;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.CertificatePermissions>>? _certificates;
 
         /// <summary>
         /// Permissions to certificates
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.CertificatePermissions>> Certificates
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.CertificatePermissions>> Certificates
         {
-            get => _certificates ?? (_certificates = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.CertificatePermissions>>());
+            get => _certificates ?? (_certificates = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.CertificatePermissions>>());
             set => _certificates = value;
         }
 
         [Input("keys")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.KeyPermissions>>? _keys;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.KeyPermissions>>? _keys;
 
         /// <summary>
         /// Permissions to keys
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.KeyPermissions>> Keys
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.KeyPermissions>> Keys
         {
-            get => _keys ?? (_keys = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.KeyPermissions>>());
+            get => _keys ?? (_keys = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.KeyPermissions>>());
             set => _keys = value;
         }
 
         [Input("secrets")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.SecretPermissions>>? _secrets;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.SecretPermissions>>? _secrets;
 
         /// <summary>
         /// Permissions to secrets
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.SecretPermissions>> Secrets
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.SecretPermissions>> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.SecretPermissions>>());
+            get => _secrets ?? (_secrets = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.SecretPermissions>>());
             set => _secrets = value;
         }
 
         [Input("storage")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.StoragePermissions>>? _storage;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.StoragePermissions>>? _storage;
 
         /// <summary>
         /// Permissions to storage accounts
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.StoragePermissions>> Storage
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.StoragePermissions>> Storage
         {
-            get => _storage ?? (_storage = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.StoragePermissions>>());
+            get => _storage ?? (_storage = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20190901.StoragePermissions>>());
             set => _storage = value;
         }
 

@@ -14,7 +14,7 @@ import (
 // Resource information with extended details.
 // Latest API Version: 2019-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Vault'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Vault'.
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -45,22 +45,43 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20150601:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20150601:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20161001:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20180214:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20180214preview:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Vault"),
 		},
 		{
+			Type: pulumi.String("azure-native:keyvault/v20190901:Vault"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20200401preview:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Vault"),
@@ -68,7 +89,7 @@ func NewVault(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Vault
-	err := ctx.RegisterResource("azure-nextgen:keyvault/latest:Vault", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault/latest:Vault", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +101,7 @@ func NewVault(ctx *pulumi.Context,
 func GetVault(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VaultState, opts ...pulumi.ResourceOption) (*Vault, error) {
 	var resource Vault
-	err := ctx.ReadResource("azure-nextgen:keyvault/latest:Vault", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault/latest:Vault", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

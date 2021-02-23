@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview
 {
     /// <summary>
     /// An object that represents a token for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20190501preview:Token")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20190501preview:Token")]
     public partial class Token : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Token(string name, TokenArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190501preview:Token", name, args ?? new TokenArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20190501preview:Token", name, args ?? new TokenArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Token(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20190501preview:Token", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20190501preview:Token", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Token"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Token"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Token"},
                 },
             };
@@ -141,7 +143,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// The status of the token example enabled or disabled.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview.TokenStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190501Preview.TokenStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the token.

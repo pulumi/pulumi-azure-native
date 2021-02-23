@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// Filter VMs by Any or All specified tags.
         /// </summary>
         [Input("filterOperator")]
-        public Input<Pulumi.AzureNextGen.Automation.TagOperators>? FilterOperator { get; set; }
+        public Input<Pulumi.AzureNative.Automation.TagOperators>? FilterOperator { get; set; }
 
         [Input("tags")]
         private InputMap<ImmutableArray<string>>? _tags;

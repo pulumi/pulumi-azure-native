@@ -10,7 +10,7 @@ import (
 // Definition of the credential.
 func LookupCredential(ctx *pulumi.Context, args *LookupCredentialArgs, opts ...pulumi.InvokeOption) (*LookupCredentialResult, error) {
 	var rv LookupCredentialResult
-	err := ctx.Invoke("azure-nextgen:automation/v20151031:getCredential", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/v20151031:getCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

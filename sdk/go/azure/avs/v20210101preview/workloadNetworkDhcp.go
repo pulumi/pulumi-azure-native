@@ -49,7 +49,13 @@ func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:WorkloadNetworkDhcp"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkDhcp"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkDhcp"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp"),
@@ -57,7 +63,7 @@ func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkDhcp
-	err := ctx.RegisterResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20210101preview:WorkloadNetworkDhcp", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 func GetWorkloadNetworkDhcp(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkDhcpState, opts ...pulumi.ResourceOption) (*WorkloadNetworkDhcp, error) {
 	var resource WorkloadNetworkDhcp
-	err := ctx.ReadResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20210101preview:WorkloadNetworkDhcp", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

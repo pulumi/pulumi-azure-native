@@ -16,7 +16,7 @@ export function getOperationalizationCluster(args: GetOperationalizationClusterA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningcompute/v20170801preview:getOperationalizationCluster", {
+    return pulumi.runtime.invoke("azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

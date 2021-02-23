@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// the reference to the load balancer probe used by the load balancing rule.

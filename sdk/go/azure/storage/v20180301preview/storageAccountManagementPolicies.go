@@ -40,22 +40,43 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:StorageAccountManagementPolicies"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:StorageAccountManagementPolicies"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20181101:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:StorageAccountManagementPolicies"),
@@ -63,7 +84,7 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountManagementPolicies
-	err := ctx.RegisterResource("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20180301preview:StorageAccountManagementPolicies", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +96,7 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 func GetStorageAccountManagementPolicies(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountManagementPoliciesState, opts ...pulumi.ResourceOption) (*StorageAccountManagementPolicies, error) {
 	var resource StorageAccountManagementPolicies
-	err := ctx.ReadResource("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20180301preview:StorageAccountManagementPolicies", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

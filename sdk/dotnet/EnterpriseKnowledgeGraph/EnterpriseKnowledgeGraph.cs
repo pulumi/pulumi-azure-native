@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
     /// API Version: 2018-12-03.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph")]
+    [AzureNativeResourceType("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnterpriseKnowledgeGraph(string name, EnterpriseKnowledgeGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, args ?? new EnterpriseKnowledgeGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EnterpriseKnowledgeGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,9 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"},
+                    new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };

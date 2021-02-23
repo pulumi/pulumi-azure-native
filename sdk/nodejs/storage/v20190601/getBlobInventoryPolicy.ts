@@ -16,7 +16,7 @@ export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20190601:getBlobInventoryPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/v20190601:getBlobInventoryPolicy", {
         "accountName": args.accountName,
         "blobInventoryPolicyName": args.blobInventoryPolicyName,
         "resourceGroupName": args.resourceGroupName,

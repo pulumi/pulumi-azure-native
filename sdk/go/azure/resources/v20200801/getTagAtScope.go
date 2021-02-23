@@ -10,7 +10,7 @@ import (
 // Wrapper resource for tags API requests and responses.
 func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...pulumi.InvokeOption) (*LookupTagAtScopeResult, error) {
 	var rv LookupTagAtScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/v20200801:getTagAtScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/v20200801:getTagAtScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

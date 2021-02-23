@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The remediation definition.
  * Latest API Version: 2019-07-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtSubscription'.
  */
 export class RemediationAtSubscription extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtSubscription {
-        pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.")
+        pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtSubscription'.")
         return new RemediationAtSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:policyinsights/latest:RemediationAtSubscription';
+    public static readonly __pulumiType = 'azure-native:policyinsights/latest:RemediationAtSubscription';
 
     /**
      * Returns true if the given object is an instance of RemediationAtSubscription.  This is designed to work even
@@ -87,9 +87,9 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtSubscription'. */
     constructor(name: string, args?: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtSubscription'.")
+        pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtSubscription'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             inputs["filters"] = args ? args.filters : undefined;
@@ -122,7 +122,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20190701:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtSubscription.__pulumiType, name, inputs, opts);
     }

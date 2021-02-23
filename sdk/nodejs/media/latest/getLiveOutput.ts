@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Live Output.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveOutput'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveOutput'. */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
-    pulumi.log.warn("getLiveOutput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveOutput'.")
+    pulumi.log.warn("getLiveOutput is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveOutput'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getLiveOutput", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getLiveOutput", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,
         "liveOutputName": args.liveOutputName,

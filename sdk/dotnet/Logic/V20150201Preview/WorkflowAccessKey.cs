@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150201Preview
+namespace Pulumi.AzureNative.Logic.V20150201Preview
 {
-    [AzureNextGenResourceType("azure-nextgen:logic/v20150201preview:WorkflowAccessKey")]
+    [AzureNativeResourceType("azure-native:logic/v20150201preview:WorkflowAccessKey")]
     public partial class WorkflowAccessKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkflowAccessKey(string name, WorkflowAccessKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20150201preview:WorkflowAccessKey", name, args ?? new WorkflowAccessKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:logic/v20150201preview:WorkflowAccessKey", name, args ?? new WorkflowAccessKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkflowAccessKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:logic/v20150201preview:WorkflowAccessKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:logic/v20150201preview:WorkflowAccessKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -61,6 +61,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:logic:WorkflowAccessKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:WorkflowAccessKey"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupAssociation(ctx *pulumi.Context, args *LookupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupAssociationResult, error) {
 	var rv LookupAssociationResult
-	err := ctx.Invoke("azure-nextgen:customproviders:getAssociation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customproviders:getAssociation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

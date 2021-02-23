@@ -10,7 +10,7 @@ import (
 // Peering Service
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
-	err := ctx.Invoke("azure-nextgen:peering/v20190901preview:getPeeringService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/v20190901preview:getPeeringService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

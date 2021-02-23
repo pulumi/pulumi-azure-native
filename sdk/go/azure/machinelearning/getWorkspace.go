@@ -11,7 +11,7 @@ import (
 // API Version: 2016-04-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:machinelearning:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

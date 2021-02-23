@@ -10,7 +10,7 @@ import (
 // The storage account credential.
 func LookupStorageAccountCredential(ctx *pulumi.Context, args *LookupStorageAccountCredentialArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountCredentialResult, error) {
 	var rv LookupStorageAccountCredentialResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200901:getStorageAccountCredential", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200901:getStorageAccountCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -56,13 +56,25 @@ func NewFormula(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:Formula"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:Formula"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:Formula"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:Formula"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Formula"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Formula"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:Formula"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Formula"),
@@ -70,7 +82,7 @@ func NewFormula(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Formula
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20180915:Formula", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20180915:Formula", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +94,7 @@ func NewFormula(ctx *pulumi.Context,
 func GetFormula(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FormulaState, opts ...pulumi.ResourceOption) (*Formula, error) {
 	var resource Formula
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20180915:Formula", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20180915:Formula", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

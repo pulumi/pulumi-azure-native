@@ -22,7 +22,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20201201:ProtectionContainer';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20201201:ProtectionContainer';
 
     /**
      * Returns true if the given object is an instance of ProtectionContainer.  This is designed to work even
@@ -104,7 +104,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices:ProtectionContainer" }, { type: "azure-native:recoveryservices/latest:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

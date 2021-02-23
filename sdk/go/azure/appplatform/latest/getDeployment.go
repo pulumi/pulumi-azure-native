@@ -10,10 +10,10 @@ import (
 // Deployment resource payload
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getDeployment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getDeployment'.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
-	err := ctx.Invoke("azure-nextgen:appplatform/latest:getDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/latest:getDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

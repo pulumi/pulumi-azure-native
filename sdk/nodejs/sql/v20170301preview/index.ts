@@ -51,33 +51,33 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20170301preview:Database":
+            case "azure-native:sql/v20170301preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:DatabaseVulnerabilityAssessment":
+            case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessment":
                 return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
                 return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:Job":
+            case "azure-native:sql/v20170301preview:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:JobAgent":
+            case "azure-native:sql/v20170301preview:JobAgent":
                 return new JobAgent(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:JobCredential":
+            case "azure-native:sql/v20170301preview:JobCredential":
                 return new JobCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:JobStep":
+            case "azure-native:sql/v20170301preview:JobStep":
                 return new JobStep(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:JobTargetGroup":
+            case "azure-native:sql/v20170301preview:JobTargetGroup":
                 return new JobTargetGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:ManagedDatabase":
+            case "azure-native:sql/v20170301preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator":
+            case "azure-native:sql/v20170301preview:ManagedInstanceAdministrator":
                 return new ManagedInstanceAdministrator(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:SensitivityLabel":
+            case "azure-native:sql/v20170301preview:SensitivityLabel":
                 return new SensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20170301preview:ServerDnsAlias":
+            case "azure-native:sql/v20170301preview:ServerDnsAlias":
                 return new ServerDnsAlias(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20170301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20170301preview", _module)

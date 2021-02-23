@@ -23,7 +23,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices:ReplicationvCenter';
+    public static readonly __pulumiType = 'azure-native:recoveryservices:ReplicationvCenter';
 
     /**
      * Returns true if the given object is an instance of ReplicationvCenter.  This is designed to work even
@@ -93,7 +93,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationvCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/latest:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180710:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationvCenter" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationvCenter.__pulumiType, name, inputs, opts);
     }

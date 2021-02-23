@@ -38,7 +38,7 @@ func NewCloudService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CloudService
-	err := ctx.RegisterResource("azure-nextgen:compute/v20201001preview:CloudService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20201001preview:CloudService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewCloudService(ctx *pulumi.Context,
 func GetCloudService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CloudServiceState, opts ...pulumi.ResourceOption) (*CloudService, error) {
 	var resource CloudService
-	err := ctx.ReadResource("azure-nextgen:compute/v20201001preview:CloudService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20201001preview:CloudService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights
+namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Value object for saved search results.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights:SavedSearch")]
+    [AzureNativeResourceType("azure-native:operationalinsights:SavedSearch")]
     public partial class SavedSearch : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SavedSearch(string name, SavedSearchArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights:SavedSearch", name, args ?? new SavedSearchArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights:SavedSearch", name, args ?? new SavedSearchArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SavedSearch(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights:SavedSearch", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights:SavedSearch", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,9 +101,13 @@ namespace Pulumi.AzureNextGen.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:SavedSearch"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:SavedSearch"},
                 },
             };

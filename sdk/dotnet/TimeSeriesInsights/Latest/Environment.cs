@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     /// Latest API Version: 2020-05-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:Environment'.")]
-    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/latest:Environment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:Environment'.")]
+    [AzureNativeResourceType("azure-native:timeseriesinsights/latest:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:timeseriesinsights/latest:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:Environment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:timeseriesinsights/latest:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,10 +78,15 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:Environment"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:Environment"},
                 },
             };
@@ -116,7 +121,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// The kind of the environment.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.EnvironmentKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.EnvironmentKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the resource.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
+namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
 {
     public static class GetIoMAMPolicyByName
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Intune.V20150114PrivatePreview
         /// iOS Policy entity for Intune MAM.
         /// </summary>
         public static Task<GetIoMAMPolicyByNameResult> InvokeAsync(GetIoMAMPolicyByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-nextgen:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIoMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameArgs(), options.WithVersion());
     }
 
 

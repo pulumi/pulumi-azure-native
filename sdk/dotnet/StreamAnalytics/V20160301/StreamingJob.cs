@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
+namespace Pulumi.AzureNative.StreamAnalytics.V20160301
 {
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics/v20160301:StreamingJob")]
+    [AzureNativeResourceType("azure-native:streamanalytics/v20160301:StreamingJob")]
     public partial class StreamingJob : Pulumi.CustomResource
     {
         /// <summary>
@@ -162,12 +162,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingJob(string name, StreamingJobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20160301:StreamingJob", name, args ?? new StreamingJobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics/v20160301:StreamingJob", name, args ?? new StreamingJobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingJob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/v20160301:StreamingJob", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics/v20160301:StreamingJob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -178,8 +178,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/latest:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:StreamingJob"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:StreamingJob"},
                 },
             };
@@ -208,7 +211,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         [Input("compatibilityLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.CompatibilityLevel>? CompatibilityLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20160301.CompatibilityLevel>? CompatibilityLevel { get; set; }
 
         /// <summary>
         /// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -232,7 +235,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Indicates the policy to apply to events that arrive out of order in the input event stream.
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.EventsOutOfOrderPolicy>? EventsOutOfOrderPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20160301.EventsOutOfOrderPolicy>? EventsOutOfOrderPolicy { get; set; }
 
         [Input("functions")]
         private InputList<Inputs.FunctionArgs>? _functions;
@@ -274,13 +277,13 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         /// </summary>
         [Input("outputErrorPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.OutputErrorPolicy>? OutputErrorPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20160301.OutputErrorPolicy>? OutputErrorPolicy { get; set; }
 
         /// <summary>
         /// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         /// </summary>
         [Input("outputStartMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20160301.OutputStartMode>? OutputStartMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20160301.OutputStartMode>? OutputStartMode { get; set; }
 
         /// <summary>
         /// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.

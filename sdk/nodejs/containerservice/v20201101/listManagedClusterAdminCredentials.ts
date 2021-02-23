@@ -16,7 +16,7 @@ export function listManagedClusterAdminCredentials(args: ListManagedClusterAdmin
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/v20201101:listManagedClusterAdminCredentials", {
+    return pulumi.runtime.invoke("azure-native:containerservice/v20201101:listManagedClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

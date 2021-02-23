@@ -21,7 +21,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20150501:ExportConfiguration';
+    public static readonly __pulumiType = 'azure-native:insights/v20150501:ExportConfiguration';
 
     /**
      * Returns true if the given object is an instance of ExportConfiguration.  This is designed to work even
@@ -179,7 +179,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ExportConfiguration" }, { type: "azure-nextgen:insights/latest:ExportConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ExportConfiguration" }, { type: "azure-nextgen:insights:ExportConfiguration" }, { type: "azure-native:insights/latest:ExportConfiguration" }, { type: "azure-nextgen:insights/latest:ExportConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExportConfiguration.__pulumiType, name, inputs, opts);
     }

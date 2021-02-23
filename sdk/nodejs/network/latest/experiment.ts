@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Defines the properties of an Experiment
  * Latest API Version: 2019-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Experiment'.
  */
 export class Experiment extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Experiment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Experiment {
-        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'.")
+        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Experiment'.")
         return new Experiment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/latest:Experiment';
+    public static readonly __pulumiType = 'azure-native:network/latest:Experiment';
 
     /**
      * Returns true if the given object is an instance of Experiment.  This is designed to work even
@@ -91,9 +91,9 @@ export class Experiment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Experiment'. */
     constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:Experiment'.")
+        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Experiment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
@@ -136,7 +136,7 @@ export class Experiment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Experiment" }, { type: "azure-nextgen:network/v20191101:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Experiment" }, { type: "azure-nextgen:network:Experiment" }, { type: "azure-native:network/v20191101:Experiment" }, { type: "azure-nextgen:network/v20191101:Experiment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Experiment.__pulumiType, name, inputs, opts);
     }

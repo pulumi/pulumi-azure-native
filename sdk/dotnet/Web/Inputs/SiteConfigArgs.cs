@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Inputs
+namespace Pulumi.AzureNative.Web.Inputs
 {
 
     /// <summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// State of FTP / FTPS service
         /// </summary>
         [Input("ftpsState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.FtpsState>? FtpsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.FtpsState>? FtpsState { get; set; }
 
         [Input("handlerMappings")]
         private InputList<Inputs.HandlerMappingArgs>? _handlerMappings;
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// Site load balancing.
         /// </summary>
         [Input("loadBalancing")]
-        public Input<Pulumi.AzureNextGen.Web.SiteLoadBalancing>? LoadBalancing { get; set; }
+        public Input<Pulumi.AzureNative.Web.SiteLoadBalancing>? LoadBalancing { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable local MySQL; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -217,7 +217,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// Managed pipeline mode.
         /// </summary>
         [Input("managedPipelineMode")]
-        public Input<Pulumi.AzureNextGen.Web.ManagedPipelineMode>? ManagedPipelineMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.ManagedPipelineMode>? ManagedPipelineMode { get; set; }
 
         /// <summary>
         /// Managed Service Identity Id
@@ -229,7 +229,7 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// MinTlsVersion: configures the minimum version of TLS required for SSL requests
         /// </summary>
         [Input("minTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.SupportedTlsVersions>? MinTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.SupportedTlsVersions>? MinTlsVersion { get; set; }
 
         /// <summary>
         /// .NET Framework version.
@@ -332,13 +332,13 @@ namespace Pulumi.AzureNextGen.Web.Inputs
         /// ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
         /// </summary>
         [Input("scmMinTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.SupportedTlsVersions>? ScmMinTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.SupportedTlsVersions>? ScmMinTlsVersion { get; set; }
 
         /// <summary>
         /// SCM type.
         /// </summary>
         [Input("scmType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.ScmType>? ScmType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.ScmType>? ScmType { get; set; }
 
         /// <summary>
         /// Tracing options.

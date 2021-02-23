@@ -10,7 +10,7 @@ import (
 // Description of a NotificationHub Resource.
 func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubResult, error) {
 	var rv LookupNotificationHubResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/v20140901:getNotificationHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/v20140901:getNotificationHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

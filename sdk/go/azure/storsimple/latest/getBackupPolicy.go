@@ -10,10 +10,10 @@ import (
 // The backup policy.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getBackupPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupPolicy'.
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getBackupPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

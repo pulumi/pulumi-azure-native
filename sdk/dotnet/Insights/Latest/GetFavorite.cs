@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getFavorite'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getFavorite'.")]
     public static class GetFavorite
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Latest API Version: 2015-05-01.
         /// </summary>
         public static Task<GetFavoriteResult> InvokeAsync(GetFavoriteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-nextgen:insights/latest:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteResult>("azure-native:insights/latest:getFavorite", args ?? new GetFavoriteArgs(), options.WithVersion());
     }
 
 

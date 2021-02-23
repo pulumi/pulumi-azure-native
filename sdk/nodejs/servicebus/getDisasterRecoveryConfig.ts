@@ -17,7 +17,7 @@ export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus:getDisasterRecoveryConfig", {
+    return pulumi.runtime.invoke("azure-native:servicebus:getDisasterRecoveryConfig", {
         "alias": args.alias,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

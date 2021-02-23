@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The file server.
  * Latest API Version: 2016-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileServer'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'.
  */
 export class FileServer extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class FileServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileServer {
-        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileServer'.")
+        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'.")
         return new FileServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:FileServer';
+    public static readonly __pulumiType = 'azure-native:storsimple/latest:FileServer';
 
     /**
      * Returns true if the given object is an instance of FileServer.  This is designed to work even
@@ -70,9 +70,9 @@ export class FileServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileServer'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'. */
     constructor(name: string, args: FileServerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:FileServer'.")
+        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
@@ -118,7 +118,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:FileServer" }, { type: "azure-nextgen:storsimple/v20161001:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:FileServer" }, { type: "azure-nextgen:storsimple:FileServer" }, { type: "azure-native:storsimple/v20161001:FileServer" }, { type: "azure-nextgen:storsimple/v20161001:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

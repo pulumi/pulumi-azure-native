@@ -22,7 +22,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration';
+    public static readonly __pulumiType = 'azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration';
 
     /**
      * Returns true if the given object is an instance of WebAppDiagnosticLogsConfiguration.  This is designed to work even
@@ -104,7 +104,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/latest:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDiagnosticLogsConfiguration.__pulumiType, name, inputs, opts);
     }

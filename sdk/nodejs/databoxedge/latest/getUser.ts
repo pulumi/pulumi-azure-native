@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getUser'.")
+    pulumi.log.warn("getUser is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/latest:getUser", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/latest:getUser", {
         "deviceName": args.deviceName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -13,7 +13,7 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datadog/v20200201preview:getMonitor", {
+    return pulumi.runtime.invoke("azure-native:datadog/v20200201preview:getMonitor", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

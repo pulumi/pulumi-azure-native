@@ -23,7 +23,7 @@ export class TemplateSpec extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources:TemplateSpec';
+    public static readonly __pulumiType = 'azure-native:resources:TemplateSpec';
 
     /**
      * Returns true if the given object is an instance of TemplateSpec.  This is designed to work even
@@ -109,7 +109,7 @@ export class TemplateSpec extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20190601preview:TemplateSpec" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpec" }, { type: "azure-nextgen:resources/v20190601preview:TemplateSpec" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TemplateSpec.__pulumiType, name, inputs, opts);
     }

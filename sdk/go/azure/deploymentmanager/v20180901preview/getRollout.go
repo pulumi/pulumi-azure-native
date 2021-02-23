@@ -10,7 +10,7 @@ import (
 // Defines the PUT rollout request body.
 func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.InvokeOption) (*LookupRolloutResult, error) {
 	var rv LookupRolloutResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getRollout", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getRollout", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

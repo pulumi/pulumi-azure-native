@@ -61,25 +61,49 @@ func NewApiIssue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiIssue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiIssue"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiIssue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiIssue"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiIssue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiIssue"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiIssue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiIssue"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiIssue"),
@@ -87,7 +111,7 @@ func NewApiIssue(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiIssue
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiIssue", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiIssue", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +123,7 @@ func NewApiIssue(ctx *pulumi.Context,
 func GetApiIssue(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiIssueState, opts ...pulumi.ResourceOption) (*ApiIssue, error) {
 	var resource ApiIssue
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiIssue", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiIssue", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Bot channel resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getChannel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getChannel'.
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
 	var rv LookupChannelResult
-	err := ctx.Invoke("azure-nextgen:botservice/latest:getChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/latest:getChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

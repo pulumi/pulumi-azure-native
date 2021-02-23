@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("gatewayType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayType>? GatewayType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkGatewayType>? GatewayType { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -127,13 +127,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         /// </summary>
         [Input("vpnGatewayGeneration")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnGatewayGeneration>? VpnGatewayGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VpnGatewayGeneration>? VpnGatewayGeneration { get; set; }
 
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("vpnType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VpnType>? VpnType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VpnType>? VpnType { get; set; }
 
         public VirtualNetworkGatewayArgs()
         {

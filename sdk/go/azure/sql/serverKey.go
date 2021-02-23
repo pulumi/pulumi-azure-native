@@ -54,10 +54,19 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ServerKey"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ServerKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerKey"),
@@ -65,7 +74,7 @@ func NewServerKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerKey
-	err := ctx.RegisterResource("azure-nextgen:sql:ServerKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ServerKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +86,7 @@ func NewServerKey(ctx *pulumi.Context,
 func GetServerKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerKeyState, opts ...pulumi.ResourceOption) (*ServerKey, error) {
 	var resource ServerKey
-	err := ctx.ReadResource("azure-nextgen:sql:ServerKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ServerKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

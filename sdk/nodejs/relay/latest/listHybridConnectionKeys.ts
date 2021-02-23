@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Namespace/Relay Connection String
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listHybridConnectionKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listHybridConnectionKeys'. */
 export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListHybridConnectionKeysResult> {
-    pulumi.log.warn("listHybridConnectionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listHybridConnectionKeys'.")
+    pulumi.log.warn("listHybridConnectionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listHybridConnectionKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:listHybridConnectionKeys", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,

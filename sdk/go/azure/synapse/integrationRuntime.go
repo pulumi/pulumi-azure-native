@@ -44,10 +44,19 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:IntegrationRuntime"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IntegrationRuntime"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:IntegrationRuntime"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:IntegrationRuntime"),
@@ -55,7 +64,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationRuntime
-	err := ctx.RegisterResource("azure-nextgen:synapse:IntegrationRuntime", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 func GetIntegrationRuntime(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationRuntimeState, opts ...pulumi.ResourceOption) (*IntegrationRuntime, error) {
 	var resource IntegrationRuntime
-	err := ctx.ReadResource("azure-nextgen:synapse:IntegrationRuntime", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:IntegrationRuntime", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

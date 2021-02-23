@@ -16,7 +16,7 @@ export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20150501:getExportConfiguration", {
+    return pulumi.runtime.invoke("azure-native:insights/v20150501:getExportConfiguration", {
         "exportId": args.exportId,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

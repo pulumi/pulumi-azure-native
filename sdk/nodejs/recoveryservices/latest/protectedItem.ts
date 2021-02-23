@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Base class for backup items.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectedItem'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectedItem'.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ProtectedItem extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProtectedItem {
-        pulumi.log.warn("ProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectedItem'.")
+        pulumi.log.warn("ProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectedItem'.")
         return new ProtectedItem(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/latest:ProtectedItem';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/latest:ProtectedItem';
 
     /**
      * Returns true if the given object is an instance of ProtectedItem.  This is designed to work even
@@ -71,9 +71,9 @@ export class ProtectedItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectedItem'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectedItem'. */
     constructor(name: string, args: ProtectedItemArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectedItem'.")
+        pulumi.log.warn("ProtectedItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectedItem'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
@@ -114,7 +114,7 @@ export class ProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectedItem" }, { type: "azure-nextgen:recoveryservices:ProtectedItem" }, { type: "azure-native:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-native:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190513:ProtectedItem" }, { type: "azure-native:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-native:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-native:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-native:recoveryservices/v20210101:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectedItem" }, { type: "azure-native:recoveryservices/v20210201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectedItem.__pulumiType, name, inputs, opts);
     }

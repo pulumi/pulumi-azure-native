@@ -10,10 +10,10 @@ import (
 // Properties that define a Continuous Export configuration.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getExportConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getExportConfiguration'.
 func LookupExportConfiguration(ctx *pulumi.Context, args *LookupExportConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupExportConfigurationResult, error) {
 	var rv LookupExportConfigurationResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getExportConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getExportConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

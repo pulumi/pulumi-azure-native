@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Authorization.V20150101
+namespace Pulumi.AzureNative.Authorization.V20150101
 {
     /// <summary>
     /// The lock level of the management lock.

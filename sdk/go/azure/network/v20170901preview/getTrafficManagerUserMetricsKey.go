@@ -10,7 +10,7 @@ import (
 // Class representing a Traffic Manager Real User Metrics key response.
 func LookupTrafficManagerUserMetricsKey(ctx *pulumi.Context, args *LookupTrafficManagerUserMetricsKeyArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerUserMetricsKeyResult, error) {
 	var rv LookupTrafficManagerUserMetricsKeyResult
-	err := ctx.Invoke("azure-nextgen:network/v20170901preview:getTrafficManagerUserMetricsKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20170901preview:getTrafficManagerUserMetricsKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

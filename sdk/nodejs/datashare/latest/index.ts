@@ -44,25 +44,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datashare/latest:Account":
+            case "azure-native:datashare/latest:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:DataSet":
+            case "azure-native:datashare/latest:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:DataSetMapping":
+            case "azure-native:datashare/latest:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:Invitation":
+            case "azure-native:datashare/latest:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:Share":
+            case "azure-native:datashare/latest:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:ShareSubscription":
+            case "azure-native:datashare/latest:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:SynchronizationSetting":
+            case "azure-native:datashare/latest:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/latest:Trigger":
+            case "azure-native:datashare/latest:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datashare/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datashare/latest", _module)

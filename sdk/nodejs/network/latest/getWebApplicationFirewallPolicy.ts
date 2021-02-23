@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Defines web application firewall policy.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getWebApplicationFirewallPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getWebApplicationFirewallPolicy'. */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
-    pulumi.log.warn("getWebApplicationFirewallPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getWebApplicationFirewallPolicy'.")
+    pulumi.log.warn("getWebApplicationFirewallPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getWebApplicationFirewallPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallP
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getWebApplicationFirewallPolicy", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getWebApplicationFirewallPolicy", {
         "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

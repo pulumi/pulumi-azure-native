@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents an image from the Azure Marketplace
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:labservices/v20181015:GalleryImage")]
+    [AzureNativeResourceType("azure-native:labservices/v20181015:GalleryImage")]
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GalleryImage(string name, GalleryImageArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/v20181015:GalleryImage", name, args ?? new GalleryImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GalleryImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/v20181015:GalleryImage", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/v20181015:GalleryImage", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,7 +136,9 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/latest:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:GalleryImage"},
                 },
             };

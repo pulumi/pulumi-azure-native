@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opts ...pulumi.InvokeOption) (*LookupAccountFilterResult, error) {
 	var rv LookupAccountFilterResult
-	err := ctx.Invoke("azure-nextgen:media:getAccountFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getAccountFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

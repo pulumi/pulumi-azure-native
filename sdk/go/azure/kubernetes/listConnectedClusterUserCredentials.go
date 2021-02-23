@@ -11,7 +11,7 @@ import (
 // API Version: 2021-04-01-preview.
 func ListConnectedClusterUserCredentials(ctx *pulumi.Context, args *ListConnectedClusterUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListConnectedClusterUserCredentialsResult, error) {
 	var rv ListConnectedClusterUserCredentialsResult
-	err := ctx.Invoke("azure-nextgen:kubernetes:listConnectedClusterUserCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kubernetes:listConnectedClusterUserCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

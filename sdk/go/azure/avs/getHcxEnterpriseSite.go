@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-20.
 func LookupHcxEnterpriseSite(ctx *pulumi.Context, args *LookupHcxEnterpriseSiteArgs, opts ...pulumi.InvokeOption) (*LookupHcxEnterpriseSiteResult, error) {
 	var rv LookupHcxEnterpriseSiteResult
-	err := ctx.Invoke("azure-nextgen:avs:getHcxEnterpriseSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getHcxEnterpriseSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

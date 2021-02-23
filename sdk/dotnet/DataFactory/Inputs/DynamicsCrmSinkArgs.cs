@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Inputs
+namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Inputs
         /// The write behavior for the operation.
         /// </summary>
         [Input("writeBehavior", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.DynamicsSinkWriteBehavior> WriteBehavior { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.DynamicsSinkWriteBehavior> WriteBehavior { get; set; } = null!;
 
         public DynamicsCrmSinkArgs()
         {

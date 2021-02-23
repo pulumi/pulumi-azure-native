@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-01.
 func LookupOutput(ctx *pulumi.Context, args *LookupOutputArgs, opts ...pulumi.InvokeOption) (*LookupOutputResult, error) {
 	var rv LookupOutputResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics:getOutput", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics:getOutput", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class of response for listContentKeys action
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorContentKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listStreamingLocatorContentKeys'. */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
-    pulumi.log.warn("listStreamingLocatorContentKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listStreamingLocatorContentKeys'.")
+    pulumi.log.warn("listStreamingLocatorContentKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listStreamingLocatorContentKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listStreamingLocatorContentKeys(args: ListStreamingLocatorConten
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listStreamingLocatorContentKeys", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingLocatorName": args.streamingLocatorName,

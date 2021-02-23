@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A container group.
  * Latest API Version: 2020-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerinstance:getContainerGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerinstance:getContainerGroup'. */
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
-    pulumi.log.warn("getContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerinstance:getContainerGroup'.")
+    pulumi.log.warn("getContainerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerinstance:getContainerGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerinstance/latest:getContainerGroup", {
+    return pulumi.runtime.invoke("azure-native:containerinstance/latest:getContainerGroup", {
         "containerGroupName": args.containerGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

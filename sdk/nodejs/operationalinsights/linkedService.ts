@@ -23,7 +23,7 @@ export class LinkedService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights:LinkedService';
+    public static readonly __pulumiType = 'azure-native:operationalinsights:LinkedService';
 
     /**
      * Returns true if the given object is an instance of LinkedService.  This is designed to work even
@@ -101,7 +101,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/latest:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/latest:LinkedService" }, { type: "azure-nextgen:operationalinsights/latest:LinkedService" }, { type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

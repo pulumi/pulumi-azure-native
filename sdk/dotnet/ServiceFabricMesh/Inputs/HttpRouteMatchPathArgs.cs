@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
         /// how to match value in the Uri
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.PathMatchType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.PathMatchType> Type { get; set; } = null!;
 
         /// <summary>
         /// Uri path to match for request.

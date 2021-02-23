@@ -10,7 +10,7 @@ import (
 // A list of streaming jobs. Populated by a List operation.
 func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJobsArgs, opts ...pulumi.InvokeOption) (*ListClusterStreamingJobsResult, error) {
 	var rv ListClusterStreamingJobsResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics/v20200301preview:listClusterStreamingJobs", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

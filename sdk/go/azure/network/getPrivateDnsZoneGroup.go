@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGroupArgs, opts ...pulumi.InvokeOption) (*LookupPrivateDnsZoneGroupResult, error) {
 	var rv LookupPrivateDnsZoneGroupResult
-	err := ctx.Invoke("azure-nextgen:network:getPrivateDnsZoneGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getPrivateDnsZoneGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

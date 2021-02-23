@@ -16,7 +16,7 @@ export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/v20201001preview:getRedisEnterprise", {
+    return pulumi.runtime.invoke("azure-native:cache/v20201001preview:getRedisEnterprise", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

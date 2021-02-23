@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
+namespace Pulumi.AzureNative.StorageCache.V20190801Preview
 {
     /// <summary>
     /// A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagecache/v20190801preview:Cache")]
+    [AzureNativeResourceType("azure-native:storagecache/v20190801preview:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/v20190801preview:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagecache/v20190801preview:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cache(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagecache/v20190801preview:Cache", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagecache/v20190801preview:Cache", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,10 +106,15 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/latest:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/latest:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20191101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20200301:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20201001:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:Cache"},
                 },
             };
@@ -156,7 +161,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.V20190801Preview.ProvisioningStateType>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.V20190801Preview.ProvisioningStateType>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// A virtual network rule.
     /// API Version: 2017-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql:VirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql:VirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,8 +71,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
                 },
             };

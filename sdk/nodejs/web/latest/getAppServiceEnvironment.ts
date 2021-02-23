@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * App Service Environment ARM resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServiceEnvironment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServiceEnvironment'. */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
-    pulumi.log.warn("getAppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getAppServiceEnvironment'.")
+    pulumi.log.warn("getAppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServiceEnvironment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getAppServiceEnvironment", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getAppServiceEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

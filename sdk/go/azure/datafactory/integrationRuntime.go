@@ -44,10 +44,19 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:IntegrationRuntime"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:IntegrationRuntime"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:IntegrationRuntime"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:IntegrationRuntime"),
@@ -55,7 +64,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationRuntime
-	err := ctx.RegisterResource("azure-nextgen:datafactory:IntegrationRuntime", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 func GetIntegrationRuntime(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationRuntimeState, opts ...pulumi.ResourceOption) (*IntegrationRuntime, error) {
 	var resource IntegrationRuntime
-	err := ctx.ReadResource("azure-nextgen:datafactory:IntegrationRuntime", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory:IntegrationRuntime", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20191101
+namespace Pulumi.AzureNative.CostManagement.V20191101
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20191101:ViewByScope")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20191101:ViewByScope")]
     public partial class ViewByScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ViewByScope(string name, ViewByScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20191101:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20191101:ViewByScope", name, args ?? new ViewByScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ViewByScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20191101:ViewByScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20191101:ViewByScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,9 +148,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/latest:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:ViewByScope"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:ViewByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:ViewByScope"},
                 },
             };
@@ -179,13 +183,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// Show costs accumulated over time.
         /// </summary>
         [Input("accumulated")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.AccumulatedType>? Accumulated { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.AccumulatedType>? Accumulated { get; set; }
 
         /// <summary>
         /// Chart type of the main view in Cost Analysis. Required.
         /// </summary>
         [Input("chart")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.ChartType>? Chart { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.ChartType>? Chart { get; set; }
 
         /// <summary>
         /// Has definition for data in this report config.
@@ -221,7 +225,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// Metric to use when displaying costs.
         /// </summary>
         [Input("metric")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.MetricType>? Metric { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.MetricType>? Metric { get; set; }
 
         [Input("pivots")]
         private InputList<Inputs.PivotPropertiesArgs>? _pivots;
@@ -251,13 +255,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.ReportTimeframeType> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.ReportTimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.ReportType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20191101.ReportType> Type { get; set; } = null!;
 
         /// <summary>
         /// View name

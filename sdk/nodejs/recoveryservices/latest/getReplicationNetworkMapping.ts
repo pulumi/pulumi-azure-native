@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  * Latest API Version: 2018-07-10.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationNetworkMapping'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationNetworkMapping'. */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
-    pulumi.log.warn("getReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:recoveryservices:getReplicationNetworkMapping'.")
+    pulumi.log.warn("getReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationNetworkMapping'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/latest:getReplicationNetworkMapping", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/latest:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,
         "networkMappingName": args.networkMappingName,
         "networkName": args.networkName,

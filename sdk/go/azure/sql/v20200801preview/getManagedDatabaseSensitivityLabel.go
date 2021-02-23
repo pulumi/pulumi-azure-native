@@ -10,7 +10,7 @@ import (
 // A sensitivity label.
 func LookupManagedDatabaseSensitivityLabel(ctx *pulumi.Context, args *LookupManagedDatabaseSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseSensitivityLabelResult, error) {
 	var rv LookupManagedDatabaseSensitivityLabelResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200801preview:getManagedDatabaseSensitivityLabel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200801preview:getManagedDatabaseSensitivityLabel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

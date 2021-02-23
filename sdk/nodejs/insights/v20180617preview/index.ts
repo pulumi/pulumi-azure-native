@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/v20180617preview:Workbook":
+            case "azure-native:insights/v20180617preview:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/v20180617preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/v20180617preview", _module)

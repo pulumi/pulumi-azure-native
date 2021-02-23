@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
-    [AzureNextGenResourceType("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot")]
+    [AzureNativeResourceType("azure-native:web/v20201001:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : Pulumi.CustomResource
     {
         [Output("globalValidation")]
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppAuthSettingsV2Slot(string name, WebAppAuthSettingsV2SlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot", name, args ?? new WebAppAuthSettingsV2SlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20201001:WebAppAuthSettingsV2Slot", name, args ?? new WebAppAuthSettingsV2SlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppAuthSettingsV2Slot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20201001:WebAppAuthSettingsV2Slot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,9 +76,13 @@ namespace Pulumi.AzureNextGen.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettingsV2Slot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot"},
                 },
             };

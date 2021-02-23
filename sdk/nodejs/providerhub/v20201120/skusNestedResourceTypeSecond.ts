@@ -19,7 +19,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond';
+    public static readonly __pulumiType = 'azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond';
 
     /**
      * Returns true if the given object is an instance of SkusNestedResourceTypeSecond.  This is designed to work even
@@ -88,7 +88,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/latest:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SkusNestedResourceTypeSecond.__pulumiType, name, inputs, opts);
     }

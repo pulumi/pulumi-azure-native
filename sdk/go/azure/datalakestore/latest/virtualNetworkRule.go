@@ -14,7 +14,7 @@ import (
 // Data Lake Store virtual network rule information.
 // Latest API Version: 2016-11-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datalakestore:VirtualNetworkRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:VirtualNetworkRule'.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +44,13 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datalakestore:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datalakestore:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:datalakestore/v20161101:VirtualNetworkRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore/v20161101:VirtualNetworkRule"),
@@ -52,7 +58,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
-	err := ctx.RegisterResource("azure-nextgen:datalakestore/latest:VirtualNetworkRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datalakestore/latest:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	var resource VirtualNetworkRule
-	err := ctx.ReadResource("azure-nextgen:datalakestore/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datalakestore/latest:VirtualNetworkRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
         /// The operation system required by the code in service.
         /// </summary>
         [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.OperatingSystemType> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.OperatingSystemType> OsType { get; set; } = null!;
 
         /// <summary>
         /// The number of replicas of the service to create. Defaults to 1 if not specified.

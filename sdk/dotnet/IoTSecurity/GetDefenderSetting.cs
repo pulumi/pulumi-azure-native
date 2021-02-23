@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTSecurity
+namespace Pulumi.AzureNative.IoTSecurity
 {
     public static class GetDefenderSetting
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.IoTSecurity
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetDefenderSettingResult> InvokeAsync(GetDefenderSettingArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefenderSettingResult>("azure-nextgen:iotsecurity:getDefenderSetting", args ?? new GetDefenderSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefenderSettingResult>("azure-native:iotsecurity:getDefenderSetting", args ?? new GetDefenderSettingArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// Profile of a lab user.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:User")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:User"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:User"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:User"},
                 },
             };

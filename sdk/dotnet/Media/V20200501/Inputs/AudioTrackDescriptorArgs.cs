@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
+namespace Pulumi.AzureNative.Media.V20200501.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         /// </summary>
         [Input("channelMapping")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.ChannelMapping>? ChannelMapping { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.ChannelMapping>? ChannelMapping { get; set; }
 
         /// <summary>
         /// The discriminator for derived types.

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.V20201031
+namespace Pulumi.AzureNative.DigitalTwins.V20201031
 {
     /// <summary>
     /// The type of Digital Twins endpoint

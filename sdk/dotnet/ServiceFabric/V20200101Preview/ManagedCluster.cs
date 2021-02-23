@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// The manged cluster resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20200101preview:ManagedCluster")]
+    [AzureNativeResourceType("azure-native:servicefabric/v20200101preview:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedCluster(string name, ManagedClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric/v20200101preview:ManagedCluster", name, args ?? new ManagedClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric/v20200101preview:ManagedCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:ManagedCluster"},
                 },
             };

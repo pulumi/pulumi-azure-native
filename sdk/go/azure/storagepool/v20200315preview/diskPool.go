@@ -62,12 +62,15 @@ func NewDiskPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storagepool:DiskPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storagepool:DiskPool"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskPool
-	err := ctx.RegisterResource("azure-nextgen:storagepool/v20200315preview:DiskPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storagepool/v20200315preview:DiskPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +82,7 @@ func NewDiskPool(ctx *pulumi.Context,
 func GetDiskPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskPoolState, opts ...pulumi.ResourceOption) (*DiskPool, error) {
 	var resource DiskPool
-	err := ctx.ReadResource("azure-nextgen:storagepool/v20200315preview:DiskPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storagepool/v20200315preview:DiskPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

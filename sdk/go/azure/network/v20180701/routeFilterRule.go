@@ -55,94 +55,187 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20161201:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170301:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170601:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170901:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171001:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171101:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:RouteFilterRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:RouteFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:RouteFilterRule"),
@@ -150,7 +243,7 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RouteFilterRule
-	err := ctx.RegisterResource("azure-nextgen:network/v20180701:RouteFilterRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180701:RouteFilterRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +255,7 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 func GetRouteFilterRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RouteFilterRuleState, opts ...pulumi.ResourceOption) (*RouteFilterRule, error) {
 	var resource RouteFilterRule
-	err := ctx.ReadResource("azure-nextgen:network/v20180701:RouteFilterRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180701:RouteFilterRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

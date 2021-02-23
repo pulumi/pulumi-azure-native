@@ -10,10 +10,10 @@ import (
 // The top level Log Analytics cluster resource container.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getCluster'.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20200301preview:RoleAssignment';
+    public static readonly __pulumiType = 'azure-native:authorization/v20200301preview:RoleAssignment';
 
     /**
      * Returns true if the given object is an instance of RoleAssignment.  This is designed to work even
@@ -149,7 +149,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleAssignment" }, { type: "azure-nextgen:authorization/latest:RoleAssignment" }, { type: "azure-nextgen:authorization/v20150701:RoleAssignment" }, { type: "azure-nextgen:authorization/v20171001preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180101preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180901preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200401preview:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleAssignment" }, { type: "azure-nextgen:authorization:RoleAssignment" }, { type: "azure-native:authorization/latest:RoleAssignment" }, { type: "azure-nextgen:authorization/latest:RoleAssignment" }, { type: "azure-native:authorization/v20150701:RoleAssignment" }, { type: "azure-nextgen:authorization/v20150701:RoleAssignment" }, { type: "azure-native:authorization/v20171001preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20171001preview:RoleAssignment" }, { type: "azure-native:authorization/v20180101preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180101preview:RoleAssignment" }, { type: "azure-native:authorization/v20180901preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180901preview:RoleAssignment" }, { type: "azure-native:authorization/v20200401preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200401preview:RoleAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }

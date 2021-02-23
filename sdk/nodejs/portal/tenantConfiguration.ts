@@ -22,7 +22,7 @@ export class TenantConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal:TenantConfiguration';
+    public static readonly __pulumiType = 'azure-native:portal:TenantConfiguration';
 
     /**
      * Returns true if the given object is an instance of TenantConfiguration.  This is designed to work even
@@ -74,7 +74,7 @@ export class TenantConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/v20190101preview:TenantConfiguration" }, { type: "azure-nextgen:portal/v20200901preview:TenantConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-nextgen:portal/v20190101preview:TenantConfiguration" }, { type: "azure-native:portal/v20200901preview:TenantConfiguration" }, { type: "azure-nextgen:portal/v20200901preview:TenantConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TenantConfiguration.__pulumiType, name, inputs, opts);
     }

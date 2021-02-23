@@ -33,15 +33,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hanaonazure:HanaInstance":
+            case "azure-native:hanaonazure:HanaInstance":
                 return new HanaInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:hanaonazure:ProviderInstance":
+            case "azure-native:hanaonazure:ProviderInstance":
                 return new ProviderInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:hanaonazure:SapMonitor":
+            case "azure-native:hanaonazure:SapMonitor":
                 return new SapMonitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hanaonazure", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hanaonazure", _module)

@@ -49,16 +49,31 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub:ConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub:ConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/latest:ConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:ConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20140901:ConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20140901:ConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:ConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:ConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:ConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:ConsumerGroup"),
@@ -66,7 +81,7 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConsumerGroup
-	err := ctx.RegisterResource("azure-nextgen:eventhub/v20150801:ConsumerGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub/v20150801:ConsumerGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +93,7 @@ func NewConsumerGroup(ctx *pulumi.Context,
 func GetConsumerGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConsumerGroupState, opts ...pulumi.ResourceOption) (*ConsumerGroup, error) {
 	var resource ConsumerGroup
-	err := ctx.ReadResource("azure-nextgen:eventhub/v20150801:ConsumerGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub/v20150801:ConsumerGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

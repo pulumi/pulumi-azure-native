@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:customerinsights/v20170426:Connector":
+	case "azure-native:customerinsights/v20170426:Connector":
 		r, err = NewConnector(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:ConnectorMapping":
+	case "azure-native:customerinsights/v20170426:ConnectorMapping":
 		r, err = NewConnectorMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Hub":
+	case "azure-native:customerinsights/v20170426:Hub":
 		r, err = NewHub(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Kpi":
+	case "azure-native:customerinsights/v20170426:Kpi":
 		r, err = NewKpi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Link":
+	case "azure-native:customerinsights/v20170426:Link":
 		r, err = NewLink(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Prediction":
+	case "azure-native:customerinsights/v20170426:Prediction":
 		r, err = NewPrediction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Profile":
+	case "azure-native:customerinsights/v20170426:Profile":
 		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:Relationship":
+	case "azure-native:customerinsights/v20170426:Relationship":
 		r, err = NewRelationship(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:RelationshipLink":
+	case "azure-native:customerinsights/v20170426:RelationshipLink":
 		r, err = NewRelationshipLink(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:RoleAssignment":
+	case "azure-native:customerinsights/v20170426:RoleAssignment":
 		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:customerinsights/v20170426:View":
+	case "azure-native:customerinsights/v20170426:View":
 		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"customerinsights/v20170426",
 		&module{version},
 	)

@@ -45,16 +45,31 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage/latest:FileServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/latest:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:FileServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:FileServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:FileServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:FileServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:FileServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:FileServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileServiceProperties"),
@@ -62,7 +77,7 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FileServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage:FileServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage:FileServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +89,7 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 func GetFileServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FileServicePropertiesState, opts ...pulumi.ResourceOption) (*FileServiceProperties, error) {
 	var resource FileServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage:FileServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage:FileServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

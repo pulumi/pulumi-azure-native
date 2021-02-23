@@ -23,7 +23,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:NamespaceNetworkRuleSet';
+    public static readonly __pulumiType = 'azure-native:servicebus:NamespaceNetworkRuleSet';
 
     /**
      * Returns true if the given object is an instance of NamespaceNetworkRuleSet.  This is designed to work even
@@ -94,7 +94,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:servicebus/latest:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }

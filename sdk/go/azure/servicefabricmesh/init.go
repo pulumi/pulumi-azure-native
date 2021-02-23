@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:servicefabricmesh:Application":
+	case "azure-native:servicefabricmesh:Application":
 		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabricmesh:Gateway":
+	case "azure-native:servicefabricmesh:Gateway":
 		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabricmesh:Network":
+	case "azure-native:servicefabricmesh:Network":
 		r, err = NewNetwork(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabricmesh:Secret":
+	case "azure-native:servicefabricmesh:Secret":
 		r, err = NewSecret(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabricmesh:SecretValue":
+	case "azure-native:servicefabricmesh:SecretValue":
 		r, err = NewSecretValue(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:servicefabricmesh:Volume":
+	case "azure-native:servicefabricmesh:Volume":
 		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"servicefabricmesh",
 		&module{version},
 	)

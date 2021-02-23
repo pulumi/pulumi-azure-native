@@ -17,7 +17,7 @@ export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security:getIotSecuritySolution", {
+    return pulumi.runtime.invoke("azure-native:security:getIotSecuritySolution", {
         "resourceGroupName": args.resourceGroupName,
         "solutionName": args.solutionName,
     }, opts);

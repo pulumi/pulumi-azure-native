@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20180201.Inputs
+namespace Pulumi.AzureNative.Storage.V20180201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180201.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Storage.V20180201.IdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Storage.V20180201.IdentityType> Type { get; set; } = null!;
 
         public IdentityArgs()
         {

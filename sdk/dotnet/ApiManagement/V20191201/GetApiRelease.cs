@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20191201
+namespace Pulumi.AzureNative.ApiManagement.V20191201
 {
     public static class GetApiRelease
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// ApiRelease details.
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-nextgen:apimanagement/v20191201:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20191201:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
     }
 
 

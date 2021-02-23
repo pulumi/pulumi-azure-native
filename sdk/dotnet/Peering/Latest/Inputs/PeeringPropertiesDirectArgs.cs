@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.Latest.Inputs
+namespace Pulumi.AzureNative.Peering.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest.Inputs
         /// The type of direct peering.
         /// </summary>
         [Input("directPeeringType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Peering.Latest.DirectPeeringType>? DirectPeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Peering.Latest.DirectPeeringType>? DirectPeeringType { get; set; }
 
         /// <summary>
         /// The reference of the peer ASN.

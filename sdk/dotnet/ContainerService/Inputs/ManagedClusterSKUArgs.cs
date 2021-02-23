@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Inputs
+namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     public sealed class ManagedClusterSKUArgs : Pulumi.ResourceArgs
@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         /// Name of a managed cluster SKU.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ManagedClusterSKUName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUName>? Name { get; set; }
 
         /// <summary>
         /// Tier of a managed cluster SKU.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.ManagedClusterSKUTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUTier>? Tier { get; set; }
 
         public ManagedClusterSKUArgs()
         {

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Backend details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getBackend'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getBackend'. */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
-    pulumi.log.warn("getBackend is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getBackend'.")
+    pulumi.log.warn("getBackend is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getBackend'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getBackend", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getBackend", {
         "backendId": args.backendId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

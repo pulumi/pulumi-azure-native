@@ -56,7 +56,13 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault:Key"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/latest:Key"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/latest:Key"),
@@ -64,7 +70,7 @@ func NewKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Key
-	err := ctx.RegisterResource("azure-nextgen:keyvault/v20190901:Key", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault/v20190901:Key", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +82,7 @@ func NewKey(ctx *pulumi.Context,
 func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
 	var resource Key
-	err := ctx.ReadResource("azure-nextgen:keyvault/v20190901:Key", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault/v20190901:Key", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

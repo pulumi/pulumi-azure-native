@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Azure Data Catalog.
  * Latest API Version: 2016-03-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'. */
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
-    pulumi.log.warn("getADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datacatalog:getADCCatalog'.")
+    pulumi.log.warn("getADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datacatalog/latest:getADCCatalog", {
+    return pulumi.runtime.invoke("azure-native:datacatalog/latest:getADCCatalog", {
         "catalogName": args.catalogName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

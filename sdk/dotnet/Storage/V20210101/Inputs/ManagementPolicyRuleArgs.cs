@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20210101.Inputs
+namespace Pulumi.AzureNative.Storage.V20210101.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Storage.V20210101.Inputs
         /// The valid value is Lifecycle
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20210101.RuleType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Storage.V20210101.RuleType> Type { get; set; } = null!;
 
         public ManagementPolicyRuleArgs()
         {

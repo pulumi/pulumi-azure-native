@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200801
+namespace Pulumi.AzureNative.Network.V20200801
 {
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200801:HubVirtualNetworkConnection")]
+    [AzureNativeResourceType("azure-native:network/v20200801:HubVirtualNetworkConnection")]
     public partial class HubVirtualNetworkConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Network.V20200801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HubVirtualNetworkConnection(string name, HubVirtualNetworkConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200801:HubVirtualNetworkConnection", name, args ?? new HubVirtualNetworkConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200801:HubVirtualNetworkConnection", name, args ?? new HubVirtualNetworkConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HubVirtualNetworkConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200801:HubVirtualNetworkConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200801:HubVirtualNetworkConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,10 +88,15 @@ namespace Pulumi.AzureNextGen.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:HubVirtualNetworkConnection"},
                 },
             };

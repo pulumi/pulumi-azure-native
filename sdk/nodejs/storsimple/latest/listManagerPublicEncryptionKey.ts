@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents the secrets encrypted using Symmetric Encryption Key.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerPublicEncryptionKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerPublicEncryptionKey'. */
 export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerPublicEncryptionKeyResult> {
-    pulumi.log.warn("listManagerPublicEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listManagerPublicEncryptionKey'.")
+    pulumi.log.warn("listManagerPublicEncryptionKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerPublicEncryptionKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryption
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:listManagerPublicEncryptionKey", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:listManagerPublicEncryptionKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

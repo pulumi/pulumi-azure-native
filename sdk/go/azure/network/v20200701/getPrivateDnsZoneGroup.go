@@ -10,7 +10,7 @@ import (
 // Private dns zone group resource.
 func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGroupArgs, opts ...pulumi.InvokeOption) (*LookupPrivateDnsZoneGroupResult, error) {
 	var rv LookupPrivateDnsZoneGroupResult
-	err := ctx.Invoke("azure-nextgen:network/v20200701:getPrivateDnsZoneGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200701:getPrivateDnsZoneGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

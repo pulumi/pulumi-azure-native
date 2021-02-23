@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Cloud shell console
  * Latest API Version: 2018-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'. */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
-    pulumi.log.warn("getConsole is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getConsole'.")
+    pulumi.log.warn("getConsole is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getConsole", {
+    return pulumi.runtime.invoke("azure-native:portal/latest:getConsole", {
         "consoleName": args.consoleName,
     }, opts);
 }

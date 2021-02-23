@@ -10,10 +10,10 @@ import (
 // A common class for general resource information.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGateway'.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetworkGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetworkGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

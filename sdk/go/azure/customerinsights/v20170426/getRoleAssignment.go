@@ -10,7 +10,7 @@ import (
 // The Role Assignment resource format.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getRoleAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getRoleAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

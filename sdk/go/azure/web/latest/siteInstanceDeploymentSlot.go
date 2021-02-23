@@ -14,7 +14,7 @@ import (
 // Represents user credentials used for publishing activity
 // Latest API Version: 2015-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeploymentSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeploymentSlot'.
 type SiteInstanceDeploymentSlot struct {
 	pulumi.CustomResourceState
 
@@ -69,7 +69,13 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteInstanceDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteInstanceDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:SiteInstanceDeploymentSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot"),
@@ -77,7 +83,7 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteInstanceDeploymentSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:SiteInstanceDeploymentSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:SiteInstanceDeploymentSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +95,7 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 func GetSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteInstanceDeploymentSlotState, opts ...pulumi.ResourceOption) (*SiteInstanceDeploymentSlot, error) {
 	var resource SiteInstanceDeploymentSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:SiteInstanceDeploymentSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:SiteInstanceDeploymentSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20190801.Inputs
+namespace Pulumi.AzureNative.ContainerService.V20190801.Inputs
 {
 
     /// <summary>
@@ -37,19 +37,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190801.Inputs
         /// The load balancer sku for the managed cluster.
         /// </summary>
         [Input("loadBalancerSku")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190801.LoadBalancerSku>? LoadBalancerSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190801.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
         /// Network plugin used for building Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190801.NetworkPlugin>? NetworkPlugin { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190801.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
         /// Network policy used for building Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190801.NetworkPolicy>? NetworkPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.V20190801.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
         /// A CIDR notation IP range from which to assign pod IPs when kubenet is used.

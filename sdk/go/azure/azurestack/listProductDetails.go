@@ -11,7 +11,7 @@ import (
 // API Version: 2017-06-01.
 func ListProductDetails(ctx *pulumi.Context, args *ListProductDetailsArgs, opts ...pulumi.InvokeOption) (*ListProductDetailsResult, error) {
 	var rv ListProductDetailsResult
-	err := ctx.Invoke("azure-nextgen:azurestack:listProductDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack:listProductDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

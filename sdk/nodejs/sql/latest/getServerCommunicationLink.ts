@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Server communication link.
  * Latest API Version: 2014-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerCommunicationLink'. */
 export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCommunicationLinkResult> {
-    pulumi.log.warn("getServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getServerCommunicationLink'.")
+    pulumi.log.warn("getServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerCommunicationLink'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/latest:getServerCommunicationLink", {
+    return pulumi.runtime.invoke("azure-native:sql/latest:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

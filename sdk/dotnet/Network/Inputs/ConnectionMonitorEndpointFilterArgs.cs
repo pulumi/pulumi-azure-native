@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The behavior of the endpoint filter. Currently only 'Include' is supported.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ConnectionMonitorEndpointFilterType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ConnectionMonitorEndpointFilterType>? Type { get; set; }
 
         public ConnectionMonitorEndpointFilterArgs()
         {

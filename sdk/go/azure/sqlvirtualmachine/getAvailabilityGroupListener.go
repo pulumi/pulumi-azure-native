@@ -11,7 +11,7 @@ import (
 // API Version: 2017-03-01-preview.
 func LookupAvailabilityGroupListener(ctx *pulumi.Context, args *LookupAvailabilityGroupListenerArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilityGroupListenerResult, error) {
 	var rv LookupAvailabilityGroupListenerResult
-	err := ctx.Invoke("azure-nextgen:sqlvirtualmachine:getAvailabilityGroupListener", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

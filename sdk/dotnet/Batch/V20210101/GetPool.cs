@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101
+namespace Pulumi.AzureNative.Batch.V20210101
 {
     public static class GetPool
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Batch.V20210101
         /// Contains information about a pool.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-nextgen:batch/v20210101:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch/v20210101:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }
 
 

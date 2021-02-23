@@ -79,16 +79,31 @@ func NewQueue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus/latest:Queue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Queue"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:Queue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Queue"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:Queue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Queue"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:Queue"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Queue"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:Queue"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Queue"),
@@ -96,7 +111,7 @@ func NewQueue(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Queue
-	err := ctx.RegisterResource("azure-nextgen:servicebus:Queue", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus:Queue", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +123,7 @@ func NewQueue(ctx *pulumi.Context,
 func GetQueue(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueueState, opts ...pulumi.ResourceOption) (*Queue, error) {
 	var resource Queue
-	err := ctx.ReadResource("azure-nextgen:servicebus:Queue", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus:Queue", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,7 +14,7 @@ import (
 // Workload classifier operations for a data warehouse
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:SqlPoolWorkloadClassifier'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadClassifier'.
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 
@@ -60,10 +60,19 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:SqlPoolWorkloadClassifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadClassifier"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier"),
@@ -71,7 +80,7 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadClassifier
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:SqlPoolWorkloadClassifier", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +92,7 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 func GetSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlPoolWorkloadClassifierState, opts ...pulumi.ResourceOption) (*SqlPoolWorkloadClassifier, error) {
 	var resource SqlPoolWorkloadClassifier
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:SqlPoolWorkloadClassifier", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

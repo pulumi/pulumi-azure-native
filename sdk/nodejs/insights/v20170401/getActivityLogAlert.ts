@@ -16,7 +16,7 @@ export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/v20170401:getActivityLogAlert", {
+    return pulumi.runtime.invoke("azure-native:insights/v20170401:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

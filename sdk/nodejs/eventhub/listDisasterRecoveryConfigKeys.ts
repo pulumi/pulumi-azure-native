@@ -17,7 +17,7 @@ export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub:listDisasterRecoveryConfigKeys", {
+    return pulumi.runtime.invoke("azure-native:eventhub:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,

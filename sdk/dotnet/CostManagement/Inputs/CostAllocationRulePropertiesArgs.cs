@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Inputs
+namespace Pulumi.AzureNative.CostManagement.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Inputs
         /// Status of the rule
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.RuleStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.RuleStatus> Status { get; set; } = null!;
 
         public CostAllocationRulePropertiesArgs()
         {

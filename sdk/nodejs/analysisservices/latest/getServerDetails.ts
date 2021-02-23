@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents an instance of an Analysis Services resource.
  * Latest API Version: 2017-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:getServerDetails'. */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
-    pulumi.log.warn("getServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:analysisservices:getServerDetails'.")
+    pulumi.log.warn("getServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:getServerDetails'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:analysisservices/latest:getServerDetails", {
+    return pulumi.runtime.invoke("azure-native:analysisservices/latest:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);

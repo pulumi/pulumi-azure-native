@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160601
+namespace Pulumi.AzureNative.Web.V20160601
 {
     public static class ListConnectionConsentLinks
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20160601
         /// Collection of consent links
         /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-nextgen:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-native:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithVersion());
     }
 
 

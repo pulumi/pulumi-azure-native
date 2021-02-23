@@ -10,10 +10,10 @@ import (
 // Api Operation details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiOperation'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiOperation'.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiOperation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiOperation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

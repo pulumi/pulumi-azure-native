@@ -10,10 +10,10 @@ import (
 // Values returned by the List operation.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobOutputFiles'.
 func ListJobOutputFiles(ctx *pulumi.Context, args *ListJobOutputFilesArgs, opts ...pulumi.InvokeOption) (*ListJobOutputFilesResult, error) {
 	var rv ListJobOutputFilesResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:listJobOutputFiles", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:listJobOutputFiles", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

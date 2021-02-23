@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedNetwork
+namespace Pulumi.AzureNative.ManagedNetwork
 {
     /// <summary>
     /// The Managed Network Peering Policy resource
     /// API Version: 2019-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy")]
+    [AzureNativeResourceType("azure-native:managednetwork:ManagedNetworkPeeringPolicy")]
     public partial class ManagedNetworkPeeringPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedNetworkPeeringPolicy(string name, ManagedNetworkPeeringPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy", name, args ?? new ManagedNetworkPeeringPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:managednetwork:ManagedNetworkPeeringPolicy", name, args ?? new ManagedNetworkPeeringPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedNetworkPeeringPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:managednetwork:ManagedNetworkPeeringPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy"},
                 },
             };

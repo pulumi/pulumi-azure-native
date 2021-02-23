@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerInstance.V20191201
+namespace Pulumi.AzureNative.ContainerInstance.V20191201
 {
     /// <summary>
     /// A container group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerinstance/v20191201:ContainerGroup")]
+    [AzureNativeResourceType("azure-native:containerinstance/v20191201:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -141,12 +141,12 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContainerGroup(string name, ContainerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerinstance/v20191201:ContainerGroup", name, args ?? new ContainerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerinstance/v20191201:ContainerGroup", name, args ?? new ContainerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContainerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerinstance/v20191201:ContainerGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerinstance/v20191201:ContainerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -157,17 +157,29 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/latest:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/latest:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20170801preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20171001preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171001preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20171201preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20171201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180201preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180201preview:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180401:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180401:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180601:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180601:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20180901:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20180901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20181001:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20181001:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20201101:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20201101:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azure-native:containerinstance/v20210301:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20210301:ContainerGroup"},
                 },
             };
@@ -280,7 +292,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Input("osType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20191201.OperatingSystemTypes> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20191201.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -295,13 +307,13 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20191201
         /// - `Never` Never restart
         /// </summary>
         [Input("restartPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20191201.ContainerGroupRestartPolicy>? RestartPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20191201.ContainerGroupRestartPolicy>? RestartPolicy { get; set; }
 
         /// <summary>
         /// The SKU for a container group.
         /// </summary>
         [Input("sku")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20191201.ContainerGroupSku>? Sku { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20191201.ContainerGroupSku>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

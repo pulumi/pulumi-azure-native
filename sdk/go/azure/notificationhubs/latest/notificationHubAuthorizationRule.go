@@ -14,7 +14,7 @@ import (
 // Description of a Namespace AuthorizationRules.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:NotificationHubAuthorizationRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NotificationHubAuthorizationRule'.
 type NotificationHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 
@@ -69,10 +69,19 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:NotificationHubAuthorizationRule"),
@@ -80,7 +89,7 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NotificationHubAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs/latest:NotificationHubAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +101,7 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 func GetNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationHubAuthorizationRuleState, opts ...pulumi.ResourceOption) (*NotificationHubAuthorizationRule, error) {
 	var resource NotificationHubAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs/latest:NotificationHubAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

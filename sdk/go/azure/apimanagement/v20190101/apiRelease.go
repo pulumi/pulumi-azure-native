@@ -47,25 +47,49 @@ func NewApiRelease(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:ApiRelease"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiRelease"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiRelease"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiRelease"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiRelease"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiRelease"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiRelease"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiRelease"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiRelease"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiRelease"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiRelease"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiRelease"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiRelease"),
@@ -73,7 +97,7 @@ func NewApiRelease(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiRelease
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20190101:ApiRelease", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20190101:ApiRelease", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +109,7 @@ func NewApiRelease(ctx *pulumi.Context,
 func GetApiRelease(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiReleaseState, opts ...pulumi.ResourceOption) (*ApiRelease, error) {
 	var resource ApiRelease
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20190101:ApiRelease", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20190101:ApiRelease", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

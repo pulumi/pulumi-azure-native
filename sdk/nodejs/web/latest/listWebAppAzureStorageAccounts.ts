@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * AzureStorageInfo dictionary resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAzureStorageAccounts'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAzureStorageAccounts'. */
 export function listWebAppAzureStorageAccounts(args: ListWebAppAzureStorageAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsResult> {
-    pulumi.log.warn("listWebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppAzureStorageAccounts'.")
+    pulumi.log.warn("listWebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAzureStorageAccounts'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppAzureStorageAccounts(args: ListWebAppAzureStorageAccou
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppAzureStorageAccounts", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppAzureStorageAccounts", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

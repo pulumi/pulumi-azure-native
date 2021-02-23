@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
+namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
     /// <summary>
     /// The relationship resource format.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customerinsights/v20170101:Relationship")]
+    [AzureNativeResourceType("azure-native:customerinsights/v20170101:Relationship")]
     public partial class Relationship : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Relationship(string name, RelationshipArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170101:Relationship", name, args ?? new RelationshipArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customerinsights/v20170101:Relationship", name, args ?? new RelationshipArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Relationship(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customerinsights/v20170101:Relationship", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customerinsights/v20170101:Relationship", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,8 +124,11 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customerinsights:Relationship"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Relationship"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Relationship"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Relationship"},
+                    new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Relationship"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Relationship"},
                 },
             };
@@ -154,7 +157,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// The Relationship Cardinality.
         /// </summary>
         [Input("cardinality")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.CardinalityTypes>? Cardinality { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.V20170101.CardinalityTypes>? Cardinality { get; set; }
 
         [Input("description")]
         private InputMap<string>? _description;

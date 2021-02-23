@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure.Inputs
+namespace Pulumi.AzureNative.HanaOnAzure.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.Inputs
         /// Specifies the HANA instance SKU.
         /// </summary>
         [Input("hanaInstanceSize")]
-        public InputUnion<string, Pulumi.AzureNextGen.HanaOnAzure.HanaInstanceSizeNamesEnum>? HanaInstanceSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.HanaInstanceSizeNamesEnum>? HanaInstanceSize { get; set; }
 
         /// <summary>
         /// Name of the hardware type (vendor and/or their product name)
         /// </summary>
         [Input("hardwareType")]
-        public InputUnion<string, Pulumi.AzureNextGen.HanaOnAzure.HanaHardwareTypeNamesEnum>? HardwareType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.HanaHardwareTypeNamesEnum>? HardwareType { get; set; }
 
         public HardwareProfileArgs()
         {

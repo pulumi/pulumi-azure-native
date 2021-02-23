@@ -17,7 +17,7 @@ export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices:getReplicationNetworkMapping", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,
         "networkMappingName": args.networkMappingName,
         "networkName": args.networkName,

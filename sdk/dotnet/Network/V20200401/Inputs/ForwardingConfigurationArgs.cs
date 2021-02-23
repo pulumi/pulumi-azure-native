@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
+namespace Pulumi.AzureNative.Network.V20200401.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         [Input("forwardingProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.FrontDoorForwardingProtocol>? ForwardingProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200401.FrontDoorForwardingProtocol>? ForwardingProtocol { get; set; }
 
         /// <summary>
         /// 

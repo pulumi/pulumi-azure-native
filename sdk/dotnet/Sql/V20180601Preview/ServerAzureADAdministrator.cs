@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20180601Preview
+namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
     /// <summary>
     /// Azure Active Directory administrator.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator")]
+    [AzureNativeResourceType("azure-native:sql/v20180601preview:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAzureADAdministrator(string name, ServerAzureADAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator", name, args ?? new ServerAzureADAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20180601preview:ServerAzureADAdministrator", name, args ?? new ServerAzureADAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAzureADAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20180601preview:ServerAzureADAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,11 +76,17 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"},
                 },
             };
@@ -112,7 +118,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// Type of the sever administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20180601Preview.AdministratorType> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20180601Preview.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// Login name of the server administrator.

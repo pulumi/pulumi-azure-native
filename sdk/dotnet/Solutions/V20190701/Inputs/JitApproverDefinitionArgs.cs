@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.V20190701.Inputs
+namespace Pulumi.AzureNative.Solutions.V20190701.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701.Inputs
         /// The approver type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Solutions.V20190701.JitApproverType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Solutions.V20190701.JitApproverType>? Type { get; set; }
 
         public JitApproverDefinitionArgs()
         {

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Latest
+namespace Pulumi.AzureNative.CostManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getExport'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getExport'.")]
     public static class GetExport
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-nextgen:costmanagement/latest:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement/latest:getExport", args ?? new GetExportArgs(), options.WithVersion());
     }
 
 

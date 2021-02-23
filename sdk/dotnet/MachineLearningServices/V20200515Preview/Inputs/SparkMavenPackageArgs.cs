@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200515Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Inputs
 {
 
     public sealed class SparkMavenPackageArgs : Pulumi.ResourceArgs

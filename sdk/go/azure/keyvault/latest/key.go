@@ -14,7 +14,7 @@ import (
 // The key resource.
 // Latest API Version: 2019-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Key'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Key'.
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -59,7 +59,13 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:keyvault:Key"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:keyvault:Key"),
+		},
+		{
+			Type: pulumi.String("azure-native:keyvault/v20190901:Key"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Key"),
@@ -67,7 +73,7 @@ func NewKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Key
-	err := ctx.RegisterResource("azure-nextgen:keyvault/latest:Key", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:keyvault/latest:Key", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +85,7 @@ func NewKey(ctx *pulumi.Context,
 func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
 	var resource Key
-	err := ctx.ReadResource("azure-nextgen:keyvault/latest:Key", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:keyvault/latest:Key", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

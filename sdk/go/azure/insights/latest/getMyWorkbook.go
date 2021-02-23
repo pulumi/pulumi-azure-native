@@ -10,10 +10,10 @@ import (
 // An Application Insights private workbook definition.
 // Latest API Version: 2020-10-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getMyWorkbook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMyWorkbook'.
 func LookupMyWorkbook(ctx *pulumi.Context, args *LookupMyWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupMyWorkbookResult, error) {
 	var rv LookupMyWorkbookResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getMyWorkbook", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getMyWorkbook", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

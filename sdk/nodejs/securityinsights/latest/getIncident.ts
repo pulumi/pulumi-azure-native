@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents an incident in Azure Security Insights.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getIncident'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getIncident'. */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
-    pulumi.log.warn("getIncident is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getIncident'.")
+    pulumi.log.warn("getIncident is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getIncident'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/latest:getIncident", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/latest:getIncident", {
         "incidentId": args.incidentId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

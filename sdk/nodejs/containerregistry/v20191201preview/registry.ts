@@ -22,7 +22,7 @@ export class Registry extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20191201preview:Registry';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20191201preview:Registry';
 
     /**
      * Returns true if the given object is an instance of Registry.  This is designed to work even
@@ -183,7 +183,7 @@ export class Registry extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Registry" }, { type: "azure-nextgen:containerregistry/latest:Registry" }, { type: "azure-nextgen:containerregistry/v20160627preview:Registry" }, { type: "azure-nextgen:containerregistry/v20170301:Registry" }, { type: "azure-nextgen:containerregistry/v20170601preview:Registry" }, { type: "azure-nextgen:containerregistry/v20171001:Registry" }, { type: "azure-nextgen:containerregistry/v20190501:Registry" }, { type: "azure-nextgen:containerregistry/v20201101preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Registry" }, { type: "azure-nextgen:containerregistry:Registry" }, { type: "azure-native:containerregistry/latest:Registry" }, { type: "azure-nextgen:containerregistry/latest:Registry" }, { type: "azure-native:containerregistry/v20160627preview:Registry" }, { type: "azure-nextgen:containerregistry/v20160627preview:Registry" }, { type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-nextgen:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20170601preview:Registry" }, { type: "azure-nextgen:containerregistry/v20170601preview:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-nextgen:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-nextgen:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-nextgen:containerregistry/v20201101preview:Registry" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registry.__pulumiType, name, inputs, opts);
     }

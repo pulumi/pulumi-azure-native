@@ -44,109 +44,217 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171101:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180101:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180201:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteCircuitAuthorization"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteCircuitAuthorization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitAuthorization"),
@@ -154,7 +262,7 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteCircuitAuthorization
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:ExpressRouteCircuitAuthorization", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:ExpressRouteCircuitAuthorization", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,7 +274,7 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 func GetExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExpressRouteCircuitAuthorizationState, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
 	var resource ExpressRouteCircuitAuthorization
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:ExpressRouteCircuitAuthorization", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:ExpressRouteCircuitAuthorization", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

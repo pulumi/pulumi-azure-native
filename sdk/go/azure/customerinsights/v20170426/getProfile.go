@@ -10,7 +10,7 @@ import (
 // The profile resource format.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

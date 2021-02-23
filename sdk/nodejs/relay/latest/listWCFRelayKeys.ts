@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Namespace/Relay Connection String
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listWCFRelayKeys'. */
 export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWCFRelayKeysResult> {
-    pulumi.log.warn("listWCFRelayKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:listWCFRelayKeys'.")
+    pulumi.log.warn("listWCFRelayKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listWCFRelayKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:listWCFRelayKeys", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:listWCFRelayKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

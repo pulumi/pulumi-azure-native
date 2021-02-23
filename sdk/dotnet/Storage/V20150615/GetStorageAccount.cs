@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20150615
+namespace Pulumi.AzureNative.Storage.V20150615
 {
     public static class GetStorageAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
         /// The storage account.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-nextgen:storage/v20150615:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage/v20150615:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
     }
 
 

@@ -17,7 +17,7 @@ export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:listSubscriptionSecrets", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:listSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
         "sid": args.sid,

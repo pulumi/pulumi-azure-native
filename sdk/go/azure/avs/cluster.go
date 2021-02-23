@@ -53,13 +53,25 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs/latest:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/latest:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200320:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:Cluster"),
 		},
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Cluster"),
@@ -67,7 +79,7 @@ func NewCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
-	err := ctx.RegisterResource("azure-nextgen:avs:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +91,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("azure-nextgen:avs:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Latest
+namespace Pulumi.AzureNative.Automation.Latest
 {
     /// <summary>
     /// Definition of the configuration type.
     /// Latest API Version: 2019-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:DscConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:automation/latest:DscConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscConfiguration'.")]
+    [AzureNativeResourceType("azure-native:automation/latest:DscConfiguration")]
     public partial class DscConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscConfiguration(string name, DscConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:DscConfiguration", name, args ?? new DscConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/latest:DscConfiguration", name, args ?? new DscConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DscConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/latest:DscConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/latest:DscConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,8 +132,11 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                 },
             };

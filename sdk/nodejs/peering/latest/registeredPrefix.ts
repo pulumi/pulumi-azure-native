@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The customer's prefix that is registered by the peering service provider.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredPrefix'.
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegisteredPrefix {
-        pulumi.log.warn("RegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.")
+        pulumi.log.warn("RegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredPrefix'.")
         return new RegisteredPrefix(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/latest:RegisteredPrefix';
+    public static readonly __pulumiType = 'azure-native:peering/latest:RegisteredPrefix';
 
     /**
      * Returns true if the given object is an instance of RegisteredPrefix.  This is designed to work even
@@ -74,9 +74,9 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredPrefix'. */
     constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.")
+        pulumi.log.warn("RegisteredPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredPrefix'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
@@ -111,7 +111,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-nextgen:peering:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }, { type: "azure-native:peering/v20201001:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20201001:RegisteredPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }

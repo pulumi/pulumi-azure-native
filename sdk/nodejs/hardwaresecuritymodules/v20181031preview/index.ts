@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm":
+            case "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm":
                 return new DedicatedHsm(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hardwaresecuritymodules/v20181031preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hardwaresecuritymodules/v20181031preview", _module)

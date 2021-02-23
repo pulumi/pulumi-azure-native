@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListDisasterRecoveryConfigKeys(ctx *pulumi.Context, args *ListDisasterRecoveryConfigKeysArgs, opts ...pulumi.InvokeOption) (*ListDisasterRecoveryConfigKeysResult, error) {
 	var rv ListDisasterRecoveryConfigKeysResult
-	err := ctx.Invoke("azure-nextgen:servicebus:listDisasterRecoveryConfigKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:listDisasterRecoveryConfigKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

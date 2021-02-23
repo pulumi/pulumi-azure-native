@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:web/v20160601:Connection":
+	case "azure-native:web/v20160601:Connection":
 		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20160601:ConnectionGateway":
+	case "azure-native:web/v20160601:ConnectionGateway":
 		r, err = NewConnectionGateway(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:web/v20160601:CustomApi":
+	case "azure-native:web/v20160601:CustomApi":
 		r, err = NewCustomApi(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"web/v20160601",
 		&module{version},
 	)

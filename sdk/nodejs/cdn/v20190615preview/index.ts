@@ -28,17 +28,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cdn/v20190615preview:CustomDomain":
+            case "azure-native:cdn/v20190615preview:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/v20190615preview:Endpoint":
+            case "azure-native:cdn/v20190615preview:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/v20190615preview:Policy":
+            case "azure-native:cdn/v20190615preview:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/v20190615preview:Profile":
+            case "azure-native:cdn/v20190615preview:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cdn/v20190615preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cdn/v20190615preview", _module)

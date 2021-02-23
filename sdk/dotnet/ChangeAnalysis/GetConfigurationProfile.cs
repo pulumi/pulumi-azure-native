@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ChangeAnalysis
+namespace Pulumi.AzureNative.ChangeAnalysis
 {
     public static class GetConfigurationProfile
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis
         /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-nextgen:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("azure-native:changeanalysis:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithVersion());
     }
 
 

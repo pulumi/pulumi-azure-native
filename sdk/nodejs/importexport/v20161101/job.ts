@@ -22,7 +22,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:importexport/v20161101:Job';
+    public static readonly __pulumiType = 'azure-native:importexport/v20161101:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -102,7 +102,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:importexport:Job" }, { type: "azure-nextgen:importexport/latest:Job" }, { type: "azure-nextgen:importexport/v20200801:Job" }, { type: "azure-nextgen:importexport/v20210101:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:importexport:Job" }, { type: "azure-nextgen:importexport:Job" }, { type: "azure-native:importexport/latest:Job" }, { type: "azure-nextgen:importexport/latest:Job" }, { type: "azure-native:importexport/v20200801:Job" }, { type: "azure-nextgen:importexport/v20200801:Job" }, { type: "azure-native:importexport/v20210101:Job" }, { type: "azure-nextgen:importexport/v20210101:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

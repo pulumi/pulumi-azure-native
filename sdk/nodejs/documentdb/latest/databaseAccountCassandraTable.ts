@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra table.
  * Latest API Version: 2016-03-31.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraTable'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountCassandraTable'.
  */
 export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountCassandraTable {
-        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraTable'.")
+        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountCassandraTable'.")
         return new DatabaseAccountCassandraTable(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:DatabaseAccountCassandraTable';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountCassandraTable.  This is designed to work even
@@ -71,9 +71,9 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraTable'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountCassandraTable'. */
     constructor(name: string, args: DatabaseAccountCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountCassandraTable'.")
+        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountCassandraTable'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -118,7 +118,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountCassandraTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraTable.__pulumiType, name, inputs, opts);
     }

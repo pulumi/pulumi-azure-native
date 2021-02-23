@@ -11,7 +11,7 @@ import (
 // API Version: 2021-03-01-preview.
 func ListObjectAnchorsAccountKeys(ctx *pulumi.Context, args *ListObjectAnchorsAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListObjectAnchorsAccountKeysResult, error) {
 	var rv ListObjectAnchorsAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality:listObjectAnchorsAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality:listObjectAnchorsAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

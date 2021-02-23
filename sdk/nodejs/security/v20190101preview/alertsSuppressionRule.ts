@@ -22,7 +22,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20190101preview:AlertsSuppressionRule';
+    public static readonly __pulumiType = 'azure-native:security/v20190101preview:AlertsSuppressionRule';
 
     /**
      * Returns true if the given object is an instance of AlertsSuppressionRule.  This is designed to work even
@@ -119,7 +119,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:AlertsSuppressionRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:AlertsSuppressionRule" }, { type: "azure-nextgen:security:AlertsSuppressionRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AlertsSuppressionRule.__pulumiType, name, inputs, opts);
     }

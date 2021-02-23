@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
  * Latest API Version: 2018-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHybridConnectionKeys'. */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
-    pulumi.log.warn("listWebAppHybridConnectionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHybridConnectionKeys'.")
+    pulumi.log.warn("listWebAppHybridConnectionKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHybridConnectionKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppHybridConnectionKeys", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppHybridConnectionKeys", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,

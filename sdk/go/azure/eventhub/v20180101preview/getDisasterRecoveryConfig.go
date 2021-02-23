@@ -10,7 +10,7 @@ import (
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20180101preview:getDisasterRecoveryConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20180101preview:getDisasterRecoveryConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

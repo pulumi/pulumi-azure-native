@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupDataStore(ctx *pulumi.Context, args *LookupDataStoreArgs, opts ...pulumi.InvokeOption) (*LookupDataStoreResult, error) {
 	var rv LookupDataStoreResult
-	err := ctx.Invoke("azure-nextgen:hybriddata:getDataStore", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybriddata:getDataStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

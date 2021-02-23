@@ -48,28 +48,55 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:BlobContainerImmutabilityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/latest:BlobContainerImmutabilityPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20181101:BlobContainerImmutabilityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy"),
@@ -77,7 +104,7 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobContainerImmutabilityPolicy
-	err := ctx.RegisterResource("azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/v20180701:BlobContainerImmutabilityPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +116,7 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 func GetBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobContainerImmutabilityPolicyState, opts ...pulumi.ResourceOption) (*BlobContainerImmutabilityPolicy, error) {
 	var resource BlobContainerImmutabilityPolicy
-	err := ctx.ReadResource("azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/v20180701:BlobContainerImmutabilityPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

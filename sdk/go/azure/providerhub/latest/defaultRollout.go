@@ -14,7 +14,7 @@ import (
 // Default rollout definition.
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:providerhub:DefaultRollout'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:DefaultRollout'.
 type DefaultRollout struct {
 	pulumi.CustomResourceState
 
@@ -39,7 +39,13 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub:DefaultRollout"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:DefaultRollout"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:DefaultRollout"),
@@ -47,7 +53,7 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DefaultRollout
-	err := ctx.RegisterResource("azure-nextgen:providerhub/latest:DefaultRollout", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub/latest:DefaultRollout", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +65,7 @@ func NewDefaultRollout(ctx *pulumi.Context,
 func GetDefaultRollout(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DefaultRolloutState, opts ...pulumi.ResourceOption) (*DefaultRollout, error) {
 	var resource DefaultRollout
-	err := ctx.ReadResource("azure-nextgen:providerhub/latest:DefaultRollout", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub/latest:DefaultRollout", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

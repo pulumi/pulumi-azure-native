@@ -21,7 +21,7 @@ export class SecretValue extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabricmesh/v20180901preview:SecretValue';
+    public static readonly __pulumiType = 'azure-native:servicefabricmesh/v20180901preview:SecretValue';
 
     /**
      * Returns true if the given object is an instance of SecretValue.  This is designed to work even
@@ -99,7 +99,7 @@ export class SecretValue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh:SecretValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:SecretValue" }, { type: "azure-nextgen:servicefabricmesh:SecretValue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecretValue.__pulumiType, name, inputs, opts);
     }

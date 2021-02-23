@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opts ...pulumi.InvokeOption) (*LookupPacketCaptureResult, error) {
 	var rv LookupPacketCaptureResult
-	err := ctx.Invoke("azure-nextgen:network:getPacketCapture", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getPacketCapture", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

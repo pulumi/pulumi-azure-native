@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:hybridnetwork:Device":
+	case "azure-native:hybridnetwork:Device":
 		r, err = NewDevice(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:hybridnetwork:NetworkFunction":
+	case "azure-native:hybridnetwork:NetworkFunction":
 		r, err = NewNetworkFunction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:hybridnetwork:Vendor":
+	case "azure-native:hybridnetwork:Vendor":
 		r, err = NewVendor(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:hybridnetwork:VendorSkuPreview":
+	case "azure-native:hybridnetwork:VendorSkuPreview":
 		r, err = NewVendorSkuPreview(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:hybridnetwork:VendorSkus":
+	case "azure-native:hybridnetwork:VendorSkus":
 		r, err = NewVendorSkus(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"hybridnetwork",
 		&module{version},
 	)

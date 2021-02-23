@@ -16,7 +16,7 @@ export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
+    return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
         "apiName": args.apiName,
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
         "resourceGroup": args.resourceGroup,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20200601:AppServicePlanRouteForVnet")]
+    [AzureNativeResourceType("azure-native:web/v20200601:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : Pulumi.CustomResource
     {
         /// <summary>
@@ -65,12 +65,12 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServicePlanRouteForVnet(string name, AppServicePlanRouteForVnetArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:AppServicePlanRouteForVnet", name, args ?? new AppServicePlanRouteForVnetArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20200601:AppServicePlanRouteForVnet", name, args ?? new AppServicePlanRouteForVnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServicePlanRouteForVnet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200601:AppServicePlanRouteForVnet", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20200601:AppServicePlanRouteForVnet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,13 +81,21 @@ namespace Pulumi.AzureNextGen.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"},
                 },
             };
@@ -151,7 +159,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// These values will be used for syncing an app's routes with those from a Virtual Network.
         /// </summary>
         [Input("routeType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.V20200601.RouteType>? RouteType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.V20200601.RouteType>? RouteType { get; set; }
 
         /// <summary>
         /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.

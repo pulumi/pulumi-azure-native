@@ -14,7 +14,7 @@ import (
 // The Role Assignment resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RoleAssignment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
@@ -82,10 +82,19 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:RoleAssignment"),
@@ -93,7 +102,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RoleAssignment
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:RoleAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:RoleAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +114,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 func GetRoleAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleAssignmentState, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
 	var resource RoleAssignment
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:RoleAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:RoleAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

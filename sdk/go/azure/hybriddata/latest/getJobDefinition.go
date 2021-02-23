@@ -10,10 +10,10 @@ import (
 // Job Definition.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getJobDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'.
 func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupJobDefinitionResult, error) {
 	var rv LookupJobDefinitionResult
-	err := ctx.Invoke("azure-nextgen:hybriddata/latest:getJobDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybriddata/latest:getJobDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

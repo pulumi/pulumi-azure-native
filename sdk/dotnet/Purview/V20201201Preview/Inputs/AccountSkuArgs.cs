@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.Purview.V20201201Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview.Inputs
         /// Gets or sets the sku name.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Purview.V20201201Preview.Name>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.V20201201Preview.Name>? Name { get; set; }
 
         public AccountSkuArgs()
         {

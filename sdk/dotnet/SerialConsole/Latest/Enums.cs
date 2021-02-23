@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SerialConsole.Latest
+namespace Pulumi.AzureNative.SerialConsole.Latest
 {
     /// <summary>
     /// Specifies whether the port is enabled for a serial console connection.

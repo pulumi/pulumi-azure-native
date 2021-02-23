@@ -21,31 +21,31 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:avs/v20210101preview:Addon":
+	case "azure-native:avs/v20210101preview:Addon":
 		r, err = NewAddon(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:Authorization":
+	case "azure-native:avs/v20210101preview:Authorization":
 		r, err = NewAuthorization(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:Cluster":
+	case "azure-native:avs/v20210101preview:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:Datastore":
+	case "azure-native:avs/v20210101preview:Datastore":
 		r, err = NewDatastore(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:GlobalReachConnection":
+	case "azure-native:avs/v20210101preview:GlobalReachConnection":
 		r, err = NewGlobalReachConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite":
+	case "azure-native:avs/v20210101preview:HcxEnterpriseSite":
 		r, err = NewHcxEnterpriseSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:PrivateCloud":
+	case "azure-native:avs/v20210101preview:PrivateCloud":
 		r, err = NewPrivateCloud(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkDhcp":
 		r, err = NewWorkloadNetworkDhcp(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkDnsService":
 		r, err = NewWorkloadNetworkDnsService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone":
 		r, err = NewWorkloadNetworkDnsZone(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring":
 		r, err = NewWorkloadNetworkPortMirroring(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkSegment":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkSegment":
 		r, err = NewWorkloadNetworkSegment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup":
+	case "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup":
 		r, err = NewWorkloadNetworkVMGroup(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -60,7 +60,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"avs/v20210101preview",
 		&module{version},
 	)

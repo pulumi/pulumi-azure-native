@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
+namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     public static class GetDataPool
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform
         /// API Version: 2020-07-01-preview.
         /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-nextgen:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolArgs(), options.WithVersion());
     }
 
 

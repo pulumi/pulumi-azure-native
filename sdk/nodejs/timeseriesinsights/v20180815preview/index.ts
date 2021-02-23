@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy":
+            case "azure-native:timeseriesinsights/v20180815preview:AccessPolicy":
                 return new AccessPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:timeseriesinsights/v20180815preview:Environment":
+            case "azure-native:timeseriesinsights/v20180815preview:Environment":
                 return new Environment(name, <any>undefined, { urn })
-            case "azure-nextgen:timeseriesinsights/v20180815preview:EventSource":
+            case "azure-native:timeseriesinsights/v20180815preview:EventSource":
                 return new EventSource(name, <any>undefined, { urn })
-            case "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet":
+            case "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet":
                 return new ReferenceDataSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "timeseriesinsights/v20180815preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "timeseriesinsights/v20180815preview", _module)

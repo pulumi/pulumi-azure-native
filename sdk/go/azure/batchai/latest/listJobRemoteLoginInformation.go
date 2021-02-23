@@ -10,10 +10,10 @@ import (
 // Values returned by the List operation.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobRemoteLoginInformation'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobRemoteLoginInformation'.
 func ListJobRemoteLoginInformation(ctx *pulumi.Context, args *ListJobRemoteLoginInformationArgs, opts ...pulumi.InvokeOption) (*ListJobRemoteLoginInformationResult, error) {
 	var rv ListJobRemoteLoginInformationResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:listJobRemoteLoginInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:listJobRemoteLoginInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

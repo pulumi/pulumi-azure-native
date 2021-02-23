@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest.Inputs
+namespace Pulumi.AzureNative.Security.Latest.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The type of IoT Security recommendation.
         /// </summary>
         [Input("recommendationType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.RecommendationType> RecommendationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.RecommendationType> RecommendationType { get; set; } = null!;
 
         /// <summary>
         /// Recommendation status. When the recommendation status is disabled recommendations are not generated.
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.RecommendationConfigStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Latest.RecommendationConfigStatus> Status { get; set; } = null!;
 
         public RecommendationConfigurationPropertiesArgs()
         {

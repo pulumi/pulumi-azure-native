@@ -16,7 +16,7 @@ export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200801preview:getInstancePool", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200801preview:getInstancePool", {
         "instancePoolName": args.instancePoolName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

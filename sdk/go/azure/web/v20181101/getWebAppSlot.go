@@ -10,7 +10,7 @@ import (
 // A web app, a mobile app backend, or an API app.
 func LookupWebAppSlot(ctx *pulumi.Context, args *LookupWebAppSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSlotResult, error) {
 	var rv LookupWebAppSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:getWebAppSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:getWebAppSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

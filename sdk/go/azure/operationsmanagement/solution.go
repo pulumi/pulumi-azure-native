@@ -42,12 +42,15 @@ func NewSolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationsmanagement/v20151101preview:Solution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationsmanagement/v20151101preview:Solution"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Solution
-	err := ctx.RegisterResource("azure-nextgen:operationsmanagement:Solution", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationsmanagement:Solution", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewSolution(ctx *pulumi.Context,
 func GetSolution(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SolutionState, opts ...pulumi.ResourceOption) (*Solution, error) {
 	var resource Solution
-	err := ctx.ReadResource("azure-nextgen:operationsmanagement:Solution", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationsmanagement:Solution", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

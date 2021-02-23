@@ -16,7 +16,7 @@ export function getServerDnsAlias(args: GetServerDnsAliasArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql/v20200202preview:getServerDnsAlias", {
+    return pulumi.runtime.invoke("azure-native:sql/v20200202preview:getServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

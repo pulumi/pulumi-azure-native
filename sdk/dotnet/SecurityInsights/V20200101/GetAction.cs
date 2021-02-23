@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
+namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
     public static class GetAction
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20200101
         /// Action for alert rule.
         /// </summary>
         public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-nextgen:securityinsights/v20200101:getAction", args ?? new GetActionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-native:securityinsights/v20200101:getAction", args ?? new GetActionArgs(), options.WithVersion());
     }
 
 

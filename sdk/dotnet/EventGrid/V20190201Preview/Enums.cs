@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
+namespace Pulumi.AzureNative.EventGrid.V20190201Preview
 {
     /// <summary>
     /// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.

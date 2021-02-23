@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getOriginGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getOriginGroup'. */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-    pulumi.log.warn("getOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getOriginGroup'.")
+    pulumi.log.warn("getOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getOriginGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getOriginGroup", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getOriginGroup", {
         "endpointName": args.endpointName,
         "originGroupName": args.originGroupName,
         "profileName": args.profileName,

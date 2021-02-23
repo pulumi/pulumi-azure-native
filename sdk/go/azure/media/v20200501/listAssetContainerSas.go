@@ -10,7 +10,7 @@ import (
 // The Asset Storage container SAS URLs.
 func ListAssetContainerSas(ctx *pulumi.Context, args *ListAssetContainerSasArgs, opts ...pulumi.InvokeOption) (*ListAssetContainerSasResult, error) {
 	var rv ListAssetContainerSasResult
-	err := ctx.Invoke("azure-nextgen:media/v20200501:listAssetContainerSas", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20200501:listAssetContainerSas", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

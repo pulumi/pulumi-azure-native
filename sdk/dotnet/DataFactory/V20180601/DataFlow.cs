@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Data flow resource type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory/v20180601:DataFlow")]
+    [AzureNativeResourceType("azure-native:datafactory/v20180601:DataFlow")]
     public partial class DataFlow : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataFlow(string name, DataFlowArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/v20180601:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/v20180601:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataFlow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/v20180601:DataFlow", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/v20180601:DataFlow", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,7 +64,9 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:DataFlow"},
                 },
             };

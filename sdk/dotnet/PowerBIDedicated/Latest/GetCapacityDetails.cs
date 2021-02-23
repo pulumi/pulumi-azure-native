@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
+namespace Pulumi.AzureNative.PowerBIDedicated.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbidedicated:getCapacityDetails'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getCapacityDetails'.")]
     public static class GetCapacityDetails
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
         /// Latest API Version: 2017-10-01.
         /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-nextgen:powerbidedicated/latest:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated/latest:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
     }
 
 

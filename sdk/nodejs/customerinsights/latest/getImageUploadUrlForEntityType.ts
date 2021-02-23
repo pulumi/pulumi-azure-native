@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The image definition.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForEntityType'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForEntityType'. */
 export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForEntityTypeResult> {
-    pulumi.log.warn("getImageUploadUrlForEntityType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForEntityType'.")
+    pulumi.log.warn("getImageUploadUrlForEntityType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForEntityType'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityT
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getImageUploadUrlForEntityType", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getImageUploadUrlForEntityType", {
         "entityType": args.entityType,
         "entityTypeName": args.entityTypeName,
         "hubName": args.hubName,

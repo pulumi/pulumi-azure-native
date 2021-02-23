@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kubernetes.V20210301
+namespace Pulumi.AzureNative.Kubernetes.V20210301
 {
     public static class GetConnectedCluster
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20210301
         /// Represents a connected cluster.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-nextgen:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes/v20210301:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithVersion());
     }
 
 

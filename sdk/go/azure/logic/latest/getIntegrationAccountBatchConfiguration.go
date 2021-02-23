@@ -10,10 +10,10 @@ import (
 // The batch configuration resource definition.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountBatchConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountBatchConfiguration'.
 func LookupIntegrationAccountBatchConfiguration(ctx *pulumi.Context, args *LookupIntegrationAccountBatchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountBatchConfigurationResult, error) {
 	var rv LookupIntegrationAccountBatchConfigurationResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationAccountBatchConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationAccountBatchConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

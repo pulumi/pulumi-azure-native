@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
+namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     public static class ListSecretValue
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// This type represents the unencrypted value of the secret.
         /// </summary>
         public static Task<ListSecretValueResult> InvokeAsync(ListSecretValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSecretValueResult>("azure-nextgen:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueArgs(), options.WithVersion());
     }
 
 

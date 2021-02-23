@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601
+namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     public static class GetFactoryDataPlaneAccess
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Get Data Plane read only token response definition.
         /// </summary>
         public static Task<GetFactoryDataPlaneAccessResult> InvokeAsync(GetFactoryDataPlaneAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-nextgen:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessArgs(), options.WithVersion());
     }
 
 

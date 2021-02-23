@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppConnectionStringsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppConnectionStringsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

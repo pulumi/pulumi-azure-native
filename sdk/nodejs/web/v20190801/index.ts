@@ -178,105 +178,105 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:web/v20190801:AppServiceEnvironment":
+            case "azure-native:web/v20190801:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:AppServicePlan":
+            case "azure-native:web/v20190801:AppServicePlan":
                 return new AppServicePlan(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet":
+            case "azure-native:web/v20190801:AppServicePlanRouteForVnet":
                 return new AppServicePlanRouteForVnet(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:Certificate":
+            case "azure-native:web/v20190801:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:StaticSite":
+            case "azure-native:web/v20190801:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebApp":
+            case "azure-native:web/v20190801:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppApplicationSettings":
+            case "azure-native:web/v20190801:WebAppApplicationSettings":
                 return new WebAppApplicationSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot":
+            case "azure-native:web/v20190801:WebAppApplicationSettingsSlot":
                 return new WebAppApplicationSettingsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppAuthSettings":
+            case "azure-native:web/v20190801:WebAppAuthSettings":
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot":
+            case "azure-native:web/v20190801:WebAppAuthSettingsSlot":
                 return new WebAppAuthSettingsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppAzureStorageAccounts":
+            case "azure-native:web/v20190801:WebAppAzureStorageAccounts":
                 return new WebAppAzureStorageAccounts(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot":
+            case "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot":
                 return new WebAppAzureStorageAccountsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppBackupConfiguration":
+            case "azure-native:web/v20190801:WebAppBackupConfiguration":
                 return new WebAppBackupConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot":
+            case "azure-native:web/v20190801:WebAppBackupConfigurationSlot":
                 return new WebAppBackupConfigurationSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppConnectionStrings":
+            case "azure-native:web/v20190801:WebAppConnectionStrings":
                 return new WebAppConnectionStrings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppConnectionStringsSlot":
+            case "azure-native:web/v20190801:WebAppConnectionStringsSlot":
                 return new WebAppConnectionStringsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppDeployment":
+            case "azure-native:web/v20190801:WebAppDeployment":
                 return new WebAppDeployment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppDeploymentSlot":
+            case "azure-native:web/v20190801:WebAppDeploymentSlot":
                 return new WebAppDeploymentSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration":
+            case "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration":
                 return new WebAppDiagnosticLogsConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier":
+            case "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier":
                 return new WebAppDomainOwnershipIdentifier(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot":
+            case "azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot":
                 return new WebAppDomainOwnershipIdentifierSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppFunction":
+            case "azure-native:web/v20190801:WebAppFunction":
                 return new WebAppFunction(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppHostNameBinding":
+            case "azure-native:web/v20190801:WebAppHostNameBinding":
                 return new WebAppHostNameBinding(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppHostNameBindingSlot":
+            case "azure-native:web/v20190801:WebAppHostNameBindingSlot":
                 return new WebAppHostNameBindingSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppHybridConnection":
+            case "azure-native:web/v20190801:WebAppHybridConnection":
                 return new WebAppHybridConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot":
+            case "azure-native:web/v20190801:WebAppHybridConnectionSlot":
                 return new WebAppHybridConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot":
+            case "azure-native:web/v20190801:WebAppInstanceFunctionSlot":
                 return new WebAppInstanceFunctionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppMetadata":
+            case "azure-native:web/v20190801:WebAppMetadata":
                 return new WebAppMetadata(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppMetadataSlot":
+            case "azure-native:web/v20190801:WebAppMetadataSlot":
                 return new WebAppMetadataSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppPremierAddOn":
+            case "azure-native:web/v20190801:WebAppPremierAddOn":
                 return new WebAppPremierAddOn(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot":
+            case "azure-native:web/v20190801:WebAppPremierAddOnSlot":
                 return new WebAppPremierAddOnSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection":
+            case "azure-native:web/v20190801:WebAppPrivateEndpointConnection":
                 return new WebAppPrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppPublicCertificate":
+            case "azure-native:web/v20190801:WebAppPublicCertificate":
                 return new WebAppPublicCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot":
+            case "azure-native:web/v20190801:WebAppPublicCertificateSlot":
                 return new WebAppPublicCertificateSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppRelayServiceConnection":
+            case "azure-native:web/v20190801:WebAppRelayServiceConnection":
                 return new WebAppRelayServiceConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot":
+            case "azure-native:web/v20190801:WebAppRelayServiceConnectionSlot":
                 return new WebAppRelayServiceConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSiteExtension":
+            case "azure-native:web/v20190801:WebAppSiteExtension":
                 return new WebAppSiteExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSiteExtensionSlot":
+            case "azure-native:web/v20190801:WebAppSiteExtensionSlot":
                 return new WebAppSiteExtensionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSitePushSettings":
+            case "azure-native:web/v20190801:WebAppSitePushSettings":
                 return new WebAppSitePushSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot":
+            case "azure-native:web/v20190801:WebAppSitePushSettingsSlot":
                 return new WebAppSitePushSettingsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSlot":
+            case "azure-native:web/v20190801:WebAppSlot":
                 return new WebAppSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSlotConfigurationNames":
+            case "azure-native:web/v20190801:WebAppSlotConfigurationNames":
                 return new WebAppSlotConfigurationNames(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSourceControl":
+            case "azure-native:web/v20190801:WebAppSourceControl":
                 return new WebAppSourceControl(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSourceControlSlot":
+            case "azure-native:web/v20190801:WebAppSourceControlSlot":
                 return new WebAppSourceControlSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection":
+            case "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection":
                 return new WebAppSwiftVirtualNetworkConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot":
+            case "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot":
                 return new WebAppSwiftVirtualNetworkConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppVnetConnection":
+            case "azure-native:web/v20190801:WebAppVnetConnection":
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot":
+            case "azure-native:web/v20190801:WebAppVnetConnectionSlot":
                 return new WebAppVnetConnectionSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "web/v20190801", _module)
+pulumi.runtime.registerResourceModule("azure-native", "web/v20190801", _module)

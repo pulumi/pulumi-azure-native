@@ -65,7 +65,13 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:IscsiDisk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:IscsiDisk"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:IscsiDisk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiDisk"),
@@ -73,7 +79,7 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IscsiDisk
-	err := ctx.RegisterResource("azure-nextgen:storsimple:IscsiDisk", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple:IscsiDisk", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +91,7 @@ func NewIscsiDisk(ctx *pulumi.Context,
 func GetIscsiDisk(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IscsiDiskState, opts ...pulumi.ResourceOption) (*IscsiDisk, error) {
 	var resource IscsiDisk
-	err := ctx.ReadResource("azure-nextgen:storsimple:IscsiDisk", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple:IscsiDisk", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-12-01.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql:getServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql:getServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

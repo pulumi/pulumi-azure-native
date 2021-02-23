@@ -10,10 +10,10 @@ import (
 // A container for a managed identity to execute DevTest lab services.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceRunner'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceRunner'.
 func LookupServiceRunner(ctx *pulumi.Context, args *LookupServiceRunnerArgs, opts ...pulumi.InvokeOption) (*LookupServiceRunnerResult, error) {
 	var rv LookupServiceRunnerResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getServiceRunner", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getServiceRunner", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureData
+namespace Pulumi.AzureNative.AzureData
 {
     /// <summary>
     /// A SqlManagedInstance.
     /// API Version: 2020-09-08-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azuredata:SqlManagedInstance")]
+    [AzureNativeResourceType("azure-native:azuredata:SqlManagedInstance")]
     public partial class SqlManagedInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.AzureData
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlManagedInstance(string name, SqlManagedInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata:SqlManagedInstance", name, args ?? new SqlManagedInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azuredata:SqlManagedInstance", name, args ?? new SqlManagedInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlManagedInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azuredata:SqlManagedInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azuredata:SqlManagedInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,7 +119,9 @@ namespace Pulumi.AzureNextGen.AzureData
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:SqlManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azuredata/v20200908preview:SqlManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance"},
                 },
             };

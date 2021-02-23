@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStoreKeysArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeysResult, error) {
 	var rv ListConfigurationStoreKeysResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration:listConfigurationStoreKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration:listConfigurationStoreKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

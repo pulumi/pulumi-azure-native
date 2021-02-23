@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Developer Keys of account
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listRemoteRenderingAccountKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listRemoteRenderingAccountKeys'. */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
-    pulumi.log.warn("listRemoteRenderingAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:listRemoteRenderingAccountKeys'.")
+    pulumi.log.warn("listRemoteRenderingAccountKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:listRemoteRenderingAccountKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:mixedreality/latest:listRemoteRenderingAccountKeys", {
+    return pulumi.runtime.invoke("azure-native:mixedreality/latest:listRemoteRenderingAccountKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

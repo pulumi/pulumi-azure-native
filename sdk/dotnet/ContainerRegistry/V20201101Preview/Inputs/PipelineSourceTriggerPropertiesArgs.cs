@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
     public sealed class PipelineSourceTriggerPropertiesArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The current status of the source trigger.
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.TriggerStatus> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.TriggerStatus> Status { get; set; } = null!;
 
         public PipelineSourceTriggerPropertiesArgs()
         {

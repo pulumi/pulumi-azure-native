@@ -90,7 +90,13 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:VirtualMachine"),
@@ -98,7 +104,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachine
-	err := ctx.RegisterResource("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:vmwarecloudsimple/v20190401:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +116,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 func GetVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineState, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
 	var resource VirtualMachine
-	err := ctx.ReadResource("azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:vmwarecloudsimple/v20190401:VirtualMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

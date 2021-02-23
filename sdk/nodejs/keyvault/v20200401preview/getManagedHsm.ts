@@ -16,7 +16,7 @@ export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:keyvault/v20200401preview:getManagedHsm", {
+    return pulumi.runtime.invoke("azure-native:keyvault/v20200401preview:getManagedHsm", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

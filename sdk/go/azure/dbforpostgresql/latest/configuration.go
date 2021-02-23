@@ -14,7 +14,7 @@ import (
 // Represents a Configuration.
 // Latest API Version: 2017-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Configuration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:Configuration'.
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -51,10 +51,19 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:Configuration"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Configuration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:Configuration"),
@@ -62,7 +71,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Configuration
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/latest:Configuration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/latest:Configuration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +83,7 @@ func NewConfiguration(ctx *pulumi.Context,
 func GetConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	var resource Configuration
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/latest:Configuration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/latest:Configuration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

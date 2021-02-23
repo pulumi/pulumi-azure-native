@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:portal/v20190101preview:Dashboard":
+            case "azure-native:portal/v20190101preview:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
-            case "azure-nextgen:portal/v20190101preview:TenantConfiguration":
+            case "azure-native:portal/v20190101preview:TenantConfiguration":
                 return new TenantConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "portal/v20190101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "portal/v20190101preview", _module)

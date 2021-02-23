@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Inputs
+namespace Pulumi.AzureNative.Scheduler.Inputs
 {
 
     public sealed class ServiceBusAuthenticationArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Inputs
         /// Gets or sets the authentication type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.Scheduler.ServiceBusAuthenticationType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.ServiceBusAuthenticationType>? Type { get; set; }
 
         public ServiceBusAuthenticationArgs()
         {

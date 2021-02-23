@@ -67,10 +67,19 @@ func NewRelationship(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Relationship"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Relationship"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Relationship"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Relationship"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Relationship"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Relationship"),
@@ -78,7 +87,7 @@ func NewRelationship(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Relationship
-	err := ctx.RegisterResource("azure-nextgen:customerinsights:Relationship", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights:Relationship", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +99,7 @@ func NewRelationship(ctx *pulumi.Context,
 func GetRelationship(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RelationshipState, opts ...pulumi.ResourceOption) (*Relationship, error) {
 	var resource Relationship
-	err := ctx.ReadResource("azure-nextgen:customerinsights:Relationship", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights:Relationship", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

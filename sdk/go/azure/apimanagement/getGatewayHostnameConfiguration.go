@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func LookupGatewayHostnameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostnameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostnameConfigurationResult, error) {
 	var rv LookupGatewayHostnameConfigurationResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getGatewayHostnameConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getGatewayHostnameConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

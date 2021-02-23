@@ -39,7 +39,13 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:alertsmanagement:ActionRuleByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement:ActionRuleByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName"),
@@ -47,7 +53,7 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ActionRuleByName
-	err := ctx.RegisterResource("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:alertsmanagement/v20190505preview:ActionRuleByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +65,7 @@ func NewActionRuleByName(ctx *pulumi.Context,
 func GetActionRuleByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionRuleByNameState, opts ...pulumi.ResourceOption) (*ActionRuleByName, error) {
 	var resource ActionRuleByName
-	err := ctx.ReadResource("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:alertsmanagement/v20190505preview:ActionRuleByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

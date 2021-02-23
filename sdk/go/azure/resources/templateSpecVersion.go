@@ -49,12 +49,15 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources/v20190601preview:TemplateSpecVersion"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190601preview:TemplateSpecVersion"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource TemplateSpecVersion
-	err := ctx.RegisterResource("azure-nextgen:resources:TemplateSpecVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources:TemplateSpecVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +69,7 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 func GetTemplateSpecVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TemplateSpecVersionState, opts ...pulumi.ResourceOption) (*TemplateSpecVersion, error) {
 	var resource TemplateSpecVersion
-	err := ctx.ReadResource("azure-nextgen:resources:TemplateSpecVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources:TemplateSpecVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

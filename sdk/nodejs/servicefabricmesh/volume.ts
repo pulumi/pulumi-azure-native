@@ -23,7 +23,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicefabricmesh:Volume';
+    public static readonly __pulumiType = 'azure-native:servicefabricmesh:Volume';
 
     /**
      * Returns true if the given object is an instance of Volume.  This is designed to work even
@@ -124,7 +124,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh/v20180701preview:Volume" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Volume" }, { type: "azure-nextgen:servicefabricmesh/v20180701preview:Volume" }, { type: "azure-native:servicefabricmesh/v20180901preview:Volume" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

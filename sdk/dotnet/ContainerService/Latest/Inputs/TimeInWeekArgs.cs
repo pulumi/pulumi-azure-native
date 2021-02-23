@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
+namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// A day in a week.
         /// </summary>
         [Input("day")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.WeekDay>? Day { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Latest.WeekDay>? Day { get; set; }
 
         [Input("hourSlots")]
         private InputList<int>? _hourSlots;

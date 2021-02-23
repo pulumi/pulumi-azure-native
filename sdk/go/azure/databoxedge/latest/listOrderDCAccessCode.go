@@ -10,10 +10,10 @@ import (
 // DC Access code in the case of Self Managed Shipping.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:listOrderDCAccessCode'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {
 	var rv ListOrderDCAccessCodeResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:listOrderDCAccessCode", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:listOrderDCAccessCode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

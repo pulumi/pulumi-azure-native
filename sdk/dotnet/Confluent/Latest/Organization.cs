@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Confluent.Latest
+namespace Pulumi.AzureNative.Confluent.Latest
 {
     /// <summary>
     /// Organization resource.
     /// Latest API Version: 2020-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.")]
-    [AzureNextGenResourceType("azure-nextgen:confluent/latest:Organization")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:confluent:Organization'.")]
+    [AzureNativeResourceType("azure-native:confluent/latest:Organization")]
     public partial class Organization : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Organization(string name, OrganizationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confluent/latest:Organization", name, args ?? new OrganizationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:confluent/latest:Organization", name, args ?? new OrganizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Organization(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:confluent/latest:Organization", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:confluent/latest:Organization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,8 +102,11 @@ namespace Pulumi.AzureNextGen.Confluent.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:confluent:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent:Organization"},
+                    new Pulumi.Alias { Type = "azure-native:confluent/v20200301:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301:Organization"},
+                    new Pulumi.Alias { Type = "azure-native:confluent/v20200301preview:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301preview:Organization"},
                 },
             };

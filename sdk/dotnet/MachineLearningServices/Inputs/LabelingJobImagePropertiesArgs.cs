@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     public sealed class LabelingJobImagePropertiesArgs : Pulumi.ResourceArgs
@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
         /// Annotation type of image labeling tasks.
         /// </summary>
         [Input("annotationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.ImageAnnotationType>? AnnotationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ImageAnnotationType>? AnnotationType { get; set; }
 
         /// <summary>
         /// Media type of data asset.
         /// </summary>
         [Input("mediaType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.MediaType> MediaType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.MediaType> MediaType { get; set; } = null!;
 
         public LabelingJobImagePropertiesArgs()
         {

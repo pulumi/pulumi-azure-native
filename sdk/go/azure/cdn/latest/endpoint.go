@@ -14,7 +14,7 @@ import (
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Endpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Endpoint'.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -86,40 +86,79 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cdn:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20150601:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20150601:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20160402:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20160402:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20161002:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20161002:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20170402:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20170402:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20171012:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20171012:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190415:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190415:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20190615:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20190615preview:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20190615preview:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20191231:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20191231:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200331:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200331:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:cdn/v20200415:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200415:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:cdn/v20200901:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cdn/v20200901:Endpoint"),
@@ -127,7 +166,7 @@ func NewEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Endpoint
-	err := ctx.RegisterResource("azure-nextgen:cdn/latest:Endpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cdn/latest:Endpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -139,7 +178,7 @@ func NewEndpoint(ctx *pulumi.Context,
 func GetEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EndpointState, opts ...pulumi.ResourceOption) (*Endpoint, error) {
 	var resource Endpoint
-	err := ctx.ReadResource("azure-nextgen:cdn/latest:Endpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cdn/latest:Endpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

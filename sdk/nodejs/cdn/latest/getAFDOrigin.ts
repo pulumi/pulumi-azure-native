@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOrigin'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDOrigin'. */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
-    pulumi.log.warn("getAFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOrigin'.")
+    pulumi.log.warn("getAFDOrigin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDOrigin'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getAFDOrigin", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getAFDOrigin", {
         "originGroupName": args.originGroupName,
         "originName": args.originName,
         "profileName": args.profileName,

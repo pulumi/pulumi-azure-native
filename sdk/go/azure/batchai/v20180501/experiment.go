@@ -42,7 +42,13 @@ func NewExperiment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Experiment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Experiment"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/latest:Experiment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/latest:Experiment"),
@@ -50,7 +56,7 @@ func NewExperiment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Experiment
-	err := ctx.RegisterResource("azure-nextgen:batchai/v20180501:Experiment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/v20180501:Experiment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewExperiment(ctx *pulumi.Context,
 func GetExperiment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExperimentState, opts ...pulumi.ResourceOption) (*Experiment, error) {
 	var resource Experiment
-	err := ctx.ReadResource("azure-nextgen:batchai/v20180501:Experiment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/v20180501:Experiment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

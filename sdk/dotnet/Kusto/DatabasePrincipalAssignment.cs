@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto
+namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a database principal assignment.
     /// API Version: 2020-09-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto:DatabasePrincipalAssignment")]
+    [AzureNativeResourceType("azure-native:kusto:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabasePrincipalAssignment(string name, DatabasePrincipalAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto:DatabasePrincipalAssignment", name, args ?? new DatabasePrincipalAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabasePrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto:DatabasePrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,10 +95,15 @@ namespace Pulumi.AzureNextGen.Kusto
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto/latest:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment"},
                 },
             };
@@ -151,7 +156,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// Principal type.
         /// </summary>
         [Input("principalType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.PrincipalType> PrincipalType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.PrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -163,7 +168,7 @@ namespace Pulumi.AzureNextGen.Kusto
         /// Database principal role.
         /// </summary>
         [Input("role", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.DatabasePrincipalRole> Role { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DatabasePrincipalRole> Role { get; set; } = null!;
 
         /// <summary>
         /// The tenant id of the principal

@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection":
+            case "azure-native:recoveryservices/v20201001:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20201001:ProtectedItem":
+            case "azure-native:recoveryservices/v20201001:ProtectedItem":
                 return new ProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20201001:ProtectionContainer":
+            case "azure-native:recoveryservices/v20201001:ProtectionContainer":
                 return new ProtectionContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy":
+            case "azure-native:recoveryservices/v20201001:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20201001:Vault":
+            case "azure-native:recoveryservices/v20201001:Vault":
                 return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "recoveryservices/v20201001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "recoveryservices/v20201001", _module)

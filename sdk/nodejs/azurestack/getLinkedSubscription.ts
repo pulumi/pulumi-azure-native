@@ -17,7 +17,7 @@ export function getLinkedSubscription(args: GetLinkedSubscriptionArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack:getLinkedSubscription", {
+    return pulumi.runtime.invoke("azure-native:azurestack:getLinkedSubscription", {
         "linkedSubscriptionName": args.linkedSubscriptionName,
         "resourceGroup": args.resourceGroup,
     }, opts);

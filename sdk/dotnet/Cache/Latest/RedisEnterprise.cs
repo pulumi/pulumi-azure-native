@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.Latest
+namespace Pulumi.AzureNative.Cache.Latest
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
     /// Latest API Version: 2021-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:RedisEnterprise'.")]
-    [AzureNextGenResourceType("azure-nextgen:cache/latest:RedisEnterprise")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:RedisEnterprise'.")]
+    [AzureNativeResourceType("azure-native:cache/latest:RedisEnterprise")]
     public partial class RedisEnterprise : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RedisEnterprise(string name, RedisEnterpriseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:RedisEnterprise", name, args ?? new RedisEnterpriseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cache/latest:RedisEnterprise", name, args ?? new RedisEnterpriseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RedisEnterprise(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cache/latest:RedisEnterprise", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cache/latest:RedisEnterprise", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,8 +114,11 @@ namespace Pulumi.AzureNextGen.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cache:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:RedisEnterprise"},
                 },
             };
@@ -156,7 +159,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// The minimum TLS version for the cluster to support, e.g. '1.2'
         /// </summary>
         [Input("minimumTlsVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cache.Latest.TlsVersion>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cache.Latest.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -22,7 +22,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databox/v20180101:Job';
+    public static readonly __pulumiType = 'azure-native:databox/v20180101:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -141,7 +141,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databox:Job" }, { type: "azure-nextgen:databox/latest:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databox:Job" }, { type: "azure-nextgen:databox:Job" }, { type: "azure-native:databox/latest:Job" }, { type: "azure-nextgen:databox/latest:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-nextgen:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-nextgen:databox/v20200401:Job" }, { type: "azure-native:databox/v20201101:Job" }, { type: "azure-nextgen:databox/v20201101:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

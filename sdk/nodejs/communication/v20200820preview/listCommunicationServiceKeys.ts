@@ -16,7 +16,7 @@ export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:communication/v20200820preview:listCommunicationServiceKeys", {
+    return pulumi.runtime.invoke("azure-native:communication/v20200820preview:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
+namespace Pulumi.AzureNative.DocumentDB.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
         /// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
         /// </summary>
         [Input("kind")]
-        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.PartitionKind>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.Latest.PartitionKind>? Kind { get; set; }
 
         [Input("paths")]
         private InputList<string>? _paths;

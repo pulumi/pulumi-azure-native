@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01-preview.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices:getLinkedService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:getLinkedService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

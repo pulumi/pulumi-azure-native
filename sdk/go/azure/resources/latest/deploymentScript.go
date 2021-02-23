@@ -14,7 +14,7 @@ import (
 // Deployment script object.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:DeploymentScript'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'.
 type DeploymentScript struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewDeploymentScript(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:DeploymentScript"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:DeploymentScript"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20191001preview:DeploymentScript"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001preview:DeploymentScript"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:DeploymentScript"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentScript"),
@@ -60,7 +69,7 @@ func NewDeploymentScript(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentScript
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:DeploymentScript", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:DeploymentScript", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewDeploymentScript(ctx *pulumi.Context,
 func GetDeploymentScript(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentScriptState, opts ...pulumi.ResourceOption) (*DeploymentScript, error) {
 	var resource DeploymentScript
-	err := ctx.ReadResource("azure-nextgen:resources/latest:DeploymentScript", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:DeploymentScript", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

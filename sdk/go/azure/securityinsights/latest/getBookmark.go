@@ -10,10 +10,10 @@ import (
 // Represents a bookmark in Azure Security Insights.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:securityinsights:getBookmark'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getBookmark'.
 func LookupBookmark(ctx *pulumi.Context, args *LookupBookmarkArgs, opts ...pulumi.InvokeOption) (*LookupBookmarkResult, error) {
 	var rv LookupBookmarkResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/latest:getBookmark", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/latest:getBookmark", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

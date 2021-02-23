@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNative.DBforMariaDB.V20180601Preview.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20180601Preview.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForReplicaArgs()
         {

@@ -14,7 +14,7 @@ import (
 // The Log Search Rule resource.
 // Latest API Version: 2018-04-16.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:ScheduledQueryRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ScheduledQueryRule'.
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
@@ -70,10 +70,19 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180416:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180416:ScheduledQueryRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20200501preview:ScheduledQueryRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20200501preview:ScheduledQueryRule"),
@@ -81,7 +90,7 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledQueryRule
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:ScheduledQueryRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:ScheduledQueryRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +102,7 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 func GetScheduledQueryRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduledQueryRuleState, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
 	var resource ScheduledQueryRule
-	err := ctx.ReadResource("azure-nextgen:insights/latest:ScheduledQueryRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:ScheduledQueryRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

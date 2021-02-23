@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01-preview.
 func ListConfigurations(ctx *pulumi.Context, args *ListConfigurationsArgs, opts ...pulumi.InvokeOption) (*ListConfigurationsResult, error) {
 	var rv ListConfigurationsResult
-	err := ctx.Invoke("azure-nextgen:edgeorder:listConfigurations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder:listConfigurations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

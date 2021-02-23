@@ -10,10 +10,10 @@ import (
 // ExpressRouteCircuit resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getExpressRouteCircuit'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuit'.
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitResult, error) {
 	var rv LookupExpressRouteCircuitResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getExpressRouteCircuit", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getExpressRouteCircuit", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

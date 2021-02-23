@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupConnectionType(ctx *pulumi.Context, args *LookupConnectionTypeArgs, opts ...pulumi.InvokeOption) (*LookupConnectionTypeResult, error) {
 	var rv LookupConnectionTypeResult
-	err := ctx.Invoke("azure-nextgen:automation:getConnectionType", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getConnectionType", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

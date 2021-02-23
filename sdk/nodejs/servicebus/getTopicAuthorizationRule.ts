@@ -17,7 +17,7 @@ export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus:getTopicAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus:getTopicAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

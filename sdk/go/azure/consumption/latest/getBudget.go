@@ -10,10 +10,10 @@ import (
 // A budget resource.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:consumption:getBudget'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudget'.
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
 	var rv LookupBudgetResult
-	err := ctx.Invoke("azure-nextgen:consumption/latest:getBudget", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:consumption/latest:getBudget", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

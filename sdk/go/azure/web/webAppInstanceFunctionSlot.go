@@ -70,25 +70,49 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppInstanceFunctionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot"),
@@ -96,7 +120,7 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppInstanceFunctionSlot
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppInstanceFunctionSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppInstanceFunctionSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +132,7 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 func GetWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppInstanceFunctionSlotState, opts ...pulumi.ResourceOption) (*WebAppInstanceFunctionSlot, error) {
 	var resource WebAppInstanceFunctionSlot
-	err := ctx.ReadResource("azure-nextgen:web:WebAppInstanceFunctionSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppInstanceFunctionSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

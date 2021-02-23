@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
 	var rv LookupOuContainerResult
-	err := ctx.Invoke("azure-nextgen:aad:getOuContainer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:aad:getOuContainer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

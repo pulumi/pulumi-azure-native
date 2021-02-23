@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// VirtualWAN Resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualWan'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:VirtualWan")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualWan'.")]
+    [AzureNativeResourceType("azure-native:network/latest:VirtualWan")]
     public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualWan(string name, VirtualWanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:VirtualWan", name, args ?? new VirtualWanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:VirtualWan", name, args ?? new VirtualWanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualWan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:VirtualWan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:VirtualWan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,27 +114,49 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualWan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualWan"},
                 },
             };

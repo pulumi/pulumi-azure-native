@@ -22,7 +22,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/v20210301:Database';
+    public static readonly __pulumiType = 'azure-native:cache/v20210301:Database';
 
     /**
      * Returns true if the given object is an instance of Database.  This is designed to work even
@@ -124,7 +124,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:Database" }, { type: "azure-nextgen:cache/latest:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:Database" }, { type: "azure-nextgen:cache:Database" }, { type: "azure-native:cache/latest:Database" }, { type: "azure-nextgen:cache/latest:Database" }, { type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-nextgen:cache/v20201001preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

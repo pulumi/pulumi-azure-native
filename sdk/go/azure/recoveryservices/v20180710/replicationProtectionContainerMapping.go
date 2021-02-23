@@ -46,13 +46,25 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationProtectionContainerMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
@@ -60,7 +72,7 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectionContainerMapping
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +84,7 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 func GetReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationProtectionContainerMappingState, opts ...pulumi.ResourceOption) (*ReplicationProtectionContainerMapping, error) {
 	var resource ReplicationProtectionContainerMapping
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
+namespace Pulumi.AzureNative.Cdn.Latest.Inputs
 {
 
     /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.CookiesOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.CookiesOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Name of Cookies to be matched
@@ -49,14 +49,14 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.Transform>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.Transform>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.Transform>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.Transform>>());
             set => _transforms = value;
         }
 

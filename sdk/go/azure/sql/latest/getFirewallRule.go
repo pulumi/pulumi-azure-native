@@ -10,10 +10,10 @@ import (
 // Represents a server firewall rule.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getFirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getFirewallRule'.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

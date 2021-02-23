@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-17-preview.
 func LookupGlobalReachConnection(ctx *pulumi.Context, args *LookupGlobalReachConnectionArgs, opts ...pulumi.InvokeOption) (*LookupGlobalReachConnectionResult, error) {
 	var rv LookupGlobalReachConnectionResult
-	err := ctx.Invoke("azure-nextgen:avs:getGlobalReachConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getGlobalReachConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

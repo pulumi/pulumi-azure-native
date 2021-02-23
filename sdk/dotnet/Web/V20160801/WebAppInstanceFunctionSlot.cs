@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801
+namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// Web Job Information.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot")]
+    [AzureNativeResourceType("azure-native:web/v20160801:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppInstanceFunctionSlot(string name, WebAppInstanceFunctionSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot", name, args ?? new WebAppInstanceFunctionSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20160801:WebAppInstanceFunctionSlot", name, args ?? new WebAppInstanceFunctionSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppInstanceFunctionSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20160801:WebAppInstanceFunctionSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,13 +112,21 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot"},
                 },
             };

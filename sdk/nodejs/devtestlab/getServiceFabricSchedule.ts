@@ -17,7 +17,7 @@ export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:getServiceFabricSchedule", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:getServiceFabricSchedule", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

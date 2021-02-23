@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Asset.
  * Latest API Version: 2020-05-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Asset'.
  */
 export class Asset extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Asset extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Asset {
-        pulumi.log.warn("Asset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'.")
+        pulumi.log.warn("Asset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Asset'.")
         return new Asset(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/latest:Asset';
+    public static readonly __pulumiType = 'azure-native:media/latest:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even
@@ -91,9 +91,9 @@ export class Asset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Asset'. */
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Asset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:Asset'.")
+        pulumi.log.warn("Asset is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Asset'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -136,7 +136,7 @@ export class Asset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:Asset" }, { type: "azure-nextgen:media/v20180330preview:Asset" }, { type: "azure-nextgen:media/v20180601preview:Asset" }, { type: "azure-nextgen:media/v20180701:Asset" }, { type: "azure-nextgen:media/v20200501:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:Asset" }, { type: "azure-nextgen:media:Asset" }, { type: "azure-native:media/v20180330preview:Asset" }, { type: "azure-nextgen:media/v20180330preview:Asset" }, { type: "azure-native:media/v20180601preview:Asset" }, { type: "azure-nextgen:media/v20180601preview:Asset" }, { type: "azure-native:media/v20180701:Asset" }, { type: "azure-nextgen:media/v20180701:Asset" }, { type: "azure-native:media/v20200501:Asset" }, { type: "azure-nextgen:media/v20200501:Asset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Asset.__pulumiType, name, inputs, opts);
     }

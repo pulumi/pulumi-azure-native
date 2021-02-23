@@ -10,10 +10,10 @@ import (
 // Virtual Router Peering resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualRouterPeering'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualRouterPeering'.
 func LookupVirtualRouterPeering(ctx *pulumi.Context, args *LookupVirtualRouterPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRouterPeeringResult, error) {
 	var rv LookupVirtualRouterPeeringResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualRouterPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualRouterPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

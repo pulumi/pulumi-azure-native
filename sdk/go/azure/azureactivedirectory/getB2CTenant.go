@@ -10,7 +10,7 @@ import (
 // API Version: 2019-01-01-preview.
 func LookupB2CTenant(ctx *pulumi.Context, args *LookupB2CTenantArgs, opts ...pulumi.InvokeOption) (*LookupB2CTenantResult, error) {
 	var rv LookupB2CTenantResult
-	err := ctx.Invoke("azure-nextgen:azureactivedirectory:getB2CTenant", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azureactivedirectory:getB2CTenant", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

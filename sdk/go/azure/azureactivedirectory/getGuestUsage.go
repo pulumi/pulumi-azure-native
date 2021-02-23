@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01-preview.
 func LookupGuestUsage(ctx *pulumi.Context, args *LookupGuestUsageArgs, opts ...pulumi.InvokeOption) (*LookupGuestUsageResult, error) {
 	var rv LookupGuestUsageResult
-	err := ctx.Invoke("azure-nextgen:azureactivedirectory:getGuestUsage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azureactivedirectory:getGuestUsage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

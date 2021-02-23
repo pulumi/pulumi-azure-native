@@ -10,10 +10,10 @@ import (
 // VpnGatewayNatRule Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getNatRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatRule'.
 func LookupNatRule(ctx *pulumi.Context, args *LookupNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupNatRuleResult, error) {
 	var rv LookupNatRuleResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getNatRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getNatRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

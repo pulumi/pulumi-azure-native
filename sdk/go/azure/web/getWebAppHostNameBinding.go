@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingResult, error) {
 	var rv LookupWebAppHostNameBindingResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppHostNameBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppHostNameBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

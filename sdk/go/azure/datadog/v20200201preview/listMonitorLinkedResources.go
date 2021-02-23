@@ -10,7 +10,7 @@ import (
 // Response of a list operation.
 func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorLinkedResourcesResult, error) {
 	var rv ListMonitorLinkedResourcesResult
-	err := ctx.Invoke("azure-nextgen:datadog/v20200201preview:listMonitorLinkedResources", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog/v20200201preview:listMonitorLinkedResources", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

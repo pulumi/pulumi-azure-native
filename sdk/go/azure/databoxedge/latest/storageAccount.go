@@ -14,7 +14,7 @@ import (
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:StorageAccount'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccount'.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -56,16 +56,31 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccount"),
@@ -73,7 +88,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccount
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:StorageAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:StorageAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +100,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 func GetStorageAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountState, opts ...pulumi.ResourceOption) (*StorageAccount, error) {
 	var resource StorageAccount
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:StorageAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:StorageAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

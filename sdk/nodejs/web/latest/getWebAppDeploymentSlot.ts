@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * User credentials used for publishing activity.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDeploymentSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'. */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
-    pulumi.log.warn("getWebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDeploymentSlot'.")
+    pulumi.log.warn("getWebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppDeploymentSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppDeploymentSlot", {
         "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

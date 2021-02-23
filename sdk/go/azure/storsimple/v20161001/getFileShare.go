@@ -10,7 +10,7 @@ import (
 // The File Share.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20161001:getFileShare", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileShare", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

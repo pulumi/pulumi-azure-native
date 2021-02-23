@@ -45,10 +45,19 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:JobTargetGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobTargetGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:JobTargetGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobTargetGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:JobTargetGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobTargetGroup"),
@@ -56,7 +65,7 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobTargetGroup
-	err := ctx.RegisterResource("azure-nextgen:sql:JobTargetGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:JobTargetGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewJobTargetGroup(ctx *pulumi.Context,
 func GetJobTargetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobTargetGroupState, opts ...pulumi.ResourceOption) (*JobTargetGroup, error) {
 	var resource JobTargetGroup
-	err := ctx.ReadResource("azure-nextgen:sql:JobTargetGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:JobTargetGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SerialConsole.Latest
+namespace Pulumi.AzureNative.SerialConsole.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:serialconsole:getSerialPort'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:serialconsole:getSerialPort'.")]
     public static class GetSerialPort
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.SerialConsole.Latest
         /// Latest API Version: 2018-05-01.
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-nextgen:serialconsole/latest:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/latest:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
     }
 
 

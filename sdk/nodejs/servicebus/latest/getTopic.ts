@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of topic resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getTopic'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopic'. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getTopic'.")
+    pulumi.log.warn("getTopic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopic'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getTopic", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getTopic", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,

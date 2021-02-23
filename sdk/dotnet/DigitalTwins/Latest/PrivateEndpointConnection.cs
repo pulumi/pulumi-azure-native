@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DigitalTwins.Latest
+namespace Pulumi.AzureNative.DigitalTwins.Latest
 {
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:PrivateEndpointConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:digitaltwins/latest:PrivateEndpointConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:digitaltwins:PrivateEndpointConnection'.")]
+    [AzureNativeResourceType("azure-native:digitaltwins/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -41,12 +41,12 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:digitaltwins/latest:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:digitaltwins/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:digitaltwins/latest:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -57,7 +57,9 @@ namespace Pulumi.AzureNextGen.DigitalTwins.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:PrivateEndpointConnection"},
                 },
             };

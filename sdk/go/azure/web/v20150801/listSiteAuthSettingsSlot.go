@@ -10,7 +10,7 @@ import (
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
 func ListSiteAuthSettingsSlot(ctx *pulumi.Context, args *ListSiteAuthSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListSiteAuthSettingsSlotResult, error) {
 	var rv ListSiteAuthSettingsSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteAuthSettingsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteAuthSettingsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

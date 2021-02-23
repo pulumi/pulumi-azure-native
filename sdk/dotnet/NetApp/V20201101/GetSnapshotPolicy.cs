@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20201101
+namespace Pulumi.AzureNative.NetApp.V20201101
 {
     public static class GetSnapshotPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20201101
         /// Snapshot policy information
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-nextgen:netapp/v20201101:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp/v20201101:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
     }
 
 

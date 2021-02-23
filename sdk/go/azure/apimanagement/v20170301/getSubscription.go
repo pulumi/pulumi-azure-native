@@ -10,7 +10,7 @@ import (
 // Subscription details.
 func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
 	var rv LookupSubscriptionResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20170301:getSubscription", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20170301:getSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

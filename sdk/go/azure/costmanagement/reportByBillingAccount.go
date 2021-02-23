@@ -50,12 +50,15 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20180801preview:ReportByBillingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportByBillingAccount
-	err := ctx.RegisterResource("azure-nextgen:costmanagement:ReportByBillingAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement:ReportByBillingAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +70,7 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 func GetReportByBillingAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReportByBillingAccountState, opts ...pulumi.ResourceOption) (*ReportByBillingAccount, error) {
 	var resource ReportByBillingAccount
-	err := ctx.ReadResource("azure-nextgen:costmanagement:ReportByBillingAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement:ReportByBillingAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

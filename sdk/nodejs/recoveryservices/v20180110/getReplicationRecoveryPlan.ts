@@ -16,7 +16,7 @@ export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20180110:getReplicationRecoveryPlan", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/v20180110:getReplicationRecoveryPlan", {
         "recoveryPlanName": args.recoveryPlanName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

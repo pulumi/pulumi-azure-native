@@ -74,13 +74,25 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/latest:SourceControlConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"),
@@ -88,7 +100,7 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SourceControlConfiguration
-	err := ctx.RegisterResource("azure-nextgen:kubernetesconfiguration:SourceControlConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:kubernetesconfiguration:SourceControlConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +112,7 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 func GetSourceControlConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SourceControlConfigurationState, opts ...pulumi.ResourceOption) (*SourceControlConfiguration, error) {
 	var resource SourceControlConfiguration
-	err := ctx.ReadResource("azure-nextgen:kubernetesconfiguration:SourceControlConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:kubernetesconfiguration:SourceControlConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

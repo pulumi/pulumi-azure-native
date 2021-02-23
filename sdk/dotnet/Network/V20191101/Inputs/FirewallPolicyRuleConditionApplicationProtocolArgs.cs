@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191101.Inputs
+namespace Pulumi.AzureNative.Network.V20191101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101.Inputs
         /// Protocol type.
         /// </summary>
         [Input("protocolType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191101.FirewallPolicyRuleConditionApplicationProtocolType>? ProtocolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20191101.FirewallPolicyRuleConditionApplicationProtocolType>? ProtocolType { get; set; }
 
         public FirewallPolicyRuleConditionApplicationProtocolArgs()
         {

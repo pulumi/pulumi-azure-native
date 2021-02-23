@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen
+namespace Pulumi.AzureNative
 {
     /// <summary>
-    /// The provider type for the Azure NextGen package.
+    /// The provider type for the native Azure package.
     /// </summary>
-    [AzureNextGenResourceType("pulumi:providers:azure-nextgen")]
+    [AzureNativeResourceType("pulumi:providers:azure-native")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNextGen
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

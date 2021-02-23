@@ -43,16 +43,31 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub:NamespaceAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/latest:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/latest:NamespaceAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20150801:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule"),
@@ -60,7 +75,7 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub/v20140901:NamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +87,7 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceAuthorizationRuleState, opts ...pulumi.ResourceOption) (*NamespaceAuthorizationRule, error) {
 	var resource NamespaceAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub/v20140901:NamespaceAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

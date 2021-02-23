@@ -59,7 +59,13 @@ func NewRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:deploymentmanager:Rollout"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:Rollout"),
+		},
+		{
+			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:Rollout"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20180901preview:Rollout"),
@@ -67,7 +73,7 @@ func NewRollout(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Rollout
-	err := ctx.RegisterResource("azure-nextgen:deploymentmanager/v20191101preview:Rollout", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:deploymentmanager/v20191101preview:Rollout", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +85,7 @@ func NewRollout(ctx *pulumi.Context,
 func GetRollout(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RolloutState, opts ...pulumi.ResourceOption) (*Rollout, error) {
 	var resource Rollout
-	err := ctx.ReadResource("azure-nextgen:deploymentmanager/v20191101preview:Rollout", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:deploymentmanager/v20191101preview:Rollout", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

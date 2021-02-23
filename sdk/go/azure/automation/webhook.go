@@ -62,7 +62,13 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Webhook"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Webhook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Webhook"),
@@ -70,7 +76,7 @@ func NewWebhook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Webhook
-	err := ctx.RegisterResource("azure-nextgen:automation:Webhook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:Webhook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +88,7 @@ func NewWebhook(ctx *pulumi.Context,
 func GetWebhook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebhookState, opts ...pulumi.ResourceOption) (*Webhook, error) {
 	var resource Webhook
-	err := ctx.ReadResource("azure-nextgen:automation:Webhook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:Webhook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 func ListWebAppHybridConnectionKeysSlot(ctx *pulumi.Context, args *ListWebAppHybridConnectionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHybridConnectionKeysSlotResult, error) {
 	var rv ListWebAppHybridConnectionKeysSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20160801:listWebAppHybridConnectionKeysSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160801:listWebAppHybridConnectionKeysSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

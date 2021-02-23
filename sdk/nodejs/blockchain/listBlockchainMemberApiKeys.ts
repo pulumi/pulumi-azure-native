@@ -17,7 +17,7 @@ export function listBlockchainMemberApiKeys(args: ListBlockchainMemberApiKeysArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blockchain:listBlockchainMemberApiKeys", {
+    return pulumi.runtime.invoke("azure-native:blockchain:listBlockchainMemberApiKeys", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

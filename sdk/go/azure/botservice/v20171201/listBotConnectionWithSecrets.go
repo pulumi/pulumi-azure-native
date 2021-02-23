@@ -10,7 +10,7 @@ import (
 // Bot channel resource definition
 func ListBotConnectionWithSecrets(ctx *pulumi.Context, args *ListBotConnectionWithSecretsArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionWithSecretsResult, error) {
 	var rv ListBotConnectionWithSecretsResult
-	err := ctx.Invoke("azure-nextgen:botservice/v20171201:listBotConnectionWithSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/v20171201:listBotConnectionWithSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2016-06-01.
 func ListCustomApiWsdlInterfaces(ctx *pulumi.Context, args *ListCustomApiWsdlInterfacesArgs, opts ...pulumi.InvokeOption) (*ListCustomApiWsdlInterfacesResult, error) {
 	var rv ListCustomApiWsdlInterfacesResult
-	err := ctx.Invoke("azure-nextgen:web:listCustomApiWsdlInterfaces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listCustomApiWsdlInterfaces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

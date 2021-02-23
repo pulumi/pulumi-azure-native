@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp
+namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot policy information
     /// API Version: 2020-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:netapp:SnapshotPolicy")]
+    [AzureNativeResourceType("azure-native:netapp:SnapshotPolicy")]
     public partial class SnapshotPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotPolicy(string name, SnapshotPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:SnapshotPolicy", name, args ?? new SnapshotPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp:SnapshotPolicy", name, args ?? new SnapshotPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SnapshotPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp:SnapshotPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp:SnapshotPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,12 +101,19 @@ namespace Pulumi.AzureNextGen.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp/latest:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:SnapshotPolicy"},
                 },
             };

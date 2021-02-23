@@ -52,7 +52,13 @@ func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:WorkloadNetworkDnsService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkDnsService"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkDnsService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService"),
@@ -60,7 +66,7 @@ func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkDnsService
-	err := ctx.RegisterResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20210101preview:WorkloadNetworkDnsService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 func GetWorkloadNetworkDnsService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkDnsServiceState, opts ...pulumi.ResourceOption) (*WorkloadNetworkDnsService, error) {
 	var resource WorkloadNetworkDnsService
-	err := ctx.ReadResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20210101preview:WorkloadNetworkDnsService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -34,7 +34,13 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub/latest:ResourceTypeRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:ResourceTypeRegistration"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:ResourceTypeRegistration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"),
@@ -42,7 +48,7 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ResourceTypeRegistration
-	err := ctx.RegisterResource("azure-nextgen:providerhub:ResourceTypeRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub:ResourceTypeRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +60,7 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 func GetResourceTypeRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceTypeRegistrationState, opts ...pulumi.ResourceOption) (*ResourceTypeRegistration, error) {
 	var resource ResourceTypeRegistration
-	err := ctx.ReadResource("azure-nextgen:providerhub:ResourceTypeRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub:ResourceTypeRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

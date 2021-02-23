@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics
+namespace Pulumi.AzureNative.StreamAnalytics
 {
     public static class GetStreamingJob
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-nextgen:streamanalytics:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
     }
 
 

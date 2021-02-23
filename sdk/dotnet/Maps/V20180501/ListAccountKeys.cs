@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps.V20180501
+namespace Pulumi.AzureNative.Maps.V20180501
 {
     public static class ListAccountKeys
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Maps.V20180501
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-nextgen:maps/v20180501:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps/v20180501:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
     }
 
 

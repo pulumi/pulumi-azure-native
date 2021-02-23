@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20150801
+namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     [EnumType]
     public readonly struct AccessRights : IEquatable<AccessRights>

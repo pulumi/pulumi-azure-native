@@ -47,22 +47,43 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache/latest:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/latest:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20160401:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20160401:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20170201:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20171001:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20171001:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20180301:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20180301:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20190701:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20190701:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20200601:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20200601:FirewallRule"),
@@ -70,7 +91,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:cache:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +103,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:cache:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

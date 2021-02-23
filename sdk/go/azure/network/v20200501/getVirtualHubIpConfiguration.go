@@ -10,7 +10,7 @@ import (
 // IpConfigurations.
 func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHubIpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubIpConfigurationResult, error) {
 	var rv LookupVirtualHubIpConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getVirtualHubIpConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getVirtualHubIpConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

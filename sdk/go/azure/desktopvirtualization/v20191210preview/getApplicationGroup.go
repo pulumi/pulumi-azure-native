@@ -10,7 +10,7 @@ import (
 // Represents a ApplicationGroup definition.
 func LookupApplicationGroup(ctx *pulumi.Context, args *LookupApplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGroupResult, error) {
 	var rv LookupApplicationGroupResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization/v20191210preview:getApplicationGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization/v20191210preview:getApplicationGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

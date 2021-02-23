@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01-preview.
 func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.InvokeOption) (*LookupStepResult, error) {
 	var rv LookupStepResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager:getStep", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager:getStep", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The live event.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getLiveEvent'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveEvent'.
 func LookupLiveEvent(ctx *pulumi.Context, args *LookupLiveEventArgs, opts ...pulumi.InvokeOption) (*LookupLiveEventResult, error) {
 	var rv LookupLiveEventResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getLiveEvent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getLiveEvent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview.Inputs
+namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview.Inputs
         /// Lock mode.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20171111Preview.AssignmentLockMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.V20171111Preview.AssignmentLockMode>? Mode { get; set; }
 
         public AssignmentLockSettingsArgs()
         {

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// HTTP redirection type.
         /// </summary>
         [Input("redirectType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ApplicationGatewayRedirectType>? RedirectType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ApplicationGatewayRedirectType>? RedirectType { get; set; }
 
         [Input("requestRoutingRules")]
         private InputList<Inputs.SubResourceArgs>? _requestRoutingRules;

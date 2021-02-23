@@ -49,7 +49,7 @@ func NewSqlDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlDatabase
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20200401preview:SqlDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20200401preview:SqlDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewSqlDatabase(ctx *pulumi.Context,
 func GetSqlDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlDatabaseState, opts ...pulumi.ResourceOption) (*SqlDatabase, error) {
 	var resource SqlDatabase
-	err := ctx.ReadResource("azure-nextgen:synapse/v20200401preview:SqlDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20200401preview:SqlDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

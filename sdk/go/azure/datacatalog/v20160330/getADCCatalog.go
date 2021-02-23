@@ -10,7 +10,7 @@ import (
 // Azure Data Catalog.
 func LookupADCCatalog(ctx *pulumi.Context, args *LookupADCCatalogArgs, opts ...pulumi.InvokeOption) (*LookupADCCatalogResult, error) {
 	var rv LookupADCCatalogResult
-	err := ctx.Invoke("azure-nextgen:datacatalog/v20160330:getADCCatalog", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datacatalog/v20160330:getADCCatalog", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

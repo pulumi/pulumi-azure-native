@@ -58,7 +58,13 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/latest:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:BackupPolicy"),
@@ -66,7 +72,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20170601:BackupPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20170601:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +84,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 func GetBackupPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupPolicyState, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
 	var resource BackupPolicy
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20170601:BackupPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20170601:BackupPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

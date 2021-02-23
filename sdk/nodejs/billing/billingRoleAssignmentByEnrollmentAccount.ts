@@ -22,7 +22,7 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:billing:BillingRoleAssignmentByEnrollmentAccount';
+    public static readonly __pulumiType = 'azure-native:billing:BillingRoleAssignmentByEnrollmentAccount';
 
     /**
      * Returns true if the given object is an instance of BillingRoleAssignmentByEnrollmentAccount.  This is designed to work even
@@ -136,7 +136,7 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }, { type: "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BillingRoleAssignmentByEnrollmentAccount.__pulumiType, name, inputs, opts);
     }

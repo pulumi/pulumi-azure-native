@@ -58,22 +58,43 @@ func NewZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:Zone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:Zone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150504preview:Zone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150504preview:Zone"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160401:Zone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160401:Zone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:Zone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:Zone"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171001:Zone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:Zone"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180301preview:Zone"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180301preview:Zone"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180501:Zone"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180501:Zone"),
@@ -81,7 +102,7 @@ func NewZone(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Zone
-	err := ctx.RegisterResource("azure-nextgen:network:Zone", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:Zone", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +114,7 @@ func NewZone(ctx *pulumi.Context,
 func GetZone(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ZoneState, opts ...pulumi.ResourceOption) (*Zone, error) {
 	var resource Zone
-	err := ctx.ReadResource("azure-nextgen:network:Zone", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:Zone", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

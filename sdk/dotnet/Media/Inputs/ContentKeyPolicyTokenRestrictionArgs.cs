@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The type of token.
         /// </summary>
         [Input("restrictionTokenType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.ContentKeyPolicyRestrictionTokenType> RestrictionTokenType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.ContentKeyPolicyRestrictionTokenType> RestrictionTokenType { get; set; } = null!;
 
         public ContentKeyPolicyTokenRestrictionArgs()
         {

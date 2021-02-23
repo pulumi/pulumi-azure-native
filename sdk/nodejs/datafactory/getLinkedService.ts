@@ -17,7 +17,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory:getLinkedService", {
+    return pulumi.runtime.invoke("azure-native:datafactory:getLinkedService", {
         "factoryName": args.factoryName,
         "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,

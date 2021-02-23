@@ -30,7 +30,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	}
 
 	var resource TrafficManagerUserMetricsKey
-	err := ctx.RegisterResource("azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20170901preview:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 func GetTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TrafficManagerUserMetricsKeyState, opts ...pulumi.ResourceOption) (*TrafficManagerUserMetricsKey, error) {
 	var resource TrafficManagerUserMetricsKey
-	err := ctx.ReadResource("azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20170901preview:TrafficManagerUserMetricsKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

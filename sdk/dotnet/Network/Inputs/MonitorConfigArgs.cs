@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The profile-level monitoring status of the Traffic Manager profile.
         /// </summary>
         [Input("profileMonitorStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ProfileMonitorStatus>? ProfileMonitorStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ProfileMonitorStatus>? ProfileMonitorStatus { get; set; }
 
         /// <summary>
         /// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.MonitorProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.MonitorProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.

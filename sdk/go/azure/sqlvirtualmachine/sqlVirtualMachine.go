@@ -66,12 +66,15 @@ func NewSqlVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlVirtualMachine
-	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sqlvirtualmachine:SqlVirtualMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +86,7 @@ func NewSqlVirtualMachine(ctx *pulumi.Context,
 func GetSqlVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SqlVirtualMachineState, opts ...pulumi.ResourceOption) (*SqlVirtualMachine, error) {
 	var resource SqlVirtualMachine
-	err := ctx.ReadResource("azure-nextgen:sqlvirtualmachine:SqlVirtualMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sqlvirtualmachine:SqlVirtualMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

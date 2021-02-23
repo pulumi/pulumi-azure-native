@@ -17,7 +17,7 @@ export function getManagedNetworkGroup(args: GetManagedNetworkGroupArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:managednetwork:getManagedNetworkGroup", {
+    return pulumi.runtime.invoke("azure-native:managednetwork:getManagedNetworkGroup", {
         "managedNetworkGroupName": args.managedNetworkGroupName,
         "managedNetworkName": args.managedNetworkName,
         "resourceGroupName": args.resourceGroupName,

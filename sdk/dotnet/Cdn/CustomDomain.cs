@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn
+namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn:CustomDomain")]
+    [AzureNativeResourceType("azure-native:cdn:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Cdn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDomain(string name, CustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn:CustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn:CustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,18 +95,31 @@ namespace Pulumi.AzureNextGen.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190415:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:CustomDomain"},
                 },
             };

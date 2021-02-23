@@ -10,7 +10,7 @@ import (
 // An object that represents a private endpoint connection for a container registry.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20201101preview:getPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20201101preview:getPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

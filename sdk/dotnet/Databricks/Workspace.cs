@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Databricks
+namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Information about workspace.
     /// API Version: 2018-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databricks:Workspace")]
+    [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNextGen.Databricks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databricks:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databricks:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databricks:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,7 +137,9 @@ namespace Pulumi.AzureNextGen.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databricks/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks/v20180401:Workspace"},
                 },
             };

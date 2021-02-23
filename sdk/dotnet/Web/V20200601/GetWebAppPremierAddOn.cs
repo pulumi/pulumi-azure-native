@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601
+namespace Pulumi.AzureNative.Web.V20200601
 {
     public static class GetWebAppPremierAddOn
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// Premier add-on.
         /// </summary>
         public static Task<GetWebAppPremierAddOnResult> InvokeAsync(GetWebAppPremierAddOnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnResult>("azure-nextgen:web/v20200601:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnResult>("azure-native:web/v20200601:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnArgs(), options.WithVersion());
     }
 
 

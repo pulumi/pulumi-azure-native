@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The log profile resource.
  * Latest API Version: 2016-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getLogProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getLogProfile'. */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
-    pulumi.log.warn("getLogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getLogProfile'.")
+    pulumi.log.warn("getLogProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getLogProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getLogProfile", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getLogProfile", {
         "logProfileName": args.logProfileName,
     }, opts);
 }

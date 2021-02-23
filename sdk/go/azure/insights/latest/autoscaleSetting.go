@@ -14,7 +14,7 @@ import (
 // The autoscale setting resource.
 // Latest API Version: 2015-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AutoscaleSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AutoscaleSetting'.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
@@ -54,7 +54,13 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:AutoscaleSetting"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:AutoscaleSetting"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150401:AutoscaleSetting"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150401:AutoscaleSetting"),
@@ -62,7 +68,7 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AutoscaleSetting
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:AutoscaleSetting", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:AutoscaleSetting", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 func GetAutoscaleSetting(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AutoscaleSettingState, opts ...pulumi.ResourceOption) (*AutoscaleSetting, error) {
 	var resource AutoscaleSetting
-	err := ctx.ReadResource("azure-nextgen:insights/latest:AutoscaleSetting", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:AutoscaleSetting", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

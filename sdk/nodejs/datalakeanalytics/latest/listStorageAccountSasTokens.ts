@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The SAS response that contains the storage account, container and associated SAS token for connection use.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:listStorageAccountSasTokens'. */
 export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountSasTokensResult> {
-    pulumi.log.warn("listStorageAccountSasTokens is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:listStorageAccountSasTokens'.")
+    pulumi.log.warn("listStorageAccountSasTokens is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:listStorageAccountSasTokens'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics/latest:listStorageAccountSasTokens", {
+    return pulumi.runtime.invoke("azure-native:datalakeanalytics/latest:listStorageAccountSasTokens", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,

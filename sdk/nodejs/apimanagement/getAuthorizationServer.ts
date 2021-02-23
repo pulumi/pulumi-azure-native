@@ -17,7 +17,7 @@ export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getAuthorizationServer", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getAuthorizationServer", {
         "authsid": args.authsid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

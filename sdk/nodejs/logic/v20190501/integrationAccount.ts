@@ -22,7 +22,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20190501:IntegrationAccount';
+    public static readonly __pulumiType = 'azure-native:logic/v20190501:IntegrationAccount';
 
     /**
      * Returns true if the given object is an instance of IntegrationAccount.  This is designed to work even
@@ -102,7 +102,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationAccount" }, { type: "azure-nextgen:logic/latest:IntegrationAccount" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccount" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccount" }, { type: "azure-nextgen:logic:IntegrationAccount" }, { type: "azure-native:logic/latest:IntegrationAccount" }, { type: "azure-nextgen:logic/latest:IntegrationAccount" }, { type: "azure-native:logic/v20150801preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccount" }, { type: "azure-native:logic/v20160601:IntegrationAccount" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccount" }, { type: "azure-native:logic/v20180701preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccount.__pulumiType, name, inputs, opts);
     }

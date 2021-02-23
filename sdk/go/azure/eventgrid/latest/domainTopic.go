@@ -14,7 +14,7 @@ import (
 // Domain Topic.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventgrid:DomainTopic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:DomainTopic'.
 type DomainTopic struct {
 	pulumi.CustomResourceState
 
@@ -41,22 +41,43 @@ func NewDomainTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventgrid:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20190201preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:DomainTopic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20190601:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20200101preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:DomainTopic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200401preview:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:DomainTopic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20200601:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20201015preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:DomainTopic"),
@@ -64,7 +85,7 @@ func NewDomainTopic(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DomainTopic
-	err := ctx.RegisterResource("azure-nextgen:eventgrid/latest:DomainTopic", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventgrid/latest:DomainTopic", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +97,7 @@ func NewDomainTopic(ctx *pulumi.Context,
 func GetDomainTopic(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainTopicState, opts ...pulumi.ResourceOption) (*DomainTopic, error) {
 	var resource DomainTopic
-	err := ctx.ReadResource("azure-nextgen:eventgrid/latest:DomainTopic", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventgrid/latest:DomainTopic", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Definition of the dsc node configuration.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getDscNodeConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscNodeConfiguration'.
 func LookupDscNodeConfiguration(ctx *pulumi.Context, args *LookupDscNodeConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscNodeConfigurationResult, error) {
 	var rv LookupDscNodeConfigurationResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getDscNodeConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getDscNodeConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

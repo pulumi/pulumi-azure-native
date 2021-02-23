@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
+namespace Pulumi.AzureNative.Cdn.V20190415.Inputs
 {
 
     /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190415.RequestMethodOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.V20190415.RequestMethodOperator> Operator { get; set; } = null!;
 
         public RequestMethodMatchConditionParametersArgs()
         {

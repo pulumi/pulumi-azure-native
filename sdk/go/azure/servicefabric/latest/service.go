@@ -14,7 +14,7 @@ import (
 // The service resource.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicefabric:Service'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -73,22 +73,43 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20191101preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:Service"),
@@ -96,7 +117,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/latest:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/latest:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +129,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:servicefabric/latest:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/latest:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

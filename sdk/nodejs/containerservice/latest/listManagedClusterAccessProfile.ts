@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Managed cluster Access Profile.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterAccessProfile'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterAccessProfile'. */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
-    pulumi.log.warn("listManagedClusterAccessProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:listManagedClusterAccessProfile'.")
+    pulumi.log.warn("listManagedClusterAccessProfile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterAccessProfile'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listManagedClusterAccessProfile(args: ListManagedClusterAccessPr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:listManagedClusterAccessProfile", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
         "roleName": args.roleName,

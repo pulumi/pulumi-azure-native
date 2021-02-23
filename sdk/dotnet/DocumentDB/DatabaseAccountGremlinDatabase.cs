@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
     /// API Version: 2016-03-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase")]
+    [AzureNativeResourceType("azure-native:documentdb:DatabaseAccountGremlinDatabase")]
     public partial class DatabaseAccountGremlinDatabase : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseAccountGremlinDatabase(string name, DatabaseAccountGremlinDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase", name, args ?? new DatabaseAccountGremlinDatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb:DatabaseAccountGremlinDatabase", name, args ?? new DatabaseAccountGremlinDatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseAccountGremlinDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb:DatabaseAccountGremlinDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,11 +83,17 @@ namespace Pulumi.AzureNextGen.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase"},
                 },
             };

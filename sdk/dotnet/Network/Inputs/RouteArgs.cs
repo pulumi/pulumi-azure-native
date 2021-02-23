@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The type of Azure hop the packet should be sent to.
         /// </summary>
         [Input("nextHopType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.RouteNextHopType> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.RouteNextHopType> NextHopType { get; set; } = null!;
 
         /// <summary>
         /// The type of the resource.

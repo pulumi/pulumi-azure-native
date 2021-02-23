@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.Latest
+namespace Pulumi.AzureNative.MixedReality.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:mixedreality:getSpatialAnchorsAccount'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:mixedreality:getSpatialAnchorsAccount'.")]
     public static class GetSpatialAnchorsAccount
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-nextgen:mixedreality/latest:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure-native:mixedreality/latest:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
     }
 
 

@@ -10,7 +10,7 @@ import (
 // An instance failover group.
 func LookupInstanceFailoverGroup(ctx *pulumi.Context, args *LookupInstanceFailoverGroupArgs, opts ...pulumi.InvokeOption) (*LookupInstanceFailoverGroupResult, error) {
 	var rv LookupInstanceFailoverGroupResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getInstanceFailoverGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getInstanceFailoverGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -48,28 +48,55 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180401:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180601:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20181001:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:ProximityPlacementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:ProximityPlacementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:ProximityPlacementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:ProximityPlacementGroup"),
@@ -77,7 +104,7 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProximityPlacementGroup
-	err := ctx.RegisterResource("azure-nextgen:compute:ProximityPlacementGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:ProximityPlacementGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +116,7 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 func GetProximityPlacementGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProximityPlacementGroupState, opts ...pulumi.ResourceOption) (*ProximityPlacementGroup, error) {
 	var resource ProximityPlacementGroup
-	err := ctx.ReadResource("azure-nextgen:compute:ProximityPlacementGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:ProximityPlacementGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // A data set mapping data transfer object.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getDataSetMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:getDataSetMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:getDataSetMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

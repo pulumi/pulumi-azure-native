@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     public static class ListStorageAccountSasTokens
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-nextgen:datalakeanalytics:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithVersion());
     }
 
 

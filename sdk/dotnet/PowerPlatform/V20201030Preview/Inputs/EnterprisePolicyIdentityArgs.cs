@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
+namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         /// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.PowerPlatform.V20201030Preview.ResourceIdentityType>? Type { get; set; }
 
         public EnterprisePolicyIdentityArgs()
         {

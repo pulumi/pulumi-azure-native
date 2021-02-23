@@ -10,10 +10,10 @@ import (
 // The Log Search Rule resource.
 // Latest API Version: 2018-04-16.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getScheduledQueryRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getScheduledQueryRule'.
 func LookupScheduledQueryRule(ctx *pulumi.Context, args *LookupScheduledQueryRuleArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRuleResult, error) {
 	var rv LookupScheduledQueryRuleResult
-	err := ctx.Invoke("azure-nextgen:insights/latest:getScheduledQueryRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/latest:getScheduledQueryRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

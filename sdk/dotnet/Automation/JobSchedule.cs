@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the job schedule.
     /// API Version: 2019-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation:JobSchedule")]
+    [AzureNativeResourceType("azure-native:automation:JobSchedule")]
     public partial class JobSchedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobSchedule(string name, JobScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:JobSchedule", name, args ?? new JobScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation:JobSchedule", name, args ?? new JobScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JobSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation:JobSchedule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation:JobSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,9 +83,13 @@ namespace Pulumi.AzureNextGen.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:JobSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:JobSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:JobSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:JobSchedule"},
                 },
             };

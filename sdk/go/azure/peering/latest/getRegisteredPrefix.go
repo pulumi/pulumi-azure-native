@@ -10,10 +10,10 @@ import (
 // The customer's prefix that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredPrefix'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredPrefix'.
 func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredPrefixResult, error) {
 	var rv LookupRegisteredPrefixResult
-	err := ctx.Invoke("azure-nextgen:peering/latest:getRegisteredPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/latest:getRegisteredPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

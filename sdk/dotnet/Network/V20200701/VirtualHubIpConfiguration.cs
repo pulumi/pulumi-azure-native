@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200701
+namespace Pulumi.AzureNative.Network.V20200701
 {
     /// <summary>
     /// IpConfigurations.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200701:VirtualHubIpConfiguration")]
+    [AzureNativeResourceType("azure-native:network/v20200701:VirtualHubIpConfiguration")]
     public partial class VirtualHubIpConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubIpConfiguration(string name, VirtualHubIpConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200701:VirtualHubIpConfiguration", name, args ?? new VirtualHubIpConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200701:VirtualHubIpConfiguration", name, args ?? new VirtualHubIpConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualHubIpConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200701:VirtualHubIpConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200701:VirtualHubIpConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,10 +88,15 @@ namespace Pulumi.AzureNextGen.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHubIpConfiguration"},
                 },
             };
@@ -144,7 +149,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// The private IP address allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200701.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The reference to the public IP resource.

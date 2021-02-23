@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:servicefabric:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

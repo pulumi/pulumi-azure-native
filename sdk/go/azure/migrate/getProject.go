@@ -11,7 +11,7 @@ import (
 // API Version: 2019-10-01.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
-	err := ctx.Invoke("azure-nextgen:migrate:getProject", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getProject", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

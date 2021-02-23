@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDCustomDomain'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDCustomDomain'. */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
-    pulumi.log.warn("getAFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDCustomDomain'.")
+    pulumi.log.warn("getAFDCustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDCustomDomain'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getAFDCustomDomain", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

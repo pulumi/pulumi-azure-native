@@ -11,7 +11,7 @@ import (
 // API Version: 2019-11-01-preview.
 func LookupServiceUnit(ctx *pulumi.Context, args *LookupServiceUnitArgs, opts ...pulumi.InvokeOption) (*LookupServiceUnitResult, error) {
 	var rv LookupServiceUnitResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager:getServiceUnit", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager:getServiceUnit", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

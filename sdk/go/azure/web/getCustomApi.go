@@ -11,7 +11,7 @@ import (
 // API Version: 2016-06-01.
 func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pulumi.InvokeOption) (*LookupCustomApiResult, error) {
 	var rv LookupCustomApiResult
-	err := ctx.Invoke("azure-nextgen:web:getCustomApi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getCustomApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

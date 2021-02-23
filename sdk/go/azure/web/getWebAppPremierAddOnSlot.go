@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppPremierAddOnSlot(ctx *pulumi.Context, args *LookupWebAppPremierAddOnSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnSlotResult, error) {
 	var rv LookupWebAppPremierAddOnSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppPremierAddOnSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppPremierAddOnSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

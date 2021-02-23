@@ -16,7 +16,7 @@ export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConf
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20190601:getSoftwareUpdateConfigurationByName", {
+    return pulumi.runtime.invoke("azure-native:automation/v20190601:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "softwareUpdateConfigurationName": args.softwareUpdateConfigurationName,

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * HealthBot resource definition
  * Latest API Version: 2020-12-08.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthbot:getBot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:healthbot:getBot'. */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-    pulumi.log.warn("getBot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:healthbot:getBot'.")
+    pulumi.log.warn("getBot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:healthbot:getBot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:healthbot/latest:getBot", {
+    return pulumi.runtime.invoke("azure-native:healthbot/latest:getBot", {
         "botName": args.botName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

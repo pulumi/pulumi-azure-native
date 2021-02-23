@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Rule Group resource.
  * Latest API Version: 2020-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFirewallPolicyRuleGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicyRuleGroup'. */
 export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleGroupResult> {
-    pulumi.log.warn("getFirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getFirewallPolicyRuleGroup'.")
+    pulumi.log.warn("getFirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicyRuleGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getFirewallPolicyRuleGroup", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getFirewallPolicyRuleGroup", {
         "firewallPolicyName": args.firewallPolicyName,
         "resourceGroupName": args.resourceGroupName,
         "ruleGroupName": args.ruleGroupName,

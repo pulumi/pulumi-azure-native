@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the watcher type.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:automation/v20190601:Watcher")]
+    [AzureNativeResourceType("azure-native:automation/v20190601:Watcher")]
     public partial class Watcher : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Watcher(string name, WatcherArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:Watcher", name, args ?? new WatcherArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:automation/v20190601:Watcher", name, args ?? new WatcherArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Watcher(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:automation/v20190601:Watcher", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:automation/v20190601:Watcher", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,9 +124,13 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:automation:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Watcher"},
+                    new Pulumi.Alias { Type = "azure-native:automation/latest:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Watcher"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Watcher"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Watcher"},
                 },
             };

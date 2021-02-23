@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppPublishingCredentials(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsResult, error) {
 	var rv ListWebAppPublishingCredentialsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppPublishingCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppPublishingCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

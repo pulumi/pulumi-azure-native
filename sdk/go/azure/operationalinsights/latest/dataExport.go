@@ -14,7 +14,7 @@ import (
 // The top level data export resource container.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:DataExport'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:DataExport'.
 type DataExport struct {
 	pulumi.CustomResourceState
 
@@ -59,13 +59,25 @@ func NewDataExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationalinsights:DataExport"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights:DataExport"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190801preview:DataExport"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20190801preview:DataExport"),
 		},
 		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:DataExport"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:DataExport"),
+		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20200801:DataExport"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:DataExport"),
@@ -73,7 +85,7 @@ func NewDataExport(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DataExport
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/latest:DataExport", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/latest:DataExport", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +97,7 @@ func NewDataExport(ctx *pulumi.Context,
 func GetDataExport(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataExportState, opts ...pulumi.ResourceOption) (*DataExport, error) {
 	var resource DataExport
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/latest:DataExport", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/latest:DataExport", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

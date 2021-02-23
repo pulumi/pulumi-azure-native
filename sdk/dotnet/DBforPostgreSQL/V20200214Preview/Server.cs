@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
 {
     /// <summary>
     /// Represents a server.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20200214preview:Server")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214preview:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
@@ -165,12 +165,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20200214preview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/v20200214preview:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20200214preview:Server", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/v20200214preview:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -181,6 +181,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server"},
                 },
             };
@@ -227,7 +228,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// The mode to create a new PostgreSQL server.
         /// </summary>
         [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.CreateMode>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.CreateMode>? CreateMode { get; set; }
 
         [Input("delegatedSubnetArguments")]
         public Input<Inputs.ServerPropertiesDelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
@@ -242,7 +243,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// stand by count value can be either enabled or disabled
         /// </summary>
         [Input("haEnabled")]
-        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.HAEnabledEnum>? HaEnabled { get; set; }
+        public Input<Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.HAEnabledEnum>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -314,7 +315,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// PostgreSQL Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

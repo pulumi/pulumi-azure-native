@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601.Inputs
 {
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20180601.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The master server id to create replica from.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<Pulumi.AzureNextGen.DBforMariaDB.V20180601.SslEnforcementEnum>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNative.DBforMariaDB.V20180601.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMariaDB.V20180601.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForReplicaArgs()
         {

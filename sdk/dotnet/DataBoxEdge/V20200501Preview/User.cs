@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200501preview:User")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200501preview:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200501preview:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200501preview:User", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200501preview:User", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,12 +70,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:User"},
                 },
             };
@@ -128,7 +135,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview
         /// Type of the user.
         /// </summary>
         [Input("userType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.UserType> UserType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200501Preview.UserType> UserType { get; set; } = null!;
 
         public UserArgs()
         {

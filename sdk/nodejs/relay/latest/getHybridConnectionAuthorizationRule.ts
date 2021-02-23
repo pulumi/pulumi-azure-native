@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a namespace authorization rule.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnectionAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getHybridConnectionAuthorizationRule'. */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
-    pulumi.log.warn("getHybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:relay:getHybridConnectionAuthorizationRule'.")
+    pulumi.log.warn("getHybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:getHybridConnectionAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/latest:getHybridConnectionAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:relay/latest:getHybridConnectionAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "hybridConnectionName": args.hybridConnectionName,
         "namespaceName": args.namespaceName,

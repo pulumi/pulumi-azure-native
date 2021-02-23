@@ -14,7 +14,7 @@ import (
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:User'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -47,22 +47,43 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190301:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190701:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200501preview:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:User"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:User"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:User"),
@@ -70,7 +91,7 @@ func NewUser(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource User
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:User", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:User", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +103,7 @@ func NewUser(ctx *pulumi.Context,
 func GetUser(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserState, opts ...pulumi.ResourceOption) (*User, error) {
 	var resource User
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:User", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:User", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

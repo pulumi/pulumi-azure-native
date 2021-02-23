@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a container registry.
     /// API Version: 2019-05-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:Registry")]
+    [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:Registry", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:Registry", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,13 +119,21 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20160627preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170301:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Registry"},
                 },
             };

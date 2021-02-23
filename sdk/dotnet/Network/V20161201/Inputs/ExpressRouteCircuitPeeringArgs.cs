@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
+namespace Pulumi.AzureNative.Network.V20161201.Inputs
 {
 
     /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
         /// </summary>
         [Input("peeringType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.ExpressRouteCircuitPeeringType>? PeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.ExpressRouteCircuitPeeringType>? PeeringType { get; set; }
 
         /// <summary>
         /// The primary port.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// The state of peering. Possible values are: 'Disabled' and 'Enabled'
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.ExpressRouteCircuitPeeringState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.ExpressRouteCircuitPeeringState>? State { get; set; }
 
         /// <summary>
         /// Gets peering stats.

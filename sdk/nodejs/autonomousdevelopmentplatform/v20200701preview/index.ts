@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account":
+            case "azure-native:autonomousdevelopmentplatform/v20200701preview:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool":
+            case "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool":
                 return new DataPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "autonomousdevelopmentplatform/v20200701preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "autonomousdevelopmentplatform/v20200701preview", _module)

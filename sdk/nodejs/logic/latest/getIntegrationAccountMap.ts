@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The integration account map.
  * Latest API Version: 2019-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountMap'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountMap'. */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
-    pulumi.log.warn("getIntegrationAccountMap is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountMap'.")
+    pulumi.log.warn("getIntegrationAccountMap is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountMap'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic/latest:getIntegrationAccountMap", {
+    return pulumi.runtime.invoke("azure-native:logic/latest:getIntegrationAccountMap", {
         "integrationAccountName": args.integrationAccountName,
         "mapName": args.mapName,
         "resourceGroupName": args.resourceGroupName,

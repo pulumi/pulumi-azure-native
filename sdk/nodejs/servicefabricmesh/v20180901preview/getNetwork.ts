@@ -16,7 +16,7 @@ export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh/v20180901preview:getNetwork", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getNetwork", {
         "networkResourceName": args.networkResourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

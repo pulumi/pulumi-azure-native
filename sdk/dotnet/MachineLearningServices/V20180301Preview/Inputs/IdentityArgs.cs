@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20180301Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20180301Preview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.MachineLearningServices.V20180301Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.MachineLearningServices.V20180301Preview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

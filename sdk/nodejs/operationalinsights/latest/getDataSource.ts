@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Datasources under OMS Workspace.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataSource'. */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-    pulumi.log.warn("getDataSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getDataSource'.")
+    pulumi.log.warn("getDataSource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getDataSource'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/latest:getDataSource", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/latest:getDataSource", {
         "dataSourceName": args.dataSourceName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

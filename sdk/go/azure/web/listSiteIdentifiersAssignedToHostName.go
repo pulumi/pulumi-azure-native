@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListSiteIdentifiersAssignedToHostName(ctx *pulumi.Context, args *ListSiteIdentifiersAssignedToHostNameArgs, opts ...pulumi.InvokeOption) (*ListSiteIdentifiersAssignedToHostNameResult, error) {
 	var rv ListSiteIdentifiersAssignedToHostNameResult
-	err := ctx.Invoke("azure-nextgen:web:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listSiteIdentifiersAssignedToHostName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

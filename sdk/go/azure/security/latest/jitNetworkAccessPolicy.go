@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:security:JitNetworkAccessPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:JitNetworkAccessPolicy'.
 type JitNetworkAccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -50,10 +50,19 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security:JitNetworkAccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:security/v20150601preview:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101:JitNetworkAccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:JitNetworkAccessPolicy"),
@@ -61,7 +70,7 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JitNetworkAccessPolicy
-	err := ctx.RegisterResource("azure-nextgen:security/latest:JitNetworkAccessPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security/latest:JitNetworkAccessPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 func GetJitNetworkAccessPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JitNetworkAccessPolicyState, opts ...pulumi.ResourceOption) (*JitNetworkAccessPolicy, error) {
 	var resource JitNetworkAccessPolicy
-	err := ctx.ReadResource("azure-nextgen:security/latest:JitNetworkAccessPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security/latest:JitNetworkAccessPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

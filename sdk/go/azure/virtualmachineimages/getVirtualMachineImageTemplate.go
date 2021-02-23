@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-14.
 func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualMachineImageTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineImageTemplateResult, error) {
 	var rv LookupVirtualMachineImageTemplateResult
-	err := ctx.Invoke("azure-nextgen:virtualmachineimages:getVirtualMachineImageTemplate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

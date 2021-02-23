@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a and external administrator to be created.
     /// API Version: 2017-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql:ServerAdministrator")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql:ServerAdministrator")]
     public partial class ServerAdministrator : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerAdministrator(string name, ServerAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql:ServerAdministrator", name, args ?? new ServerAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:ServerAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql:ServerAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator"},
                 },
             };
@@ -107,7 +110,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// The type of administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.AdministratorType> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// The server administrator login account name.

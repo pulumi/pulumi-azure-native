@@ -27,11 +27,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph":
+            case "azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph":
                 return new EnterpriseKnowledgeGraph(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "enterpriseknowledgegraph", _module)
+pulumi.runtime.registerResourceModule("azure-native", "enterpriseknowledgegraph", _module)

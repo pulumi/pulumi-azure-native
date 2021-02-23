@@ -22,7 +22,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule';
+    public static readonly __pulumiType = 'azure-native:eventhub/v20150801:EventHubAuthorizationRule';
 
     /**
      * Returns true if the given object is an instance of EventHubAuthorizationRule.  This is designed to work even
@@ -95,7 +95,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/latest:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/latest:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/latest:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }

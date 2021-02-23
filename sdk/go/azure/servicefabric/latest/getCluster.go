@@ -11,10 +11,10 @@ import (
 //
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getCluster'.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/latest:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/latest:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

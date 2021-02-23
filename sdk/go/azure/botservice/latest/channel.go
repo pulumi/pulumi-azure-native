@@ -14,7 +14,7 @@ import (
 // Bot channel resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:botservice:Channel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:botservice:Channel'.
 type Channel struct {
 	pulumi.CustomResourceState
 
@@ -51,13 +51,25 @@ func NewChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:Channel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:Channel"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20171201:Channel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20171201:Channel"),
 		},
 		{
+			Type: pulumi.String("azure-native:botservice/v20180712:Channel"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:Channel"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20200602:Channel"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:Channel"),
@@ -65,7 +77,7 @@ func NewChannel(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Channel
-	err := ctx.RegisterResource("azure-nextgen:botservice/latest:Channel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/latest:Channel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +89,7 @@ func NewChannel(ctx *pulumi.Context,
 func GetChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ChannelState, opts ...pulumi.ResourceOption) (*Channel, error) {
 	var resource Channel
-	err := ctx.ReadResource("azure-nextgen:botservice/latest:Channel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/latest:Channel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // File Server information.
 // Latest API Version: 2018-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:getFileServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getFileServer'.
 func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...pulumi.InvokeOption) (*LookupFileServerResult, error) {
 	var rv LookupFileServerResult
-	err := ctx.Invoke("azure-nextgen:batchai/latest:getFileServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/latest:getFileServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

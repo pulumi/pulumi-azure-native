@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
+namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
 {
-    [AzureNextGenResourceType("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant")]
+    [AzureNativeResourceType("azure-native:azureactivedirectory/v20190101preview:B2CTenant")]
     public partial class B2CTenant : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public B2CTenant(string name, B2CTenantArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant", name, args ?? new B2CTenantArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azureactivedirectory/v20190101preview:B2CTenant", name, args ?? new B2CTenantArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private B2CTenant(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azureactivedirectory/v20190101preview:B2CTenant", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
                     new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory:B2CTenant"},
                 },
             };

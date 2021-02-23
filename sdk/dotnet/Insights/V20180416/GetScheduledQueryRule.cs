@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416
+namespace Pulumi.AzureNative.Insights.V20180416
 {
     public static class GetScheduledQueryRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
         /// The Log Search Rule resource.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-nextgen:insights/v20180416:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights/v20180416:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithVersion());
     }
 
 

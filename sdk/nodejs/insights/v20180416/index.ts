@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/v20180416:ScheduledQueryRule":
+            case "azure-native:insights/v20180416:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/v20180416", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/v20180416", _module)

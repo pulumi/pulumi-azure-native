@@ -10,7 +10,7 @@ import (
 // Issue Attachment Contract details.
 func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueAttachmentResult, error) {
 	var rv LookupApiIssueAttachmentResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20180601preview:getApiIssueAttachment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20180601preview:getApiIssueAttachment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

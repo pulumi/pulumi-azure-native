@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// A report resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount")]
+    [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:ReportByBillingAccount")]
     public partial class ReportByBillingAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportByBillingAccount(string name, ReportByBillingAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount", name, args ?? new ReportByBillingAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement/v20180801preview:ReportByBillingAccount", name, args ?? new ReportByBillingAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReportByBillingAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement/v20180801preview:ReportByBillingAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement:ReportByBillingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportByBillingAccount"},
                 },
             };
@@ -128,7 +129,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.FormatType>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20180801Preview.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Name.

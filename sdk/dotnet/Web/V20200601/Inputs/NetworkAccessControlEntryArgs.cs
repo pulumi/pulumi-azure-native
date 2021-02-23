@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
+namespace Pulumi.AzureNative.Web.V20200601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         /// Action object.
         /// </summary>
         [Input("action")]
-        public Input<Pulumi.AzureNextGen.Web.V20200601.AccessControlEntryAction>? Action { get; set; }
+        public Input<Pulumi.AzureNative.Web.V20200601.AccessControlEntryAction>? Action { get; set; }
 
         /// <summary>
         /// Description of network access control entry.

@@ -10,7 +10,7 @@ import (
 // Confidential Ledger. Contains the properties of Confidential Ledger Resource.
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	var rv LookupLedgerResult
-	err := ctx.Invoke("azure-nextgen:confidentialledger/v20201201preview:getLedger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:confidentialledger/v20201201preview:getLedger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:Job'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.
 type Job struct {
 	pulumi.CustomResourceState
 
@@ -40,13 +40,25 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:scheduler:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:scheduler:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:scheduler/v20140801preview:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:Job"),
 		},
 		{
+			Type: pulumi.String("azure-native:scheduler/v20160101:Job"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20160101:Job"),
+		},
+		{
+			Type: pulumi.String("azure-native:scheduler/v20160301:Job"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20160301:Job"),
@@ -54,7 +66,7 @@ func NewJob(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Job
-	err := ctx.RegisterResource("azure-nextgen:scheduler/latest:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:scheduler/latest:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +78,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("azure-nextgen:scheduler/latest:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:scheduler/latest:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest
+namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// The properties of a storage account’s Table service.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.")]
-    [AzureNextGenResourceType("azure-nextgen:storage/latest:TableServiceProperties")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:TableServiceProperties'.")]
+    [AzureNativeResourceType("azure-native:storage/latest:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TableServiceProperties(string name, TableServicePropertiesArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:TableServiceProperties", name, args ?? new TableServicePropertiesArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/latest:TableServiceProperties", name, args ?? new TableServicePropertiesArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TableServiceProperties(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/latest:TableServiceProperties", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/latest:TableServiceProperties", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,9 +60,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:TableServiceProperties"},
                 },
             };

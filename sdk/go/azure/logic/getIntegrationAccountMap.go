@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func LookupIntegrationAccountMap(ctx *pulumi.Context, args *LookupIntegrationAccountMapArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountMapResult, error) {
 	var rv LookupIntegrationAccountMapResult
-	err := ctx.Invoke("azure-nextgen:logic:getIntegrationAccountMap", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:getIntegrationAccountMap", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

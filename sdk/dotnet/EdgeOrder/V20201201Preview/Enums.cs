@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
     /// <summary>
     /// Type of address.

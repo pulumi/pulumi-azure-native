@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupEventChannel(ctx *pulumi.Context, args *LookupEventChannelArgs, opts ...pulumi.InvokeOption) (*LookupEventChannelResult, error) {
 	var rv LookupEventChannelResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getEventChannel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getEventChannel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

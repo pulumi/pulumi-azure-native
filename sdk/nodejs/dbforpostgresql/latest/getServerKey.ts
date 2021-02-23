@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A PostgreSQL Server key.
  * Latest API Version: 2020-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServerKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getServerKey'. */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
-    pulumi.log.warn("getServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:dbforpostgresql:getServerKey'.")
+    pulumi.log.warn("getServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getServerKey'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/latest:getServerKey", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/latest:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

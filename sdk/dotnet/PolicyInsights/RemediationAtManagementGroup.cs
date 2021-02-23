@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights
+namespace Pulumi.AzureNative.PolicyInsights
 {
     /// <summary>
     /// The remediation definition.
     /// API Version: 2019-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:policyinsights:RemediationAtManagementGroup")]
+    [AzureNativeResourceType("azure-native:policyinsights:RemediationAtManagementGroup")]
     public partial class RemediationAtManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.PolicyInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemediationAtManagementGroup(string name, RemediationAtManagementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights:RemediationAtManagementGroup", name, args ?? new RemediationAtManagementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:policyinsights:RemediationAtManagementGroup", name, args ?? new RemediationAtManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemediationAtManagementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights:RemediationAtManagementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:policyinsights:RemediationAtManagementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,8 +101,11 @@ namespace Pulumi.AzureNextGen.PolicyInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup"},
                 },
             };
@@ -167,7 +170,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         /// </summary>
         [Input("resourceDiscoveryMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.PolicyInsights.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PolicyInsights.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
 
         public RemediationAtManagementGroupArgs()
         {

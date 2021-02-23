@@ -21,85 +21,85 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:sql/v20200801preview:Database":
+	case "azure-native:sql/v20200801preview:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy":
+	case "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy":
 		r, err = NewDatabaseSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessment":
+	case "azure-native:sql/v20200801preview:DatabaseVulnerabilityAssessment":
 		r, err = NewDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+	case "azure-native:sql/v20200801preview:DatabaseVulnerabilityAssessmentRuleBaseline":
 		r, err = NewDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ElasticPool":
+	case "azure-native:sql/v20200801preview:ElasticPool":
 		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:FailoverGroup":
+	case "azure-native:sql/v20200801preview:FailoverGroup":
 		r, err = NewFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:FirewallRule":
+	case "azure-native:sql/v20200801preview:FirewallRule":
 		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup":
+	case "azure-native:sql/v20200801preview:InstanceFailoverGroup":
 		r, err = NewInstanceFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:InstancePool":
+	case "azure-native:sql/v20200801preview:InstancePool":
 		r, err = NewInstancePool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:Job":
+	case "azure-native:sql/v20200801preview:Job":
 		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:JobAgent":
+	case "azure-native:sql/v20200801preview:JobAgent":
 		r, err = NewJobAgent(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:JobCredential":
+	case "azure-native:sql/v20200801preview:JobCredential":
 		r, err = NewJobCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:JobStep":
+	case "azure-native:sql/v20200801preview:JobStep":
 		r, err = NewJobStep(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:JobTargetGroup":
+	case "azure-native:sql/v20200801preview:JobTargetGroup":
 		r, err = NewJobTargetGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedDatabase":
+	case "azure-native:sql/v20200801preview:ManagedDatabase":
 		r, err = NewManagedDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel":
+	case "azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel":
 		r, err = NewManagedDatabaseSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessment":
+	case "azure-native:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessment":
 		r, err = NewManagedDatabaseVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+	case "azure-native:sql/v20200801preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
 		r, err = NewManagedDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstance":
+	case "azure-native:sql/v20200801preview:ManagedInstance":
 		r, err = NewManagedInstance(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator":
+	case "azure-native:sql/v20200801preview:ManagedInstanceAdministrator":
 		r, err = NewManagedInstanceAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication":
+	case "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication":
 		r, err = NewManagedInstanceAzureADOnlyAuthentication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstanceKey":
+	case "azure-native:sql/v20200801preview:ManagedInstanceKey":
 		r, err = NewManagedInstanceKey(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection":
+	case "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection":
 		r, err = NewManagedInstancePrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ManagedInstanceVulnerabilityAssessment":
+	case "azure-native:sql/v20200801preview:ManagedInstanceVulnerabilityAssessment":
 		r, err = NewManagedInstanceVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:PrivateEndpointConnection":
+	case "azure-native:sql/v20200801preview:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:SensitivityLabel":
+	case "azure-native:sql/v20200801preview:SensitivityLabel":
 		r, err = NewSensitivityLabel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:Server":
+	case "azure-native:sql/v20200801preview:Server":
 		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator":
+	case "azure-native:sql/v20200801preview:ServerAzureADAdministrator":
 		r, err = NewServerAzureADAdministrator(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerAzureADOnlyAuthentication":
+	case "azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication":
 		r, err = NewServerAzureADOnlyAuthentication(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerDnsAlias":
+	case "azure-native:sql/v20200801preview:ServerDnsAlias":
 		r, err = NewServerDnsAlias(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerKey":
+	case "azure-native:sql/v20200801preview:ServerKey":
 		r, err = NewServerKey(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerTrustGroup":
+	case "azure-native:sql/v20200801preview:ServerTrustGroup":
 		r, err = NewServerTrustGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:ServerVulnerabilityAssessment":
+	case "azure-native:sql/v20200801preview:ServerVulnerabilityAssessment":
 		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:SyncAgent":
+	case "azure-native:sql/v20200801preview:SyncAgent":
 		r, err = NewSyncAgent(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:SyncGroup":
+	case "azure-native:sql/v20200801preview:SyncGroup":
 		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:SyncMember":
+	case "azure-native:sql/v20200801preview:SyncMember":
 		r, err = NewSyncMember(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:TransparentDataEncryption":
+	case "azure-native:sql/v20200801preview:TransparentDataEncryption":
 		r, err = NewTransparentDataEncryption(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:VirtualNetworkRule":
+	case "azure-native:sql/v20200801preview:VirtualNetworkRule":
 		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:WorkloadClassifier":
+	case "azure-native:sql/v20200801preview:WorkloadClassifier":
 		r, err = NewWorkloadClassifier(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:sql/v20200801preview:WorkloadGroup":
+	case "azure-native:sql/v20200801preview:WorkloadGroup":
 		r, err = NewWorkloadGroup(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -114,7 +114,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"sql/v20200801preview",
 		&module{version},
 	)

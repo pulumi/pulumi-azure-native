@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
+namespace Pulumi.AzureNative.Compute.V20201201.Inputs
 {
 
     /// <summary>
@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.Compute.V20201201.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<Pulumi.AzureNextGen.Compute.V20201201.CachingTypes>? Caching { get; set; }
+        public Input<Pulumi.AzureNative.Compute.V20201201.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies how the virtual machine should be created.&lt;br&gt;&lt;br&gt; Possible values are:&lt;br&gt;&lt;br&gt; **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.&lt;br&gt;&lt;br&gt; **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         /// </summary>
         [Input("createOption", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20201201.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20201201.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. &lt;br&gt;&lt;br&gt; detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. &lt;br&gt;&lt;br&gt; This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
         /// </summary>
         [Input("detachOption")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20201201.DiskDetachOptionTypes>? DetachOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20201201.DiskDetachOptionTypes>? DetachOption { get; set; }
 
         /// <summary>
         /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB

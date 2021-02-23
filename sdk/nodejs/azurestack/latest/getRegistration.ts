@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Registration information.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistration'. */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
-    pulumi.log.warn("getRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getRegistration'.")
+    pulumi.log.warn("getRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:getRegistration", {
+    return pulumi.runtime.invoke("azure-native:azurestack/latest:getRegistration", {
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,
     }, opts);

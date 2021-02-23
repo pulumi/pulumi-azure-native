@@ -23,7 +23,7 @@ export class ContainerService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerservice:ContainerService';
+    public static readonly __pulumiType = 'azure-native:containerservice:ContainerService';
 
     /**
      * Returns true if the given object is an instance of ContainerService.  This is designed to work even
@@ -148,7 +148,7 @@ export class ContainerService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:ContainerService" }, { type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }, { type: "azure-nextgen:containerservice/v20170131:ContainerService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/latest:ContainerService" }, { type: "azure-nextgen:containerservice/latest:ContainerService" }, { type: "azure-native:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-native:containerservice/v20160330:ContainerService" }, { type: "azure-nextgen:containerservice/v20160330:ContainerService" }, { type: "azure-native:containerservice/v20160930:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }, { type: "azure-native:containerservice/v20170131:ContainerService" }, { type: "azure-nextgen:containerservice/v20170131:ContainerService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerService.__pulumiType, name, inputs, opts);
     }

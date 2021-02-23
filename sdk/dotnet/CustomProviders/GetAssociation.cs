@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders
+namespace Pulumi.AzureNative.CustomProviders
 {
     public static class GetAssociation
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.CustomProviders
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetAssociationResult> InvokeAsync(GetAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-nextgen:customproviders:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssociationResult>("azure-native:customproviders:getAssociation", args ?? new GetAssociationArgs(), options.WithVersion());
     }
 
 

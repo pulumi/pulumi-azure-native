@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
+namespace Pulumi.AzureNative.Network.V20160330.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("gatewayType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.VirtualNetworkGatewayType>? GatewayType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160330.VirtualNetworkGatewayType>? GatewayType { get; set; }
 
         /// <summary>
         /// Resource Id
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("vpnType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.VpnType>? VpnType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20160330.VpnType>? VpnType { get; set; }
 
         public VirtualNetworkGatewayArgs()
         {

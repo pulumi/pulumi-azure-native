@@ -9,7 +9,7 @@ import (
 
 func LookupWorkflowAccessKey(ctx *pulumi.Context, args *LookupWorkflowAccessKeyArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowAccessKeyResult, error) {
 	var rv LookupWorkflowAccessKeyResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150201preview:getWorkflowAccessKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150201preview:getWorkflowAccessKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

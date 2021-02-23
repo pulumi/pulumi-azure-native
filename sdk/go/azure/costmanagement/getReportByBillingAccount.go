@@ -11,7 +11,7 @@ import (
 // API Version: 2018-08-01-preview.
 func LookupReportByBillingAccount(ctx *pulumi.Context, args *LookupReportByBillingAccountArgs, opts ...pulumi.InvokeOption) (*LookupReportByBillingAccountResult, error) {
 	var rv LookupReportByBillingAccountResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getReportByBillingAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getReportByBillingAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

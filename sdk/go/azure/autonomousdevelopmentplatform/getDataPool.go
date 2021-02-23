@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-01-preview.
 func LookupDataPool(ctx *pulumi.Context, args *LookupDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupDataPoolResult, error) {
 	var rv LookupDataPoolResult
-	err := ctx.Invoke("azure-nextgen:autonomousdevelopmentplatform:getDataPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform:getDataPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

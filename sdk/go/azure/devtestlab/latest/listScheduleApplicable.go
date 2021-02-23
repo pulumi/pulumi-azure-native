@@ -10,10 +10,10 @@ import (
 // The response of a list operation.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listScheduleApplicable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listScheduleApplicable'.
 func ListScheduleApplicable(ctx *pulumi.Context, args *ListScheduleApplicableArgs, opts ...pulumi.InvokeOption) (*ListScheduleApplicableResult, error) {
 	var rv ListScheduleApplicableResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:listScheduleApplicable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:listScheduleApplicable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

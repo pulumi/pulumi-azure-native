@@ -17,7 +17,7 @@ export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:blueprint:getAssignment", {
+    return pulumi.runtime.invoke("azure-native:blueprint:getAssignment", {
         "assignmentName": args.assignmentName,
         "resourceScope": args.resourceScope,
     }, opts);

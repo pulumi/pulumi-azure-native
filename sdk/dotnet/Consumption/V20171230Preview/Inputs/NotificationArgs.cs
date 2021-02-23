@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Consumption.V20171230Preview.Inputs
+namespace Pulumi.AzureNative.Consumption.V20171230Preview.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview.Inputs
         /// The comparison operator.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Consumption.V20171230Preview.OperatorType> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Consumption.V20171230Preview.OperatorType> Operator { get; set; } = null!;
 
         /// <summary>
         /// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.

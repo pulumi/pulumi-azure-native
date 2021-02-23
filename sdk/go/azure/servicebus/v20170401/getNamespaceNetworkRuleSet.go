@@ -10,7 +10,7 @@ import (
 // Description of NetworkRuleSet resource.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20170401:getNamespaceNetworkRuleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20170401:getNamespaceNetworkRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

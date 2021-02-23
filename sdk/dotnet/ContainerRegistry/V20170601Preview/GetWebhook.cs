@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
 {
     public static class GetWebhook
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20170601Preview
         /// An object that represents a webhook for a container registry.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-nextgen:containerregistry/v20170601preview:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20170601preview:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
     }
 
 

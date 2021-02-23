@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StoragePool
+namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
     /// Response for Disk pool request.
     /// API Version: 2020-03-15-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagepool:DiskPool")]
+    [AzureNativeResourceType("azure-native:storagepool:DiskPool")]
     public partial class DiskPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNextGen.StoragePool
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskPool(string name, DiskPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagepool:DiskPool", name, args ?? new DiskPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagepool:DiskPool", name, args ?? new DiskPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagepool:DiskPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagepool:DiskPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNextGen.StoragePool
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:DiskPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagepool/v20200315preview:DiskPool"},
                 },
             };
@@ -213,7 +214,7 @@ namespace Pulumi.AzureNextGen.StoragePool
         /// Determines the SKU of VM deployed for Disk pool
         /// </summary>
         [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.StoragePool.DiskPoolTier> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.StoragePool.DiskPoolTier> Tier { get; set; } = null!;
 
         public DiskPoolArgs()
         {

@@ -11,7 +11,7 @@ import (
 // API Version: 2016-11-01.
 func LookupComputePolicy(ctx *pulumi.Context, args *LookupComputePolicyArgs, opts ...pulumi.InvokeOption) (*LookupComputePolicyResult, error) {
 	var rv LookupComputePolicyResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics:getComputePolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics:getComputePolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

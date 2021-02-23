@@ -14,7 +14,7 @@ import (
 // DigitalTwinsInstance endpoint resource.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:digitaltwins:DigitalTwinsEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:digitaltwins:DigitalTwinsEndpoint'.
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -44,13 +44,25 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:digitaltwins:DigitalTwinsEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwinsEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint"),
@@ -58,7 +70,7 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DigitalTwinsEndpoint
-	err := ctx.RegisterResource("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:digitaltwins/latest:DigitalTwinsEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 func GetDigitalTwinsEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DigitalTwinsEndpointState, opts ...pulumi.ResourceOption) (*DigitalTwinsEndpoint, error) {
 	var resource DigitalTwinsEndpoint
-	err := ctx.ReadResource("azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:digitaltwins/latest:DigitalTwinsEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

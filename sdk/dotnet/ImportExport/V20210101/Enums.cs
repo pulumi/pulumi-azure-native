@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ImportExport.V20210101
+namespace Pulumi.AzureNative.ImportExport.V20210101
 {
     /// <summary>
     /// The drive's current state. 

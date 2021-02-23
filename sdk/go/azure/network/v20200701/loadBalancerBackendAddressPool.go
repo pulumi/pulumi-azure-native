@@ -50,19 +50,37 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:LoadBalancerBackendAddressPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:LoadBalancerBackendAddressPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:LoadBalancerBackendAddressPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:LoadBalancerBackendAddressPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"),
@@ -70,7 +88,7 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LoadBalancerBackendAddressPool
-	err := ctx.RegisterResource("azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200701:LoadBalancerBackendAddressPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +100,7 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 func GetLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LoadBalancerBackendAddressPoolState, opts ...pulumi.ResourceOption) (*LoadBalancerBackendAddressPool, error) {
 	var resource LoadBalancerBackendAddressPool
-	err := ctx.ReadResource("azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200701:LoadBalancerBackendAddressPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

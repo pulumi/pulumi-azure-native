@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200806Preview
+namespace Pulumi.AzureNative.Security.V20200806Preview
 {
     /// <summary>
     /// IoT site model
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security/v20200806preview:IotSite")]
+    [AzureNativeResourceType("azure-native:security/v20200806preview:IotSite")]
     public partial class IotSite : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotSite(string name, IotSiteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200806preview:IotSite", name, args ?? new IotSiteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20200806preview:IotSite", name, args ?? new IotSiteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IotSite(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200806preview:IotSite", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20200806preview:IotSite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:IotSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotSite"},
                 },
             };

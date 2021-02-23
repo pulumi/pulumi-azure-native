@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
+namespace Pulumi.AzureNative.Network.V20200601.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Cookie based affinity.
         /// </summary>
         [Input("cookieBasedAffinity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200601.ApplicationGatewayCookieBasedAffinity>? CookieBasedAffinity { get; set; }
 
         /// <summary>
         /// Host header to be sent to the backend servers.
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// The protocol used to communicate with the backend.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.ApplicationGatewayProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200601.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.

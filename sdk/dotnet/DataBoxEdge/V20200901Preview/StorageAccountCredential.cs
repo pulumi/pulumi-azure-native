@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
+namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
     /// <summary>
     /// The storage account credential.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential")]
+    [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageAccountCredential(string name, StorageAccountCredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge/v20200901preview:StorageAccountCredential", name, args ?? new StorageAccountCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageAccountCredential(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge/v20200901preview:StorageAccountCredential", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,12 +106,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccountCredential"},
                 },
             };
@@ -146,7 +153,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// Type of storage accessed on the storage account.
         /// </summary>
         [Input("accountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.AccountType> AccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.AccountType> AccountType { get; set; } = null!;
 
         /// <summary>
         /// Alias for the storage account.
@@ -188,7 +195,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview
         /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
         [Input("sslStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200901Preview.SSLStatus> SslStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.V20200901Preview.SSLStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// Id of the storage account.

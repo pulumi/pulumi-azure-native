@@ -62,13 +62,25 @@ func NewArtifactSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ArtifactSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ArtifactSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:ArtifactSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ArtifactSource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:ArtifactSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:ArtifactSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ArtifactSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ArtifactSource"),
@@ -76,7 +88,7 @@ func NewArtifactSource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ArtifactSource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20160515:ArtifactSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20160515:ArtifactSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +100,7 @@ func NewArtifactSource(ctx *pulumi.Context,
 func GetArtifactSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ArtifactSourceState, opts ...pulumi.ResourceOption) (*ArtifactSource, error) {
 	var resource ArtifactSource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20160515:ArtifactSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20160515:ArtifactSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

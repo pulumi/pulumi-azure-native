@@ -10,7 +10,7 @@ import (
 // Server communication link.
 func LookupServerCommunicationLink(ctx *pulumi.Context, args *LookupServerCommunicationLinkArgs, opts ...pulumi.InvokeOption) (*LookupServerCommunicationLinkResult, error) {
 	var rv LookupServerCommunicationLinkResult
-	err := ctx.Invoke("azure-nextgen:sql/v20140401:getServerCommunicationLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20140401:getServerCommunicationLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

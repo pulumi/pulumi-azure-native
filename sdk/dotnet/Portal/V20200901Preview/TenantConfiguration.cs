@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20200901Preview
+namespace Pulumi.AzureNative.Portal.V20200901Preview
 {
     /// <summary>
     /// Tenant configuration.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:portal/v20200901preview:TenantConfiguration")]
+    [AzureNativeResourceType("azure-native:portal/v20200901preview:TenantConfiguration")]
     public partial class TenantConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TenantConfiguration(string name, TenantConfigurationArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20200901preview:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal/v20200901preview:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TenantConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20200901preview:TenantConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal/v20200901preview:TenantConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:TenantConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20190101preview:TenantConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20190101preview:TenantConfiguration"},
                 },
             };

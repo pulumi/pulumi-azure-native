@@ -64,22 +64,43 @@ func NewFrontDoor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network/latest:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/latest:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190501:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190501:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200101:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200101:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:FrontDoor"),
@@ -87,7 +108,7 @@ func NewFrontDoor(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FrontDoor
-	err := ctx.RegisterResource("azure-nextgen:network:FrontDoor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network:FrontDoor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +120,7 @@ func NewFrontDoor(ctx *pulumi.Context,
 func GetFrontDoor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FrontDoorState, opts ...pulumi.ResourceOption) (*FrontDoor, error) {
 	var resource FrontDoor
-	err := ctx.ReadResource("azure-nextgen:network:FrontDoor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network:FrontDoor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

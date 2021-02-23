@@ -10,10 +10,10 @@ import (
 // A sensitivity label.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolSensitivityLabel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolSensitivityLabel'.
 func LookupSqlPoolSensitivityLabel(ctx *pulumi.Context, args *LookupSqlPoolSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolSensitivityLabelResult, error) {
 	var rv LookupSqlPoolSensitivityLabelResult
-	err := ctx.Invoke("azure-nextgen:synapse/latest:getSqlPoolSensitivityLabel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse/latest:getSqlPoolSensitivityLabel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

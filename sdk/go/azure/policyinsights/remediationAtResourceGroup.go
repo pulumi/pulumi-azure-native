@@ -50,10 +50,19 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:policyinsights/latest:RemediationAtResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtResourceGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup"),
@@ -61,7 +70,7 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtResourceGroup
-	err := ctx.RegisterResource("azure-nextgen:policyinsights:RemediationAtResourceGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:policyinsights:RemediationAtResourceGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 func GetRemediationAtResourceGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RemediationAtResourceGroupState, opts ...pulumi.ResourceOption) (*RemediationAtResourceGroup, error) {
 	var resource RemediationAtResourceGroup
-	err := ctx.ReadResource("azure-nextgen:policyinsights:RemediationAtResourceGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:policyinsights:RemediationAtResourceGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

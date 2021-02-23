@@ -10,10 +10,10 @@ import (
 // DSCP Configuration in a resource group.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDscpConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDscpConfiguration'.
 func LookupDscpConfiguration(ctx *pulumi.Context, args *LookupDscpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscpConfigurationResult, error) {
 	var rv LookupDscpConfigurationResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getDscpConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getDscpConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

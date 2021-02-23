@@ -14,7 +14,7 @@ import (
 // The metric alert resource.
 // Latest API Version: 2018-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:MetricAlert'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MetricAlert'.
 type MetricAlert struct {
 	pulumi.CustomResourceState
 
@@ -84,7 +84,13 @@ func NewMetricAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:MetricAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:MetricAlert"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180301:MetricAlert"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180301:MetricAlert"),
@@ -92,7 +98,7 @@ func NewMetricAlert(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MetricAlert
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:MetricAlert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:MetricAlert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +110,7 @@ func NewMetricAlert(ctx *pulumi.Context,
 func GetMetricAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MetricAlertState, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
 	var resource MetricAlert
-	err := ctx.ReadResource("azure-nextgen:insights/latest:MetricAlert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:MetricAlert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

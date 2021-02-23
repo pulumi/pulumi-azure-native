@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.Latest
+namespace Pulumi.AzureNative.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Workspace resource container.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:operationalinsights:Workspace'.")]
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/latest:Workspace")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Workspace'.")]
+    [AzureNativeResourceType("azure-native:operationalinsights/latest:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -110,12 +110,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/latest:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/latest:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/latest:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -126,10 +126,15 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20201001:Workspace"},
                 },
             };
@@ -176,19 +181,19 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// The provisioning state of the workspace.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.WorkspaceEntityStatus>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.WorkspaceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
         /// </summary>
         [Input("publicNetworkAccessForIngestion")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics query.
         /// </summary>
         [Input("publicNetworkAccessForQuery")]
-        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.Latest.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.Latest.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

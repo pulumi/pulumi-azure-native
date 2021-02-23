@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170301
+namespace Pulumi.AzureNative.Network.V20170301
 {
     public static class GetEndpoint
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170301
         /// Class representing a Traffic Manager endpoint.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-nextgen:network/v20170301:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network/v20170301:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }
 
 

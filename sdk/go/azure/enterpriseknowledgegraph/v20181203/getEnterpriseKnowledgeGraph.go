@@ -10,7 +10,7 @@ import (
 // EnterpriseKnowledgeGraph resource definition
 func LookupEnterpriseKnowledgeGraph(ctx *pulumi.Context, args *LookupEnterpriseKnowledgeGraphArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseKnowledgeGraphResult, error) {
 	var rv LookupEnterpriseKnowledgeGraphResult
-	err := ctx.Invoke("azure-nextgen:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

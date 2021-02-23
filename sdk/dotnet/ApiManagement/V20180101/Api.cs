@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// API details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:Api")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:Api")]
     public partial class Api : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Api(string name, ApiArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Api", name, args ?? new ApiArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:Api", name, args ?? new ApiArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Api(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Api", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:Api", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,15 +148,25 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Api"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Api"},
                 },
             };
@@ -203,7 +213,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// Type of API.
         /// </summary>
         [Input("apiType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.ApiType>? ApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.ApiType>? ApiType { get; set; }
 
         /// <summary>
         /// Indicates the Version identifier of the API if the API is versioned
@@ -239,7 +249,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// Format of the Content in which the API is getting imported.
         /// </summary>
         [Input("contentFormat")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.ContentFormat>? ContentFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.ContentFormat>? ContentFormat { get; set; }
 
         /// <summary>
         /// Content value when Importing an API.
@@ -266,14 +276,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         public Input<string> Path { get; set; } = null!;
 
         [Input("protocols")]
-        private InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.Protocol>? _protocols;
+        private InputList<Pulumi.AzureNative.ApiManagement.V20180101.Protocol>? _protocols;
 
         /// <summary>
         /// Describes on which protocols the operations in this API can be invoked.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.Protocol> Protocols
+        public InputList<Pulumi.AzureNative.ApiManagement.V20180101.Protocol> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<Pulumi.AzureNextGen.ApiManagement.V20180101.Protocol>());
+            get => _protocols ?? (_protocols = new InputList<Pulumi.AzureNative.ApiManagement.V20180101.Protocol>());
             set => _protocols = value;
         }
 
@@ -301,7 +311,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         ///  * `soap` creates a SOAP pass-through API .
         /// </summary>
         [Input("soapApiType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.SoapApiType>? SoapApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20180101.SoapApiType>? SoapApiType { get; set; }
 
         /// <summary>
         /// Protocols over which API is made available.

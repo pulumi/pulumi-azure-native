@@ -10,7 +10,7 @@ import (
 // Backup description
 func ListSiteBackupStatusSecrets(ctx *pulumi.Context, args *ListSiteBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListSiteBackupStatusSecretsResult, error) {
 	var rv ListSiteBackupStatusSecretsResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:listSiteBackupStatusSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:listSiteBackupStatusSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

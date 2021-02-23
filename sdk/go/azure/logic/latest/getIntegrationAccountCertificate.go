@@ -10,10 +10,10 @@ import (
 // The integration account certificate.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountCertificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountCertificate'.
 func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegrationAccountCertificateArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountCertificateResult, error) {
 	var rv LookupIntegrationAccountCertificateResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationAccountCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationAccountCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

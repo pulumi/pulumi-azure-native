@@ -13,7 +13,7 @@ import (
 // The essential information related to the peer's ASN.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeerAsn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.
 type PeerAsn struct {
 	pulumi.CustomResourceState
 
@@ -42,19 +42,37 @@ func NewPeerAsn(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering:PeerAsn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering:PeerAsn"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20190801preview:PeerAsn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:PeerAsn"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20190901preview:PeerAsn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeerAsn"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:PeerAsn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:PeerAsn"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:PeerAsn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:PeerAsn"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:PeerAsn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:PeerAsn"),
@@ -62,7 +80,7 @@ func NewPeerAsn(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PeerAsn
-	err := ctx.RegisterResource("azure-nextgen:peering/latest:PeerAsn", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering/latest:PeerAsn", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +92,7 @@ func NewPeerAsn(ctx *pulumi.Context,
 func GetPeerAsn(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PeerAsnState, opts ...pulumi.ResourceOption) (*PeerAsn, error) {
 	var resource PeerAsn
-	err := ctx.ReadResource("azure-nextgen:peering/latest:PeerAsn", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering/latest:PeerAsn", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

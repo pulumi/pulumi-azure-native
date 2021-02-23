@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra table.
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraTable'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getCassandraResourceCassandraTable'. */
 export function getCassandraResourceCassandraTable(args: GetCassandraResourceCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraTableResult> {
-    pulumi.log.warn("getCassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getCassandraResourceCassandraTable'.")
+    pulumi.log.warn("getCassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getCassandraResourceCassandraTable'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCassandraResourceCassandraTable(args: GetCassandraResourceCas
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:getCassandraResourceCassandraTable", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:getCassandraResourceCassandraTable", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.Latest
+namespace Pulumi.AzureNative.Resources.Latest
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
     /// Latest API Version: 2020-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:TagAtScope'.")]
-    [AzureNextGenResourceType("azure-nextgen:resources/latest:TagAtScope")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:TagAtScope'.")]
+    [AzureNativeResourceType("azure-native:resources/latest:TagAtScope")]
     public partial class TagAtScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Resources.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TagAtScope(string name, TagAtScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/latest:TagAtScope", name, args ?? new TagAtScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/latest:TagAtScope", name, args ?? new TagAtScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TagAtScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/latest:TagAtScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/latest:TagAtScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,10 +60,15 @@ namespace Pulumi.AzureNextGen.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20191001:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200601:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20200801:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:TagAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20201001:TagAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:TagAtScope"},
                 },
             };

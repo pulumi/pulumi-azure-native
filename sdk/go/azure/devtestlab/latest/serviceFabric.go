@@ -14,7 +14,7 @@ import (
 // A Service Fabric.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceFabric'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabric'.
 type ServiceFabric struct {
 	pulumi.CustomResourceState
 
@@ -56,7 +56,13 @@ func NewServiceFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ServiceFabric"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabric"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceFabric"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabric"),
@@ -64,7 +70,7 @@ func NewServiceFabric(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabric
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:ServiceFabric", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:ServiceFabric", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +82,7 @@ func NewServiceFabric(ctx *pulumi.Context,
 func GetServiceFabric(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceFabricState, opts ...pulumi.ResourceOption) (*ServiceFabric, error) {
 	var resource ServiceFabric
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:ServiceFabric", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:ServiceFabric", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

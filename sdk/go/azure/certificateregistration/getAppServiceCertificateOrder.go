@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderResult, error) {
 	var rv LookupAppServiceCertificateOrderResult
-	err := ctx.Invoke("azure-nextgen:certificateregistration:getAppServiceCertificateOrder", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:certificateregistration:getAppServiceCertificateOrder", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

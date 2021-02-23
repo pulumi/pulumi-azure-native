@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBIDedicated
+namespace Pulumi.AzureNative.PowerBIDedicated
 {
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
     /// API Version: 2017-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:powerbidedicated:CapacityDetails")]
+    [AzureNativeResourceType("azure-native:powerbidedicated:CapacityDetails")]
     public partial class CapacityDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CapacityDetails(string name, CapacityDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbidedicated:CapacityDetails", name, args ?? new CapacityDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:powerbidedicated:CapacityDetails", name, args ?? new CapacityDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CapacityDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:powerbidedicated:CapacityDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:powerbidedicated:CapacityDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,7 +89,9 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/latest:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/latest:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20171001:CapacityDetails"},
                 },
             };

@@ -22,7 +22,7 @@ export class OrderCollectionByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:edgeorder/v20201201preview:OrderCollectionByName';
+    public static readonly __pulumiType = 'azure-native:edgeorder/v20201201preview:OrderCollectionByName';
 
     /**
      * Returns true if the given object is an instance of OrderCollectionByName.  This is designed to work even
@@ -99,7 +99,7 @@ export class OrderCollectionByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:edgeorder:OrderCollectionByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:OrderCollectionByName" }, { type: "azure-nextgen:edgeorder:OrderCollectionByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OrderCollectionByName.__pulumiType, name, inputs, opts);
     }

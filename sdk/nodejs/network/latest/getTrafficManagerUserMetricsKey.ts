@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing Traffic Manager User Metrics.
  * Latest API Version: 2018-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getTrafficManagerUserMetricsKey'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getTrafficManagerUserMetricsKey'. */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
-    pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getTrafficManagerUserMetricsKey'.")
+    pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getTrafficManagerUserMetricsKey'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getTrafficManagerUserMetricsKey", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getTrafficManagerUserMetricsKey", {
     }, opts);
 }
 

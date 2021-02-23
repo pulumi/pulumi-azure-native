@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.Latest
+namespace Pulumi.AzureNative.Management.Latest
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
     /// Latest API Version: 2020-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:management:HierarchySetting'.")]
-    [AzureNextGenResourceType("azure-nextgen:management/latest:HierarchySetting")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.")]
+    [AzureNativeResourceType("azure-native:management/latest:HierarchySetting")]
     public partial class HierarchySetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.Management.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HierarchySetting(string name, HierarchySettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/latest:HierarchySetting", name, args ?? new HierarchySettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:management/latest:HierarchySetting", name, args ?? new HierarchySettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HierarchySetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:management/latest:HierarchySetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:management/latest:HierarchySetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,8 +72,11 @@ namespace Pulumi.AzureNextGen.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:management:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:HierarchySetting"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200201:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:HierarchySetting"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20200501:HierarchySetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:HierarchySetting"},
                 },
             };

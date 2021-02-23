@@ -22,7 +22,7 @@ export class Key extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse:Key';
+    public static readonly __pulumiType = 'azure-native:synapse:Key';
 
     /**
      * Returns true if the given object is an instance of Key.  This is designed to work even
@@ -88,7 +88,7 @@ export class Key extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:Key" }, { type: "azure-nextgen:synapse/v20190601preview:Key" }, { type: "azure-nextgen:synapse/v20201201:Key" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:Key" }, { type: "azure-nextgen:synapse/latest:Key" }, { type: "azure-native:synapse/v20190601preview:Key" }, { type: "azure-nextgen:synapse/v20190601preview:Key" }, { type: "azure-native:synapse/v20201201:Key" }, { type: "azure-nextgen:synapse/v20201201:Key" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Key.__pulumiType, name, inputs, opts);
     }

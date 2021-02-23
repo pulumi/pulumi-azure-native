@@ -17,7 +17,7 @@ export function getGalleryImageVersion(args: GetGalleryImageVersionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute:getGalleryImageVersion", {
+    return pulumi.runtime.invoke("azure-native:compute:getGalleryImageVersion", {
         "expand": args.expand,
         "galleryImageName": args.galleryImageName,
         "galleryImageVersionName": args.galleryImageVersionName,

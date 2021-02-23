@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A web app, a mobile app backend, or an API app.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSlot'. */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
-    pulumi.log.warn("getWebAppSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSlot'.")
+    pulumi.log.warn("getWebAppSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

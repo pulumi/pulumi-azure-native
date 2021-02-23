@@ -10,7 +10,7 @@ import (
 // Represents a relation between two resources
 func LookupIncidentRelation(ctx *pulumi.Context, args *LookupIncidentRelationArgs, opts ...pulumi.InvokeOption) (*LookupIncidentRelationResult, error) {
 	var rv LookupIncidentRelationResult
-	err := ctx.Invoke("azure-nextgen:securityinsights/v20190101preview:getIncidentRelation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getIncidentRelation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

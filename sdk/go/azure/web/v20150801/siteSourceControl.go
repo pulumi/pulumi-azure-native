@@ -52,28 +52,55 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteSourceControl"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteSourceControl"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteSourceControl"),
@@ -81,7 +108,7 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteSourceControl
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteSourceControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteSourceControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +120,7 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 func GetSiteSourceControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteSourceControlState, opts ...pulumi.ResourceOption) (*SiteSourceControl, error) {
 	var resource SiteSourceControl
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteSourceControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteSourceControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

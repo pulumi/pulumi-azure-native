@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Recipient User details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:NotificationRecipientUser")]
+    [AzureNativeResourceType("azure-native:apimanagement:NotificationRecipientUser")]
     public partial class NotificationRecipientUser : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationRecipientUser(string name, NotificationRecipientUserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:NotificationRecipientUser", name, args ?? new NotificationRecipientUserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:NotificationRecipientUser", name, args ?? new NotificationRecipientUserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationRecipientUser(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:NotificationRecipientUser", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:NotificationRecipientUser", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,13 +59,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser"},
                 },
             };

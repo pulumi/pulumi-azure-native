@@ -11,7 +11,7 @@ import (
 // API Version: 2016-09-01.
 func LookupManagementLockAtResourceLevel(ctx *pulumi.Context, args *LookupManagementLockAtResourceLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtResourceLevelResult, error) {
 	var rv LookupManagementLockAtResourceLevelResult
-	err := ctx.Invoke("azure-nextgen:authorization:getManagementLockAtResourceLevel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getManagementLockAtResourceLevel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

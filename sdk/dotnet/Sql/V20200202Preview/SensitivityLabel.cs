@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// A sensitivity label.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:SensitivityLabel")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:SensitivityLabel")]
     public partial class SensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SensitivityLabel(string name, SensitivityLabelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:SensitivityLabel", name, args ?? new SensitivityLabelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:SensitivityLabel", name, args ?? new SensitivityLabelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SensitivityLabel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:SensitivityLabel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:SensitivityLabel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,8 +109,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:SensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:SensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SensitivityLabel"},
                 },
             };
@@ -172,7 +175,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         public Input<string>? LabelName { get; set; }
 
         [Input("rank")]
-        public Input<Pulumi.AzureNextGen.Sql.V20200202Preview.SensitivityLabelRank>? Rank { get; set; }
+        public Input<Pulumi.AzureNative.Sql.V20200202Preview.SensitivityLabelRank>? Rank { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

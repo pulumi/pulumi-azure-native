@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery image version that you want to create or update.
  * Latest API Version: 2020-09-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryImageVersion'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImageVersion'.
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryImageVersion {
-        pulumi.log.warn("GalleryImageVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryImageVersion'.")
+        pulumi.log.warn("GalleryImageVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImageVersion'.")
         return new GalleryImageVersion(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:GalleryImageVersion';
+    public static readonly __pulumiType = 'azure-native:compute/latest:GalleryImageVersion';
 
     /**
      * Returns true if the given object is an instance of GalleryImageVersion.  This is designed to work even
@@ -79,9 +79,9 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryImageVersion'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImageVersion'. */
     constructor(name: string, args: GalleryImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GalleryImageVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:GalleryImageVersion'.")
+        pulumi.log.warn("GalleryImageVersion is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImageVersion'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
@@ -125,7 +125,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20180601:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryImageVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-nextgen:compute:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryImageVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImageVersion.__pulumiType, name, inputs, opts);
     }

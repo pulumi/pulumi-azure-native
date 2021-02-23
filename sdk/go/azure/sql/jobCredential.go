@@ -50,10 +50,19 @@ func NewJobCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:JobCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:JobCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:JobCredential"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:JobCredential"),
@@ -61,7 +70,7 @@ func NewJobCredential(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobCredential
-	err := ctx.RegisterResource("azure-nextgen:sql:JobCredential", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:JobCredential", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +82,7 @@ func NewJobCredential(ctx *pulumi.Context,
 func GetJobCredential(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobCredentialState, opts ...pulumi.ResourceOption) (*JobCredential, error) {
 	var resource JobCredential
-	err := ctx.ReadResource("azure-nextgen:sql:JobCredential", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:JobCredential", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

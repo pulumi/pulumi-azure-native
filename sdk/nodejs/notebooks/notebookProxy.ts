@@ -22,7 +22,7 @@ export class NotebookProxy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:notebooks:NotebookProxy';
+    public static readonly __pulumiType = 'azure-native:notebooks:NotebookProxy';
 
     /**
      * Returns true if the given object is an instance of NotebookProxy.  This is designed to work even
@@ -84,7 +84,7 @@ export class NotebookProxy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notebooks/v20191011preview:NotebookProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notebooks/v20191011preview:NotebookProxy" }, { type: "azure-nextgen:notebooks/v20191011preview:NotebookProxy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotebookProxy.__pulumiType, name, inputs, opts);
     }

@@ -16,7 +16,7 @@ export function getTagDescription(args: GetTagDescriptionArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20170301:getTagDescription", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getTagDescription", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

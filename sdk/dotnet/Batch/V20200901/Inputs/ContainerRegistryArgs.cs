@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20200901.Inputs
+namespace Pulumi.AzureNative.Batch.V20200901.Inputs
 {
 
     public sealed class ContainerRegistryArgs : Pulumi.ResourceArgs

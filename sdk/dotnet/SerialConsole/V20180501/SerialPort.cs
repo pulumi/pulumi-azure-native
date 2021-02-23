@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SerialConsole.V20180501
+namespace Pulumi.AzureNative.SerialConsole.V20180501
 {
     /// <summary>
     /// Represents the serial port of the parent resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:serialconsole/v20180501:SerialPort")]
+    [AzureNativeResourceType("azure-native:serialconsole/v20180501:SerialPort")]
     public partial class SerialPort : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SerialPort(string name, SerialPortArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:serialconsole/v20180501:SerialPort", name, args ?? new SerialPortArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:serialconsole/v20180501:SerialPort", name, args ?? new SerialPortArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SerialPort(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:serialconsole/v20180501:SerialPort", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:serialconsole/v20180501:SerialPort", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,7 +58,9 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:serialconsole:SerialPort"},
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole:SerialPort"},
+                    new Pulumi.Alias { Type = "azure-native:serialconsole/latest:SerialPort"},
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole/latest:SerialPort"},
                 },
             };
@@ -117,7 +119,7 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
         /// Specifies whether the port is enabled for a serial console connection.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.SerialConsole.V20180501.SerialPortState>? State { get; set; }
+        public Input<Pulumi.AzureNative.SerialConsole.V20180501.SerialPortState>? State { get; set; }
 
         public SerialPortArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack.V20170601
+namespace Pulumi.AzureNative.AzureStack.V20170601
 {
     /// <summary>
     /// Customer subscription.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azurestack/v20170601:CustomerSubscription")]
+    [AzureNativeResourceType("azure-native:azurestack/v20170601:CustomerSubscription")]
     public partial class CustomerSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerSubscription(string name, CustomerSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/v20170601:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestack/v20170601:CustomerSubscription", name, args ?? new CustomerSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomerSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack/v20170601:CustomerSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestack/v20170601:CustomerSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,8 +64,11 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azurestack:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/latest:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:CustomerSubscription"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest.Inputs
+namespace Pulumi.AzureNative.Web.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// The WSDL import method
         /// </summary>
         [Input("importMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
 
         /// <summary>
         /// The service with name and endpoint names

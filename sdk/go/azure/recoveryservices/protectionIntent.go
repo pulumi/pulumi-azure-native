@@ -48,10 +48,19 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectionIntent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectionIntent"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20170701:ProtectionIntent"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20170701:ProtectionIntent"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionIntent"),
@@ -59,7 +68,7 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionIntent
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ProtectionIntent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ProtectionIntent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewProtectionIntent(ctx *pulumi.Context,
 func GetProtectionIntent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProtectionIntentState, opts ...pulumi.ResourceOption) (*ProtectionIntent, error) {
 	var resource ProtectionIntent
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ProtectionIntent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ProtectionIntent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

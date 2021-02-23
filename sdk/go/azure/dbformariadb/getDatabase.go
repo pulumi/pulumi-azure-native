@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
-	err := ctx.Invoke("azure-nextgen:dbformariadb:getDatabase", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbformariadb:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

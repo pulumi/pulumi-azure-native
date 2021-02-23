@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// An Azure SQL managed instance.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:ManagedInstance")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:ManagedInstance")]
     public partial class ManagedInstance : Pulumi.CustomResource
     {
         /// <summary>
@@ -210,12 +210,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstance(string name, ManagedInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ManagedInstance", name, args ?? new ManagedInstanceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:ManagedInstance", name, args ?? new ManagedInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:ManagedInstance", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:ManagedInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -226,9 +226,13 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedInstance"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstance"},
                 },
             };
@@ -293,7 +297,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         /// </summary>
         [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.ManagedInstanceLicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.ManagedInstanceLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -315,7 +319,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
         /// </summary>
         [Input("managedInstanceCreateMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.ManagedServerCreateMode>? ManagedInstanceCreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.ManagedServerCreateMode>? ManagedInstanceCreateMode { get; set; }
 
         /// <summary>
         /// The name of the managed instance.
@@ -333,7 +337,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// Connection type used for connecting to the instance.
         /// </summary>
         [Input("proxyOverride")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.ManagedInstanceProxyOverride>? ProxyOverride { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.ManagedInstanceProxyOverride>? ProxyOverride { get; set; }
 
         /// <summary>
         /// Whether or not the public data endpoint is enabled.
@@ -369,7 +373,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
         /// </summary>
         [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.StorageAccountType>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.StorageAccountType>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.

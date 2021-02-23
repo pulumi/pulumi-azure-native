@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Premier add-on.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOnSlot'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOnSlot'. */
 export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnSlotResult> {
-    pulumi.log.warn("getWebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOnSlot'.")
+    pulumi.log.warn("getWebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOnSlot'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppPremierAddOnSlot", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppPremierAddOnSlot", {
         "name": args.name,
         "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,

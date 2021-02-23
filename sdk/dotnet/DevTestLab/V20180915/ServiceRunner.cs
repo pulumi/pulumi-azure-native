@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20180915
+namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A container for a managed identity to execute DevTest lab services.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20180915:ServiceRunner")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20180915:ServiceRunner")]
     public partial class ServiceRunner : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceRunner(string name, ServiceRunnerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:ServiceRunner", name, args ?? new ServiceRunnerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20180915:ServiceRunner", name, args ?? new ServiceRunnerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceRunner(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20180915:ServiceRunner", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20180915:ServiceRunner", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,8 +70,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceRunner"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ServiceRunner"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ServiceRunner"},
                 },
             };

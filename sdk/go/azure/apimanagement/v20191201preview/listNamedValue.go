@@ -10,7 +10,7 @@ import (
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {
 	var rv ListNamedValueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:listNamedValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:listNamedValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

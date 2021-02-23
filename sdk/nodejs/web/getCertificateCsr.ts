@@ -17,7 +17,7 @@ export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getCertificateCsr", {
+    return pulumi.runtime.invoke("azure-native:web:getCertificateCsr", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

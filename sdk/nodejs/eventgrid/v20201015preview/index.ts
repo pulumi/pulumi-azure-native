@@ -57,31 +57,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:eventgrid/v20201015preview:Domain":
+            case "azure-native:eventgrid/v20201015preview:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:DomainTopic":
+            case "azure-native:eventgrid/v20201015preview:DomainTopic":
                 return new DomainTopic(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:EventChannel":
+            case "azure-native:eventgrid/v20201015preview:EventChannel":
                 return new EventChannel(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:EventSubscription":
+            case "azure-native:eventgrid/v20201015preview:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:PartnerNamespace":
+            case "azure-native:eventgrid/v20201015preview:PartnerNamespace":
                 return new PartnerNamespace(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration":
+            case "azure-native:eventgrid/v20201015preview:PartnerRegistration":
                 return new PartnerRegistration(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription":
+            case "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription":
                 return new PartnerTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection":
+            case "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:SystemTopic":
+            case "azure-native:eventgrid/v20201015preview:SystemTopic":
                 return new SystemTopic(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription":
+            case "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription":
                 return new SystemTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:eventgrid/v20201015preview:Topic":
+            case "azure-native:eventgrid/v20201015preview:Topic":
                 return new Topic(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "eventgrid/v20201015preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "eventgrid/v20201015preview", _module)

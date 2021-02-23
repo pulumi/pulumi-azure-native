@@ -14,7 +14,7 @@ import (
 // Description of a backup which will be performed.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppBackupConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.
 type WebAppBackupConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -56,28 +56,55 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppBackupConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppBackupConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppBackupConfiguration"),
@@ -85,7 +112,7 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppBackupConfiguration
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppBackupConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppBackupConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +124,7 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 func GetWebAppBackupConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppBackupConfigurationState, opts ...pulumi.ResourceOption) (*WebAppBackupConfiguration, error) {
 	var resource WebAppBackupConfiguration
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppBackupConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppBackupConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

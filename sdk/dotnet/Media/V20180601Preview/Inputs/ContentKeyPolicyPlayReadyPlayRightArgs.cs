@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// Configures Unknown output handling settings of the license.
         /// </summary>
         [Input("allowPassingVideoContentToUnknownOutput", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.ContentKeyPolicyPlayReadyUnknownOutputPassingOption> AllowPassingVideoContentToUnknownOutput { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180601Preview.ContentKeyPolicyPlayReadyUnknownOutputPassingOption> AllowPassingVideoContentToUnknownOutput { get; set; } = null!;
 
         /// <summary>
         /// Specifies the output protection level for compressed digital audio.

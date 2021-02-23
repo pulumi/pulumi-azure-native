@@ -17,7 +17,7 @@ export function getBandwidthSetting(args: GetBandwidthSettingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple:getBandwidthSetting", {
+    return pulumi.runtime.invoke("azure-native:storsimple:getBandwidthSetting", {
         "bandwidthSettingName": args.bandwidthSettingName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

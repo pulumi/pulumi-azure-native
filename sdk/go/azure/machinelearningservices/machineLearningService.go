@@ -52,16 +52,31 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/latest:MachineLearningService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:MachineLearningService"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:MachineLearningService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:MachineLearningService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"),
 		},
 		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:MachineLearningService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210101:MachineLearningService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningService"),
@@ -69,7 +84,7 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MachineLearningService
-	err := ctx.RegisterResource("azure-nextgen:machinelearningservices:MachineLearningService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:machinelearningservices:MachineLearningService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +96,7 @@ func NewMachineLearningService(ctx *pulumi.Context,
 func GetMachineLearningService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MachineLearningServiceState, opts ...pulumi.ResourceOption) (*MachineLearningService, error) {
 	var resource MachineLearningService
-	err := ctx.ReadResource("azure-nextgen:machinelearningservices:MachineLearningService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:machinelearningservices:MachineLearningService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

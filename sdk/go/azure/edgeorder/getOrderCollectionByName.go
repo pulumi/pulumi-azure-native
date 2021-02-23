@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01-preview.
 func LookupOrderCollectionByName(ctx *pulumi.Context, args *LookupOrderCollectionByNameArgs, opts ...pulumi.InvokeOption) (*LookupOrderCollectionByNameResult, error) {
 	var rv LookupOrderCollectionByNameResult
-	err := ctx.Invoke("azure-nextgen:edgeorder:getOrderCollectionByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:edgeorder:getOrderCollectionByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

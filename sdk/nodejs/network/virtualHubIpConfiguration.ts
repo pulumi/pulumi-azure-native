@@ -23,7 +23,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network:VirtualHubIpConfiguration';
+    public static readonly __pulumiType = 'azure-native:network:VirtualHubIpConfiguration';
 
     /**
      * Returns true if the given object is an instance of VirtualHubIpConfiguration.  This is designed to work even
@@ -114,7 +114,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200801:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/latest:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200701:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-nextgen:network/v20200801:VirtualHubIpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubIpConfiguration.__pulumiType, name, inputs, opts);
     }

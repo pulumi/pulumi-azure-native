@@ -44,19 +44,37 @@ func NewPeeringServicePrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering:PeeringServicePrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering:PeeringServicePrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/latest:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/latest:PeeringServicePrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20190901preview:PeeringServicePrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeeringServicePrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:PeeringServicePrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:PeeringServicePrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:PeeringServicePrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:PeeringServicePrefix"),
@@ -64,7 +82,7 @@ func NewPeeringServicePrefix(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PeeringServicePrefix
-	err := ctx.RegisterResource("azure-nextgen:peering/v20190801preview:PeeringServicePrefix", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering/v20190801preview:PeeringServicePrefix", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +94,7 @@ func NewPeeringServicePrefix(ctx *pulumi.Context,
 func GetPeeringServicePrefix(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PeeringServicePrefixState, opts ...pulumi.ResourceOption) (*PeeringServicePrefix, error) {
 	var resource PeeringServicePrefix
-	err := ctx.ReadResource("azure-nextgen:peering/v20190801preview:PeeringServicePrefix", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering/v20190801preview:PeeringServicePrefix", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

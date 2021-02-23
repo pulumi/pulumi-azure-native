@@ -10,7 +10,7 @@ import (
 // Data needed to decrypt asset files encrypted with legacy storage encryption.
 func GetAssetEncryptionKey(ctx *pulumi.Context, args *GetAssetEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetAssetEncryptionKeyResult, error) {
 	var rv GetAssetEncryptionKeyResult
-	err := ctx.Invoke("azure-nextgen:media/v20180701:getAssetEncryptionKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180701:getAssetEncryptionKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

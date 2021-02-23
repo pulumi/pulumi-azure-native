@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Inputs
+namespace Pulumi.AzureNative.Insights.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Insights.Inputs
         /// the scale direction. Whether the scaling action increases or decreases the number of instances.
         /// </summary>
         [Input("direction", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.ScaleDirection> Direction { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.ScaleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// the type of action that should occur when the scale rule fires.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Insights.ScaleType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Insights.ScaleType> Type { get; set; } = null!;
 
         /// <summary>
         /// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.

@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult
-	err := ctx.Invoke("azure-nextgen:eventhub:getEventHub", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub:getEventHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

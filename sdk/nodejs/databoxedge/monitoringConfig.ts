@@ -23,7 +23,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:databoxedge:MonitoringConfig';
+    public static readonly __pulumiType = 'azure-native:databoxedge:MonitoringConfig';
 
     /**
      * Returns true if the given object is an instance of MonitoringConfig.  This is designed to work even
@@ -89,7 +89,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/latest:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/latest:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthBot.V20201208
+namespace Pulumi.AzureNative.HealthBot.V20201208
 {
     public static class GetBot
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201208
         /// HealthBot resource definition
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-nextgen:healthbot/v20201208:getBot", args ?? new GetBotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:healthbot/v20201208:getBot", args ?? new GetBotArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge
+namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// API Version: 2020-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databoxedge:Share")]
+    [AzureNativeResourceType("azure-native:databoxedge:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Share(string name, ShareArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databoxedge:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Share(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databoxedge:Share", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databoxedge:Share", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,12 +119,19 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190701:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Share"},
                 },
             };
@@ -153,7 +160,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Access protocol to be used by the share.
         /// </summary>
         [Input("accessProtocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.ShareAccessProtocol> AccessProtocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.ShareAccessProtocol> AccessProtocol { get; set; } = null!;
 
         /// <summary>
         /// Azure container mapping for the share.
@@ -177,7 +184,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Data policy of the share.
         /// </summary>
         [Input("dataPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.DataPolicy>? DataPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.DataPolicy>? DataPolicy { get; set; }
 
         /// <summary>
         /// Description for the share.
@@ -195,7 +202,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Current monitoring status of the share.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.MonitoringStatus> MonitoringStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The share name.
@@ -219,7 +226,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge
         /// Current status of the share.
         /// </summary>
         [Input("shareStatus", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.ShareStatus> ShareStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.ShareStatus> ShareStatus { get; set; } = null!;
 
         [Input("userAccessRights")]
         private InputList<Inputs.UserAccessRightArgs>? _userAccessRights;

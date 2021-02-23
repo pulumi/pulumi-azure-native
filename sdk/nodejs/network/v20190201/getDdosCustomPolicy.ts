@@ -16,7 +16,7 @@ export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20190201:getDdosCustomPolicy", {
+    return pulumi.runtime.invoke("azure-native:network/v20190201:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

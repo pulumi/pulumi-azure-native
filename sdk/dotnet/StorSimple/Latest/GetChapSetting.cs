@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getChapSetting'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getChapSetting'.")]
     public static class GetChapSetting
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2016-10-01.
         /// </summary>
         public static Task<GetChapSettingResult> InvokeAsync(GetChapSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-nextgen:storsimple/latest:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChapSettingResult>("azure-native:storsimple/latest:getChapSetting", args ?? new GetChapSettingArgs(), options.WithVersion());
     }
 
 

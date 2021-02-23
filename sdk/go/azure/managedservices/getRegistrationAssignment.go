@@ -11,7 +11,7 @@ import (
 // API Version: 2019-09-01.
 func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationAssignmentResult, error) {
 	var rv LookupRegistrationAssignmentResult
-	err := ctx.Invoke("azure-nextgen:managedservices:getRegistrationAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedservices:getRegistrationAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

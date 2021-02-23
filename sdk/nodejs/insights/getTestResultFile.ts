@@ -17,7 +17,7 @@ export function getTestResultFile(args: GetTestResultFileArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights:getTestResultFile", {
+    return pulumi.runtime.invoke("azure-native:insights:getTestResultFile", {
         "continuationToken": args.continuationToken,
         "downloadAs": args.downloadAs,
         "geoLocationId": args.geoLocationId,

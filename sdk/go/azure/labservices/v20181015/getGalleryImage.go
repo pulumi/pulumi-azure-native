@@ -10,7 +10,7 @@ import (
 // Represents an image from the Azure Marketplace
 func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts ...pulumi.InvokeOption) (*LookupGalleryImageResult, error) {
 	var rv LookupGalleryImageResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getGalleryImage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getGalleryImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

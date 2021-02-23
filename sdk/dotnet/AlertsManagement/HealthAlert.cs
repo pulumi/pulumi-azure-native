@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement
+namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// The health alert resource.
     /// API Version: 2020-08-04-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:alertsmanagement:HealthAlert")]
+    [AzureNativeResourceType("azure-native:alertsmanagement:HealthAlert")]
     public partial class HealthAlert : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.AlertsManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthAlert(string name, HealthAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:alertsmanagement:HealthAlert", name, args ?? new HealthAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HealthAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:alertsmanagement:HealthAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:alertsmanagement:HealthAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20200804preview:HealthAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"},
                 },
             };

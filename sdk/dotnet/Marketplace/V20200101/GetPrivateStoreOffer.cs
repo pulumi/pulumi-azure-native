@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Marketplace.V20200101
+namespace Pulumi.AzureNative.Marketplace.V20200101
 {
     public static class GetPrivateStoreOffer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// The privateStore offer data structure.
         /// </summary>
         public static Task<GetPrivateStoreOfferResult> InvokeAsync(GetPrivateStoreOfferArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-nextgen:marketplace/v20200101:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreOfferResult>("azure-native:marketplace/v20200101:getPrivateStoreOffer", args ?? new GetPrivateStoreOfferArgs(), options.WithVersion());
     }
 
 

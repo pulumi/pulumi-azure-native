@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20180101
+namespace Pulumi.AzureNative.EventGrid.V20180101
 {
     /// <summary>
     /// EventGrid Topic
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20180101:Topic")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20180101:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20180101:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20180101:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Topic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20180101:Topic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20180101:Topic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,18 +76,31 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180501preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190101:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:Topic"},
                 },
             };

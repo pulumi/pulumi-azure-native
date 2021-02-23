@@ -67,22 +67,43 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabric:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/latest:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/latest:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:Application"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Application"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:Application"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20200301:Application"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:Application"),
@@ -90,7 +111,7 @@ func NewApplication(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Application
-	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20191101preview:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabric/v20191101preview:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +123,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("azure-nextgen:servicefabric/v20191101preview:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabric/v20191101preview:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

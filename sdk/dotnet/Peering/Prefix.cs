@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering
+namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The peering service prefix class.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:peering:Prefix")]
+    [AzureNativeResourceType("azure-native:peering:Prefix")]
     public partial class Prefix : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Peering
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Prefix(string name, PrefixArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering:Prefix", name, args ?? new PrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:peering:Prefix", name, args ?? new PrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Prefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering:Prefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:peering:Prefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,11 +95,17 @@ namespace Pulumi.AzureNextGen.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:peering/latest:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:Prefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:Prefix"},
                 },
             };

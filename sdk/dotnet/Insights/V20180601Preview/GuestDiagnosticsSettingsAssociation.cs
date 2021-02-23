@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180601Preview
+namespace Pulumi.AzureNative.Insights.V20180601Preview
 {
     /// <summary>
     /// Virtual machine guest diagnostic settings resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation")]
+    [AzureNativeResourceType("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation")]
     public partial class GuestDiagnosticsSettingsAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestDiagnosticsSettingsAssociation(string name, GuestDiagnosticsSettingsAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, args ?? new GuestDiagnosticsSettingsAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, args ?? new GuestDiagnosticsSettingsAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestDiagnosticsSettingsAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:GuestDiagnosticsSettingsAssociation"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:GuestDiagnosticsSettingsAssociation"},
                 },
             };

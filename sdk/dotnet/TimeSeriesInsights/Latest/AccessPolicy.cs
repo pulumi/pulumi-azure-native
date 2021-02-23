@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
+namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
 {
     /// <summary>
     /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
     /// Latest API Version: 2020-05-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:timeseriesinsights:AccessPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:timeseriesinsights/latest:AccessPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:AccessPolicy'.")]
+    [AzureNativeResourceType("azure-native:timeseriesinsights/latest:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:timeseriesinsights/latest:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:timeseriesinsights/latest:AccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:timeseriesinsights/latest:AccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,10 +72,15 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"},
                 },
             };
@@ -131,14 +136,14 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("roles")]
-        private InputList<Union<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.AccessPolicyRole>>? _roles;
+        private InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.AccessPolicyRole>>? _roles;
 
         /// <summary>
         /// The list of roles the principal is assigned on the environment.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.AccessPolicyRole>> Roles
+        public InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.AccessPolicyRole>> Roles
         {
-            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.AccessPolicyRole>>());
+            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNative.TimeSeriesInsights.Latest.AccessPolicyRole>>());
             set => _roles = value;
         }
 

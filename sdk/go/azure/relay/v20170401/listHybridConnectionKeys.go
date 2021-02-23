@@ -10,7 +10,7 @@ import (
 // Namespace/Relay Connection String
 func ListHybridConnectionKeys(ctx *pulumi.Context, args *ListHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListHybridConnectionKeysResult, error) {
 	var rv ListHybridConnectionKeysResult
-	err := ctx.Invoke("azure-nextgen:relay/v20170401:listHybridConnectionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20170401:listHybridConnectionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

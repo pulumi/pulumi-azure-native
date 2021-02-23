@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Represents user credentials used for publishing activity
  * Latest API Version: 2015-08-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeployment'.
  */
 export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteInstanceDeployment {
-        pulumi.log.warn("SiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.")
+        pulumi.log.warn("SiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeployment'.")
         return new SiteInstanceDeployment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:SiteInstanceDeployment';
+    public static readonly __pulumiType = 'azure-native:web/latest:SiteInstanceDeployment';
 
     /**
      * Returns true if the given object is an instance of SiteInstanceDeployment.  This is designed to work even
@@ -102,9 +102,9 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeployment'. */
     constructor(name: string, args: SiteInstanceDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:SiteInstanceDeployment'.")
+        pulumi.log.warn("SiteInstanceDeployment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:SiteInstanceDeployment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
@@ -156,7 +156,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteInstanceDeployment" }, { type: "azure-nextgen:web/v20150801:SiteInstanceDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteInstanceDeployment" }, { type: "azure-nextgen:web:SiteInstanceDeployment" }, { type: "azure-native:web/v20150801:SiteInstanceDeployment" }, { type: "azure-nextgen:web/v20150801:SiteInstanceDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteInstanceDeployment.__pulumiType, name, inputs, opts);
     }

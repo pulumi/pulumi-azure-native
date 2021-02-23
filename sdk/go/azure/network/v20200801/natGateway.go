@@ -55,46 +55,91 @@ func NewNatGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:NatGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:NatGateway"),
@@ -102,7 +147,7 @@ func NewNatGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NatGateway
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:NatGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:NatGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +159,7 @@ func NewNatGateway(ctx *pulumi.Context,
 func GetNatGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NatGatewayState, opts ...pulumi.ResourceOption) (*NatGateway, error) {
 	var resource NatGateway
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:NatGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:NatGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

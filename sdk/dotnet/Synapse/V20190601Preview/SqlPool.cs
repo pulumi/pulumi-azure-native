@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
+namespace Pulumi.AzureNative.Synapse.V20190601Preview
 {
     /// <summary>
     /// A SQL Analytics pool
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20190601preview:SqlPool")]
+    [AzureNativeResourceType("azure-native:synapse/v20190601preview:SqlPool")]
     public partial class SqlPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlPool(string name, SqlPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPool", name, args ?? new SqlPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20190601preview:SqlPool", name, args ?? new SqlPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20190601preview:SqlPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20190601preview:SqlPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,9 +124,13 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPool"},
                 },
             };

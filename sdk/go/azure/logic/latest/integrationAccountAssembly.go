@@ -14,7 +14,7 @@ import (
 // The assembly definition.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:IntegrationAccountAssembly'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountAssembly'.
 type IntegrationAccountAssembly struct {
 	pulumi.CustomResourceState
 
@@ -48,13 +48,25 @@ func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:IntegrationAccountAssembly"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountAssembly"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountAssembly"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:IntegrationAccountAssembly"),
 		},
 		{
+			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountAssembly"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountAssembly"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20190501:IntegrationAccountAssembly"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountAssembly"),
@@ -62,7 +74,7 @@ func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationAccountAssembly
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:IntegrationAccountAssembly", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:IntegrationAccountAssembly", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 func GetIntegrationAccountAssembly(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationAccountAssemblyState, opts ...pulumi.ResourceOption) (*IntegrationAccountAssembly, error) {
 	var resource IntegrationAccountAssembly
-	err := ctx.ReadResource("azure-nextgen:logic/latest:IntegrationAccountAssembly", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:IntegrationAccountAssembly", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

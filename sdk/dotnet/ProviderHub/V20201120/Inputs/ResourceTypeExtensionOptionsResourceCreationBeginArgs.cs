@@ -7,24 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
+namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
     public sealed class ResourceTypeExtensionOptionsResourceCreationBeginArgs : Pulumi.ResourceArgs
     {
         [Input("request")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>>? _request;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>> Request
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>>? _request;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>> Request
         {
-            get => _request ?? (_request = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>>());
+            get => _request ?? (_request = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>>());
             set => _request = value;
         }
 
         [Input("response")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>>? _response;
-        public InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>> Response
+        private InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>>? _response;
+        public InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>> Response
         {
-            get => _response ?? (_response = new InputList<Union<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ExtensionOptionType>>());
+            get => _response ?? (_response = new InputList<Union<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtensionOptionType>>());
             set => _response = value;
         }
 

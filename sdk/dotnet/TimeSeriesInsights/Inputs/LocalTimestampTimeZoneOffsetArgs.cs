@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.Inputs
+namespace Pulumi.AzureNative.TimeSeriesInsights.Inputs
 {
 
     /// <summary>

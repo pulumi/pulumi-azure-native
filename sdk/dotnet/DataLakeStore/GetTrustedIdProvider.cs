@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeStore
+namespace Pulumi.AzureNative.DataLakeStore
 {
     public static class GetTrustedIdProvider
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore
         /// API Version: 2016-11-01.
         /// </summary>
         public static Task<GetTrustedIdProviderResult> InvokeAsync(GetTrustedIdProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-nextgen:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedIdProviderResult>("azure-native:datalakestore:getTrustedIdProvider", args ?? new GetTrustedIdProviderArgs(), options.WithVersion());
     }
 
 

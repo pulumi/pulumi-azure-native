@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-01.
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	var rv LookupInputResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics:getInput", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics:getInput", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

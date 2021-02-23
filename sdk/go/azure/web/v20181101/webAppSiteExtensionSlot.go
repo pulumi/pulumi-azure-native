@@ -80,25 +80,49 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSiteExtensionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSiteExtensionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppSiteExtensionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSiteExtensionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSiteExtensionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSiteExtensionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSiteExtensionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSiteExtensionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSiteExtensionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSiteExtensionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSiteExtensionSlot"),
@@ -106,7 +130,7 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSiteExtensionSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20181101:WebAppSiteExtensionSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20181101:WebAppSiteExtensionSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -118,7 +142,7 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 func GetWebAppSiteExtensionSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSiteExtensionSlotState, opts ...pulumi.ResourceOption) (*WebAppSiteExtensionSlot, error) {
 	var resource WebAppSiteExtensionSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20181101:WebAppSiteExtensionSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20181101:WebAppSiteExtensionSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

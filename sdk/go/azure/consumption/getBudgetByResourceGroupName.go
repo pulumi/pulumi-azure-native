@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-01.
 func LookupBudgetByResourceGroupName(ctx *pulumi.Context, args *LookupBudgetByResourceGroupNameArgs, opts ...pulumi.InvokeOption) (*LookupBudgetByResourceGroupNameResult, error) {
 	var rv LookupBudgetByResourceGroupNameResult
-	err := ctx.Invoke("azure-nextgen:consumption:getBudgetByResourceGroupName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:consumption:getBudgetByResourceGroupName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

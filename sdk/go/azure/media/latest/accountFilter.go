@@ -14,7 +14,7 @@ import (
 // An Account Filter.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:media:AccountFilter'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:AccountFilter'.
 type AccountFilter struct {
 	pulumi.CustomResourceState
 
@@ -47,10 +47,19 @@ func NewAccountFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:AccountFilter"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:AccountFilter"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:AccountFilter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:AccountFilter"),
@@ -58,7 +67,7 @@ func NewAccountFilter(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AccountFilter
-	err := ctx.RegisterResource("azure-nextgen:media/latest:AccountFilter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/latest:AccountFilter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewAccountFilter(ctx *pulumi.Context,
 func GetAccountFilter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountFilterState, opts ...pulumi.ResourceOption) (*AccountFilter, error) {
 	var resource AccountFilter
-	err := ctx.ReadResource("azure-nextgen:media/latest:AccountFilter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/latest:AccountFilter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

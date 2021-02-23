@@ -14,7 +14,7 @@ import (
 // The properties of a storage account’s Table service.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:TableServiceProperties'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:TableServiceProperties'.
 type TableServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -41,13 +41,25 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:TableServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:TableServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:TableServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:TableServiceProperties"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:TableServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:TableServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:TableServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:TableServiceProperties"),
@@ -55,7 +67,7 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TableServiceProperties
-	err := ctx.RegisterResource("azure-nextgen:storage/latest:TableServiceProperties", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/latest:TableServiceProperties", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +79,7 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 func GetTableServiceProperties(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TableServicePropertiesState, opts ...pulumi.ResourceOption) (*TableServiceProperties, error) {
 	var resource TableServiceProperties
-	err := ctx.ReadResource("azure-nextgen:storage/latest:TableServiceProperties", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/latest:TableServiceProperties", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

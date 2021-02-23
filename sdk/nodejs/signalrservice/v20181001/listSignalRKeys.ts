@@ -16,7 +16,7 @@ export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:signalrservice/v20181001:listSignalRKeys", {
+    return pulumi.runtime.invoke("azure-native:signalrservice/v20181001:listSignalRKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
+namespace Pulumi.AzureNative.Authorization.V20200301Preview
 {
     /// <summary>
     /// Deny Assignment
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization/v20200301preview:DenyAssignment")]
+    [AzureNativeResourceType("azure-native:authorization/v20200301preview:DenyAssignment")]
     public partial class DenyAssignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DenyAssignment(string name, DenyAssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20200301preview:DenyAssignment", name, args ?? new DenyAssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization/v20200301preview:DenyAssignment", name, args ?? new DenyAssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DenyAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization/v20200301preview:DenyAssignment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization/v20200301preview:DenyAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization:DenyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:DenyAssignment"},
                 },
             };

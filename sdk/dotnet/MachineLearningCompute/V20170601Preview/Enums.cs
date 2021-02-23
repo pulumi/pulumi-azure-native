@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview
 {
     /// <summary>
     /// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.

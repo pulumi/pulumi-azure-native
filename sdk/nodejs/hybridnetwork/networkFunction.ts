@@ -23,7 +23,7 @@ export class NetworkFunction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybridnetwork:NetworkFunction';
+    public static readonly __pulumiType = 'azure-native:hybridnetwork:NetworkFunction';
 
     /**
      * Returns true if the given object is an instance of NetworkFunction.  This is designed to work even
@@ -151,7 +151,7 @@ export class NetworkFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:NetworkFunction" }, { type: "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkFunction.__pulumiType, name, inputs, opts);
     }

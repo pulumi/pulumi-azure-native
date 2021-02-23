@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Represents a lab account.
  * Latest API Version: 2018-10-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'.
  */
 export class LabAccount extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class LabAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LabAccount {
-        pulumi.log.warn("LabAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.")
+        pulumi.log.warn("LabAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'.")
         return new LabAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:labservices/latest:LabAccount';
+    public static readonly __pulumiType = 'azure-native:labservices/latest:LabAccount';
 
     /**
      * Returns true if the given object is an instance of LabAccount.  This is designed to work even
@@ -83,9 +83,9 @@ export class LabAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'. */
     constructor(name: string, args: LabAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LabAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.")
+        pulumi.log.warn("LabAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -120,7 +120,7 @@ export class LabAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:labservices:LabAccount" }, { type: "azure-nextgen:labservices/v20181015:LabAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices:LabAccount" }, { type: "azure-nextgen:labservices:LabAccount" }, { type: "azure-native:labservices/v20181015:LabAccount" }, { type: "azure-nextgen:labservices/v20181015:LabAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LabAccount.__pulumiType, name, inputs, opts);
     }

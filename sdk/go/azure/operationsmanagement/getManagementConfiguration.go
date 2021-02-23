@@ -11,7 +11,7 @@ import (
 // API Version: 2015-11-01-preview.
 func LookupManagementConfiguration(ctx *pulumi.Context, args *LookupManagementConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupManagementConfigurationResult, error) {
 	var rv LookupManagementConfigurationResult
-	err := ctx.Invoke("azure-nextgen:operationsmanagement:getManagementConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationsmanagement:getManagementConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

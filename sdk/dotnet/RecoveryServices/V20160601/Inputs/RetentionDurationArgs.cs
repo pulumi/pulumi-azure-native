@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
 {
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
         /// The retention duration type of the retention policy.
         /// </summary>
         [Input("durationType")]
-        public Input<Pulumi.AzureNextGen.RecoveryServices.V20160601.RetentionDurationType>? DurationType { get; set; }
+        public Input<Pulumi.AzureNative.RecoveryServices.V20160601.RetentionDurationType>? DurationType { get; set; }
 
         public RetentionDurationArgs()
         {

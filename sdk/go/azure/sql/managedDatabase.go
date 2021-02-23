@@ -75,16 +75,31 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20170301preview:ManagedDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ManagedDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20180601preview:ManagedDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20180601preview:ManagedDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20190601preview:ManagedDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:ManagedDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedDatabase"),
@@ -92,7 +107,7 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagedDatabase
-	err := ctx.RegisterResource("azure-nextgen:sql:ManagedDatabase", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ManagedDatabase", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +119,7 @@ func NewManagedDatabase(ctx *pulumi.Context,
 func GetManagedDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagedDatabaseState, opts ...pulumi.ResourceOption) (*ManagedDatabase, error) {
 	var resource ManagedDatabase
-	err := ctx.ReadResource("azure-nextgen:sql:ManagedDatabase", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ManagedDatabase", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

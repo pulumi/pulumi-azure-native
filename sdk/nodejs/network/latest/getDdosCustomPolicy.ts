@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A DDoS custom policy in a resource group.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosCustomPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosCustomPolicy'. */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
-    pulumi.log.warn("getDdosCustomPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getDdosCustomPolicy'.")
+    pulumi.log.warn("getDdosCustomPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosCustomPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getDdosCustomPolicy", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

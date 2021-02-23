@@ -14,7 +14,7 @@ import (
 // Represents a server firewall rule.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbformariadb:FirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformariadb:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:FirewallRule"),
@@ -60,7 +69,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:dbformariadb/latest:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformariadb/latest:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:dbformariadb/latest:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformariadb/latest:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

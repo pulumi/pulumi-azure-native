@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.Latest
+namespace Pulumi.AzureNative.Devices.Latest
 {
     /// <summary>
     /// The X509 Certificate.
     /// Latest API Version: 2020-08-31.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devices:Certificate'.")]
-    [AzureNextGenResourceType("azure-nextgen:devices/latest:Certificate")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devices:Certificate'.")]
+    [AzureNativeResourceType("azure-native:devices/latest:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devices/latest:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devices/latest:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devices/latest:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,21 +66,37 @@ namespace Pulumi.AzureNextGen.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devices:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20170701:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170701:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180122:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20180401:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20180401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20181201preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20181201preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190322preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20190701preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20191104:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20191104:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200301:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200401:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200401:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200615:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200615:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200710preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200801:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200801:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:Certificate"},
                 },
             };

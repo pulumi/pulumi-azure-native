@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20210101
+namespace Pulumi.AzureNative.Storage.V20210101
 {
     /// <summary>
     /// The storage account blob inventory policy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/v20210101:BlobInventoryPolicy")]
+    [AzureNativeResourceType("azure-native:storage/v20210101:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobInventoryPolicy(string name, BlobInventoryPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20210101:BlobInventoryPolicy", name, args ?? new BlobInventoryPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20210101:BlobInventoryPolicy", name, args ?? new BlobInventoryPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobInventoryPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20210101:BlobInventoryPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20210101:BlobInventoryPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,9 +70,13 @@ namespace Pulumi.AzureNextGen.Storage.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobInventoryPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobInventoryPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"},
                 },
             };

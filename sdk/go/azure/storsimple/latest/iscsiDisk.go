@@ -14,7 +14,7 @@ import (
 // The iSCSI disk.
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:IscsiDisk'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiDisk'.
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 
@@ -67,7 +67,13 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:IscsiDisk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:IscsiDisk"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20161001:IscsiDisk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiDisk"),
@@ -75,7 +81,7 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IscsiDisk
-	err := ctx.RegisterResource("azure-nextgen:storsimple/latest:IscsiDisk", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/latest:IscsiDisk", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +93,7 @@ func NewIscsiDisk(ctx *pulumi.Context,
 func GetIscsiDisk(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IscsiDiskState, opts ...pulumi.ResourceOption) (*IscsiDisk, error) {
 	var resource IscsiDisk
-	err := ctx.ReadResource("azure-nextgen:storsimple/latest:IscsiDisk", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/latest:IscsiDisk", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

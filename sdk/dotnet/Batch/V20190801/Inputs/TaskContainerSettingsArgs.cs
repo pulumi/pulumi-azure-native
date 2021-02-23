@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20190801.Inputs
+namespace Pulumi.AzureNative.Batch.V20190801.Inputs
 {
 
     public sealed class TaskContainerSettingsArgs : Pulumi.ResourceArgs
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190801.Inputs
         public Input<Inputs.ContainerRegistryArgs>? Registry { get; set; }
 
         [Input("workingDirectory")]
-        public Input<Pulumi.AzureNextGen.Batch.V20190801.ContainerWorkingDirectory>? WorkingDirectory { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20190801.ContainerWorkingDirectory>? WorkingDirectory { get; set; }
 
         public TaskContainerSettingsArgs()
         {

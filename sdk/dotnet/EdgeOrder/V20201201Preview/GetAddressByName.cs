@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
     public static class GetAddressByName
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview
         /// Address Resource.
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-nextgen:edgeorder/v20201201preview:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20201201preview:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
     }
 
 

@@ -22,7 +22,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:Subscription';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201:Subscription';
 
     /**
      * Returns true if the given object is an instance of Subscription.  This is designed to work even
@@ -162,7 +162,7 @@ export class Subscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:Subscription" }, { type: "azure-nextgen:apimanagement/latest:Subscription" }, { type: "azure-nextgen:apimanagement/v20160707:Subscription" }, { type: "azure-nextgen:apimanagement/v20161010:Subscription" }, { type: "azure-nextgen:apimanagement/v20170301:Subscription" }, { type: "azure-nextgen:apimanagement/v20180101:Subscription" }, { type: "azure-nextgen:apimanagement/v20180601preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20190101:Subscription" }, { type: "azure-nextgen:apimanagement/v20191201preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20200601preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Subscription" }, { type: "azure-nextgen:apimanagement:Subscription" }, { type: "azure-native:apimanagement/latest:Subscription" }, { type: "azure-nextgen:apimanagement/latest:Subscription" }, { type: "azure-native:apimanagement/v20160707:Subscription" }, { type: "azure-nextgen:apimanagement/v20160707:Subscription" }, { type: "azure-native:apimanagement/v20161010:Subscription" }, { type: "azure-nextgen:apimanagement/v20161010:Subscription" }, { type: "azure-native:apimanagement/v20170301:Subscription" }, { type: "azure-nextgen:apimanagement/v20170301:Subscription" }, { type: "azure-native:apimanagement/v20180101:Subscription" }, { type: "azure-nextgen:apimanagement/v20180101:Subscription" }, { type: "azure-native:apimanagement/v20180601preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20180601preview:Subscription" }, { type: "azure-native:apimanagement/v20190101:Subscription" }, { type: "azure-nextgen:apimanagement/v20190101:Subscription" }, { type: "azure-native:apimanagement/v20191201preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20191201preview:Subscription" }, { type: "azure-native:apimanagement/v20200601preview:Subscription" }, { type: "azure-nextgen:apimanagement/v20200601preview:Subscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subscription.__pulumiType, name, inputs, opts);
     }

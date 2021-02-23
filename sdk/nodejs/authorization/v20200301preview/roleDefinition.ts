@@ -22,7 +22,7 @@ export class RoleDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20200301preview:RoleDefinition';
+    public static readonly __pulumiType = 'azure-native:authorization/v20200301preview:RoleDefinition';
 
     /**
      * Returns true if the given object is an instance of RoleDefinition.  This is designed to work even
@@ -102,7 +102,7 @@ export class RoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleDefinition" }, { type: "azure-nextgen:authorization/latest:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleDefinition" }, { type: "azure-nextgen:authorization:RoleDefinition" }, { type: "azure-native:authorization/latest:RoleDefinition" }, { type: "azure-nextgen:authorization/latest:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }, { type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }

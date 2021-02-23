@@ -48,10 +48,19 @@ func NewHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:Hub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:Hub"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Hub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Hub"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Hub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Hub"),
@@ -59,7 +68,7 @@ func NewHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Hub
-	err := ctx.RegisterResource("azure-nextgen:customerinsights:Hub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights:Hub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewHub(ctx *pulumi.Context,
 func GetHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HubState, opts ...pulumi.ResourceOption) (*Hub, error) {
 	var resource Hub
-	err := ctx.ReadResource("azure-nextgen:customerinsights:Hub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights:Hub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

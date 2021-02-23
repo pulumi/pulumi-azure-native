@@ -10,7 +10,7 @@ import (
 // The peering service prefix class.
 func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPrefixResult, error) {
 	var rv LookupPrefixResult
-	err := ctx.Invoke("azure-nextgen:peering/v20201001:getPrefix", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/v20201001:getPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning
+namespace Pulumi.AzureNative.MachineLearning
 {
     /// <summary>
     /// An Azure ML commitment plan resource.
     /// API Version: 2016-05-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearning:CommitmentPlan")]
+    [AzureNativeResourceType("azure-native:machinelearning:CommitmentPlan")]
     public partial class CommitmentPlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.MachineLearning
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CommitmentPlan(string name, CommitmentPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearning:CommitmentPlan", name, args ?? new CommitmentPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CommitmentPlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearning:CommitmentPlan", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearning:CommitmentPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:CommitmentPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:CommitmentPlan"},
                 },
             };

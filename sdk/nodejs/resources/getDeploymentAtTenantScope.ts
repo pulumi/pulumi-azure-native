@@ -17,7 +17,7 @@ export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources:getDeploymentAtTenantScope", {
+    return pulumi.runtime.invoke("azure-native:resources:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,
     }, opts);
 }

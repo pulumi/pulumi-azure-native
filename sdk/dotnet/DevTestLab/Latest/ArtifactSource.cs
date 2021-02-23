@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
     /// <summary>
     /// Properties of an artifact source.
     /// Latest API Version: 2018-09-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ArtifactSource'.")]
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/latest:ArtifactSource")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ArtifactSource'.")]
+    [AzureNativeResourceType("azure-native:devtestlab/latest:ArtifactSource")]
     public partial class ArtifactSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ArtifactSource(string name, ArtifactSourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:ArtifactSource", name, args ?? new ArtifactSourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/latest:ArtifactSource", name, args ?? new ArtifactSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ArtifactSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/latest:ArtifactSource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/latest:ArtifactSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,9 +132,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ArtifactSource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ArtifactSource"},
                 },
             };
@@ -217,13 +221,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The artifact source's type.
         /// </summary>
         [Input("sourceType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.SourceControlType>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.SourceControlType>? SourceType { get; set; }
 
         /// <summary>
         /// Indicates if the artifact source is enabled (values: Enabled, Disabled).
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

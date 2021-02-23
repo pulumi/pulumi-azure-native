@@ -29,15 +29,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerregistry/v20190601preview:AgentPool":
+            case "azure-native:containerregistry/v20190601preview:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20190601preview:Task":
+            case "azure-native:containerregistry/v20190601preview:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "azure-nextgen:containerregistry/v20190601preview:TaskRun":
+            case "azure-native:containerregistry/v20190601preview:TaskRun":
                 return new TaskRun(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerregistry/v20190601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerregistry/v20190601preview", _module)

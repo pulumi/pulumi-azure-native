@@ -10,7 +10,7 @@ import (
 // The policy exemption.
 func LookupPolicyExemption(ctx *pulumi.Context, args *LookupPolicyExemptionArgs, opts ...pulumi.InvokeOption) (*LookupPolicyExemptionResult, error) {
 	var rv LookupPolicyExemptionResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20200701preview:getPolicyExemption", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20200701preview:getPolicyExemption", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

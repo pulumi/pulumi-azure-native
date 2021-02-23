@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SerialConsole.V20180501
+namespace Pulumi.AzureNative.SerialConsole.V20180501
 {
     public static class GetSerialPort
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.SerialConsole.V20180501
         /// Represents the serial port of the parent resource.
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-nextgen:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
     }
 
 

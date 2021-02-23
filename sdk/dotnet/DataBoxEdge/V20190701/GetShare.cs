@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
+namespace Pulumi.AzureNative.DataBoxEdge.V20190701
 {
     public static class GetShare
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// Represents a share on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-nextgen:databoxedge/v20190701:getShare", args ?? new GetShareArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge/v20190701:getShare", args ?? new GetShareArgs(), options.WithVersion());
     }
 
 

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20201101
+namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Describes the override action to be applied when rule matches.

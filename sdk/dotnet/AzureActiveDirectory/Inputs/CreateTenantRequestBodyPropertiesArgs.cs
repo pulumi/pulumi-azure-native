@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.Inputs
+namespace Pulumi.AzureNative.AzureActiveDirectory.Inputs
 {
 
     public sealed class CreateTenantRequestBodyPropertiesArgs : Pulumi.ResourceArgs

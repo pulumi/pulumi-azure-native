@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
+namespace Pulumi.AzureNative.Network.V20190901.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
         /// The reference to the transport protocol used by the inbound NAT pool.
         /// </summary>
         [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.TransportProtocol> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190901.TransportProtocol> Protocol { get; set; } = null!;
 
         public InboundNatPoolArgs()
         {

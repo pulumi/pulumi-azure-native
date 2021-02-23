@@ -23,7 +23,7 @@ export class Workbook extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:Workbook';
+    public static readonly __pulumiType = 'azure-native:insights:Workbook';
 
     /**
      * Returns true if the given object is an instance of Workbook.  This is designed to work even
@@ -161,7 +161,7 @@ export class Workbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:Workbook" }, { type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20201020:Workbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:Workbook" }, { type: "azure-nextgen:insights/latest:Workbook" }, { type: "azure-native:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-native:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }, { type: "azure-native:insights/v20201020:Workbook" }, { type: "azure-nextgen:insights/v20201020:Workbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workbook.__pulumiType, name, inputs, opts);
     }

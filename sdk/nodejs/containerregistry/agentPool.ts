@@ -24,7 +24,7 @@ export class AgentPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry:AgentPool';
+    public static readonly __pulumiType = 'azure-native:containerregistry:AgentPool';
 
     /**
      * Returns true if the given object is an instance of AgentPool.  This is designed to work even
@@ -126,7 +126,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190601preview:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190601preview:AgentPool" }, { type: "azure-nextgen:containerregistry/v20190601preview:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }

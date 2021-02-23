@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// String dictionary resource.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebAppConnectionStrings")]
+    [AzureNativeResourceType("azure-native:web:WebAppConnectionStrings")]
     public partial class WebAppConnectionStrings : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppConnectionStrings(string name, WebAppConnectionStringsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppConnectionStrings", name, args ?? new WebAppConnectionStringsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebAppConnectionStrings", name, args ?? new WebAppConnectionStringsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppConnectionStrings(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppConnectionStrings", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebAppConnectionStrings", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,14 +71,23 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppConnectionStrings"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppConnectionStrings"},
                 },
             };

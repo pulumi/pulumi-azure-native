@@ -17,7 +17,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datamigration:getService", {
+    return pulumi.runtime.invoke("azure-native:datamigration:getService", {
         "groupName": args.groupName,
         "serviceName": args.serviceName,
     }, opts);

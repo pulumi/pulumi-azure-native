@@ -17,7 +17,7 @@ export function getDnsResourceReferenceByTarResources(args?: GetDnsResourceRefer
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20180501:getDnsResourceReferenceByTarResources", {
+    return pulumi.runtime.invoke("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", {
         "targetResources": args.targetResources,
     }, opts);
 }

@@ -22,7 +22,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountGremlinDatabase.  This is designed to work even
@@ -114,7 +114,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/latest:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountGremlinDatabase.__pulumiType, name, inputs, opts);
     }

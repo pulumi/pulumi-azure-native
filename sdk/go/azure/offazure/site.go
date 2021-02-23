@@ -41,10 +41,19 @@ func NewSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:offazure/latest:Site"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/latest:Site"),
 		},
 		{
+			Type: pulumi.String("azure-native:offazure/v20200101:Site"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200101:Site"),
+		},
+		{
+			Type: pulumi.String("azure-native:offazure/v20200707:Site"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:offazure/v20200707:Site"),
@@ -52,7 +61,7 @@ func NewSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Site
-	err := ctx.RegisterResource("azure-nextgen:offazure:Site", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:offazure:Site", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewSite(ctx *pulumi.Context,
 func GetSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteState, opts ...pulumi.ResourceOption) (*Site, error) {
 	var resource Site
-	err := ctx.ReadResource("azure-nextgen:offazure:Site", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:offazure:Site", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // An Azure resource which represents access to a suite of Maps REST APIs.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
-	err := ctx.Invoke("azure-nextgen:maps/v20170101preview:getAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maps/v20170101preview:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

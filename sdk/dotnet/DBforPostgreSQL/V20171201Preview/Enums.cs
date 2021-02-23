@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
 {
     /// <summary>
     /// The type of administrator.

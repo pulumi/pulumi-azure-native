@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20200101
+namespace Pulumi.AzureNative.Network.V20200101
 {
     /// <summary>
     /// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'

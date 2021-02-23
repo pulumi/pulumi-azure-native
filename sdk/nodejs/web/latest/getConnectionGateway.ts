@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The gateway definition
  * Latest API Version: 2016-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getConnectionGateway'. */
 export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGatewayResult> {
-    pulumi.log.warn("getConnectionGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getConnectionGateway'.")
+    pulumi.log.warn("getConnectionGateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getConnectionGateway'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getConnectionGateway", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,
         "resourceGroupName": args.resourceGroupName,
         "subscriptionId": args.subscriptionId,

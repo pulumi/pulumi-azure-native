@@ -10,10 +10,10 @@ import (
 // The lock information.
 // Latest API Version: 2016-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceGroupLevel'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceGroupLevel'.
 func LookupManagementLockAtResourceGroupLevel(ctx *pulumi.Context, args *LookupManagementLockAtResourceGroupLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtResourceGroupLevelResult, error) {
 	var rv LookupManagementLockAtResourceGroupLevelResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getManagementLockAtResourceGroupLevel", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getManagementLockAtResourceGroupLevel", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

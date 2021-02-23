@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.V20161001
+namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The storage domain.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storsimple/v20161001:StorageDomain")]
+    [AzureNativeResourceType("azure-native:storsimple/v20161001:StorageDomain")]
     public partial class StorageDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StorageDomain(string name, StorageDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:StorageDomain", name, args ?? new StorageDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/v20161001:StorageDomain", name, args ?? new StorageDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StorageDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/v20161001:StorageDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/v20161001:StorageDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:StorageDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageDomain"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:StorageDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageDomain"},
                 },
             };
@@ -105,7 +107,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The encryption status "Enabled | Disabled".
         /// </summary>
         [Input("encryptionStatus", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.EncryptionStatus> EncryptionStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.V20161001.EncryptionStatus> EncryptionStatus { get; set; } = null!;
 
         /// <summary>
         /// The manager name

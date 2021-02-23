@@ -11,7 +11,7 @@ import (
 // API Version: 2018-02-01.
 func LookupPartner(ctx *pulumi.Context, args *LookupPartnerArgs, opts ...pulumi.InvokeOption) (*LookupPartnerResult, error) {
 	var rv LookupPartnerResult
-	err := ctx.Invoke("azure-nextgen:managementpartner:getPartner", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managementpartner:getPartner", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

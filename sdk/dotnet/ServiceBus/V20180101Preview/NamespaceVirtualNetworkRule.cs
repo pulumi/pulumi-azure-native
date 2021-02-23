@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
+namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get VirtualNetworkRules operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule")]
+    [AzureNativeResourceType("azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule")]
     public partial class NamespaceVirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceVirtualNetworkRule(string name, NamespaceVirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, args ?? new NamespaceVirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceVirtualNetworkRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,6 +58,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:NamespaceVirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceVirtualNetworkRule"},
                 },
             };

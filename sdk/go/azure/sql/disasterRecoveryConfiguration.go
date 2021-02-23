@@ -53,7 +53,13 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/latest:DisasterRecoveryConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:DisasterRecoveryConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:DisasterRecoveryConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration"),
@@ -61,7 +67,7 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfiguration
-	err := ctx.RegisterResource("azure-nextgen:sql:DisasterRecoveryConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:DisasterRecoveryConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +79,7 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 func GetDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DisasterRecoveryConfigurationState, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfiguration, error) {
 	var resource DisasterRecoveryConfiguration
-	err := ctx.ReadResource("azure-nextgen:sql:DisasterRecoveryConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:DisasterRecoveryConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

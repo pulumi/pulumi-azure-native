@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Sync Group object.
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:SyncGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:SyncGroup'.
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SyncGroup {
-        pulumi.log.warn("SyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:SyncGroup'.")
+        pulumi.log.warn("SyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:SyncGroup'.")
         return new SyncGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storagesync/latest:SyncGroup';
+    public static readonly __pulumiType = 'azure-native:storagesync/latest:SyncGroup';
 
     /**
      * Returns true if the given object is an instance of SyncGroup.  This is designed to work even
@@ -62,9 +62,9 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:SyncGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:SyncGroup'. */
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:SyncGroup'.")
+        pulumi.log.warn("SyncGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:SyncGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -93,7 +93,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync:SyncGroup" }, { type: "azure-nextgen:storagesync/v20170605preview:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180402:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180701:SyncGroup" }, { type: "azure-nextgen:storagesync/v20181001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190201:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190601:SyncGroup" }, { type: "azure-nextgen:storagesync/v20191001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200901:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:SyncGroup" }, { type: "azure-nextgen:storagesync:SyncGroup" }, { type: "azure-native:storagesync/v20170605preview:SyncGroup" }, { type: "azure-nextgen:storagesync/v20170605preview:SyncGroup" }, { type: "azure-native:storagesync/v20180402:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180402:SyncGroup" }, { type: "azure-native:storagesync/v20180701:SyncGroup" }, { type: "azure-nextgen:storagesync/v20180701:SyncGroup" }, { type: "azure-native:storagesync/v20181001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20181001:SyncGroup" }, { type: "azure-native:storagesync/v20190201:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190201:SyncGroup" }, { type: "azure-native:storagesync/v20190301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190301:SyncGroup" }, { type: "azure-native:storagesync/v20190601:SyncGroup" }, { type: "azure-nextgen:storagesync/v20190601:SyncGroup" }, { type: "azure-native:storagesync/v20191001:SyncGroup" }, { type: "azure-nextgen:storagesync/v20191001:SyncGroup" }, { type: "azure-native:storagesync/v20200301:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200301:SyncGroup" }, { type: "azure-native:storagesync/v20200901:SyncGroup" }, { type: "azure-nextgen:storagesync/v20200901:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

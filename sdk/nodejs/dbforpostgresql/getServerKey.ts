@@ -17,7 +17,7 @@ export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql:getServerKey", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql:getServerKey", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

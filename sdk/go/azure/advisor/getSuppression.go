@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupSuppression(ctx *pulumi.Context, args *LookupSuppressionArgs, opts ...pulumi.InvokeOption) (*LookupSuppressionResult, error) {
 	var rv LookupSuppressionResult
-	err := ctx.Invoke("azure-nextgen:advisor:getSuppression", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:advisor:getSuppression", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

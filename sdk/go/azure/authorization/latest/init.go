@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel":
+	case "azure-native:authorization/latest:ManagementLockAtResourceGroupLevel":
 		r, err = NewManagementLockAtResourceGroupLevel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel":
+	case "azure-native:authorization/latest:ManagementLockAtResourceLevel":
 		r, err = NewManagementLockAtResourceLevel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel":
+	case "azure-native:authorization/latest:ManagementLockAtSubscriptionLevel":
 		r, err = NewManagementLockAtSubscriptionLevel(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:ManagementLockByScope":
+	case "azure-native:authorization/latest:ManagementLockByScope":
 		r, err = NewManagementLockByScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:PolicyAssignment":
+	case "azure-native:authorization/latest:PolicyAssignment":
 		r, err = NewPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:PolicyDefinition":
+	case "azure-native:authorization/latest:PolicyDefinition":
 		r, err = NewPolicyDefinition(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup":
+	case "azure-native:authorization/latest:PolicyDefinitionAtManagementGroup":
 		r, err = NewPolicyDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:PolicySetDefinition":
+	case "azure-native:authorization/latest:PolicySetDefinition":
 		r, err = NewPolicySetDefinition(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup":
+	case "azure-native:authorization/latest:PolicySetDefinitionAtManagementGroup":
 		r, err = NewPolicySetDefinitionAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:RoleAssignment":
+	case "azure-native:authorization/latest:RoleAssignment":
 		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:authorization/latest:RoleDefinition":
+	case "azure-native:authorization/latest:RoleDefinition":
 		r, err = NewRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"authorization/latest",
 		&module{version},
 	)

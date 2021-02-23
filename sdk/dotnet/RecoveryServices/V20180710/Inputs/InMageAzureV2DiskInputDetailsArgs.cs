@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20180710.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         /// The DiskType.
         /// </summary>
         [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20180710.DiskAccountType>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20180710.DiskAccountType>? DiskType { get; set; }
 
         /// <summary>
         /// The LogStorageAccountId.

@@ -23,7 +23,7 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:NamespaceIpFilterRule';
+    public static readonly __pulumiType = 'azure-native:servicebus:NamespaceIpFilterRule';
 
     /**
      * Returns true if the given object is an instance of NamespaceIpFilterRule.  This is designed to work even
@@ -95,7 +95,7 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule" }, { type: "azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceIpFilterRule.__pulumiType, name, inputs, opts);
     }

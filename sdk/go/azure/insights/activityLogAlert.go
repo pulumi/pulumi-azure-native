@@ -63,10 +63,19 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:ActivityLogAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ActivityLogAlert"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20170401:ActivityLogAlert"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20170401:ActivityLogAlert"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20201001:ActivityLogAlert"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20201001:ActivityLogAlert"),
@@ -74,7 +83,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ActivityLogAlert
-	err := ctx.RegisterResource("azure-nextgen:insights:ActivityLogAlert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:ActivityLogAlert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +95,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 func GetActivityLogAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActivityLogAlertState, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
 	var resource ActivityLogAlert
-	err := ctx.ReadResource("azure-nextgen:insights:ActivityLogAlert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:ActivityLogAlert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

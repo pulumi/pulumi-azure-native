@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
+namespace Pulumi.AzureNative.Logic.V20150801Preview.Inputs
 {
 
     public sealed class AS2ValidationSettingsArgs : Pulumi.ResourceArgs
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The encryption algorithm.
         /// </summary>
         [Input("encryptionAlgorithm")]
-        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.EncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
+        public Input<Pulumi.AzureNative.Logic.V20150801Preview.EncryptionAlgorithm>? EncryptionAlgorithm { get; set; }
 
         /// <summary>
         /// The number of days to look back for duplicate interchange.

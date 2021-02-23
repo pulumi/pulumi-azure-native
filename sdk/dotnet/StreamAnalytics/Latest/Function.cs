@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
+namespace Pulumi.AzureNative.StreamAnalytics.Latest
 {
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// Latest API Version: 2016-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:streamanalytics:Function'.")]
-    [AzureNextGenResourceType("azure-nextgen:streamanalytics/latest:Function")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Function'.")]
+    [AzureNativeResourceType("azure-native:streamanalytics/latest:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Function(string name, FunctionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/latest:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:streamanalytics/latest:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Function(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:streamanalytics/latest:Function", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:streamanalytics/latest:Function", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,11 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20160301:Function"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Function"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20170401preview:Function"},
                 },
             };

@@ -14,7 +14,7 @@ import (
 // Domain ownership Identifier.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:domainregistration:DomainOwnershipIdentifier'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:domainregistration:DomainOwnershipIdentifier'.
 type DomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 
@@ -45,22 +45,43 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:domainregistration:DomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration:DomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier"),
@@ -68,7 +89,7 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DomainOwnershipIdentifier
-	err := ctx.RegisterResource("azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:domainregistration/latest:DomainOwnershipIdentifier", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +101,7 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 func GetDomainOwnershipIdentifier(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainOwnershipIdentifierState, opts ...pulumi.ResourceOption) (*DomainOwnershipIdentifier, error) {
 	var resource DomainOwnershipIdentifier
-	err := ctx.ReadResource("azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:domainregistration/latest:DomainOwnershipIdentifier", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

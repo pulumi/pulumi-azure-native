@@ -11,7 +11,7 @@ import (
 // API Version: 2017-12-01.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
-	err := ctx.Invoke("azure-nextgen:dbforpostgresql:getConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:dbforpostgresql:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

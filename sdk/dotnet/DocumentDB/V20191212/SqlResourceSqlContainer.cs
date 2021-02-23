@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20191212
+namespace Pulumi.AzureNative.DocumentDB.V20191212
 {
     /// <summary>
     /// An Azure Cosmos DB container.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer")]
+    [AzureNativeResourceType("azure-native:documentdb/v20191212:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlResourceSqlContainer(string name, SqlResourceSqlContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20191212:SqlResourceSqlContainer", name, args ?? new SqlResourceSqlContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SqlResourceSqlContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20191212:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20191212:SqlResourceSqlContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -67,13 +67,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer"},
                 },
             };

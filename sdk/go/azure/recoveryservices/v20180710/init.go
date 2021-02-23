@@ -21,25 +21,25 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationFabric":
+	case "azure-native:recoveryservices/v20180710:ReplicationFabric":
 		r, err = NewReplicationFabric(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem":
+	case "azure-native:recoveryservices/v20180710:ReplicationMigrationItem":
 		r, err = NewReplicationMigrationItem(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping":
+	case "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping":
 		r, err = NewReplicationNetworkMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy":
+	case "azure-native:recoveryservices/v20180710:ReplicationPolicy":
 		r, err = NewReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem":
+	case "azure-native:recoveryservices/v20180710:ReplicationProtectedItem":
 		r, err = NewReplicationProtectedItem(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping":
+	case "azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping":
 		r, err = NewReplicationProtectionContainerMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan":
+	case "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan":
 		r, err = NewReplicationRecoveryPlan(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider":
+	case "azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider":
 		r, err = NewReplicationRecoveryServicesProvider(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping":
+	case "azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping":
 		r, err = NewReplicationStorageClassificationMapping(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:recoveryservices/v20180710:ReplicationvCenter":
+	case "azure-native:recoveryservices/v20180710:ReplicationvCenter":
 		r, err = NewReplicationvCenter(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -54,7 +54,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"recoveryservices/v20180710",
 		&module{version},
 	)

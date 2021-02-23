@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     public static class GetWorkloadNetworkDnsService
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AVS
         /// API Version: 2020-07-17-preview.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsServiceResult> InvokeAsync(GetWorkloadNetworkDnsServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-nextgen:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithVersion());
     }
 
 

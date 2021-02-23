@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthcareApis.Inputs
+namespace Pulumi.AzureNative.HealthcareApis.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Inputs
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.HealthcareApis.ManagedServiceIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HealthcareApis.ManagedServiceIdentityType>? Type { get; set; }
 
         public ServicesResourceIdentityArgs()
         {

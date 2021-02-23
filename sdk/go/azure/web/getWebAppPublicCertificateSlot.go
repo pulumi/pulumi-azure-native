@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPublicCertificateSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateSlotResult, error) {
 	var rv LookupWebAppPublicCertificateSlotResult
-	err := ctx.Invoke("azure-nextgen:web:getWebAppPublicCertificateSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getWebAppPublicCertificateSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

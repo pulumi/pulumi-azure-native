@@ -10,7 +10,7 @@ import (
 // DigitalTwinsInstance endpoint resource.
 func LookupDigitalTwinsEndpoint(ctx *pulumi.Context, args *LookupDigitalTwinsEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinsEndpointResult, error) {
 	var rv LookupDigitalTwinsEndpointResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins/v20200301preview:getDigitalTwinsEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins/v20200301preview:getDigitalTwinsEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

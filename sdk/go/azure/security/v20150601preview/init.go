@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl":
+	case "azure-native:security/v20150601preview:AdaptiveApplicationControl":
 		r, err = NewAdaptiveApplicationControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy":
+	case "azure-native:security/v20150601preview:JitNetworkAccessPolicy":
 		r, err = NewJitNetworkAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -38,7 +38,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"security/v20150601preview",
 		&module{version},
 	)

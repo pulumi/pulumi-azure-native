@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
+namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Alert rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/v20190101preview:AlertRule")]
+    [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertRule(string name, AlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/v20190101preview:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/v20190101preview:AlertRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/v20190101preview:AlertRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The kind of the alert rule
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.AlertRuleKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20190101Preview.AlertRuleKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

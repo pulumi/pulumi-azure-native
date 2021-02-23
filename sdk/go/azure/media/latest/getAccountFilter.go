@@ -10,10 +10,10 @@ import (
 // An Account Filter.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getAccountFilter'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAccountFilter'.
 func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opts ...pulumi.InvokeOption) (*LookupAccountFilterResult, error) {
 	var rv LookupAccountFilterResult
-	err := ctx.Invoke("azure-nextgen:media/latest:getAccountFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:getAccountFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

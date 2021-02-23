@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Class representing an attached database configuration.
  * Latest API Version: 2020-09-18.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getAttachedDatabaseConfiguration'. */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
-    pulumi.log.warn("getAttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getAttachedDatabaseConfiguration'.")
+    pulumi.log.warn("getAttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getAttachedDatabaseConfiguration'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto/latest:getAttachedDatabaseConfiguration", {
+    return pulumi.runtime.invoke("azure-native:kusto/latest:getAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

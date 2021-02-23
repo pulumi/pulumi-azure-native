@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The connector mapping resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnectorMapping'. */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
-    pulumi.log.warn("getConnectorMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getConnectorMapping'.")
+    pulumi.log.warn("getConnectorMapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnectorMapping'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getConnectorMapping", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getConnectorMapping", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,
         "mappingName": args.mappingName,

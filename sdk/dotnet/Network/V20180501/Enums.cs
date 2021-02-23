@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20180501
+namespace Pulumi.AzureNative.Network.V20180501
 {
     /// <summary>
     /// The type of this DNS zone (Public or Private).

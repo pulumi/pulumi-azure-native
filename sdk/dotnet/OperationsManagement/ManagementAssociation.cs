@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationsManagement
+namespace Pulumi.AzureNative.OperationsManagement
 {
     /// <summary>
     /// The container for solution.
     /// API Version: 2015-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationsmanagement:ManagementAssociation")]
+    [AzureNativeResourceType("azure-native:operationsmanagement:ManagementAssociation")]
     public partial class ManagementAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementAssociation(string name, ManagementAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationsmanagement:ManagementAssociation", name, args ?? new ManagementAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationsmanagement:ManagementAssociation", name, args ?? new ManagementAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationsmanagement:ManagementAssociation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationsmanagement:ManagementAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationsmanagement/v20151101preview:ManagementAssociation"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation"},
                 },
             };

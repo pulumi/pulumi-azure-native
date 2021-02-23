@@ -16,7 +16,7 @@ export function getStorageAccountCredential(args: GetStorageAccountCredentialArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/v20161001:getStorageAccountCredential", {
+    return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getStorageAccountCredential", {
         "credentialName": args.credentialName,
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

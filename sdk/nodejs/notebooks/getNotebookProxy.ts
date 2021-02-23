@@ -17,7 +17,7 @@ export function getNotebookProxy(args: GetNotebookProxyArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:notebooks:getNotebookProxy", {
+    return pulumi.runtime.invoke("azure-native:notebooks:getNotebookProxy", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

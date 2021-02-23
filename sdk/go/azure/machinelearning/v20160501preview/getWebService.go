@@ -10,7 +10,7 @@ import (
 // Instance of an Azure ML web service resource.
 func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...pulumi.InvokeOption) (*LookupWebServiceResult, error) {
 	var rv LookupWebServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearning/v20160501preview:getWebService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning/v20160501preview:getWebService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

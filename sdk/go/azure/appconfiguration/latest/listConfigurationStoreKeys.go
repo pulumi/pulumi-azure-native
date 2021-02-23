@@ -10,10 +10,10 @@ import (
 // The result of a request to list API keys.
 // Latest API Version: 2020-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeys'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeys'.
 func ListConfigurationStoreKeys(ctx *pulumi.Context, args *ListConfigurationStoreKeysArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeysResult, error) {
 	var rv ListConfigurationStoreKeysResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/latest:listConfigurationStoreKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

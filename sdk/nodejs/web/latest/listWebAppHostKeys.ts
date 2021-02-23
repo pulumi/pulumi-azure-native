@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Functions host level keys.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHostKeys'. */
 export function listWebAppHostKeys(args: ListWebAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHostKeysResult> {
-    pulumi.log.warn("listWebAppHostKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppHostKeys'.")
+    pulumi.log.warn("listWebAppHostKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHostKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listWebAppHostKeys(args: ListWebAppHostKeysArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:listWebAppHostKeys", {
+    return pulumi.runtime.invoke("azure-native:web/latest:listWebAppHostKeys", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

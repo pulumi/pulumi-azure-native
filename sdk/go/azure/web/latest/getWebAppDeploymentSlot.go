@@ -10,10 +10,10 @@ import (
 // User credentials used for publishing activity.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppDeploymentSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'.
 func LookupWebAppDeploymentSlot(ctx *pulumi.Context, args *LookupWebAppDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDeploymentSlotResult, error) {
 	var rv LookupWebAppDeploymentSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppDeploymentSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppDeploymentSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

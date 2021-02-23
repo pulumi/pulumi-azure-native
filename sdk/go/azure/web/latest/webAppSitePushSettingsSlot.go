@@ -14,7 +14,7 @@ import (
 // Push settings for the App.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppSitePushSettingsSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettingsSlot'.
 type WebAppSitePushSettingsSlot struct {
 	pulumi.CustomResourceState
 
@@ -60,25 +60,49 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppSitePushSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppSitePushSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppSitePushSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppSitePushSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppSitePushSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot"),
@@ -86,7 +110,7 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSitePushSettingsSlot
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppSitePushSettingsSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppSitePushSettingsSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +122,7 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 func GetWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppSitePushSettingsSlotState, opts ...pulumi.ResourceOption) (*WebAppSitePushSettingsSlot, error) {
 	var resource WebAppSitePushSettingsSlot
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppSitePushSettingsSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppSitePushSettingsSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

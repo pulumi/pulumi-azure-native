@@ -48,10 +48,19 @@ func NewAssetFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media/latest:AssetFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/latest:AssetFilter"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:AssetFilter"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:AssetFilter"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:AssetFilter"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:AssetFilter"),
@@ -59,7 +68,7 @@ func NewAssetFilter(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AssetFilter
-	err := ctx.RegisterResource("azure-nextgen:media:AssetFilter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media:AssetFilter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +80,7 @@ func NewAssetFilter(ctx *pulumi.Context,
 func GetAssetFilter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssetFilterState, opts ...pulumi.ResourceOption) (*AssetFilter, error) {
 	var resource AssetFilter
-	err := ctx.ReadResource("azure-nextgen:media:AssetFilter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media:AssetFilter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

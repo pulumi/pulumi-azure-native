@@ -16,7 +16,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180330preview:getJob", {
+    return pulumi.runtime.invoke("azure-native:media/v20180330preview:getJob", {
         "accountName": args.accountName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

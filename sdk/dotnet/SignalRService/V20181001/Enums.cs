@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.SignalRService.V20181001
+namespace Pulumi.AzureNative.SignalRService.V20181001
 {
     /// <summary>
     /// FeatureFlags is the supported features of Azure SignalR service.

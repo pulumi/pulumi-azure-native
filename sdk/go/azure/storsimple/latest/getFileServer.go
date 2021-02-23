@@ -10,10 +10,10 @@ import (
 // The file server.
 // Latest API Version: 2016-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileServer'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileServer'.
 func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...pulumi.InvokeOption) (*LookupFileServerResult, error) {
 	var rv LookupFileServerResult
-	err := ctx.Invoke("azure-nextgen:storsimple/latest:getFileServer", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/latest:getFileServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

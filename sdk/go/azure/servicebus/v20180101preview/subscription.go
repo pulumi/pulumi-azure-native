@@ -73,16 +73,31 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/latest:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Subscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Subscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20170401:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Subscription"),
@@ -90,7 +105,7 @@ func NewSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Subscription
-	err := ctx.RegisterResource("azure-nextgen:servicebus/v20180101preview:Subscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/v20180101preview:Subscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +117,7 @@ func NewSubscription(ctx *pulumi.Context,
 func GetSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SubscriptionState, opts ...pulumi.ResourceOption) (*Subscription, error) {
 	var resource Subscription
-	err := ctx.ReadResource("azure-nextgen:servicebus/v20180101preview:Subscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/v20180101preview:Subscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

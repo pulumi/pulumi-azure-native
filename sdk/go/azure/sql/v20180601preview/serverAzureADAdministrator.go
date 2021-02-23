@@ -53,19 +53,37 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:ServerAzureADAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:ServerAzureADAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/latest:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/latest:ServerAzureADAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20140401:ServerAzureADAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:ServerAzureADAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20190601preview:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ServerAzureADAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"),
@@ -73,7 +91,7 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerAzureADAdministrator
-	err := ctx.RegisterResource("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/v20180601preview:ServerAzureADAdministrator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +103,7 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 func GetServerAzureADAdministrator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerAzureADAdministratorState, opts ...pulumi.ResourceOption) (*ServerAzureADAdministrator, error) {
 	var resource ServerAzureADAdministrator
-	err := ctx.ReadResource("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/v20180601preview:ServerAzureADAdministrator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

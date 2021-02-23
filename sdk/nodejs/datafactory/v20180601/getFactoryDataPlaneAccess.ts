@@ -16,7 +16,7 @@ export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/v20180601:getFactoryDataPlaneAccess", {
+    return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,
         "expireTime": args.expireTime,
         "factoryName": args.factoryName,

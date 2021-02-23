@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
+namespace Pulumi.AzureNative.CostManagement.V20190301Preview
 {
     public static class GetCloudConnector
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
         /// The Connector model definition
         /// </summary>
         public static Task<GetCloudConnectorResult> InvokeAsync(GetCloudConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-nextgen:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorArgs(), options.WithVersion());
     }
 
 

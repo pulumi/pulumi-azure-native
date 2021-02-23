@@ -16,7 +16,7 @@ export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20200501preview:getDeviceExtendedInformation", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20200501preview:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -17,7 +17,7 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:appplatform:getCustomDomain", {
+    return pulumi.runtime.invoke("azure-native:appplatform:getCustomDomain", {
         "appName": args.appName,
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,

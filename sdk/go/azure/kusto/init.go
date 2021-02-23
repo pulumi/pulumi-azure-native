@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:kusto:AttachedDatabaseConfiguration":
+	case "azure-native:kusto:AttachedDatabaseConfiguration":
 		r, err = NewAttachedDatabaseConfiguration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:Cluster":
+	case "azure-native:kusto:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:ClusterPrincipalAssignment":
+	case "azure-native:kusto:ClusterPrincipalAssignment":
 		r, err = NewClusterPrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:DataConnection":
+	case "azure-native:kusto:DataConnection":
 		r, err = NewDataConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:Database":
+	case "azure-native:kusto:Database":
 		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:DatabasePrincipalAssignment":
+	case "azure-native:kusto:DatabasePrincipalAssignment":
 		r, err = NewDatabasePrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:kusto:EventHubConnection":
+	case "azure-native:kusto:EventHubConnection":
 		r, err = NewEventHubConnection(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"kusto",
 		&module{version},
 	)

@@ -22,7 +22,7 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteBackupConfigurationSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteBackupConfigurationSlot';
 
     /**
      * Returns true if the given object is an instance of SiteBackupConfigurationSlot.  This is designed to work even
@@ -124,7 +124,7 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/latest:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20201001:SiteBackupConfigurationSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web:SiteBackupConfigurationSlot" }, { type: "azure-native:web/latest:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/latest:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20201001:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20201001:SiteBackupConfigurationSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteBackupConfigurationSlot.__pulumiType, name, inputs, opts);
     }

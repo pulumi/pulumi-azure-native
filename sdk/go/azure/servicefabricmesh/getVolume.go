@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh:getVolume", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh:getVolume", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

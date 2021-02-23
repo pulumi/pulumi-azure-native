@@ -25,15 +25,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:kusto/v20170907privatepreview:Cluster":
+            case "azure-native:kusto/v20170907privatepreview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/v20170907privatepreview:Database":
+            case "azure-native:kusto/v20170907privatepreview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:kusto/v20170907privatepreview:EventHubConnection":
+            case "azure-native:kusto/v20170907privatepreview:EventHubConnection":
                 return new EventHubConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "kusto/v20170907privatepreview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "kusto/v20170907privatepreview", _module)

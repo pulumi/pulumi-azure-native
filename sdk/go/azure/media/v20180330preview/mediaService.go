@@ -41,19 +41,37 @@ func NewMediaService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:MediaService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:MediaService"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:MediaService"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20151001:MediaService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20151001:MediaService"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180601preview:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:MediaService"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180701:MediaService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:MediaService"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20200501:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20200501:MediaService"),
@@ -61,7 +79,7 @@ func NewMediaService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MediaService
-	err := ctx.RegisterResource("azure-nextgen:media/v20180330preview:MediaService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20180330preview:MediaService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +91,7 @@ func NewMediaService(ctx *pulumi.Context,
 func GetMediaService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MediaServiceState, opts ...pulumi.ResourceOption) (*MediaService, error) {
 	var resource MediaService
-	err := ctx.ReadResource("azure-nextgen:media/v20180330preview:MediaService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20180330preview:MediaService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

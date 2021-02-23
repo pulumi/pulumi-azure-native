@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.InvokeOption) (*LookupJobStepResult, error) {
 	var rv LookupJobStepResult
-	err := ctx.Invoke("azure-nextgen:sql:getJobStep", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getJobStep", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Inputs
         /// Intended usage of the cluster
         /// </summary>
         [Input("clusterPurpose")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.ClusterPurpose>? ClusterPurpose { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ClusterPurpose>? ClusterPurpose { get; set; }
 
         /// <summary>
         /// SSL configuration

@@ -18,7 +18,7 @@ export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network:getTrafficManagerUserMetricsKey", {
+    return pulumi.runtime.invoke("azure-native:network:getTrafficManagerUserMetricsKey", {
     }, opts);
 }
 

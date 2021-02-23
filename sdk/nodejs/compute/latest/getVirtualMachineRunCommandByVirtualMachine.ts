@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes a Virtual Machine run command.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineRunCommandByVirtualMachine'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineRunCommandByVirtualMachine'. */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineRunCommandByVirtualMachine'.")
+    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineRunCommandByVirtualMachine'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMach
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getVirtualMachineRunCommandByVirtualMachine", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getVirtualMachineRunCommandByVirtualMachine", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "runCommandName": args.runCommandName,

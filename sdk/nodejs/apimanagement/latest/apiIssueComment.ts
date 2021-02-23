@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Issue Comment Contract details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'.
  */
 export class ApiIssueComment extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiIssueComment {
-        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.")
+        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'.")
         return new ApiIssueComment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:ApiIssueComment';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:ApiIssueComment';
 
     /**
      * Returns true if the given object is an instance of ApiIssueComment.  This is designed to work even
@@ -66,9 +66,9 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'. */
     constructor(name: string, args: ApiIssueCommentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiIssueComment'.")
+        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
@@ -113,7 +113,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssueComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueComment" }, { type: "azure-nextgen:apimanagement:ApiIssueComment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueComment" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssueComment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssueComment.__pulumiType, name, inputs, opts);
     }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
+namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud node model
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode")]
+    [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedCloudNode(string name, DedicatedCloudNodeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, args ?? new DedicatedCloudNodeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, args ?? new DedicatedCloudNodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedCloudNode(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,7 +148,9 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:DedicatedCloudNode"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"},
+                    new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:DedicatedCloudNode"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode"},
                 },
             };

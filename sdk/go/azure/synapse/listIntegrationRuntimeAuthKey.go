@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeyArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeyResult, error) {
 	var rv ListIntegrationRuntimeAuthKeyResult
-	err := ctx.Invoke("azure-nextgen:synapse:listIntegrationRuntimeAuthKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:synapse:listIntegrationRuntimeAuthKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

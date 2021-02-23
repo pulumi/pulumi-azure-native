@@ -10,7 +10,7 @@ import (
 // Capacity pool resource
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
-	err := ctx.Invoke("azure-nextgen:netapp/v20200901:getPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp/v20200901:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

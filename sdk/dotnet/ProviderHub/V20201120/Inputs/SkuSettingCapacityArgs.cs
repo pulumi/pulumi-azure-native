@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
+namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
     public sealed class SkuSettingCapacityArgs : Pulumi.ResourceArgs
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
         public Input<int> Minimum { get; set; } = null!;
 
         [Input("scaleType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.SkuScaleType>? ScaleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.SkuScaleType>? ScaleType { get; set; }
 
         public SkuSettingCapacityArgs()
         {

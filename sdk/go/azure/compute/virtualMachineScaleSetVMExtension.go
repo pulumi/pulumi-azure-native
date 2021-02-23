@@ -58,16 +58,31 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:VirtualMachineScaleSetVMExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension"),
@@ -75,7 +90,7 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineScaleSetVMExtension
-	err := ctx.RegisterResource("azure-nextgen:compute:VirtualMachineScaleSetVMExtension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:VirtualMachineScaleSetVMExtension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +102,7 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 func GetVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineScaleSetVMExtensionState, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVMExtension, error) {
 	var resource VirtualMachineScaleSetVMExtension
-	err := ctx.ReadResource("azure-nextgen:compute:VirtualMachineScaleSetVMExtension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:VirtualMachineScaleSetVMExtension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

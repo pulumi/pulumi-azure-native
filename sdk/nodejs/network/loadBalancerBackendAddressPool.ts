@@ -23,7 +23,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network:LoadBalancerBackendAddressPool';
+    public static readonly __pulumiType = 'azure-native:network:LoadBalancerBackendAddressPool';
 
     /**
      * Returns true if the given object is an instance of LoadBalancerBackendAddressPool.  This is designed to work even
@@ -126,7 +126,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerBackendAddressPool.__pulumiType, name, inputs, opts);
     }

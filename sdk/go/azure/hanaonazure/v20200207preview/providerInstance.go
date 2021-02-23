@@ -42,12 +42,15 @@ func NewProviderInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hanaonazure:ProviderInstance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hanaonazure:ProviderInstance"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ProviderInstance
-	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20200207preview:ProviderInstance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hanaonazure/v20200207preview:ProviderInstance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +62,7 @@ func NewProviderInstance(ctx *pulumi.Context,
 func GetProviderInstance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProviderInstanceState, opts ...pulumi.ResourceOption) (*ProviderInstance, error) {
 	var resource ProviderInstance
-	err := ctx.ReadResource("azure-nextgen:hanaonazure/v20200207preview:ProviderInstance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hanaonazure/v20200207preview:ProviderInstance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

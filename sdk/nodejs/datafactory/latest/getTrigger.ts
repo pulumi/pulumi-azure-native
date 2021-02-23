@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Trigger resource type.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTrigger'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTrigger'. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTrigger'.")
+    pulumi.log.warn("getTrigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTrigger'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getTrigger", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getTrigger", {
         "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
         "triggerName": args.triggerName,

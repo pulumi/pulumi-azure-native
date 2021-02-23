@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
+namespace Pulumi.AzureNative.DataMigration.V20180715Preview
 {
     /// <summary>
     /// A task resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datamigration/v20180715preview:ServiceTask")]
+    [AzureNativeResourceType("azure-native:datamigration/v20180715preview:ServiceTask")]
     public partial class ServiceTask : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceTask(string name, ServiceTaskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, args ?? new ServiceTaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datamigration/v20180715preview:ServiceTask", name, args ?? new ServiceTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceTask(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datamigration/v20180715preview:ServiceTask", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datamigration:ServiceTask"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration:ServiceTask"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
+namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
 {
     public static class GetExtension
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
         /// The response to an extension resource GET request.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-nextgen:visualstudio/v20171101preview:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:visualstudio/v20171101preview:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
     }
 
 

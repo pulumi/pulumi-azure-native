@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOriginGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDOriginGroup'. */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
-    pulumi.log.warn("getAFDOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDOriginGroup'.")
+    pulumi.log.warn("getAFDOriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDOriginGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getAFDOriginGroup", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getAFDOriginGroup", {
         "originGroupName": args.originGroupName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

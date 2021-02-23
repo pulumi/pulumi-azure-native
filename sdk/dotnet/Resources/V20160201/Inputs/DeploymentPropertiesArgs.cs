@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20160201.Inputs
+namespace Pulumi.AzureNative.Resources.V20160201.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160201.Inputs
         /// The deployment mode.
         /// </summary>
         [Input("mode", required: true)]
-        public Input<Pulumi.AzureNextGen.Resources.V20160201.DeploymentMode> Mode { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Resources.V20160201.DeploymentMode> Mode { get; set; } = null!;
 
         /// <summary>
         /// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.

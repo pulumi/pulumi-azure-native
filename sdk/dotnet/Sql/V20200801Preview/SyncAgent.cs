@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200801Preview
+namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
     /// <summary>
     /// An Azure SQL Database sync agent.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200801preview:SyncAgent")]
+    [AzureNativeResourceType("azure-native:sql/v20200801preview:SyncAgent")]
     public partial class SyncAgent : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncAgent(string name, SyncAgentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:SyncAgent", name, args ?? new SyncAgentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200801preview:SyncAgent", name, args ?? new SyncAgentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncAgent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200801preview:SyncAgent", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200801preview:SyncAgent", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:SyncAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:SyncAgent"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:SyncAgent"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SyncAgent"},
                 },
             };

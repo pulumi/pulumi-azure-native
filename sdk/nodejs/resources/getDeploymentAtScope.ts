@@ -17,7 +17,7 @@ export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:resources:getDeploymentAtScope", {
+    return pulumi.runtime.invoke("azure-native:resources:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,
         "scope": args.scope,
     }, opts);

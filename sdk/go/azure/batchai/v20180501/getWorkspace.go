@@ -10,7 +10,7 @@ import (
 // Batch AI Workspace information.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:batchai/v20180501:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/v20180501:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

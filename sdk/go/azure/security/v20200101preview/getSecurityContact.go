@@ -10,7 +10,7 @@ import (
 // Contact details and configurations for notifications coming from Azure Security Center.
 func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs, opts ...pulumi.InvokeOption) (*LookupSecurityContactResult, error) {
 	var rv LookupSecurityContactResult
-	err := ctx.Invoke("azure-nextgen:security/v20200101preview:getSecurityContact", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20200101preview:getSecurityContact", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

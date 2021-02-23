@@ -10,10 +10,10 @@ import (
 // The order details.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getOrder'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getOrder'.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {
 	var rv LookupOrderResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getOrder", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getOrder", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

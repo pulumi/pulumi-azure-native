@@ -39,25 +39,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationFabric":
+            case "azure-native:recoveryservices/v20160810:ReplicationFabric":
                 return new ReplicationFabric(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping":
+            case "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping":
                 return new ReplicationNetworkMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationPolicy":
+            case "azure-native:recoveryservices/v20160810:ReplicationPolicy":
                 return new ReplicationPolicy(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem":
+            case "azure-native:recoveryservices/v20160810:ReplicationProtectedItem":
                 return new ReplicationProtectedItem(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping":
+            case "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping":
                 return new ReplicationProtectionContainerMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan":
+            case "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan":
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping":
+            case "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping":
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:recoveryservices/v20160810:ReplicationvCenter":
+            case "azure-native:recoveryservices/v20160810:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "recoveryservices/v20160810", _module)
+pulumi.runtime.registerResourceModule("azure-native", "recoveryservices/v20160810", _module)

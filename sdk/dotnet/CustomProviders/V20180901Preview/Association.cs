@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
+namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// The resource definition of this association.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customproviders/v20180901preview:Association")]
+    [AzureNativeResourceType("azure-native:customproviders/v20180901preview:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders/v20180901preview:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customproviders/v20180901preview:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Association(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders/v20180901preview:Association", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customproviders/v20180901preview:Association", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customproviders:Association"},
                     new Pulumi.Alias { Type = "azure-nextgen:customproviders:Association"},
                 },
             };

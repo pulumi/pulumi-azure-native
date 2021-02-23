@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetNetworkExperimentProfile
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2019-11-01.
         /// </summary>
         public static Task<GetNetworkExperimentProfileResult> InvokeAsync(GetNetworkExperimentProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkExperimentProfileResult>("azure-nextgen:network:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkExperimentProfileResult>("azure-native:network:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileArgs(), options.WithVersion());
     }
 
 

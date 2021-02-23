@@ -40,25 +40,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:databoxedge/v20190701:BandwidthSchedule":
+            case "azure-native:databoxedge/v20190701:BandwidthSchedule":
                 return new BandwidthSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:Device":
+            case "azure-native:databoxedge/v20190701:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:Order":
+            case "azure-native:databoxedge/v20190701:Order":
                 return new Order(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:Role":
+            case "azure-native:databoxedge/v20190701:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:Share":
+            case "azure-native:databoxedge/v20190701:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:StorageAccountCredential":
+            case "azure-native:databoxedge/v20190701:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:Trigger":
+            case "azure-native:databoxedge/v20190701:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/v20190701:User":
+            case "azure-native:databoxedge/v20190701:User":
                 return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "databoxedge/v20190701", _module)
+pulumi.runtime.registerResourceModule("azure-native", "databoxedge/v20190701", _module)

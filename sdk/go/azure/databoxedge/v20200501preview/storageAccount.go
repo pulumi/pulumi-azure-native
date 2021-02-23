@@ -48,16 +48,31 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/latest:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/latest:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20190801:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:StorageAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:StorageAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccount"),
@@ -65,7 +80,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccount
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/v20200501preview:StorageAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/v20200501preview:StorageAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +92,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 func GetStorageAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountState, opts ...pulumi.ResourceOption) (*StorageAccount, error) {
 	var resource StorageAccount
-	err := ctx.ReadResource("azure-nextgen:databoxedge/v20200501preview:StorageAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/v20200501preview:StorageAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

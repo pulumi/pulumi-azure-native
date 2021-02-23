@@ -10,7 +10,7 @@ import (
 // The result of get log link operation.
 func GetBuildLogLink(ctx *pulumi.Context, args *GetBuildLogLinkArgs, opts ...pulumi.InvokeOption) (*GetBuildLogLinkResult, error) {
 	var rv GetBuildLogLinkResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20180201preview:getBuildLogLink", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:getBuildLogLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.V20180202
+namespace Pulumi.AzureNative.Migrate.V20180202
 {
     /// <summary>
     /// Azure Migrate Project.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:migrate/v20180202:Project")]
+    [AzureNativeResourceType("azure-native:migrate/v20180202:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -126,12 +126,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20180202:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/v20180202:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/v20180202:Project", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/v20180202:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -142,6 +142,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20171111preview:Project"},
                 },
             };
@@ -200,7 +201,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// Provisioning state of the project.
         /// </summary>
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20180202.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Migrate.V20180202.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

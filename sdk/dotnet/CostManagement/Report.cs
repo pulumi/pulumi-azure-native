@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// A report resource.
     /// API Version: 2018-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement:Report")]
+    [AzureNativeResourceType("azure-native:costmanagement:Report")]
     public partial class Report : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Report(string name, ReportArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:Report", name, args ?? new ReportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement:Report", name, args ?? new ReportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Report(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:Report", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement:Report", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,6 +83,7 @@ namespace Pulumi.AzureNextGen.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:Report"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180801preview:Report"},
                 },
             };
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.FormatType>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Name.

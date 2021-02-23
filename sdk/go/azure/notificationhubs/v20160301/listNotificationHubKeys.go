@@ -10,7 +10,7 @@ import (
 // Namespace/NotificationHub Connection String
 func ListNotificationHubKeys(ctx *pulumi.Context, args *ListNotificationHubKeysArgs, opts ...pulumi.InvokeOption) (*ListNotificationHubKeysResult, error) {
 	var rv ListNotificationHubKeysResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs/v20160301:listNotificationHubKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs/v20160301:listNotificationHubKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

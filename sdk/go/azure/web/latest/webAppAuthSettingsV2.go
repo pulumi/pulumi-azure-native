@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAuthSettingsV2'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAuthSettingsV2'.
 type WebAppAuthSettingsV2 struct {
 	pulumi.CustomResourceState
 
@@ -47,13 +47,25 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppAuthSettingsV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettingsV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppAuthSettingsV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAuthSettingsV2"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppAuthSettingsV2"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAuthSettingsV2"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppAuthSettingsV2"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettingsV2"),
@@ -61,7 +73,7 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettingsV2
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppAuthSettingsV2", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppAuthSettingsV2", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +85,7 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 func GetWebAppAuthSettingsV2(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppAuthSettingsV2State, opts ...pulumi.ResourceOption) (*WebAppAuthSettingsV2, error) {
 	var resource WebAppAuthSettingsV2
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppAuthSettingsV2", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppAuthSettingsV2", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

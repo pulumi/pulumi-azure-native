@@ -10,10 +10,10 @@ import (
 // Represents a database elastic pool.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:sql:getElasticPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getElasticPool'.
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
-	err := ctx.Invoke("azure-nextgen:sql/latest:getElasticPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/latest:getElasticPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

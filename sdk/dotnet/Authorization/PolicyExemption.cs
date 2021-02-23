@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization
+namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy exemption.
     /// API Version: 2020-07-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:authorization:PolicyExemption")]
+    [AzureNativeResourceType("azure-native:authorization:PolicyExemption")]
     public partial class PolicyExemption : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyExemption(string name, PolicyExemptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:PolicyExemption", name, args ?? new PolicyExemptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:authorization:PolicyExemption", name, args ?? new PolicyExemptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PolicyExemption(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:authorization:PolicyExemption", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:authorization:PolicyExemption", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200701preview:PolicyExemption"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200701preview:PolicyExemption"},
                 },
             };
@@ -141,7 +142,7 @@ namespace Pulumi.AzureNextGen.Authorization
         /// The policy exemption category. Possible values are Waiver and Mitigated.
         /// </summary>
         [Input("exemptionCategory", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.ExemptionCategory> ExemptionCategory { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Authorization.ExemptionCategory> ExemptionCategory { get; set; } = null!;
 
         /// <summary>
         /// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.

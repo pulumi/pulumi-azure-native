@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Web.V20150801Preview
+namespace Pulumi.AzureNative.Web.V20150801Preview
 {
     /// <summary>
     /// Type of the parameter

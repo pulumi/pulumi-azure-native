@@ -53,33 +53,33 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:databoxedge/latest:Addon":
+            case "azure-native:databoxedge/latest:Addon":
                 return new Addon(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:BandwidthSchedule":
+            case "azure-native:databoxedge/latest:BandwidthSchedule":
                 return new BandwidthSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Container":
+            case "azure-native:databoxedge/latest:Container":
                 return new Container(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Device":
+            case "azure-native:databoxedge/latest:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:MonitoringConfig":
+            case "azure-native:databoxedge/latest:MonitoringConfig":
                 return new MonitoringConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Order":
+            case "azure-native:databoxedge/latest:Order":
                 return new Order(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Role":
+            case "azure-native:databoxedge/latest:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Share":
+            case "azure-native:databoxedge/latest:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:StorageAccount":
+            case "azure-native:databoxedge/latest:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:StorageAccountCredential":
+            case "azure-native:databoxedge/latest:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:Trigger":
+            case "azure-native:databoxedge/latest:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
-            case "azure-nextgen:databoxedge/latest:User":
+            case "azure-native:databoxedge/latest:User":
                 return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "databoxedge/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "databoxedge/latest", _module)

@@ -17,7 +17,7 @@ export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:getEventChannel", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:getEventChannel", {
         "eventChannelName": args.eventChannelName,
         "partnerNamespaceName": args.partnerNamespaceName,
         "resourceGroupName": args.resourceGroupName,

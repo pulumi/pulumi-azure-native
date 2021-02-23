@@ -44,13 +44,25 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan"),
@@ -58,7 +70,7 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryPlan
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices:ReplicationRecoveryPlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices:ReplicationRecoveryPlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationRecoveryPlanState, opts ...pulumi.ResourceOption) (*ReplicationRecoveryPlan, error) {
 	var resource ReplicationRecoveryPlan
-	err := ctx.ReadResource("azure-nextgen:recoveryservices:ReplicationRecoveryPlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices:ReplicationRecoveryPlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

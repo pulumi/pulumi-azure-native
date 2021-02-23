@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Scheduler
+namespace Pulumi.AzureNative.Scheduler
 {
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>

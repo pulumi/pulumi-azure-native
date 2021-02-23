@@ -10,10 +10,10 @@ import (
 // IoT Security solution configuration and resource information.
 // Latest API Version: 2019-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getIotSecuritySolution'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getIotSecuritySolution'.
 func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolutionArgs, opts ...pulumi.InvokeOption) (*LookupIotSecuritySolutionResult, error) {
 	var rv LookupIotSecuritySolutionResult
-	err := ctx.Invoke("azure-nextgen:security/latest:getIotSecuritySolution", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/latest:getIotSecuritySolution", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

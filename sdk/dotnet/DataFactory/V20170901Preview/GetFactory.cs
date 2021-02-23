@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
     public static class GetFactory
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// Factory resource type.
         /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure-nextgen:datafactory/v20170901preview:getFactory", args ?? new GetFactoryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure-native:datafactory/v20170901preview:getFactory", args ?? new GetFactoryArgs(), options.WithVersion());
     }
 
 

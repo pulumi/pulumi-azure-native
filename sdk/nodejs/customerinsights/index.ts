@@ -63,31 +63,31 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:customerinsights:Connector":
+            case "azure-native:customerinsights:Connector":
                 return new Connector(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:ConnectorMapping":
+            case "azure-native:customerinsights:ConnectorMapping":
                 return new ConnectorMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Hub":
+            case "azure-native:customerinsights:Hub":
                 return new Hub(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Kpi":
+            case "azure-native:customerinsights:Kpi":
                 return new Kpi(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Link":
+            case "azure-native:customerinsights:Link":
                 return new Link(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Prediction":
+            case "azure-native:customerinsights:Prediction":
                 return new Prediction(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Profile":
+            case "azure-native:customerinsights:Profile":
                 return new Profile(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:Relationship":
+            case "azure-native:customerinsights:Relationship":
                 return new Relationship(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:RelationshipLink":
+            case "azure-native:customerinsights:RelationshipLink":
                 return new RelationshipLink(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:RoleAssignment":
+            case "azure-native:customerinsights:RoleAssignment":
                 return new RoleAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:customerinsights:View":
+            case "azure-native:customerinsights:View":
                 return new View(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "customerinsights", _module)
+pulumi.runtime.registerResourceModule("azure-native", "customerinsights", _module)

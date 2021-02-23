@@ -22,7 +22,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/v20201101:BackupPolicy';
+    public static readonly __pulumiType = 'azure-native:netapp/v20201101:BackupPolicy';
 
     /**
      * Returns true if the given object is an instance of BackupPolicy.  This is designed to work even
@@ -136,7 +136,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp/latest:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-native:netapp/latest:BackupPolicy" }, { type: "azure-nextgen:netapp/latest:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

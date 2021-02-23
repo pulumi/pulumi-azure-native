@@ -10,7 +10,7 @@ import (
 // The workflow trigger callback URL.
 func ListWorkflowCallbackUrl(ctx *pulumi.Context, args *ListWorkflowCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListWorkflowCallbackUrlResult, error) {
 	var rv ListWorkflowCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic/v20180701preview:listWorkflowCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20180701preview:listWorkflowCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// Debug info option.
         /// </summary>
         [Input("getDebugInfo")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.HDInsightActivityDebugInfoOption>? GetDebugInfo { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.HDInsightActivityDebugInfoOption>? GetDebugInfo { get; set; }
 
         /// <summary>
         /// Input blob path. Type: string (or Expression with resultType string).

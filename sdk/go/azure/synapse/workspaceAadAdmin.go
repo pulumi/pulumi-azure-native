@@ -45,10 +45,19 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse/latest:WorkspaceAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:WorkspaceAadAdmin"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:WorkspaceAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:WorkspaceAadAdmin"),
@@ -56,7 +65,7 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceAadAdmin
-	err := ctx.RegisterResource("azure-nextgen:synapse:WorkspaceAadAdmin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse:WorkspaceAadAdmin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +77,7 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 func GetWorkspaceAadAdmin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceAadAdminState, opts ...pulumi.ResourceOption) (*WorkspaceAadAdmin, error) {
 	var resource WorkspaceAadAdmin
-	err := ctx.ReadResource("azure-nextgen:synapse:WorkspaceAadAdmin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse:WorkspaceAadAdmin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

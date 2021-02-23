@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:desktopvirtualization/v20200921preview:Application":
+            case "azure-native:desktopvirtualization/v20200921preview:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup":
+            case "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20200921preview:HostPool":
+            case "azure-native:desktopvirtualization/v20200921preview:HostPool":
                 return new HostPool(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage":
+            case "azure-native:desktopvirtualization/v20200921preview:MSIXPackage":
                 return new MSIXPackage(name, <any>undefined, { urn })
-            case "azure-nextgen:desktopvirtualization/v20200921preview:Workspace":
+            case "azure-native:desktopvirtualization/v20200921preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "desktopvirtualization/v20200921preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "desktopvirtualization/v20200921preview", _module)

@@ -10,10 +10,10 @@ import (
 // Backup description.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listWebAppBackupStatusSecrets'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupStatusSecrets'.
 func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
 	var rv ListWebAppBackupStatusSecretsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listWebAppBackupStatusSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listWebAppBackupStatusSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

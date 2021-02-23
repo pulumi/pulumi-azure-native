@@ -10,7 +10,7 @@ import (
 // OpenId Connect Provider details.
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	var rv LookupOpenIdConnectProviderResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:getOpenIdConnectProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20200601preview:getOpenIdConnectProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

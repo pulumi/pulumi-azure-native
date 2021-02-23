@@ -10,10 +10,10 @@ import (
 // A single API Management service resource in List or Get response.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiManagementService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementService'.
 func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementServiceArgs, opts ...pulumi.InvokeOption) (*LookupApiManagementServiceResult, error) {
 	var rv LookupApiManagementServiceResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiManagementService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiManagementService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

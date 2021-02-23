@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ChangeAnalysis.Inputs
+namespace Pulumi.AzureNative.ChangeAnalysis.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.Inputs
         /// The state of notifications feature.
         /// </summary>
         [Input("activationState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ChangeAnalysis.NotificationsState>? ActivationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ChangeAnalysis.NotificationsState>? ActivationState { get; set; }
 
         /// <summary>
         /// Configuration properties of an Azure Monitor workspace that receives change notifications.

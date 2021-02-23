@@ -14,7 +14,7 @@ import (
 // Single item in List or Get Event Hub operation
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:eventhub:EventHub'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.
 type EventHub struct {
 	pulumi.CustomResourceState
 
@@ -53,16 +53,31 @@ func NewEventHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:eventhub:EventHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub:EventHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20140901:EventHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20140901:EventHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20150801:EventHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20150801:EventHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventhub/v20170401:EventHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:EventHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20180101preview:EventHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:EventHub"),
@@ -70,7 +85,7 @@ func NewEventHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource EventHub
-	err := ctx.RegisterResource("azure-nextgen:eventhub/latest:EventHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:eventhub/latest:EventHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewEventHub(ctx *pulumi.Context,
 func GetEventHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventHubState, opts ...pulumi.ResourceOption) (*EventHub, error) {
 	var resource EventHub
-	err := ctx.ReadResource("azure-nextgen:eventhub/latest:EventHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:eventhub/latest:EventHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

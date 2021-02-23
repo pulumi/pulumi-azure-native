@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
 {
     /// <summary>
     /// Represents a server firewall rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/v20200214preview:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/v20200214preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/v20200214preview:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                 },
             };

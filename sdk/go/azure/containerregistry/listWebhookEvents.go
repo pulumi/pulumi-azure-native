@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListWebhookEvents(ctx *pulumi.Context, args *ListWebhookEventsArgs, opts ...pulumi.InvokeOption) (*ListWebhookEventsResult, error) {
 	var rv ListWebhookEventsResult
-	err := ctx.Invoke("azure-nextgen:containerregistry:listWebhookEvents", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry:listWebhookEvents", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

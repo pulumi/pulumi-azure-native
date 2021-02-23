@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20201001Preview
+namespace Pulumi.AzureNative.Compute.V20201001Preview
 {
     public static class GetCloudService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
         /// Describes the cloud service.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-nextgen:compute/v20201001preview:getCloudService", args ?? new GetCloudServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute/v20201001preview:getCloudService", args ?? new GetCloudServiceArgs(), options.WithVersion());
     }
 
 

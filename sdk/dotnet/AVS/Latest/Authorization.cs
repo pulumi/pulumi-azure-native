@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.Latest
+namespace Pulumi.AzureNative.AVS.Latest
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
     /// Latest API Version: 2020-03-20.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:Authorization'.")]
-    [AzureNextGenResourceType("azure-nextgen:avs/latest:Authorization")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.")]
+    [AzureNativeResourceType("azure-native:avs/latest:Authorization")]
     public partial class Authorization : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorization(string name, AuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/latest:Authorization", name, args ?? new AuthorizationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs/latest:Authorization", name, args ?? new AuthorizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Authorization(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs/latest:Authorization", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs/latest:Authorization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,13 @@ namespace Pulumi.AzureNextGen.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Authorization"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Authorization"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Authorization"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Authorization"},
                 },
             };

@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/v20190601:ActionGroup":
+            case "azure-native:insights/v20190601:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/v20190601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/v20190601", _module)

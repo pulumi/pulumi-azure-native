@@ -10,7 +10,7 @@ import (
 // Tenant configuration.
 func LookupTenantConfiguration(ctx *pulumi.Context, args *LookupTenantConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupTenantConfigurationResult, error) {
 	var rv LookupTenantConfigurationResult
-	err := ctx.Invoke("azure-nextgen:portal/v20190101preview:getTenantConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/v20190101preview:getTenantConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

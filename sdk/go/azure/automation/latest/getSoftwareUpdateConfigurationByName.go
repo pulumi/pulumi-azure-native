@@ -10,10 +10,10 @@ import (
 // Software update configuration properties.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSoftwareUpdateConfigurationByName'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSoftwareUpdateConfigurationByName'.
 func LookupSoftwareUpdateConfigurationByName(ctx *pulumi.Context, args *LookupSoftwareUpdateConfigurationByNameArgs, opts ...pulumi.InvokeOption) (*LookupSoftwareUpdateConfigurationByNameResult, error) {
 	var rv LookupSoftwareUpdateConfigurationByNameResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getSoftwareUpdateConfigurationByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getSoftwareUpdateConfigurationByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

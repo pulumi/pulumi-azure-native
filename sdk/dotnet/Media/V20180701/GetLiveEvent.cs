@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180701
+namespace Pulumi.AzureNative.Media.V20180701
 {
     public static class GetLiveEvent
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// The Live Event.
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-nextgen:media/v20180701:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media/v20180701:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
     }
 
 

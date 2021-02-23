@@ -61,10 +61,19 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20190601preview:WorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:WorkloadGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:WorkloadGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:WorkloadGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:WorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:WorkloadGroup"),
@@ -72,7 +81,7 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadGroup
-	err := ctx.RegisterResource("azure-nextgen:sql:WorkloadGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:WorkloadGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +93,7 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 func GetWorkloadGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadGroupState, opts ...pulumi.ResourceOption) (*WorkloadGroup, error) {
 	var resource WorkloadGroup
-	err := ctx.ReadResource("azure-nextgen:sql:WorkloadGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:WorkloadGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

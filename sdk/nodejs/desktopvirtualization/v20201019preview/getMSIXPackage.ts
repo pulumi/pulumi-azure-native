@@ -16,7 +16,7 @@ export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:desktopvirtualization/v20201019preview:getMSIXPackage", {
+    return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20201019preview:getMSIXPackage", {
         "hostPoolName": args.hostPoolName,
         "msixPackageFullName": args.msixPackageFullName,
         "resourceGroupName": args.resourceGroupName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
+namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
         /// Allocation policy used by Batch Service to provision the nodes. If not specified, Batch will use the regional policy.
         /// </summary>
         [Input("policy")]
-        public Input<Pulumi.AzureNextGen.Batch.V20210101.NodePlacementPolicyType>? Policy { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20210101.NodePlacementPolicyType>? Policy { get; set; }
 
         public NodePlacementConfigurationArgs()
         {

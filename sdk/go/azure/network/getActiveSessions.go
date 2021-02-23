@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func GetActiveSessions(ctx *pulumi.Context, args *GetActiveSessionsArgs, opts ...pulumi.InvokeOption) (*GetActiveSessionsResult, error) {
 	var rv GetActiveSessionsResult
-	err := ctx.Invoke("azure-nextgen:network:getActiveSessions", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getActiveSessions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // Product information.
 // Latest API Version: 2017-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getProduct'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProduct'.
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
-	err := ctx.Invoke("azure-nextgen:azurestack/latest:getProduct", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:azurestack/latest:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

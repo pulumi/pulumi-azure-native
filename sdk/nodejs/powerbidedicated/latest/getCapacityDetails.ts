@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents an instance of a Dedicated Capacity resource.
  * Latest API Version: 2017-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbidedicated:getCapacityDetails'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getCapacityDetails'. */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
-    pulumi.log.warn("getCapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:powerbidedicated:getCapacityDetails'.")
+    pulumi.log.warn("getCapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getCapacityDetails'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:powerbidedicated/latest:getCapacityDetails", {
+    return pulumi.runtime.invoke("azure-native:powerbidedicated/latest:getCapacityDetails", {
         "dedicatedCapacityName": args.dedicatedCapacityName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

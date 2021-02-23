@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20140401
+namespace Pulumi.AzureNative.Insights.V20140401
 {
     public static class GetAlertRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20140401
         /// The alert rule resource.
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-nextgen:insights/v20140401:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure-native:insights/v20140401:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
     }
 
 

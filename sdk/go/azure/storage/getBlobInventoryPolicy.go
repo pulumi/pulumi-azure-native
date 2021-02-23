@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupBlobInventoryPolicy(ctx *pulumi.Context, args *LookupBlobInventoryPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobInventoryPolicyResult, error) {
 	var rv LookupBlobInventoryPolicyResult
-	err := ctx.Invoke("azure-nextgen:storage:getBlobInventoryPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage:getBlobInventoryPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

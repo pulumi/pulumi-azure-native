@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights
+namespace Pulumi.AzureNative.Insights
 {
     public static class GetDataCollectionRule
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Insights
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-nextgen:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
     }
 
 

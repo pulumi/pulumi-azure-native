@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200201Preview
+namespace Pulumi.AzureNative.Media.V20200201Preview
 {
     /// <summary>
     /// The Media Graph.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:media/v20200201preview:MediaGraph")]
+    [AzureNativeResourceType("azure-native:media/v20200201preview:MediaGraph")]
     public partial class MediaGraph : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MediaGraph(string name, MediaGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200201preview:MediaGraph", name, args ?? new MediaGraphArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:media/v20200201preview:MediaGraph", name, args ?? new MediaGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MediaGraph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:media/v20200201preview:MediaGraph", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:media/v20200201preview:MediaGraph", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Media.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:media/v20190901preview:MediaGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20190901preview:MediaGraph"},
                 },
             };

@@ -10,7 +10,7 @@ import (
 // Security assessment on a resource
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
-	err := ctx.Invoke("azure-nextgen:security/v20200101:getAssessment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20200101:getAssessment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

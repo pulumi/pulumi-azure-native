@@ -16,7 +16,7 @@ export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/v20201101preview:getConnectedRegistry", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/v20201101preview:getConnectedRegistry", {
         "connectedRegistryName": args.connectedRegistryName,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

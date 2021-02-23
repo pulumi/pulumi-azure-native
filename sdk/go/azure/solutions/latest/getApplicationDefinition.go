@@ -10,10 +10,10 @@ import (
 // Information about managed application definition.
 // Latest API Version: 2019-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:solutions:getApplicationDefinition'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getApplicationDefinition'.
 func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationDefinitionResult, error) {
 	var rv LookupApplicationDefinitionResult
-	err := ctx.Invoke("azure-nextgen:solutions/latest:getApplicationDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:solutions/latest:getApplicationDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

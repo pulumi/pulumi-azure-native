@@ -14,7 +14,7 @@ import (
 // The customer's prefix that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:RegisteredPrefix'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredPrefix'.
 type RegisteredPrefix struct {
 	pulumi.CustomResourceState
 
@@ -49,13 +49,25 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering:RegisteredPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering:RegisteredPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:RegisteredPrefix"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:RegisteredPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredPrefix"),
@@ -63,7 +75,7 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredPrefix
-	err := ctx.RegisterResource("azure-nextgen:peering/latest:RegisteredPrefix", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering/latest:RegisteredPrefix", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 func GetRegisteredPrefix(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegisteredPrefixState, opts ...pulumi.ResourceOption) (*RegisteredPrefix, error) {
 	var resource RegisteredPrefix
-	err := ctx.ReadResource("azure-nextgen:peering/latest:RegisteredPrefix", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering/latest:RegisteredPrefix", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

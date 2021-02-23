@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.V20200625
+namespace Pulumi.AzureNative.GuestConfiguration.V20200625
 {
     /// <summary>
     /// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
+namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
     /// <summary>
     /// SaaS REST API resource definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel")]
+    [AzureNativeResourceType("azure-native:saas/v20180301beta:SaasSubscriptionLevel")]
     public partial class SaasSubscriptionLevel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SaasSubscriptionLevel(string name, SaasSubscriptionLevelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel", name, args ?? new SaasSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:saas/v20180301beta:SaasSubscriptionLevel", name, args ?? new SaasSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SaasSubscriptionLevel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:saas/v20180301beta:SaasSubscriptionLevel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.SaaS.V20180301Beta
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:saas:SaasSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:saas:SaasSubscriptionLevel"},
                 },
             };

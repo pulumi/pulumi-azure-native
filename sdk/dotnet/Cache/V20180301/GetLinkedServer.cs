@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cache.V20180301
+namespace Pulumi.AzureNative.Cache.V20180301
 {
     public static class GetLinkedServer
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Cache.V20180301
         /// Response to put/get linked server (with properties) for Redis cache.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-nextgen:cache/v20180301:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache/v20180301:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
     }
 
 

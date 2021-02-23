@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class ListIntegrationAccountAssemblyContentCallbackUrl
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountAssemblyContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAssemblyContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-nextgen:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithVersion());
     }
 
 

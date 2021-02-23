@@ -17,7 +17,7 @@ export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:getWebAppSlot", {
+    return pulumi.runtime.invoke("azure-native:web:getWebAppSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

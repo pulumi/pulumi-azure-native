@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupPolicyAssignmentResult, error) {
 	var rv LookupPolicyAssignmentResult
-	err := ctx.Invoke("azure-nextgen:authorization:getPolicyAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getPolicyAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

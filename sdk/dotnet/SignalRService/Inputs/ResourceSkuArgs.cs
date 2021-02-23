@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.Inputs
+namespace Pulumi.AzureNative.SignalRService.Inputs
 {
 
     /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Inputs
         /// `Basic` is deprecated, use `Standard` instead.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.SignalRSkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.SignalRService.SignalRSkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

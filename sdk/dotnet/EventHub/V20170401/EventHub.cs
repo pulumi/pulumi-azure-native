@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:EventHub")]
+    [AzureNativeResourceType("azure-native:eventhub/v20170401:EventHub")]
     public partial class EventHub : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHub(string name, EventHubArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:EventHub", name, args ?? new EventHubArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/v20170401:EventHub", name, args ?? new EventHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventHub(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:EventHub", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/v20170401:EventHub", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,10 +94,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:EventHub"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:EventHub"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:EventHub"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:EventHub"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:EventHub"},
                 },
             };
@@ -162,7 +167,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// Enumerates the possible values for the status of the Event Hub.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNextGen.EventHub.V20170401.EntityStatus>? Status { get; set; }
+        public Input<Pulumi.AzureNative.EventHub.V20170401.EntityStatus>? Status { get; set; }
 
         public EventHubArgs()
         {

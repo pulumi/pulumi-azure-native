@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blockchain.Inputs
+namespace Pulumi.AzureNative.Blockchain.Inputs
 {
 
     /// <summary>

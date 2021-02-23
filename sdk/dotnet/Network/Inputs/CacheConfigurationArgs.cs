@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// Whether to use dynamic compression for cached content
         /// </summary>
         [Input("dynamicCompression")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.DynamicCompressionEnabled>? DynamicCompression { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.DynamicCompressionEnabled>? DynamicCompression { get; set; }
 
         /// <summary>
         /// Treatment of URL query terms when forming the cache key.
         /// </summary>
         [Input("queryParameterStripDirective")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.FrontDoorQuery>? QueryParameterStripDirective { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.FrontDoorQuery>? QueryParameterStripDirective { get; set; }
 
         /// <summary>
         /// query parameters to include or exclude (comma separated).

@@ -17,7 +17,7 @@ export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge:listOrderDCAccessCode", {
+    return pulumi.runtime.invoke("azure-native:databoxedge:listOrderDCAccessCode", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

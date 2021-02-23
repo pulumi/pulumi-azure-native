@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-08-preview.
 func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupControllerDetailsResult, error) {
 	var rv LookupControllerDetailsResult
-	err := ctx.Invoke("azure-nextgen:delegatednetwork:getControllerDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:delegatednetwork:getControllerDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

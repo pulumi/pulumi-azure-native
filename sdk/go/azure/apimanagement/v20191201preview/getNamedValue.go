@@ -10,7 +10,7 @@ import (
 // NamedValue details.
 func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...pulumi.InvokeOption) (*LookupNamedValueResult, error) {
 	var rv LookupNamedValueResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:getNamedValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getNamedValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-01-preview.
 func LookupAccessReviewScheduleDefinitionById(ctx *pulumi.Context, args *LookupAccessReviewScheduleDefinitionByIdArgs, opts ...pulumi.InvokeOption) (*LookupAccessReviewScheduleDefinitionByIdResult, error) {
 	var rv LookupAccessReviewScheduleDefinitionByIdResult
-	err := ctx.Invoke("azure-nextgen:authorization:getAccessReviewScheduleDefinitionById", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization:getAccessReviewScheduleDefinitionById", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

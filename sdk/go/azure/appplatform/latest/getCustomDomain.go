@@ -10,10 +10,10 @@ import (
 // Custom domain resource payload.
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getCustomDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getCustomDomain'.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
-	err := ctx.Invoke("azure-nextgen:appplatform/latest:getCustomDomain", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/latest:getCustomDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

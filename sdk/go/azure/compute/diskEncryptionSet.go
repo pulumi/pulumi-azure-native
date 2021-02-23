@@ -48,19 +48,37 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute/latest:DiskEncryptionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/latest:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:DiskEncryptionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:DiskEncryptionSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191101:DiskEncryptionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191101:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200501:DiskEncryptionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200501:DiskEncryptionSet"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200630:DiskEncryptionSet"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:DiskEncryptionSet"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskEncryptionSet"),
@@ -68,7 +86,7 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DiskEncryptionSet
-	err := ctx.RegisterResource("azure-nextgen:compute:DiskEncryptionSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute:DiskEncryptionSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +98,7 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 func GetDiskEncryptionSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskEncryptionSetState, opts ...pulumi.ResourceOption) (*DiskEncryptionSet, error) {
 	var resource DiskEncryptionSet
-	err := ctx.ReadResource("azure-nextgen:compute:DiskEncryptionSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute:DiskEncryptionSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

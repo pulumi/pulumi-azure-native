@@ -11,7 +11,7 @@ import (
 // API Version: 2020-01-01.
 func LookupDataConnector(ctx *pulumi.Context, args *LookupDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupDataConnectorResult, error) {
 	var rv LookupDataConnectorResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getDataConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getDataConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

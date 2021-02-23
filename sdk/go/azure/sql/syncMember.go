@@ -67,13 +67,25 @@ func NewSyncMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:SyncMember"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:SyncMember"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20190601preview:SyncMember"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:SyncMember"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:SyncMember"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncMember"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:SyncMember"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncMember"),
@@ -81,7 +93,7 @@ func NewSyncMember(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SyncMember
-	err := ctx.RegisterResource("azure-nextgen:sql:SyncMember", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:SyncMember", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +105,7 @@ func NewSyncMember(ctx *pulumi.Context,
 func GetSyncMember(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SyncMemberState, opts ...pulumi.ResourceOption) (*SyncMember, error) {
 	var resource SyncMember
-	err := ctx.ReadResource("azure-nextgen:sql:SyncMember", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:SyncMember", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

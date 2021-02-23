@@ -10,10 +10,10 @@ import (
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 // Latest API Version: 2016-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:streamanalytics:getInput'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:streamanalytics:getInput'.
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	var rv LookupInputResult
-	err := ctx.Invoke("azure-nextgen:streamanalytics/latest:getInput", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:streamanalytics/latest:getInput", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

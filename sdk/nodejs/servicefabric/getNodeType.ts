@@ -17,7 +17,7 @@ export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabric:getNodeType", {
+    return pulumi.runtime.invoke("azure-native:servicefabric:getNodeType", {
         "clusterName": args.clusterName,
         "nodeTypeName": args.nodeTypeName,
         "resourceGroupName": args.resourceGroupName,

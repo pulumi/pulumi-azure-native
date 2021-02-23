@@ -22,7 +22,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20180501:PolicyDefinition';
+    public static readonly __pulumiType = 'azure-native:authorization/v20180501:PolicyDefinition';
 
     /**
      * Returns true if the given object is an instance of PolicyDefinition.  This is designed to work even
@@ -110,7 +110,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicyDefinition" }, { type: "azure-nextgen:authorization/latest:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20160401:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20161201:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190101:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyDefinition" }, { type: "azure-nextgen:authorization:PolicyDefinition" }, { type: "azure-native:authorization/latest:PolicyDefinition" }, { type: "azure-nextgen:authorization/latest:PolicyDefinition" }, { type: "azure-native:authorization/v20151001preview:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyDefinition" }, { type: "azure-native:authorization/v20160401:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20160401:PolicyDefinition" }, { type: "azure-native:authorization/v20161201:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20161201:PolicyDefinition" }, { type: "azure-native:authorization/v20180301:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinition" }, { type: "azure-native:authorization/v20190101:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190101:PolicyDefinition" }, { type: "azure-native:authorization/v20190601:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinition" }, { type: "azure-native:authorization/v20190901:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinition" }, { type: "azure-native:authorization/v20200301:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinition" }, { type: "azure-native:authorization/v20200901:PolicyDefinition" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinition.__pulumiType, name, inputs, opts);
     }

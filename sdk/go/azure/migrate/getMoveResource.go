@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts ...pulumi.InvokeOption) (*LookupMoveResourceResult, error) {
 	var rv LookupMoveResourceResult
-	err := ctx.Invoke("azure-nextgen:migrate:getMoveResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getMoveResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

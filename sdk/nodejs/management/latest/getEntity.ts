@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Describes the result of the request to view entities.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'. */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
-    pulumi.log.warn("getEntity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:management:getEntity'.")
+    pulumi.log.warn("getEntity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'.")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,7 +20,7 @@ export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:management/latest:getEntity", {
+    return pulumi.runtime.invoke("azure-native:management/latest:getEntity", {
         "filter": args.filter,
         "groupName": args.groupName,
         "search": args.search,

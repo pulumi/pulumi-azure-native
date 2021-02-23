@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog.Inputs
+namespace Pulumi.AzureNative.Datadog.Inputs
 {
 
     /// <summary>
@@ -25,10 +25,10 @@ namespace Pulumi.AzureNextGen.Datadog.Inputs
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
         [Input("monitoringStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Datadog.MonitoringStatus>? MonitoringStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Datadog.MonitoringStatus>? MonitoringStatus { get; set; }
 
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Datadog.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Datadog.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// User info

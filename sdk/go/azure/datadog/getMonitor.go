@@ -10,7 +10,7 @@ import (
 // API Version: 2020-02-01-preview.
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
-	err := ctx.Invoke("azure-nextgen:datadog:getMonitor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog:getMonitor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

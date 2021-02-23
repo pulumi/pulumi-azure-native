@@ -10,7 +10,7 @@ import (
 // A web app, a mobile app backend, or an API app.
 func LookupWebApp(ctx *pulumi.Context, args *LookupWebAppArgs, opts ...pulumi.InvokeOption) (*LookupWebAppResult, error) {
 	var rv LookupWebAppResult
-	err := ctx.Invoke("azure-nextgen:web/v20201001:getWebApp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20201001:getWebApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

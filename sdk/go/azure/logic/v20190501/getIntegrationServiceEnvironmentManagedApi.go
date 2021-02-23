@@ -10,7 +10,7 @@ import (
 // The managed api definition.
 func LookupIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context, args *LookupIntegrationServiceEnvironmentManagedApiArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationServiceEnvironmentManagedApiResult, error) {
 	var rv LookupIntegrationServiceEnvironmentManagedApiResult
-	err := ctx.Invoke("azure-nextgen:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

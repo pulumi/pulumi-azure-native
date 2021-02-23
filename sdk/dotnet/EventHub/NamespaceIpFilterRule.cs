@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub
+namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
     /// API Version: 2018-01-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub:NamespaceIpFilterRule")]
+    [AzureNativeResourceType("azure-native:eventhub:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamespaceIpFilterRule(string name, NamespaceIpFilterRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub:NamespaceIpFilterRule", name, args ?? new NamespaceIpFilterRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamespaceIpFilterRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub:NamespaceIpFilterRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule"},
                 },
             };
@@ -99,7 +100,7 @@ namespace Pulumi.AzureNextGen.EventHub
         /// The IP Filter Action
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.IPAction>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventHub.IPAction>? Action { get; set; }
 
         /// <summary>
         /// IP Filter name

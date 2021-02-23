@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     public sealed class SourceControlSecurityTokenPropertiesArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// The token type. Must be either PersonalAccessToken or Oauth.
         /// </summary>
         [Input("tokenType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.TokenType>? TokenType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.TokenType>? TokenType { get; set; }
 
         public SourceControlSecurityTokenPropertiesArgs()
         {

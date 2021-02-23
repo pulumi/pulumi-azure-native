@@ -30,12 +30,15 @@ func NewOnPremiseIotSensor(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/v20200806preview:OnPremiseIotSensor"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20200806preview:OnPremiseIotSensor"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource OnPremiseIotSensor
-	err := ctx.RegisterResource("azure-nextgen:security:OnPremiseIotSensor", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:OnPremiseIotSensor", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +50,7 @@ func NewOnPremiseIotSensor(ctx *pulumi.Context,
 func GetOnPremiseIotSensor(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OnPremiseIotSensorState, opts ...pulumi.ResourceOption) (*OnPremiseIotSensor, error) {
 	var resource OnPremiseIotSensor
-	err := ctx.ReadResource("azure-nextgen:security:OnPremiseIotSensor", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:OnPremiseIotSensor", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

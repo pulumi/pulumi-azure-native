@@ -14,7 +14,7 @@ import (
 // Organization resource.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:confluent:Organization'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:confluent:Organization'.
 type Organization struct {
 	pulumi.CustomResourceState
 
@@ -52,10 +52,19 @@ func NewOrganization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:confluent:Organization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confluent:Organization"),
 		},
 		{
+			Type: pulumi.String("azure-native:confluent/v20200301:Organization"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:confluent/v20200301:Organization"),
+		},
+		{
+			Type: pulumi.String("azure-native:confluent/v20200301preview:Organization"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:confluent/v20200301preview:Organization"),
@@ -63,7 +72,7 @@ func NewOrganization(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Organization
-	err := ctx.RegisterResource("azure-nextgen:confluent/latest:Organization", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:confluent/latest:Organization", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +84,7 @@ func NewOrganization(ctx *pulumi.Context,
 func GetOrganization(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrganizationState, opts ...pulumi.ResourceOption) (*Organization, error) {
 	var resource Organization
-	err := ctx.ReadResource("azure-nextgen:confluent/latest:Organization", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:confluent/latest:Organization", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

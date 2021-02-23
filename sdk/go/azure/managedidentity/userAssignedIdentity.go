@@ -44,10 +44,19 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:managedidentity/latest:UserAssignedIdentity"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedidentity/latest:UserAssignedIdentity"),
 		},
 		{
+			Type: pulumi.String("azure-native:managedidentity/v20150831preview:UserAssignedIdentity"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedidentity/v20181130:UserAssignedIdentity"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:managedidentity/v20181130:UserAssignedIdentity"),
@@ -55,7 +64,7 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource UserAssignedIdentity
-	err := ctx.RegisterResource("azure-nextgen:managedidentity:UserAssignedIdentity", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:managedidentity:UserAssignedIdentity", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 func GetUserAssignedIdentity(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserAssignedIdentityState, opts ...pulumi.ResourceOption) (*UserAssignedIdentity, error) {
 	var resource UserAssignedIdentity
-	err := ctx.ReadResource("azure-nextgen:managedidentity:UserAssignedIdentity", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:managedidentity:UserAssignedIdentity", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

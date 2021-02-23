@@ -10,10 +10,10 @@ import (
 // The notification registration definition.
 // Latest API Version: 2020-11-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getNotificationRegistration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getNotificationRegistration'.
 func LookupNotificationRegistration(ctx *pulumi.Context, args *LookupNotificationRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationRegistrationResult, error) {
 	var rv LookupNotificationRegistrationResult
-	err := ctx.Invoke("azure-nextgen:providerhub/latest:getNotificationRegistration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:providerhub/latest:getNotificationRegistration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

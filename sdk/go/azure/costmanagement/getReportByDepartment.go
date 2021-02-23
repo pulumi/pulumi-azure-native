@@ -11,7 +11,7 @@ import (
 // API Version: 2018-08-01-preview.
 func LookupReportByDepartment(ctx *pulumi.Context, args *LookupReportByDepartmentArgs, opts ...pulumi.InvokeOption) (*LookupReportByDepartmentResult, error) {
 	var rv LookupReportByDepartmentResult
-	err := ctx.Invoke("azure-nextgen:costmanagement:getReportByDepartment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement:getReportByDepartment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

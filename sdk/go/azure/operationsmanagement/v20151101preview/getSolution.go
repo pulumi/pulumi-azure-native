@@ -10,7 +10,7 @@ import (
 // The container for solution.
 func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulumi.InvokeOption) (*LookupSolutionResult, error) {
 	var rv LookupSolutionResult
-	err := ctx.Invoke("azure-nextgen:operationsmanagement/v20151101preview:getSolution", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationsmanagement/v20151101preview:getSolution", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

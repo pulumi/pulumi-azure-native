@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A hostname binding object.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebAppHostNameBinding")]
+    [AzureNativeResourceType("azure-native:web:WebAppHostNameBinding")]
     public partial class WebAppHostNameBinding : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppHostNameBinding(string name, WebAppHostNameBindingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppHostNameBinding", name, args ?? new WebAppHostNameBindingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebAppHostNameBinding", name, args ?? new WebAppHostNameBindingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppHostNameBinding(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebAppHostNameBinding", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebAppHostNameBinding", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,14 +119,23 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHostNameBinding"},
                 },
             };
@@ -161,13 +170,13 @@ namespace Pulumi.AzureNextGen.Web
         /// Azure resource type.
         /// </summary>
         [Input("azureResourceType")]
-        public Input<Pulumi.AzureNextGen.Web.AzureResourceType>? AzureResourceType { get; set; }
+        public Input<Pulumi.AzureNative.Web.AzureResourceType>? AzureResourceType { get; set; }
 
         /// <summary>
         /// Custom DNS record type.
         /// </summary>
         [Input("customHostNameDnsRecordType")]
-        public Input<Pulumi.AzureNextGen.Web.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
+        public Input<Pulumi.AzureNative.Web.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
 
         /// <summary>
         /// Fully qualified ARM domain resource URI.
@@ -185,7 +194,7 @@ namespace Pulumi.AzureNextGen.Web
         /// Hostname type.
         /// </summary>
         [Input("hostNameType")]
-        public Input<Pulumi.AzureNextGen.Web.HostNameType>? HostNameType { get; set; }
+        public Input<Pulumi.AzureNative.Web.HostNameType>? HostNameType { get; set; }
 
         /// <summary>
         /// Kind of resource.
@@ -215,7 +224,7 @@ namespace Pulumi.AzureNextGen.Web
         /// SSL type
         /// </summary>
         [Input("sslState")]
-        public Input<Pulumi.AzureNextGen.Web.SslState>? SslState { get; set; }
+        public Input<Pulumi.AzureNative.Web.SslState>? SslState { get; set; }
 
         /// <summary>
         /// SSL certificate thumbprint

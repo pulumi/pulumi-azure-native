@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
     public static class GetAccessPolicy
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-nextgen:timeseriesinsights/v20171115:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights/v20171115:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
     }
 
 

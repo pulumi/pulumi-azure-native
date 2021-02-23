@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001.Inputs
+namespace Pulumi.AzureNative.PowerBIDedicated.V20171001.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNextGen.PowerBIDedicated.V20171001.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.V20171001.SkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

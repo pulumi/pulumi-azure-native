@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200301Preview
+namespace Pulumi.AzureNative.Insights.V20200301Preview
 {
     public static class GetComponentLinkedStorageAccount
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
         /// An Application Insights component linked storage accounts
         /// </summary>
         public static Task<GetComponentLinkedStorageAccountResult> InvokeAsync(GetComponentLinkedStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithVersion());
     }
 
 

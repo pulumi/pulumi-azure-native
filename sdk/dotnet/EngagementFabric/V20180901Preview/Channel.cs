@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
+namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
 {
     /// <summary>
     /// The EngagementFabric channel
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:engagementfabric/v20180901preview:Channel")]
+    [AzureNativeResourceType("azure-native:engagementfabric/v20180901preview:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric/v20180901preview:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:engagementfabric/v20180901preview:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric/v20180901preview:Channel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:engagementfabric/v20180901preview:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:engagementfabric:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:engagementfabric:Channel"},
                 },
             };

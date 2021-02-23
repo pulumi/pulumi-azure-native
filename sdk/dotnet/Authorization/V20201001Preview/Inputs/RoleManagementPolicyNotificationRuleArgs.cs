@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20201001Preview.Inputs
+namespace Pulumi.AzureNative.Authorization.V20201001Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview.Inputs
         /// The notification level.
         /// </summary>
         [Input("notificationLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20201001Preview.NotificationLevel>? NotificationLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20201001Preview.NotificationLevel>? NotificationLevel { get; set; }
 
         [Input("notificationRecipients")]
         private InputList<string>? _notificationRecipients;
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview.Inputs
         /// The type of notification.
         /// </summary>
         [Input("notificationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20201001Preview.NotificationDeliveryMechanism>? NotificationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20201001Preview.NotificationDeliveryMechanism>? NotificationType { get; set; }
 
         /// <summary>
         /// The recipient type.
         /// </summary>
         [Input("recipientType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20201001Preview.RecipientType>? RecipientType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20201001Preview.RecipientType>? RecipientType { get; set; }
 
         /// <summary>
         /// The type of rule

@@ -14,7 +14,7 @@ import (
 // Represents a server firewall rule.
 // Latest API Version: 2014-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:sql:FirewallRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:FirewallRule'.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -53,16 +53,31 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20150501preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:FirewallRule"),
@@ -70,7 +85,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule
-	err := ctx.RegisterResource("azure-nextgen:sql/latest:FirewallRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql/latest:FirewallRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +97,7 @@ func NewFirewallRule(ctx *pulumi.Context,
 func GetFirewallRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	var resource FirewallRule
-	err := ctx.ReadResource("azure-nextgen:sql/latest:FirewallRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql/latest:FirewallRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest
+namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// Integration runtime resource type.
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:IntegrationRuntime'.")]
-    [AzureNextGenResourceType("azure-nextgen:synapse/latest:IntegrationRuntime")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.")]
+    [AzureNativeResourceType("azure-native:synapse/latest:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationRuntime(string name, IntegrationRuntimeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/latest:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationRuntime(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/latest:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IntegrationRuntime"},
                 },
             };

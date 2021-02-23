@@ -17,7 +17,7 @@ export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement:getApiSchema", {
+    return pulumi.runtime.invoke("azure-native:apimanagement:getApiSchema", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "schemaId": args.schemaId,

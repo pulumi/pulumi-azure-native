@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
+namespace Pulumi.AzureNative.GuestConfiguration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationAssignment'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'.")]
     public static class GetGuestConfigurationAssignment
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.GuestConfiguration.Latest
         /// Latest API Version: 2020-06-25.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-nextgen:guestconfiguration/latest:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/latest:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
     }
 
 

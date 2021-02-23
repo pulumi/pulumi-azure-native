@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagedServices.V20190901
+namespace Pulumi.AzureNative.ManagedServices.V20190901
 {
     public static class GetRegistrationAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20190901
         /// Registration assignment.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-nextgen:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices/v20190901:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithVersion());
     }
 
 

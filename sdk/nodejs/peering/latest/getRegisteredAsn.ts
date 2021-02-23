@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The customer's ASN that is registered by the peering service provider.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'. */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
-    pulumi.log.warn("getRegisteredAsn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.")
+    pulumi.log.warn("getRegisteredAsn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/latest:getRegisteredAsn", {
+    return pulumi.runtime.invoke("azure-native:peering/latest:getRegisteredAsn", {
         "peeringName": args.peeringName,
         "registeredAsnName": args.registeredAsnName,
         "resourceGroupName": args.resourceGroupName,

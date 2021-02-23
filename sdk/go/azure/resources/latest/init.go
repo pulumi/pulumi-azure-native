@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:resources/latest:Deployment":
+	case "azure-native:resources/latest:Deployment":
 		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:DeploymentAtManagementGroupScope":
+	case "azure-native:resources/latest:DeploymentAtManagementGroupScope":
 		r, err = NewDeploymentAtManagementGroupScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:DeploymentAtScope":
+	case "azure-native:resources/latest:DeploymentAtScope":
 		r, err = NewDeploymentAtScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:DeploymentAtSubscriptionScope":
+	case "azure-native:resources/latest:DeploymentAtSubscriptionScope":
 		r, err = NewDeploymentAtSubscriptionScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:DeploymentAtTenantScope":
+	case "azure-native:resources/latest:DeploymentAtTenantScope":
 		r, err = NewDeploymentAtTenantScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:DeploymentScript":
+	case "azure-native:resources/latest:DeploymentScript":
 		r, err = NewDeploymentScript(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:Resource":
+	case "azure-native:resources/latest:Resource":
 		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:ResourceGroup":
+	case "azure-native:resources/latest:ResourceGroup":
 		r, err = NewResourceGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources/latest:TagAtScope":
+	case "azure-native:resources/latest:TagAtScope":
 		r, err = NewTagAtScope(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"resources/latest",
 		&module{version},
 	)

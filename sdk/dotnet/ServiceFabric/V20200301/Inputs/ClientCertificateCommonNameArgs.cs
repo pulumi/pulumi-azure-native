@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.V20200301.Inputs
 {
 
     /// <summary>

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * The status of the Canonical support plan.
  * Latest API Version: 2018-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:addons:SupportPlanType'.
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SupportPlanType {
-        pulumi.log.warn("SupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.")
+        pulumi.log.warn("SupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:addons:SupportPlanType'.")
         return new SupportPlanType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:addons/latest:SupportPlanType';
+    public static readonly __pulumiType = 'azure-native:addons/latest:SupportPlanType';
 
     /**
      * Returns true if the given object is an instance of SupportPlanType.  This is designed to work even
@@ -58,9 +58,9 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:addons:SupportPlanType'. */
     constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:addons:SupportPlanType'.")
+        pulumi.log.warn("SupportPlanType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:addons:SupportPlanType'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
@@ -83,7 +83,7 @@ export class SupportPlanType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-nextgen:addons/v20170515:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:addons:SupportPlanType" }, { type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-native:addons/v20170515:SupportPlanType" }, { type: "azure-nextgen:addons/v20170515:SupportPlanType" }, { type: "azure-native:addons/v20180301:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SupportPlanType.__pulumiType, name, inputs, opts);
     }

@@ -10,7 +10,7 @@ import (
 // The Connector model definition
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/v20180801preview:getConnector", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/v20180801preview:getConnector", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

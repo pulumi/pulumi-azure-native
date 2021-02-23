@@ -21,7 +21,7 @@ export class Credential extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:automation/v20190601:Credential';
+    public static readonly __pulumiType = 'azure-native:automation/v20190601:Credential';
 
     /**
      * Returns true if the given object is an instance of Credential.  This is designed to work even
@@ -109,7 +109,7 @@ export class Credential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Credential" }, { type: "azure-nextgen:automation/latest:Credential" }, { type: "azure-nextgen:automation/v20151031:Credential" }, { type: "azure-nextgen:automation/v20200113preview:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Credential" }, { type: "azure-nextgen:automation:Credential" }, { type: "azure-native:automation/latest:Credential" }, { type: "azure-nextgen:automation/latest:Credential" }, { type: "azure-native:automation/v20151031:Credential" }, { type: "azure-nextgen:automation/v20151031:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-nextgen:automation/v20200113preview:Credential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Credential.__pulumiType, name, inputs, opts);
     }

@@ -70,43 +70,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:synapse/latest:BigDataPool":
+            case "azure-native:synapse/latest:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:IntegrationRuntime":
+            case "azure-native:synapse/latest:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:IpFirewallRule":
+            case "azure-native:synapse/latest:IpFirewallRule":
                 return new IpFirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:Key":
+            case "azure-native:synapse/latest:Key":
                 return new Key(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:PrivateEndpointConnection":
+            case "azure-native:synapse/latest:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:PrivateLinkHub":
+            case "azure-native:synapse/latest:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPool":
+            case "azure-native:synapse/latest:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolSensitivityLabel":
+            case "azure-native:synapse/latest:SqlPoolSensitivityLabel":
                 return new SqlPoolSensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption":
+            case "azure-native:synapse/latest:SqlPoolTransparentDataEncryption":
                 return new SqlPoolTransparentDataEncryption(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolVulnerabilityAssessment":
+            case "azure-native:synapse/latest:SqlPoolVulnerabilityAssessment":
                 return new SqlPoolVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:synapse/latest:SqlPoolVulnerabilityAssessmentRuleBaseline":
                 return new SqlPoolVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier":
+            case "azure-native:synapse/latest:SqlPoolWorkloadClassifier":
                 return new SqlPoolWorkloadClassifier(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup":
+            case "azure-native:synapse/latest:SqlPoolWorkloadGroup":
                 return new SqlPoolWorkloadGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:Workspace":
+            case "azure-native:synapse/latest:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:WorkspaceAadAdmin":
+            case "azure-native:synapse/latest:WorkspaceAadAdmin":
                 return new WorkspaceAadAdmin(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:WorkspaceManagedSqlServerVulnerabilityAssessment":
+            case "azure-native:synapse/latest:WorkspaceManagedSqlServerVulnerabilityAssessment":
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse/latest:WorkspaceSqlAadAdmin":
+            case "azure-native:synapse/latest:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "synapse/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "synapse/latest", _module)

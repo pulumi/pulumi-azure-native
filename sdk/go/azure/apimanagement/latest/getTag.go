@@ -10,10 +10,10 @@ import (
 // Tag Contract details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getTag'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTag'.
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getTag", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getTag", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

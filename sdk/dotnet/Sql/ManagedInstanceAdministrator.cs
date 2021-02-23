@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL managed instance administrator.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:ManagedInstanceAdministrator")]
+    [AzureNativeResourceType("azure-native:sql:ManagedInstanceAdministrator")]
     public partial class ManagedInstanceAdministrator : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagedInstanceAdministrator(string name, ManagedInstanceAdministratorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedInstanceAdministrator", name, args ?? new ManagedInstanceAdministratorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:ManagedInstanceAdministrator", name, args ?? new ManagedInstanceAdministratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagedInstanceAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:ManagedInstanceAdministrator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:ManagedInstanceAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator"},
                 },
             };
@@ -110,7 +113,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Type of the managed instance administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.ManagedInstanceAdministratorType> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.ManagedInstanceAdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// Login name of the managed instance administrator.

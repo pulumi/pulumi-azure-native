@@ -10,7 +10,7 @@ import (
 // Action rule object containing target scope, conditions and suppression logic
 func LookupActionRuleByName(ctx *pulumi.Context, args *LookupActionRuleByNameArgs, opts ...pulumi.InvokeOption) (*LookupActionRuleByNameResult, error) {
 	var rv LookupActionRuleByNameResult
-	err := ctx.Invoke("azure-nextgen:alertsmanagement/v20190505preview:getActionRuleByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:alertsmanagement/v20190505preview:getActionRuleByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

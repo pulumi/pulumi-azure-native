@@ -22,7 +22,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace';
 
     /**
      * Returns true if the given object is an instance of DatabaseAccountCassandraKeyspace.  This is designed to work even
@@ -96,7 +96,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace" }, { type: "azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraKeyspace.__pulumiType, name, inputs, opts);
     }

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents a private endpoint connection for a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20191201preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20191201preview:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20191201preview:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:PrivateEndpointConnection"},
                 },
             };

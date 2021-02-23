@@ -38,7 +38,13 @@ func NewSecurityContact(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/v20170801preview:SecurityContact"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20170801preview:SecurityContact"),
+		},
+		{
+			Type: pulumi.String("azure-native:security/v20200101preview:SecurityContact"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101preview:SecurityContact"),
@@ -46,7 +52,7 @@ func NewSecurityContact(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SecurityContact
-	err := ctx.RegisterResource("azure-nextgen:security:SecurityContact", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:SecurityContact", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +64,7 @@ func NewSecurityContact(ctx *pulumi.Context,
 func GetSecurityContact(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecurityContactState, opts ...pulumi.ResourceOption) (*SecurityContact, error) {
 	var resource SecurityContact
-	err := ctx.ReadResource("azure-nextgen:security:SecurityContact", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:SecurityContact", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Latest
+namespace Pulumi.AzureNative.Security.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:security:getDeviceSecurityGroup'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getDeviceSecurityGroup'.")]
     public static class GetDeviceSecurityGroup
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// Latest API Version: 2019-08-01.
         /// </summary>
         public static Task<GetDeviceSecurityGroupResult> InvokeAsync(GetDeviceSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-nextgen:security/latest:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceSecurityGroupResult>("azure-native:security/latest:getDeviceSecurityGroup", args ?? new GetDeviceSecurityGroupArgs(), options.WithVersion());
     }
 
 

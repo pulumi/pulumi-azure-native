@@ -9,7 +9,7 @@ import (
 
 func LookupAdaptiveApplicationControl(ctx *pulumi.Context, args *LookupAdaptiveApplicationControlArgs, opts ...pulumi.InvokeOption) (*LookupAdaptiveApplicationControlResult, error) {
 	var rv LookupAdaptiveApplicationControlResult
-	err := ctx.Invoke("azure-nextgen:security/v20150601preview:getAdaptiveApplicationControl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20150601preview:getAdaptiveApplicationControl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

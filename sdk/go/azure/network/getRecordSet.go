@@ -11,7 +11,7 @@ import (
 // API Version: 2020-06-01.
 func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pulumi.InvokeOption) (*LookupRecordSetResult, error) {
 	var rv LookupRecordSetResult
-	err := ctx.Invoke("azure-nextgen:network:getRecordSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getRecordSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

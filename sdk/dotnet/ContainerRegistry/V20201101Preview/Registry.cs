@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     /// <summary>
     /// An object that represents a container registry.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry/v20201101preview:Registry")]
+    [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry/v20201101preview:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry/v20201101preview:Registry", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry/v20201101preview:Registry", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,13 +172,21 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20160627preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170301:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Registry"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Registry"},
                 },
             };
@@ -243,7 +251,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether to allow trusted Azure services to access a network restricted registry.
         /// </summary>
         [Input("networkRuleBypassOptions")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.NetworkRuleBypassOptions>? NetworkRuleBypassOptions { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.NetworkRuleBypassOptions>? NetworkRuleBypassOptions { get; set; }
 
         /// <summary>
         /// The network rule set for a container registry.
@@ -261,7 +269,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether or not public network access is allowed for the container registry.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -297,7 +305,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether or not zone redundancy is enabled for this container registry
         /// </summary>
         [Input("zoneRedundancy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ZoneRedundancy>? ZoneRedundancy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.ZoneRedundancy>? ZoneRedundancy { get; set; }
 
         public RegistryArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101
+namespace Pulumi.AzureNative.Security.V20200101
 {
     public static class GetAdaptiveApplicationControl
     {
         public static Task<GetAdaptiveApplicationControlResult> InvokeAsync(GetAdaptiveApplicationControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-nextgen:security/v20200101:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAdaptiveApplicationControlResult>("azure-native:security/v20200101:getAdaptiveApplicationControl", args ?? new GetAdaptiveApplicationControlArgs(), options.WithVersion());
     }
 
 

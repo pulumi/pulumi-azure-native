@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
+namespace Pulumi.AzureNative.Network.V20190901.Inputs
 {
 
     /// <summary>
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
         /// Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.IPVersion>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190901.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// The Private IP allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20190901.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The reference of the Public IP resource.

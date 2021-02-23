@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func ListGlobalUserEnvironments(ctx *pulumi.Context, args *ListGlobalUserEnvironmentsArgs, opts ...pulumi.InvokeOption) (*ListGlobalUserEnvironmentsResult, error) {
 	var rv ListGlobalUserEnvironmentsResult
-	err := ctx.Invoke("azure-nextgen:labservices:listGlobalUserEnvironments", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:listGlobalUserEnvironments", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Logger details.
 func LookupLogger(ctx *pulumi.Context, args *LookupLoggerArgs, opts ...pulumi.InvokeOption) (*LookupLoggerResult, error) {
 	var rv LookupLoggerResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201:getLogger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201:getLogger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

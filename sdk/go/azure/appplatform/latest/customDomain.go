@@ -14,7 +14,7 @@ import (
 // Custom domain resource payload.
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:appplatform:CustomDomain'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:CustomDomain'.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
@@ -44,13 +44,25 @@ func NewCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20201101preview:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:CustomDomain"),
@@ -58,7 +70,7 @@ func NewCustomDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomDomain
-	err := ctx.RegisterResource("azure-nextgen:appplatform/latest:CustomDomain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/latest:CustomDomain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +82,7 @@ func NewCustomDomain(ctx *pulumi.Context,
 func GetCustomDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomDomainState, opts ...pulumi.ResourceOption) (*CustomDomain, error) {
 	var resource CustomDomain
-	err := ctx.ReadResource("azure-nextgen:appplatform/latest:CustomDomain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/latest:CustomDomain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

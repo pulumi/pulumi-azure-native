@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     public static class GetReportByDepartment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// A report resource.
         /// </summary>
         public static Task<GetReportByDepartmentResult> InvokeAsync(GetReportByDepartmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-nextgen:costmanagement/v20180801preview:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-native:costmanagement/v20180801preview:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithVersion());
     }
 
 

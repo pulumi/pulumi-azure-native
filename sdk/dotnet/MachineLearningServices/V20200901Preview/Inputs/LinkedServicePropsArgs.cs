@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Inputs
         /// Type of the link target.
         /// </summary>
         [Input("linkType")]
-        public Input<Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.LinkedServiceLinkType>? LinkType { get; set; }
+        public Input<Pulumi.AzureNative.MachineLearningServices.V20200901Preview.LinkedServiceLinkType>? LinkType { get; set; }
 
         /// <summary>
         /// ResourceId of the link target of the linked service.

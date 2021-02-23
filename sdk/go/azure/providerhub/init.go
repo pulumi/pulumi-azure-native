@@ -21,23 +21,23 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:providerhub:DefaultRollout":
+	case "azure-native:providerhub:DefaultRollout":
 		r, err = NewDefaultRollout(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:NotificationRegistration":
+	case "azure-native:providerhub:NotificationRegistration":
 		r, err = NewNotificationRegistration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:OperationByProviderRegistration":
+	case "azure-native:providerhub:OperationByProviderRegistration":
 		r, err = NewOperationByProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:ProviderRegistration":
+	case "azure-native:providerhub:ProviderRegistration":
 		r, err = NewProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:ResourceTypeRegistration":
+	case "azure-native:providerhub:ResourceTypeRegistration":
 		r, err = NewResourceTypeRegistration(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:Skus":
+	case "azure-native:providerhub:Skus":
 		r, err = NewSkus(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:SkusNestedResourceTypeFirst":
+	case "azure-native:providerhub:SkusNestedResourceTypeFirst":
 		r, err = NewSkusNestedResourceTypeFirst(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:SkusNestedResourceTypeSecond":
+	case "azure-native:providerhub:SkusNestedResourceTypeSecond":
 		r, err = NewSkusNestedResourceTypeSecond(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:providerhub:SkusNestedResourceTypeThird":
+	case "azure-native:providerhub:SkusNestedResourceTypeThird":
 		r, err = NewSkusNestedResourceTypeThird(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"providerhub",
 		&module{version},
 	)

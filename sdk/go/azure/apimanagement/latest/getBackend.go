@@ -10,10 +10,10 @@ import (
 // Backend details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getBackend'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getBackend'.
 func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.InvokeOption) (*LookupBackendResult, error) {
 	var rv LookupBackendResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getBackend", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getBackend", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

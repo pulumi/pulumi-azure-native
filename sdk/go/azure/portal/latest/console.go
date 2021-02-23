@@ -14,7 +14,7 @@ import (
 // Cloud shell console
 // Latest API Version: 2018-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:portal:Console'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:Console'.
 type Console struct {
 	pulumi.CustomResourceState
 
@@ -34,7 +34,13 @@ func NewConsole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal:Console"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal:Console"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001:Console"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001:Console"),
@@ -42,7 +48,7 @@ func NewConsole(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Console
-	err := ctx.RegisterResource("azure-nextgen:portal/latest:Console", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal/latest:Console", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +60,7 @@ func NewConsole(ctx *pulumi.Context,
 func GetConsole(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConsoleState, opts ...pulumi.ResourceOption) (*Console, error) {
 	var resource Console
-	err := ctx.ReadResource("azure-nextgen:portal/latest:Console", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal/latest:Console", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Values returned by the List operation.
  * Latest API Version: 2018-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobOutputFiles'. */
 export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.InvokeOptions): Promise<ListJobOutputFilesResult> {
-    pulumi.log.warn("listJobOutputFiles is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batchai:listJobOutputFiles'.")
+    pulumi.log.warn("listJobOutputFiles is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:listJobOutputFiles'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:batchai/latest:listJobOutputFiles", {
+    return pulumi.runtime.invoke("azure-native:batchai/latest:listJobOutputFiles", {
         "directory": args.directory,
         "experimentName": args.experimentName,
         "jobName": args.jobName,

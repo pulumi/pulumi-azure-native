@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HealthBot.V20201208Preview.Outputs
+namespace Pulumi.AzureNative.HealthBot.V20201208Preview.Outputs
 {
 
     [OutputType]

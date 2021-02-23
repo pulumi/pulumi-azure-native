@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20190101
+namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
     /// <summary>
     /// Diagnostic details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20190101:ApiDiagnostic")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20190101:ApiDiagnostic")]
     public partial class ApiDiagnostic : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiDiagnostic(string name, ApiDiagnosticArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20190101:ApiDiagnostic", name, args ?? new ApiDiagnosticArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20190101:ApiDiagnostic", name, args ?? new ApiDiagnosticArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiDiagnostic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20190101:ApiDiagnostic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20190101:ApiDiagnostic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,13 +100,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic"},
                 },
             };
@@ -135,7 +143,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20190101.AlwaysLog>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20190101.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -171,7 +179,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
         [Input("httpCorrelationProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20190101.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20190101.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// Resource Id of a target logger.
@@ -201,7 +209,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// The verbosity level applied to traces emitted by trace policies.
         /// </summary>
         [Input("verbosity")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20190101.Verbosity>? Verbosity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20190101.Verbosity>? Verbosity { get; set; }
 
         public ApiDiagnosticArgs()
         {

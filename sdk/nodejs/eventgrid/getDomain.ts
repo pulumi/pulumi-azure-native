@@ -17,7 +17,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:getDomain", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:getDomain", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -74,45 +74,45 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devtestlab/v20180915:ArtifactSource":
+            case "azure-native:devtestlab/v20180915:ArtifactSource":
                 return new ArtifactSource(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:CustomImage":
+            case "azure-native:devtestlab/v20180915:CustomImage":
                 return new CustomImage(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Disk":
+            case "azure-native:devtestlab/v20180915:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Environment":
+            case "azure-native:devtestlab/v20180915:Environment":
                 return new Environment(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Formula":
+            case "azure-native:devtestlab/v20180915:Formula":
                 return new Formula(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:GlobalSchedule":
+            case "azure-native:devtestlab/v20180915:GlobalSchedule":
                 return new GlobalSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Lab":
+            case "azure-native:devtestlab/v20180915:Lab":
                 return new Lab(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:NotificationChannel":
+            case "azure-native:devtestlab/v20180915:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Policy":
+            case "azure-native:devtestlab/v20180915:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Schedule":
+            case "azure-native:devtestlab/v20180915:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:Secret":
+            case "azure-native:devtestlab/v20180915:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:ServiceFabric":
+            case "azure-native:devtestlab/v20180915:ServiceFabric":
                 return new ServiceFabric(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule":
+            case "azure-native:devtestlab/v20180915:ServiceFabricSchedule":
                 return new ServiceFabricSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:ServiceRunner":
+            case "azure-native:devtestlab/v20180915:ServiceRunner":
                 return new ServiceRunner(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:User":
+            case "azure-native:devtestlab/v20180915:User":
                 return new User(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:VirtualMachine":
+            case "azure-native:devtestlab/v20180915:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule":
+            case "azure-native:devtestlab/v20180915:VirtualMachineSchedule":
                 return new VirtualMachineSchedule(name, <any>undefined, { urn })
-            case "azure-nextgen:devtestlab/v20180915:VirtualNetwork":
+            case "azure-native:devtestlab/v20180915:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devtestlab/v20180915", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devtestlab/v20180915", _module)

@@ -49,19 +49,37 @@ func NewExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:costmanagement:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/latest:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/latest:Export"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20190101:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190101:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190901:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190901:Export"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20191101:Export"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:Export"),
+		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20200601:Export"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:Export"),
@@ -69,7 +87,7 @@ func NewExport(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Export
-	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20191001:Export", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:costmanagement/v20191001:Export", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +99,7 @@ func NewExport(ctx *pulumi.Context,
 func GetExport(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExportState, opts ...pulumi.ResourceOption) (*Export, error) {
 	var resource Export
-	err := ctx.ReadResource("azure-nextgen:costmanagement/v20191001:Export", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:costmanagement/v20191001:Export", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

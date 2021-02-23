@@ -10,7 +10,7 @@ import (
 // Value object for saved search results.
 func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ...pulumi.InvokeOption) (*LookupSavedSearchResult, error) {
 	var rv LookupSavedSearchResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/v20200801:getSavedSearch", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getSavedSearch", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

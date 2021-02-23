@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:VMwareCollector'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:VMwareCollector'.
 type VMwareCollector struct {
 	pulumi.CustomResourceState
 
@@ -38,7 +38,13 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:VMwareCollector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:VMwareCollector"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20191001:VMwareCollector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:VMwareCollector"),
@@ -46,7 +52,7 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VMwareCollector
-	err := ctx.RegisterResource("azure-nextgen:migrate/latest:VMwareCollector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/latest:VMwareCollector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +64,7 @@ func NewVMwareCollector(ctx *pulumi.Context,
 func GetVMwareCollector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VMwareCollectorState, opts ...pulumi.ResourceOption) (*VMwareCollector, error) {
 	var resource VMwareCollector
-	err := ctx.ReadResource("azure-nextgen:migrate/latest:VMwareCollector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/latest:VMwareCollector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

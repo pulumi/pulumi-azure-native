@@ -9,7 +9,7 @@ import (
 
 func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowResult, error) {
 	var rv LookupWorkflowResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150201preview:getWorkflow", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150201preview:getWorkflow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

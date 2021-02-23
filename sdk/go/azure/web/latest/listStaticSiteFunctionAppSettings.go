@@ -10,10 +10,10 @@ import (
 // String dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listStaticSiteFunctionAppSettings'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteFunctionAppSettings'.
 func ListStaticSiteFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSiteFunctionAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteFunctionAppSettingsResult, error) {
 	var rv ListStaticSiteFunctionAppSettingsResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listStaticSiteFunctionAppSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listStaticSiteFunctionAppSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

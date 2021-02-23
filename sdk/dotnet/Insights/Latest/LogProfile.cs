@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.Latest
+namespace Pulumi.AzureNative.Insights.Latest
 {
     /// <summary>
     /// The log profile resource.
     /// Latest API Version: 2016-03-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:LogProfile'.")]
-    [AzureNextGenResourceType("azure-nextgen:insights/latest:LogProfile")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:LogProfile'.")]
+    [AzureNativeResourceType("azure-native:insights/latest:LogProfile")]
     public partial class LogProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogProfile(string name, LogProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/latest:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LogProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/latest:LogProfile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/latest:LogProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,7 +96,9 @@ namespace Pulumi.AzureNextGen.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:LogProfile"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20160301:LogProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:LogProfile"},
                 },
             };

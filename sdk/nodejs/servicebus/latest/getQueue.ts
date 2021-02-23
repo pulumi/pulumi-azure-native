@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of queue Resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueue'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getQueue'. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    pulumi.log.warn("getQueue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getQueue'.")
+    pulumi.log.warn("getQueue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getQueue'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getQueue", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getQueue", {
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:softwareplan/v20191201:getHybridUseBenefit", {
+    return pulumi.runtime.invoke("azure-native:softwareplan/v20191201:getHybridUseBenefit", {
         "planId": args.planId,
         "scope": args.scope,
     }, opts);

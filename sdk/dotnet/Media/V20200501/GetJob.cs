@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501
+namespace Pulumi.AzureNative.Media.V20200501
 {
     public static class GetJob
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-nextgen:media/v20200501:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media/v20200501:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
 
 

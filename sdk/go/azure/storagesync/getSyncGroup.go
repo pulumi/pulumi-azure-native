@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	var rv LookupSyncGroupResult
-	err := ctx.Invoke("azure-nextgen:storagesync:getSyncGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync:getSyncGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

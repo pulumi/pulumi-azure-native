@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace":
+	case "azure-native:machinelearningservices/v20200301:LinkedWorkspace":
 		r, err = NewLinkedWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute":
+	case "azure-native:machinelearningservices/v20200301:MachineLearningCompute":
 		r, err = NewMachineLearningCompute(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices/v20200301:PrivateEndpointConnection":
+	case "azure-native:machinelearningservices/v20200301:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:machinelearningservices/v20200301:Workspace":
+	case "azure-native:machinelearningservices/v20200301:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"machinelearningservices/v20200301",
 		&module{version},
 	)

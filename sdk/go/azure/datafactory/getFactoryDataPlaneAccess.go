@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func GetFactoryDataPlaneAccess(ctx *pulumi.Context, args *GetFactoryDataPlaneAccessArgs, opts ...pulumi.InvokeOption) (*GetFactoryDataPlaneAccessResult, error) {
 	var rv GetFactoryDataPlaneAccessResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getFactoryDataPlaneAccess", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getFactoryDataPlaneAccess", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

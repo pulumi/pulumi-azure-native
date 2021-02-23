@@ -10,7 +10,7 @@ import (
 // Configuration of App Service site logs.
 func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWebAppDiagnosticLogsConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDiagnosticLogsConfigurationResult, error) {
 	var rv LookupWebAppDiagnosticLogsConfigurationResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

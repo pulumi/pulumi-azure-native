@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Latest
+namespace Pulumi.AzureNative.Scheduler.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:scheduler:getJobCollection'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:scheduler:getJobCollection'.")]
     public static class GetJobCollection
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest
         /// Latest API Version: 2016-03-01.
         /// </summary>
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-nextgen:scheduler/latest:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler/latest:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
     }
 
 

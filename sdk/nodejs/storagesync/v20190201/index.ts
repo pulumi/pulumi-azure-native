@@ -27,19 +27,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:storagesync/v20190201:CloudEndpoint":
+            case "azure-native:storagesync/v20190201:CloudEndpoint":
                 return new CloudEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:storagesync/v20190201:RegisteredServer":
+            case "azure-native:storagesync/v20190201:RegisteredServer":
                 return new RegisteredServer(name, <any>undefined, { urn })
-            case "azure-nextgen:storagesync/v20190201:ServerEndpoint":
+            case "azure-native:storagesync/v20190201:ServerEndpoint":
                 return new ServerEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:storagesync/v20190201:StorageSyncService":
+            case "azure-native:storagesync/v20190201:StorageSyncService":
                 return new StorageSyncService(name, <any>undefined, { urn })
-            case "azure-nextgen:storagesync/v20190201:SyncGroup":
+            case "azure-native:storagesync/v20190201:SyncGroup":
                 return new SyncGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "storagesync/v20190201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "storagesync/v20190201", _module)

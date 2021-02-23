@@ -10,10 +10,10 @@ import (
 // A Synchronization Setting data transfer object.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datashare:getSynchronizationSetting'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getSynchronizationSetting'.
 func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupSynchronizationSettingResult, error) {
 	var rv LookupSynchronizationSettingResult
-	err := ctx.Invoke("azure-nextgen:datashare/latest:getSynchronizationSetting", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/latest:getSynchronizationSetting", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

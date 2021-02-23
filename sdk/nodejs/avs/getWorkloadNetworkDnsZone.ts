@@ -17,7 +17,7 @@ export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getWorkloadNetworkDnsZone", {
+    return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkDnsZone", {
         "dnsZoneId": args.dnsZoneId,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

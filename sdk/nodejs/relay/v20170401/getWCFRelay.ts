@@ -16,7 +16,7 @@ export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay/v20170401:getWCFRelay", {
+    return pulumi.runtime.invoke("azure-native:relay/v20170401:getWCFRelay", {
         "namespaceName": args.namespaceName,
         "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,

@@ -33,21 +33,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:sql/v20171001preview:Database":
+            case "azure-native:sql/v20171001preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20171001preview:ElasticPool":
+            case "azure-native:sql/v20171001preview:ElasticPool":
                 return new ElasticPool(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup":
+            case "azure-native:sql/v20171001preview:InstanceFailoverGroup":
                 return new InstanceFailoverGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessment":
+            case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessment":
                 return new ManagedDatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:sql/v20171001preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
                 return new ManagedDatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:sql/v20171001preview:ManagedInstanceKey":
+            case "azure-native:sql/v20171001preview:ManagedInstanceKey":
                 return new ManagedInstanceKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "sql/v20171001preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "sql/v20171001preview", _module)

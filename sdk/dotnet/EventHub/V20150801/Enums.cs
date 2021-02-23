@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EventHub.V20150801
+namespace Pulumi.AzureNative.EventHub.V20150801
 {
     [EnumType]
     public readonly struct AccessRights : IEquatable<AccessRights>

@@ -41,12 +41,15 @@ func NewSolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate/v20180901preview:Solution"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate/v20180901preview:Solution"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Solution
-	err := ctx.RegisterResource("azure-nextgen:migrate:Solution", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate:Solution", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +61,7 @@ func NewSolution(ctx *pulumi.Context,
 func GetSolution(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SolutionState, opts ...pulumi.ResourceOption) (*Solution, error) {
 	var resource Solution
-	err := ctx.ReadResource("azure-nextgen:migrate:Solution", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate:Solution", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2018-07-10.
 func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *LookupReplicationRecoveryServicesProviderArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryServicesProviderResult, error) {
 	var rv LookupReplicationRecoveryServicesProviderResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getReplicationRecoveryServicesProvider", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

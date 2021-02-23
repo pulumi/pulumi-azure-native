@@ -10,10 +10,10 @@ import (
 // Definition of the source control.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getSourceControl'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'.
 func LookupSourceControl(ctx *pulumi.Context, args *LookupSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlResult, error) {
 	var rv LookupSourceControlResult
-	err := ctx.Invoke("azure-nextgen:automation/latest:getSourceControl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation/latest:getSourceControl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

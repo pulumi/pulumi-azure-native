@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic
+namespace Pulumi.AzureNative.Logic
 {
     public static class GetIntegrationServiceEnvironmentManagedApi
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationServiceEnvironmentManagedApiResult> InvokeAsync(GetIntegrationServiceEnvironmentManagedApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-nextgen:logic:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationServiceEnvironmentManagedApiResult>("azure-native:logic:getIntegrationServiceEnvironmentManagedApi", args ?? new GetIntegrationServiceEnvironmentManagedApiArgs(), options.WithVersion());
     }
 
 

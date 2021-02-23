@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The file server.
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileServer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileServer'. */
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
-    pulumi.log.warn("getFileServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getFileServer'.")
+    pulumi.log.warn("getFileServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileServer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getFileServer", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getFileServer", {
         "deviceName": args.deviceName,
         "fileServerName": args.fileServerName,
         "managerName": args.managerName,

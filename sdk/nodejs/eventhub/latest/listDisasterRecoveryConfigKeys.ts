@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Namespace/EventHub Connection String
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:listDisasterRecoveryConfigKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listDisasterRecoveryConfigKeys'. */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
-    pulumi.log.warn("listDisasterRecoveryConfigKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:listDisasterRecoveryConfigKeys'.")
+    pulumi.log.warn("listDisasterRecoveryConfigKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listDisasterRecoveryConfigKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/latest:listDisasterRecoveryConfigKeys", {
+    return pulumi.runtime.invoke("azure-native:eventhub/latest:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,

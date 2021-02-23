@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devops/v20190701preview:Pipeline":
+            case "azure-native:devops/v20190701preview:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devops/v20190701preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devops/v20190701preview", _module)

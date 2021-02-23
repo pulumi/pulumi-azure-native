@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20201001preview:CloudService":
+            case "azure-native:compute/v20201001preview:CloudService":
                 return new CloudService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20201001preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20201001preview", _module)

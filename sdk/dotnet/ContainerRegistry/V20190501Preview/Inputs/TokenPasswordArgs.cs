@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview.Inputs
         /// The password name "password1" or "password2"
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview.TokenPasswordName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20190501Preview.TokenPasswordName>? Name { get; set; }
 
         public TokenPasswordArgs()
         {

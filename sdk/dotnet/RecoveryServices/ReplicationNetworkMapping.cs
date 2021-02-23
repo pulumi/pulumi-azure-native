@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices
+namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
     /// API Version: 2018-07-10.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices:ReplicationNetworkMapping")]
+    [AzureNativeResourceType("azure-native:recoveryservices:ReplicationNetworkMapping")]
     public partial class ReplicationNetworkMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationNetworkMapping(string name, ReplicationNetworkMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationNetworkMapping", name, args ?? new ReplicationNetworkMappingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices:ReplicationNetworkMapping", name, args ?? new ReplicationNetworkMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationNetworkMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices:ReplicationNetworkMapping", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices:ReplicationNetworkMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,9 +65,13 @@ namespace Pulumi.AzureNextGen.RecoveryServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping"},
                 },
             };

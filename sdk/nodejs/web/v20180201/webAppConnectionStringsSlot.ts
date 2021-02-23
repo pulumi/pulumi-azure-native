@@ -22,7 +22,7 @@ export class WebAppConnectionStringsSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20180201:WebAppConnectionStringsSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20180201:WebAppConnectionStringsSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppConnectionStringsSlot.  This is designed to work even
@@ -90,7 +90,7 @@ export class WebAppConnectionStringsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/latest:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppConnectionStringsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web:WebAppConnectionStringsSlot" }, { type: "azure-native:web/latest:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/latest:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20150801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20160801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20181101:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20190801:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20200601:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20200901:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20201001:WebAppConnectionStringsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppConnectionStringsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppConnectionStringsSlot.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ import (
 // Definition of the connection.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:automation:Connection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Connection'.
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -55,13 +55,25 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20151031:Connection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Connection"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20190601:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20200113preview:Connection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Connection"),
@@ -69,7 +81,7 @@ func NewConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Connection
-	err := ctx.RegisterResource("azure-nextgen:automation/latest:Connection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation/latest:Connection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +93,7 @@ func NewConnection(ctx *pulumi.Context,
 func GetConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
 	var resource Connection
-	err := ctx.ReadResource("azure-nextgen:automation/latest:Connection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation/latest:Connection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

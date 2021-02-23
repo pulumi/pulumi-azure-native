@@ -23,7 +23,7 @@ export class Task extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20190601preview:Task';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20190601preview:Task';
 
     /**
      * Returns true if the given object is an instance of Task.  This is designed to work even
@@ -173,7 +173,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:Task" }, { type: "azure-nextgen:containerregistry/latest:Task" }, { type: "azure-nextgen:containerregistry/v20180901:Task" }, { type: "azure-nextgen:containerregistry/v20190401:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Task" }, { type: "azure-nextgen:containerregistry:Task" }, { type: "azure-native:containerregistry/latest:Task" }, { type: "azure-nextgen:containerregistry/latest:Task" }, { type: "azure-native:containerregistry/v20180901:Task" }, { type: "azure-nextgen:containerregistry/v20180901:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-nextgen:containerregistry/v20190401:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

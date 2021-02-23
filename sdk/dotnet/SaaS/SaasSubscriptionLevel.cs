@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SaaS
+namespace Pulumi.AzureNative.SaaS
 {
     /// <summary>
     /// SaaS REST API resource definition.
     /// API Version: 2018-03-01-beta.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:saas:SaasSubscriptionLevel")]
+    [AzureNativeResourceType("azure-native:saas:SaasSubscriptionLevel")]
     public partial class SaasSubscriptionLevel : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.SaaS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SaasSubscriptionLevel(string name, SaasSubscriptionLevelArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:saas:SaasSubscriptionLevel", name, args ?? new SaasSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:saas:SaasSubscriptionLevel", name, args ?? new SaasSubscriptionLevelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SaasSubscriptionLevel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:saas:SaasSubscriptionLevel", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:saas:SaasSubscriptionLevel", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.SaaS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:saas/v20180301beta:SaasSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel"},
                 },
             };

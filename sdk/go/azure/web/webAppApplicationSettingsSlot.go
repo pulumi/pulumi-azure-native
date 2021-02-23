@@ -46,28 +46,55 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppApplicationSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppApplicationSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppApplicationSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppApplicationSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppApplicationSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppApplicationSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppApplicationSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppApplicationSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppApplicationSettingsSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppApplicationSettingsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppApplicationSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot"),
@@ -75,7 +102,7 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppApplicationSettingsSlot
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppApplicationSettingsSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppApplicationSettingsSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +114,7 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 func GetWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppApplicationSettingsSlotState, opts ...pulumi.ResourceOption) (*WebAppApplicationSettingsSlot, error) {
 	var resource WebAppApplicationSettingsSlot
-	err := ctx.ReadResource("azure-nextgen:web:WebAppApplicationSettingsSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppApplicationSettingsSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

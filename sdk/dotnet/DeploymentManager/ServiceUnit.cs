@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// Represents the response of a service unit resource.
     /// API Version: 2019-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:deploymentmanager:ServiceUnit")]
+    [AzureNativeResourceType("azure-native:deploymentmanager:ServiceUnit")]
     public partial class ServiceUnit : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceUnit(string name, ServiceUnitArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:ServiceUnit", name, args ?? new ServiceUnitArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:deploymentmanager:ServiceUnit", name, args ?? new ServiceUnitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceUnit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:deploymentmanager:ServiceUnit", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:deploymentmanager:ServiceUnit", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceUnit"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit"},
+                    new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ServiceUnit"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit"},
                 },
             };
@@ -118,7 +120,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// Describes the type of ARM deployment to be performed on the resource.
         /// </summary>
         [Input("deploymentMode", required: true)]
-        public Input<Pulumi.AzureNextGen.DeploymentManager.DeploymentMode> DeploymentMode { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DeploymentManager.DeploymentMode> DeploymentMode { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

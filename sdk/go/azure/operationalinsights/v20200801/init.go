@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:operationalinsights/v20200801:Cluster":
+	case "azure-native:operationalinsights/v20200801:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:DataExport":
+	case "azure-native:operationalinsights/v20200801:DataExport":
 		r, err = NewDataExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:DataSource":
+	case "azure-native:operationalinsights/v20200801:DataSource":
 		r, err = NewDataSource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:LinkedService":
+	case "azure-native:operationalinsights/v20200801:LinkedService":
 		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount":
+	case "azure-native:operationalinsights/v20200801:LinkedStorageAccount":
 		r, err = NewLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:SavedSearch":
+	case "azure-native:operationalinsights/v20200801:SavedSearch":
 		r, err = NewSavedSearch(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig":
+	case "azure-native:operationalinsights/v20200801:StorageInsightConfig":
 		r, err = NewStorageInsightConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:operationalinsights/v20200801:Workspace":
+	case "azure-native:operationalinsights/v20200801:Workspace":
 		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"operationalinsights/v20200801",
 		&module{version},
 	)

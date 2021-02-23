@@ -10,7 +10,7 @@ import (
 // Information about the connection monitor.
 func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorArgs, opts ...pulumi.InvokeOption) (*LookupConnectionMonitorResult, error) {
 	var rv LookupConnectionMonitorResult
-	err := ctx.Invoke("azure-nextgen:network/v20190201:getConnectionMonitor", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20190201:getConnectionMonitor", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

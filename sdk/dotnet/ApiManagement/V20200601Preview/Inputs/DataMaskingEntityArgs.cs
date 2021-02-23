@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Inputs
+namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Inputs
 {
 
     public sealed class DataMaskingEntityArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview.Inputs
         /// Data masking mode.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20200601Preview.DataMaskingMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20200601Preview.DataMaskingMode>? Mode { get; set; }
 
         /// <summary>
         /// The name of an entity to mask (e.g. a name of a header or a query parameter).

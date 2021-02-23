@@ -16,7 +16,7 @@ export function listWebAppSiteBackupsSlot(args: ListWebAppSiteBackupsSlotArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20190801:listWebAppSiteBackupsSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20190801:listWebAppSiteBackupsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,

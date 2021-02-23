@@ -27,15 +27,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:batchai/v20180301:Cluster":
+            case "azure-native:batchai/v20180301:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-nextgen:batchai/v20180301:FileServer":
+            case "azure-native:batchai/v20180301:FileServer":
                 return new FileServer(name, <any>undefined, { urn })
-            case "azure-nextgen:batchai/v20180301:Job":
+            case "azure-native:batchai/v20180301:Job":
                 return new Job(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "batchai/v20180301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "batchai/v20180301", _module)

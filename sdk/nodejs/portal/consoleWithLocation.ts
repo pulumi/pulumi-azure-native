@@ -23,7 +23,7 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:portal:ConsoleWithLocation';
+    public static readonly __pulumiType = 'azure-native:portal:ConsoleWithLocation';
 
     /**
      * Returns true if the given object is an instance of ConsoleWithLocation.  This is designed to work even
@@ -67,7 +67,7 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal/latest:ConsoleWithLocation" }, { type: "azure-nextgen:portal/v20181001:ConsoleWithLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/latest:ConsoleWithLocation" }, { type: "azure-nextgen:portal/latest:ConsoleWithLocation" }, { type: "azure-native:portal/v20181001:ConsoleWithLocation" }, { type: "azure-nextgen:portal/v20181001:ConsoleWithLocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsoleWithLocation.__pulumiType, name, inputs, opts);
     }

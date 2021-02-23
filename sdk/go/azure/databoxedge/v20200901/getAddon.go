@@ -10,7 +10,7 @@ import (
 // Role Addon
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/v20200901:getAddon", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/v20200901:getAddon", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

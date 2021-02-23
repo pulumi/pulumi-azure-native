@@ -9,10 +9,10 @@ import (
 
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listMediaServiceEdgePolicies'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listMediaServiceEdgePolicies'.
 func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceEdgePoliciesResult, error) {
 	var rv ListMediaServiceEdgePoliciesResult
-	err := ctx.Invoke("azure-nextgen:media/latest:listMediaServiceEdgePolicies", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/latest:listMediaServiceEdgePolicies", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

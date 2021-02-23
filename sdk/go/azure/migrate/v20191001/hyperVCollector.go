@@ -35,7 +35,13 @@ func NewHyperVCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:HyperVCollector"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:HyperVCollector"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/latest:HyperVCollector"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:HyperVCollector"),
@@ -43,7 +49,7 @@ func NewHyperVCollector(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HyperVCollector
-	err := ctx.RegisterResource("azure-nextgen:migrate/v20191001:HyperVCollector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/v20191001:HyperVCollector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +61,7 @@ func NewHyperVCollector(ctx *pulumi.Context,
 func GetHyperVCollector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HyperVCollectorState, opts ...pulumi.ResourceOption) (*HyperVCollector, error) {
 	var resource HyperVCollector
-	err := ctx.ReadResource("azure-nextgen:migrate/v20191001:HyperVCollector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/v20191001:HyperVCollector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

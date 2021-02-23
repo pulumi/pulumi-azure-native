@@ -16,7 +16,7 @@ export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kubernetes/v20210301:getConnectedCluster", {
+    return pulumi.runtime.invoke("azure-native:kubernetes/v20210301:getConnectedCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

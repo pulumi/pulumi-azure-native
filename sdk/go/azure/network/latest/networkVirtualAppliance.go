@@ -14,7 +14,7 @@ import (
 // NetworkVirtualAppliance Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:NetworkVirtualAppliance'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.
 type NetworkVirtualAppliance struct {
 	pulumi.CustomResourceState
 
@@ -66,25 +66,49 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:NetworkVirtualAppliance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkVirtualAppliance"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:NetworkVirtualAppliance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:NetworkVirtualAppliance"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:NetworkVirtualAppliance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkVirtualAppliance"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:NetworkVirtualAppliance"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkVirtualAppliance"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkVirtualAppliance"),
@@ -92,7 +116,7 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NetworkVirtualAppliance
-	err := ctx.RegisterResource("azure-nextgen:network/latest:NetworkVirtualAppliance", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:NetworkVirtualAppliance", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +128,7 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 func GetNetworkVirtualAppliance(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkVirtualApplianceState, opts ...pulumi.ResourceOption) (*NetworkVirtualAppliance, error) {
 	var resource NetworkVirtualAppliance
-	err := ctx.ReadResource("azure-nextgen:network/latest:NetworkVirtualAppliance", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:NetworkVirtualAppliance", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

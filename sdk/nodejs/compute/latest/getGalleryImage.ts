@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery image definition that you want to create or update.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImage'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryImage'. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
-    pulumi.log.warn("getGalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryImage'.")
+    pulumi.log.warn("getGalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryImage'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getGalleryImage", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getGalleryImage", {
         "galleryImageName": args.galleryImageName,
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

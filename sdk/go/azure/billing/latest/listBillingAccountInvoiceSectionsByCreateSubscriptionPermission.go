@@ -10,10 +10,10 @@ import (
 // The list of invoice section properties with create subscription permission.
 // Latest API Version: 2020-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.
 func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx *pulumi.Context, args *ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts ...pulumi.InvokeOption) (*ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, error) {
 	var rv ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult
-	err := ctx.Invoke("azure-nextgen:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:billing/latest:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

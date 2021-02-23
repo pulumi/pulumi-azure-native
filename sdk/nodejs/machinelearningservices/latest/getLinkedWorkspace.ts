@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Linked workspace.
  * Latest API Version: 2020-03-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getLinkedWorkspace'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getLinkedWorkspace'. */
 export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedWorkspaceResult> {
-    pulumi.log.warn("getLinkedWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:getLinkedWorkspace'.")
+    pulumi.log.warn("getLinkedWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getLinkedWorkspace'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLinkedWorkspace(args: GetLinkedWorkspaceArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:getLinkedWorkspace", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:getLinkedWorkspace", {
         "linkName": args.linkName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

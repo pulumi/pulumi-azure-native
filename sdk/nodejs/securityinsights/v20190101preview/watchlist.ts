@@ -22,7 +22,7 @@ export class Watchlist extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:Watchlist';
+    public static readonly __pulumiType = 'azure-native:securityinsights/v20190101preview:Watchlist';
 
     /**
      * Returns true if the given object is an instance of Watchlist.  This is designed to work even
@@ -214,7 +214,7 @@ export class Watchlist extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Watchlist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Watchlist" }, { type: "azure-nextgen:securityinsights:Watchlist" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Watchlist.__pulumiType, name, inputs, opts);
     }

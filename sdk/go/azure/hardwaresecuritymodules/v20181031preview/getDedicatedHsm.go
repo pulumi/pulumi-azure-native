@@ -10,7 +10,7 @@ import (
 // Resource information with extended details.
 func LookupDedicatedHsm(ctx *pulumi.Context, args *LookupDedicatedHsmArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHsmResult, error) {
 	var rv LookupDedicatedHsmResult
-	err := ctx.Invoke("azure-nextgen:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hardwaresecuritymodules/v20181031preview:getDedicatedHsm", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

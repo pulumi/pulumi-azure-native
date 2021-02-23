@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     public static class GetGlobalUserPersonalPreferences
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Represents the PersonalPreferences for the user
         /// </summary>
         public static Task<GetGlobalUserPersonalPreferencesResult> InvokeAsync(GetGlobalUserPersonalPreferencesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-nextgen:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
     }
 
 
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Enum indicating if user is adding or removing a favorite lab
         /// </summary>
         [Input("addRemove")]
-        public Union<string, Pulumi.AzureNextGen.LabServices.V20181015.AddRemove>? AddRemove { get; set; }
+        public Union<string, Pulumi.AzureNative.LabServices.V20181015.AddRemove>? AddRemove { get; set; }
 
         /// <summary>
         /// Resource Id of the lab account

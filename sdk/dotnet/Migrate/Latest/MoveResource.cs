@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
     /// <summary>
     /// Defines the move resource.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:MoveResource'.")]
-    [AzureNextGenResourceType("azure-nextgen:migrate/latest:MoveResource")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.")]
+    [AzureNativeResourceType("azure-native:migrate/latest:MoveResource")]
     public partial class MoveResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MoveResource(string name, MoveResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:MoveResource", name, args ?? new MoveResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/latest:MoveResource", name, args ?? new MoveResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MoveResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:MoveResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/latest:MoveResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,8 +60,11 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveResource"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001preview:MoveResource"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20210101:MoveResource"},
                 },
             };

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.Inputs
+namespace Pulumi.AzureNative.EventGrid.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Inputs
         /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.EventSubscriptionIdentityType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.EventSubscriptionIdentityType>? Type { get; set; }
 
         /// <summary>
         /// The user identity associated with the resource.

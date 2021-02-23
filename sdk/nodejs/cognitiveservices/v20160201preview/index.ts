@@ -19,11 +19,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount":
+            case "azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount":
                 return new CognitiveServicesAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cognitiveservices/v20160201preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cognitiveservices/v20160201preview", _module)

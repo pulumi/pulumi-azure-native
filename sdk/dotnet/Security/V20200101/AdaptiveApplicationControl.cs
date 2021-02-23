@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20200101
+namespace Pulumi.AzureNative.Security.V20200101
 {
-    [AzureNextGenResourceType("azure-nextgen:security/v20200101:AdaptiveApplicationControl")]
+    [AzureNativeResourceType("azure-native:security/v20200101:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AdaptiveApplicationControl(string name, AdaptiveApplicationControlArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200101:AdaptiveApplicationControl", name, args ?? new AdaptiveApplicationControlArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20200101:AdaptiveApplicationControl", name, args ?? new AdaptiveApplicationControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AdaptiveApplicationControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20200101:AdaptiveApplicationControl", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20200101:AdaptiveApplicationControl", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,8 +94,11 @@ namespace Pulumi.AzureNextGen.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:AdaptiveApplicationControl"},
+                    new Pulumi.Alias { Type = "azure-native:security/latest:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:AdaptiveApplicationControl"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20150601preview:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"},
                 },
             };

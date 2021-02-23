@@ -22,7 +22,7 @@ export class Incident extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:securityinsights/v20190101preview:Incident';
+    public static readonly __pulumiType = 'azure-native:securityinsights/v20190101preview:Incident';
 
     /**
      * Returns true if the given object is an instance of Incident.  This is designed to work even

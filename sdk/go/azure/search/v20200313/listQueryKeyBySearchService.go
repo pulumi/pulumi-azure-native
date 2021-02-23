@@ -10,7 +10,7 @@ import (
 // Response containing the query API keys for a given Azure Cognitive Search service.
 func ListQueryKeyBySearchService(ctx *pulumi.Context, args *ListQueryKeyBySearchServiceArgs, opts ...pulumi.InvokeOption) (*ListQueryKeyBySearchServiceResult, error) {
 	var rv ListQueryKeyBySearchServiceResult
-	err := ctx.Invoke("azure-nextgen:search/v20200313:listQueryKeyBySearchService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search/v20200313:listQueryKeyBySearchService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL
+namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// A PostgreSQL Server key.
     /// API Version: 2020-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql:ServerKey")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql:ServerKey")]
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerKey(string name, ServerKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql:ServerKey", name, args ?? new ServerKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql:ServerKey", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql:ServerKey", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200101:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200101privatepreview:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey"},
                 },
             };
@@ -119,7 +122,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL
         /// The key type like 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.ServerKeyType> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArgs, opts ...pulumi.InvokeOption) (*LookupStreamingLocatorResult, error) {
 	var rv LookupStreamingLocatorResult
-	err := ctx.Invoke("azure-nextgen:media:getStreamingLocator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getStreamingLocator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/v20200601preview:getGateway", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/v20200601preview:getGateway", {
         "gatewayId": args.gatewayId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

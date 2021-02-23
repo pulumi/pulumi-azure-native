@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180301
+namespace Pulumi.AzureNative.Insights.V20180301
 {
     /// <summary>
     /// The metric alert resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20180301:MetricAlert")]
+    [AzureNativeResourceType("azure-native:insights/v20180301:MetricAlert")]
     public partial class MetricAlert : Pulumi.CustomResource
     {
         /// <summary>
@@ -126,12 +126,12 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricAlert(string name, MetricAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180301:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20180301:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MetricAlert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180301:MetricAlert", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20180301:MetricAlert", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -142,7 +142,9 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:MetricAlert"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:MetricAlert"},
                 },
             };

@@ -10,7 +10,7 @@ import (
 // The properties of File services in storage account.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/v20200801preview:getFileServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20200801preview:getFileServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

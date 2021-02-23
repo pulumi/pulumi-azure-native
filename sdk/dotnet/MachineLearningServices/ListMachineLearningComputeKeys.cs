@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices
+namespace Pulumi.AzureNative.MachineLearningServices
 {
     public static class ListMachineLearningComputeKeys
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeKeysResult> InvokeAsync(ListMachineLearningComputeKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-nextgen:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeKeysResult>("azure-native:machinelearningservices:listMachineLearningComputeKeys", args ?? new ListMachineLearningComputeKeysArgs(), options.WithVersion());
     }
 
 

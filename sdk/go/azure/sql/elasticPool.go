@@ -59,16 +59,31 @@ func NewElasticPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/latest:ElasticPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/latest:ElasticPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20140401:ElasticPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:ElasticPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20171001preview:ElasticPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ElasticPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ElasticPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ElasticPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ElasticPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ElasticPool"),
@@ -76,7 +91,7 @@ func NewElasticPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ElasticPool
-	err := ctx.RegisterResource("azure-nextgen:sql:ElasticPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ElasticPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +103,7 @@ func NewElasticPool(ctx *pulumi.Context,
 func GetElasticPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ElasticPoolState, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
 	var resource ElasticPool
-	err := ctx.ReadResource("azure-nextgen:sql:ElasticPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ElasticPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

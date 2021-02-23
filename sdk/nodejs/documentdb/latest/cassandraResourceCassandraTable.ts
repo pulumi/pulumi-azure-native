@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Cassandra table.
  * Latest API Version: 2021-01-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraTable'.
  */
 export class CassandraResourceCassandraTable extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CassandraResourceCassandraTable {
-        pulumi.log.warn("CassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'.")
+        pulumi.log.warn("CassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraTable'.")
         return new CassandraResourceCassandraTable(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:CassandraResourceCassandraTable';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:CassandraResourceCassandraTable';
 
     /**
      * Returns true if the given object is an instance of CassandraResourceCassandraTable.  This is designed to work even
@@ -65,9 +65,9 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraTable'. */
     constructor(name: string, args: CassandraResourceCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:CassandraResourceCassandraTable'.")
+        pulumi.log.warn("CassandraResourceCassandraTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:CassandraResourceCassandraTable'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -107,7 +107,7 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200901:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20210115:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CassandraResourceCassandraTable.__pulumiType, name, inputs, opts);
     }

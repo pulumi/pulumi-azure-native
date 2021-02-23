@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Resource information with extended details.
  * Latest API Version: 2019-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Secret'.
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Secret extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Secret {
-        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.")
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Secret'.")
         return new Secret(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:keyvault/latest:Secret';
+    public static readonly __pulumiType = 'azure-native:keyvault/latest:Secret';
 
     /**
      * Returns true if the given object is an instance of Secret.  This is designed to work even
@@ -67,9 +67,9 @@ export class Secret extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Secret'. */
     constructor(name: string, args: SecretArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:keyvault:Secret'.")
+        pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Secret'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class Secret extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault:Secret" }, { type: "azure-nextgen:keyvault/v20161001:Secret" }, { type: "azure-nextgen:keyvault/v20180214:Secret" }, { type: "azure-nextgen:keyvault/v20180214preview:Secret" }, { type: "azure-nextgen:keyvault/v20190901:Secret" }, { type: "azure-nextgen:keyvault/v20200401preview:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Secret" }, { type: "azure-nextgen:keyvault:Secret" }, { type: "azure-native:keyvault/v20161001:Secret" }, { type: "azure-nextgen:keyvault/v20161001:Secret" }, { type: "azure-native:keyvault/v20180214:Secret" }, { type: "azure-nextgen:keyvault/v20180214:Secret" }, { type: "azure-native:keyvault/v20180214preview:Secret" }, { type: "azure-nextgen:keyvault/v20180214preview:Secret" }, { type: "azure-native:keyvault/v20190901:Secret" }, { type: "azure-nextgen:keyvault/v20190901:Secret" }, { type: "azure-native:keyvault/v20200401preview:Secret" }, { type: "azure-nextgen:keyvault/v20200401preview:Secret" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Secret.__pulumiType, name, inputs, opts);
     }

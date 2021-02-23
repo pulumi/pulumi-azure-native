@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement.Latest
+namespace Pulumi.AzureNative.AlertsManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:alertsmanagement:getSmartDetectorAlertRule'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:alertsmanagement:getSmartDetectorAlertRule'.")]
     public static class GetSmartDetectorAlertRule
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.Latest
         /// Latest API Version: 2019-06-01.
         /// </summary>
         public static Task<GetSmartDetectorAlertRuleResult> InvokeAsync(GetSmartDetectorAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-nextgen:alertsmanagement/latest:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSmartDetectorAlertRuleResult>("azure-native:alertsmanagement/latest:getSmartDetectorAlertRule", args ?? new GetSmartDetectorAlertRuleArgs(), options.WithVersion());
     }
 
 

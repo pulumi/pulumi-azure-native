@@ -10,10 +10,10 @@ import (
 // Private Endpoint connection on an application gateway.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getApplicationGatewayPrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayPrivateEndpointConnection'.
 func LookupApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context, args *LookupApplicationGatewayPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayPrivateEndpointConnectionResult, error) {
 	var rv LookupApplicationGatewayPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getApplicationGatewayPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getApplicationGatewayPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

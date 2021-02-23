@@ -16,7 +16,7 @@ export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getIncidentComment", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,
         "incidentId": args.incidentId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A schedule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:ScheduleResource")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:ScheduleResource")]
     public partial class ScheduleResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduleResource(string name, ScheduleResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:ScheduleResource", name, args ?? new ScheduleResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20150521preview:ScheduleResource", name, args ?? new ScheduleResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduleResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:ScheduleResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20150521preview:ScheduleResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,9 +106,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ScheduleResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ScheduleResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ScheduleResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ScheduleResource"},
                 },
             };
@@ -185,7 +189,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The status of the schedule.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.EnableStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -203,7 +207,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The task type of the schedule.
         /// </summary>
         [Input("taskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.TaskType>? TaskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.TaskType>? TaskType { get; set; }
 
         /// <summary>
         /// The time zone id.

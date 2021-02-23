@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// API Version: 2018-04-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:Endpoint")]
+    [AzureNativeResourceType("azure-native:network:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -103,12 +103,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Endpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:Endpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:Endpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -119,12 +119,19 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Endpoint"},
                 },
             };
@@ -171,7 +178,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The monitoring status of the endpoint.
         /// </summary>
         [Input("endpointMonitorStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager endpoint to be created or updated.
@@ -183,7 +190,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         /// </summary>
         [Input("endpointStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.EndpointStatus>? EndpointStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.EndpointStatus>? EndpointStatus { get; set; }
 
         /// <summary>
         /// The type of the Traffic Manager endpoint to be created or updated.

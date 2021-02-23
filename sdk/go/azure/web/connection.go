@@ -41,10 +41,19 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:Connection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801preview:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801preview:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160601:Connection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160601:Connection"),
@@ -52,7 +61,7 @@ func NewConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Connection
-	err := ctx.RegisterResource("azure-nextgen:web:Connection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:Connection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +73,7 @@ func NewConnection(ctx *pulumi.Context,
 func GetConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
 	var resource Connection
-	err := ctx.ReadResource("azure-nextgen:web:Connection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:Connection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

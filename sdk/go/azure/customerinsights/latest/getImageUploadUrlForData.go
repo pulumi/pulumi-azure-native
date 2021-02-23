@@ -10,10 +10,10 @@ import (
 // The image definition.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getImageUploadUrlForData'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForData'.
 func GetImageUploadUrlForData(ctx *pulumi.Context, args *GetImageUploadUrlForDataArgs, opts ...pulumi.InvokeOption) (*GetImageUploadUrlForDataResult, error) {
 	var rv GetImageUploadUrlForDataResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/latest:getImageUploadUrlForData", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/latest:getImageUploadUrlForData", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

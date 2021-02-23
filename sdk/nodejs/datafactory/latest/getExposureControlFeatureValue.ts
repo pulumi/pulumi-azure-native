@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The exposure control response.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getExposureControlFeatureValue'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValue'. */
 export function getExposureControlFeatureValue(args: GetExposureControlFeatureValueArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueResult> {
-    pulumi.log.warn("getExposureControlFeatureValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getExposureControlFeatureValue'.")
+    pulumi.log.warn("getExposureControlFeatureValue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValue'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExposureControlFeatureValue(args: GetExposureControlFeatureVa
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getExposureControlFeatureValue", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getExposureControlFeatureValue", {
         "featureName": args.featureName,
         "featureType": args.featureType,
         "locationId": args.locationId,

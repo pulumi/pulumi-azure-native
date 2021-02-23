@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Workload group operations for a sql pool
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadGroup'. */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
-    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:synapse:getSqlPoolWorkloadGroup'.")
+    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/latest:getSqlPoolWorkloadGroup", {
+    return pulumi.runtime.invoke("azure-native:synapse/latest:getSqlPoolWorkloadGroup", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "workloadGroupName": args.workloadGroupName,

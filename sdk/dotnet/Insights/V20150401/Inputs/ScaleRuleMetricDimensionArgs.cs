@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
+namespace Pulumi.AzureNative.Insights.V20150401.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
         /// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150401.ScaleRuleMetricDimensionOperationType> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20150401.ScaleRuleMetricDimensionOperationType> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

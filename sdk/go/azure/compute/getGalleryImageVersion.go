@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-30.
 func LookupGalleryImageVersion(ctx *pulumi.Context, args *LookupGalleryImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryImageVersionResult, error) {
 	var rv LookupGalleryImageVersionResult
-	err := ctx.Invoke("azure-nextgen:compute:getGalleryImageVersion", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getGalleryImageVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

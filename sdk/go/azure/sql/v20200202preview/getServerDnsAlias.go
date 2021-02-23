@@ -10,7 +10,7 @@ import (
 // A server DNS alias.
 func LookupServerDnsAlias(ctx *pulumi.Context, args *LookupServerDnsAliasArgs, opts ...pulumi.InvokeOption) (*LookupServerDnsAliasResult, error) {
 	var rv LookupServerDnsAliasResult
-	err := ctx.Invoke("azure-nextgen:sql/v20200202preview:getServerDnsAlias", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql/v20200202preview:getServerDnsAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -23,7 +23,7 @@ export class AddressByName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:edgeorder:AddressByName';
+    public static readonly __pulumiType = 'azure-native:edgeorder:AddressByName';
 
     /**
      * Returns true if the given object is an instance of AddressByName.  This is designed to work even
@@ -106,7 +106,7 @@ export class AddressByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:edgeorder/v20201201preview:AddressByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:AddressByName" }, { type: "azure-nextgen:edgeorder/v20201201preview:AddressByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AddressByName.__pulumiType, name, inputs, opts);
     }

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Route resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRoute'. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-    pulumi.log.warn("getRoute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRoute'.")
+    pulumi.log.warn("getRoute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRoute'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRoute", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getRoute", {
         "resourceGroupName": args.resourceGroupName,
         "routeName": args.routeName,
         "routeTableName": args.routeTableName,

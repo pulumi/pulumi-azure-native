@@ -30,19 +30,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:securityinsights/latest:Action":
+            case "azure-native:securityinsights/latest:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/latest:AlertRule":
+            case "azure-native:securityinsights/latest:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/latest:Bookmark":
+            case "azure-native:securityinsights/latest:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/latest:DataConnector":
+            case "azure-native:securityinsights/latest:DataConnector":
                 return new DataConnector(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/latest:Incident":
+            case "azure-native:securityinsights/latest:Incident":
                 return new Incident(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "securityinsights/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "securityinsights/latest", _module)

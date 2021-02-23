@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Latest
+namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Base class for backup items.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ProtectedItem'.")]
-    [AzureNextGenResourceType("azure-nextgen:recoveryservices/latest:ProtectedItem")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectedItem'.")]
+    [AzureNativeResourceType("azure-native:recoveryservices/latest:ProtectedItem")]
     public partial class ProtectedItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectedItem(string name, ProtectedItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ProtectedItem", name, args ?? new ProtectedItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:recoveryservices/latest:ProtectedItem", name, args ?? new ProtectedItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProtectedItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:recoveryservices/latest:ProtectedItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:recoveryservices/latest:ProtectedItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,13 +78,21 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160601:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160601:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20190513:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20190513:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20190615:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20190615:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201201:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201201:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:ProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectedItem"},
                 },
             };

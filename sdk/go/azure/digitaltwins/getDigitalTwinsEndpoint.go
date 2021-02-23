@@ -11,7 +11,7 @@ import (
 // API Version: 2020-12-01.
 func LookupDigitalTwinsEndpoint(ctx *pulumi.Context, args *LookupDigitalTwinsEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinsEndpointResult, error) {
 	var rv LookupDigitalTwinsEndpointResult
-	err := ctx.Invoke("azure-nextgen:digitaltwins:getDigitalTwinsEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:digitaltwins:getDigitalTwinsEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

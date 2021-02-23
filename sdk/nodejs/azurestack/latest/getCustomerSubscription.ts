@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Customer subscription.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getCustomerSubscription'. */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
-    pulumi.log.warn("getCustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:getCustomerSubscription'.")
+    pulumi.log.warn("getCustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getCustomerSubscription'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:getCustomerSubscription", {
+    return pulumi.runtime.invoke("azure-native:azurestack/latest:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppApplicationSettingsSlot(ctx *pulumi.Context, args *ListWebAppApplicationSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsSlotResult, error) {
 	var rv ListWebAppApplicationSettingsSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppApplicationSettingsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppApplicationSettingsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

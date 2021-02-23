@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataLakeAnalytics
+namespace Pulumi.AzureNative.DataLakeAnalytics
 {
     /// <summary>
     /// Data Lake Analytics firewall rule information.
     /// API Version: 2016-11-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datalakeanalytics:FirewallRule")]
+    [AzureNativeResourceType("azure-native:datalakeanalytics:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datalakeanalytics:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datalakeanalytics:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datalakeanalytics:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:FirewallRule"},
                 },
             };

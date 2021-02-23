@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupApplicationPackage(ctx *pulumi.Context, args *LookupApplicationPackageArgs, opts ...pulumi.InvokeOption) (*LookupApplicationPackageResult, error) {
 	var rv LookupApplicationPackageResult
-	err := ctx.Invoke("azure-nextgen:batch:getApplicationPackage", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch:getApplicationPackage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

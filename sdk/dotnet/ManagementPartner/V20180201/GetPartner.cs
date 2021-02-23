@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
+namespace Pulumi.AzureNative.ManagementPartner.V20180201
 {
     public static class GetPartner
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
         /// this is the management partner operations response
         /// </summary>
         public static Task<GetPartnerResult> InvokeAsync(GetPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-nextgen:managementpartner/v20180201:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerResult>("azure-native:managementpartner/v20180201:getPartner", args ?? new GetPartnerArgs(), options.WithVersion());
     }
 
 

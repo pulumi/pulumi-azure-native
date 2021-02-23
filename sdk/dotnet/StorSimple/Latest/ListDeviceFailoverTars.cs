@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:listDeviceFailoverTars'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'.")]
     public static class ListDeviceFailoverTars
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2017-06-01.
         /// </summary>
         public static Task<ListDeviceFailoverTarsResult> InvokeAsync(ListDeviceFailoverTarsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-nextgen:storsimple/latest:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceFailoverTarsResult>("azure-native:storsimple/latest:listDeviceFailoverTars", args ?? new ListDeviceFailoverTarsArgs(), options.WithVersion());
     }
 
 

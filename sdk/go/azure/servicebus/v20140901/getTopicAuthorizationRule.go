@@ -10,7 +10,7 @@ import (
 // Description of a namespace authorization rule.
 func LookupTopicAuthorizationRule(ctx *pulumi.Context, args *LookupTopicAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupTopicAuthorizationRuleResult, error) {
 	var rv LookupTopicAuthorizationRuleResult
-	err := ctx.Invoke("azure-nextgen:servicebus/v20140901:getTopicAuthorizationRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/v20140901:getTopicAuthorizationRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

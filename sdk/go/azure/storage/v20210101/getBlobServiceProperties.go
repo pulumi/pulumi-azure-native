@@ -10,7 +10,7 @@ import (
 // The properties of a storage account’s Blob service.
 func LookupBlobServiceProperties(ctx *pulumi.Context, args *LookupBlobServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupBlobServicePropertiesResult, error) {
 	var rv LookupBlobServicePropertiesResult
-	err := ctx.Invoke("azure-nextgen:storage/v20210101:getBlobServiceProperties", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storage/v20210101:getBlobServiceProperties", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

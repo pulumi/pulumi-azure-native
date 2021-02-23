@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A budget resource.
  * Latest API Version: 2019-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Budget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Budget {
-        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.")
+        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'.")
         return new Budget(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:consumption/latest:Budget';
+    public static readonly __pulumiType = 'azure-native:consumption/latest:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even
@@ -87,9 +87,9 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'. */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:consumption:Budget'.")
+        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.amount === undefined) && !(opts && opts.urn)) {
@@ -138,7 +138,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190401preview:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption:Budget" }, { type: "azure-nextgen:consumption:Budget" }, { type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-nextgen:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-nextgen:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-nextgen:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-nextgen:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-nextgen:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-nextgen:consumption/v20191001:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

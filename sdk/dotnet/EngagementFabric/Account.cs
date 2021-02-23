@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EngagementFabric
+namespace Pulumi.AzureNative.EngagementFabric
 {
     /// <summary>
     /// The EngagementFabric account
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:engagementfabric:Account")]
+    [AzureNativeResourceType("azure-native:engagementfabric:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.EngagementFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:engagementfabric:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:engagementfabric:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:engagementfabric:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:engagementfabric/v20180901preview:Account"},
                 },
             };

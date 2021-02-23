@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.V20160101.Inputs
+namespace Pulumi.AzureNative.Scheduler.V20160101.Inputs
 {
 
     public sealed class RetryPolicyArgs : Pulumi.ResourceArgs
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101.Inputs
         /// Gets or sets the retry strategy to be used.
         /// </summary>
         [Input("retryType")]
-        public Input<Pulumi.AzureNextGen.Scheduler.V20160101.RetryType>? RetryType { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.V20160101.RetryType>? RetryType { get; set; }
 
         public RetryPolicyArgs()
         {

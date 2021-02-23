@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Management.V20200501
+namespace Pulumi.AzureNative.Management.V20200501
 {
     public static class GetEntity
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Management.V20200501
         /// Describes the result of the request to view entities.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-nextgen:management/v20200501:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management/v20200501:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
     }
 
 

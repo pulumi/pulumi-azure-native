@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20171001.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20171001.Inputs
         /// The action of IP ACL rule.
         /// </summary>
         [Input("action")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20171001.Action>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20171001.Action>? Action { get; set; }
 
         /// <summary>
         /// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.

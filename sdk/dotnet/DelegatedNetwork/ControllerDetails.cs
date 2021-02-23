@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork
+namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
     /// API Version: 2020-08-08-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:delegatednetwork:ControllerDetails")]
+    [AzureNativeResourceType("azure-native:delegatednetwork:ControllerDetails")]
     public partial class ControllerDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ControllerDetails(string name, ControllerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork:ControllerDetails", name, args ?? new ControllerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:delegatednetwork:ControllerDetails", name, args ?? new ControllerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ControllerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:delegatednetwork:ControllerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:delegatednetwork:ControllerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"},
                 },
             };

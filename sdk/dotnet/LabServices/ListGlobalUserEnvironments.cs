@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     public static class ListGlobalUserEnvironments
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<ListGlobalUserEnvironmentsResult> InvokeAsync(ListGlobalUserEnvironmentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-nextgen:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGlobalUserEnvironmentsResult>("azure-native:labservices:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsArgs(), options.WithVersion());
     }
 
 

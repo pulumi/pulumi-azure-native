@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Attestation.Latest.Inputs
+namespace Pulumi.AzureNative.Attestation.Latest.Inputs
 {
 
     public sealed class JSONWebKeyArgs : Pulumi.ResourceArgs

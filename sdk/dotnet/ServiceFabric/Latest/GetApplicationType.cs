@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.Latest
+namespace Pulumi.AzureNative.ServiceFabric.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicefabric:getApplicationType'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicefabric:getApplicationType'.")]
     public static class GetApplicationType
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.Latest
         /// Latest API Version: 2020-03-01.
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-nextgen:servicefabric/latest:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric/latest:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
     }
 
 

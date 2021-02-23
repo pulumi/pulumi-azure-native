@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:dbformysql/v20200701preview:Database":
+            case "azure-native:dbformysql/v20200701preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20200701preview:FirewallRule":
+            case "azure-native:dbformysql/v20200701preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20200701preview:Server":
+            case "azure-native:dbformysql/v20200701preview:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-nextgen:dbformysql/v20200701preview:ServerKey":
+            case "azure-native:dbformysql/v20200701preview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "dbformysql/v20200701preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "dbformysql/v20200701preview", _module)

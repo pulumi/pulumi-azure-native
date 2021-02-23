@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-15.
 func GetVirtualMachineRdpFileContents(ctx *pulumi.Context, args *GetVirtualMachineRdpFileContentsArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineRdpFileContentsResult, error) {
 	var rv GetVirtualMachineRdpFileContentsResult
-	err := ctx.Invoke("azure-nextgen:devtestlab:getVirtualMachineRdpFileContents", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab:getVirtualMachineRdpFileContents", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

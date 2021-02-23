@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An IPSec parameters for a virtual network gateway P2S connection.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayVpnclientIpsecParameters'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters'. */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
-    pulumi.log.warn("getVirtualNetworkGatewayVpnclientIpsecParameters is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayVpnclientIpsecParameters'.")
+    pulumi.log.warn("getVirtualNetworkGatewayVpnclientIpsecParameters is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtua
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayVpnclientIpsecParameters", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getVirtualNetworkGatewayVpnclientIpsecParameters", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);

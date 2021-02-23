@@ -10,7 +10,7 @@ import (
 // Route table resource.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
-	err := ctx.Invoke("azure-nextgen:network/v20181201:getRouteTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20181201:getRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

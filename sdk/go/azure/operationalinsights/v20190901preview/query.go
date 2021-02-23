@@ -61,7 +61,7 @@ func NewQuery(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Query
-	err := ctx.RegisterResource("azure-nextgen:operationalinsights/v20190901preview:Query", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationalinsights/v20190901preview:Query", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func NewQuery(ctx *pulumi.Context,
 func GetQuery(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueryState, opts ...pulumi.ResourceOption) (*Query, error) {
 	var resource Query
-	err := ctx.ReadResource("azure-nextgen:operationalinsights/v20190901preview:Query", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationalinsights/v20190901preview:Query", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

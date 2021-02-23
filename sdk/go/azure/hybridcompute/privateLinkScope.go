@@ -44,12 +44,15 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:PrivateLinkScope"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkScope
-	err := ctx.RegisterResource("azure-nextgen:hybridcompute:PrivateLinkScope", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:hybridcompute:PrivateLinkScope", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +64,7 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 func GetPrivateLinkScope(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkScopeState, opts ...pulumi.ResourceOption) (*PrivateLinkScope, error) {
 	var resource PrivateLinkScope
-	err := ctx.ReadResource("azure-nextgen:hybridcompute:PrivateLinkScope", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:hybridcompute:PrivateLinkScope", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

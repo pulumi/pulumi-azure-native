@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridData
+namespace Pulumi.AzureNative.HybridData
 {
     public static class GetDataManager
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridData
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetDataManagerResult> InvokeAsync(GetDataManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-nextgen:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerArgs(), options.WithVersion());
     }
 
 

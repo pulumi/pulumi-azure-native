@@ -10,7 +10,7 @@ import (
 // Represents the PersonalPreferences for the user
 func GetGlobalUserPersonalPreferences(ctx *pulumi.Context, args *GetGlobalUserPersonalPreferencesArgs, opts ...pulumi.InvokeOption) (*GetGlobalUserPersonalPreferencesResult, error) {
 	var rv GetGlobalUserPersonalPreferencesResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getGlobalUserPersonalPreferences", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

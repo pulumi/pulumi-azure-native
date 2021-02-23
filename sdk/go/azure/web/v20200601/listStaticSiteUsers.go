@@ -10,7 +10,7 @@ import (
 // Collection of static site custom users.
 func ListStaticSiteUsers(ctx *pulumi.Context, args *ListStaticSiteUsersArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteUsersResult, error) {
 	var rv ListStaticSiteUsersResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:listStaticSiteUsers", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:listStaticSiteUsers", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

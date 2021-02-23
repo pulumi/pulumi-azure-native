@@ -16,7 +16,7 @@ export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/v20190201:getAgentPool", {
+    return pulumi.runtime.invoke("azure-native:containerservice/v20190201:getAgentPool", {
         "agentPoolName": args.agentPoolName,
         "managedClusterName": args.managedClusterName,
         "resourceGroupName": args.resourceGroupName,

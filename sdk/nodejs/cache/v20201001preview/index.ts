@@ -25,15 +25,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cache/v20201001preview:Database":
+            case "azure-native:cache/v20201001preview:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection":
+            case "azure-native:cache/v20201001preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:cache/v20201001preview:RedisEnterprise":
+            case "azure-native:cache/v20201001preview:RedisEnterprise":
                 return new RedisEnterprise(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cache/v20201001preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cache/v20201001preview", _module)

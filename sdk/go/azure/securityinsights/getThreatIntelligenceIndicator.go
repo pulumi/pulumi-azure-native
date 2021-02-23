@@ -11,7 +11,7 @@ import (
 // API Version: 2019-01-01-preview.
 func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIntelligenceIndicatorArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelligenceIndicatorResult, error) {
 	var rv LookupThreatIntelligenceIndicatorResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getThreatIntelligenceIndicator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getThreatIntelligenceIndicator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

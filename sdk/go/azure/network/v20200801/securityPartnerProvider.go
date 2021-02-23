@@ -47,22 +47,43 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:SecurityPartnerProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:SecurityPartnerProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:SecurityPartnerProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:SecurityPartnerProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:SecurityPartnerProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:SecurityPartnerProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:SecurityPartnerProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityPartnerProvider"),
@@ -70,7 +91,7 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SecurityPartnerProvider
-	err := ctx.RegisterResource("azure-nextgen:network/v20200801:SecurityPartnerProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200801:SecurityPartnerProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +103,7 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 func GetSecurityPartnerProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecurityPartnerProviderState, opts ...pulumi.ResourceOption) (*SecurityPartnerProvider, error) {
 	var resource SecurityPartnerProvider
-	err := ctx.ReadResource("azure-nextgen:network/v20200801:SecurityPartnerProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200801:SecurityPartnerProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

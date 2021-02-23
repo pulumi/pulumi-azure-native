@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserPersonalPreferences'.")]
     public static class GetGlobalUserPersonalPreferences
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Latest API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserPersonalPreferencesResult> InvokeAsync(GetGlobalUserPersonalPreferencesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-nextgen:labservices/latest:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/latest:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
     }
 
 
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Enum indicating if user is adding or removing a favorite lab
         /// </summary>
         [Input("addRemove")]
-        public Union<string, Pulumi.AzureNextGen.LabServices.Latest.AddRemove>? AddRemove { get; set; }
+        public Union<string, Pulumi.AzureNative.LabServices.Latest.AddRemove>? AddRemove { get; set; }
 
         /// <summary>
         /// Resource Id of the lab account

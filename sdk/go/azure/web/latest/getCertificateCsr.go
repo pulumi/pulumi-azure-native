@@ -10,10 +10,10 @@ import (
 // Certificate signing request object
 // Latest API Version: 2015-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCertificateCsr'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificateCsr'.
 func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, opts ...pulumi.InvokeOption) (*LookupCertificateCsrResult, error) {
 	var rv LookupCertificateCsrResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getCertificateCsr", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getCertificateCsr", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

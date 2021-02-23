@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         }
 
         [Input("compressionCodec")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.CompressionCodec>? CompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.CompressionCodec>? CompressionCodec { get; set; }
 
         /// <summary>
         /// Dataset description.

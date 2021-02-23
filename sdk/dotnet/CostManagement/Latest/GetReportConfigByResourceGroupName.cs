@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.Latest
+namespace Pulumi.AzureNative.CostManagement.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getReportConfigByResourceGroupName'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfigByResourceGroupName'.")]
     public static class GetReportConfigByResourceGroupName
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// Latest API Version: 2018-05-31.
         /// </summary>
         public static Task<GetReportConfigByResourceGroupNameResult> InvokeAsync(GetReportConfigByResourceGroupNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigByResourceGroupNameResult>("azure-nextgen:costmanagement/latest:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportConfigByResourceGroupNameResult>("azure-native:costmanagement/latest:getReportConfigByResourceGroupName", args ?? new GetReportConfigByResourceGroupNameArgs(), options.WithVersion());
     }
 
 

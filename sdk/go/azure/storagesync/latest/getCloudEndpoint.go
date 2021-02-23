@@ -10,10 +10,10 @@ import (
 // Cloud Endpoint object.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getCloudEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getCloudEndpoint'.
 func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opts ...pulumi.InvokeOption) (*LookupCloudEndpointResult, error) {
 	var rv LookupCloudEndpointResult
-	err := ctx.Invoke("azure-nextgen:storagesync/latest:getCloudEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/latest:getCloudEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

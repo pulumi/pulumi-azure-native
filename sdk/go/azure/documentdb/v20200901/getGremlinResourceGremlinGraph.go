@@ -10,7 +10,7 @@ import (
 // An Azure Cosmos DB Gremlin graph.
 func LookupGremlinResourceGremlinGraph(ctx *pulumi.Context, args *LookupGremlinResourceGremlinGraphArgs, opts ...pulumi.InvokeOption) (*LookupGremlinResourceGremlinGraphResult, error) {
 	var rv LookupGremlinResourceGremlinGraphResult
-	err := ctx.Invoke("azure-nextgen:documentdb/v20200901:getGremlinResourceGremlinGraph", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/v20200901:getGremlinResourceGremlinGraph", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

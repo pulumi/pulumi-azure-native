@@ -14,7 +14,7 @@ import (
 // Resource information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'.
 type Resource struct {
 	pulumi.CustomResourceState
 
@@ -61,52 +61,103 @@ func NewResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20151101:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20151101:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20160201:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20160201:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20160701:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20160701:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20160901:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20160901:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20170510:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20170510:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20180201:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20180201:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20180501:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20180501:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190301:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190301:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190501:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190501:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190510:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190510:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190701:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:Resource"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:Resource"),
@@ -114,7 +165,7 @@ func NewResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Resource
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:Resource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:Resource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +177,7 @@ func NewResource(ctx *pulumi.Context,
 func GetResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceState, opts ...pulumi.ResourceOption) (*Resource, error) {
 	var resource Resource
-	err := ctx.ReadResource("azure-nextgen:resources/latest:Resource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:Resource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Response for GetActiveSessions.
 func GetActiveSessions(ctx *pulumi.Context, args *GetActiveSessionsArgs, opts ...pulumi.InvokeOption) (*GetActiveSessionsResult, error) {
 	var rv GetActiveSessionsResult
-	err := ctx.Invoke("azure-nextgen:network/v20200701:getActiveSessions", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200701:getActiveSessions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
+namespace Pulumi.AzureNative.Logic.Latest.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The RosettaNet ProcessConfiguration role type.
         /// </summary>
         [Input("roleType", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.Latest.RosettaNetPipRoleType> RoleType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.Latest.RosettaNetPipRoleType> RoleType { get; set; } = null!;
 
         /// <summary>
         /// The service name.

@@ -36,17 +36,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datalakestore:Account":
+            case "azure-native:datalakestore:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datalakestore:FirewallRule":
+            case "azure-native:datalakestore:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:datalakestore:TrustedIdProvider":
+            case "azure-native:datalakestore:TrustedIdProvider":
                 return new TrustedIdProvider(name, <any>undefined, { urn })
-            case "azure-nextgen:datalakestore:VirtualNetworkRule":
+            case "azure-native:datalakestore:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datalakestore", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datalakestore", _module)

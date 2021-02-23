@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Policy Contract details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ProductPolicy'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ProductPolicy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ProductPolicy'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:ProductPolicy")]
     public partial class ProductPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductPolicy(string name, ProductPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ProductPolicy", name, args ?? new ProductPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:ProductPolicy", name, args ?? new ProductPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProductPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ProductPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:ProductPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,13 +66,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ProductPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ProductPolicy"},
                 },
             };
@@ -101,7 +109,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Format of the policyContent.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.PolicyContentFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.PolicyContentFormat>? Format { get; set; }
 
         /// <summary>
         /// The identifier of the Policy.

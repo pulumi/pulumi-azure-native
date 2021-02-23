@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120
+namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
     public static class GetDefaultRollout
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
         /// Default rollout definition.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-nextgen:providerhub/v20201120:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub/v20201120:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.V20181101
+namespace Pulumi.AzureNative.Storage.V20181101
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage/v20181101:BlobContainer")]
+    [AzureNativeResourceType("azure-native:storage/v20181101:BlobContainer")]
     public partial class BlobContainer : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobContainer(string name, BlobContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20181101:BlobContainer", name, args ?? new BlobContainerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage/v20181101:BlobContainer", name, args ?? new BlobContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobContainer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage/v20181101:BlobContainer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage/v20181101:BlobContainer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,14 +118,23 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainer"},
                 },
             };
@@ -178,7 +187,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
         /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
         [Input("publicAccess")]
-        public Input<Pulumi.AzureNextGen.Storage.V20181101.PublicAccess>? PublicAccess { get; set; }
+        public Input<Pulumi.AzureNative.Storage.V20181101.PublicAccess>? PublicAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

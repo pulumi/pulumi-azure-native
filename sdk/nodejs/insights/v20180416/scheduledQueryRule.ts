@@ -22,7 +22,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights/v20180416:ScheduledQueryRule';
+    public static readonly __pulumiType = 'azure-native:insights/v20180416:ScheduledQueryRule';
 
     /**
      * Returns true if the given object is an instance of ScheduledQueryRule.  This is designed to work even
@@ -162,7 +162,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }

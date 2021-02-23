@@ -16,7 +16,7 @@ export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20190401:getBlobServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage/v20190401:getBlobServiceProperties", {
         "accountName": args.accountName,
         "blobServicesName": args.blobServicesName,
         "resourceGroupName": args.resourceGroupName,

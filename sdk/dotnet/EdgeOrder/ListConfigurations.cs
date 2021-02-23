@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder
+namespace Pulumi.AzureNative.EdgeOrder
 {
     public static class ListConfigurations
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder
         /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-nextgen:edgeorder:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithVersion());
     }
 
 

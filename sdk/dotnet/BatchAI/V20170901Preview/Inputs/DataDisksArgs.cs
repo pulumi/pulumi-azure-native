@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
         public Input<int> DiskSizeInGB { get; set; } = null!;
 
         [Input("storageAccountType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20170901Preview.StorageAccountType> StorageAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.BatchAI.V20170901Preview.StorageAccountType> StorageAccountType { get; set; } = null!;
 
         public DataDisksArgs()
         {

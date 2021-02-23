@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Secrets related to a Machine Learning compute. Might differ for every type of compute.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listMachineLearningComputeKeys'. */
 export function listMachineLearningComputeKeys(args: ListMachineLearningComputeKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMachineLearningComputeKeysResult> {
-    pulumi.log.warn("listMachineLearningComputeKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:machinelearningservices:listMachineLearningComputeKeys'.")
+    pulumi.log.warn("listMachineLearningComputeKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listMachineLearningComputeKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listMachineLearningComputeKeys(args: ListMachineLearningComputeK
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices/latest:listMachineLearningComputeKeys", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices/latest:listMachineLearningComputeKeys", {
         "computeName": args.computeName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

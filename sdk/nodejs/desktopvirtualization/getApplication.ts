@@ -17,7 +17,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:desktopvirtualization:getApplication", {
+    return pulumi.runtime.invoke("azure-native:desktopvirtualization:getApplication", {
         "applicationGroupName": args.applicationGroupName,
         "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,

@@ -42,7 +42,13 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:management/latest:ManagementGroupSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/latest:ManagementGroupSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20200501:ManagementGroupSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:ManagementGroupSubscription"),
@@ -50,7 +56,7 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroupSubscription
-	err := ctx.RegisterResource("azure-nextgen:management:ManagementGroupSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:management:ManagementGroupSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +68,7 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 func GetManagementGroupSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementGroupSubscriptionState, opts ...pulumi.ResourceOption) (*ManagementGroupSubscription, error) {
 	var resource ManagementGroupSubscription
-	err := ctx.ReadResource("azure-nextgen:management:ManagementGroupSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:management:ManagementGroupSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

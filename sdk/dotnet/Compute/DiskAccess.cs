@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute
+namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk access resource.
     /// API Version: 2020-09-30.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute:DiskAccess")]
+    [AzureNativeResourceType("azure-native:compute:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskAccess(string name, DiskAccessArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:DiskAccess", name, args ?? new DiskAccessArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute:DiskAccess", name, args ?? new DiskAccessArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiskAccess(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute:DiskAccess", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute:DiskAccess", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,9 +83,13 @@ namespace Pulumi.AzureNextGen.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
                 },
             };

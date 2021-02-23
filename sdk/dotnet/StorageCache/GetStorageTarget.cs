@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache
+namespace Pulumi.AzureNative.StorageCache
 {
     public static class GetStorageTarget
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StorageCache
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-nextgen:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
     }
 
 

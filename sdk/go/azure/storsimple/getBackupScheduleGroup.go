@@ -11,7 +11,7 @@ import (
 // API Version: 2016-10-01.
 func LookupBackupScheduleGroup(ctx *pulumi.Context, args *LookupBackupScheduleGroupArgs, opts ...pulumi.InvokeOption) (*LookupBackupScheduleGroupResult, error) {
 	var rv LookupBackupScheduleGroupResult
-	err := ctx.Invoke("azure-nextgen:storsimple:getBackupScheduleGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple:getBackupScheduleGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

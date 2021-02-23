@@ -11,7 +11,7 @@ import (
 // API Version: 2020-04-01-preview.
 func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupPartnerNamespaceResult, error) {
 	var rv LookupPartnerNamespaceResult
-	err := ctx.Invoke("azure-nextgen:eventgrid:getPartnerNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventgrid:getPartnerNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

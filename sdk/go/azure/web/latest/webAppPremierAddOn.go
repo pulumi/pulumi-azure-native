@@ -14,7 +14,7 @@ import (
 // Premier add-on.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppPremierAddOn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPremierAddOn'.
 type WebAppPremierAddOn struct {
 	pulumi.CustomResourceState
 
@@ -57,28 +57,55 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppPremierAddOn"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPremierAddOn"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPremierAddOn"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPremierAddOn"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOn"),
@@ -86,7 +113,7 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOn
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppPremierAddOn", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppPremierAddOn", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +125,7 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 func GetWebAppPremierAddOn(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppPremierAddOnState, opts ...pulumi.ResourceOption) (*WebAppPremierAddOn, error) {
 	var resource WebAppPremierAddOn
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppPremierAddOn", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppPremierAddOn", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

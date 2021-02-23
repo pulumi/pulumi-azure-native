@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.Latest.Inputs
+namespace Pulumi.AzureNative.MixedReality.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.MixedReality.Latest.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.MixedReality.Latest.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

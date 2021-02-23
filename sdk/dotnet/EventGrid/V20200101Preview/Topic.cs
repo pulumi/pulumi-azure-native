@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
+namespace Pulumi.AzureNative.EventGrid.V20200101Preview
 {
     /// <summary>
     /// EventGrid Topic
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventgrid/v20200101preview:Topic")]
+    [AzureNativeResourceType("azure-native:eventgrid/v20200101preview:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200101preview:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventgrid/v20200101preview:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Topic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventgrid/v20200101preview:Topic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventgrid/v20200101preview:Topic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,18 +94,31 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventgrid:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170615preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20170915preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20170915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180101:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180101:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180501preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180501preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190101:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190101:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Topic"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:Topic"},
                 },
             };
@@ -134,7 +147,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200101Preview
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
         /// </summary>
         [Input("inputSchema")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200101Preview.InputSchema>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.V20200101Preview.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.

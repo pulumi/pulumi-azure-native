@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20200601
+namespace Pulumi.AzureNative.CostManagement.V20200601
 {
     /// <summary>
     /// Show costs accumulated over time.

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest
+namespace Pulumi.AzureNative.DevTestLab.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:listVirtualMachineApplicableSchedules'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listVirtualMachineApplicableSchedules'.")]
     public static class ListVirtualMachineApplicableSchedules
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Latest API Version: 2018-09-15.
         /// </summary>
         public static Task<ListVirtualMachineApplicableSchedulesResult> InvokeAsync(ListVirtualMachineApplicableSchedulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-nextgen:devtestlab/latest:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab/latest:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithVersion());
     }
 
 

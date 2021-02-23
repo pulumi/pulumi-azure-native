@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork
+namespace Pulumi.AzureNative.DelegatedNetwork
 {
     public static class GetControllerDetails
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork
         /// API Version: 2020-08-08-preview.
         /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-nextgen:delegatednetwork:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithVersion());
     }
 
 

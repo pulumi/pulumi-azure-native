@@ -22,7 +22,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/v20190401preview:Budget';
+    public static readonly __pulumiType = 'azure-native:costmanagement/v20190401preview:Budget';
 
     /**
      * Returns true if the given object is an instance of Budget.  This is designed to work even
@@ -132,7 +132,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Budget" }, { type: "azure-nextgen:costmanagement:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

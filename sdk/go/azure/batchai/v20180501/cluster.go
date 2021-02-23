@@ -76,7 +76,13 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batchai:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batchai:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:batchai/latest:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batchai/latest:Cluster"),
@@ -84,7 +90,7 @@ func NewCluster(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
-	err := ctx.RegisterResource("azure-nextgen:batchai/v20180501:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batchai/v20180501:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +102,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("azure-nextgen:batchai/v20180501:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batchai/v20180501:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

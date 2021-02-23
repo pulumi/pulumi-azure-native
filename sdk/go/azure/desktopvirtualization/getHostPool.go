@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-14-preview.
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
 	var rv LookupHostPoolResult
-	err := ctx.Invoke("azure-nextgen:desktopvirtualization:getHostPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:desktopvirtualization:getHostPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

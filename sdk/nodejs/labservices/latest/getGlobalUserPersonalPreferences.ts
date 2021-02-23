@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Represents the PersonalPreferences for the user
  * Latest API Version: 2018-10-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserPersonalPreferences'. */
 export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPreferencesArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserPersonalPreferencesResult> {
-    pulumi.log.warn("getGlobalUserPersonalPreferences is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:labservices:getGlobalUserPersonalPreferences'.")
+    pulumi.log.warn("getGlobalUserPersonalPreferences is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserPersonalPreferences'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGlobalUserPersonalPreferences(args: GetGlobalUserPersonalPref
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:labservices/latest:getGlobalUserPersonalPreferences", {
+    return pulumi.runtime.invoke("azure-native:labservices/latest:getGlobalUserPersonalPreferences", {
         "addRemove": args.addRemove,
         "labAccountResourceId": args.labAccountResourceId,
         "labResourceId": args.labResourceId,

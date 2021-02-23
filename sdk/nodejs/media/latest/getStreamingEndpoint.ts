@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The streaming endpoint.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingEndpoint'. */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
-    pulumi.log.warn("getStreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:getStreamingEndpoint'.")
+    pulumi.log.warn("getStreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getStreamingEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:getStreamingEndpoint", {
+    return pulumi.runtime.invoke("azure-native:media/latest:getStreamingEndpoint", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingEndpointName": args.streamingEndpointName,

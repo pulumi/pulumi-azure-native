@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// String dictionary resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteConnectionStringsSlot")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteConnectionStringsSlot")]
     public partial class SiteConnectionStringsSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteConnectionStringsSlot(string name, SiteConnectionStringsSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteConnectionStringsSlot", name, args ?? new SiteConnectionStringsSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteConnectionStringsSlot", name, args ?? new SiteConnectionStringsSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteConnectionStringsSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteConnectionStringsSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteConnectionStringsSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,14 +76,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteConnectionStringsSlot"},
                 },
             };

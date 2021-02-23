@@ -11,7 +11,7 @@ import (
 // API Version: 2020-11-01.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
-	err := ctx.Invoke("azure-nextgen:netapp:getPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:netapp:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

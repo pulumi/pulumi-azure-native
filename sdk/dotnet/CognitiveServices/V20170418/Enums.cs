@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CognitiveServices.V20170418
+namespace Pulumi.AzureNative.CognitiveServices.V20170418
 {
     /// <summary>
     /// Type of managed service identity.

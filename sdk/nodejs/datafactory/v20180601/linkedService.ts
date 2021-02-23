@@ -22,7 +22,7 @@ export class LinkedService extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datafactory/v20180601:LinkedService';
+    public static readonly __pulumiType = 'azure-native:datafactory/v20180601:LinkedService';
 
     /**
      * Returns true if the given object is an instance of LinkedService.  This is designed to work even
@@ -91,7 +91,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory/latest:LinkedService" }, { type: "azure-nextgen:datafactory/v20170901preview:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-native:datafactory/latest:LinkedService" }, { type: "azure-nextgen:datafactory/latest:LinkedService" }, { type: "azure-native:datafactory/v20170901preview:LinkedService" }, { type: "azure-nextgen:datafactory/v20170901preview:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

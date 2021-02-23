@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkResult, error) {
 	var rv LookupNetworkResult
-	err := ctx.Invoke("azure-nextgen:servicefabricmesh:getNetwork", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabricmesh:getNetwork", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

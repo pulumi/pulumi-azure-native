@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20150501
+namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20150501:AnalyticsItem")]
+    [AzureNativeResourceType("azure-native:insights/v20150501:AnalyticsItem")]
     public partial class AnalyticsItem : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsItem(string name, AnalyticsItemArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:AnalyticsItem", name, args ?? new AnalyticsItemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20150501:AnalyticsItem", name, args ?? new AnalyticsItemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AnalyticsItem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20150501:AnalyticsItem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20150501:AnalyticsItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,9 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AnalyticsItem"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AnalyticsItem"},
                 },
             };
@@ -159,7 +161,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("scope")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150501.ItemScope>? Scope { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20150501.ItemScope>? Scope { get; set; }
 
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -171,7 +173,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Enum indicating the type of the Analytics item.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150501.ItemType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20150501.ItemType>? Type { get; set; }
 
         public AnalyticsItemArgs()
         {

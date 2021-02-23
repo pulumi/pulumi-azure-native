@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.V20170401
+namespace Pulumi.AzureNative.AadIam.V20170401
 {
     public static class GetDiagnosticSetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         /// The diagnostic setting resource.
         /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-nextgen:aadiam/v20170401:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:aadiam/v20170401:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
     }
 
 

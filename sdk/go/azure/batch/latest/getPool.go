@@ -10,10 +10,10 @@ import (
 // Contains information about a pool.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:batch:getPool'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getPool'.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
-	err := ctx.Invoke("azure-nextgen:batch/latest:getPool", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batch/latest:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

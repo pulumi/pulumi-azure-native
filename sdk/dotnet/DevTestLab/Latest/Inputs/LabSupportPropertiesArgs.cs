@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
+namespace Pulumi.AzureNative.DevTestLab.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// Is the lab support banner active/enabled at this time?
         /// </summary>
         [Input("enabled")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.EnableStatus>? Enabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.Latest.EnableStatus>? Enabled { get; set; }
 
         /// <summary>
         /// The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.

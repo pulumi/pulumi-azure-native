@@ -22,7 +22,7 @@ export class SystemTopic extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:eventgrid/v20201015preview:SystemTopic';
+    public static readonly __pulumiType = 'azure-native:eventgrid/v20201015preview:SystemTopic';
 
     /**
      * Returns true if the given object is an instance of SystemTopic.  This is designed to work even
@@ -120,7 +120,7 @@ export class SystemTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid:SystemTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:SystemTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopic" }, { type: "azure-nextgen:eventgrid:SystemTopic" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:SystemTopic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SystemTopic.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointResult, error) {
 	var rv LookupPrivateEndpointResult
-	err := ctx.Invoke("azure-nextgen:network:getPrivateEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getPrivateEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppConfiguration.Latest
+namespace Pulumi.AzureNative.AppConfiguration.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appconfiguration:listConfigurationStoreKeyValue'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'.")]
     public static class ListConfigurationStoreKeyValue
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.Latest
         /// Latest API Version: 2020-06-01.
         /// </summary>
         public static Task<ListConfigurationStoreKeyValueResult> InvokeAsync(ListConfigurationStoreKeyValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-nextgen:appconfiguration/latest:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeyValueResult>("azure-native:appconfiguration/latest:listConfigurationStoreKeyValue", args ?? new ListConfigurationStoreKeyValueArgs(), options.WithVersion());
     }
 
 

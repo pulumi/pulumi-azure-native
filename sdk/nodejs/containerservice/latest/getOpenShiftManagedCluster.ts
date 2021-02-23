@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * OpenShift Managed cluster.
  * Latest API Version: 2019-04-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getOpenShiftManagedCluster'. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
-    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerservice:getOpenShiftManagedCluster'.")
+    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getOpenShiftManagedCluster'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerservice/latest:getOpenShiftManagedCluster", {
+    return pulumi.runtime.invoke("azure-native:containerservice/latest:getOpenShiftManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

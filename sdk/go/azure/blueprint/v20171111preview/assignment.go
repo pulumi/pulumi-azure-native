@@ -58,7 +58,7 @@ func NewAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroups'")
 	}
 	var resource Assignment
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20171111preview:Assignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:Assignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewAssignment(ctx *pulumi.Context,
 func GetAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssignmentState, opts ...pulumi.ResourceOption) (*Assignment, error) {
 	var resource Assignment
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20171111preview:Assignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20171111preview:Assignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

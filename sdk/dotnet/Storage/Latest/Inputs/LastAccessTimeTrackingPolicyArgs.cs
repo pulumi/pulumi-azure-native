@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
+namespace Pulumi.AzureNative.Storage.Latest.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.Name>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Storage.Latest.Name>? Name { get; set; }
 
         /// <summary>
         /// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1

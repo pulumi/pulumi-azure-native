@@ -17,7 +17,7 @@ export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignm
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:kusto:getDatabasePrincipalAssignment", {
+    return pulumi.runtime.invoke("azure-native:kusto:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
         "principalAssignmentName": args.principalAssignmentName,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
+namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
         /// Level of the logs to be collected.
         /// </summary>
         [Input("logCollectionLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.LogCollectionLevel>? LogCollectionLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBox.V20201101.LogCollectionLevel>? LogCollectionLevel { get; set; }
 
         /// <summary>
         /// Configuration for the data transfer.

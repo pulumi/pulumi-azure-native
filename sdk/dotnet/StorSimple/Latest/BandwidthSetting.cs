@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
     /// <summary>
     /// The bandwidth setting.
     /// Latest API Version: 2017-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BandwidthSetting'.")]
-    [AzureNextGenResourceType("azure-nextgen:storsimple/latest:BandwidthSetting")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BandwidthSetting'.")]
+    [AzureNativeResourceType("azure-native:storsimple/latest:BandwidthSetting")]
     public partial class BandwidthSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BandwidthSetting(string name, BandwidthSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/latest:BandwidthSetting", name, args ?? new BandwidthSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storsimple/latest:BandwidthSetting", name, args ?? new BandwidthSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BandwidthSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storsimple/latest:BandwidthSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storsimple/latest:BandwidthSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,9 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storsimple:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:BandwidthSetting"},
+                    new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BandwidthSetting"},
                 },
             };
@@ -107,7 +109,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.AzureNextGen.StorSimple.Latest.Kind>? Kind { get; set; }
+        public Input<Pulumi.AzureNative.StorSimple.Latest.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name

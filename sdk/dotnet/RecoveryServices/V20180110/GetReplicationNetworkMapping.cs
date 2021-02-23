@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
+namespace Pulumi.AzureNative.RecoveryServices.V20180110
 {
     public static class GetReplicationNetworkMapping
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
         /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
         /// </summary>
         public static Task<GetReplicationNetworkMappingResult> InvokeAsync(GetReplicationNetworkMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-nextgen:recoveryservices/v20180110:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/v20180110:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingArgs(), options.WithVersion());
     }
 
 

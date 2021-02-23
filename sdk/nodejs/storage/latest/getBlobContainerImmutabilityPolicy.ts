@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  * Latest API Version: 2021-01-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainerImmutabilityPolicy'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainerImmutabilityPolicy'. */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
-    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storage:getBlobContainerImmutabilityPolicy'.")
+    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainerImmutabilityPolicy'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutab
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/latest:getBlobContainerImmutabilityPolicy", {
+    return pulumi.runtime.invoke("azure-native:storage/latest:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "immutabilityPolicyName": args.immutabilityPolicyName,

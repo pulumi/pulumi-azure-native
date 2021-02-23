@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
+namespace Pulumi.AzureNative.CustomerInsights.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
         /// The type mapping format.
         /// </summary>
         [Input("formatType", required: true)]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.FormatTypes> FormatType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CustomerInsights.FormatTypes> FormatType { get; set; } = null!;
 
         /// <summary>
         /// Quote character, used to indicate enquoted fields.

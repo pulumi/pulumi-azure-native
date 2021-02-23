@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.V20140901
+namespace Pulumi.AzureNative.ServiceBus.V20140901
 {
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:servicebus/v20140901:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/v20140901:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QueueAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/v20140901:QueueAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,10 +106,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"},
                 },
             };
@@ -195,14 +200,14 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Pulumi.AzureNextGen.ServiceBus.V20140901.AccessRights>? _rights;
+        private InputList<Pulumi.AzureNative.ServiceBus.V20140901.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.ServiceBus.V20140901.AccessRights> Rights
+        public InputList<Pulumi.AzureNative.ServiceBus.V20140901.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.ServiceBus.V20140901.AccessRights>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNative.ServiceBus.V20140901.AccessRights>());
             set => _rights = value;
         }
 

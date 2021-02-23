@@ -16,7 +16,7 @@ export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180330preview:getStreamingPolicy", {
+    return pulumi.runtime.invoke("azure-native:media/v20180330preview:getStreamingPolicy", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "streamingPolicyName": args.streamingPolicyName,

@@ -26,15 +26,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:web/v20160601:Connection":
+            case "azure-native:web/v20160601:Connection":
                 return new Connection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160601:ConnectionGateway":
+            case "azure-native:web/v20160601:ConnectionGateway":
                 return new ConnectionGateway(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20160601:CustomApi":
+            case "azure-native:web/v20160601:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "web/v20160601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "web/v20160601", _module)

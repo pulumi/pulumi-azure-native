@@ -16,7 +16,7 @@ export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs/v20210101preview:getWorkloadNetworkDhcp", {
+    return pulumi.runtime.invoke("azure-native:avs/v20210101preview:getWorkloadNetworkDhcp", {
         "dhcpId": args.dhcpId,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

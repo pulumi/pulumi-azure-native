@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridCompute
+namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// A private link scoped resource
     /// API Version: 2020-08-15-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hybridcompute:PrivateLinkScopedResource")]
+    [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.HybridCompute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScopedResource(string name, PrivateLinkScopedResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcompute:PrivateLinkScopedResource", name, args ?? new PrivateLinkScopedResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScopedResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hybridcompute:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcompute:PrivateLinkScopedResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource"},
                 },
             };

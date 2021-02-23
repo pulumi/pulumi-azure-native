@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180531
+namespace Pulumi.AzureNative.CostManagement.V20180531
 {
     /// <summary>
     /// The format of the report being delivered.

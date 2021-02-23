@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupVirtualNetworkTap(ctx *pulumi.Context, args *LookupVirtualNetworkTapArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkTapResult, error) {
 	var rv LookupVirtualNetworkTapResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualNetworkTap", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualNetworkTap", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

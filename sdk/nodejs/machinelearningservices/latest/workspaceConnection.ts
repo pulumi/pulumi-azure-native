@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Workspace connection.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class WorkspaceConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceConnection {
-        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.")
+        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.")
         return new WorkspaceConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/latest:WorkspaceConnection';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/latest:WorkspaceConnection';
 
     /**
      * Returns true if the given object is an instance of WorkspaceConnection.  This is designed to work even
@@ -75,9 +75,9 @@ export class WorkspaceConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'. */
     constructor(name: string, args: WorkspaceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:WorkspaceConnection'.")
+        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -112,7 +112,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceConnection.__pulumiType, name, inputs, opts);
     }

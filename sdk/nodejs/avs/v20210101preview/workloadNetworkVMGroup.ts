@@ -21,7 +21,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup';
+    public static readonly __pulumiType = 'azure-native:avs/v20210101preview:WorkloadNetworkVMGroup';
 
     /**
      * Returns true if the given object is an instance of WorkloadNetworkVMGroup.  This is designed to work even
@@ -105,7 +105,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:WorkloadNetworkVMGroup" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkVMGroup" }, { type: "azure-nextgen:avs:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" }, { type: "azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadNetworkVMGroup.__pulumiType, name, inputs, opts);
     }

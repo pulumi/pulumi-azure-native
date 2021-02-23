@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager
+namespace Pulumi.AzureNative.DeploymentManager
 {
     public static class GetArtifactSource
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-nextgen:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
     }
 
 

@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-31.
 func LookupDatabaseAccountCassandraTable(ctx *pulumi.Context, args *LookupDatabaseAccountCassandraTableArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountCassandraTableResult, error) {
 	var rv LookupDatabaseAccountCassandraTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountCassandraTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccountCassandraTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

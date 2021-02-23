@@ -14,7 +14,7 @@ import (
 // Workspace active directory administrator
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:WorkspaceSqlAadAdmin'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceSqlAadAdmin'.
 type WorkspaceSqlAadAdmin struct {
 	pulumi.CustomResourceState
 
@@ -47,10 +47,19 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:WorkspaceSqlAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:WorkspaceSqlAadAdmin"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"),
@@ -58,7 +67,7 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceSqlAadAdmin
-	err := ctx.RegisterResource("azure-nextgen:synapse/latest:WorkspaceSqlAadAdmin", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/latest:WorkspaceSqlAadAdmin", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 func GetWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkspaceSqlAadAdminState, opts ...pulumi.ResourceOption) (*WorkspaceSqlAadAdmin, error) {
 	var resource WorkspaceSqlAadAdmin
-	err := ctx.ReadResource("azure-nextgen:synapse/latest:WorkspaceSqlAadAdmin", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/latest:WorkspaceSqlAadAdmin", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

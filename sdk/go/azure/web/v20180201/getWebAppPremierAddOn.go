@@ -10,7 +10,7 @@ import (
 // Premier add-on.
 func LookupWebAppPremierAddOn(ctx *pulumi.Context, args *LookupWebAppPremierAddOnArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnResult, error) {
 	var rv LookupWebAppPremierAddOnResult
-	err := ctx.Invoke("azure-nextgen:web/v20180201:getWebAppPremierAddOn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20180201:getWebAppPremierAddOn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

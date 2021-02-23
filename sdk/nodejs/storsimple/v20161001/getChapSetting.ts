@@ -16,7 +16,7 @@ export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/v20161001:getChapSetting", {
+    return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getChapSetting", {
         "chapUserName": args.chapUserName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,

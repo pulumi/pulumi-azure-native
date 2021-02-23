@@ -17,7 +17,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getCluster", {
+    return pulumi.runtime.invoke("azure-native:avs:getCluster", {
         "clusterName": args.clusterName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,

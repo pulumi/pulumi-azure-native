@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest
+namespace Pulumi.AzureNative.StorSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiServer'.")]
     public static class GetIscsiServer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Latest API Version: 2016-10-01.
         /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-nextgen:storsimple/latest:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple/latest:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
     }
 
 

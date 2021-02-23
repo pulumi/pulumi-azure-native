@@ -14,7 +14,7 @@ import (
 // VpnSite Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnSite'.
 type VpnSite struct {
 	pulumi.CustomResourceState
 
@@ -62,67 +62,133 @@ func NewVpnSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VpnSite"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnSite"),
@@ -130,7 +196,7 @@ func NewVpnSite(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VpnSite
-	err := ctx.RegisterResource("azure-nextgen:network/latest:VpnSite", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:VpnSite", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +208,7 @@ func NewVpnSite(ctx *pulumi.Context,
 func GetVpnSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VpnSiteState, opts ...pulumi.ResourceOption) (*VpnSite, error) {
 	var resource VpnSite
-	err := ctx.ReadResource("azure-nextgen:network/latest:VpnSite", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:VpnSite", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

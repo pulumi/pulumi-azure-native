@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
+namespace Pulumi.AzureNative.Network.V20161201.Inputs
 {
 
     /// <summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.IPVersion>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20161201.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

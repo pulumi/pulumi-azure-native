@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.V20190901
+namespace Pulumi.AzureNative.DataBox.V20190901
 {
     /// <summary>
     /// Job Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:databox/v20190901:Job")]
+    [AzureNativeResourceType("azure-native:databox/v20190901:Job")]
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databox/v20190901:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databox/v20190901:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Job(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:databox/v20190901:Job", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databox/v20190901:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,10 +136,15 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/latest:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20200401:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20200401:Job"},
+                    new Pulumi.Alias { Type = "azure-native:databox/v20201101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20201101:Job"},
                 },
             };
@@ -174,7 +179,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// Delivery type of Job.
         /// </summary>
         [Input("deliveryType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20190901.JobDeliveryType>? DeliveryType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataBox.V20190901.JobDeliveryType>? DeliveryType { get; set; }
 
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.

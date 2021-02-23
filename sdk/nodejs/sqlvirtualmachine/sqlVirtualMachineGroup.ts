@@ -23,7 +23,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sqlvirtualmachine:SqlVirtualMachineGroup';
+    public static readonly __pulumiType = 'azure-native:sqlvirtualmachine:SqlVirtualMachineGroup';
 
     /**
      * Returns true if the given object is an instance of SqlVirtualMachineGroup.  This is designed to work even
@@ -127,7 +127,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }, { type: "azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlVirtualMachineGroup.__pulumiType, name, inputs, opts);
     }

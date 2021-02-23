@@ -49,7 +49,13 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:powerbidedicated/latest:CapacityDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated/latest:CapacityDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:powerbidedicated/v20171001:CapacityDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated/v20171001:CapacityDetails"),
@@ -57,7 +63,7 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CapacityDetails
-	err := ctx.RegisterResource("azure-nextgen:powerbidedicated:CapacityDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:powerbidedicated:CapacityDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewCapacityDetails(ctx *pulumi.Context,
 func GetCapacityDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CapacityDetailsState, opts ...pulumi.ResourceOption) (*CapacityDetails, error) {
 	var resource CapacityDetails
-	err := ctx.ReadResource("azure-nextgen:powerbidedicated:CapacityDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:powerbidedicated:CapacityDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

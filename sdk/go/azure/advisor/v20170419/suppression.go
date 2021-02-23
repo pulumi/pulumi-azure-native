@@ -40,16 +40,31 @@ func NewSuppression(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:advisor:Suppression"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:advisor:Suppression"),
+		},
+		{
+			Type: pulumi.String("azure-native:advisor/latest:Suppression"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:advisor/latest:Suppression"),
 		},
 		{
+			Type: pulumi.String("azure-native:advisor/v20160712preview:Suppression"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:advisor/v20160712preview:Suppression"),
 		},
 		{
+			Type: pulumi.String("azure-native:advisor/v20170331:Suppression"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:advisor/v20170331:Suppression"),
+		},
+		{
+			Type: pulumi.String("azure-native:advisor/v20200101:Suppression"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:advisor/v20200101:Suppression"),
@@ -57,7 +72,7 @@ func NewSuppression(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Suppression
-	err := ctx.RegisterResource("azure-nextgen:advisor/v20170419:Suppression", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:advisor/v20170419:Suppression", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +84,7 @@ func NewSuppression(ctx *pulumi.Context,
 func GetSuppression(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SuppressionState, opts ...pulumi.ResourceOption) (*Suppression, error) {
 	var resource Suppression
-	err := ctx.ReadResource("azure-nextgen:advisor/v20170419:Suppression", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:advisor/v20170419:Suppression", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

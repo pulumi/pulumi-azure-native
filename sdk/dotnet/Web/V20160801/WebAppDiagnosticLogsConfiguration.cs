@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20160801
+namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// Configuration of App Service site logs.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration")]
+    [AzureNativeResourceType("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppDiagnosticLogsConfiguration(string name, WebAppDiagnosticLogsConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration", name, args ?? new WebAppDiagnosticLogsConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration", name, args ?? new WebAppDiagnosticLogsConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppDiagnosticLogsConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,14 +82,23 @@ namespace Pulumi.AzureNextGen.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration"},
                 },
             };

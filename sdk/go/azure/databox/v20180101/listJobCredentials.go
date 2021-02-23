@@ -10,7 +10,7 @@ import (
 // List of unencrypted credentials for accessing device.
 func ListJobCredentials(ctx *pulumi.Context, args *ListJobCredentialsArgs, opts ...pulumi.InvokeOption) (*ListJobCredentialsResult, error) {
 	var rv ListJobCredentialsResult
-	err := ctx.Invoke("azure-nextgen:databox/v20180101:listJobCredentials", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databox/v20180101:listJobCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest.Inputs
+namespace Pulumi.AzureNative.ApiManagement.Latest.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest.Inputs
         /// Sampling type.
         /// </summary>
         [Input("samplingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.SamplingType>? SamplingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.SamplingType>? SamplingType { get; set; }
 
         public SamplingSettingsArgs()
         {

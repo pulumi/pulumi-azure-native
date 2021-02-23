@@ -14,7 +14,7 @@ import (
 // Alert rule.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:AlertRule'.
 type AlertRule struct {
 	pulumi.CustomResourceState
 
@@ -46,7 +46,13 @@ func NewAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:AlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:AlertRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:AlertRule"),
@@ -54,7 +60,7 @@ func NewAlertRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AlertRule
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/latest:AlertRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/latest:AlertRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +72,7 @@ func NewAlertRule(ctx *pulumi.Context,
 func GetAlertRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AlertRuleState, opts ...pulumi.ResourceOption) (*AlertRule, error) {
 	var resource AlertRule
-	err := ctx.ReadResource("azure-nextgen:securityinsights/latest:AlertRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/latest:AlertRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

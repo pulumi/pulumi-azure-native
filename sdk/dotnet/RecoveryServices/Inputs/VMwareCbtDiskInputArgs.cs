@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Inputs
         /// The disk type.
         /// </summary>
         [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.DiskAccountType>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }
 
         /// <summary>
         /// A value indicating whether the disk is the OS disk.

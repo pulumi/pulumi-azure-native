@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices
+namespace Pulumi.AzureNative.LabServices
 {
     public static class GetLabAccountRegionalAvailability
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-nextgen:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
     }
 
 

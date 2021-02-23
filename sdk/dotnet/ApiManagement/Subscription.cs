@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Subscription details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:Subscription")]
+    [AzureNativeResourceType("azure-native:apimanagement:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,12 +115,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subscription(string name, SubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Subscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Subscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:Subscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -131,15 +131,25 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Subscription"},
                 },
             };
@@ -236,7 +246,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AzureNextGen.ApiManagement.SubscriptionState>? State { get; set; }
+        public Input<Pulumi.AzureNative.ApiManagement.SubscriptionState>? State { get; set; }
 
         public SubscriptionArgs()
         {

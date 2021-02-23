@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20160515
+namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     /// <summary>
     /// A Disk.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20160515:Disk")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20160515:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Disk(string name, DiskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20160515:Disk", name, args ?? new DiskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Disk(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20160515:Disk", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20160515:Disk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,8 +124,11 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Disk"},
                 },
             };
@@ -166,7 +169,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The storage type for the disk (i.e. Standard, Premium).
         /// </summary>
         [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.StorageType>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20160515.StorageType>? DiskType { get; set; }
 
         /// <summary>
         /// When backed by a blob, the URI of underlying blob.

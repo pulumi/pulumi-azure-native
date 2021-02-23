@@ -17,7 +17,7 @@ export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:getDomainTopic", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:getDomainTopic", {
         "domainName": args.domainName,
         "domainTopicName": args.domainTopicName,
         "resourceGroupName": args.resourceGroupName,

@@ -22,7 +22,7 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping';
+    public static readonly __pulumiType = 'azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping';
 
     /**
      * Returns true if the given object is an instance of ReplicationProtectionContainerMapping.  This is designed to work even
@@ -96,7 +96,7 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationProtectionContainerMapping.__pulumiType, name, inputs, opts);
     }

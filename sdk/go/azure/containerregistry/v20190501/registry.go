@@ -61,25 +61,49 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:Registry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/latest:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Registry"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20160627preview:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20160627preview:Registry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20170301:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170301:Registry"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Registry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20171001:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Registry"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20191201preview:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:Registry"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Registry"),
@@ -87,7 +111,7 @@ func NewRegistry(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Registry
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190501:Registry", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20190501:Registry", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +123,7 @@ func NewRegistry(ctx *pulumi.Context,
 func GetRegistry(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistryState, opts ...pulumi.ResourceOption) (*Registry, error) {
 	var resource Registry
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20190501:Registry", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20190501:Registry", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

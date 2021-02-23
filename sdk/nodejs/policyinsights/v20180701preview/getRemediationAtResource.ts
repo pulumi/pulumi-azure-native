@@ -16,7 +16,7 @@ export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:policyinsights/v20180701preview:getRemediationAtResource", {
+    return pulumi.runtime.invoke("azure-native:policyinsights/v20180701preview:getRemediationAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,
     }, opts);

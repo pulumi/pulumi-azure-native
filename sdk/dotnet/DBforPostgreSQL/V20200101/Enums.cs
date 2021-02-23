@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200101
+namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101
 {
     /// <summary>
     /// The key type like 'AzureKeyVault'.

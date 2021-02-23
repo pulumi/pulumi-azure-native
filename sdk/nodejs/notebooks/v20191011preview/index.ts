@@ -16,11 +16,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:notebooks/v20191011preview:NotebookProxy":
+            case "azure-native:notebooks/v20191011preview:NotebookProxy":
                 return new NotebookProxy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "notebooks/v20191011preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "notebooks/v20191011preview", _module)

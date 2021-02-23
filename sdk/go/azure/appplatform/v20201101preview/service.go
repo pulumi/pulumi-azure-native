@@ -41,13 +41,25 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/latest:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Service"),
@@ -55,7 +67,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:appplatform/v20201101preview:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform/v20201101preview:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +79,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:appplatform/v20201101preview:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform/v20201101preview:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

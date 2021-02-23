@@ -10,10 +10,10 @@ import (
 // Specifies information about the SSH public key.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getSshPublicKey'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSshPublicKey'.
 func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshPublicKeyResult, error) {
 	var rv LookupSshPublicKeyResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getSshPublicKey", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getSshPublicKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

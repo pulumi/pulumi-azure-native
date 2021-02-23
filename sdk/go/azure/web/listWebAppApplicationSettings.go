@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppApplicationSettings(ctx *pulumi.Context, args *ListWebAppApplicationSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppApplicationSettingsResult, error) {
 	var rv ListWebAppApplicationSettingsResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppApplicationSettings", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppApplicationSettings", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

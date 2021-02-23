@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Description of a namespace resource.
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getNamespace'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getNamespace'. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    pulumi.log.warn("getNamespace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getNamespace'.")
+    pulumi.log.warn("getNamespace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getNamespace'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/latest:getNamespace", {
+    return pulumi.runtime.invoke("azure-native:servicebus/latest:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

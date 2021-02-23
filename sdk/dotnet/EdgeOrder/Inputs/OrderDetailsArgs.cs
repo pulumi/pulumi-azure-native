@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.Inputs
         /// Order type.
         /// </summary>
         [Input("orderType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.EdgeOrder.OrderType> OrderType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.OrderType> OrderType { get; set; } = null!;
 
         /// <summary>
         /// Customer notification Preferences

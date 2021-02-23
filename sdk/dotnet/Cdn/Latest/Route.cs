@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Route'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:Route")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Route'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
@@ -125,12 +125,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Route(string name, RouteArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Route(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Route", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:Route", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -141,7 +141,9 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Route"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Route"},
                 },
             };
@@ -194,7 +196,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.EnabledState>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -206,19 +208,19 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         [Input("forwardingProtocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.ForwardingProtocol>? ForwardingProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.ForwardingProtocol>? ForwardingProtocol { get; set; }
 
         /// <summary>
         /// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         /// </summary>
         [Input("httpsRedirect")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.HttpsRedirect>? HttpsRedirect { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.HttpsRedirect>? HttpsRedirect { get; set; }
 
         /// <summary>
         /// whether this route will be linked to the default endpoint domain.
         /// </summary>
         [Input("linkToDefaultDomain")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.LinkToDefaultDomain>? LinkToDefaultDomain { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Cdn.Latest.LinkToDefaultDomain>? LinkToDefaultDomain { get; set; }
 
         /// <summary>
         /// A reference to the origin group.
@@ -254,7 +256,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<Pulumi.AzureNextGen.Cdn.Latest.AfdQueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNative.Cdn.Latest.AfdQueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -281,14 +283,14 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         }
 
         [Input("supportedProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.AFDEndpointProtocols>>? _supportedProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.AFDEndpointProtocols>>? _supportedProtocols;
 
         /// <summary>
         /// List of supported protocols for this route.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.AFDEndpointProtocols>> SupportedProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.AFDEndpointProtocols>> SupportedProtocols
         {
-            get => _supportedProtocols ?? (_supportedProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Cdn.Latest.AFDEndpointProtocols>>());
+            get => _supportedProtocols ?? (_supportedProtocols = new InputList<Union<string, Pulumi.AzureNative.Cdn.Latest.AFDEndpointProtocols>>());
             set => _supportedProtocols = value;
         }
 

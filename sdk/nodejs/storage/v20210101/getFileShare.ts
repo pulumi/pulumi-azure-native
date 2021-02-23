@@ -16,7 +16,7 @@ export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20210101:getFileShare", {
+    return pulumi.runtime.invoke("azure-native:storage/v20210101:getFileShare", {
         "accountName": args.accountName,
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

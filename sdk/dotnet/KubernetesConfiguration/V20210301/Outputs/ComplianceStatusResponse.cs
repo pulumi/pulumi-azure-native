@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20210301.Outputs
+namespace Pulumi.AzureNative.KubernetesConfiguration.V20210301.Outputs
 {
 
     [OutputType]

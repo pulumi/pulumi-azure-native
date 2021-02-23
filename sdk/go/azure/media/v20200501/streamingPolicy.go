@@ -50,16 +50,31 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:media:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media:StreamingPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/latest:StreamingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/latest:StreamingPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180330preview:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180330preview:StreamingPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:media/v20180601preview:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:media/v20180601preview:StreamingPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:media/v20180701:StreamingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:media/v20180701:StreamingPolicy"),
@@ -67,7 +82,7 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StreamingPolicy
-	err := ctx.RegisterResource("azure-nextgen:media/v20200501:StreamingPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:media/v20200501:StreamingPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +94,7 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 func GetStreamingPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamingPolicyState, opts ...pulumi.ResourceOption) (*StreamingPolicy, error) {
 	var resource StreamingPolicy
-	err := ctx.ReadResource("azure-nextgen:media/v20200501:StreamingPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:media/v20200501:StreamingPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

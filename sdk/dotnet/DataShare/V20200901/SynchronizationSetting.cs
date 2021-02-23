@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20200901
+namespace Pulumi.AzureNative.DataShare.V20200901
 {
     /// <summary>
     /// A Synchronization Setting data transfer object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare/v20200901:SynchronizationSetting")]
+    [AzureNativeResourceType("azure-native:datashare/v20200901:SynchronizationSetting")]
     public partial class SynchronizationSetting : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SynchronizationSetting(string name, SynchronizationSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20200901:SynchronizationSetting", name, args ?? new SynchronizationSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/v20200901:SynchronizationSetting", name, args ?? new SynchronizationSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SynchronizationSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20200901:SynchronizationSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/v20200901:SynchronizationSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,10 +64,15 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:SynchronizationSetting"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SynchronizationSetting"},
                 },
             };
@@ -102,7 +107,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20200901
         /// Kind of synchronization setting.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.V20200901.SynchronizationSettingKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataShare.V20200901.SynchronizationSettingKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

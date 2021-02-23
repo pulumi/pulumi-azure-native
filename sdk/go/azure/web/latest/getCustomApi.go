@@ -10,10 +10,10 @@ import (
 // A custom API
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getCustomApi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'.
 func LookupCustomApi(ctx *pulumi.Context, args *LookupCustomApiArgs, opts ...pulumi.InvokeOption) (*LookupCustomApiResult, error) {
 	var rv LookupCustomApiResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getCustomApi", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getCustomApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

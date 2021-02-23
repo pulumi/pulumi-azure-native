@@ -49,7 +49,13 @@ func NewArtifactSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:deploymentmanager:ArtifactSource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager:ArtifactSource"),
+		},
+		{
+			Type: pulumi.String("azure-native:deploymentmanager/v20191101preview:ArtifactSource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:deploymentmanager/v20191101preview:ArtifactSource"),
@@ -57,7 +63,7 @@ func NewArtifactSource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ArtifactSource
-	err := ctx.RegisterResource("azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:deploymentmanager/v20180901preview:ArtifactSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +75,7 @@ func NewArtifactSource(ctx *pulumi.Context,
 func GetArtifactSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ArtifactSourceState, opts ...pulumi.ResourceOption) (*ArtifactSource, error) {
 	var resource ArtifactSource
-	err := ctx.ReadResource("azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:deploymentmanager/v20180901preview:ArtifactSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

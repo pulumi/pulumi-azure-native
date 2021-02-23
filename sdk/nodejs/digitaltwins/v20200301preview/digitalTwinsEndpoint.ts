@@ -22,7 +22,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint';
+    public static readonly __pulumiType = 'azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint';
 
     /**
      * Returns true if the given object is an instance of DigitalTwinsEndpoint.  This is designed to work even
@@ -82,7 +82,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/latest:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwinsEndpoint.__pulumiType, name, inputs, opts);
     }

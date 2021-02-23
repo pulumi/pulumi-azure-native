@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Subscription.V20200901
+namespace Pulumi.AzureNative.Subscription.V20200901
 {
     /// <summary>
     /// Subscription Information with the alias.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:subscription/v20200901:Alias")]
+    [AzureNativeResourceType("azure-native:subscription/v20200901:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:subscription/v20200901:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:subscription/v20200901:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:subscription/v20200901:Alias", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:subscription/v20200901:Alias", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,8 +58,11 @@ namespace Pulumi.AzureNextGen.Subscription.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:subscription:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription/latest:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/latest:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
                     new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:Alias"},
                 },
             };

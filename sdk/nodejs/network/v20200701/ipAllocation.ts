@@ -22,7 +22,7 @@ export class IpAllocation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:network/v20200701:IpAllocation';
+    public static readonly __pulumiType = 'azure-native:network/v20200701:IpAllocation';
 
     /**
      * Returns true if the given object is an instance of IpAllocation.  This is designed to work even
@@ -133,7 +133,7 @@ export class IpAllocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:IpAllocation" }, { type: "azure-nextgen:network/latest:IpAllocation" }, { type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:IpAllocation" }, { type: "azure-nextgen:network:IpAllocation" }, { type: "azure-native:network/latest:IpAllocation" }, { type: "azure-nextgen:network/latest:IpAllocation" }, { type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpAllocation.__pulumiType, name, inputs, opts);
     }

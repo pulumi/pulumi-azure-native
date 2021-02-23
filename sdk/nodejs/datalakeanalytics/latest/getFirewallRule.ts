@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Data Lake Analytics firewall rule information.
  * Latest API Version: 2016-11-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getFirewallRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getFirewallRule'. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    pulumi.log.warn("getFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datalakeanalytics:getFirewallRule'.")
+    pulumi.log.warn("getFirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getFirewallRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics/latest:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:datalakeanalytics/latest:getFirewallRule", {
         "accountName": args.accountName,
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,

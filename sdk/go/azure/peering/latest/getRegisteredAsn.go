@@ -10,10 +10,10 @@ import (
 // The customer's ASN that is registered by the peering service provider.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:peering:getRegisteredAsn'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'.
 func LookupRegisteredAsn(ctx *pulumi.Context, args *LookupRegisteredAsnArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredAsnResult, error) {
 	var rv LookupRegisteredAsnResult
-	err := ctx.Invoke("azure-nextgen:peering/latest:getRegisteredAsn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/latest:getRegisteredAsn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

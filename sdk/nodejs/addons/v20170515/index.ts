@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:addons/v20170515:SupportPlanType":
+            case "azure-native:addons/v20170515:SupportPlanType":
                 return new SupportPlanType(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "addons/v20170515", _module)
+pulumi.runtime.registerResourceModule("azure-native", "addons/v20170515", _module)

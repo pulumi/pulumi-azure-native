@@ -10,7 +10,7 @@ import (
 // API Version: 2020-01-01.
 func LookupJitNetworkAccessPolicy(ctx *pulumi.Context, args *LookupJitNetworkAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupJitNetworkAccessPolicyResult, error) {
 	var rv LookupJitNetworkAccessPolicyResult
-	err := ctx.Invoke("azure-nextgen:security:getJitNetworkAccessPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security:getJitNetworkAccessPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

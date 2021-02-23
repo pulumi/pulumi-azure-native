@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Bot channel resource definition
  * Latest API Version: 2020-06-02.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionWithSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionWithSecrets'. */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
-    pulumi.log.warn("listBotConnectionWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:listBotConnectionWithSecrets'.")
+    pulumi.log.warn("listBotConnectionWithSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionWithSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:listBotConnectionWithSecrets", {
+    return pulumi.runtime.invoke("azure-native:botservice/latest:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

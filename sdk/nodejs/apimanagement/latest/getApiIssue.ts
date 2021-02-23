@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Issue Contract details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssue'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssue'. */
 export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueResult> {
-    pulumi.log.warn("getApiIssue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiIssue'.")
+    pulumi.log.warn("getApiIssue is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssue'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getApiIssue", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getApiIssue", {
         "apiId": args.apiId,
         "expandCommentsAttachments": args.expandCommentsAttachments,
         "issueId": args.issueId,

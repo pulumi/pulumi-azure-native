@@ -10,7 +10,7 @@ import (
 // Represents an instance of a Dedicated Capacity resource.
 func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs, opts ...pulumi.InvokeOption) (*LookupCapacityDetailsResult, error) {
 	var rv LookupCapacityDetailsResult
-	err := ctx.Invoke("azure-nextgen:powerbidedicated/v20171001:getCapacityDetails", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:powerbidedicated/v20171001:getCapacityDetails", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

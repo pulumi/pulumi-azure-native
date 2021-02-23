@@ -44,16 +44,31 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicebus:QueueAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus:QueueAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/latest:QueueAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/latest:QueueAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20140901:QueueAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:servicebus/v20150801:QueueAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20180101preview:QueueAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"),
@@ -61,7 +76,7 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource QueueAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:servicebus/v20170401:QueueAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicebus/v20170401:QueueAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +88,7 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 func GetQueueAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueueAuthorizationRuleState, opts ...pulumi.ResourceOption) (*QueueAuthorizationRule, error) {
 	var resource QueueAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:servicebus/v20170401:QueueAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicebus/v20170401:QueueAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

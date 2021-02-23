@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
+namespace Pulumi.AzureNative.DBforMariaDB.V20180601
 {
     /// <summary>
     /// The mode to create a new server.

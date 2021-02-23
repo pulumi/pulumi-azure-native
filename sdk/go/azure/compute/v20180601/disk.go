@@ -62,37 +62,73 @@ func NewDisk(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/latest:Disk"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20170330:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:Disk"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180401:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180930:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180930:Disk"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190301:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190701:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:Disk"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20191101:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20191101:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200501:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200501:Disk"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200630:Disk"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20200930:Disk"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:Disk"),
@@ -100,7 +136,7 @@ func NewDisk(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Disk
-	err := ctx.RegisterResource("azure-nextgen:compute/v20180601:Disk", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/v20180601:Disk", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +148,7 @@ func NewDisk(ctx *pulumi.Context,
 func GetDisk(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DiskState, opts ...pulumi.ResourceOption) (*Disk, error) {
 	var resource Disk
-	err := ctx.ReadResource("azure-nextgen:compute/v20180601:Disk", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/v20180601:Disk", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

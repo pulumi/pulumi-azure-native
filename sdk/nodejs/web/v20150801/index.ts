@@ -114,73 +114,73 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:web/v20150801:Certificate":
+            case "azure-native:web/v20150801:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:CertificateCsr":
+            case "azure-native:web/v20150801:CertificateCsr":
                 return new CertificateCsr(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:HostingEnvironment":
+            case "azure-native:web/v20150801:HostingEnvironment":
                 return new HostingEnvironment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:ManagedHostingEnvironment":
+            case "azure-native:web/v20150801:ManagedHostingEnvironment":
                 return new ManagedHostingEnvironment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:ServerFarm":
+            case "azure-native:web/v20150801:ServerFarm":
                 return new ServerFarm(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:ServerFarmRouteForVnet":
+            case "azure-native:web/v20150801:ServerFarmRouteForVnet":
                 return new ServerFarmRouteForVnet(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:Site":
+            case "azure-native:web/v20150801:Site":
                 return new Site(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteAppSettings":
+            case "azure-native:web/v20150801:SiteAppSettings":
                 return new SiteAppSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteAppSettingsSlot":
+            case "azure-native:web/v20150801:SiteAppSettingsSlot":
                 return new SiteAppSettingsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteAuthSettings":
+            case "azure-native:web/v20150801:SiteAuthSettings":
                 return new SiteAuthSettings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteAuthSettingsSlot":
+            case "azure-native:web/v20150801:SiteAuthSettingsSlot":
                 return new SiteAuthSettingsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteBackupConfiguration":
+            case "azure-native:web/v20150801:SiteBackupConfiguration":
                 return new SiteBackupConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot":
+            case "azure-native:web/v20150801:SiteBackupConfigurationSlot":
                 return new SiteBackupConfigurationSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteConnectionStrings":
+            case "azure-native:web/v20150801:SiteConnectionStrings":
                 return new SiteConnectionStrings(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteConnectionStringsSlot":
+            case "azure-native:web/v20150801:SiteConnectionStringsSlot":
                 return new SiteConnectionStringsSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteDeployment":
+            case "azure-native:web/v20150801:SiteDeployment":
                 return new SiteDeployment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteDeploymentSlot":
+            case "azure-native:web/v20150801:SiteDeploymentSlot":
                 return new SiteDeploymentSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteHostNameBinding":
+            case "azure-native:web/v20150801:SiteHostNameBinding":
                 return new SiteHostNameBinding(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteHostNameBindingSlot":
+            case "azure-native:web/v20150801:SiteHostNameBindingSlot":
                 return new SiteHostNameBindingSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteInstanceDeployment":
+            case "azure-native:web/v20150801:SiteInstanceDeployment":
                 return new SiteInstanceDeployment(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot":
+            case "azure-native:web/v20150801:SiteInstanceDeploymentSlot":
                 return new SiteInstanceDeploymentSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteLogsConfig":
+            case "azure-native:web/v20150801:SiteLogsConfig":
                 return new SiteLogsConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteMetadata":
+            case "azure-native:web/v20150801:SiteMetadata":
                 return new SiteMetadata(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteMetadataSlot":
+            case "azure-native:web/v20150801:SiteMetadataSlot":
                 return new SiteMetadataSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
+            case "azure-native:web/v20150801:SiteRelayServiceConnection":
                 return new SiteRelayServiceConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":
+            case "azure-native:web/v20150801:SiteRelayServiceConnectionSlot":
                 return new SiteRelayServiceConnectionSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteSlot":
+            case "azure-native:web/v20150801:SiteSlot":
                 return new SiteSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteSlotConfigNames":
+            case "azure-native:web/v20150801:SiteSlotConfigNames":
                 return new SiteSlotConfigNames(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteSourceControl":
+            case "azure-native:web/v20150801:SiteSourceControl":
                 return new SiteSourceControl(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteSourceControlSlot":
+            case "azure-native:web/v20150801:SiteSourceControlSlot":
                 return new SiteSourceControlSlot(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteVNETConnection":
+            case "azure-native:web/v20150801:SiteVNETConnection":
                 return new SiteVNETConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:web/v20150801:SiteVNETConnectionSlot":
+            case "azure-native:web/v20150801:SiteVNETConnectionSlot":
                 return new SiteVNETConnectionSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "web/v20150801", _module)
+pulumi.runtime.registerResourceModule("azure-native", "web/v20150801", _module)

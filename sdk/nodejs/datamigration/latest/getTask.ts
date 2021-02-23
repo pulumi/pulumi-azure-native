@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A task resource
  * Latest API Version: 2018-04-19.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'. */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
-    pulumi.log.warn("getTask is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datamigration:getTask'.")
+    pulumi.log.warn("getTask is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datamigration/latest:getTask", {
+    return pulumi.runtime.invoke("azure-native:datamigration/latest:getTask", {
         "expand": args.expand,
         "groupName": args.groupName,
         "projectName": args.projectName,

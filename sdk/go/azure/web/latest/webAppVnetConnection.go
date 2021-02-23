@@ -14,7 +14,7 @@ import (
 // Virtual Network information contract.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppVnetConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnection'.
 type WebAppVnetConnection struct {
 	pulumi.CustomResourceState
 
@@ -58,28 +58,55 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppVnetConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppVnetConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppVnetConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppVnetConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppVnetConnection"),
@@ -87,7 +114,7 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnection
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppVnetConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppVnetConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +126,7 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 func GetWebAppVnetConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppVnetConnectionState, opts ...pulumi.ResourceOption) (*WebAppVnetConnection, error) {
 	var resource WebAppVnetConnection
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppVnetConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppVnetConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function listStorageAccountSasTokens(args: ListStorageAccountSasTokensArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datalakeanalytics:listStorageAccountSasTokens", {
+    return pulumi.runtime.invoke("azure-native:datalakeanalytics:listStorageAccountSasTokens", {
         "accountName": args.accountName,
         "containerName": args.containerName,
         "resourceGroupName": args.resourceGroupName,

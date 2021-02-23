@@ -61,39 +61,39 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:cdn/latest:AFDCustomDomain":
+            case "azure-native:cdn/latest:AFDCustomDomain":
                 return new AFDCustomDomain(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:AFDEndpoint":
+            case "azure-native:cdn/latest:AFDEndpoint":
                 return new AFDEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:AFDOrigin":
+            case "azure-native:cdn/latest:AFDOrigin":
                 return new AFDOrigin(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:AFDOriginGroup":
+            case "azure-native:cdn/latest:AFDOriginGroup":
                 return new AFDOriginGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:CustomDomain":
+            case "azure-native:cdn/latest:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Endpoint":
+            case "azure-native:cdn/latest:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Origin":
+            case "azure-native:cdn/latest:Origin":
                 return new Origin(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:OriginGroup":
+            case "azure-native:cdn/latest:OriginGroup":
                 return new OriginGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Policy":
+            case "azure-native:cdn/latest:Policy":
                 return new Policy(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Profile":
+            case "azure-native:cdn/latest:Profile":
                 return new Profile(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Route":
+            case "azure-native:cdn/latest:Route":
                 return new Route(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Rule":
+            case "azure-native:cdn/latest:Rule":
                 return new Rule(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:RuleSet":
+            case "azure-native:cdn/latest:RuleSet":
                 return new RuleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:Secret":
+            case "azure-native:cdn/latest:Secret":
                 return new Secret(name, <any>undefined, { urn })
-            case "azure-nextgen:cdn/latest:SecurityPolicy":
+            case "azure-native:cdn/latest:SecurityPolicy":
                 return new SecurityPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "cdn/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "cdn/latest", _module)

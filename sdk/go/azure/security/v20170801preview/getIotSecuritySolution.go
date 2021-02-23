@@ -10,7 +10,7 @@ import (
 // Security Solution
 func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolutionArgs, opts ...pulumi.InvokeOption) (*LookupIotSecuritySolutionResult, error) {
 	var rv LookupIotSecuritySolutionResult
-	err := ctx.Invoke("azure-nextgen:security/v20170801preview:getIotSecuritySolution", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:security/v20170801preview:getIotSecuritySolution", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

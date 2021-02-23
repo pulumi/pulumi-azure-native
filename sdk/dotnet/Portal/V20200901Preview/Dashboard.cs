@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Portal.V20200901Preview
+namespace Pulumi.AzureNative.Portal.V20200901Preview
 {
     /// <summary>
     /// The shared dashboard resource definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:portal/v20200901preview:Dashboard")]
+    [AzureNativeResourceType("azure-native:portal/v20200901preview:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20200901preview:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:portal/v20200901preview:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dashboard(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:portal/v20200901preview:Dashboard", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:portal/v20200901preview:Dashboard", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,9 +76,13 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:portal:Dashboard"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20150801preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20150801preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20190101preview:Dashboard"},
                 },
             };

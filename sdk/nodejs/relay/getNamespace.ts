@@ -17,7 +17,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:relay:getNamespace", {
+    return pulumi.runtime.invoke("azure-native:relay:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

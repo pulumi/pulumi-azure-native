@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL Database sync member.
     /// API Version: 2020-08-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql:SyncMember")]
+    [AzureNativeResourceType("azure-native:sql:SyncMember")]
     public partial class SyncMember : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyncMember(string name, SyncMemberArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:SyncMember", name, args ?? new SyncMemberArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql:SyncMember", name, args ?? new SyncMemberArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SyncMember(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql:SyncMember", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql:SyncMember", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,9 +125,13 @@ namespace Pulumi.AzureNextGen.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncMember"},
                 },
             };
@@ -162,7 +166,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Database type of the sync member.
         /// </summary>
         [Input("databaseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.SyncMemberDbType>? DatabaseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.SyncMemberDbType>? DatabaseType { get; set; }
 
         /// <summary>
         /// Password of the member database in the sync member.
@@ -198,7 +202,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// Sync direction of the sync member.
         /// </summary>
         [Input("syncDirection")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.SyncDirection>? SyncDirection { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.SyncDirection>? SyncDirection { get; set; }
 
         /// <summary>
         /// The name of the sync group on which the sync member is hosted.

@@ -22,7 +22,7 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement:Cache';
+    public static readonly __pulumiType = 'azure-native:apimanagement:Cache';
 
     /**
      * Returns true if the given object is an instance of Cache.  This is designed to work even
@@ -97,7 +97,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/latest:Cache" }, { type: "azure-nextgen:apimanagement/v20180601preview:Cache" }, { type: "azure-nextgen:apimanagement/v20190101:Cache" }, { type: "azure-nextgen:apimanagement/v20191201:Cache" }, { type: "azure-nextgen:apimanagement/v20191201preview:Cache" }, { type: "azure-nextgen:apimanagement/v20200601preview:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/latest:Cache" }, { type: "azure-nextgen:apimanagement/latest:Cache" }, { type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-nextgen:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-nextgen:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-nextgen:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-nextgen:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-nextgen:apimanagement/v20200601preview:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }

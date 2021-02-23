@@ -11,7 +11,7 @@ import (
 // API Version: 2015-05-01.
 func LookupComponentCurrentBillingFeature(ctx *pulumi.Context, args *LookupComponentCurrentBillingFeatureArgs, opts ...pulumi.InvokeOption) (*LookupComponentCurrentBillingFeatureResult, error) {
 	var rv LookupComponentCurrentBillingFeatureResult
-	err := ctx.Invoke("azure-nextgen:insights:getComponentCurrentBillingFeature", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getComponentCurrentBillingFeature", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

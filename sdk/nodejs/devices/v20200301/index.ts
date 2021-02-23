@@ -40,23 +40,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devices/v20200301:Certificate":
+            case "azure-native:devices/v20200301:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:DpsCertificate":
+            case "azure-native:devices/v20200301:DpsCertificate":
                 return new DpsCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:IotDpsResource":
+            case "azure-native:devices/v20200301:IotDpsResource":
                 return new IotDpsResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection":
+            case "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection":
                 return new IotDpsResourcePrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:IotHubResource":
+            case "azure-native:devices/v20200301:IotHubResource":
                 return new IotHubResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:IotHubResourceEventHubConsumerGroup":
+            case "azure-native:devices/v20200301:IotHubResourceEventHubConsumerGroup":
                 return new IotHubResourceEventHubConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200301:PrivateEndpointConnection":
+            case "azure-native:devices/v20200301:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devices/v20200301", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devices/v20200301", _module)

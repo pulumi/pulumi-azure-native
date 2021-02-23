@@ -10,10 +10,10 @@ import (
 // The DataManager resource.
 // Latest API Version: 2019-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:hybriddata:getDataManager'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataManager'.
 func LookupDataManager(ctx *pulumi.Context, args *LookupDataManagerArgs, opts ...pulumi.InvokeOption) (*LookupDataManagerResult, error) {
 	var rv LookupDataManagerResult
-	err := ctx.Invoke("azure-nextgen:hybriddata/latest:getDataManager", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybriddata/latest:getDataManager", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

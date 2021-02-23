@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// An export resource.
     /// API Version: 2020-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement:Export")]
+    [AzureNativeResourceType("azure-native:costmanagement:Export")]
     public partial class Export : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Export(string name, ExportArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:Export", name, args ?? new ExportArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement:Export", name, args ?? new ExportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Export(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:Export", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement:Export", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,11 +95,17 @@ namespace Pulumi.AzureNextGen.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/latest:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190101:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190101:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20190901:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190901:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191001:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191001:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:Export"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:Export"},
                 },
             };
@@ -152,7 +158,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// The format of the export being delivered. Currently only 'Csv' is supported.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.FormatType>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Has schedule information for the export.

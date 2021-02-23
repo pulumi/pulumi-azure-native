@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The input protocol for the live event. This is specified at creation time and cannot be updated.
         /// </summary>
         [Input("streamingProtocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.LiveEventInputProtocol> StreamingProtocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.LiveEventInputProtocol> StreamingProtocol { get; set; } = null!;
 
         public LiveEventInputArgs()
         {

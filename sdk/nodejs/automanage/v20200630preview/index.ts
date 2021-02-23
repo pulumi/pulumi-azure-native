@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:automanage/v20200630preview:Account":
+            case "azure-native:automanage/v20200630preview:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment":
+            case "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment":
                 return new ConfigurationProfileAssignment(name, <any>undefined, { urn })
-            case "azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference":
+            case "azure-native:automanage/v20200630preview:ConfigurationProfilePreference":
                 return new ConfigurationProfilePreference(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "automanage/v20200630preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "automanage/v20200630preview", _module)

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview
+namespace Pulumi.AzureNative.Security.V20190101Preview
 {
     public static class GetAssessmentsMetadataSubscription
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// Security assessment metadata
         /// </summary>
         public static Task<GetAssessmentsMetadataSubscriptionResult> InvokeAsync(GetAssessmentsMetadataSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-nextgen:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsMetadataSubscriptionResult>("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", args ?? new GetAssessmentsMetadataSubscriptionArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Cache details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:Cache")]
+    [AzureNativeResourceType("azure-native:apimanagement:Cache")]
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cache(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Cache", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:Cache", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,11 +71,17 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Cache"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Cache"},
                 },
             };

@@ -58,28 +58,55 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppDeployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20150801:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppDeployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDeployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDeployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDeployment"),
@@ -87,7 +114,7 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeployment
-	err := ctx.RegisterResource("azure-nextgen:web/v20201001:WebAppDeployment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20201001:WebAppDeployment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +126,7 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 func GetWebAppDeployment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppDeploymentState, opts ...pulumi.ResourceOption) (*WebAppDeployment, error) {
 	var resource WebAppDeployment
-	err := ctx.ReadResource("azure-nextgen:web/v20201001:WebAppDeployment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20201001:WebAppDeployment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

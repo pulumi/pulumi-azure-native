@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	var rv LookupRouteFilterResult
-	err := ctx.Invoke("azure-nextgen:network:getRouteFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getRouteFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

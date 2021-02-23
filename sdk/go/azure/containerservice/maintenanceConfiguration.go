@@ -43,7 +43,13 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerservice/latest:MaintenanceConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerservice/latest:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20201201:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"),
@@ -51,7 +57,7 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration
-	err := ctx.RegisterResource("azure-nextgen:containerservice:MaintenanceConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerservice:MaintenanceConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 func GetMaintenanceConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MaintenanceConfigurationState, opts ...pulumi.ResourceOption) (*MaintenanceConfiguration, error) {
 	var resource MaintenanceConfiguration
-	err := ctx.ReadResource("azure-nextgen:containerservice:MaintenanceConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerservice:MaintenanceConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

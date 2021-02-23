@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The lock information.
  * Latest API Version: 2016-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceGroupLevel'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceGroupLevel'. */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
-    pulumi.log.warn("getManagementLockAtResourceGroupLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockAtResourceGroupLevel'.")
+    pulumi.log.warn("getManagementLockAtResourceGroupLevel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceGroupLevel'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtR
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getManagementLockAtResourceGroupLevel", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getManagementLockAtResourceGroupLevel", {
         "lockName": args.lockName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

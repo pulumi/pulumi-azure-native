@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MixedReality.Latest
+namespace Pulumi.AzureNative.MixedReality.Latest
 {
     /// <summary>
     /// RemoteRenderingAccount Response.
     /// Latest API Version: 2021-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:mixedreality:RemoteRenderingAccount'.")]
-    [AzureNextGenResourceType("azure-nextgen:mixedreality/latest:RemoteRenderingAccount")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.")]
+    [AzureNativeResourceType("azure-native:mixedreality/latest:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemoteRenderingAccount(string name, RemoteRenderingAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:mixedreality/latest:RemoteRenderingAccount", name, args ?? new RemoteRenderingAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:mixedreality/latest:RemoteRenderingAccount", name, args ?? new RemoteRenderingAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemoteRenderingAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:mixedreality/latest:RemoteRenderingAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:mixedreality/latest:RemoteRenderingAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,10 +114,15 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount"},
+                    new Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount"},
                 },
             };

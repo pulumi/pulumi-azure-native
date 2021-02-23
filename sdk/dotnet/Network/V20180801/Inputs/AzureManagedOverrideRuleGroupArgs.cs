@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
+namespace Pulumi.AzureNative.Network.V20180801.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Type of Actions
         /// </summary>
         [Input("action", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Action> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180801.Action> Action { get; set; } = null!;
 
         /// <summary>
         /// Describes override rule group
         /// </summary>
         [Input("ruleGroupOverride", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.RuleGroupOverride> RuleGroupOverride { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20180801.RuleGroupOverride> RuleGroupOverride { get; set; } = null!;
 
         public AzureManagedOverrideRuleGroupArgs()
         {

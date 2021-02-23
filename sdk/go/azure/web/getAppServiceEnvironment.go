@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupAppServiceEnvironment(ctx *pulumi.Context, args *LookupAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceEnvironmentResult, error) {
 	var rv LookupAppServiceEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:web:getAppServiceEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:getAppServiceEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

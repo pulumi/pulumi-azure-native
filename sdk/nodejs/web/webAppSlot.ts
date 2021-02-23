@@ -23,7 +23,7 @@ export class WebAppSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:WebAppSlot';
+    public static readonly __pulumiType = 'azure-native:web:WebAppSlot';
 
     /**
      * Returns true if the given object is an instance of WebAppSlot.  This is designed to work even
@@ -347,7 +347,7 @@ export class WebAppSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSlot.__pulumiType, name, inputs, opts);
     }

@@ -17,7 +17,7 @@ export function getDenyAssignment(args: GetDenyAssignmentArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getDenyAssignment", {
+    return pulumi.runtime.invoke("azure-native:authorization:getDenyAssignment", {
         "denyAssignmentName": args.denyAssignmentName,
         "scope": args.scope,
     }, opts);

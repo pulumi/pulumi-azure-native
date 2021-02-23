@@ -43,82 +43,163 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170901:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20171001:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20171001:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171101:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180101:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ApplicationSecurityGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationSecurityGroup"),
@@ -126,7 +207,7 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationSecurityGroup
-	err := ctx.RegisterResource("azure-nextgen:network/v20180701:ApplicationSecurityGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20180701:ApplicationSecurityGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +219,7 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 func GetApplicationSecurityGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationSecurityGroupState, opts ...pulumi.ResourceOption) (*ApplicationSecurityGroup, error) {
 	var resource ApplicationSecurityGroup
-	err := ctx.ReadResource("azure-nextgen:network/v20180701:ApplicationSecurityGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20180701:ApplicationSecurityGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

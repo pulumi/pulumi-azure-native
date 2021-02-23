@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Web.V20160901
+namespace Pulumi.AzureNative.Web.V20160901
 {
     /// <summary>
     /// Action object.

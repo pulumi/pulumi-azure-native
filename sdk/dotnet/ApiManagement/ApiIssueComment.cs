@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Issue Comment Contract details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:ApiIssueComment")]
+    [AzureNativeResourceType("azure-native:apimanagement:ApiIssueComment")]
     public partial class ApiIssueComment : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiIssueComment(string name, ApiIssueCommentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiIssueComment", name, args ?? new ApiIssueCommentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:ApiIssueComment", name, args ?? new ApiIssueCommentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiIssueComment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiIssueComment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:ApiIssueComment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,13 +71,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueComment"},
                 },
             };

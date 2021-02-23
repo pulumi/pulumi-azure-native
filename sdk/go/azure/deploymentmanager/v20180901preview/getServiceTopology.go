@@ -10,7 +10,7 @@ import (
 // The resource representation of a service topology.
 func LookupServiceTopology(ctx *pulumi.Context, args *LookupServiceTopologyArgs, opts ...pulumi.InvokeOption) (*LookupServiceTopologyResult, error) {
 	var rv LookupServiceTopologyResult
-	err := ctx.Invoke("azure-nextgen:deploymentmanager/v20180901preview:getServiceTopology", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getServiceTopology", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

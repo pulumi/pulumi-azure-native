@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// An Azure SQL instance pool.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:InstancePool")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:InstancePool")]
     public partial class InstancePool : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstancePool(string name, InstancePoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:InstancePool", name, args ?? new InstancePoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:InstancePool", name, args ?? new InstancePoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstancePool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:InstancePool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:InstancePool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,8 +88,11 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:InstancePool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:InstancePool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:InstancePool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:InstancePool"},
                 },
             };
@@ -124,7 +127,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         /// </summary>
         [Input("licenseType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200202Preview.InstancePoolLicenseType> LicenseType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20200202Preview.InstancePoolLicenseType> LicenseType { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

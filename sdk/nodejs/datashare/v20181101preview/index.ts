@@ -44,25 +44,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datashare/v20181101preview:Account":
+            case "azure-native:datashare/v20181101preview:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:DataSet":
+            case "azure-native:datashare/v20181101preview:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:DataSetMapping":
+            case "azure-native:datashare/v20181101preview:DataSetMapping":
                 return new DataSetMapping(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:Invitation":
+            case "azure-native:datashare/v20181101preview:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:Share":
+            case "azure-native:datashare/v20181101preview:Share":
                 return new Share(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:ShareSubscription":
+            case "azure-native:datashare/v20181101preview:ShareSubscription":
                 return new ShareSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:SynchronizationSetting":
+            case "azure-native:datashare/v20181101preview:SynchronizationSetting":
                 return new SynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:datashare/v20181101preview:Trigger":
+            case "azure-native:datashare/v20181101preview:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datashare/v20181101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datashare/v20181101preview", _module)

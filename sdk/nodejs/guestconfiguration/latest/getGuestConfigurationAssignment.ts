@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Guest configuration assignment is an association between a machine and guest configuration.
  * Latest API Version: 2020-06-25.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationAssignment'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'. */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
-    pulumi.log.warn("getGuestConfigurationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:guestconfiguration:getGuestConfigurationAssignment'.")
+    pulumi.log.warn("getGuestConfigurationAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssig
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:guestconfiguration/latest:getGuestConfigurationAssignment", {
+    return pulumi.runtime.invoke("azure-native:guestconfiguration/latest:getGuestConfigurationAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,

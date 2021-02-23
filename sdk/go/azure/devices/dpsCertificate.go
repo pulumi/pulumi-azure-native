@@ -41,22 +41,43 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices/latest:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/latest:DpsCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20170821preview:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20170821preview:DpsCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20171115:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20171115:DpsCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20180122:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20180122:DpsCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200101:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200101:DpsCertificate"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200301:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:DpsCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200901preview:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200901preview:DpsCertificate"),
@@ -64,7 +85,7 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DpsCertificate
-	err := ctx.RegisterResource("azure-nextgen:devices:DpsCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices:DpsCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +97,7 @@ func NewDpsCertificate(ctx *pulumi.Context,
 func GetDpsCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DpsCertificateState, opts ...pulumi.ResourceOption) (*DpsCertificate, error) {
 	var resource DpsCertificate
-	err := ctx.ReadResource("azure-nextgen:devices:DpsCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices:DpsCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

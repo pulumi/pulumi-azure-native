@@ -22,7 +22,7 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20200101preview:Connector';
+    public static readonly __pulumiType = 'azure-native:security/v20200101preview:Connector';
 
     /**
      * Returns true if the given object is an instance of Connector.  This is designed to work even
@@ -80,7 +80,7 @@ export class Connector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:Connector" }, { type: "azure-nextgen:security:Connector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connector.__pulumiType, name, inputs, opts);
     }

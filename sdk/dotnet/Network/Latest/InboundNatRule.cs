@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:InboundNatRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:InboundNatRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InboundNatRule'.")]
+    [AzureNativeResourceType("azure-native:network/latest:InboundNatRule")]
     public partial class InboundNatRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InboundNatRule(string name, InboundNatRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:InboundNatRule", name, args ?? new InboundNatRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:InboundNatRule", name, args ?? new InboundNatRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InboundNatRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:InboundNatRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:InboundNatRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,34 +114,63 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:InboundNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:InboundNatRule"},
                 },
             };
@@ -230,7 +259,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.TransportProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.TransportProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

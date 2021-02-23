@@ -10,7 +10,7 @@ import (
 // Log file URL payload
 func GetDeploymentLogFileUrl(ctx *pulumi.Context, args *GetDeploymentLogFileUrlArgs, opts ...pulumi.InvokeOption) (*GetDeploymentLogFileUrlResult, error) {
 	var rv GetDeploymentLogFileUrlResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20200701:getDeploymentLogFileUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20200701:getDeploymentLogFileUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

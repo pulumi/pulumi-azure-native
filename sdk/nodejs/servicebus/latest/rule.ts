@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of Rule Resource.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Rule'.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Rule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Rule {
-        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.")
+        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Rule'.")
         return new Rule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/latest:Rule';
+    public static readonly __pulumiType = 'azure-native:servicebus/latest:Rule';
 
     /**
      * Returns true if the given object is an instance of Rule.  This is designed to work even
@@ -71,9 +71,9 @@ export class Rule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Rule'. */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.")
+        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Rule'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
@@ -114,7 +114,7 @@ export class Rule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:Rule" }, { type: "azure-nextgen:servicebus/v20170401:Rule" }, { type: "azure-nextgen:servicebus/v20180101preview:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Rule" }, { type: "azure-nextgen:servicebus:Rule" }, { type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-nextgen:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-nextgen:servicebus/v20180101preview:Rule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Rule.__pulumiType, name, inputs, opts);
     }

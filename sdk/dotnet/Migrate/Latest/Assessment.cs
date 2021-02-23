@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Migrate.Latest
+namespace Pulumi.AzureNative.Migrate.Latest
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// Latest API Version: 2019-10-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Assessment'.")]
-    [AzureNextGenResourceType("azure-nextgen:migrate/latest:Assessment")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:Assessment'.")]
+    [AzureNativeResourceType("azure-native:migrate/latest:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:migrate/latest:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:migrate/latest:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:migrate/latest:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:migrate:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Assessment"},
                 },
             };

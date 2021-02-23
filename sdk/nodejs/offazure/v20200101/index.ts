@@ -18,13 +18,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:offazure/v20200101:HyperVSite":
+            case "azure-native:offazure/v20200101:HyperVSite":
                 return new HyperVSite(name, <any>undefined, { urn })
-            case "azure-nextgen:offazure/v20200101:Site":
+            case "azure-native:offazure/v20200101:Site":
                 return new Site(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "offazure/v20200101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "offazure/v20200101", _module)

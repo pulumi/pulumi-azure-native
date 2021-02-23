@@ -59,109 +59,217 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20150501preview:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20150501preview:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20150615:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20150615:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160330:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160330:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20160601:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20160601:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20160901:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20160901:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20161201:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20161201:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170601:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170601:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170801:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170801:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170901:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170901:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20171101:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20171101:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180101:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180101:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:LoadBalancer"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:LoadBalancer"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:LoadBalancer"),
@@ -169,7 +277,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource LoadBalancer
-	err := ctx.RegisterResource("azure-nextgen:network/v20171001:LoadBalancer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20171001:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -181,7 +289,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 func GetLoadBalancer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LoadBalancerState, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
 	var resource LoadBalancer
-	err := ctx.ReadResource("azure-nextgen:network/v20171001:LoadBalancer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20171001:LoadBalancer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

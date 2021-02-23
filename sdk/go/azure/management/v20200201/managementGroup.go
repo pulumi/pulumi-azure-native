@@ -41,22 +41,43 @@ func NewManagementGroup(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:management:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/latest:ManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/latest:ManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:management/v20171101preview:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/v20171101preview:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20180101preview:ManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20180101preview:ManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:management/v20180301preview:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/v20180301preview:ManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:management/v20191101:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:management/v20191101:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20200501:ManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:ManagementGroup"),
@@ -64,7 +85,7 @@ func NewManagementGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroup
-	err := ctx.RegisterResource("azure-nextgen:management/v20200201:ManagementGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:management/v20200201:ManagementGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +97,7 @@ func NewManagementGroup(ctx *pulumi.Context,
 func GetManagementGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementGroupState, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
 	var resource ManagementGroup
-	err := ctx.ReadResource("azure-nextgen:management/v20200201:ManagementGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:management/v20200201:ManagementGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

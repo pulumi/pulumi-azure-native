@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.Inputs
+namespace Pulumi.AzureNative.EventHub.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.EventHub.Inputs
         /// Status of the connection.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.EventHub.PrivateLinkConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EventHub.PrivateLinkConnectionStatus>? Status { get; set; }
 
         public ConnectionStateArgs()
         {

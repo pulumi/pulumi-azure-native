@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:avs/v20200320:Authorization":
+	case "azure-native:avs/v20200320:Authorization":
 		r, err = NewAuthorization(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20200320:Cluster":
+	case "azure-native:avs/v20200320:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20200320:HcxEnterpriseSite":
+	case "azure-native:avs/v20200320:HcxEnterpriseSite":
 		r, err = NewHcxEnterpriseSite(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:avs/v20200320:PrivateCloud":
+	case "azure-native:avs/v20200320:PrivateCloud":
 		r, err = NewPrivateCloud(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"avs/v20200320",
 		&module{version},
 	)

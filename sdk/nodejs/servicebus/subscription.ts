@@ -23,7 +23,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus:Subscription';
+    public static readonly __pulumiType = 'azure-native:servicebus:Subscription';
 
     /**
      * Returns true if the given object is an instance of Subscription.  This is designed to work even
@@ -183,7 +183,7 @@ export class Subscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/latest:Subscription" }, { type: "azure-nextgen:servicebus/v20140901:Subscription" }, { type: "azure-nextgen:servicebus/v20150801:Subscription" }, { type: "azure-nextgen:servicebus/v20170401:Subscription" }, { type: "azure-nextgen:servicebus/v20180101preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:Subscription" }, { type: "azure-nextgen:servicebus/latest:Subscription" }, { type: "azure-native:servicebus/v20140901:Subscription" }, { type: "azure-nextgen:servicebus/v20140901:Subscription" }, { type: "azure-native:servicebus/v20150801:Subscription" }, { type: "azure-nextgen:servicebus/v20150801:Subscription" }, { type: "azure-native:servicebus/v20170401:Subscription" }, { type: "azure-nextgen:servicebus/v20170401:Subscription" }, { type: "azure-native:servicebus/v20180101preview:Subscription" }, { type: "azure-nextgen:servicebus/v20180101preview:Subscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subscription.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func LookupProtectedItem(ctx *pulumi.Context, args *LookupProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupProtectedItemResult, error) {
 	var rv LookupProtectedItemResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getProtectedItem", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getProtectedItem", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

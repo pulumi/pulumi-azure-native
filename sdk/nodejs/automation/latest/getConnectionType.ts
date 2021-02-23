@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Definition of the connection type.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getConnectionType'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getConnectionType'. */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
-    pulumi.log.warn("getConnectionType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:automation:getConnectionType'.")
+    pulumi.log.warn("getConnectionType is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getConnectionType'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/latest:getConnectionType", {
+    return pulumi.runtime.invoke("azure-native:automation/latest:getConnectionType", {
         "automationAccountName": args.automationAccountName,
         "connectionTypeName": args.connectionTypeName,
         "resourceGroupName": args.resourceGroupName,

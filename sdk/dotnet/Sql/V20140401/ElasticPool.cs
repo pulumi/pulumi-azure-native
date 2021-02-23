@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20140401
+namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Represents a database elastic pool.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20140401:ElasticPool")]
+    [AzureNativeResourceType("azure-native:sql/v20140401:ElasticPool")]
     public partial class ElasticPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ElasticPool(string name, ElasticPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20140401:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ElasticPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20140401:ElasticPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20140401:ElasticPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,10 +118,15 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ElasticPool"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ElasticPool"},
                 },
             };
@@ -168,7 +173,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// The edition of the elastic pool.
         /// </summary>
         [Input("edition")]
-        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20140401.ElasticPoolEdition>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20140401.ElasticPoolEdition>? Edition { get; set; }
 
         /// <summary>
         /// The name of the elastic pool to be operated on (updated or created).

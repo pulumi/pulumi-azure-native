@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview
+namespace Pulumi.AzureNative.Media.V20180330Preview
 {
     public static class ListAssetContainerSas
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// The Asset Storage container SAS URLs.
         /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-nextgen:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media/v20180330preview:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
     }
 
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// The permissions to set on the SAS URL.
         /// </summary>
         [Input("permissions")]
-        public Union<string, Pulumi.AzureNextGen.Media.V20180330Preview.AssetContainerPermission>? Permissions { get; set; }
+        public Union<string, Pulumi.AzureNative.Media.V20180330Preview.AssetContainerPermission>? Permissions { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

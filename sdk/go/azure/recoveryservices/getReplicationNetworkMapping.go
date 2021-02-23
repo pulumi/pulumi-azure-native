@@ -11,7 +11,7 @@ import (
 // API Version: 2018-07-10.
 func LookupReplicationNetworkMapping(ctx *pulumi.Context, args *LookupReplicationNetworkMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationNetworkMappingResult, error) {
 	var rv LookupReplicationNetworkMappingResult
-	err := ctx.Invoke("azure-nextgen:recoveryservices:getReplicationNetworkMapping", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:recoveryservices:getReplicationNetworkMapping", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

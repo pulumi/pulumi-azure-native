@@ -10,10 +10,10 @@ import (
 // Trigger resource type.
 // Latest API Version: 2018-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getTrigger'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getTrigger'.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
-	err := ctx.Invoke("azure-nextgen:datafactory/latest:getTrigger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/latest:getTrigger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDeploymentAtManagementGroupScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtManagementGroupScopeResult, error) {
 	var rv LookupDeploymentAtManagementGroupScopeResult
-	err := ctx.Invoke("azure-nextgen:resources:getDeploymentAtManagementGroupScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources:getDeploymentAtManagementGroupScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

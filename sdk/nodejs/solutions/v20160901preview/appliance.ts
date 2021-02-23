@@ -22,7 +22,7 @@ export class Appliance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:solutions/v20160901preview:Appliance';
+    public static readonly __pulumiType = 'azure-native:solutions/v20160901preview:Appliance';
 
     /**
      * Returns true if the given object is an instance of Appliance.  This is designed to work even
@@ -153,7 +153,7 @@ export class Appliance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:Appliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:Appliance" }, { type: "azure-nextgen:solutions:Appliance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Appliance.__pulumiType, name, inputs, opts);
     }

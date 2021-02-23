@@ -16,7 +16,7 @@ export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMong
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/v20200901:getMongoDBResourceMongoDBCollection", {
+    return pulumi.runtime.invoke("azure-native:documentdb/v20200901:getMongoDBResourceMongoDBCollection", {
         "accountName": args.accountName,
         "collectionName": args.collectionName,
         "databaseName": args.databaseName,

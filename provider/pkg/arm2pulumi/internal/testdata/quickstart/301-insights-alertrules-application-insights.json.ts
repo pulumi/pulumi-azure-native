@@ -1,15 +1,15 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azure_nextgen from "@pulumi/azure-nextgen";
+import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const applicationInsightsNameParam = config.get("applicationInsightsNameParam") || "myApplicationInsights";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const resourceGroupVar = azure_nextgen.resources.getResourceGroup({
+const resourceGroupVar = azure_native.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const workspaceNameParam = config.get("workspaceNameParam") || "myWorkspace";
-const workspaceResource = new azure_nextgen.operationalinsights.v20200301preview.Workspace("workspaceResource", {
+const workspaceResource = new azure_native.operationalinsights.v20200301preview.Workspace("workspaceResource", {
     location: locationParam,
     resourceGroupName: resourceGroupNameParam,
     sku: {
@@ -17,7 +17,7 @@ const workspaceResource = new azure_nextgen.operationalinsights.v20200301preview
     },
     workspaceName: workspaceNameParam,
 });
-const componentResource = new azure_nextgen.insights.v20200202preview.Component("componentResource", {
+const componentResource = new azure_native.insights.v20200202preview.Component("componentResource", {
     applicationType: "web",
     kind: "web",
     location: locationParam,
@@ -27,7 +27,7 @@ const componentResource = new azure_nextgen.insights.v20200202preview.Component(
 }, {
     dependsOn: [workspaceResource],
 });
-const emailActionGroup = new azure_nextgen.insights.v20190601.ActionGroup("emailActionGroup", {
+const emailActionGroup = new azure_native.insights.v20190601.ActionGroup("emailActionGroup", {
     actionGroupName: "emailActionGroup",
     emailReceivers: [{
         emailAddress: "example@test.com",
@@ -41,7 +41,7 @@ const emailActionGroup = new azure_nextgen.insights.v20190601.ActionGroup("email
 });
 const responseAlertNameVar = "[concat('ResponseTime-', toLower(parameters('applicationInsightsName')))]";
 const responseTimeParam = config.getNumber("responseTimeParam") || 3;
-const metricAlertResource = new azure_nextgen.insights.v20180301.MetricAlert("metricAlertResource", {
+const metricAlertResource = new azure_native.insights.v20180301.MetricAlert("metricAlertResource", {
     actions: [{
         actionGroupId: emailActionGroup.id,
     }],

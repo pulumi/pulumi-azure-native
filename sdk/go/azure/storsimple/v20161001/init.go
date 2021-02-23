@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:storsimple/v20161001:AccessControlRecord":
+	case "azure-native:storsimple/v20161001:AccessControlRecord":
 		r, err = NewAccessControlRecord(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:BackupScheduleGroup":
+	case "azure-native:storsimple/v20161001:BackupScheduleGroup":
 		r, err = NewBackupScheduleGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:ChapSetting":
+	case "azure-native:storsimple/v20161001:ChapSetting":
 		r, err = NewChapSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:FileServer":
+	case "azure-native:storsimple/v20161001:FileServer":
 		r, err = NewFileServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:FileShare":
+	case "azure-native:storsimple/v20161001:FileShare":
 		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:IscsiDisk":
+	case "azure-native:storsimple/v20161001:IscsiDisk":
 		r, err = NewIscsiDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:IscsiServer":
+	case "azure-native:storsimple/v20161001:IscsiServer":
 		r, err = NewIscsiServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:Manager":
+	case "azure-native:storsimple/v20161001:Manager":
 		r, err = NewManager(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo":
+	case "azure-native:storsimple/v20161001:ManagerExtendedInfo":
 		r, err = NewManagerExtendedInfo(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:StorageAccountCredential":
+	case "azure-native:storsimple/v20161001:StorageAccountCredential":
 		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:storsimple/v20161001:StorageDomain":
+	case "azure-native:storsimple/v20161001:StorageDomain":
 		r, err = NewStorageDomain(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"storsimple/v20161001",
 		&module{version},
 	)

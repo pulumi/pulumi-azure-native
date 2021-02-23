@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListMachineLearningComputeNodes(ctx *pulumi.Context, args *ListMachineLearningComputeNodesArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeNodesResult, error) {
 	var rv ListMachineLearningComputeNodesResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices:listMachineLearningComputeNodes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:listMachineLearningComputeNodes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

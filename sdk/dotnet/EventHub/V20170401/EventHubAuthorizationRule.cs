@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20170401
+namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule")]
+    [AzureNativeResourceType("azure-native:eventhub/v20170401:EventHubAuthorizationRule")]
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubAuthorizationRule(string name, EventHubAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule", name, args ?? new EventHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/v20170401:EventHubAuthorizationRule", name, args ?? new EventHubAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventHubAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/v20170401:EventHubAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,10 +58,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule"},
                 },
             };
@@ -111,14 +116,14 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>>? _rights;
+        private InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>> Rights
+        public InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>> Rights
         {
-            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNextGen.EventHub.V20170401.AccessRights>>());
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNative.EventHub.V20170401.AccessRights>>());
             set => _rights = value;
         }
 

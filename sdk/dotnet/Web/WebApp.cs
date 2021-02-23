@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:WebApp")]
+    [AzureNativeResourceType("azure-native:web:WebApp")]
     public partial class WebApp : Pulumi.CustomResource
     {
         /// <summary>
@@ -308,12 +308,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApp(string name, WebAppArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebApp(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:WebApp", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:WebApp", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -324,14 +324,23 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebApp"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebApp"},
                 },
             };
@@ -381,7 +390,7 @@ namespace Pulumi.AzureNextGen.Web
         /// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         /// </summary>
         [Input("clientCertMode")]
-        public Input<Pulumi.AzureNextGen.Web.ClientCertMode>? ClientCertMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.ClientCertMode>? ClientCertMode { get; set; }
 
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
@@ -485,7 +494,7 @@ namespace Pulumi.AzureNextGen.Web
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<Pulumi.AzureNextGen.Web.RedundancyMode>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNative.Web.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

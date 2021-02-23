@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * OpenShiftClusterCredentials represents an OpenShift cluster's credentials
  * Latest API Version: 2020-04-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'. */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
-    pulumi.log.warn("listOpenShiftClusterCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:listOpenShiftClusterCredentials'.")
+    pulumi.log.warn("listOpenShiftClusterCredentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCreden
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:redhatopenshift/latest:listOpenShiftClusterCredentials", {
+    return pulumi.runtime.invoke("azure-native:redhatopenshift/latest:listOpenShiftClusterCredentials", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

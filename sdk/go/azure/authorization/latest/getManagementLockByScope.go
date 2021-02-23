@@ -10,10 +10,10 @@ import (
 // The lock information.
 // Latest API Version: 2016-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getManagementLockByScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockByScope'.
 func LookupManagementLockByScope(ctx *pulumi.Context, args *LookupManagementLockByScopeArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockByScopeResult, error) {
 	var rv LookupManagementLockByScopeResult
-	err := ctx.Invoke("azure-nextgen:authorization/latest:getManagementLockByScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/latest:getManagementLockByScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

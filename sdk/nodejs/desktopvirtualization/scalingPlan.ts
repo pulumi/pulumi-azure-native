@@ -23,7 +23,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:desktopvirtualization:ScalingPlan';
+    public static readonly __pulumiType = 'azure-native:desktopvirtualization:ScalingPlan';
 
     /**
      * Returns true if the given object is an instance of ScalingPlan.  This is designed to work even
@@ -127,7 +127,7 @@ export class ScalingPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScalingPlan.__pulumiType, name, inputs, opts);
     }

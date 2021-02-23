@@ -10,10 +10,10 @@ import (
 // Value object for saved search results.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:operationalinsights:getSavedSearch'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getSavedSearch'.
 func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ...pulumi.InvokeOption) (*LookupSavedSearchResult, error) {
 	var rv LookupSavedSearchResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights/latest:getSavedSearch", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights/latest:getSavedSearch", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

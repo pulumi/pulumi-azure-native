@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A container for a managed identity to execute DevTest lab services.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceRunner'.
  */
 export class ServiceRunner extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ServiceRunner extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceRunner {
-        pulumi.log.warn("ServiceRunner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.")
+        pulumi.log.warn("ServiceRunner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceRunner'.")
         return new ServiceRunner(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:ServiceRunner';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:ServiceRunner';
 
     /**
      * Returns true if the given object is an instance of ServiceRunner.  This is designed to work even
@@ -67,9 +67,9 @@ export class ServiceRunner extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceRunner'. */
     constructor(name: string, args: ServiceRunnerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServiceRunner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:ServiceRunner'.")
+        pulumi.log.warn("ServiceRunner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceRunner'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class ServiceRunner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20160515:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceRunner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ServiceRunner" }, { type: "azure-nextgen:devtestlab:ServiceRunner" }, { type: "azure-native:devtestlab/v20160515:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20160515:ServiceRunner" }, { type: "azure-native:devtestlab/v20180915:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceRunner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceRunner.__pulumiType, name, inputs, opts);
     }

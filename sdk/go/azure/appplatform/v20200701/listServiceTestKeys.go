@@ -10,7 +10,7 @@ import (
 // Test keys payload
 func ListServiceTestKeys(ctx *pulumi.Context, args *ListServiceTestKeysArgs, opts ...pulumi.InvokeOption) (*ListServiceTestKeysResult, error) {
 	var rv ListServiceTestKeysResult
-	err := ctx.Invoke("azure-nextgen:appplatform/v20200701:listServiceTestKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/v20200701:listServiceTestKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

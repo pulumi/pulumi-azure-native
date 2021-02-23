@@ -11,7 +11,7 @@ import (
 // API Version: 2020-07-17-preview.
 func LookupWorkloadNetworkVMGroup(ctx *pulumi.Context, args *LookupWorkloadNetworkVMGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadNetworkVMGroupResult, error) {
 	var rv LookupWorkloadNetworkVMGroupResult
-	err := ctx.Invoke("azure-nextgen:avs:getWorkloadNetworkVMGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:avs:getWorkloadNetworkVMGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

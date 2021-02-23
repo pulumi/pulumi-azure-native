@@ -14,7 +14,7 @@ import (
 // The KPI resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:Kpi'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Kpi'.
 type Kpi struct {
 	pulumi.CustomResourceState
 
@@ -83,10 +83,19 @@ func NewKpi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:Kpi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:Kpi"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:Kpi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Kpi"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:Kpi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Kpi"),
@@ -94,7 +103,7 @@ func NewKpi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Kpi
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:Kpi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:Kpi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +115,7 @@ func NewKpi(ctx *pulumi.Context,
 func GetKpi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KpiState, opts ...pulumi.ResourceOption) (*Kpi, error) {
 	var resource Kpi
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:Kpi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:Kpi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

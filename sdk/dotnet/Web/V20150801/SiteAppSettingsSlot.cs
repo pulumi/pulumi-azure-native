@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// String dictionary resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20150801:SiteAppSettingsSlot")]
+    [AzureNativeResourceType("azure-native:web/v20150801:SiteAppSettingsSlot")]
     public partial class SiteAppSettingsSlot : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteAppSettingsSlot(string name, SiteAppSettingsSlotArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteAppSettingsSlot", name, args ?? new SiteAppSettingsSlotArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20150801:SiteAppSettingsSlot", name, args ?? new SiteAppSettingsSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteAppSettingsSlot(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20150801:SiteAppSettingsSlot", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20150801:SiteAppSettingsSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,14 +76,23 @@ namespace Pulumi.AzureNextGen.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteAppSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteAppSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteAppSettingsSlot"},
                 },
             };

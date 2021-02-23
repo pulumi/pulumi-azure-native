@@ -22,7 +22,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption';
+    public static readonly __pulumiType = 'azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption';
 
     /**
      * Returns true if the given object is an instance of SqlPoolTransparentDataEncryption.  This is designed to work even
@@ -92,7 +92,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolTransparentDataEncryption.__pulumiType, name, inputs, opts);
     }

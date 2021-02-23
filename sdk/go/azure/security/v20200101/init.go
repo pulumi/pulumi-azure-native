@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:security/v20200101:AdaptiveApplicationControl":
+	case "azure-native:security/v20200101:AdaptiveApplicationControl":
 		r, err = NewAdaptiveApplicationControl(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20200101:Assessment":
+	case "azure-native:security/v20200101:Assessment":
 		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription":
+	case "azure-native:security/v20200101:AssessmentMetadataInSubscription":
 		r, err = NewAssessmentMetadataInSubscription(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20200101:JitNetworkAccessPolicy":
+	case "azure-native:security/v20200101:JitNetworkAccessPolicy":
 		r, err = NewJitNetworkAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:security/v20200101:ServerVulnerabilityAssessment":
+	case "azure-native:security/v20200101:ServerVulnerabilityAssessment":
 		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"security/v20200101",
 		&module{version},
 	)

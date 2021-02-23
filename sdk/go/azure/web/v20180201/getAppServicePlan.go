@@ -10,7 +10,7 @@ import (
 // App Service plan.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
 	var rv LookupAppServicePlanResult
-	err := ctx.Invoke("azure-nextgen:web/v20180201:getAppServicePlan", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20180201:getAppServicePlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

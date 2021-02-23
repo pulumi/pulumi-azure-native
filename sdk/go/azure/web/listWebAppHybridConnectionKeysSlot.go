@@ -11,7 +11,7 @@ import (
 // API Version: 2018-11-01.
 func ListWebAppHybridConnectionKeysSlot(ctx *pulumi.Context, args *ListWebAppHybridConnectionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHybridConnectionKeysSlotResult, error) {
 	var rv ListWebAppHybridConnectionKeysSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppHybridConnectionKeysSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppHybridConnectionKeysSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

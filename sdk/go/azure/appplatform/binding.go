@@ -42,13 +42,25 @@ func NewBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:appplatform/latest:Binding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/latest:Binding"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20190501preview:Binding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Binding"),
 		},
 		{
+			Type: pulumi.String("azure-native:appplatform/v20200701:Binding"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Binding"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20201101preview:Binding"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:Binding"),
@@ -56,7 +68,7 @@ func NewBinding(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Binding
-	err := ctx.RegisterResource("azure-nextgen:appplatform:Binding", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:appplatform:Binding", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +80,7 @@ func NewBinding(ctx *pulumi.Context,
 func GetBinding(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BindingState, opts ...pulumi.ResourceOption) (*Binding, error) {
 	var resource Binding
-	err := ctx.ReadResource("azure-nextgen:appplatform:Binding", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:appplatform:Binding", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

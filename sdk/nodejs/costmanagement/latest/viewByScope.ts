@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * States and configurations of Cost Analysis.
  * Latest API Version: 2020-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'.
  */
 export class ViewByScope extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ViewByScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ViewByScope {
-        pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.")
+        pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'.")
         return new ViewByScope(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:costmanagement/latest:ViewByScope';
+    public static readonly __pulumiType = 'azure-native:costmanagement/latest:ViewByScope';
 
     /**
      * Returns true if the given object is an instance of ViewByScope.  This is designed to work even
@@ -107,9 +107,9 @@ export class ViewByScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'. */
     constructor(name: string, args: ViewByScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:costmanagement:ViewByScope'.")
+        pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
@@ -161,7 +161,7 @@ export class ViewByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20191101:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20200601:ViewByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-nextgen:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20200601:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20200601:ViewByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ViewByScope.__pulumiType, name, inputs, opts);
     }

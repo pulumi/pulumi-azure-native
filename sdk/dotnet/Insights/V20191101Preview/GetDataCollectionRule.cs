@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20191101Preview
+namespace Pulumi.AzureNative.Insights.V20191101Preview
 {
     public static class GetDataCollectionRule
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
         /// Definition of ARM tracked top level resource.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-nextgen:insights/v20191101preview:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights/v20191101preview:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
     }
 
 

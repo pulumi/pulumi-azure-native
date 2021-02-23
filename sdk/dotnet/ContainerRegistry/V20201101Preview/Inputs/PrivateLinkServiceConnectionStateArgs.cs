@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
+namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
         [Input("actionsRequired")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ActionsRequired>? ActionsRequired { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.ActionsRequired>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The private link service connection status.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.V20201101Preview.ConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

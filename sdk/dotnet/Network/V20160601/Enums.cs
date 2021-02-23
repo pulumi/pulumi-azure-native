@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Network.V20160601
+namespace Pulumi.AzureNative.Network.V20160601
 {
     /// <summary>
     /// Cookie affinity

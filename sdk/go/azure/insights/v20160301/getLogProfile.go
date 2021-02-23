@@ -10,7 +10,7 @@ import (
 // The log profile resource.
 func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...pulumi.InvokeOption) (*LookupLogProfileResult, error) {
 	var rv LookupLogProfileResult
-	err := ctx.Invoke("azure-nextgen:insights/v20160301:getLogProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights/v20160301:getLogProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

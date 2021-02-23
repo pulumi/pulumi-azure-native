@@ -93,7 +93,13 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:intune:AndroidMAMPolicyByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:intune:AndroidMAMPolicyByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"),
@@ -101,7 +107,7 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AndroidMAMPolicyByName
-	err := ctx.RegisterResource("azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:intune/v20150114preview:AndroidMAMPolicyByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,7 +119,7 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 func GetAndroidMAMPolicyByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AndroidMAMPolicyByNameState, opts ...pulumi.ResourceOption) (*AndroidMAMPolicyByName, error) {
 	var resource AndroidMAMPolicyByName
-	err := ctx.ReadResource("azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:intune/v20150114preview:AndroidMAMPolicyByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

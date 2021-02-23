@@ -23,7 +23,7 @@ export class ADCCatalog extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datacatalog:ADCCatalog';
+    public static readonly __pulumiType = 'azure-native:datacatalog:ADCCatalog';
 
     /**
      * Returns true if the given object is an instance of ADCCatalog.  This is designed to work even
@@ -127,7 +127,7 @@ export class ADCCatalog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datacatalog/latest:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datacatalog/latest:ADCCatalog" }, { type: "azure-nextgen:datacatalog/latest:ADCCatalog" }, { type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ADCCatalog.__pulumiType, name, inputs, opts);
     }

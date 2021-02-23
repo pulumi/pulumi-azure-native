@@ -10,10 +10,10 @@ import (
 // List of virtual network gateway routes.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetworkGatewayLearnedRoutes'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayLearnedRoutes'.
 func GetVirtualNetworkGatewayLearnedRoutes(ctx *pulumi.Context, args *GetVirtualNetworkGatewayLearnedRoutesArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayLearnedRoutesResult, error) {
 	var rv GetVirtualNetworkGatewayLearnedRoutesResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetworkGatewayLearnedRoutes", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetworkGatewayLearnedRoutes", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

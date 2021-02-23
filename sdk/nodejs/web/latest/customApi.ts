@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A custom API
  * Latest API Version: 2016-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:CustomApi'.
  */
 export class CustomApi extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class CustomApi extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomApi {
-        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")
+        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:CustomApi'.")
         return new CustomApi(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/latest:CustomApi';
+    public static readonly __pulumiType = 'azure-native:web/latest:CustomApi';
 
     /**
      * Returns true if the given object is an instance of CustomApi.  This is designed to work even
@@ -71,9 +71,9 @@ export class CustomApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:CustomApi'. */
     constructor(name: string, args: CustomApiArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CustomApi'.")
+        pulumi.log.warn("CustomApi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:CustomApi'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class CustomApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:CustomApi" }, { type: "azure-nextgen:web/v20160601:CustomApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:CustomApi" }, { type: "azure-nextgen:web:CustomApi" }, { type: "azure-native:web/v20160601:CustomApi" }, { type: "azure-nextgen:web/v20160601:CustomApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomApi.__pulumiType, name, inputs, opts);
     }

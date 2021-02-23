@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01-preview.
 func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulumi.InvokeOption) (*LookupSolutionResult, error) {
 	var rv LookupSolutionResult
-	err := ctx.Invoke("azure-nextgen:migrate:getSolution", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate:getSolution", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

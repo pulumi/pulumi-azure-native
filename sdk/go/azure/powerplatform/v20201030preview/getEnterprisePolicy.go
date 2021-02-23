@@ -10,7 +10,7 @@ import (
 // Definition of the EnterprisePolicy.
 func LookupEnterprisePolicy(ctx *pulumi.Context, args *LookupEnterprisePolicyArgs, opts ...pulumi.InvokeOption) (*LookupEnterprisePolicyResult, error) {
 	var rv LookupEnterprisePolicyResult
-	err := ctx.Invoke("azure-nextgen:powerplatform/v20201030preview:getEnterprisePolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

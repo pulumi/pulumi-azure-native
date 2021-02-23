@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
+namespace Pulumi.AzureNative.Network.V20161201.Inputs
 {
 
     public sealed class BgpSettingsArgs : Pulumi.ResourceArgs

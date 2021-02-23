@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Cache details.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getCache'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCache'. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
-    pulumi.log.warn("getCache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getCache'.")
+    pulumi.log.warn("getCache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCache'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:getCache", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:getCache", {
         "cacheId": args.cacheId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

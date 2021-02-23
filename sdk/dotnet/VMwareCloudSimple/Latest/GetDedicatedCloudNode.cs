@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
+namespace Pulumi.AzureNative.VMwareCloudSimple.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:vmwarecloudsimple:getDedicatedCloudNode'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudNode'.")]
     public static class GetDedicatedCloudNode
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
         /// Latest API Version: 2019-04-01.
         /// </summary>
         public static Task<GetDedicatedCloudNodeResult> InvokeAsync(GetDedicatedCloudNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-nextgen:vmwarecloudsimple/latest:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedCloudNodeResult>("azure-native:vmwarecloudsimple/latest:getDedicatedCloudNode", args ?? new GetDedicatedCloudNodeArgs(), options.WithVersion());
     }
 
 

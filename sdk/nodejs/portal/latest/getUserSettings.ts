@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response to get user settings
  * Latest API Version: 2018-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'. */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
-    pulumi.log.warn("getUserSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:portal:getUserSettings'.")
+    pulumi.log.warn("getUserSettings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:portal/latest:getUserSettings", {
+    return pulumi.runtime.invoke("azure-native:portal/latest:getUserSettings", {
         "userSettingsName": args.userSettingsName,
     }, opts);
 }

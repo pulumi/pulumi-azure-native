@@ -10,7 +10,7 @@ import (
 // The result of a request to retrieve a key-value from the specified configuration store.
 func ListConfigurationStoreKeyValue(ctx *pulumi.Context, args *ListConfigurationStoreKeyValueArgs, opts ...pulumi.InvokeOption) (*ListConfigurationStoreKeyValueResult, error) {
 	var rv ListConfigurationStoreKeyValueResult
-	err := ctx.Invoke("azure-nextgen:appconfiguration/v20191001:listConfigurationStoreKeyValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appconfiguration/v20191001:listConfigurationStoreKeyValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

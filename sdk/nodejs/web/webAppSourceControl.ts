@@ -23,7 +23,7 @@ export class WebAppSourceControl extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web:WebAppSourceControl';
+    public static readonly __pulumiType = 'azure-native:web:WebAppSourceControl';
 
     /**
      * Returns true if the given object is an instance of WebAppSourceControl.  This is designed to work even
@@ -123,7 +123,7 @@ export class WebAppSourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppSourceControl" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20160801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20180201:WebAppSourceControl" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControl" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControl" }, { type: "azure-nextgen:web/v20200901:WebAppSourceControl" }, { type: "azure-nextgen:web/v20201001:WebAppSourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppSourceControl" }, { type: "azure-nextgen:web/latest:WebAppSourceControl" }, { type: "azure-native:web/v20150801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControl" }, { type: "azure-native:web/v20160801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20160801:WebAppSourceControl" }, { type: "azure-native:web/v20180201:WebAppSourceControl" }, { type: "azure-nextgen:web/v20180201:WebAppSourceControl" }, { type: "azure-native:web/v20181101:WebAppSourceControl" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControl" }, { type: "azure-native:web/v20190801:WebAppSourceControl" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControl" }, { type: "azure-native:web/v20200601:WebAppSourceControl" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControl" }, { type: "azure-native:web/v20200901:WebAppSourceControl" }, { type: "azure-nextgen:web/v20200901:WebAppSourceControl" }, { type: "azure-native:web/v20201001:WebAppSourceControl" }, { type: "azure-nextgen:web/v20201001:WebAppSourceControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSourceControl.__pulumiType, name, inputs, opts);
     }

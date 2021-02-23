@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
+namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
 {
     /// <summary>
     /// An ADP account.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account")]
+    [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20200701preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:autonomousdevelopmentplatform/v20200701preview:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:autonomousdevelopmentplatform/v20200701preview:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform:Account"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 // API Version: 2019-07-01.
 func LookupRemediationAtResource(ctx *pulumi.Context, args *LookupRemediationAtResourceArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtResourceResult, error) {
 	var rv LookupRemediationAtResourceResult
-	err := ctx.Invoke("azure-nextgen:policyinsights:getRemediationAtResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:policyinsights:getRemediationAtResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

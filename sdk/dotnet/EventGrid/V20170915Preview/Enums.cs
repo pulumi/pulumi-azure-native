@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20170915Preview
+namespace Pulumi.AzureNative.EventGrid.V20170915Preview
 {
     /// <summary>
     /// Type of the endpoint for the event subscription destination

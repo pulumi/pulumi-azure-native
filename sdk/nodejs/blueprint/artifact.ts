@@ -23,7 +23,7 @@ export class Artifact extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:blueprint:Artifact';
+    public static readonly __pulumiType = 'azure-native:blueprint:Artifact';
 
     /**
      * Returns true if the given object is an instance of Artifact.  This is designed to work even
@@ -86,7 +86,7 @@ export class Artifact extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint/v20181101preview:Artifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:Artifact" }, { type: "azure-nextgen:blueprint/v20181101preview:Artifact" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Artifact.__pulumiType, name, inputs, opts);
     }

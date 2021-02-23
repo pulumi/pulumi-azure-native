@@ -51,7 +51,7 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ManagementGroupName'")
 	}
 	var resource PublishedBlueprint
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:PublishedBlueprint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 func GetPublishedBlueprint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublishedBlueprintState, opts ...pulumi.ResourceOption) (*PublishedBlueprint, error) {
 	var resource PublishedBlueprint
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20171111preview:PublishedBlueprint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

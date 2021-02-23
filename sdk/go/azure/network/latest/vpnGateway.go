@@ -14,7 +14,7 @@ import (
 // VpnGateway Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VpnGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnGateway'.
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
@@ -58,67 +58,133 @@ func NewVpnGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180601:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180701:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180801:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181101:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190201:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VpnGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnGateway"),
@@ -126,7 +192,7 @@ func NewVpnGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VpnGateway
-	err := ctx.RegisterResource("azure-nextgen:network/latest:VpnGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:VpnGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +204,7 @@ func NewVpnGateway(ctx *pulumi.Context,
 func GetVpnGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VpnGatewayState, opts ...pulumi.ResourceOption) (*VpnGateway, error) {
 	var resource VpnGateway
-	err := ctx.ReadResource("azure-nextgen:network/latest:VpnGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:VpnGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

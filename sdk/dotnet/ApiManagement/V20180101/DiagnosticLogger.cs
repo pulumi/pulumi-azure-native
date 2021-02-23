@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Logger details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:DiagnosticLogger")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:DiagnosticLogger")]
     public partial class DiagnosticLogger : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticLogger(string name, DiagnosticLoggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:DiagnosticLogger", name, args ?? new DiagnosticLoggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:DiagnosticLogger", name, args ?? new DiagnosticLoggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DiagnosticLogger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:DiagnosticLogger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:DiagnosticLogger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,8 +77,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:DiagnosticLogger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:DiagnosticLogger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:DiagnosticLogger"},
                 },
             };

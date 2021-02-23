@@ -10,10 +10,10 @@ import (
 // Private Endpoint Connection ARM resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPrivateEndpointConnection'.
 func LookupWebAppPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebAppPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPrivateEndpointConnectionResult, error) {
 	var rv LookupWebAppPrivateEndpointConnectionResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppPrivateEndpointConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppPrivateEndpointConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

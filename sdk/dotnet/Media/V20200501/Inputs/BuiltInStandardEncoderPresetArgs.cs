@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
+namespace Pulumi.AzureNative.Media.V20200501.Inputs
 {
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The built-in preset to be used for encoding videos.
         /// </summary>
         [Input("presetName", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.EncoderNamedPreset> PresetName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.V20200501.EncoderNamedPreset> PresetName { get; set; } = null!;
 
         public BuiltInStandardEncoderPresetArgs()
         {

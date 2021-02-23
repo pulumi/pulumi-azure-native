@@ -17,7 +17,7 @@ export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremli
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:getDatabaseAccountGremlinDatabase", {
+    return pulumi.runtime.invoke("azure-native:documentdb:getDatabaseAccountGremlinDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

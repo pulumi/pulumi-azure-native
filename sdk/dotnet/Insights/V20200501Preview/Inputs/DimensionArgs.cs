@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
+namespace Pulumi.AzureNative.Insights.V20200501Preview.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// Operator for dimension values
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.DimensionOperator> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20200501Preview.DimensionOperator> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

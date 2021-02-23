@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20151101
+namespace Pulumi.AzureNative.Resources.V20151101
 {
     public static class GetDeployment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
         /// Deployment information.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-nextgen:resources/v20151101:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:resources/v20151101:getDeployment", args ?? new GetDeploymentArgs(), options.WithVersion());
     }
 
 

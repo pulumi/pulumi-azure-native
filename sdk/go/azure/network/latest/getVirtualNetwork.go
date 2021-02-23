@@ -10,10 +10,10 @@ import (
 // Virtual Network resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVirtualNetwork'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetwork'.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVirtualNetwork", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVirtualNetwork", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

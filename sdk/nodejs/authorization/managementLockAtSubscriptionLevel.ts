@@ -23,7 +23,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization:ManagementLockAtSubscriptionLevel';
+    public static readonly __pulumiType = 'azure-native:authorization:ManagementLockAtSubscriptionLevel';
 
     /**
      * Returns true if the given object is an instance of ManagementLockAtSubscriptionLevel.  This is designed to work even
@@ -90,7 +90,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtSubscriptionLevel.__pulumiType, name, inputs, opts);
     }

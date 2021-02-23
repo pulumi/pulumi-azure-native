@@ -10,7 +10,7 @@ import (
 // CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
-	err := ctx.Invoke("azure-nextgen:cdn/v20160402:getProfile", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/v20160402:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

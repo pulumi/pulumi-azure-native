@@ -56,22 +56,43 @@ func NewIpAllocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:IpAllocation"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:IpAllocation"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:IpAllocation"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:IpAllocation"),
@@ -79,7 +100,7 @@ func NewIpAllocation(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IpAllocation
-	err := ctx.RegisterResource("azure-nextgen:network/v20200601:IpAllocation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20200601:IpAllocation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +112,7 @@ func NewIpAllocation(ctx *pulumi.Context,
 func GetIpAllocation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IpAllocationState, opts ...pulumi.ResourceOption) (*IpAllocation, error) {
 	var resource IpAllocation
-	err := ctx.ReadResource("azure-nextgen:network/v20200601:IpAllocation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20200601:IpAllocation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

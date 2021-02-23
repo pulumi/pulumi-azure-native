@@ -18,11 +18,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:network/v20201101:Policy":
+            case "azure-native:network/v20201101:Policy":
                 return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "network/v20201101", _module)
+pulumi.runtime.registerResourceModule("azure-native", "network/v20201101", _module)

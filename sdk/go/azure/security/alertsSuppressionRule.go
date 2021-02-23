@@ -54,12 +54,15 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:security/v20190101preview:AlertsSuppressionRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:security/v20190101preview:AlertsSuppressionRule"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource AlertsSuppressionRule
-	err := ctx.RegisterResource("azure-nextgen:security:AlertsSuppressionRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:security:AlertsSuppressionRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +74,7 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 func GetAlertsSuppressionRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AlertsSuppressionRuleState, opts ...pulumi.ResourceOption) (*AlertsSuppressionRule, error) {
 	var resource AlertsSuppressionRule
-	err := ctx.ReadResource("azure-nextgen:security:AlertsSuppressionRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:security:AlertsSuppressionRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

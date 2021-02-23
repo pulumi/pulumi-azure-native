@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Inputs
+namespace Pulumi.AzureNative.ApiManagement.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.Inputs
     public sealed class OpenIdAuthenticationSettingsContractArgs : Pulumi.ResourceArgs
     {
         [Input("bearerTokenSendingMethods")]
-        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.BearerTokenSendingMethods>>? _bearerTokenSendingMethods;
+        private InputList<Union<string, Pulumi.AzureNative.ApiManagement.BearerTokenSendingMethods>>? _bearerTokenSendingMethods;
 
         /// <summary>
         /// How to send token to the server.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.BearerTokenSendingMethods>> BearerTokenSendingMethods
+        public InputList<Union<string, Pulumi.AzureNative.ApiManagement.BearerTokenSendingMethods>> BearerTokenSendingMethods
         {
-            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.BearerTokenSendingMethods>>());
+            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNative.ApiManagement.BearerTokenSendingMethods>>());
             set => _bearerTokenSendingMethods = value;
         }
 

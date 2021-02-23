@@ -10,10 +10,10 @@ import (
 // Friendly Rules name mapping to the any Rules or secret related information.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getRule'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRule'.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
-	err := ctx.Invoke("azure-nextgen:cdn/latest:getRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn/latest:getRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

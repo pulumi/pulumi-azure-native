@@ -14,7 +14,7 @@ import (
 // An Application Insights workbook definition.
 // Latest API Version: 2020-10-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:Workbook'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Workbook'.
 type Workbook struct {
 	pulumi.CustomResourceState
 
@@ -71,13 +71,25 @@ func NewWorkbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:Workbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:Workbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:Workbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Workbook"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180617preview:Workbook"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180617preview:Workbook"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20201020:Workbook"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20201020:Workbook"),
@@ -85,7 +97,7 @@ func NewWorkbook(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Workbook
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:Workbook", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:Workbook", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +109,7 @@ func NewWorkbook(ctx *pulumi.Context,
 func GetWorkbook(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkbookState, opts ...pulumi.ResourceOption) (*Workbook, error) {
 	var resource Workbook
-	err := ctx.ReadResource("azure-nextgen:insights/latest:Workbook", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:Workbook", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

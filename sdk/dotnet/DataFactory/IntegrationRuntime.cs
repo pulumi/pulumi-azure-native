@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Integration runtime resource type.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory:IntegrationRuntime")]
+    [AzureNativeResourceType("azure-native:datafactory:IntegrationRuntime")]
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationRuntime(string name, IntegrationRuntimeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory:IntegrationRuntime", name, args ?? new IntegrationRuntimeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IntegrationRuntime(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory:IntegrationRuntime", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:IntegrationRuntime"},
                 },
             };

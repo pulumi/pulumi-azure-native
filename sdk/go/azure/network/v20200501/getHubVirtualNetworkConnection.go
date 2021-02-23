@@ -10,7 +10,7 @@ import (
 // HubVirtualNetworkConnection Resource.
 func LookupHubVirtualNetworkConnection(ctx *pulumi.Context, args *LookupHubVirtualNetworkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHubVirtualNetworkConnectionResult, error) {
 	var rv LookupHubVirtualNetworkConnectionResult
-	err := ctx.Invoke("azure-nextgen:network/v20200501:getHubVirtualNetworkConnection", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20200501:getHubVirtualNetworkConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

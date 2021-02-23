@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Storage
+namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storage:BlobContainerImmutabilityPolicy")]
+    [AzureNativeResourceType("azure-native:storage:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BlobContainerImmutabilityPolicy(string name, BlobContainerImmutabilityPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:BlobContainerImmutabilityPolicy", name, args ?? new BlobContainerImmutabilityPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storage:BlobContainerImmutabilityPolicy", name, args ?? new BlobContainerImmutabilityPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BlobContainerImmutabilityPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storage:BlobContainerImmutabilityPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storage:BlobContainerImmutabilityPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,14 +77,23 @@ namespace Pulumi.AzureNextGen.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy"},
                 },
             };

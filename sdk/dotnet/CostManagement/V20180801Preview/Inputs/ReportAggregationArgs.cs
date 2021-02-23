@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview.Inputs
+namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview.Inputs
         /// The name of the aggregation function to use.
         /// </summary>
         [Input("function", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.FunctionType> Function { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20180801Preview.FunctionType> Function { get; set; } = null!;
 
         /// <summary>
         /// The name of the column to aggregate.

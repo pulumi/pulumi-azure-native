@@ -21,7 +21,7 @@ export class Authorization extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:avs/v20200320:Authorization';
+    public static readonly __pulumiType = 'azure-native:avs/v20200320:Authorization';
 
     /**
      * Returns true if the given object is an instance of Authorization.  This is designed to work even
@@ -93,7 +93,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Authorization" }, { type: "azure-nextgen:avs/latest:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:Authorization" }, { type: "azure-nextgen:avs:Authorization" }, { type: "azure-native:avs/latest:Authorization" }, { type: "azure-nextgen:avs/latest:Authorization" }, { type: "azure-native:avs/v20200717preview:Authorization" }, { type: "azure-nextgen:avs/v20200717preview:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Authorization.__pulumiType, name, inputs, opts);
     }

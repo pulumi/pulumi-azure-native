@@ -27,17 +27,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:netapp/v20190701:Account":
+            case "azure-native:netapp/v20190701:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:netapp/v20190701:Pool":
+            case "azure-native:netapp/v20190701:Pool":
                 return new Pool(name, <any>undefined, { urn })
-            case "azure-nextgen:netapp/v20190701:Snapshot":
+            case "azure-native:netapp/v20190701:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-nextgen:netapp/v20190701:Volume":
+            case "azure-native:netapp/v20190701:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "netapp/v20190701", _module)
+pulumi.runtime.registerResourceModule("azure-native", "netapp/v20190701", _module)

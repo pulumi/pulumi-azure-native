@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
     /// API Version: 2018-02-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:containerregistry:BuildTask")]
+    [AzureNativeResourceType("azure-native:containerregistry:BuildTask")]
     public partial class BuildTask : Pulumi.CustomResource
     {
         /// <summary>
@@ -91,12 +91,12 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BuildTask(string name, BuildTaskArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:BuildTask", name, args ?? new BuildTaskArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:containerregistry:BuildTask", name, args ?? new BuildTaskArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BuildTask(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:containerregistry:BuildTask", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:containerregistry:BuildTask", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -107,6 +107,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:BuildTask"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildTask"},
                 },
             };
@@ -177,7 +178,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// The current status of build task.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.BuildTaskStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.BuildTaskStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

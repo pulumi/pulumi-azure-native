@@ -22,7 +22,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:providerhub:ResourceTypeRegistration';
+    public static readonly __pulumiType = 'azure-native:providerhub:ResourceTypeRegistration';
 
     /**
      * Returns true if the given object is an instance of ResourceTypeRegistration.  This is designed to work even
@@ -75,7 +75,7 @@ export class ResourceTypeRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/latest:ResourceTypeRegistration" }, { type: "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:ResourceTypeRegistration" }, { type: "azure-nextgen:providerhub/latest:ResourceTypeRegistration" }, { type: "azure-native:providerhub/v20201120:ResourceTypeRegistration" }, { type: "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ResourceTypeRegistration.__pulumiType, name, inputs, opts);
     }

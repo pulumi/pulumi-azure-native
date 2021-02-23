@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
+namespace Pulumi.AzureNative.Network.V20161201.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
     public sealed class ApplicationGatewaySslPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("disabledSslProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20161201.ApplicationGatewaySslProtocol>>? _disabledSslProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20161201.ApplicationGatewaySslProtocol>>? _disabledSslProtocols;
 
         /// <summary>
         /// SSL protocols to be disabled on application gateway. Possible values are: 'TLSv1_0', 'TLSv1_1', and 'TLSv1_2'.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20161201.ApplicationGatewaySslProtocol>> DisabledSslProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20161201.ApplicationGatewaySslProtocol>> DisabledSslProtocols
         {
-            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20161201.ApplicationGatewaySslProtocol>>());
+            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.V20161201.ApplicationGatewaySslProtocol>>());
             set => _disabledSslProtocols = value;
         }
 

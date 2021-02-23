@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
+namespace Pulumi.AzureNative.Batch.Latest.Inputs
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
     public sealed class DiskEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("targets")]
-        private InputList<Pulumi.AzureNextGen.Batch.Latest.DiskEncryptionTarget>? _targets;
+        private InputList<Pulumi.AzureNative.Batch.Latest.DiskEncryptionTarget>? _targets;
 
         /// <summary>
         /// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.Batch.Latest.DiskEncryptionTarget> Targets
+        public InputList<Pulumi.AzureNative.Batch.Latest.DiskEncryptionTarget> Targets
         {
-            get => _targets ?? (_targets = new InputList<Pulumi.AzureNextGen.Batch.Latest.DiskEncryptionTarget>());
+            get => _targets ?? (_targets = new InputList<Pulumi.AzureNative.Batch.Latest.DiskEncryptionTarget>());
             set => _targets = value;
         }
 

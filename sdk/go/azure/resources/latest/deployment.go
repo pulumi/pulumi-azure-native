@@ -14,7 +14,7 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Deployment'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Deployment'.
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -45,52 +45,103 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:resources:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20151101:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20151101:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20160201:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20160201:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20160701:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20160701:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20160901:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20160901:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20170510:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20170510:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20180201:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20180201:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20180501:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20180501:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190301:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190301:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190501:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190501:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190510:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190510:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20190701:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20190701:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20190801:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20190801:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20191001:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20191001:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200601:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200601:Deployment"),
 		},
 		{
+			Type: pulumi.String("azure-native:resources/v20200801:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20201001:Deployment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:Deployment"),
@@ -98,7 +149,7 @@ func NewDeployment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Deployment
-	err := ctx.RegisterResource("azure-nextgen:resources/latest:Deployment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:resources/latest:Deployment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +161,7 @@ func NewDeployment(ctx *pulumi.Context,
 func GetDeployment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeploymentState, opts ...pulumi.ResourceOption) (*Deployment, error) {
 	var resource Deployment
-	err := ctx.ReadResource("azure-nextgen:resources/latest:Deployment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:resources/latest:Deployment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The iSCSI server.
  * Latest API Version: 2016-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiServer'. */
 export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiServerResult> {
-    pulumi.log.warn("getIscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storsimple:getIscsiServer'.")
+    pulumi.log.warn("getIscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiServer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getIscsiServer(args: GetIscsiServerArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storsimple/latest:getIscsiServer", {
+    return pulumi.runtime.invoke("azure-native:storsimple/latest:getIscsiServer", {
         "deviceName": args.deviceName,
         "iscsiServerName": args.iscsiServerName,
         "managerName": args.managerName,

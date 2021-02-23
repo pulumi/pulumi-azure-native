@@ -17,7 +17,7 @@ export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hanaonazure:getProviderInstance", {
+    return pulumi.runtime.invoke("azure-native:hanaonazure:getProviderInstance", {
         "providerInstanceName": args.providerInstanceName,
         "resourceGroupName": args.resourceGroupName,
         "sapMonitorName": args.sapMonitorName,

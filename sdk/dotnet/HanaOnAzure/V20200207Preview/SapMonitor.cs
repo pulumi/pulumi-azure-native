@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
+namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hanaonazure/v20200207preview:SapMonitor")]
+    [AzureNativeResourceType("azure-native:hanaonazure/v20200207preview:SapMonitor")]
     public partial class SapMonitor : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SapMonitor(string name, SapMonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, args ?? new SapMonitorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hanaonazure/v20200207preview:SapMonitor", name, args ?? new SapMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SapMonitor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hanaonazure/v20200207preview:SapMonitor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hanaonazure/v20200207preview:SapMonitor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,6 +112,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hanaonazure:SapMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:hanaonazure:SapMonitor"},
                 },
             };

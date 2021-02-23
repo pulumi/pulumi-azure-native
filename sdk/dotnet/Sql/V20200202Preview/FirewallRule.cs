@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     /// <summary>
     /// A server firewall rule.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20200202preview:FirewallRule")]
+    [AzureNativeResourceType("azure-native:sql/v20200202preview:FirewallRule")]
     public partial class FirewallRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20200202preview:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20200202preview:FirewallRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20200202preview:FirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,10 +64,15 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:FirewallRule"},
                 },
             };

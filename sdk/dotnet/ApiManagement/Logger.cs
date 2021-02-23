@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Logger details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:Logger")]
+    [AzureNativeResourceType("azure-native:apimanagement:Logger")]
     public partial class Logger : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Logger(string name, LoggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Logger", name, args ?? new LoggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:Logger", name, args ?? new LoggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Logger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:Logger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:Logger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,15 +84,25 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20161010:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Logger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Logger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Logger"},
                 },
             };
@@ -152,7 +162,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// Logger type.
         /// </summary>
         [Input("loggerType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.LoggerType> LoggerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.LoggerType> LoggerType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -23,7 +23,7 @@ export class Transform extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media:Transform';
+    public static readonly __pulumiType = 'azure-native:media:Transform';
 
     /**
      * Returns true if the given object is an instance of Transform.  This is designed to work even
@@ -110,7 +110,7 @@ export class Transform extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:Transform" }, { type: "azure-nextgen:media/v20180330preview:Transform" }, { type: "azure-nextgen:media/v20180601preview:Transform" }, { type: "azure-nextgen:media/v20180701:Transform" }, { type: "azure-nextgen:media/v20200501:Transform" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/latest:Transform" }, { type: "azure-nextgen:media/latest:Transform" }, { type: "azure-native:media/v20180330preview:Transform" }, { type: "azure-nextgen:media/v20180330preview:Transform" }, { type: "azure-native:media/v20180601preview:Transform" }, { type: "azure-nextgen:media/v20180601preview:Transform" }, { type: "azure-native:media/v20180701:Transform" }, { type: "azure-nextgen:media/v20180701:Transform" }, { type: "azure-native:media/v20200501:Transform" }, { type: "azure-nextgen:media/v20200501:Transform" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Transform.__pulumiType, name, inputs, opts);
     }

@@ -10,10 +10,10 @@ import (
 // Class representing a Kusto cluster.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:getCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getCluster'.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:getCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

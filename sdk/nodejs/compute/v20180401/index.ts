@@ -47,29 +47,29 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:compute/v20180401:AvailabilitySet":
+            case "azure-native:compute/v20180401:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:Disk":
+            case "azure-native:compute/v20180401:Disk":
                 return new Disk(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:Image":
+            case "azure-native:compute/v20180401:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:ProximityPlacementGroup":
+            case "azure-native:compute/v20180401:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:Snapshot":
+            case "azure-native:compute/v20180401:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:VirtualMachine":
+            case "azure-native:compute/v20180401:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:VirtualMachineExtension":
+            case "azure-native:compute/v20180401:VirtualMachineExtension":
                 return new VirtualMachineExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:VirtualMachineScaleSet":
+            case "azure-native:compute/v20180401:VirtualMachineScaleSet":
                 return new VirtualMachineScaleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension":
+            case "azure-native:compute/v20180401:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM":
+            case "azure-native:compute/v20180401:VirtualMachineScaleSetVM":
                 return new VirtualMachineScaleSetVM(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "compute/v20180401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "compute/v20180401", _module)

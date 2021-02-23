@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.Latest
+namespace Pulumi.AzureNative.LabServices.Latest
 {
     /// <summary>
     /// Represents a lab account.
     /// Latest API Version: 2018-10-15.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:labservices:LabAccount'.")]
-    [AzureNextGenResourceType("azure-nextgen:labservices/latest:LabAccount")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:LabAccount'.")]
+    [AzureNativeResourceType("azure-native:labservices/latest:LabAccount")]
     public partial class LabAccount : Pulumi.CustomResource
     {
         /// <summary>
@@ -80,12 +80,12 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LabAccount(string name, LabAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/latest:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:labservices/latest:LabAccount", name, args ?? new LabAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LabAccount(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:labservices/latest:LabAccount", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:labservices/latest:LabAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -96,7 +96,9 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:labservices:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:LabAccount"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20181015:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:LabAccount"},
                 },
             };

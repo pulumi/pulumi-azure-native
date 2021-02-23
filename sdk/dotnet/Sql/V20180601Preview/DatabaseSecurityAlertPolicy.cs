@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20180601Preview
+namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
     /// <summary>
     /// A database security alert policy.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy")]
+    [AzureNativeResourceType("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy")]
     public partial class DatabaseSecurityAlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatabaseSecurityAlertPolicy(string name, DatabaseSecurityAlertPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy", name, args ?? new DatabaseSecurityAlertPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy", name, args ?? new DatabaseSecurityAlertPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DatabaseSecurityAlertPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,10 +100,15 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:sql:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/latest:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
                 },
             };
@@ -192,7 +197,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         [Input("state", required: true)]
-        public Input<Pulumi.AzureNextGen.Sql.V20180601Preview.SecurityAlertPolicyState> State { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Sql.V20180601Preview.SecurityAlertPolicyState> State { get; set; } = null!;
 
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account.

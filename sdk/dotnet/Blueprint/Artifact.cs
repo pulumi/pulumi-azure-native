@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint
+namespace Pulumi.AzureNative.Blueprint
 {
     /// <summary>
     /// Represents a blueprint artifact.
     /// API Version: 2018-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint:Artifact")]
+    [AzureNativeResourceType("azure-native:blueprint:Artifact")]
     public partial class Artifact : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Artifact(string name, ArtifactArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint:Artifact", name, args ?? new ArtifactArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint:Artifact", name, args ?? new ArtifactArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Artifact(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint:Artifact", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint:Artifact", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNextGen.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Artifact"},
                     new Pulumi.Alias { Type = "azure-nextgen:blueprint/v20181101preview:Artifact"},
                 },
             };
@@ -99,7 +100,7 @@ namespace Pulumi.AzureNextGen.Blueprint
         /// Specifies the kind of blueprint artifact.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.ArtifactKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.ArtifactKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

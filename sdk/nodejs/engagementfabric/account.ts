@@ -23,7 +23,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:engagementfabric:Account';
+    public static readonly __pulumiType = 'azure-native:engagementfabric:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -94,7 +94,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:engagementfabric/v20180901preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric/v20180901preview:Account" }, { type: "azure-nextgen:engagementfabric/v20180901preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

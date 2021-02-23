@@ -21,27 +21,27 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:resources:Deployment":
+	case "azure-native:resources:Deployment":
 		r, err = NewDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:DeploymentAtManagementGroupScope":
+	case "azure-native:resources:DeploymentAtManagementGroupScope":
 		r, err = NewDeploymentAtManagementGroupScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:DeploymentAtScope":
+	case "azure-native:resources:DeploymentAtScope":
 		r, err = NewDeploymentAtScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:DeploymentAtSubscriptionScope":
+	case "azure-native:resources:DeploymentAtSubscriptionScope":
 		r, err = NewDeploymentAtSubscriptionScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:DeploymentAtTenantScope":
+	case "azure-native:resources:DeploymentAtTenantScope":
 		r, err = NewDeploymentAtTenantScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:DeploymentScript":
+	case "azure-native:resources:DeploymentScript":
 		r, err = NewDeploymentScript(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:Resource":
+	case "azure-native:resources:Resource":
 		r, err = NewResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:ResourceGroup":
+	case "azure-native:resources:ResourceGroup":
 		r, err = NewResourceGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:TagAtScope":
+	case "azure-native:resources:TagAtScope":
 		r, err = NewTagAtScope(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:TemplateSpec":
+	case "azure-native:resources:TemplateSpec":
 		r, err = NewTemplateSpec(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:resources:TemplateSpecVersion":
+	case "azure-native:resources:TemplateSpecVersion":
 		r, err = NewTemplateSpecVersion(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -56,7 +56,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"resources",
 		&module{version},
 	)

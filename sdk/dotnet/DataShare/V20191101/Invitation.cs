@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20191101
+namespace Pulumi.AzureNative.DataShare.V20191101
 {
     /// <summary>
     /// A Invitation data transfer object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare/v20191101:Invitation")]
+    [AzureNativeResourceType("azure-native:datashare/v20191101:Invitation")]
     public partial class Invitation : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Invitation(string name, InvitationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20191101:Invitation", name, args ?? new InvitationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/v20191101:Invitation", name, args ?? new InvitationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Invitation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20191101:Invitation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/v20191101:Invitation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,10 +108,15 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Invitation"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Invitation"},
                 },
             };

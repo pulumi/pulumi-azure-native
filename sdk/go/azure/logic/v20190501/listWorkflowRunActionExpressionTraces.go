@@ -10,7 +10,7 @@ import (
 // The expression traces.
 func ListWorkflowRunActionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionExpressionTracesResult
-	err := ctx.Invoke("azure-nextgen:logic/v20190501:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20190501:listWorkflowRunActionExpressionTraces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

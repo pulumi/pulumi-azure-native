@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.Inputs
+namespace Pulumi.AzureNative.MachineLearning.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.MachineLearning.Inputs
         /// Additional format information for the data type.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.ColumnFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.ColumnFormat>? Format { get; set; }
 
         /// <summary>
         /// Data type of the column.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.ColumnType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.ColumnType> Type { get; set; } = null!;
 
         /// <summary>
         /// Flag indicating if the type supports null values or not.

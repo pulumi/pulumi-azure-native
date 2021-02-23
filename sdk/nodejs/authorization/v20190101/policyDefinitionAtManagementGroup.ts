@@ -22,7 +22,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/v20190101:PolicyDefinitionAtManagementGroup';
+    public static readonly __pulumiType = 'azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup';
 
     /**
      * Returns true if the given object is an instance of PolicyDefinitionAtManagementGroup.  This is designed to work even
@@ -114,7 +114,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/latest:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200901:PolicyDefinitionAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }

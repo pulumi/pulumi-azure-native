@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListWebAppFunctionSecretsSlot(ctx *pulumi.Context, args *ListWebAppFunctionSecretsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsSlotResult, error) {
 	var rv ListWebAppFunctionSecretsSlotResult
-	err := ctx.Invoke("azure-nextgen:web:listWebAppFunctionSecretsSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listWebAppFunctionSecretsSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:consumption/v20181001:Budget":
+            case "azure-native:consumption/v20181001:Budget":
                 return new Budget(name, <any>undefined, { urn })
-            case "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName":
+            case "azure-native:consumption/v20181001:BudgetByResourceGroupName":
                 return new BudgetByResourceGroupName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "consumption/v20181001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "consumption/v20181001", _module)

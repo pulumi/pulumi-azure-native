@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest
+namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.Latest
 {
     /// <summary>
     /// The sku name

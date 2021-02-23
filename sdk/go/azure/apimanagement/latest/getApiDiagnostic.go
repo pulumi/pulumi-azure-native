@@ -10,10 +10,10 @@ import (
 // Diagnostic details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiDiagnostic'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiDiagnostic'.
 func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupApiDiagnosticResult, error) {
 	var rv LookupApiDiagnosticResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiDiagnostic", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiDiagnostic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

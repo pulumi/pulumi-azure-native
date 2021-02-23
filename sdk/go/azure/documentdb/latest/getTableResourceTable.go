@@ -10,10 +10,10 @@ import (
 // An Azure Cosmos DB Table.
 // Latest API Version: 2021-01-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:getTableResourceTable'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getTableResourceTable'.
 func LookupTableResourceTable(ctx *pulumi.Context, args *LookupTableResourceTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResourceTableResult, error) {
 	var rv LookupTableResourceTableResult
-	err := ctx.Invoke("azure-nextgen:documentdb/latest:getTableResourceTable", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb/latest:getTableResourceTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

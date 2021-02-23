@@ -14,7 +14,7 @@ import (
 // Describes an Azure Cognitive Search service and its current state.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:search:Service'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:Service'.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -78,19 +78,37 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:search:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20150819:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20150819:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:search/v20191001preview:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/v20191001preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20200313:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200313:Service"),
 		},
 		{
+			Type: pulumi.String("azure-native:search/v20200801:Service"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:search/v20200801:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:search/v20200801preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:search/v20200801preview:Service"),
@@ -98,7 +116,7 @@ func NewService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Service
-	err := ctx.RegisterResource("azure-nextgen:search/latest:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:search/latest:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +128,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("azure-nextgen:search/latest:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:search/latest:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // ApiRelease details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getApiRelease'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiRelease'.
 func LookupApiRelease(ctx *pulumi.Context, args *LookupApiReleaseArgs, opts ...pulumi.InvokeOption) (*LookupApiReleaseResult, error) {
 	var rv LookupApiReleaseResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getApiRelease", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getApiRelease", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

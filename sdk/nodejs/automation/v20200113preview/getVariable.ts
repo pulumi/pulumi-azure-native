@@ -16,7 +16,7 @@ export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:automation/v20200113preview:getVariable", {
+    return pulumi.runtime.invoke("azure-native:automation/v20200113preview:getVariable", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,
         "variableName": args.variableName,

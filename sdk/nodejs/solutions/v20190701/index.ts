@@ -24,15 +24,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:solutions/v20190701:Application":
+            case "azure-native:solutions/v20190701:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:solutions/v20190701:ApplicationDefinition":
+            case "azure-native:solutions/v20190701:ApplicationDefinition":
                 return new ApplicationDefinition(name, <any>undefined, { urn })
-            case "azure-nextgen:solutions/v20190701:JitRequest":
+            case "azure-native:solutions/v20190701:JitRequest":
                 return new JitRequest(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "solutions/v20190701", _module)
+pulumi.runtime.registerResourceModule("azure-native", "solutions/v20190701", _module)

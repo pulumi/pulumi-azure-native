@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.Inputs
+namespace Pulumi.AzureNative.KeyVault.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.Inputs
         /// Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         /// </summary>
         [Input("bypass")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.NetworkRuleBypassOptions>? Bypass { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.NetworkRuleBypassOptions>? Bypass { get; set; }
 
         /// <summary>
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.NetworkRuleAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.KeyVault.NetworkRuleAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;

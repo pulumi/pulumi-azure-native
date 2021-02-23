@@ -10,10 +10,10 @@ import (
 // Collection of consent links
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:listConnectionConsentLinks'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listConnectionConsentLinks'.
 func ListConnectionConsentLinks(ctx *pulumi.Context, args *ListConnectionConsentLinksArgs, opts ...pulumi.InvokeOption) (*ListConnectionConsentLinksResult, error) {
 	var rv ListConnectionConsentLinksResult
-	err := ctx.Invoke("azure-nextgen:web/latest:listConnectionConsentLinks", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:listConnectionConsentLinks", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

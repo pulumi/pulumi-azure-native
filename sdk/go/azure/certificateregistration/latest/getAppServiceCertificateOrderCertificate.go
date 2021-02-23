@@ -10,10 +10,10 @@ import (
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:certificateregistration:getAppServiceCertificateOrderCertificate'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:certificateregistration:getAppServiceCertificateOrderCertificate'.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
-	err := ctx.Invoke("azure-nextgen:certificateregistration/latest:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:certificateregistration/latest:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

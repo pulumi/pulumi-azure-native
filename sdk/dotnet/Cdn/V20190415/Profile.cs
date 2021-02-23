@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.V20190415
+namespace Pulumi.AzureNative.Cdn.V20190415
 {
     /// <summary>
     /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cdn/v20190415:Profile")]
+    [AzureNativeResourceType("azure-native:cdn/v20190415:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20190415:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/v20190415:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/v20190415:Profile", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/v20190415:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,18 +82,31 @@ namespace Pulumi.AzureNextGen.Cdn.V20190415
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/latest:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20150601:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20160402:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20160402:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20161002:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20170402:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20171012:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20171012:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20191231:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Profile"},
                 },
             };

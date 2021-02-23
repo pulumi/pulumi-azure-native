@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AlertsManagement
+namespace Pulumi.AzureNative.AlertsManagement
 {
     public static class GetActionRuleByName
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement
         /// API Version: 2019-05-05-preview.
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-nextgen:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
     }
 
 

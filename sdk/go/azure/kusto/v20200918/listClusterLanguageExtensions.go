@@ -10,7 +10,7 @@ import (
 // The list of language extension objects.
 func ListClusterLanguageExtensions(ctx *pulumi.Context, args *ListClusterLanguageExtensionsArgs, opts ...pulumi.InvokeOption) (*ListClusterLanguageExtensionsResult, error) {
 	var rv ListClusterLanguageExtensionsResult
-	err := ctx.Invoke("azure-nextgen:kusto/v20200918:listClusterLanguageExtensions", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/v20200918:listClusterLanguageExtensions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

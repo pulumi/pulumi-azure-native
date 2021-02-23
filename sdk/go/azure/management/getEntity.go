@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
-	err := ctx.Invoke("azure-nextgen:management:getEntity", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:management:getEntity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

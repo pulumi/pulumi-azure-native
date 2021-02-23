@@ -10,7 +10,7 @@ import (
 // The description of the Windows IoT Device Service.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
-	err := ctx.Invoke("azure-nextgen:windowsiot/v20180216preview:getService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:windowsiot/v20180216preview:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

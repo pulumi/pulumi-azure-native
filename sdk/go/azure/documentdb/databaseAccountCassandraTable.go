@@ -54,19 +54,37 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraTable"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountCassandraTable"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraTable"),
@@ -74,7 +92,7 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraTable
-	err := ctx.RegisterResource("azure-nextgen:documentdb:DatabaseAccountCassandraTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb:DatabaseAccountCassandraTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +104,7 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 func GetDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountCassandraTableState, opts ...pulumi.ResourceOption) (*DatabaseAccountCassandraTable, error) {
 	var resource DatabaseAccountCassandraTable
-	err := ctx.ReadResource("azure-nextgen:documentdb:DatabaseAccountCassandraTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb:DatabaseAccountCassandraTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

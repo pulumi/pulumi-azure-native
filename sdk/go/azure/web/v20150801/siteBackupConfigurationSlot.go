@@ -56,28 +56,55 @@ func NewSiteBackupConfigurationSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:SiteBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:SiteBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:SiteBackupConfigurationSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20160801:SiteBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:SiteBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:SiteBackupConfigurationSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:SiteBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:SiteBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:SiteBackupConfigurationSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:SiteBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:SiteBackupConfigurationSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:SiteBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:SiteBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteBackupConfigurationSlot"),
@@ -85,7 +112,7 @@ func NewSiteBackupConfigurationSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SiteBackupConfigurationSlot
-	err := ctx.RegisterResource("azure-nextgen:web/v20150801:SiteBackupConfigurationSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20150801:SiteBackupConfigurationSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +124,7 @@ func NewSiteBackupConfigurationSlot(ctx *pulumi.Context,
 func GetSiteBackupConfigurationSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteBackupConfigurationSlotState, opts ...pulumi.ResourceOption) (*SiteBackupConfigurationSlot, error) {
 	var resource SiteBackupConfigurationSlot
-	err := ctx.ReadResource("azure-nextgen:web/v20150801:SiteBackupConfigurationSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20150801:SiteBackupConfigurationSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

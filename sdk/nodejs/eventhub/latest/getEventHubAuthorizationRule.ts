@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Single item in a List or Get AuthorizationRule operation
  * Latest API Version: 2017-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getEventHubAuthorizationRule'. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:eventhub:getEventHubAuthorizationRule'.")
+    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getEventHubAuthorizationRule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/latest:getEventHubAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:eventhub/latest:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

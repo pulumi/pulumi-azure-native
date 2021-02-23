@@ -10,9 +10,9 @@ import * as utilities from "../../utilities";
  * The task will have all information to schedule a run against it.
  * Latest API Version: 2019-04-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getTask'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getTask'. */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
-    pulumi.log.warn("getTask is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:containerregistry:getTask'.")
+    pulumi.log.warn("getTask is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:getTask'.")
     if (!opts) {
         opts = {}
     }
@@ -20,7 +20,7 @@ export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry/latest:getTask", {
+    return pulumi.runtime.invoke("azure-native:containerregistry/latest:getTask", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskName": args.taskName,

@@ -21,7 +21,7 @@ export class WebAppApplicationSettings extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20181101:WebAppApplicationSettings';
+    public static readonly __pulumiType = 'azure-native:web/v20181101:WebAppApplicationSettings';
 
     /**
      * Returns true if the given object is an instance of WebAppApplicationSettings.  This is designed to work even
@@ -85,7 +85,7 @@ export class WebAppApplicationSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppApplicationSettings" }, { type: "azure-nextgen:web/latest:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20150801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20160801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20180201:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20190801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20200601:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20200901:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20201001:WebAppApplicationSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppApplicationSettings" }, { type: "azure-nextgen:web:WebAppApplicationSettings" }, { type: "azure-native:web/latest:WebAppApplicationSettings" }, { type: "azure-nextgen:web/latest:WebAppApplicationSettings" }, { type: "azure-native:web/v20150801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20150801:WebAppApplicationSettings" }, { type: "azure-native:web/v20160801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20160801:WebAppApplicationSettings" }, { type: "azure-native:web/v20180201:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20180201:WebAppApplicationSettings" }, { type: "azure-native:web/v20190801:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20190801:WebAppApplicationSettings" }, { type: "azure-native:web/v20200601:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20200601:WebAppApplicationSettings" }, { type: "azure-native:web/v20200901:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20200901:WebAppApplicationSettings" }, { type: "azure-native:web/v20201001:WebAppApplicationSettings" }, { type: "azure-nextgen:web/v20201001:WebAppApplicationSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppApplicationSettings.__pulumiType, name, inputs, opts);
     }

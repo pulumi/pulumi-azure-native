@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Data flow resource type.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory:DataFlow")]
+    [AzureNativeResourceType("azure-native:datafactory:DataFlow")]
     public partial class DataFlow : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataFlow(string name, DataFlowArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory:DataFlow", name, args ?? new DataFlowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataFlow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:DataFlow", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory:DataFlow", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,7 +65,9 @@ namespace Pulumi.AzureNextGen.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:DataFlow"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:DataFlow"},
                 },
             };

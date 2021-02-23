@@ -17,7 +17,7 @@ export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:machinelearningservices:getMachineLearningDataset", {
+    return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningDataset", {
         "datasetName": args.datasetName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

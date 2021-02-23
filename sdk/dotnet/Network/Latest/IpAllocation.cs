@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// IpAllocation resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:IpAllocation'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:IpAllocation")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpAllocation'.")]
+    [AzureNativeResourceType("azure-native:network/latest:IpAllocation")]
     public partial class IpAllocation : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpAllocation(string name, IpAllocationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:IpAllocation", name, args ?? new IpAllocationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:IpAllocation", name, args ?? new IpAllocationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IpAllocation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:IpAllocation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:IpAllocation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,12 +114,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpAllocation"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:IpAllocation"},
                 },
             };
@@ -196,7 +203,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The address prefix Type for the IpAllocation.
         /// </summary>
         [Input("prefixType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IPVersion>? PrefixType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.IPVersion>? PrefixType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -220,7 +227,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The type for the IpAllocation.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IpAllocationType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.IpAllocationType>? Type { get; set; }
 
         public IpAllocationArgs()
         {

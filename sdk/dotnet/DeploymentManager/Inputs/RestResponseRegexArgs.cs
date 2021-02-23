@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DeploymentManager.Inputs
+namespace Pulumi.AzureNative.DeploymentManager.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.Inputs
         /// Indicates whether any or all of the expressions should match with the response content.
         /// </summary>
         [Input("matchQuantifier")]
-        public Input<Pulumi.AzureNextGen.DeploymentManager.RestMatchQuantifier>? MatchQuantifier { get; set; }
+        public Input<Pulumi.AzureNative.DeploymentManager.RestMatchQuantifier>? MatchQuantifier { get; set; }
 
         [Input("matches")]
         private InputList<string>? _matches;

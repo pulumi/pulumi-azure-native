@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Security Partner Provider resource.
     /// API Version: 2020-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network:SecurityPartnerProvider")]
+    [AzureNativeResourceType("azure-native:network:SecurityPartnerProvider")]
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityPartnerProvider(string name, SecurityPartnerProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:SecurityPartnerProvider", name, args ?? new SecurityPartnerProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network:SecurityPartnerProvider", name, args ?? new SecurityPartnerProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityPartnerProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network:SecurityPartnerProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network:SecurityPartnerProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,12 +95,19 @@ namespace Pulumi.AzureNextGen.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network/latest:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityPartnerProvider"},
                 },
             };
@@ -153,7 +160,7 @@ namespace Pulumi.AzureNextGen.Network
         /// The security provider name.
         /// </summary>
         [Input("securityProviderName")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.SecurityProviderName>? SecurityProviderName { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.SecurityProviderName>? SecurityProviderName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

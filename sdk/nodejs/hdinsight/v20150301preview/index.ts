@@ -22,13 +22,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hdinsight/v20150301preview:Application":
+            case "azure-native:hdinsight/v20150301preview:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "azure-nextgen:hdinsight/v20150301preview:Cluster":
+            case "azure-native:hdinsight/v20150301preview:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "hdinsight/v20150301preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "hdinsight/v20150301preview", _module)

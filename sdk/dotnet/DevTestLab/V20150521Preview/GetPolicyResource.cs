@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     public static class GetPolicyResource
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// A Policy.
         /// </summary>
         public static Task<GetPolicyResourceResult> InvokeAsync(GetPolicyResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-nextgen:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResourceResult>("azure-native:devtestlab/v20150521preview:getPolicyResource", args ?? new GetPolicyResourceArgs(), options.WithVersion());
     }
 
 

@@ -42,13 +42,25 @@ func NewDashboard(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal/v20150801preview:Dashboard"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal/v20150801preview:Dashboard"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20181001preview:Dashboard"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20181001preview:Dashboard"),
 		},
 		{
+			Type: pulumi.String("azure-native:portal/v20190101preview:Dashboard"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal/v20190101preview:Dashboard"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20200901preview:Dashboard"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20200901preview:Dashboard"),
@@ -56,7 +68,7 @@ func NewDashboard(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Dashboard
-	err := ctx.RegisterResource("azure-nextgen:portal:Dashboard", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal:Dashboard", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +80,7 @@ func NewDashboard(ctx *pulumi.Context,
 func GetDashboard(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DashboardState, opts ...pulumi.ResourceOption) (*Dashboard, error) {
 	var resource Dashboard
-	err := ctx.ReadResource("azure-nextgen:portal:Dashboard", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal:Dashboard", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

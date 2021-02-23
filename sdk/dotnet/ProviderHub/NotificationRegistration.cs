@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub
+namespace Pulumi.AzureNative.ProviderHub
 {
     /// <summary>
     /// The notification registration definition.
     /// API Version: 2020-11-20.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:providerhub:NotificationRegistration")]
+    [AzureNativeResourceType("azure-native:providerhub:NotificationRegistration")]
     public partial class NotificationRegistration : Pulumi.CustomResource
     {
         /// <summary>
@@ -40,12 +40,12 @@ namespace Pulumi.AzureNextGen.ProviderHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationRegistration(string name, NotificationRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:NotificationRegistration", name, args ?? new NotificationRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:providerhub:NotificationRegistration", name, args ?? new NotificationRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:providerhub:NotificationRegistration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:providerhub:NotificationRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -56,7 +56,9 @@ namespace Pulumi.AzureNextGen.ProviderHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:NotificationRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:NotificationRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:NotificationRegistration"},
                 },
             };

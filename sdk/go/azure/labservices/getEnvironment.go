@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
-	err := ctx.Invoke("azure-nextgen:labservices:getEnvironment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:getEnvironment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

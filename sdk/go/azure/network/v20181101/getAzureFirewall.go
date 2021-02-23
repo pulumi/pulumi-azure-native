@@ -10,7 +10,7 @@ import (
 // Azure Firewall resource
 func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
 	var rv LookupAzureFirewallResult
-	err := ctx.Invoke("azure-nextgen:network/v20181101:getAzureFirewall", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20181101:getAzureFirewall", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

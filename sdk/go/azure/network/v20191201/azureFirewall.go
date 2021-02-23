@@ -67,67 +67,133 @@ func NewAzureFirewall(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:AzureFirewall"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:AzureFirewall"),
@@ -135,7 +201,7 @@ func NewAzureFirewall(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AzureFirewall
-	err := ctx.RegisterResource("azure-nextgen:network/v20191201:AzureFirewall", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20191201:AzureFirewall", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -147,7 +213,7 @@ func NewAzureFirewall(ctx *pulumi.Context,
 func GetAzureFirewall(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AzureFirewallState, opts ...pulumi.ResourceOption) (*AzureFirewall, error) {
 	var resource AzureFirewall
-	err := ctx.ReadResource("azure-nextgen:network/v20191201:AzureFirewall", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20191201:AzureFirewall", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

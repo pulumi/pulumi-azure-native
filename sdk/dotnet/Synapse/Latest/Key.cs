@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.Latest
+namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// A workspace key
     /// Latest API Version: 2020-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:synapse:Key'.")]
-    [AzureNextGenResourceType("azure-nextgen:synapse/latest:Key")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:Key'.")]
+    [AzureNativeResourceType("azure-native:synapse/latest:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/latest:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Key(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/latest:Key", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/latest:Key", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:Key"},
                 },
             };

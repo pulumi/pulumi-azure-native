@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.Latest
+namespace Pulumi.AzureNative.DataShare.Latest
 {
     /// <summary>
     /// A share data transfer object.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datashare:Share'.")]
-    [AzureNextGenResourceType("azure-nextgen:datashare/latest:Share")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:Share'.")]
+    [AzureNativeResourceType("azure-native:datashare/latest:Share")]
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Share(string name, ShareArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/latest:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/latest:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Share(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/latest:Share", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/latest:Share", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,10 +102,15 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Share"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:Share"},
                 },
             };
@@ -152,7 +157,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// Share kind.
         /// </summary>
         [Input("shareKind")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.ShareKind>? ShareKind { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataShare.Latest.ShareKind>? ShareKind { get; set; }
 
         /// <summary>
         /// The name of the share.

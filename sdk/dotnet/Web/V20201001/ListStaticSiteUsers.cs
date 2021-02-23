@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20201001
+namespace Pulumi.AzureNative.Web.V20201001
 {
     public static class ListStaticSiteUsers
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20201001
         /// Collection of static site custom users.
         /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-nextgen:web/v20201001:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web/v20201001:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
     }
 
 

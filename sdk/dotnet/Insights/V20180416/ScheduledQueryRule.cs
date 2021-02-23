@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20180416
+namespace Pulumi.AzureNative.Insights.V20180416
 {
     /// <summary>
     /// The Log Search Rule resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20180416:ScheduledQueryRule")]
+    [AzureNativeResourceType("azure-native:insights/v20180416:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledQueryRule(string name, ScheduledQueryRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180416:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20180416:ScheduledQueryRule", name, args ?? new ScheduledQueryRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduledQueryRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20180416:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20180416:ScheduledQueryRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -136,8 +136,11 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/latest:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200501preview:ScheduledQueryRule"},
                 },
             };
@@ -184,7 +187,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416
         /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         /// </summary>
         [Input("enabled")]
-        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.Enabled>? Enabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20180416.Enabled>? Enabled { get; set; }
 
         /// <summary>
         /// Resource location

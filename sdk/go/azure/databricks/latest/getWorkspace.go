@@ -10,10 +10,10 @@ import (
 // Information about workspace.
 // Latest API Version: 2018-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databricks:getWorkspace'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
-	err := ctx.Invoke("azure-nextgen:databricks/latest:getWorkspace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databricks/latest:getWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

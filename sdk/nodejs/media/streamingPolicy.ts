@@ -23,7 +23,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media:StreamingPolicy';
+    public static readonly __pulumiType = 'azure-native:media:StreamingPolicy';
 
     /**
      * Returns true if the given object is an instance of StreamingPolicy.  This is designed to work even
@@ -119,7 +119,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/latest:StreamingPolicy" }, { type: "azure-nextgen:media/v20180330preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180601preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180701:StreamingPolicy" }, { type: "azure-nextgen:media/v20200501:StreamingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/latest:StreamingPolicy" }, { type: "azure-nextgen:media/latest:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-nextgen:media/v20180701:StreamingPolicy" }, { type: "azure-native:media/v20200501:StreamingPolicy" }, { type: "azure-nextgen:media/v20200501:StreamingPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StreamingPolicy.__pulumiType, name, inputs, opts);
     }

@@ -14,7 +14,7 @@ import (
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:Image'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Image'.
 type Image struct {
 	pulumi.CustomResourceState
 
@@ -50,37 +50,73 @@ func NewImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:compute:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20160430preview:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20170330:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20170330:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20171201:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20171201:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20180401:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20180401:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20180601:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20180601:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20181001:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20181001:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20190301:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20190701:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20190701:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20191201:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20191201:Image"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/v20200601:Image"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:compute/v20200601:Image"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:Image"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201201:Image"),
@@ -88,7 +124,7 @@ func NewImage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Image
-	err := ctx.RegisterResource("azure-nextgen:compute/latest:Image", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:compute/latest:Image", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +136,7 @@ func NewImage(ctx *pulumi.Context,
 func GetImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImageState, opts ...pulumi.ResourceOption) (*Image, error) {
 	var resource Image
-	err := ctx.ReadResource("azure-nextgen:compute/latest:Image", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:compute/latest:Image", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

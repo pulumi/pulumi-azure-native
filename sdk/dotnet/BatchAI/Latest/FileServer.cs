@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.Latest
+namespace Pulumi.AzureNative.BatchAI.Latest
 {
     /// <summary>
     /// File Server information.
     /// Latest API Version: 2018-05-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:batchai:FileServer'.")]
-    [AzureNextGenResourceType("azure-nextgen:batchai/latest:FileServer")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:FileServer'.")]
+    [AzureNativeResourceType("azure-native:batchai/latest:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileServer(string name, FileServerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batchai/latest:FileServer", name, args ?? new FileServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileServer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batchai/latest:FileServer", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batchai/latest:FileServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,7 +102,9 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batchai:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:FileServer"},
+                    new Pulumi.Alias { Type = "azure-native:batchai/v20180501:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:FileServer"},
                 },
             };

@@ -16,7 +16,7 @@ export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/v20200901:getAFDCustomDomain", {
+    return pulumi.runtime.invoke("azure-native:cdn/v20200901:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

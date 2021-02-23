@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupSharedPrivateLinkResource(ctx *pulumi.Context, args *LookupSharedPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*LookupSharedPrivateLinkResourceResult, error) {
 	var rv LookupSharedPrivateLinkResourceResult
-	err := ctx.Invoke("azure-nextgen:search:getSharedPrivateLinkResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:search:getSharedPrivateLinkResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

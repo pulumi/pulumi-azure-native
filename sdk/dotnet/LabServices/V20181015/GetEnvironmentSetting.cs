@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.LabServices.V20181015
+namespace Pulumi.AzureNative.LabServices.V20181015
 {
     public static class GetEnvironmentSetting
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// Represents settings of an environment, from which environment instances would be created
         /// </summary>
         public static Task<GetEnvironmentSettingResult> InvokeAsync(GetEnvironmentSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSettingResult>("azure-nextgen:labservices/v20181015:getEnvironmentSetting", args ?? new GetEnvironmentSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentSettingResult>("azure-native:labservices/v20181015:getEnvironmentSetting", args ?? new GetEnvironmentSettingArgs(), options.WithVersion());
     }
 
 

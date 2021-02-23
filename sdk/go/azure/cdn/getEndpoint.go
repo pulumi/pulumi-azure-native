@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-01.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
-	err := ctx.Invoke("azure-nextgen:cdn:getEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:cdn:getEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

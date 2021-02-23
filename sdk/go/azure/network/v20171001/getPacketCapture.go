@@ -10,7 +10,7 @@ import (
 // Information about packet capture session.
 func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opts ...pulumi.InvokeOption) (*LookupPacketCaptureResult, error) {
 	var rv LookupPacketCaptureResult
-	err := ctx.Invoke("azure-nextgen:network/v20171001:getPacketCapture", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20171001:getPacketCapture", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

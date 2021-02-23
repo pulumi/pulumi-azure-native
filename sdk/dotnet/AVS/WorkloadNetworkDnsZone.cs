@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS
+namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX DNS Zone
     /// API Version: 2020-07-17-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:avs:WorkloadNetworkDnsZone")]
+    [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsZone")]
     public partial class WorkloadNetworkDnsZone : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.AVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkloadNetworkDnsZone(string name, WorkloadNetworkDnsZoneArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkDnsZone", name, args ?? new WorkloadNetworkDnsZoneArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:avs:WorkloadNetworkDnsZone", name, args ?? new WorkloadNetworkDnsZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkloadNetworkDnsZone(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:avs:WorkloadNetworkDnsZone", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:avs:WorkloadNetworkDnsZone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,9 @@ namespace Pulumi.AzureNextGen.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone"},
+                    new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkDnsZone"},
                 },
             };

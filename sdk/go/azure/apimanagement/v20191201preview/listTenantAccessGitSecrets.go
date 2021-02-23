@@ -10,7 +10,7 @@ import (
 // Tenant access information contract of the API Management service.
 func ListTenantAccessGitSecrets(ctx *pulumi.Context, args *ListTenantAccessGitSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessGitSecretsResult, error) {
 	var rv ListTenantAccessGitSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:listTenantAccessGitSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:listTenantAccessGitSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

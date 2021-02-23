@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web
+namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Represents user credentials used for publishing activity
     /// API Version: 2015-08-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web:SiteInstanceDeployment")]
+    [AzureNativeResourceType("azure-native:web:SiteInstanceDeployment")]
     public partial class SiteInstanceDeployment : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.Web
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SiteInstanceDeployment(string name, SiteInstanceDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web:SiteInstanceDeployment", name, args ?? new SiteInstanceDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SiteInstanceDeployment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web:SiteInstanceDeployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,7 +125,9 @@ namespace Pulumi.AzureNextGen.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteInstanceDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteInstanceDeployment"},
                 },
             };

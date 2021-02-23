@@ -45,13 +45,25 @@ func NewBot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:botservice:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/latest:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/latest:Bot"),
 		},
 		{
+			Type: pulumi.String("azure-native:botservice/v20180712:Bot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:botservice/v20180712:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20200602:Bot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:Bot"),
@@ -59,7 +71,7 @@ func NewBot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Bot
-	err := ctx.RegisterResource("azure-nextgen:botservice/v20171201:Bot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:botservice/v20171201:Bot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +83,7 @@ func NewBot(ctx *pulumi.Context,
 func GetBot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BotState, opts ...pulumi.ResourceOption) (*Bot, error) {
 	var resource Bot
-	err := ctx.ReadResource("azure-nextgen:botservice/v20171201:Bot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:botservice/v20171201:Bot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -23,7 +23,7 @@ export class Route extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cdn:Route';
+    public static readonly __pulumiType = 'azure-native:cdn:Route';
 
     /**
      * Returns true if the given object is an instance of Route.  This is designed to work even
@@ -171,7 +171,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/latest:Route" }, { type: "azure-nextgen:cdn/v20200901:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:Route" }, { type: "azure-nextgen:cdn/latest:Route" }, { type: "azure-native:cdn/v20200901:Route" }, { type: "azure-nextgen:cdn/v20200901:Route" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Route.__pulumiType, name, inputs, opts);
     }

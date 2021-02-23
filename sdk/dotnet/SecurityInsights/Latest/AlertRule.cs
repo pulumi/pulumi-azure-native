@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SecurityInsights.Latest
+namespace Pulumi.AzureNative.SecurityInsights.Latest
 {
     /// <summary>
     /// Alert rule.
     /// Latest API Version: 2020-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:AlertRule'.")]
-    [AzureNextGenResourceType("azure-nextgen:securityinsights/latest:AlertRule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:AlertRule'.")]
+    [AzureNativeResourceType("azure-native:securityinsights/latest:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertRule(string name, AlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityinsights/latest:AlertRule", name, args ?? new AlertRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:securityinsights/latest:AlertRule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityinsights/latest:AlertRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,7 +66,9 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:securityinsights:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:AlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AlertRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:AlertRule"},
                 },
             };
@@ -101,7 +103,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.Latest
         /// The alert rule kind
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.Latest.AlertRuleKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Latest.AlertRuleKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

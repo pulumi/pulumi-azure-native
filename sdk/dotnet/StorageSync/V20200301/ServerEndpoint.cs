@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageSync.V20200301
+namespace Pulumi.AzureNative.StorageSync.V20200301
 {
     /// <summary>
     /// Server Endpoint object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:storagesync/v20200301:ServerEndpoint")]
+    [AzureNativeResourceType("azure-native:storagesync/v20200301:ServerEndpoint")]
     public partial class ServerEndpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -144,12 +144,12 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerEndpoint(string name, ServerEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/v20200301:ServerEndpoint", name, args ?? new ServerEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagesync/v20200301:ServerEndpoint", name, args ?? new ServerEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:storagesync/v20200301:ServerEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagesync/v20200301:ServerEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,16 +160,27 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:storagesync:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/latest:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190201:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:ServerEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:ServerEndpoint"},
                 },
             };
@@ -198,7 +209,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// Cloud Tiering.
         /// </summary>
         [Input("cloudTiering")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.FeatureStatus>? CloudTiering { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200301.FeatureStatus>? CloudTiering { get; set; }
 
         /// <summary>
         /// Friendly Name
@@ -210,19 +221,19 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// Policy for how namespace and files are recalled during FastDr.
         /// </summary>
         [Input("initialDownloadPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.InitialDownloadPolicy>? InitialDownloadPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200301.InitialDownloadPolicy>? InitialDownloadPolicy { get; set; }
 
         /// <summary>
         /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         /// </summary>
         [Input("localCacheMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.LocalCacheMode>? LocalCacheMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200301.LocalCacheMode>? LocalCacheMode { get; set; }
 
         /// <summary>
         /// Offline data transfer
         /// </summary>
         [Input("offlineDataTransfer")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.FeatureStatus>? OfflineDataTransfer { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageSync.V20200301.FeatureStatus>? OfflineDataTransfer { get; set; }
 
         /// <summary>
         /// Offline data transfer share name

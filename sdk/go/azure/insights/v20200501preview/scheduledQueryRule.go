@@ -86,10 +86,19 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/latest:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:ScheduledQueryRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20180416:ScheduledQueryRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20180416:ScheduledQueryRule"),
@@ -97,7 +106,7 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledQueryRule
-	err := ctx.RegisterResource("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/v20200501preview:ScheduledQueryRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -109,7 +118,7 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 func GetScheduledQueryRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduledQueryRuleState, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
 	var resource ScheduledQueryRule
-	err := ctx.ReadResource("azure-nextgen:insights/v20200501preview:ScheduledQueryRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/v20200501preview:ScheduledQueryRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

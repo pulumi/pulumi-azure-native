@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20191101Preview
+namespace Pulumi.AzureNative.Insights.V20191101Preview
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation")]
+    [AzureNativeResourceType("azure-native:insights/v20191101preview:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataCollectionRuleAssociation(string name, DataCollectionRuleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20191101preview:DataCollectionRuleAssociation", name, args ?? new DataCollectionRuleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataCollectionRuleAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20191101preview:DataCollectionRuleAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRuleAssociation"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:DataCollectionRuleAssociation"},
                 },
             };

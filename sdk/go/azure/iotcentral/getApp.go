@@ -11,7 +11,7 @@ import (
 // API Version: 2018-09-01.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
-	err := ctx.Invoke("azure-nextgen:iotcentral:getApp", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:iotcentral:getApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

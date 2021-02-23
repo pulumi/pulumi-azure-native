@@ -10,10 +10,10 @@ import (
 // Describes a Virtual Machine Extension.
 // Latest API Version: 2020-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getVirtualMachineExtension'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineExtension'.
 func LookupVirtualMachineExtension(ctx *pulumi.Context, args *LookupVirtualMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineExtensionResult, error) {
 	var rv LookupVirtualMachineExtensionResult
-	err := ctx.Invoke("azure-nextgen:compute/latest:getVirtualMachineExtension", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/latest:getVirtualMachineExtension", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

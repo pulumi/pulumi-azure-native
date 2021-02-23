@@ -1,9 +1,9 @@
 using Pulumi;
-using Pulumi.AzureNextGen.Network;
-using Pulumi.AzureNextGen.Network.Inputs;
-using SubnetArgs = Pulumi.AzureNextGen.Network.Inputs.SubnetArgs;
-using Pulumi.AzureNextGen.Resources;
-using Pulumi.AzureNextGen.Sql;
+using Pulumi.AzureNative.Network;
+using Pulumi.AzureNative.Network.Inputs;
+using SubnetArgs = Pulumi.AzureNative.Network.Inputs.SubnetArgs;
+using Pulumi.AzureNative.Resources;
+using Pulumi.AzureNative.Sql;
 
 class MyStack : Stack
 {

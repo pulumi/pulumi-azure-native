@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
+namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The edition for the SSIS Integration Runtime
         /// </summary>
         [Input("edition")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.IntegrationRuntimeEdition>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.IntegrationRuntimeEdition>? Edition { get; set; }
 
         [Input("expressCustomSetupProperties")]
         private InputList<object>? _expressCustomSetupProperties;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// License type for bringing your own license scenario.
         /// </summary>
         [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.Latest.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
 
         [Input("packageStores")]
         private InputList<Inputs.PackageStoreArgs>? _packageStores;

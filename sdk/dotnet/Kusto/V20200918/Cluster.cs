@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Kusto.V20200918
+namespace Pulumi.AzureNative.Kusto.V20200918
 {
     /// <summary>
     /// Class representing a Kusto cluster.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:kusto/v20200918:Cluster")]
+    [AzureNativeResourceType("azure-native:kusto/v20200918:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -156,12 +156,12 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/v20200918:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:kusto/v20200918:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:kusto/v20200918:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:kusto/v20200918:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -172,15 +172,25 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20180907preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190121:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190515:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20190907:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20191109:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200215:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20200614:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Cluster"},
                 },
             };
@@ -239,7 +249,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// The engine type
         /// </summary>
         [Input("engineType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200918.EngineType>? EngineType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Kusto.V20200918.EngineType>? EngineType { get; set; }
 
         /// <summary>
         /// The identity of the cluster, if configured.

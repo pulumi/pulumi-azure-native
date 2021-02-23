@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The description of the DigitalTwins service.
  * Latest API Version: 2020-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwin'. */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
-    pulumi.log.warn("getDigitalTwin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:digitaltwins:getDigitalTwin'.")
+    pulumi.log.warn("getDigitalTwin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwin'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:digitaltwins/latest:getDigitalTwin", {
+    return pulumi.runtime.invoke("azure-native:digitaltwins/latest:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

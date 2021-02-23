@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The Asset Storage container SAS URLs.
  * Latest API Version: 2020-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'. */
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
-    pulumi.log.warn("listAssetContainerSas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:media:listAssetContainerSas'.")
+    pulumi.log.warn("listAssetContainerSas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/latest:listAssetContainerSas", {
+    return pulumi.runtime.invoke("azure-native:media/latest:listAssetContainerSas", {
         "accountName": args.accountName,
         "assetName": args.assetName,
         "expiryTime": args.expiryTime,

@@ -16,7 +16,7 @@ export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/v20200501:getVirtualRouter", {
+    return pulumi.runtime.invoke("azure-native:network/v20200501:getVirtualRouter", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "virtualRouterName": args.virtualRouterName,

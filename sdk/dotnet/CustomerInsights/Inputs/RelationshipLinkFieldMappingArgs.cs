@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
+namespace Pulumi.AzureNative.CustomerInsights.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Inputs
         /// Link type.
         /// </summary>
         [Input("linkType")]
-        public Input<Pulumi.AzureNextGen.CustomerInsights.LinkTypes>? LinkType { get; set; }
+        public Input<Pulumi.AzureNative.CustomerInsights.LinkTypes>? LinkType { get; set; }
 
         /// <summary>
         /// The field name on the Relationship metadata.

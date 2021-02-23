@@ -10,7 +10,7 @@ import (
 // Values returned by the List operation.
 func ListJobOutputFiles(ctx *pulumi.Context, args *ListJobOutputFilesArgs, opts ...pulumi.InvokeOption) (*ListJobOutputFilesResult, error) {
 	var rv ListJobOutputFilesResult
-	err := ctx.Invoke("azure-nextgen:batchai/v20180501:listJobOutputFiles", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai/v20180501:listJobOutputFiles", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

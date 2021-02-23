@@ -22,7 +22,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/v20200401:GremlinResourceGremlinGraph';
+    public static readonly __pulumiType = 'azure-native:documentdb/v20200401:GremlinResourceGremlinGraph';
 
     /**
      * Returns true if the given object is an instance of GremlinResourceGremlinGraph.  This is designed to work even
@@ -104,7 +104,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinGraph.__pulumiType, name, inputs, opts);
     }

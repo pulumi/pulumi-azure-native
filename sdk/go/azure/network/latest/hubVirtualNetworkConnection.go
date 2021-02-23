@@ -14,7 +14,7 @@ import (
 // HubVirtualNetworkConnection Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:HubVirtualNetworkConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
@@ -51,16 +51,31 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:HubVirtualNetworkConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:HubVirtualNetworkConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:HubVirtualNetworkConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:HubVirtualNetworkConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:HubVirtualNetworkConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:HubVirtualNetworkConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:HubVirtualNetworkConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:HubVirtualNetworkConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:HubVirtualNetworkConnection"),
@@ -68,7 +83,7 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HubVirtualNetworkConnection
-	err := ctx.RegisterResource("azure-nextgen:network/latest:HubVirtualNetworkConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:HubVirtualNetworkConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +95,7 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 func GetHubVirtualNetworkConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HubVirtualNetworkConnectionState, opts ...pulumi.ResourceOption) (*HubVirtualNetworkConnection, error) {
 	var resource HubVirtualNetworkConnection
-	err := ctx.ReadResource("azure-nextgen:network/latest:HubVirtualNetworkConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:HubVirtualNetworkConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

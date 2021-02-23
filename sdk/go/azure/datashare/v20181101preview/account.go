@@ -50,16 +50,31 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datashare:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/latest:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/latest:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20191101:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20191101:Account"),
 		},
 		{
+			Type: pulumi.String("azure-native:datashare/v20200901:Account"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datashare/v20200901:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:datashare/v20201001preview:Account"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Account"),
@@ -67,7 +82,7 @@ func NewAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Account
-	err := ctx.RegisterResource("azure-nextgen:datashare/v20181101preview:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datashare/v20181101preview:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +94,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("azure-nextgen:datashare/v20181101preview:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datashare/v20181101preview:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,7 +21,7 @@ export class ServiceTopology extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:deploymentmanager/v20180901preview:ServiceTopology';
+    public static readonly __pulumiType = 'azure-native:deploymentmanager/v20180901preview:ServiceTopology';
 
     /**
      * Returns true if the given object is an instance of ServiceTopology.  This is designed to work even
@@ -89,7 +89,7 @@ export class ServiceTopology extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager:ServiceTopology" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ServiceTopology" }, { type: "azure-nextgen:deploymentmanager:ServiceTopology" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceTopology" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceTopology.__pulumiType, name, inputs, opts);
     }

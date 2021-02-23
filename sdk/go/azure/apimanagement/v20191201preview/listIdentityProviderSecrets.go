@@ -10,7 +10,7 @@ import (
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListIdentityProviderSecrets(ctx *pulumi.Context, args *ListIdentityProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListIdentityProviderSecretsResult, error) {
 	var rv ListIdentityProviderSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:listIdentityProviderSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:listIdentityProviderSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

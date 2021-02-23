@@ -43,16 +43,31 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/latest:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"),
@@ -60,7 +75,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AccessPolicy
-	err := ctx.RegisterResource("azure-nextgen:timeseriesinsights:AccessPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:timeseriesinsights:AccessPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +87,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 func GetAccessPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
 	var resource AccessPolicy
-	err := ctx.ReadResource("azure-nextgen:timeseriesinsights:AccessPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:timeseriesinsights:AccessPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

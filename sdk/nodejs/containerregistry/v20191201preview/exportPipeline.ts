@@ -22,7 +22,7 @@ export class ExportPipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerregistry/v20191201preview:ExportPipeline';
+    public static readonly __pulumiType = 'azure-native:containerregistry/v20191201preview:ExportPipeline';
 
     /**
      * Returns true if the given object is an instance of ExportPipeline.  This is designed to work even
@@ -115,7 +115,7 @@ export class ExportPipeline extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:ExportPipeline" }, { type: "azure-nextgen:containerregistry/v20201101preview:ExportPipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ExportPipeline" }, { type: "azure-nextgen:containerregistry:ExportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ExportPipeline" }, { type: "azure-nextgen:containerregistry/v20201101preview:ExportPipeline" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExportPipeline.__pulumiType, name, inputs, opts);
     }

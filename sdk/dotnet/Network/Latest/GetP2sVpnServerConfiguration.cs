@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getP2sVpnServerConfiguration'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnServerConfiguration'.")]
     public static class GetP2sVpnServerConfiguration
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Latest API Version: 2019-07-01.
         /// </summary>
         public static Task<GetP2sVpnServerConfigurationResult> InvokeAsync(GetP2sVpnServerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-nextgen:network/latest:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnServerConfigurationResult>("azure-native:network/latest:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationArgs(), options.WithVersion());
     }
 
 

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Extended description about the product required for installing it into Azure Stack.
  * Latest API Version: 2017-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:listProductDetails'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:listProductDetails'. */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
-    pulumi.log.warn("listProductDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:azurestack:listProductDetails'.")
+    pulumi.log.warn("listProductDetails is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:listProductDetails'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:azurestack/latest:listProductDetails", {
+    return pulumi.runtime.invoke("azure-native:azurestack/latest:listProductDetails", {
         "productName": args.productName,
         "registrationName": args.registrationName,
         "resourceGroup": args.resourceGroup,

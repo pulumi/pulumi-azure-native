@@ -24,17 +24,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:security/v20200806preview:IotDefenderSetting":
+            case "azure-native:security/v20200806preview:IotDefenderSetting":
                 return new IotDefenderSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20200806preview:IotSensor":
+            case "azure-native:security/v20200806preview:IotSensor":
                 return new IotSensor(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20200806preview:IotSite":
+            case "azure-native:security/v20200806preview:IotSite":
                 return new IotSite(name, <any>undefined, { urn })
-            case "azure-nextgen:security/v20200806preview:OnPremiseIotSensor":
+            case "azure-native:security/v20200806preview:OnPremiseIotSensor":
                 return new OnPremiseIotSensor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "security/v20200806preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "security/v20200806preview", _module)

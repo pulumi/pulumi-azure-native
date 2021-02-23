@@ -11,7 +11,7 @@ import (
 // API Version: 2017-08-01-preview.
 func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationalizationClusterKeysArgs, opts ...pulumi.InvokeOption) (*ListOperationalizationClusterKeysResult, error) {
 	var rv ListOperationalizationClusterKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningcompute:listOperationalizationClusterKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningcompute:listOperationalizationClusterKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

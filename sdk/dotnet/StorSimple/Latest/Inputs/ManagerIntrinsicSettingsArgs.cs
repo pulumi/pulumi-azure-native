@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Latest.Inputs
+namespace Pulumi.AzureNative.StorSimple.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Inputs
         /// The type of StorSimple Manager.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.Latest.ManagerType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.Latest.ManagerType> Type { get; set; } = null!;
 
         public ManagerIntrinsicSettingsArgs()
         {

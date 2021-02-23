@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Data store.
  * Latest API Version: 2019-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.
  */
 export class DataStore extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DataStore extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataStore {
-        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.")
+        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.")
         return new DataStore(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hybriddata/latest:DataStore';
+    public static readonly __pulumiType = 'azure-native:hybriddata/latest:DataStore';
 
     /**
      * Returns true if the given object is an instance of DataStore.  This is designed to work even
@@ -75,9 +75,9 @@ export class DataStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'. */
     constructor(name: string, args: DataStoreArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:hybriddata:DataStore'.")
+        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
@@ -118,7 +118,7 @@ export class DataStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybriddata:DataStore" }, { type: "azure-nextgen:hybriddata/v20160601:DataStore" }, { type: "azure-nextgen:hybriddata/v20190601:DataStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataStore" }, { type: "azure-nextgen:hybriddata:DataStore" }, { type: "azure-native:hybriddata/v20160601:DataStore" }, { type: "azure-nextgen:hybriddata/v20160601:DataStore" }, { type: "azure-native:hybriddata/v20190601:DataStore" }, { type: "azure-nextgen:hybriddata/v20190601:DataStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataStore.__pulumiType, name, inputs, opts);
     }

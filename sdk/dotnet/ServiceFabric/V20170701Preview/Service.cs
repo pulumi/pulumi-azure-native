@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview
 {
     /// <summary>
     /// The service resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric/v20170701preview:Service")]
+    [AzureNativeResourceType("azure-native:servicefabric/v20170701preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20170701preview:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric/v20170701preview:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric/v20170701preview:Service", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric/v20170701preview:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,12 +112,19 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Service"},
                 },
             };
@@ -170,7 +177,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// Specifies the move cost for the service.
         /// </summary>
         [Input("defaultMoveCost")]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.MoveCost>? DefaultMoveCost { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.V20170701Preview.MoveCost>? DefaultMoveCost { get; set; }
 
         /// <summary>
         /// Azure resource location.
@@ -200,7 +207,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// The kind of service (Stateless or Stateful).
         /// </summary>
         [Input("serviceKind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.ServiceKind> ServiceKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.V20170701Preview.ServiceKind> ServiceKind { get; set; } = null!;
 
         [Input("serviceLoadMetrics")]
         private InputList<Inputs.ServiceLoadMetricDescriptionArgs>? _serviceLoadMetrics;

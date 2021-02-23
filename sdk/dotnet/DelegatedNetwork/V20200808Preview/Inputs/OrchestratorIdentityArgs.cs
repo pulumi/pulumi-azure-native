@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview.Inputs
+namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview.Inputs
 {
 
     public sealed class OrchestratorIdentityArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview.Inputs
         /// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview.ResourceIdentityType>? Type { get; set; }
+        public Input<Pulumi.AzureNative.DelegatedNetwork.V20200808Preview.ResourceIdentityType>? Type { get; set; }
 
         public OrchestratorIdentityArgs()
         {

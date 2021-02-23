@@ -16,7 +16,7 @@ export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20170401:getQueueAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20170401:getQueueAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,

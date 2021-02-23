@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The provider type for the Azure NextGen package.
+// The provider type for the native Azure package.
 type Provider struct {
 	pulumi.ProviderResourceState
 }
@@ -59,7 +59,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.UseMsi = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool))
 	}
 	var resource Provider
-	err := ctx.RegisterResource("pulumi:providers:azure-nextgen", name, args, &resource, opts...)
+	err := ctx.RegisterResource("pulumi:providers:azure-native", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

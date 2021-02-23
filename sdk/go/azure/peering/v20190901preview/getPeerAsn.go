@@ -10,7 +10,7 @@ import (
 // The essential information related to the peer's ASN.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
-	err := ctx.Invoke("azure-nextgen:peering/v20190901preview:getPeerAsn", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:peering/v20190901preview:getPeerAsn", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

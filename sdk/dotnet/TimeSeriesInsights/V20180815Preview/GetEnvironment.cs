@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20180815Preview
+namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
     public static class GetEnvironment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20180815Preview
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-nextgen:timeseriesinsights/v20180815preview:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithVersion());
     }
 
 

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20170301
+namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
     /// <summary>
     /// Policy Contract details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20170301:Policy")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20170301:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20170301:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20170301:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20170301:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20170301:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,13 +58,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Policy"},
                 },
             };

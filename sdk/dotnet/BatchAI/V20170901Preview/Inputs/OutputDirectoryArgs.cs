@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
         /// Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20170901Preview.OutputType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.BatchAI.V20170901Preview.OutputType>? Type { get; set; }
 
         public OutputDirectoryArgs()
         {

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20191101
+namespace Pulumi.AzureNative.Network.V20191101
 {
     /// <summary>
     /// A flow log resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20191101:FlowLog")]
+    [AzureNativeResourceType("azure-native:network/v20191101:FlowLog")]
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowLog(string name, FlowLogArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20191101:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20191101:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowLog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20191101:FlowLog", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20191101:FlowLog", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -118,14 +118,23 @@ namespace Pulumi.AzureNextGen.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FlowLog"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:FlowLog"},
                 },
             };

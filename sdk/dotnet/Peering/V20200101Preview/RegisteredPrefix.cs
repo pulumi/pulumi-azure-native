@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Peering.V20200101Preview
+namespace Pulumi.AzureNative.Peering.V20200101Preview
 {
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:peering/v20200101preview:RegisteredPrefix")]
+    [AzureNativeResourceType("azure-native:peering/v20200101preview:RegisteredPrefix")]
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegisteredPrefix(string name, RegisteredPrefixArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/v20200101preview:RegisteredPrefix", name, args ?? new RegisteredPrefixArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:peering/v20200101preview:RegisteredPrefix", name, args ?? new RegisteredPrefixArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegisteredPrefix(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:peering/v20200101preview:RegisteredPrefix", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:peering/v20200101preview:RegisteredPrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:peering:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/latest:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:RegisteredPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:RegisteredPrefix"},
                 },
             };

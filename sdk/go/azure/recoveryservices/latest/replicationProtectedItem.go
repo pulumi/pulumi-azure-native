@@ -14,7 +14,7 @@ import (
 // Replication protected item.
 // Latest API Version: 2018-07-10.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:recoveryservices:ReplicationProtectedItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationProtectedItem'.
 type ReplicationProtectedItem struct {
 	pulumi.CustomResourceState
 
@@ -49,13 +49,25 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:recoveryservices:ReplicationProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationProtectedItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem"),
@@ -63,7 +75,7 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectedItem
-	err := ctx.RegisterResource("azure-nextgen:recoveryservices/latest:ReplicationProtectedItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:recoveryservices/latest:ReplicationProtectedItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +87,7 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 func GetReplicationProtectedItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationProtectedItemState, opts ...pulumi.ResourceOption) (*ReplicationProtectedItem, error) {
 	var resource ReplicationProtectedItem
-	err := ctx.ReadResource("azure-nextgen:recoveryservices/latest:ReplicationProtectedItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:recoveryservices/latest:ReplicationProtectedItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

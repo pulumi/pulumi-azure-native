@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupIpAllocation(ctx *pulumi.Context, args *LookupIpAllocationArgs, opts ...pulumi.InvokeOption) (*LookupIpAllocationResult, error) {
 	var rv LookupIpAllocationResult
-	err := ctx.Invoke("azure-nextgen:network:getIpAllocation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getIpAllocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

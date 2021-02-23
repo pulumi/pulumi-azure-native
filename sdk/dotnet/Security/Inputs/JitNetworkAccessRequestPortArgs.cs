@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.Inputs
+namespace Pulumi.AzureNative.Security.Inputs
 {
 
     public sealed class JitNetworkAccessRequestPortArgs : Pulumi.ResourceArgs
@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Security.Inputs
         /// The status of the port
         /// </summary>
         [Input("status", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.Status> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.Status> Status { get; set; } = null!;
 
         /// <summary>
         /// A description of why the `status` has its value
         /// </summary>
         [Input("statusReason", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.StatusReason> StatusReason { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.StatusReason> StatusReason { get; set; } = null!;
 
         public JitNetworkAccessRequestPortArgs()
         {

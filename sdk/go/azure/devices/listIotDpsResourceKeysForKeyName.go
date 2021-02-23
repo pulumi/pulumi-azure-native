@@ -11,7 +11,7 @@ import (
 // API Version: 2020-03-01.
 func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysForKeyNameResult, error) {
 	var rv ListIotDpsResourceKeysForKeyNameResult
-	err := ctx.Invoke("azure-nextgen:devices:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

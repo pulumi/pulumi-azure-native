@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.V20200821Preview.Inputs
+namespace Pulumi.AzureNative.Solutions.V20200821Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview.Inputs
         /// The managed application definition artifact name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Solutions.V20200821Preview.ApplicationDefinitionArtifactName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Solutions.V20200821Preview.ApplicationDefinitionArtifactName> Name { get; set; } = null!;
 
         /// <summary>
         /// The managed application definition artifact type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.Solutions.V20200821Preview.ApplicationArtifactType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Solutions.V20200821Preview.ApplicationArtifactType> Type { get; set; } = null!;
 
         /// <summary>
         /// The managed application definition artifact blob uri.

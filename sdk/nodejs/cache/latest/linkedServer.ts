@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Response to put/get linked server (with properties) for Redis cache.
  * Latest API Version: 2020-06-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LinkedServer {
-        pulumi.log.warn("LinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.")
+        pulumi.log.warn("LinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'.")
         return new LinkedServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:cache/latest:LinkedServer';
+    public static readonly __pulumiType = 'azure-native:cache/latest:LinkedServer';
 
     /**
      * Returns true if the given object is an instance of LinkedServer.  This is designed to work even
@@ -71,9 +71,9 @@ export class LinkedServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'. */
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:LinkedServer'.")
+        pulumi.log.warn("LinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:LinkedServer'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.linkedRedisCacheId === undefined) && !(opts && opts.urn)) {
@@ -114,7 +114,7 @@ export class LinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache:LinkedServer" }, { type: "azure-nextgen:cache/v20170201:LinkedServer" }, { type: "azure-nextgen:cache/v20171001:LinkedServer" }, { type: "azure-nextgen:cache/v20180301:LinkedServer" }, { type: "azure-nextgen:cache/v20190701:LinkedServer" }, { type: "azure-nextgen:cache/v20200601:LinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache:LinkedServer" }, { type: "azure-nextgen:cache:LinkedServer" }, { type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-nextgen:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-nextgen:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-nextgen:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-nextgen:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-nextgen:cache/v20200601:LinkedServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedServer.__pulumiType, name, inputs, opts);
     }

@@ -10,10 +10,10 @@ import (
 // Logger details.
 // Latest API Version: 2019-12-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:getLogger'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getLogger'.
 func LookupLogger(ctx *pulumi.Context, args *LookupLoggerArgs, opts ...pulumi.InvokeOption) (*LookupLoggerResult, error) {
 	var rv LookupLoggerResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/latest:getLogger", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/latest:getLogger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

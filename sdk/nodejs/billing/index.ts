@@ -33,15 +33,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:billing:BillingRoleAssignmentByBillingAccount":
+            case "azure-native:billing:BillingRoleAssignmentByBillingAccount":
                 return new BillingRoleAssignmentByBillingAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:billing:BillingRoleAssignmentByDepartment":
+            case "azure-native:billing:BillingRoleAssignmentByDepartment":
                 return new BillingRoleAssignmentByDepartment(name, <any>undefined, { urn })
-            case "azure-nextgen:billing:BillingRoleAssignmentByEnrollmentAccount":
+            case "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount":
                 return new BillingRoleAssignmentByEnrollmentAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "billing", _module)
+pulumi.runtime.registerResourceModule("azure-native", "billing", _module)

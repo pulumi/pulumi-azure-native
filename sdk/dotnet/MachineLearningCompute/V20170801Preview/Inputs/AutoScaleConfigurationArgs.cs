@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
+namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// If auto-scale is enabled for all services. Each service can turn it off individually.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Status>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Status>? Status { get; set; }
 
         /// <summary>
         /// The target utilization.

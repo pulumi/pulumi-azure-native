@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.Latest.Inputs
+namespace Pulumi.AzureNative.Aad.Latest.Inputs
 {
 
     /// <summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Aad.Latest.Inputs
         /// Should domain controller admins be notified
         /// </summary>
         [Input("notifyDcAdmins")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.Latest.NotifyDcAdmins>? NotifyDcAdmins { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.Latest.NotifyDcAdmins>? NotifyDcAdmins { get; set; }
 
         /// <summary>
         /// Should global admins be notified
         /// </summary>
         [Input("notifyGlobalAdmins")]
-        public InputUnion<string, Pulumi.AzureNextGen.Aad.Latest.NotifyGlobalAdmins>? NotifyGlobalAdmins { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Aad.Latest.NotifyGlobalAdmins>? NotifyGlobalAdmins { get; set; }
 
         public NotificationSettingsArgs()
         {

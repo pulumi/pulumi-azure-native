@@ -23,7 +23,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:streamanalytics:PrivateEndpoint';
+    public static readonly __pulumiType = 'azure-native:streamanalytics:PrivateEndpoint';
 
     /**
      * Returns true if the given object is an instance of PrivateEndpoint.  This is designed to work even
@@ -89,7 +89,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/v20200301preview:PrivateEndpoint" }, { type: "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpoint.__pulumiType, name, inputs, opts);
     }

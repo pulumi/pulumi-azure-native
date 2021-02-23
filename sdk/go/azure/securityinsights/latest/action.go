@@ -14,7 +14,7 @@ import (
 // Action for alert rule.
 // Latest API Version: 2020-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:securityinsights:Action'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Action'.
 type Action struct {
 	pulumi.CustomResourceState
 
@@ -51,7 +51,13 @@ func NewAction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:Action"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Action"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:Action"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Action"),
@@ -59,7 +65,7 @@ func NewAction(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Action
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/latest:Action", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/latest:Action", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +77,7 @@ func NewAction(ctx *pulumi.Context,
 func GetAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ActionState, opts ...pulumi.ResourceOption) (*Action, error) {
 	var resource Action
-	err := ctx.ReadResource("azure-nextgen:securityinsights/latest:Action", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/latest:Action", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

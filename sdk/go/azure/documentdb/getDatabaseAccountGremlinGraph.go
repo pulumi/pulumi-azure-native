@@ -11,7 +11,7 @@ import (
 // API Version: 2016-03-31.
 func LookupDatabaseAccountGremlinGraph(ctx *pulumi.Context, args *LookupDatabaseAccountGremlinGraphArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountGremlinGraphResult, error) {
 	var rv LookupDatabaseAccountGremlinGraphResult
-	err := ctx.Invoke("azure-nextgen:documentdb:getDatabaseAccountGremlinGraph", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccountGremlinGraph", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

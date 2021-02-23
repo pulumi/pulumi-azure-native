@@ -10,7 +10,7 @@ import (
 // Domain ownership Identifier.
 func LookupDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupDomainOwnershipIdentifierResult, error) {
 	var rv LookupDomainOwnershipIdentifierResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/v20200601:getDomainOwnershipIdentifier", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/v20200601:getDomainOwnershipIdentifier", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

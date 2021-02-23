@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
+namespace Pulumi.AzureNative.DBforPostgreSQL.Latest
 {
     /// <summary>
     /// Represents a Configuration.
     /// Latest API Version: 2017-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:dbforpostgresql:Configuration'.")]
-    [AzureNextGenResourceType("azure-nextgen:dbforpostgresql/latest:Configuration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbforpostgresql:Configuration'.")]
+    [AzureNativeResourceType("azure-native:dbforpostgresql/latest:Configuration")]
     public partial class Configuration : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/latest:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:dbforpostgresql/latest:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Configuration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:dbforpostgresql/latest:Configuration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:dbforpostgresql/latest:Configuration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,8 +90,11 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Configuration"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:Configuration"},
                 },
             };

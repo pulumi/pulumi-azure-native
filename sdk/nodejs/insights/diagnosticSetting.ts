@@ -23,7 +23,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:DiagnosticSetting';
+    public static readonly __pulumiType = 'azure-native:insights:DiagnosticSetting';
 
     /**
      * Returns true if the given object is an instance of DiagnosticSetting.  This is designed to work even
@@ -120,7 +120,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170501preview:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170501preview:DiagnosticSetting" }, { type: "azure-nextgen:insights/v20170501preview:DiagnosticSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }

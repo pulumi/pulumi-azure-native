@@ -10,7 +10,7 @@ import (
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
 func LookupWebAppHybridConnectionSlot(ctx *pulumi.Context, args *LookupWebAppHybridConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHybridConnectionSlotResult, error) {
 	var rv LookupWebAppHybridConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20200601:getWebAppHybridConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20200601:getWebAppHybridConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

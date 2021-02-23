@@ -14,7 +14,7 @@ import (
 // The relationship link resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:RelationshipLink'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RelationshipLink'.
 type RelationshipLink struct {
 	pulumi.CustomResourceState
 
@@ -73,10 +73,19 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:RelationshipLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:RelationshipLink"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:RelationshipLink"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:RelationshipLink"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:RelationshipLink"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:RelationshipLink"),
@@ -84,7 +93,7 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RelationshipLink
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:RelationshipLink", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:RelationshipLink", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +105,7 @@ func NewRelationshipLink(ctx *pulumi.Context,
 func GetRelationshipLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RelationshipLinkState, opts ...pulumi.ResourceOption) (*RelationshipLink, error) {
 	var resource RelationshipLink
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:RelationshipLink", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:RelationshipLink", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

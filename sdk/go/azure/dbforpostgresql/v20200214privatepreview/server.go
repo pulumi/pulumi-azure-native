@@ -76,12 +76,15 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214preview:Server"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Server
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:Server", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20200214privatepreview:Server", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +96,7 @@ func NewServer(ctx *pulumi.Context,
 func GetServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
 	var resource Server
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/v20200214privatepreview:Server", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/v20200214privatepreview:Server", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

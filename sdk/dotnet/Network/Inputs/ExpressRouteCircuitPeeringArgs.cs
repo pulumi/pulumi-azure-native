@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Inputs
+namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The peering type.
         /// </summary>
         [Input("peeringType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ExpressRoutePeeringType>? PeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ExpressRoutePeeringType>? PeeringType { get; set; }
 
         /// <summary>
         /// The primary port.
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.Network.Inputs
         /// The peering state.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.ExpressRoutePeeringState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.ExpressRoutePeeringState>? State { get; set; }
 
         /// <summary>
         /// The peering stats of express route circuit.

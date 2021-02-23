@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SoftwarePlan
+namespace Pulumi.AzureNative.SoftwarePlan
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
     /// API Version: 2019-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:softwareplan:HybridUseBenefit")]
+    [AzureNativeResourceType("azure-native:softwareplan:HybridUseBenefit")]
     public partial class HybridUseBenefit : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.SoftwarePlan
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridUseBenefit(string name, HybridUseBenefitArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:softwareplan:HybridUseBenefit", name, args ?? new HybridUseBenefitArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:softwareplan:HybridUseBenefit", name, args ?? new HybridUseBenefitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HybridUseBenefit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:softwareplan:HybridUseBenefit", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:softwareplan:HybridUseBenefit", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.SoftwarePlan
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:softwareplan/v20190601preview:HybridUseBenefit"},
                     new Pulumi.Alias { Type = "azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azure-native:softwareplan/v20191201:HybridUseBenefit"},
                     new Pulumi.Alias { Type = "azure-nextgen:softwareplan/v20191201:HybridUseBenefit"},
                 },
             };

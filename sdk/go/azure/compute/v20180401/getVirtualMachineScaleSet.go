@@ -10,7 +10,7 @@ import (
 // Describes a Virtual Machine Scale Set.
 func LookupVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetResult, error) {
 	var rv LookupVirtualMachineScaleSetResult
-	err := ctx.Invoke("azure-nextgen:compute/v20180401:getVirtualMachineScaleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute/v20180401:getVirtualMachineScaleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

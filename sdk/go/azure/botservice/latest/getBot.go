@@ -10,10 +10,10 @@ import (
 // Bot resource definition
 // Latest API Version: 2020-06-02.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getBot'.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
-	err := ctx.Invoke("azure-nextgen:botservice/latest:getBot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:botservice/latest:getBot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

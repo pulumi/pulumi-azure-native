@@ -10,10 +10,10 @@ import (
 // The integration account session.
 // Latest API Version: 2019-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:logic:getIntegrationAccountSession'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountSession'.
 func LookupIntegrationAccountSession(ctx *pulumi.Context, args *LookupIntegrationAccountSessionArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountSessionResult, error) {
 	var rv LookupIntegrationAccountSessionResult
-	err := ctx.Invoke("azure-nextgen:logic/latest:getIntegrationAccountSession", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/latest:getIntegrationAccountSession", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

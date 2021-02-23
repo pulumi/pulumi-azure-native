@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
+namespace Pulumi.AzureNative.RecoveryServices.V20160601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160601.Inputs
         /// The Sku name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20160601.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20160601.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

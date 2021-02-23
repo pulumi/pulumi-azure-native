@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
+namespace Pulumi.AzureNative.CertificateRegistration.V20180201
 {
     /// <summary>
     /// SSL certificate purchase order.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder")]
+    [AzureNativeResourceType("azure-native:certificateregistration/v20180201:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : Pulumi.CustomResource
     {
         /// <summary>
@@ -168,12 +168,12 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceCertificateOrder(string name, AppServiceCertificateOrderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder", name, args ?? new AppServiceCertificateOrderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:certificateregistration/v20180201:AppServiceCertificateOrder", name, args ?? new AppServiceCertificateOrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceCertificateOrder(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:certificateregistration/v20180201:AppServiceCertificateOrder", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -184,12 +184,19 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/latest:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"},
                 },
             };
@@ -272,7 +279,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20180201
         /// Certificate product type.
         /// </summary>
         [Input("productType", required: true)]
-        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20180201.CertificateProductType> ProductType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.CertificateRegistration.V20180201.CertificateProductType> ProductType { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

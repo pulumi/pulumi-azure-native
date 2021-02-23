@@ -11,7 +11,7 @@ import (
 // API Version: 2020-09-30.
 func LookupGalleryApplication(ctx *pulumi.Context, args *LookupGalleryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationResult, error) {
 	var rv LookupGalleryApplicationResult
-	err := ctx.Invoke("azure-nextgen:compute:getGalleryApplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:compute:getGalleryApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -83,43 +83,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:synapse:BigDataPool":
+            case "azure-native:synapse:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:IntegrationRuntime":
+            case "azure-native:synapse:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:IpFirewallRule":
+            case "azure-native:synapse:IpFirewallRule":
                 return new IpFirewallRule(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:Key":
+            case "azure-native:synapse:Key":
                 return new Key(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:PrivateEndpointConnection":
+            case "azure-native:synapse:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:PrivateLinkHub":
+            case "azure-native:synapse:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPool":
+            case "azure-native:synapse:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolSensitivityLabel":
+            case "azure-native:synapse:SqlPoolSensitivityLabel":
                 return new SqlPoolSensitivityLabel(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolTransparentDataEncryption":
+            case "azure-native:synapse:SqlPoolTransparentDataEncryption":
                 return new SqlPoolTransparentDataEncryption(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolVulnerabilityAssessment":
+            case "azure-native:synapse:SqlPoolVulnerabilityAssessment":
                 return new SqlPoolVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolVulnerabilityAssessmentRuleBaseline":
+            case "azure-native:synapse:SqlPoolVulnerabilityAssessmentRuleBaseline":
                 return new SqlPoolVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolWorkloadClassifier":
+            case "azure-native:synapse:SqlPoolWorkloadClassifier":
                 return new SqlPoolWorkloadClassifier(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:SqlPoolWorkloadGroup":
+            case "azure-native:synapse:SqlPoolWorkloadGroup":
                 return new SqlPoolWorkloadGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:Workspace":
+            case "azure-native:synapse:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:WorkspaceAadAdmin":
+            case "azure-native:synapse:WorkspaceAadAdmin":
                 return new WorkspaceAadAdmin(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:WorkspaceManagedSqlServerVulnerabilityAssessment":
+            case "azure-native:synapse:WorkspaceManagedSqlServerVulnerabilityAssessment":
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
-            case "azure-nextgen:synapse:WorkspaceSqlAadAdmin":
+            case "azure-native:synapse:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "synapse", _module)
+pulumi.runtime.registerResourceModule("azure-native", "synapse", _module)

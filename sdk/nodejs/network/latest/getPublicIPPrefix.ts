@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Public IP prefix resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPublicIPPrefix'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPPrefix'. */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
-    pulumi.log.warn("getPublicIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getPublicIPPrefix'.")
+    pulumi.log.warn("getPublicIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPPrefix'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getPublicIPPrefix", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getPublicIPPrefix", {
         "expand": args.expand,
         "publicIpPrefixName": args.publicIpPrefixName,
         "resourceGroupName": args.resourceGroupName,

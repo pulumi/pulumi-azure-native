@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Maps
+namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
     /// API Version: 2020-02-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:maps:Creator")]
+    [AzureNativeResourceType("azure-native:maps:Creator")]
     public partial class Creator : Pulumi.CustomResource
     {
         /// <summary>
@@ -55,12 +55,12 @@ namespace Pulumi.AzureNextGen.Maps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Creator(string name, CreatorArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps:Creator", name, args ?? new CreatorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:maps:Creator", name, args ?? new CreatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Creator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:maps:Creator", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:maps:Creator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.Maps
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Creator"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Creator"},
                 },
             };

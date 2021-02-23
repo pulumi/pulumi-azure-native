@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
 {
     /// <summary>
     /// A Log Analytics QueryPack-Query definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationalinsights/v20190901preview:Query")]
+    [AzureNativeResourceType("azure-native:operationalinsights/v20190901preview:Query")]
     public partial class Query : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Query(string name, QueryArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20190901preview:Query", name, args ?? new QueryArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationalinsights/v20190901preview:Query", name, args ?? new QueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Query(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationalinsights/v20190901preview:Query", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationalinsights/v20190901preview:Query", name, null, MakeResourceOptions(options, id))
         {
         }
 

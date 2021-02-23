@@ -48,25 +48,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:datafactory/v20180601:DataFlow":
+            case "azure-native:datafactory/v20180601:DataFlow":
                 return new DataFlow(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:Dataset":
+            case "azure-native:datafactory/v20180601:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:Factory":
+            case "azure-native:datafactory/v20180601:Factory":
                 return new Factory(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:IntegrationRuntime":
+            case "azure-native:datafactory/v20180601:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:LinkedService":
+            case "azure-native:datafactory/v20180601:LinkedService":
                 return new LinkedService(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint":
+            case "azure-native:datafactory/v20180601:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:Pipeline":
+            case "azure-native:datafactory/v20180601:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "azure-nextgen:datafactory/v20180601:Trigger":
+            case "azure-native:datafactory/v20180601:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "datafactory/v20180601", _module)
+pulumi.runtime.registerResourceModule("azure-native", "datafactory/v20180601", _module)

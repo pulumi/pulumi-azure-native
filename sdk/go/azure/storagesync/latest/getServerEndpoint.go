@@ -10,10 +10,10 @@ import (
 // Server Endpoint object.
 // Latest API Version: 2020-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:storagesync:getServerEndpoint'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getServerEndpoint'.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
-	err := ctx.Invoke("azure-nextgen:storagesync/latest:getServerEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storagesync/latest:getServerEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

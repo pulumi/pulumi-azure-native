@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Slot Config names azure resource.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSlotConfigurationNames'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSlotConfigurationNames'. */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
-    pulumi.log.warn("getWebAppSlotConfigurationNames is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppSlotConfigurationNames'.")
+    pulumi.log.warn("getWebAppSlotConfigurationNames is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSlotConfigurationNames'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfiguration
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/latest:getWebAppSlotConfigurationNames", {
+    return pulumi.runtime.invoke("azure-native:web/latest:getWebAppSlotConfigurationNames", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

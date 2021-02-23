@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2020-11-20.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkus'. */
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
-    pulumi.log.warn("getSkus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:providerhub:getSkus'.")
+    pulumi.log.warn("getSkus is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkus'.")
     if (!opts) {
         opts = {}
     }
@@ -18,7 +18,7 @@ export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:providerhub/latest:getSkus", {
+    return pulumi.runtime.invoke("azure-native:providerhub/latest:getSkus", {
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,
         "sku": args.sku,

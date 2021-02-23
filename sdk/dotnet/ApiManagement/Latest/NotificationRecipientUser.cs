@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Recipient User details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientUser'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:NotificationRecipientUser")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:NotificationRecipientUser'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:NotificationRecipientUser")]
     public partial class NotificationRecipientUser : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationRecipientUser(string name, NotificationRecipientUserArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:NotificationRecipientUser", name, args ?? new NotificationRecipientUserArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:NotificationRecipientUser", name, args ?? new NotificationRecipientUserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationRecipientUser(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:NotificationRecipientUser", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:NotificationRecipientUser", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,13 +60,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientUser"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NotificationRecipientUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientUser"},
                 },
             };

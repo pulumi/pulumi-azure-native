@@ -21,7 +21,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:datalakestore/v20161101:VirtualNetworkRule';
+    public static readonly __pulumiType = 'azure-native:datalakestore/v20161101:VirtualNetworkRule';
 
     /**
      * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
@@ -84,7 +84,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakestore:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore/latest:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore:VirtualNetworkRule" }, { type: "azure-native:datalakestore/latest:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore/latest:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

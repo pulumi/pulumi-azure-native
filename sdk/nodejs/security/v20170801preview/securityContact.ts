@@ -22,7 +22,7 @@ export class SecurityContact extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:security/v20170801preview:SecurityContact';
+    public static readonly __pulumiType = 'azure-native:security/v20170801preview:SecurityContact';
 
     /**
      * Returns true if the given object is an instance of SecurityContact.  This is designed to work even
@@ -101,7 +101,7 @@ export class SecurityContact extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:SecurityContact" }, { type: "azure-nextgen:security/v20200101preview:SecurityContact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityContact" }, { type: "azure-nextgen:security:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }, { type: "azure-nextgen:security/v20200101preview:SecurityContact" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityContact.__pulumiType, name, inputs, opts);
     }

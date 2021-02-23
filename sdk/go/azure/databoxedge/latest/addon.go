@@ -14,7 +14,7 @@ import (
 // Role Addon
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:databoxedge:Addon'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'.
 type Addon struct {
 	pulumi.CustomResourceState
 
@@ -49,10 +49,19 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:databoxedge:Addon"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge:Addon"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901:Addon"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Addon"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Addon"),
@@ -60,7 +69,7 @@ func NewAddon(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Addon
-	err := ctx.RegisterResource("azure-nextgen:databoxedge/latest:Addon", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:databoxedge/latest:Addon", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +81,7 @@ func NewAddon(ctx *pulumi.Context,
 func GetAddon(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AddonState, opts ...pulumi.ResourceOption) (*Addon, error) {
 	var resource Addon
-	err := ctx.ReadResource("azure-nextgen:databoxedge/latest:Addon", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:databoxedge/latest:Addon", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

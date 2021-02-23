@@ -15,11 +15,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:resourcegraph/v20180901preview:GraphQuery":
+            case "azure-native:resourcegraph/v20180901preview:GraphQuery":
                 return new GraphQuery(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "resourcegraph/v20180901preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "resourcegraph/v20180901preview", _module)

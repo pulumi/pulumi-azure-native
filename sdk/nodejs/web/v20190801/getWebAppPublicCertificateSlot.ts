@@ -16,7 +16,7 @@ export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateS
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web/v20190801:getWebAppPublicCertificateSlot", {
+    return pulumi.runtime.invoke("azure-native:web/v20190801:getWebAppPublicCertificateSlot", {
         "name": args.name,
         "publicCertificateName": args.publicCertificateName,
         "resourceGroupName": args.resourceGroupName,

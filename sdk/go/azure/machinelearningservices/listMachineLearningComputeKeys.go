@@ -11,7 +11,7 @@ import (
 // API Version: 2021-01-01.
 func ListMachineLearningComputeKeys(ctx *pulumi.Context, args *ListMachineLearningComputeKeysArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeKeysResult, error) {
 	var rv ListMachineLearningComputeKeysResult
-	err := ctx.Invoke("azure-nextgen:machinelearningservices:listMachineLearningComputeKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearningservices:listMachineLearningComputeKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

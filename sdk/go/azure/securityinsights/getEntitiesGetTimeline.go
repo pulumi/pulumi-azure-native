@@ -11,7 +11,7 @@ import (
 // API Version: 2019-01-01-preview.
 func GetEntitiesGetTimeline(ctx *pulumi.Context, args *GetEntitiesGetTimelineArgs, opts ...pulumi.InvokeOption) (*GetEntitiesGetTimelineResult, error) {
 	var rv GetEntitiesGetTimelineResult
-	err := ctx.Invoke("azure-nextgen:securityinsights:getEntitiesGetTimeline", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:securityinsights:getEntitiesGetTimeline", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

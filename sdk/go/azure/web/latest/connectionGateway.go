@@ -14,7 +14,7 @@ import (
 // The gateway definition
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:ConnectionGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:ConnectionGateway'.
 type ConnectionGateway struct {
 	pulumi.CustomResourceState
 
@@ -43,7 +43,13 @@ func NewConnectionGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:ConnectionGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:ConnectionGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160601:ConnectionGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160601:ConnectionGateway"),
@@ -51,7 +57,7 @@ func NewConnectionGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionGateway
-	err := ctx.RegisterResource("azure-nextgen:web/latest:ConnectionGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:ConnectionGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +69,7 @@ func NewConnectionGateway(ctx *pulumi.Context,
 func GetConnectionGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionGatewayState, opts ...pulumi.ResourceOption) (*ConnectionGateway, error) {
 	var resource ConnectionGateway
-	err := ctx.ReadResource("azure-nextgen:web/latest:ConnectionGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:ConnectionGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

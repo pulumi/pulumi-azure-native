@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
+namespace Pulumi.AzureNative.Datadog.V20200201Preview.Inputs
 {
 
     public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
         /// Identity type
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Datadog.V20200201Preview.ManagedIdentityTypes>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Datadog.V20200201Preview.ManagedIdentityTypes>? Type { get; set; }
 
         public IdentityPropertiesArgs()
         {

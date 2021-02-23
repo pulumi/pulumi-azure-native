@@ -10,10 +10,10 @@ import (
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 // Latest API Version: 2020-04-30.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:redhatopenshift:getOpenShiftCluster'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:getOpenShiftCluster'.
 func LookupOpenShiftCluster(ctx *pulumi.Context, args *LookupOpenShiftClusterArgs, opts ...pulumi.InvokeOption) (*LookupOpenShiftClusterResult, error) {
 	var rv LookupOpenShiftClusterResult
-	err := ctx.Invoke("azure-nextgen:redhatopenshift/latest:getOpenShiftCluster", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:redhatopenshift/latest:getOpenShiftCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

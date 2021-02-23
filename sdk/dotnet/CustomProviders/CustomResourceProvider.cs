@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders
+namespace Pulumi.AzureNative.CustomProviders
 {
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
     /// API Version: 2018-09-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:customproviders:CustomResourceProvider")]
+    [AzureNativeResourceType("azure-native:customproviders:CustomResourceProvider")]
     public partial class CustomResourceProvider : Pulumi.CustomResource
     {
         /// <summary>
@@ -73,12 +73,12 @@ namespace Pulumi.AzureNextGen.CustomProviders
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomResourceProvider(string name, CustomResourceProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders:CustomResourceProvider", name, args ?? new CustomResourceProviderArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:customproviders:CustomResourceProvider", name, args ?? new CustomResourceProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomResourceProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:customproviders:CustomResourceProvider", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:customproviders:CustomResourceProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNextGen.CustomProviders
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:CustomResourceProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:customproviders/v20180901preview:CustomResourceProvider"},
                 },
             };

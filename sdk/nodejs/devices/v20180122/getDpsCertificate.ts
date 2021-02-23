@@ -16,7 +16,7 @@ export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/v20180122:getDpsCertificate", {
+    return pulumi.runtime.invoke("azure-native:devices/v20180122:getDpsCertificate", {
         "certificateName": args.certificateName,
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,

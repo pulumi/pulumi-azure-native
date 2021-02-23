@@ -10,7 +10,7 @@ import (
 // Response to get user settings
 func LookupUserSettingsWithLocation(ctx *pulumi.Context, args *LookupUserSettingsWithLocationArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsWithLocationResult, error) {
 	var rv LookupUserSettingsWithLocationResult
-	err := ctx.Invoke("azure-nextgen:portal/v20181001:getUserSettingsWithLocation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:portal/v20181001:getUserSettingsWithLocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

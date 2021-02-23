@@ -10,7 +10,7 @@ import (
 // Description of topic resource.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
-	err := ctx.Invoke("azure-nextgen:eventhub/v20180101preview:getNamespaceNetworkRuleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:eventhub/v20180101preview:getNamespaceNetworkRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

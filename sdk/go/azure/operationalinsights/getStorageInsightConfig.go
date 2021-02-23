@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupStorageInsightConfig(ctx *pulumi.Context, args *LookupStorageInsightConfigArgs, opts ...pulumi.InvokeOption) (*LookupStorageInsightConfigResult, error) {
 	var rv LookupStorageInsightConfigResult
-	err := ctx.Invoke("azure-nextgen:operationalinsights:getStorageInsightConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:operationalinsights:getStorageInsightConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

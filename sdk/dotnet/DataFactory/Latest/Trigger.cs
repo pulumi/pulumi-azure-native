@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.Latest
+namespace Pulumi.AzureNative.DataFactory.Latest
 {
     /// <summary>
     /// Trigger resource type.
     /// Latest API Version: 2018-06-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:datafactory:Trigger'.")]
-    [AzureNextGenResourceType("azure-nextgen:datafactory/latest:Trigger")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Trigger'.")]
+    [AzureNativeResourceType("azure-native:datafactory/latest:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
@@ -50,12 +50,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory/latest:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory/latest:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory/latest:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -66,8 +66,11 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Trigger"},
                 },
             };

@@ -33,10 +33,19 @@ func NewManagementLock(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:authorization:ManagementLock"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLock"),
 		},
 		{
+			Type: pulumi.String("azure-native:authorization/latest:ManagementLock"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLock"),
+		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLock"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLock"),
@@ -44,7 +53,7 @@ func NewManagementLock(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLock
-	err := ctx.RegisterResource("azure-nextgen:authorization/v20150101:ManagementLock", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:authorization/v20150101:ManagementLock", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +65,7 @@ func NewManagementLock(ctx *pulumi.Context,
 func GetManagementLock(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementLockState, opts ...pulumi.ResourceOption) (*ManagementLock, error) {
 	var resource ManagementLock
-	err := ctx.ReadResource("azure-nextgen:authorization/v20150101:ManagementLock", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:authorization/v20150101:ManagementLock", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

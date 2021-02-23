@@ -10,7 +10,7 @@ import (
 // An object that represents a pipeline run for a container registry.
 func LookupPipelineRun(ctx *pulumi.Context, args *LookupPipelineRunArgs, opts ...pulumi.InvokeOption) (*LookupPipelineRunResult, error) {
 	var rv LookupPipelineRunResult
-	err := ctx.Invoke("azure-nextgen:containerregistry/v20201101preview:getPipelineRun", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:containerregistry/v20201101preview:getPipelineRun", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

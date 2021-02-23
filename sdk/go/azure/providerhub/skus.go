@@ -40,7 +40,13 @@ func NewSkus(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:providerhub/latest:Skus"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:providerhub/latest:Skus"),
+		},
+		{
+			Type: pulumi.String("azure-native:providerhub/v20201120:Skus"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:Skus"),
@@ -48,7 +54,7 @@ func NewSkus(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Skus
-	err := ctx.RegisterResource("azure-nextgen:providerhub:Skus", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:providerhub:Skus", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +66,7 @@ func NewSkus(ctx *pulumi.Context,
 func GetSkus(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SkusState, opts ...pulumi.ResourceOption) (*Skus, error) {
 	var resource Skus
-	err := ctx.ReadResource("azure-nextgen:providerhub:Skus", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:providerhub:Skus", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

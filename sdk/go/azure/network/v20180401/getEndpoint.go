@@ -10,7 +10,7 @@ import (
 // Class representing a Traffic Manager endpoint.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
-	err := ctx.Invoke("azure-nextgen:network/v20180401:getEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180401:getEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

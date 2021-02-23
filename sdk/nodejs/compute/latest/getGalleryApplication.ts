@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Specifies information about the gallery Application Definition that you want to create or update.
  * Latest API Version: 2020-09-30.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplication'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplication'. */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
-    pulumi.log.warn("getGalleryApplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:compute:getGalleryApplication'.")
+    pulumi.log.warn("getGalleryApplication is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplication'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/latest:getGalleryApplication", {
+    return pulumi.runtime.invoke("azure-native:compute/latest:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

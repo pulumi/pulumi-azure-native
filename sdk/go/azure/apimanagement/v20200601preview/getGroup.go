@@ -10,7 +10,7 @@ import (
 // Contract details.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20200601preview:getGroup", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20200601preview:getGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

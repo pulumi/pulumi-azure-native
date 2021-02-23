@@ -61,39 +61,39 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:insights/latest:ActionGroup":
+            case "azure-native:insights/latest:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:ActivityLogAlert":
+            case "azure-native:insights/latest:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:AlertRule":
+            case "azure-native:insights/latest:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:AnalyticsItem":
+            case "azure-native:insights/latest:AnalyticsItem":
                 return new AnalyticsItem(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:AutoscaleSetting":
+            case "azure-native:insights/latest:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:Component":
+            case "azure-native:insights/latest:Component":
                 return new Component(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:ComponentCurrentBillingFeature":
+            case "azure-native:insights/latest:ComponentCurrentBillingFeature":
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:ExportConfiguration":
+            case "azure-native:insights/latest:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:Favorite":
+            case "azure-native:insights/latest:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:LogProfile":
+            case "azure-native:insights/latest:LogProfile":
                 return new LogProfile(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:MetricAlert":
+            case "azure-native:insights/latest:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:MyWorkbook":
+            case "azure-native:insights/latest:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:ScheduledQueryRule":
+            case "azure-native:insights/latest:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:WebTest":
+            case "azure-native:insights/latest:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
-            case "azure-nextgen:insights/latest:Workbook":
+            case "azure-native:insights/latest:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "insights/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "insights/latest", _module)

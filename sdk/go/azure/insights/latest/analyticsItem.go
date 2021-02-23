@@ -14,7 +14,7 @@ import (
 // Properties that define an Analytics item that is associated to an Application Insights component.
 // Latest API Version: 2015-05-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:insights:AnalyticsItem'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AnalyticsItem'.
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 
@@ -54,7 +54,13 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights:AnalyticsItem"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights:AnalyticsItem"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:AnalyticsItem"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:AnalyticsItem"),
@@ -62,7 +68,7 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource AnalyticsItem
-	err := ctx.RegisterResource("azure-nextgen:insights/latest:AnalyticsItem", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights/latest:AnalyticsItem", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +80,7 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 func GetAnalyticsItem(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AnalyticsItemState, opts ...pulumi.ResourceOption) (*AnalyticsItem, error) {
 	var resource AnalyticsItem
-	err := ctx.ReadResource("azure-nextgen:insights/latest:AnalyticsItem", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights/latest:AnalyticsItem", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

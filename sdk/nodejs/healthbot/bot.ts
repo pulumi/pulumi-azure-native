@@ -23,7 +23,7 @@ export class Bot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:healthbot:Bot';
+    public static readonly __pulumiType = 'azure-native:healthbot:Bot';
 
     /**
      * Returns true if the given object is an instance of Bot.  This is designed to work even
@@ -106,7 +106,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthbot/latest:Bot" }, { type: "azure-nextgen:healthbot/v20201020:Bot" }, { type: "azure-nextgen:healthbot/v20201020preview:Bot" }, { type: "azure-nextgen:healthbot/v20201208:Bot" }, { type: "azure-nextgen:healthbot/v20201208preview:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/latest:Bot" }, { type: "azure-nextgen:healthbot/latest:Bot" }, { type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-nextgen:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-nextgen:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-nextgen:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-nextgen:healthbot/v20201208preview:Bot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bot.__pulumiType, name, inputs, opts);
     }

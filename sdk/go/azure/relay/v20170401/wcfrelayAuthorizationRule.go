@@ -44,10 +44,19 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:relay:WCFRelayAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay:WCFRelayAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:relay/latest:WCFRelayAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:relay/latest:WCFRelayAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:relay/v20160701:WCFRelayAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule"),
@@ -55,7 +64,7 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WCFRelayAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:relay/v20170401:WCFRelayAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +76,7 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 func GetWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WCFRelayAuthorizationRuleState, opts ...pulumi.ResourceOption) (*WCFRelayAuthorizationRule, error) {
 	var resource WCFRelayAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:relay/v20170401:WCFRelayAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

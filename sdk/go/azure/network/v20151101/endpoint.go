@@ -55,22 +55,43 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20170301:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20170301:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20170501:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20170501:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180201:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180201:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180301:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180301:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180401:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Endpoint"),
@@ -78,7 +99,7 @@ func NewEndpoint(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Endpoint
-	err := ctx.RegisterResource("azure-nextgen:network/v20151101:Endpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20151101:Endpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +111,7 @@ func NewEndpoint(ctx *pulumi.Context,
 func GetEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EndpointState, opts ...pulumi.ResourceOption) (*Endpoint, error) {
 	var resource Endpoint
-	err := ctx.ReadResource("azure-nextgen:network/v20151101:Endpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20151101:Endpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

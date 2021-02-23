@@ -11,7 +11,7 @@ import (
 // API Version: 2018-03-01-beta.
 func ListSaasResourceAccessToken(ctx *pulumi.Context, args *ListSaasResourceAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasResourceAccessTokenResult, error) {
 	var rv ListSaasResourceAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:saas:listSaasResourceAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:saas:listSaasResourceAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

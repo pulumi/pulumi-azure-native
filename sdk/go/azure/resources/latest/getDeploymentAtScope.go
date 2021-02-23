@@ -10,10 +10,10 @@ import (
 // Deployment information.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:resources:getDeploymentAtScope'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtScope'.
 func LookupDeploymentAtScope(ctx *pulumi.Context, args *LookupDeploymentAtScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtScopeResult, error) {
 	var rv LookupDeploymentAtScopeResult
-	err := ctx.Invoke("azure-nextgen:resources/latest:getDeploymentAtScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources/latest:getDeploymentAtScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

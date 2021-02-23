@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20170601
+namespace Pulumi.AzureNative.Network.V20170601
 {
     public static class GetSubnet
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601
         /// Subnet in a virtual network resource.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-nextgen:network/v20170601:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network/v20170601:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
     }
 
 

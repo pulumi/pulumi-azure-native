@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Kubernetes.V20210301
+namespace Pulumi.AzureNative.Kubernetes.V20210301
 {
     /// <summary>
     /// Provisioning state of the connected cluster resource.

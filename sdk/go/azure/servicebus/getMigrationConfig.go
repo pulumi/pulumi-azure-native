@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func LookupMigrationConfig(ctx *pulumi.Context, args *LookupMigrationConfigArgs, opts ...pulumi.InvokeOption) (*LookupMigrationConfigResult, error) {
 	var rv LookupMigrationConfigResult
-	err := ctx.Invoke("azure-nextgen:servicebus:getMigrationConfig", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus:getMigrationConfig", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

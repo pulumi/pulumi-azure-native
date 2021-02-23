@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
+namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
         /// The default value is BatchManaged
         /// </summary>
         [Input("provision")]
-        public Input<Pulumi.AzureNextGen.Batch.V20210101.IPAddressProvisioningType>? Provision { get; set; }
+        public Input<Pulumi.AzureNative.Batch.V20210101.IPAddressProvisioningType>? Provision { get; set; }
 
         public PublicIPAddressConfigurationArgs()
         {

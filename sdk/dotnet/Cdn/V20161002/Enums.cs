@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Cdn.V20161002
+namespace Pulumi.AzureNative.Cdn.V20161002
 {
     /// <summary>
     /// Action of the geo filter, i.e. allow or block access.

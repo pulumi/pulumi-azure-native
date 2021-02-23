@@ -22,7 +22,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:azuredata/v20190724preview:SqlManagedInstance';
+    public static readonly __pulumiType = 'azure-native:azuredata/v20190724preview:SqlManagedInstance';
 
     /**
      * Returns true if the given object is an instance of SqlManagedInstance.  This is designed to work even
@@ -126,7 +126,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azuredata:SqlManagedInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlManagedInstance" }, { type: "azure-nextgen:azuredata:SqlManagedInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlManagedInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlManagedInstance.__pulumiType, name, inputs, opts);
     }

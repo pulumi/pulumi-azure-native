@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:policyinsights/v20210101:AttestationAtResource":
+	case "azure-native:policyinsights/v20210101:AttestationAtResource":
 		r, err = NewAttestationAtResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:policyinsights/v20210101:AttestationAtResourceGroup":
+	case "azure-native:policyinsights/v20210101:AttestationAtResourceGroup":
 		r, err = NewAttestationAtResourceGroup(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:policyinsights/v20210101:AttestationAtSubscription":
+	case "azure-native:policyinsights/v20210101:AttestationAtSubscription":
 		r, err = NewAttestationAtSubscription(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"policyinsights/v20210101",
 		&module{version},
 	)

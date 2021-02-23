@@ -16,7 +16,7 @@ export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbforpostgresql/v20201005privatepreview:getFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20201005privatepreview:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
         "resourceGroupName": args.resourceGroupName,
         "serverGroupName": args.serverGroupName,

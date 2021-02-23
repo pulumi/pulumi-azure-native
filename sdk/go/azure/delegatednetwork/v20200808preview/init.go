@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails":
+	case "azure-native:delegatednetwork/v20200808preview:ControllerDetails":
 		r, err = NewControllerDetails(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails":
+	case "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails":
 		r, err = NewDelegatedSubnetServiceDetails(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails":
+	case "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails":
 		r, err = NewOrchestratorInstanceServiceDetails(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"delegatednetwork/v20200808preview",
 		&module{version},
 	)

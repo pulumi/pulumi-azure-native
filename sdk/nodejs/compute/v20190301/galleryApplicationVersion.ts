@@ -22,7 +22,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/v20190301:GalleryApplicationVersion';
+    public static readonly __pulumiType = 'azure-native:compute/v20190301:GalleryApplicationVersion';
 
     /**
      * Returns true if the given object is an instance of GalleryApplicationVersion.  This is designed to work even
@@ -113,7 +113,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/latest:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplicationVersion" }, { type: "azure-nextgen:compute:GalleryApplicationVersion" }, { type: "azure-native:compute/latest:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/latest:GalleryApplicationVersion" }, { type: "azure-native:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryApplicationVersion" }, { type: "azure-native:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryApplicationVersion" }, { type: "azure-native:compute/v20200930:GalleryApplicationVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryApplicationVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryApplicationVersion.__pulumiType, name, inputs, opts);
     }

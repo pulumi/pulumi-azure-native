@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181101.Inputs
+namespace Pulumi.AzureNative.Network.V20181101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20181101.Inputs
         /// Status code of the application gateway customer error.
         /// </summary>
         [Input("statusCode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181101.ApplicationGatewayCustomErrorStatusCode>? StatusCode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20181101.ApplicationGatewayCustomErrorStatusCode>? StatusCode { get; set; }
 
         public ApplicationGatewayCustomErrorArgs()
         {

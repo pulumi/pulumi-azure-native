@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Recipient Email details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:NotificationRecipientEmail'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:NotificationRecipientEmail")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:NotificationRecipientEmail'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:NotificationRecipientEmail")]
     public partial class NotificationRecipientEmail : Pulumi.CustomResource
     {
         /// <summary>
@@ -44,12 +44,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationRecipientEmail(string name, NotificationRecipientEmailArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:NotificationRecipientEmail", name, args ?? new NotificationRecipientEmailArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:NotificationRecipientEmail", name, args ?? new NotificationRecipientEmailArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationRecipientEmail(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:NotificationRecipientEmail", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:NotificationRecipientEmail", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -60,13 +60,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:NotificationRecipientEmail"},
                 },
             };

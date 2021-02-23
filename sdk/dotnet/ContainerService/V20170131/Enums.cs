@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ContainerService.V20170131
+namespace Pulumi.AzureNative.ContainerService.V20170131
 {
     /// <summary>
     /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.

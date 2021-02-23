@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Resource information.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'.
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Resource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Resource {
-        pulumi.log.warn("Resource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.")
+        pulumi.log.warn("Resource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'.")
         return new Resource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:resources/latest:Resource';
+    public static readonly __pulumiType = 'azure-native:resources/latest:Resource';
 
     /**
      * Returns true if the given object is an instance of Resource.  This is designed to work even
@@ -87,9 +87,9 @@ export class Resource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'. */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Resource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:resources:Resource'.")
+        pulumi.log.warn("Resource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.parentResourcePath === undefined) && !(opts && opts.urn)) {
@@ -138,7 +138,7 @@ export class Resource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:Resource" }, { type: "azure-nextgen:resources/v20151101:Resource" }, { type: "azure-nextgen:resources/v20160201:Resource" }, { type: "azure-nextgen:resources/v20160701:Resource" }, { type: "azure-nextgen:resources/v20160901:Resource" }, { type: "azure-nextgen:resources/v20170510:Resource" }, { type: "azure-nextgen:resources/v20180201:Resource" }, { type: "azure-nextgen:resources/v20180501:Resource" }, { type: "azure-nextgen:resources/v20190301:Resource" }, { type: "azure-nextgen:resources/v20190501:Resource" }, { type: "azure-nextgen:resources/v20190510:Resource" }, { type: "azure-nextgen:resources/v20190701:Resource" }, { type: "azure-nextgen:resources/v20190801:Resource" }, { type: "azure-nextgen:resources/v20191001:Resource" }, { type: "azure-nextgen:resources/v20200601:Resource" }, { type: "azure-nextgen:resources/v20200801:Resource" }, { type: "azure-nextgen:resources/v20201001:Resource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:Resource" }, { type: "azure-nextgen:resources:Resource" }, { type: "azure-native:resources/v20151101:Resource" }, { type: "azure-nextgen:resources/v20151101:Resource" }, { type: "azure-native:resources/v20160201:Resource" }, { type: "azure-nextgen:resources/v20160201:Resource" }, { type: "azure-native:resources/v20160701:Resource" }, { type: "azure-nextgen:resources/v20160701:Resource" }, { type: "azure-native:resources/v20160901:Resource" }, { type: "azure-nextgen:resources/v20160901:Resource" }, { type: "azure-native:resources/v20170510:Resource" }, { type: "azure-nextgen:resources/v20170510:Resource" }, { type: "azure-native:resources/v20180201:Resource" }, { type: "azure-nextgen:resources/v20180201:Resource" }, { type: "azure-native:resources/v20180501:Resource" }, { type: "azure-nextgen:resources/v20180501:Resource" }, { type: "azure-native:resources/v20190301:Resource" }, { type: "azure-nextgen:resources/v20190301:Resource" }, { type: "azure-native:resources/v20190501:Resource" }, { type: "azure-nextgen:resources/v20190501:Resource" }, { type: "azure-native:resources/v20190510:Resource" }, { type: "azure-nextgen:resources/v20190510:Resource" }, { type: "azure-native:resources/v20190701:Resource" }, { type: "azure-nextgen:resources/v20190701:Resource" }, { type: "azure-native:resources/v20190801:Resource" }, { type: "azure-nextgen:resources/v20190801:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-nextgen:resources/v20191001:Resource" }, { type: "azure-native:resources/v20200601:Resource" }, { type: "azure-nextgen:resources/v20200601:Resource" }, { type: "azure-native:resources/v20200801:Resource" }, { type: "azure-nextgen:resources/v20200801:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-nextgen:resources/v20201001:Resource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Resource.__pulumiType, name, inputs, opts);
     }

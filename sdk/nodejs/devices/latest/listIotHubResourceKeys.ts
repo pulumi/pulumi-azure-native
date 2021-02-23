@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The list of shared access policies with a next link.
  * Latest API Version: 2020-08-31.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeys'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeys'. */
 export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysResult> {
-    pulumi.log.warn("listIotHubResourceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devices:listIotHubResourceKeys'.")
+    pulumi.log.warn("listIotHubResourceKeys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeys'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices/latest:listIotHubResourceKeys", {
+    return pulumi.runtime.invoke("azure-native:devices/latest:listIotHubResourceKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

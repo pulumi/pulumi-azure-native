@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.PolicyInsights.Latest
+namespace Pulumi.AzureNative.PolicyInsights.Latest
 {
     /// <summary>
     /// The remediation definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:policyinsights:RemediationAtResourceGroup'.")]
-    [AzureNextGenResourceType("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'.")]
+    [AzureNativeResourceType("azure-native:policyinsights/latest:RemediationAtResourceGroup")]
     public partial class RemediationAtResourceGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -86,12 +86,12 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RemediationAtResourceGroup(string name, RemediationAtResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup", name, args ?? new RemediationAtResourceGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:policyinsights/latest:RemediationAtResourceGroup", name, args ?? new RemediationAtResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RemediationAtResourceGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:policyinsights/latest:RemediationAtResourceGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -102,8 +102,11 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup"},
                 },
             };
@@ -156,7 +159,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.Latest
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         /// </summary>
         [Input("resourceDiscoveryMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.PolicyInsights.Latest.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PolicyInsights.Latest.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
 
         /// <summary>
         /// Resource group name.

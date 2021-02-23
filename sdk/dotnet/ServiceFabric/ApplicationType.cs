@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric
+namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The application type name resource
     /// API Version: 2020-03-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:servicefabric:ApplicationType")]
+    [AzureNativeResourceType("azure-native:servicefabric:ApplicationType")]
     public partial class ApplicationType : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationType(string name, ApplicationTypeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:ApplicationType", name, args ?? new ApplicationTypeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicefabric:ApplicationType", name, args ?? new ApplicationTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicefabric:ApplicationType", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicefabric:ApplicationType", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,12 +77,19 @@ namespace Pulumi.AzureNextGen.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:ApplicationType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:ApplicationType"},
                 },
             };

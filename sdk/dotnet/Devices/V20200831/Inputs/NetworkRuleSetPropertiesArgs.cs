@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Devices.V20200831.Inputs
+namespace Pulumi.AzureNative.Devices.V20200831.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200831.Inputs
         /// Default Action for Network Rule Set
         /// </summary>
         [Input("defaultAction")]
-        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200831.DefaultAction>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Devices.V20200831.DefaultAction>? DefaultAction { get; set; }
 
         [Input("ipRules", required: true)]
         private InputList<Inputs.NetworkRuleSetIpRuleArgs>? _ipRules;

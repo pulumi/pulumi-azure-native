@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview.Inputs
+namespace Pulumi.AzureNative.CustomProviders.V20180901Preview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview.Inputs
         /// The routing types that are supported for action requests.
         /// </summary>
         [Input("routingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.CustomProviders.V20180901Preview.ActionRouting>? RoutingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CustomProviders.V20180901Preview.ActionRouting>? RoutingType { get; set; }
 
         public CustomRPActionRouteDefinitionArgs()
         {

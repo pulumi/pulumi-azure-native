@@ -10,10 +10,10 @@ import (
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 // Latest API Version: 2020-05-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:timeseriesinsights:getReferenceDataSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getReferenceDataSet'.
 func LookupReferenceDataSet(ctx *pulumi.Context, args *LookupReferenceDataSetArgs, opts ...pulumi.InvokeOption) (*LookupReferenceDataSetResult, error) {
 	var rv LookupReferenceDataSetResult
-	err := ctx.Invoke("azure-nextgen:timeseriesinsights/latest:getReferenceDataSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:timeseriesinsights/latest:getReferenceDataSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

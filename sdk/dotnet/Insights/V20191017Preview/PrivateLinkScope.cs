@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20191017Preview
+namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:insights/v20191017preview:PrivateLinkScope")]
+    [AzureNativeResourceType("azure-native:insights/v20191017preview:PrivateLinkScope")]
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkScope(string name, PrivateLinkScopeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191017preview:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20191017preview:PrivateLinkScope", name, args ?? new PrivateLinkScopeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkScope(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:insights/v20191017preview:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20191017preview:PrivateLinkScope", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:PrivateLinkScope"},
                 },
             };

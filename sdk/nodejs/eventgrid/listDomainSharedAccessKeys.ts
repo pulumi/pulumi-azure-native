@@ -17,7 +17,7 @@ export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventgrid:listDomainSharedAccessKeys", {
+    return pulumi.runtime.invoke("azure-native:eventgrid:listDomainSharedAccessKeys", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

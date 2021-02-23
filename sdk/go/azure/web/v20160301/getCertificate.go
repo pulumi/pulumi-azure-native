@@ -10,7 +10,7 @@ import (
 // SSL certificate for an app.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
-	err := ctx.Invoke("azure-nextgen:web/v20160301:getCertificate", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20160301:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

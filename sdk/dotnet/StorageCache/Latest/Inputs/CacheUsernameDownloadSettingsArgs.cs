@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
+namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
 {
 
     /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest.Inputs
         /// This setting determines how the cache gets username and group names for clients.
         /// </summary>
         [Input("usernameSource")]
-        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.Latest.UsernameSource>? UsernameSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.Latest.UsernameSource>? UsernameSource { get; set; }
 
         public CacheUsernameDownloadSettingsArgs()
         {

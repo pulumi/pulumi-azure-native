@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB SQL database.
  * Latest API Version: 2021-01-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlDatabase'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlDatabase'.
  */
 export class SqlResourceSqlDatabase extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlDatabase {
-        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlDatabase'.")
+        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlDatabase'.")
         return new SqlResourceSqlDatabase(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:SqlResourceSqlDatabase';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:SqlResourceSqlDatabase';
 
     /**
      * Returns true if the given object is an instance of SqlResourceSqlDatabase.  This is designed to work even
@@ -65,9 +65,9 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlDatabase'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlDatabase'. */
     constructor(name: string, args: SqlResourceSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:SqlResourceSqlDatabase'.")
+        pulumi.log.warn("SqlResourceSqlDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlDatabase'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20200901:SqlResourceSqlDatabase" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlDatabase" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlDatabase.__pulumiType, name, inputs, opts);
     }

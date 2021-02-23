@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// NamedValue details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:NamedValue")]
+    [AzureNativeResourceType("azure-native:apimanagement:NamedValue")]
     public partial class NamedValue : Pulumi.CustomResource
     {
         /// <summary>
@@ -61,12 +61,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedValue(string name, NamedValueArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:NamedValue", name, args ?? new NamedValueArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:NamedValue", name, args ?? new NamedValueArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamedValue(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:NamedValue", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:NamedValue", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,9 +77,13 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:NamedValue"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:NamedValue"},
                 },
             };

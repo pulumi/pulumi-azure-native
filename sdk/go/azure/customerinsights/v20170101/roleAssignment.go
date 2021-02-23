@@ -79,10 +79,19 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:RoleAssignment"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/latest:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/latest:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:RoleAssignment"),
@@ -90,7 +99,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RoleAssignment
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/v20170101:RoleAssignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/v20170101:RoleAssignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +111,7 @@ func NewRoleAssignment(ctx *pulumi.Context,
 func GetRoleAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoleAssignmentState, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
 	var resource RoleAssignment
-	err := ctx.ReadResource("azure-nextgen:customerinsights/v20170101:RoleAssignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/v20170101:RoleAssignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
+namespace Pulumi.AzureNative.Scheduler.Latest.Inputs
 {
 
     public sealed class JobRecurrenceScheduleMonthlyOccurrenceArgs : Pulumi.ResourceArgs
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         /// </summary>
         [Input("day")]
-        public Input<Pulumi.AzureNextGen.Scheduler.Latest.JobScheduleDay>? Day { get; set; }
+        public Input<Pulumi.AzureNative.Scheduler.Latest.JobScheduleDay>? Day { get; set; }
 
         /// <summary>
         /// Gets or sets the occurrence. Must be between -5 and 5.

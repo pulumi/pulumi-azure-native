@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ImportExport.V20161101
+namespace Pulumi.AzureNative.ImportExport.V20161101
 {
     public static class ListBitLockerKey
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
         /// GetBitLockerKeys response
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-nextgen:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport/v20161101:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
     }
 
 

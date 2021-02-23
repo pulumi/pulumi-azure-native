@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An action group resource.
  * Latest API Version: 2019-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActionGroup'. */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
-    pulumi.log.warn("getActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getActionGroup'.")
+    pulumi.log.warn("getActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActionGroup'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getActionGroup", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getActionGroup", {
         "actionGroupName": args.actionGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

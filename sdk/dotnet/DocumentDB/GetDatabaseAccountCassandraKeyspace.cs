@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB
+namespace Pulumi.AzureNative.DocumentDB
 {
     public static class GetDatabaseAccountCassandraKeyspace
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB
         /// API Version: 2016-03-31.
         /// </summary>
         public static Task<GetDatabaseAccountCassandraKeyspaceResult> InvokeAsync(GetDatabaseAccountCassandraKeyspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-nextgen:documentdb:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountCassandraKeyspaceResult>("azure-native:documentdb:getDatabaseAccountCassandraKeyspace", args ?? new GetDatabaseAccountCassandraKeyspaceArgs(), options.WithVersion());
     }
 
 

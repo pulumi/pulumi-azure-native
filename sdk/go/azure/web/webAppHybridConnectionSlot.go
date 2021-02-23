@@ -64,25 +64,49 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web/latest:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/latest:WebAppHybridConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20160801:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHybridConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHybridConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHybridConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnectionSlot"),
@@ -90,7 +114,7 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnectionSlot
-	err := ctx.RegisterResource("azure-nextgen:web:WebAppHybridConnectionSlot", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web:WebAppHybridConnectionSlot", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +126,7 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 func GetWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppHybridConnectionSlotState, opts ...pulumi.ResourceOption) (*WebAppHybridConnectionSlot, error) {
 	var resource WebAppHybridConnectionSlot
-	err := ctx.ReadResource("azure-nextgen:web:WebAppHybridConnectionSlot", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web:WebAppHybridConnectionSlot", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

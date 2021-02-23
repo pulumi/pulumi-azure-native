@@ -28,15 +28,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:operationsmanagement:ManagementAssociation":
+            case "azure-native:operationsmanagement:ManagementAssociation":
                 return new ManagementAssociation(name, <any>undefined, { urn })
-            case "azure-nextgen:operationsmanagement:ManagementConfiguration":
+            case "azure-native:operationsmanagement:ManagementConfiguration":
                 return new ManagementConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:operationsmanagement:Solution":
+            case "azure-native:operationsmanagement:Solution":
                 return new Solution(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "operationsmanagement", _module)
+pulumi.runtime.registerResourceModule("azure-native", "operationsmanagement", _module)

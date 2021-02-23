@@ -52,7 +52,7 @@ func NewAttestationAtSubscription(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyAssignmentId'")
 	}
 	var resource AttestationAtSubscription
-	err := ctx.RegisterResource("azure-nextgen:policyinsights/v20210101:AttestationAtSubscription", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:policyinsights/v20210101:AttestationAtSubscription", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewAttestationAtSubscription(ctx *pulumi.Context,
 func GetAttestationAtSubscription(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttestationAtSubscriptionState, opts ...pulumi.ResourceOption) (*AttestationAtSubscription, error) {
 	var resource AttestationAtSubscription
-	err := ctx.ReadResource("azure-nextgen:policyinsights/v20210101:AttestationAtSubscription", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:policyinsights/v20210101:AttestationAtSubscription", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

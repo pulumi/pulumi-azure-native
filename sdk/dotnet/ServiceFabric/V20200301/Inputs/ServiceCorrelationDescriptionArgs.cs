@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
+namespace Pulumi.AzureNative.ServiceFabric.V20200301.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200301.Inputs
         /// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         /// </summary>
         [Input("scheme", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20200301.ServiceCorrelationScheme> Scheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.V20200301.ServiceCorrelationScheme> Scheme { get; set; } = null!;
 
         /// <summary>
         /// The name of the service that the correlation relationship is established with.

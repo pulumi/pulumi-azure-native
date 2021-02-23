@@ -22,7 +22,7 @@ export class JitRequest extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:solutions/v20200821preview:JitRequest';
+    public static readonly __pulumiType = 'azure-native:solutions/v20200821preview:JitRequest';
 
     /**
      * Returns true if the given object is an instance of JitRequest.  This is designed to work even
@@ -141,7 +141,7 @@ export class JitRequest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:JitRequest" }, { type: "azure-nextgen:solutions/latest:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:JitRequest" }, { type: "azure-nextgen:solutions:JitRequest" }, { type: "azure-native:solutions/latest:JitRequest" }, { type: "azure-nextgen:solutions/latest:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JitRequest.__pulumiType, name, inputs, opts);
     }

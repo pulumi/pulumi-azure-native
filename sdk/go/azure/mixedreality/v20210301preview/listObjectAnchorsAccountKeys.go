@@ -10,7 +10,7 @@ import (
 // Developer Keys of account
 func ListObjectAnchorsAccountKeys(ctx *pulumi.Context, args *ListObjectAnchorsAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListObjectAnchorsAccountKeysResult, error) {
 	var rv ListObjectAnchorsAccountKeysResult
-	err := ctx.Invoke("azure-nextgen:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

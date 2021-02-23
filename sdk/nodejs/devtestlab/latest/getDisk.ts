@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * A Disk.
  * Latest API Version: 2018-09-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getDisk'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getDisk'. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getDisk'.")
+    pulumi.log.warn("getDisk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getDisk'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab/latest:getDisk", {
+    return pulumi.runtime.invoke("azure-native:devtestlab/latest:getDisk", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

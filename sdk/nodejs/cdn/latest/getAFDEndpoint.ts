@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDEndpoint'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDEndpoint'. */
 export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDEndpointResult> {
-    pulumi.log.warn("getAFDEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cdn:getAFDEndpoint'.")
+    pulumi.log.warn("getAFDEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getAFDEndpoint'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cdn/latest:getAFDEndpoint", {
+    return pulumi.runtime.invoke("azure-native:cdn/latest:getAFDEndpoint", {
         "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

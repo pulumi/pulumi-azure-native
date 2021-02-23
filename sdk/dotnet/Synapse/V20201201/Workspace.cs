@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Synapse.V20201201
+namespace Pulumi.AzureNative.Synapse.V20201201
 {
     /// <summary>
     /// A workspace
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:synapse/v20201201:Workspace")]
+    [AzureNativeResourceType("azure-native:synapse/v20201201:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -150,12 +150,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20201201:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20201201:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Workspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:synapse/v20201201:Workspace", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20201201:Workspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -166,8 +166,11 @@ namespace Pulumi.AzureNextGen.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:synapse:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Workspace"},
                 },
             };

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-02-01-preview.
 func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts ...pulumi.InvokeOption) (*ListMonitorApiKeysResult, error) {
 	var rv ListMonitorApiKeysResult
-	err := ctx.Invoke("azure-nextgen:datadog:listMonitorApiKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datadog:listMonitorApiKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

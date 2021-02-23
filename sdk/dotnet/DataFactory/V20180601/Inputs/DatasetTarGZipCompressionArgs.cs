@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The TarGZip compression level.
         /// </summary>
         [Input("level")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.DatasetCompressionLevel>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.DatasetCompressionLevel>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

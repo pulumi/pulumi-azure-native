@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The lock information.
  * Latest API Version: 2016-09-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceLevel'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.
  */
 export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockAtResourceLevel {
-        pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceLevel'.")
+        pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.")
         return new ManagementLockAtResourceLevel(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:authorization/latest:ManagementLockAtResourceLevel';
+    public static readonly __pulumiType = 'azure-native:authorization/latest:ManagementLockAtResourceLevel';
 
     /**
      * Returns true if the given object is an instance of ManagementLockAtResourceLevel.  This is designed to work even
@@ -67,9 +67,9 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceLevel'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'. */
     constructor(name: string, args: ManagementLockAtResourceLevelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:authorization:ManagementLockAtResourceLevel'.")
+        pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.level === undefined) && !(opts && opts.urn)) {
@@ -115,7 +115,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
     }

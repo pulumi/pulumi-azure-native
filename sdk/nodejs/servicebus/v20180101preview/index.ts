@@ -61,37 +61,37 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig":
+            case "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig":
                 return new DisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:MigrationConfig":
+            case "azure-native:servicebus/v20180101preview:MigrationConfig":
                 return new MigrationConfig(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:Namespace":
+            case "azure-native:servicebus/v20180101preview:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule":
+            case "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule":
+            case "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule":
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet":
+            case "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule":
+            case "azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:PrivateEndpointConnection":
+            case "azure-native:servicebus/v20180101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:Queue":
+            case "azure-native:servicebus/v20180101preview:Queue":
                 return new Queue(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule":
+            case "azure-native:servicebus/v20180101preview:QueueAuthorizationRule":
                 return new QueueAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:Rule":
+            case "azure-native:servicebus/v20180101preview:Rule":
                 return new Rule(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:Subscription":
+            case "azure-native:servicebus/v20180101preview:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:Topic":
+            case "azure-native:servicebus/v20180101preview:Topic":
                 return new Topic(name, <any>undefined, { urn })
-            case "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule":
+            case "azure-native:servicebus/v20180101preview:TopicAuthorizationRule":
                 return new TopicAuthorizationRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "servicebus/v20180101preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "servicebus/v20180101preview", _module)

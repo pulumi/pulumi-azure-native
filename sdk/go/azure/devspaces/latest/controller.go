@@ -13,7 +13,7 @@ import (
 
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devspaces:Controller'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devspaces:Controller'.
 type Controller struct {
 	pulumi.CustomResourceState
 
@@ -62,7 +62,13 @@ func NewController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devspaces:Controller"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devspaces:Controller"),
+		},
+		{
+			Type: pulumi.String("azure-native:devspaces/v20190401:Controller"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devspaces/v20190401:Controller"),
@@ -70,7 +76,7 @@ func NewController(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Controller
-	err := ctx.RegisterResource("azure-nextgen:devspaces/latest:Controller", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devspaces/latest:Controller", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +88,7 @@ func NewController(ctx *pulumi.Context,
 func GetController(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ControllerState, opts ...pulumi.ResourceOption) (*Controller, error) {
 	var resource Controller
-	err := ctx.ReadResource("azure-nextgen:devspaces/latest:Controller", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devspaces/latest:Controller", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

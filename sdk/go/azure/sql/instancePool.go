@@ -55,10 +55,19 @@ func NewInstancePool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20180601preview:InstancePool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20180601preview:InstancePool"),
 		},
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:InstancePool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:InstancePool"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:InstancePool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:InstancePool"),
@@ -66,7 +75,7 @@ func NewInstancePool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource InstancePool
-	err := ctx.RegisterResource("azure-nextgen:sql:InstancePool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:InstancePool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +87,7 @@ func NewInstancePool(ctx *pulumi.Context,
 func GetInstancePool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InstancePoolState, opts ...pulumi.ResourceOption) (*InstancePool, error) {
 	var resource InstancePool
-	err := ctx.ReadResource("azure-nextgen:sql:InstancePool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:InstancePool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Site REST Resource.
  * Latest API Version: 2020-07-07.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:Site'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:Site'.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Site extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Site {
-        pulumi.log.warn("Site is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:Site'.")
+        pulumi.log.warn("Site is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:Site'.")
         return new Site(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:offazure/latest:Site';
+    public static readonly __pulumiType = 'azure-native:offazure/latest:Site';
 
     /**
      * Returns true if the given object is an instance of Site.  This is designed to work even
@@ -68,9 +68,9 @@ export class Site extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:Site'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:Site'. */
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Site is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:offazure:Site'.")
+        pulumi.log.warn("Site is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:Site'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class Site extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure:Site" }, { type: "azure-nextgen:offazure/v20200101:Site" }, { type: "azure-nextgen:offazure/v20200707:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:Site" }, { type: "azure-nextgen:offazure:Site" }, { type: "azure-native:offazure/v20200101:Site" }, { type: "azure-nextgen:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-nextgen:offazure/v20200707:Site" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Site.__pulumiType, name, inputs, opts);
     }

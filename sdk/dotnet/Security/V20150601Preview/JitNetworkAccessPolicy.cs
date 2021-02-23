@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20150601Preview
+namespace Pulumi.AzureNative.Security.V20150601Preview
 {
-    [AzureNextGenResourceType("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy")]
+    [AzureNativeResourceType("azure-native:security/v20150601preview:JitNetworkAccessPolicy")]
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JitNetworkAccessPolicy(string name, JitNetworkAccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy", name, args ?? new JitNetworkAccessPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20150601preview:JitNetworkAccessPolicy", name, args ?? new JitNetworkAccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JitNetworkAccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20150601preview:JitNetworkAccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,8 +76,11 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:JitNetworkAccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:security/latest:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:JitNetworkAccessPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:JitNetworkAccessPolicy"},
                 },
             };

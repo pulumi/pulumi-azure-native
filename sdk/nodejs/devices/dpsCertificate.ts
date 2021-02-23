@@ -23,7 +23,7 @@ export class DpsCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devices:DpsCertificate';
+    public static readonly __pulumiType = 'azure-native:devices:DpsCertificate';
 
     /**
      * Returns true if the given object is an instance of DpsCertificate.  This is designed to work even
@@ -90,7 +90,7 @@ export class DpsCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-nextgen:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DpsCertificate.__pulumiType, name, inputs, opts);
     }

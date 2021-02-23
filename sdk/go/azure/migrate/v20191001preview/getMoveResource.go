@@ -10,7 +10,7 @@ import (
 // Defines the move resource.
 func LookupMoveResource(ctx *pulumi.Context, args *LookupMoveResourceArgs, opts ...pulumi.InvokeOption) (*LookupMoveResourceResult, error) {
 	var rv LookupMoveResourceResult
-	err := ctx.Invoke("azure-nextgen:migrate/v20191001preview:getMoveResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:migrate/v20191001preview:getMoveResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

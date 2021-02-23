@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// The deinterlacing mode. Defaults to AutoPixelAdaptive.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.DeinterlaceMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180601Preview.DeinterlaceMode>? Mode { get; set; }
 
         /// <summary>
         /// The field parity for de-interlacing, defaults to Auto.
         /// </summary>
         [Input("parity")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.DeinterlaceParity>? Parity { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180601Preview.DeinterlaceParity>? Parity { get; set; }
 
         public DeinterlaceArgs()
         {

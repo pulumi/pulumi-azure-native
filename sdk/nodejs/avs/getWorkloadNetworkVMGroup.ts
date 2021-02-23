@@ -17,7 +17,7 @@ export function getWorkloadNetworkVMGroup(args: GetWorkloadNetworkVMGroupArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:avs:getWorkloadNetworkVMGroup", {
+    return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkVMGroup", {
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
         "vmGroupId": args.vmGroupId,

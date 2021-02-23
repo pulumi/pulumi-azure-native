@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
+namespace Pulumi.AzureNative.Logic.Latest.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The X12 character set.
         /// </summary>
         [Input("characterSet", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.X12CharacterSet> CharacterSet { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Logic.Latest.X12CharacterSet> CharacterSet { get; set; } = null!;
 
         /// <summary>
         /// The component separator.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix", required: true)]
-        public Input<Pulumi.AzureNextGen.Logic.Latest.SegmentTerminatorSuffix> SegmentTerminatorSuffix { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Logic.Latest.SegmentTerminatorSuffix> SegmentTerminatorSuffix { get; set; } = null!;
 
         public X12FramingSettingsArgs()
         {

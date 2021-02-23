@@ -54,10 +54,19 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storsimple:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple:StorageAccountCredential"),
 		},
 		{
+			Type: pulumi.String("azure-native:storsimple/latest:StorageAccountCredential"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storsimple/latest:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:storsimple/v20170601:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:StorageAccountCredential"),
@@ -65,7 +74,7 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountCredential
-	err := ctx.RegisterResource("azure-nextgen:storsimple/v20161001:StorageAccountCredential", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storsimple/v20161001:StorageAccountCredential", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +86,7 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 func GetStorageAccountCredential(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageAccountCredentialState, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
 	var resource StorageAccountCredential
-	err := ctx.ReadResource("azure-nextgen:storsimple/v20161001:StorageAccountCredential", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storsimple/v20161001:StorageAccountCredential", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

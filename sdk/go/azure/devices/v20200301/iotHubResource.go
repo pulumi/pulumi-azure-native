@@ -46,55 +46,109 @@ func NewIotHubResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devices:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/latest:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/latest:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20160203:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20160203:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20170119:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20170119:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20170701:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20170701:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20180122:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20180122:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20180401:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20180401:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20181201preview:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20181201preview:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20190322:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20190322preview:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20190322preview:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20190701preview:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20190701preview:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20191104:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20191104:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200401:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200401:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200615:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200615:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200710preview:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200710preview:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200801:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200801:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devices/v20200831:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devices/v20200831preview:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200831preview:IotHubResource"),
@@ -102,7 +156,7 @@ func NewIotHubResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResource
-	err := ctx.RegisterResource("azure-nextgen:devices/v20200301:IotHubResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devices/v20200301:IotHubResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -114,7 +168,7 @@ func NewIotHubResource(ctx *pulumi.Context,
 func GetIotHubResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IotHubResourceState, opts ...pulumi.ResourceOption) (*IotHubResource, error) {
 	var resource IotHubResource
-	err := ctx.ReadResource("azure-nextgen:devices/v20200301:IotHubResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devices/v20200301:IotHubResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

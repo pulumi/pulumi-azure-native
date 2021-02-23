@@ -16,7 +16,7 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:streamanalytics/v20160301:getFunction", {
+    return pulumi.runtime.invoke("azure-native:streamanalytics/v20160301:getFunction", {
         "functionName": args.functionName,
         "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,

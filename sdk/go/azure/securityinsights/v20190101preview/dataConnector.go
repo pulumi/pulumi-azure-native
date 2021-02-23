@@ -45,7 +45,7 @@ func NewDataConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource DataConnector
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:DataConnector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:DataConnector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewDataConnector(ctx *pulumi.Context,
 func GetDataConnector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataConnectorState, opts ...pulumi.ResourceOption) (*DataConnector, error) {
 	var resource DataConnector
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:DataConnector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:DataConnector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

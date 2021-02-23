@@ -10,7 +10,7 @@ import (
 // Registration assignment.
 func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationAssignmentResult, error) {
 	var rv LookupRegistrationAssignmentResult
-	err := ctx.Invoke("azure-nextgen:managedservices/v20180601preview:getRegistrationAssignment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:managedservices/v20180601preview:getRegistrationAssignment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

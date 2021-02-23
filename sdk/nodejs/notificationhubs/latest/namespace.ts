@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Description of a Namespace resource.
  * Latest API Version: 2017-04-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:Namespace'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Namespace {
-        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:Namespace'.")
+        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'.")
         return new Namespace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:notificationhubs/latest:Namespace';
+    public static readonly __pulumiType = 'azure-native:notificationhubs/latest:Namespace';
 
     /**
      * Returns true if the given object is an instance of Namespace.  This is designed to work even
@@ -119,9 +119,9 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:Namespace'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'. */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:notificationhubs:Namespace'.")
+        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -174,7 +174,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs:Namespace" }, { type: "azure-nextgen:notificationhubs/v20140901:Namespace" }, { type: "azure-nextgen:notificationhubs/v20160301:Namespace" }, { type: "azure-nextgen:notificationhubs/v20170401:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:Namespace" }, { type: "azure-nextgen:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-nextgen:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-nextgen:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-nextgen:notificationhubs/v20170401:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

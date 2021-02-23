@@ -11,7 +11,7 @@ import (
 // API Version: 2015-05-01.
 func LookupFavorite(ctx *pulumi.Context, args *LookupFavoriteArgs, opts ...pulumi.InvokeOption) (*LookupFavoriteResult, error) {
 	var rv LookupFavoriteResult
-	err := ctx.Invoke("azure-nextgen:insights:getFavorite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:insights:getFavorite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

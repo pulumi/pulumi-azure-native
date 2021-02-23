@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180701.Inputs
+namespace Pulumi.AzureNative.Media.V20180701.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Inputs
         /// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
         /// </summary>
         [Input("encodingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180701.LiveEventEncodingType>? EncodingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180701.LiveEventEncodingType>? EncodingType { get; set; }
 
         /// <summary>
         /// The encoding preset name.  This value is specified at creation time and cannot be updated.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AVS.V20200717Preview.Inputs
+namespace Pulumi.AzureNative.AVS.V20200717Preview.Inputs
 {
 
     /// <summary>

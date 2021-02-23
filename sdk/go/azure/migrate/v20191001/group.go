@@ -40,7 +40,13 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:Group"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:Group"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/latest:Group"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/latest:Group"),
@@ -48,7 +54,7 @@ func NewGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Group
-	err := ctx.RegisterResource("azure-nextgen:migrate/v20191001:Group", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/v20191001:Group", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +66,7 @@ func NewGroup(ctx *pulumi.Context,
 func GetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
 	var resource Group
-	err := ctx.ReadResource("azure-nextgen:migrate/v20191001:Group", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/v20191001:Group", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

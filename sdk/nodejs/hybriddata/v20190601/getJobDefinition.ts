@@ -16,7 +16,7 @@ export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:hybriddata/v20190601:getJobDefinition", {
+    return pulumi.runtime.invoke("azure-native:hybriddata/v20190601:getJobDefinition", {
         "dataManagerName": args.dataManagerName,
         "dataServiceName": args.dataServiceName,
         "jobDefinitionName": args.jobDefinitionName,

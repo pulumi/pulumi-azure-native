@@ -10,10 +10,10 @@ import (
 // Binding resource payload
 // Latest API Version: 2020-07-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:appplatform:getBinding'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getBinding'.
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
-	err := ctx.Invoke("azure-nextgen:appplatform/latest:getBinding", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:appplatform/latest:getBinding", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

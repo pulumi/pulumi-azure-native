@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Storage.V20150501Preview
+namespace Pulumi.AzureNative.Storage.V20150501Preview
 {
     /// <summary>
     /// Gets or sets the account type.

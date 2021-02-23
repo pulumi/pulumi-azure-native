@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
+namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
     /// <summary>
     /// A custom image.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab/v20150521preview:CustomImageResource")]
+    [AzureNativeResourceType("azure-native:devtestlab/v20150521preview:CustomImageResource")]
     public partial class CustomImageResource : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomImageResource(string name, CustomImageResourceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, args ?? new CustomImageResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab/v20150521preview:CustomImageResource", name, args ?? new CustomImageResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomImageResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab/v20150521preview:CustomImageResource", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab/v20150521preview:CustomImageResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -106,9 +106,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:CustomImageResource"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:CustomImageResource"},
                 },
             };
@@ -179,7 +183,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The OS type of the custom image.
         /// </summary>
         [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.CustomImageOsType>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20150521Preview.CustomImageOsType>? OsType { get; set; }
 
         /// <summary>
         /// The provisioning status of the resource.

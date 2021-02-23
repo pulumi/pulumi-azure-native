@@ -10,7 +10,7 @@ import (
 // A report resource.
 func LookupReportByDepartment(ctx *pulumi.Context, args *LookupReportByDepartmentArgs, opts ...pulumi.InvokeOption) (*LookupReportByDepartmentResult, error) {
 	var rv LookupReportByDepartmentResult
-	err := ctx.Invoke("azure-nextgen:costmanagement/v20180801preview:getReportByDepartment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:costmanagement/v20180801preview:getReportByDepartment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     public static class ListDeviceRegistrationKey
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<ListDeviceRegistrationKeyResult> InvokeAsync(ListDeviceRegistrationKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-nextgen:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDeviceRegistrationKeyResult>("azure-native:hybridnetwork:listDeviceRegistrationKey", args ?? new ListDeviceRegistrationKeyArgs(), options.WithVersion());
     }
 
 

@@ -22,7 +22,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:containerservice/v20201201:MaintenanceConfiguration';
+    public static readonly __pulumiType = 'azure-native:containerservice/v20201201:MaintenanceConfiguration';
 
     /**
      * Returns true if the given object is an instance of MaintenanceConfiguration.  This is designed to work even
@@ -94,7 +94,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/latest:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice:MaintenanceConfiguration" }, { type: "azure-native:containerservice/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/latest:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

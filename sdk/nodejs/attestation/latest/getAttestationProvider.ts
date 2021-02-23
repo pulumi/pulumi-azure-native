@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Attestation service response message.
  * Latest API Version: 2020-10-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'. */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
-    pulumi.log.warn("getAttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:attestation:getAttestationProvider'.")
+    pulumi.log.warn("getAttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:attestation/latest:getAttestationProvider", {
+    return pulumi.runtime.invoke("azure-native:attestation/latest:getAttestationProvider", {
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

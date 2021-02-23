@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An Application Insights component definition.
  * Latest API Version: 2015-05-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getComponent'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponent'. */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-    pulumi.log.warn("getComponent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:insights:getComponent'.")
+    pulumi.log.warn("getComponent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponent'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights/latest:getComponent", {
+    return pulumi.runtime.invoke("azure-native:insights/latest:getComponent", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql.V20200202Preview
+namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
     public static class GetJobAgent
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// An Azure SQL job agent.
         /// </summary>
         public static Task<GetJobAgentResult> InvokeAsync(GetJobAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-nextgen:sql/v20200202preview:getJobAgent", args ?? new GetJobAgentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobAgentResult>("azure-native:sql/v20200202preview:getJobAgent", args ?? new GetJobAgentArgs(), options.WithVersion());
     }
 
 

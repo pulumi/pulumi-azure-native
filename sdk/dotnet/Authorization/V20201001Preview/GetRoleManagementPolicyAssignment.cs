@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
+namespace Pulumi.AzureNative.Authorization.V20201001Preview
 {
     public static class GetRoleManagementPolicyAssignment
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20201001Preview
         /// Role management policy
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-nextgen:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithVersion());
     }
 
 

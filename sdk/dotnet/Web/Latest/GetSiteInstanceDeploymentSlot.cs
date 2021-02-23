@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getSiteInstanceDeploymentSlot'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeploymentSlot'.")]
     public static class GetSiteInstanceDeploymentSlot
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Latest API Version: 2015-08-01.
         /// </summary>
         public static Task<GetSiteInstanceDeploymentSlotResult> InvokeAsync(GetSiteInstanceDeploymentSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentSlotResult>("azure-nextgen:web/latest:getSiteInstanceDeploymentSlot", args ?? new GetSiteInstanceDeploymentSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteInstanceDeploymentSlotResult>("azure-native:web/latest:getSiteInstanceDeploymentSlot", args ?? new GetSiteInstanceDeploymentSlotArgs(), options.WithVersion());
     }
 
 

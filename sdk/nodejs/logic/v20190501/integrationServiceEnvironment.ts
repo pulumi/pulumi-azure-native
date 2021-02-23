@@ -22,7 +22,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:logic/v20190501:IntegrationServiceEnvironment';
+    public static readonly __pulumiType = 'azure-native:logic/v20190501:IntegrationServiceEnvironment';
 
     /**
      * Returns true if the given object is an instance of IntegrationServiceEnvironment.  This is designed to work even
@@ -96,7 +96,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironment" }, { type: "azure-native:logic/latest:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationServiceEnvironment.__pulumiType, name, inputs, opts);
     }

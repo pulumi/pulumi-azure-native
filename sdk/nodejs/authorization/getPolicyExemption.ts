@@ -17,7 +17,7 @@ export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization:getPolicyExemption", {
+    return pulumi.runtime.invoke("azure-native:authorization:getPolicyExemption", {
         "policyExemptionName": args.policyExemptionName,
         "scope": args.scope,
     }, opts);

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01.
 func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetworkPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkPeeringResult, error) {
 	var rv LookupVirtualNetworkPeeringResult
-	err := ctx.Invoke("azure-nextgen:network:getVirtualNetworkPeering", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network:getVirtualNetworkPeering", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

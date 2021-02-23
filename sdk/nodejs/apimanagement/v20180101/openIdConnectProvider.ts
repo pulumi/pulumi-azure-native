@@ -21,7 +21,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20180101:OpenIdConnectProvider';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20180101:OpenIdConnectProvider';
 
     /**
      * Returns true if the given object is an instance of OpenIdConnectProvider.  This is designed to work even
@@ -114,7 +114,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/latest:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/latest:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/latest:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }

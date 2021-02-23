@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Machine Learning service object wrapped into ARM resource envelope.
  * Latest API Version: 2021-01-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.
  */
 export class MachineLearningService extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class MachineLearningService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineLearningService {
-        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.")
+        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.")
         return new MachineLearningService(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:machinelearningservices/latest:MachineLearningService';
+    public static readonly __pulumiType = 'azure-native:machinelearningservices/latest:MachineLearningService';
 
     /**
      * Returns true if the given object is an instance of MachineLearningService.  This is designed to work even
@@ -79,9 +79,9 @@ export class MachineLearningService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'. */
     constructor(name: string, args: MachineLearningServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:machinelearningservices:MachineLearningService'.")
+        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.computeType === undefined) && !(opts && opts.urn)) {
@@ -126,7 +126,7 @@ export class MachineLearningService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningService" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningService.__pulumiType, name, inputs, opts);
     }

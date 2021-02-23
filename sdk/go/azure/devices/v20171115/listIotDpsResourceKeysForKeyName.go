@@ -10,7 +10,7 @@ import (
 // Description of the shared access key.
 func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysForKeyNameResult, error) {
 	var rv ListIotDpsResourceKeysForKeyNameResult
-	err := ctx.Invoke("azure-nextgen:devices/v20171115:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20171115:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

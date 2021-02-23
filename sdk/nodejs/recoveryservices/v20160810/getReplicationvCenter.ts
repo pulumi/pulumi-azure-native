@@ -16,7 +16,7 @@ export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:recoveryservices/v20160810:getReplicationvCenter", {
+    return pulumi.runtime.invoke("azure-native:recoveryservices/v20160810:getReplicationvCenter", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

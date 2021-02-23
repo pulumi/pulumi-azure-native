@@ -21,57 +21,57 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:documentdb:CassandraResourceCassandraKeyspace":
+	case "azure-native:documentdb:CassandraResourceCassandraKeyspace":
 		r, err = NewCassandraResourceCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:CassandraResourceCassandraTable":
+	case "azure-native:documentdb:CassandraResourceCassandraTable":
 		r, err = NewCassandraResourceCassandraTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccount":
+	case "azure-native:documentdb:DatabaseAccount":
 		r, err = NewDatabaseAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace":
+	case "azure-native:documentdb:DatabaseAccountCassandraKeyspace":
 		r, err = NewDatabaseAccountCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountCassandraTable":
+	case "azure-native:documentdb:DatabaseAccountCassandraTable":
 		r, err = NewDatabaseAccountCassandraTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountGremlinDatabase":
+	case "azure-native:documentdb:DatabaseAccountGremlinDatabase":
 		r, err = NewDatabaseAccountGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountGremlinGraph":
+	case "azure-native:documentdb:DatabaseAccountGremlinGraph":
 		r, err = NewDatabaseAccountGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountMongoDBCollection":
+	case "azure-native:documentdb:DatabaseAccountMongoDBCollection":
 		r, err = NewDatabaseAccountMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountMongoDBDatabase":
+	case "azure-native:documentdb:DatabaseAccountMongoDBDatabase":
 		r, err = NewDatabaseAccountMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountSqlContainer":
+	case "azure-native:documentdb:DatabaseAccountSqlContainer":
 		r, err = NewDatabaseAccountSqlContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountSqlDatabase":
+	case "azure-native:documentdb:DatabaseAccountSqlDatabase":
 		r, err = NewDatabaseAccountSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:DatabaseAccountTable":
+	case "azure-native:documentdb:DatabaseAccountTable":
 		r, err = NewDatabaseAccountTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:GremlinResourceGremlinDatabase":
+	case "azure-native:documentdb:GremlinResourceGremlinDatabase":
 		r, err = NewGremlinResourceGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:GremlinResourceGremlinGraph":
+	case "azure-native:documentdb:GremlinResourceGremlinGraph":
 		r, err = NewGremlinResourceGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:MongoDBResourceMongoDBCollection":
+	case "azure-native:documentdb:MongoDBResourceMongoDBCollection":
 		r, err = NewMongoDBResourceMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase":
+	case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
 		r, err = NewMongoDBResourceMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:NotebookWorkspace":
+	case "azure-native:documentdb:NotebookWorkspace":
 		r, err = NewNotebookWorkspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:PrivateEndpointConnection":
+	case "azure-native:documentdb:PrivateEndpointConnection":
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlContainer":
+	case "azure-native:documentdb:SqlResourceSqlContainer":
 		r, err = NewSqlResourceSqlContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlDatabase":
+	case "azure-native:documentdb:SqlResourceSqlDatabase":
 		r, err = NewSqlResourceSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlRoleAssignment":
+	case "azure-native:documentdb:SqlResourceSqlRoleAssignment":
 		r, err = NewSqlResourceSqlRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition":
+	case "azure-native:documentdb:SqlResourceSqlRoleDefinition":
 		r, err = NewSqlResourceSqlRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlStoredProcedure":
+	case "azure-native:documentdb:SqlResourceSqlStoredProcedure":
 		r, err = NewSqlResourceSqlStoredProcedure(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlTrigger":
+	case "azure-native:documentdb:SqlResourceSqlTrigger":
 		r, err = NewSqlResourceSqlTrigger(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction":
+	case "azure-native:documentdb:SqlResourceSqlUserDefinedFunction":
 		r, err = NewSqlResourceSqlUserDefinedFunction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:documentdb:TableResourceTable":
+	case "azure-native:documentdb:TableResourceTable":
 		r, err = NewTableResourceTable(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -86,7 +86,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"documentdb",
 		&module{version},
 	)

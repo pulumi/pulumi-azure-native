@@ -17,7 +17,7 @@ export function getManagedInstancePrivateEndpointConnection(args: GetManagedInst
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:sql:getManagedInstancePrivateEndpointConnection", {
+    return pulumi.runtime.invoke("azure-native:sql:getManagedInstancePrivateEndpointConnection", {
         "managedInstanceName": args.managedInstanceName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

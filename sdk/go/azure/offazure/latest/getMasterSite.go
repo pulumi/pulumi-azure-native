@@ -10,10 +10,10 @@ import (
 // Site REST Resource.
 // Latest API Version: 2020-07-07.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:offazure:getMasterSite'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getMasterSite'.
 func LookupMasterSite(ctx *pulumi.Context, args *LookupMasterSiteArgs, opts ...pulumi.InvokeOption) (*LookupMasterSiteResult, error) {
 	var rv LookupMasterSiteResult
-	err := ctx.Invoke("azure-nextgen:offazure/latest:getMasterSite", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:offazure/latest:getMasterSite", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

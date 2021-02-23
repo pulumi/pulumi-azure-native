@@ -37,12 +37,15 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:operationsmanagement:ManagementConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:operationsmanagement:ManagementConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementConfiguration
-	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:operationsmanagement/v20151101preview:ManagementConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +57,7 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 func GetManagementConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ManagementConfigurationState, opts ...pulumi.ResourceOption) (*ManagementConfiguration, error) {
 	var resource ManagementConfiguration
-	err := ctx.ReadResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:operationsmanagement/v20151101preview:ManagementConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

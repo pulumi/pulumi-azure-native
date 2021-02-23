@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Communication.V20200820Preview
+namespace Pulumi.AzureNative.Communication.V20200820Preview
 {
     public static class GetCommunicationService
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
         /// A class representing a CommunicationService resource.
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-nextgen:communication/v20200820preview:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication/v20200820preview:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithVersion());
     }
 
 

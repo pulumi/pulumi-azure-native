@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
+namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable")]
+    [AzureNativeResourceType("azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable")]
     public partial class CassandraResourceCassandraTable : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CassandraResourceCassandraTable(string name, CassandraResourceCassandraTableArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable", name, args ?? new CassandraResourceCassandraTableArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable", name, args ?? new CassandraResourceCassandraTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CassandraResourceCassandraTable(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,13 +76,21 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20191212:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200301:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200401:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20200901:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable"},
                 },
             };

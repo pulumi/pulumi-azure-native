@@ -11,7 +11,7 @@ import (
 // API Version: 2018-05-01.
 func ListJobOutputFiles(ctx *pulumi.Context, args *ListJobOutputFilesArgs, opts ...pulumi.InvokeOption) (*ListJobOutputFilesResult, error) {
 	var rv ListJobOutputFilesResult
-	err := ctx.Invoke("azure-nextgen:batchai:listJobOutputFiles", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:batchai:listJobOutputFiles", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

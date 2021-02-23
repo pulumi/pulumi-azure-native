@@ -34,13 +34,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:aad:DomainService":
+            case "azure-native:aad:DomainService":
                 return new DomainService(name, <any>undefined, { urn })
-            case "azure-nextgen:aad:OuContainer":
+            case "azure-native:aad:OuContainer":
                 return new OuContainer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "aad", _module)
+pulumi.runtime.registerResourceModule("azure-native", "aad", _module)

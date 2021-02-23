@@ -45,25 +45,49 @@ func NewTagByOperation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:TagByOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:TagByOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagByOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:TagByOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagByOperation"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByOperation"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagByOperation"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByOperation"),
@@ -71,7 +95,7 @@ func NewTagByOperation(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TagByOperation
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:TagByOperation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:TagByOperation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +107,7 @@ func NewTagByOperation(ctx *pulumi.Context,
 func GetTagByOperation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagByOperationState, opts ...pulumi.ResourceOption) (*TagByOperation, error) {
 	var resource TagByOperation
-	err := ctx.ReadResource("azure-nextgen:apimanagement:TagByOperation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:TagByOperation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
+namespace Pulumi.AzureNative.HDInsight.V20150301Preview
 {
     [EnumType]
     public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>

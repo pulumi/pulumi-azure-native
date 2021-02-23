@@ -23,7 +23,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection';
+    public static readonly __pulumiType = 'azure-native:devices:IotDpsResourcePrivateEndpointConnection';
 
     /**
      * Returns true if the given object is an instance of IotDpsResourcePrivateEndpointConnection.  This is designed to work even
@@ -86,7 +86,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

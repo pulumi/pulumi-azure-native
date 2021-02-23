@@ -22,7 +22,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20191201:User';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20191201:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even
@@ -137,7 +137,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:User" }, { type: "azure-nextgen:apimanagement/latest:User" }, { type: "azure-nextgen:apimanagement/v20160707:User" }, { type: "azure-nextgen:apimanagement/v20161010:User" }, { type: "azure-nextgen:apimanagement/v20170301:User" }, { type: "azure-nextgen:apimanagement/v20180101:User" }, { type: "azure-nextgen:apimanagement/v20180601preview:User" }, { type: "azure-nextgen:apimanagement/v20190101:User" }, { type: "azure-nextgen:apimanagement/v20191201preview:User" }, { type: "azure-nextgen:apimanagement/v20200601preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:User" }, { type: "azure-nextgen:apimanagement:User" }, { type: "azure-native:apimanagement/latest:User" }, { type: "azure-nextgen:apimanagement/latest:User" }, { type: "azure-native:apimanagement/v20160707:User" }, { type: "azure-nextgen:apimanagement/v20160707:User" }, { type: "azure-native:apimanagement/v20161010:User" }, { type: "azure-nextgen:apimanagement/v20161010:User" }, { type: "azure-native:apimanagement/v20170301:User" }, { type: "azure-nextgen:apimanagement/v20170301:User" }, { type: "azure-native:apimanagement/v20180101:User" }, { type: "azure-nextgen:apimanagement/v20180101:User" }, { type: "azure-native:apimanagement/v20180601preview:User" }, { type: "azure-nextgen:apimanagement/v20180601preview:User" }, { type: "azure-native:apimanagement/v20190101:User" }, { type: "azure-nextgen:apimanagement/v20190101:User" }, { type: "azure-native:apimanagement/v20191201preview:User" }, { type: "azure-nextgen:apimanagement/v20191201preview:User" }, { type: "azure-native:apimanagement/v20200601preview:User" }, { type: "azure-nextgen:apimanagement/v20200601preview:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

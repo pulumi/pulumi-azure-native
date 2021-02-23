@@ -18,7 +18,7 @@ export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:containerregistry:listTaskDetails", {
+    return pulumi.runtime.invoke("azure-native:containerregistry:listTaskDetails", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
         "taskName": args.taskName,

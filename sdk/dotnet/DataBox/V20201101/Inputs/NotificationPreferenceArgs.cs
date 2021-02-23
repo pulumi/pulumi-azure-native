@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
+namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
         /// Name of the stage.
         /// </summary>
         [Input("stageName", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.NotificationStageName> StageName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.V20201101.NotificationStageName> StageName { get; set; } = null!;
 
         public NotificationPreferenceArgs()
         {

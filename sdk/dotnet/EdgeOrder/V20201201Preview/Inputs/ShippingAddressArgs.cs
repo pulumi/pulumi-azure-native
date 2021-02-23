@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
+namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.Inputs
         /// Type of address.
         /// </summary>
         [Input("addressType")]
-        public InputUnion<string, Pulumi.AzureNextGen.EdgeOrder.V20201201Preview.AddressType>? AddressType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.V20201201Preview.AddressType>? AddressType { get; set; }
 
         /// <summary>
         /// Name of the City.

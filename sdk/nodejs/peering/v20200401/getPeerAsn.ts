@@ -16,7 +16,7 @@ export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering/v20200401:getPeerAsn", {
+    return pulumi.runtime.invoke("azure-native:peering/v20200401:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
     }, opts);
 }

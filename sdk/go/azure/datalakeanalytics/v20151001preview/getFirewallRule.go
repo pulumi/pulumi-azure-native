@@ -10,7 +10,7 @@ import (
 // Data Lake Analytics firewall rule information.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics/v20151001preview:getFirewallRule", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics/v20151001preview:getFirewallRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

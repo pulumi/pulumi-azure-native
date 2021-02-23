@@ -10,7 +10,7 @@ import (
 // iOS Policy entity for Intune MAM.
 func LookupIoMAMPolicyByName(ctx *pulumi.Context, args *LookupIoMAMPolicyByNameArgs, opts ...pulumi.InvokeOption) (*LookupIoMAMPolicyByNameResult, error) {
 	var rv LookupIoMAMPolicyByNameResult
-	err := ctx.Invoke("azure-nextgen:intune/v20150114privatepreview:getIoMAMPolicyByName", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

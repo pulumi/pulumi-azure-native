@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class ListWebhookEvents
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListWebhookEventsResult> InvokeAsync(ListWebhookEventsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-nextgen:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebhookEventsResult>("azure-native:containerregistry:listWebhookEvents", args ?? new ListWebhookEventsArgs(), options.WithVersion());
     }
 
 

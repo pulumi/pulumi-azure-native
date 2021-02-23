@@ -56,10 +56,19 @@ func NewFactory(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:datafactory/latest:Factory"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/latest:Factory"),
 		},
 		{
+			Type: pulumi.String("azure-native:datafactory/v20170901preview:Factory"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Factory"),
+		},
+		{
+			Type: pulumi.String("azure-native:datafactory/v20180601:Factory"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Factory"),
@@ -67,7 +76,7 @@ func NewFactory(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Factory
-	err := ctx.RegisterResource("azure-nextgen:datafactory:Factory", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:datafactory:Factory", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewFactory(ctx *pulumi.Context,
 func GetFactory(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FactoryState, opts ...pulumi.ResourceOption) (*Factory, error) {
 	var resource Factory
-	err := ctx.ReadResource("azure-nextgen:datafactory:Factory", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:datafactory:Factory", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

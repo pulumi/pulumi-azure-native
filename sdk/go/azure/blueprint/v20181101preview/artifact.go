@@ -41,12 +41,15 @@ func NewArtifact(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:blueprint:Artifact"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:blueprint:Artifact"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Artifact
-	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Artifact", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:blueprint/v20181101preview:Artifact", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +61,7 @@ func NewArtifact(ctx *pulumi.Context,
 func GetArtifact(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ArtifactState, opts ...pulumi.ResourceOption) (*Artifact, error) {
 	var resource Artifact
-	err := ctx.ReadResource("azure-nextgen:blueprint/v20181101preview:Artifact", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:blueprint/v20181101preview:Artifact", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

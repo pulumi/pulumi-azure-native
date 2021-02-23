@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Get Data Plane read only token response definition.
  * Latest API Version: 2018-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryDataPlaneAccess'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryDataPlaneAccess'. */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
-    pulumi.log.warn("getFactoryDataPlaneAccess is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:datafactory:getFactoryDataPlaneAccess'.")
+    pulumi.log.warn("getFactoryDataPlaneAccess is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryDataPlaneAccess'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:datafactory/latest:getFactoryDataPlaneAccess", {
+    return pulumi.runtime.invoke("azure-native:datafactory/latest:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,
         "expireTime": args.expireTime,
         "factoryName": args.factoryName,

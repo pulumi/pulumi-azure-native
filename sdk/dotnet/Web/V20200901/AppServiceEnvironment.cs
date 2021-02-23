@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20200901
+namespace Pulumi.AzureNative.Web.V20200901
 {
     /// <summary>
     /// App Service Environment ARM resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20200901:AppServiceEnvironment")]
+    [AzureNativeResourceType("azure-native:web/v20200901:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : Pulumi.CustomResource
     {
         /// <summary>
@@ -284,12 +284,12 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppServiceEnvironment(string name, AppServiceEnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200901:AppServiceEnvironment", name, args ?? new AppServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20200901:AppServiceEnvironment", name, args ?? new AppServiceEnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppServiceEnvironment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20200901:AppServiceEnvironment", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20200901:AppServiceEnvironment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -300,13 +300,21 @@ namespace Pulumi.AzureNextGen.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:AppServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServiceEnvironment"},
                 },
             };
@@ -378,7 +386,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         /// </summary>
         [Input("internalLoadBalancingMode")]
-        public InputUnion<string, Pulumi.AzureNextGen.Web.V20200901.LoadBalancingMode>? InternalLoadBalancingMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Web.V20200901.LoadBalancingMode>? InternalLoadBalancingMode { get; set; }
 
         /// <summary>
         /// Number of IP SSL addresses reserved for the App Service Environment.

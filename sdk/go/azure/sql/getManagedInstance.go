@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-01-preview.
 func LookupManagedInstance(ctx *pulumi.Context, args *LookupManagedInstanceArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceResult, error) {
 	var rv LookupManagedInstanceResult
-	err := ctx.Invoke("azure-nextgen:sql:getManagedInstance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sql:getManagedInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

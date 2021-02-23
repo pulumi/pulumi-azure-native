@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * A custom image.
  * Latest API Version: 2018-09-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.
  */
 export class CustomImage extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class CustomImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomImage {
-        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.")
+        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.")
         return new CustomImage(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:devtestlab/latest:CustomImage';
+    public static readonly __pulumiType = 'azure-native:devtestlab/latest:CustomImage';
 
     /**
      * Returns true if the given object is an instance of CustomImage.  This is designed to work even
@@ -111,9 +111,9 @@ export class CustomImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'. */
     constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:CustomImage'.")
+        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
@@ -165,7 +165,7 @@ export class CustomImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImage" }, { type: "azure-nextgen:devtestlab:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }, { type: "azure-native:devtestlab/v20180915:CustomImage" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomImage.__pulumiType, name, inputs, opts);
     }

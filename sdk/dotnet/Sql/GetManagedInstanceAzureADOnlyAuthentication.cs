@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Sql
+namespace Pulumi.AzureNative.Sql
 {
     public static class GetManagedInstanceAzureADOnlyAuthentication
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Sql
         /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceAzureADOnlyAuthenticationResult> InvokeAsync(GetManagedInstanceAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-nextgen:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationArgs(), options.WithVersion());
     }
 
 

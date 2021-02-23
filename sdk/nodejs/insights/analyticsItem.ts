@@ -23,7 +23,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:insights:AnalyticsItem';
+    public static readonly __pulumiType = 'azure-native:insights:AnalyticsItem';
 
     /**
      * Returns true if the given object is an instance of AnalyticsItem.  This is designed to work even
@@ -118,7 +118,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/latest:AnalyticsItem" }, { type: "azure-nextgen:insights/v20150501:AnalyticsItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:AnalyticsItem" }, { type: "azure-nextgen:insights/latest:AnalyticsItem" }, { type: "azure-native:insights/v20150501:AnalyticsItem" }, { type: "azure-nextgen:insights/v20150501:AnalyticsItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AnalyticsItem.__pulumiType, name, inputs, opts);
     }

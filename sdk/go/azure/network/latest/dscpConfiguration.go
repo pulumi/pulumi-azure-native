@@ -14,7 +14,7 @@ import (
 // DSCP Configuration in a resource group.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:DscpConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:DscpConfiguration'.
 type DscpConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -62,13 +62,25 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:DscpConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:DscpConfiguration"),
@@ -76,7 +88,7 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DscpConfiguration
-	err := ctx.RegisterResource("azure-nextgen:network/latest:DscpConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:DscpConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +100,7 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 func GetDscpConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DscpConfigurationState, opts ...pulumi.ResourceOption) (*DscpConfiguration, error) {
 	var resource DscpConfiguration
-	err := ctx.ReadResource("azure-nextgen:network/latest:DscpConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:DscpConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

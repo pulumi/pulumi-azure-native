@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.CostManagement.V20200301Preview
+namespace Pulumi.AzureNative.CostManagement.V20200301Preview
 {
     /// <summary>
     /// Method of cost allocation for the rule

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
+namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint definition.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:blueprint/v20171111preview:Blueprint")]
+    [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Blueprint")]
     public partial class Blueprint : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Blueprint(string name, BlueprintArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:blueprint/v20171111preview:Blueprint", name, args ?? new BlueprintArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Blueprint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:blueprint/v20171111preview:Blueprint", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:blueprint/v20171111preview:Blueprint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         /// The scope where this Blueprint can be applied.
         /// </summary>
         [Input("targetScope", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20171111Preview.BlueprintTargetScope> TargetScope { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Blueprint.V20171111Preview.BlueprintTargetScope> TargetScope { get; set; } = null!;
 
         /// <summary>
         /// Published versions of this blueprint.

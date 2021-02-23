@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureStack
+namespace Pulumi.AzureNative.AzureStack
 {
     /// <summary>
     /// Linked Subscription information.
     /// API Version: 2020-06-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:azurestack:LinkedSubscription")]
+    [AzureNativeResourceType("azure-native:azurestack:LinkedSubscription")]
     public partial class LinkedSubscription : Pulumi.CustomResource
     {
         /// <summary>
@@ -109,12 +109,12 @@ namespace Pulumi.AzureNextGen.AzureStack
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedSubscription(string name, LinkedSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack:LinkedSubscription", name, args ?? new LinkedSubscriptionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestack:LinkedSubscription", name, args ?? new LinkedSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:azurestack:LinkedSubscription", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestack:LinkedSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNextGen.AzureStack
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:LinkedSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:LinkedSubscription"},
                 },
             };
@@ -165,7 +166,7 @@ namespace Pulumi.AzureNextGen.AzureStack
         /// Location of the resource.
         /// </summary>
         [Input("location")]
-        public InputUnion<string, Pulumi.AzureNextGen.AzureStack.Location>? Location { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureStack.Location>? Location { get; set; }
 
         /// <summary>
         /// The identifier associated with the device registration.

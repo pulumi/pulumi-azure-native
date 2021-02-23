@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AppPlatform
+namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Custom domain resource payload.
     /// API Version: 2020-07-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:appplatform:CustomDomain")]
+    [AzureNativeResourceType("azure-native:appplatform:CustomDomain")]
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.AppPlatform
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDomain(string name, CustomDomainArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:appplatform:CustomDomain", name, args ?? new CustomDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:appplatform:CustomDomain", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:appplatform:CustomDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,9 +59,13 @@ namespace Pulumi.AzureNextGen.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:CustomDomain"},
                 },
             };

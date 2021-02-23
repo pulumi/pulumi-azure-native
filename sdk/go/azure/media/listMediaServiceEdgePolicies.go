@@ -10,7 +10,7 @@ import (
 // API Version: 2020-05-01.
 func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceEdgePoliciesResult, error) {
 	var rv ListMediaServiceEdgePoliciesResult
-	err := ctx.Invoke("azure-nextgen:media:listMediaServiceEdgePolicies", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:listMediaServiceEdgePolicies", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

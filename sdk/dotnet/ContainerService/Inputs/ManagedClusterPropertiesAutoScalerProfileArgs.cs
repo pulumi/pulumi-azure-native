@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerService.Inputs
+namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Inputs
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
 
         [Input("expander")]
-        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Expander>? Expander { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.Expander>? Expander { get; set; }
 
         [Input("maxEmptyBulkDelete")]
         public Input<string>? MaxEmptyBulkDelete { get; set; }

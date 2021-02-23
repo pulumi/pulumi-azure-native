@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Solutions.Latest
+namespace Pulumi.AzureNative.Solutions.Latest
 {
     /// <summary>
     /// Information about JIT request definition.
     /// Latest API Version: 2019-07-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:solutions:JitRequest'.")]
-    [AzureNextGenResourceType("azure-nextgen:solutions/latest:JitRequest")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:JitRequest'.")]
+    [AzureNativeResourceType("azure-native:solutions/latest:JitRequest")]
     public partial class JitRequest : Pulumi.CustomResource
     {
         /// <summary>
@@ -98,12 +98,12 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JitRequest(string name, JitRequestArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:JitRequest", name, args ?? new JitRequestArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:solutions/latest:JitRequest", name, args ?? new JitRequestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private JitRequest(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:solutions/latest:JitRequest", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:solutions/latest:JitRequest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -114,8 +114,11 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:solutions:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:JitRequest"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:JitRequest"},
                 },
             };

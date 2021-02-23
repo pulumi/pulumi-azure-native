@@ -10,10 +10,10 @@ import (
 // VpnGateway Resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getVpnGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnGateway'.
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/latest:getVpnGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/latest:getVpnGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

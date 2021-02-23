@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-01.
 func ListNotificationHubKeys(ctx *pulumi.Context, args *ListNotificationHubKeysArgs, opts ...pulumi.InvokeOption) (*ListNotificationHubKeysResult, error) {
 	var rv ListNotificationHubKeysResult
-	err := ctx.Invoke("azure-nextgen:notificationhubs:listNotificationHubKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:notificationhubs:listNotificationHubKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

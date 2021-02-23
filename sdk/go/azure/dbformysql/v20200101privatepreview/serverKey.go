@@ -47,10 +47,19 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql:ServerKey"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbformysql/latest:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/latest:ServerKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20200101:ServerKey"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200101:ServerKey"),
@@ -58,7 +67,7 @@ func NewServerKey(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerKey
-	err := ctx.RegisterResource("azure-nextgen:dbformysql/v20200101privatepreview:ServerKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql/v20200101privatepreview:ServerKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +79,7 @@ func NewServerKey(ctx *pulumi.Context,
 func GetServerKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerKeyState, opts ...pulumi.ResourceOption) (*ServerKey, error) {
 	var resource ServerKey
-	err := ctx.ReadResource("azure-nextgen:dbformysql/v20200101privatepreview:ServerKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql/v20200101privatepreview:ServerKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

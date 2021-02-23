@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The relationship link resource format.
  * Latest API Version: 2017-04-26.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationshipLink'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationshipLink'. */
 export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipLinkResult> {
-    pulumi.log.warn("getRelationshipLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:customerinsights:getRelationshipLink'.")
+    pulumi.log.warn("getRelationshipLink is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationshipLink'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights/latest:getRelationshipLink", {
+    return pulumi.runtime.invoke("azure-native:customerinsights/latest:getRelationshipLink", {
         "hubName": args.hubName,
         "relationshipLinkName": args.relationshipLinkName,
         "resourceGroupName": args.resourceGroupName,

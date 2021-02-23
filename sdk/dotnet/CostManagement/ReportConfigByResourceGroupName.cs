@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CostManagement
+namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// A report config resource.
     /// API Version: 2018-05-31.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:costmanagement:ReportConfigByResourceGroupName")]
+    [AzureNativeResourceType("azure-native:costmanagement:ReportConfigByResourceGroupName")]
     public partial class ReportConfigByResourceGroupName : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportConfigByResourceGroupName(string name, ReportConfigByResourceGroupNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:ReportConfigByResourceGroupName", name, args ?? new ReportConfigByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:costmanagement:ReportConfigByResourceGroupName", name, args ?? new ReportConfigByResourceGroupNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReportConfigByResourceGroupName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:costmanagement:ReportConfigByResourceGroupName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:costmanagement:ReportConfigByResourceGroupName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,7 +83,9 @@ namespace Pulumi.AzureNextGen.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/latest:ReportConfigByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName"},
                 },
             };
@@ -124,7 +126,7 @@ namespace Pulumi.AzureNextGen.CostManagement
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.FormatType>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Config Name.

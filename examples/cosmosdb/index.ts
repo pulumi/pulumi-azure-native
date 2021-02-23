@@ -1,4 +1,4 @@
-import * as resources from "@pulumi/azure-nextgen/resources";
+import * as resources from "@pulumi/azure-native/resources";
 import * as cosmosdb from "./component";
 
 const resourceGroup = new resources.ResourceGroup("rg", {

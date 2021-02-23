@@ -10,7 +10,7 @@ import (
 // The exposure control response.
 func GetExposureControlFeatureValue(ctx *pulumi.Context, args *GetExposureControlFeatureValueArgs, opts ...pulumi.InvokeOption) (*GetExposureControlFeatureValueResult, error) {
 	var rv GetExposureControlFeatureValueResult
-	err := ctx.Invoke("azure-nextgen:datafactory/v20180601:getExposureControlFeatureValue", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

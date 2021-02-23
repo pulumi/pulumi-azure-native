@@ -10,7 +10,7 @@ import (
 // The response model from the GetRegionalAvailability action
 func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountRegionalAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetLabAccountRegionalAvailabilityResult, error) {
 	var rv GetLabAccountRegionalAvailabilityResult
-	err := ctx.Invoke("azure-nextgen:labservices/v20181015:getLabAccountRegionalAvailability", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

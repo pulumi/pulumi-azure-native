@@ -17,7 +17,7 @@ export function listStaticSiteUsers(args: ListStaticSiteUsersArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:web:listStaticSiteUsers", {
+    return pulumi.runtime.invoke("azure-native:web:listStaticSiteUsers", {
         "authprovider": args.authprovider,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

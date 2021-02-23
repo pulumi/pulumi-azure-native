@@ -10,7 +10,7 @@ import (
 // The application resource.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
-	err := ctx.Invoke("azure-nextgen:servicefabric/v20190301preview:getApplication", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicefabric/v20190301preview:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

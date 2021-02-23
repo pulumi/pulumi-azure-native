@@ -10,10 +10,10 @@ import (
 // Collection of domain name identifiers.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:domainregistration:listDomainRecommendations'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'.
 func ListDomainRecommendations(ctx *pulumi.Context, args *ListDomainRecommendationsArgs, opts ...pulumi.InvokeOption) (*ListDomainRecommendationsResult, error) {
 	var rv ListDomainRecommendationsResult
-	err := ctx.Invoke("azure-nextgen:domainregistration/latest:listDomainRecommendations", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:domainregistration/latest:listDomainRecommendations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

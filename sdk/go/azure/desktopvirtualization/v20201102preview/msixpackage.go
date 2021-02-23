@@ -58,19 +58,37 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization:MSIXPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:MSIXPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:MSIXPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:MSIXPackage"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage"),
@@ -78,7 +96,7 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource MSIXPackage
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization/v20201102preview:MSIXPackage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +108,7 @@ func NewMSIXPackage(ctx *pulumi.Context,
 func GetMSIXPackage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MSIXPackageState, opts ...pulumi.ResourceOption) (*MSIXPackage, error) {
 	var resource MSIXPackage
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization/v20201102preview:MSIXPackage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

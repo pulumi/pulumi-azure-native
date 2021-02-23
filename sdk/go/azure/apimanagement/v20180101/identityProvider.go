@@ -56,31 +56,61 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:IdentityProvider"),
@@ -88,7 +118,7 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource IdentityProvider
-	err := ctx.RegisterResource("azure-nextgen:apimanagement/v20180101:IdentityProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement/v20180101:IdentityProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +130,7 @@ func NewIdentityProvider(ctx *pulumi.Context,
 func GetIdentityProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IdentityProviderState, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
 	var resource IdentityProvider
-	err := ctx.ReadResource("azure-nextgen:apimanagement/v20180101:IdentityProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement/v20180101:IdentityProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

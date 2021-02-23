@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * An export resource.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getExport'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getExport'. */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-    pulumi.log.warn("getExport is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:costmanagement:getExport'.")
+    pulumi.log.warn("getExport is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getExport'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:costmanagement/latest:getExport", {
+    return pulumi.runtime.invoke("azure-native:costmanagement/latest:getExport", {
         "expand": args.expand,
         "exportName": args.exportName,
         "scope": args.scope,

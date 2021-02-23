@@ -21,7 +21,7 @@ export class SiteAppSettingsSlot extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:web/v20150801:SiteAppSettingsSlot';
+    public static readonly __pulumiType = 'azure-native:web/v20150801:SiteAppSettingsSlot';
 
     /**
      * Returns true if the given object is an instance of SiteAppSettingsSlot.  This is designed to work even
@@ -102,7 +102,7 @@ export class SiteAppSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/latest:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAppSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAppSettingsSlot" }, { type: "azure-nextgen:web:SiteAppSettingsSlot" }, { type: "azure-native:web/latest:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/latest:SiteAppSettingsSlot" }, { type: "azure-native:web/v20160801:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAppSettingsSlot" }, { type: "azure-native:web/v20180201:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAppSettingsSlot" }, { type: "azure-native:web/v20181101:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAppSettingsSlot" }, { type: "azure-native:web/v20190801:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAppSettingsSlot" }, { type: "azure-native:web/v20200601:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAppSettingsSlot" }, { type: "azure-native:web/v20200901:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAppSettingsSlot" }, { type: "azure-native:web/v20201001:SiteAppSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAppSettingsSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteAppSettingsSlot.__pulumiType, name, inputs, opts);
     }

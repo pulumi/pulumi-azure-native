@@ -58,25 +58,49 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssueAttachment"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"),
@@ -84,7 +108,7 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiIssueAttachment
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiIssueAttachment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiIssueAttachment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +120,7 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 func GetApiIssueAttachment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiIssueAttachmentState, opts ...pulumi.ResourceOption) (*ApiIssueAttachment, error) {
 	var resource ApiIssueAttachment
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiIssueAttachment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiIssueAttachment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

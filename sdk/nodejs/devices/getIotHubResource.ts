@@ -17,7 +17,7 @@ export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devices:getIotHubResource", {
+    return pulumi.runtime.invoke("azure-native:devices:getIotHubResource", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);

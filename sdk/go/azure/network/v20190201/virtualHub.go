@@ -55,67 +55,133 @@ func NewVirtualHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/latest:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180401:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180601:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180601:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20180701:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20180701:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190601:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHub"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHub"),
@@ -123,7 +189,7 @@ func NewVirtualHub(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHub
-	err := ctx.RegisterResource("azure-nextgen:network/v20190201:VirtualHub", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/v20190201:VirtualHub", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +201,7 @@ func NewVirtualHub(ctx *pulumi.Context,
 func GetVirtualHub(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualHubState, opts ...pulumi.ResourceOption) (*VirtualHub, error) {
 	var resource VirtualHub
-	err := ctx.ReadResource("azure-nextgen:network/v20190201:VirtualHub", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/v20190201:VirtualHub", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

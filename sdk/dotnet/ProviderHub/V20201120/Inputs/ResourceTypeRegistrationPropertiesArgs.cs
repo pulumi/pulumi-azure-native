@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
+namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
 {
 
     public sealed class ResourceTypeRegistrationPropertiesArgs : Pulumi.ResourceArgs
@@ -96,10 +96,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
         public Input<string>? MarketplaceType { get; set; }
 
         [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
 
         [Input("regionality")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.Regionality>? Regionality { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.Regionality>? Regionality { get; set; }
 
         [Input("requestHeaderOptions")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs>? RequestHeaderOptions { get; set; }
@@ -113,13 +113,13 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120.Inputs
         }
 
         [Input("resourceDeletionPolicy")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
 
         [Input("resourceMovePolicy")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesResourceMovePolicyArgs>? ResourceMovePolicy { get; set; }
 
         [Input("routingType")]
-        public InputUnion<string, Pulumi.AzureNextGen.ProviderHub.V20201120.RoutingType>? RoutingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.RoutingType>? RoutingType { get; set; }
 
         [Input("serviceTreeInfos")]
         private InputList<Inputs.ServiceTreeInfoArgs>? _serviceTreeInfos;

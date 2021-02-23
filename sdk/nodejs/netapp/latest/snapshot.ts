@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Snapshot of a Volume
  * Latest API Version: 2020-11-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Snapshot {
-        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.")
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.")
         return new Snapshot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:netapp/latest:Snapshot';
+    public static readonly __pulumiType = 'azure-native:netapp/latest:Snapshot';
 
     /**
      * Returns true if the given object is an instance of Snapshot.  This is designed to work even
@@ -70,9 +70,9 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'. */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Snapshot'.")
+        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -113,7 +113,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:Snapshot" }, { type: "azure-nextgen:netapp/v20170815:Snapshot" }, { type: "azure-nextgen:netapp/v20190501:Snapshot" }, { type: "azure-nextgen:netapp/v20190601:Snapshot" }, { type: "azure-nextgen:netapp/v20190701:Snapshot" }, { type: "azure-nextgen:netapp/v20190801:Snapshot" }, { type: "azure-nextgen:netapp/v20191001:Snapshot" }, { type: "azure-nextgen:netapp/v20191101:Snapshot" }, { type: "azure-nextgen:netapp/v20200201:Snapshot" }, { type: "azure-nextgen:netapp/v20200301:Snapshot" }, { type: "azure-nextgen:netapp/v20200501:Snapshot" }, { type: "azure-nextgen:netapp/v20200601:Snapshot" }, { type: "azure-nextgen:netapp/v20200701:Snapshot" }, { type: "azure-nextgen:netapp/v20200801:Snapshot" }, { type: "azure-nextgen:netapp/v20200901:Snapshot" }, { type: "azure-nextgen:netapp/v20201101:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Snapshot" }, { type: "azure-nextgen:netapp:Snapshot" }, { type: "azure-native:netapp/v20170815:Snapshot" }, { type: "azure-nextgen:netapp/v20170815:Snapshot" }, { type: "azure-native:netapp/v20190501:Snapshot" }, { type: "azure-nextgen:netapp/v20190501:Snapshot" }, { type: "azure-native:netapp/v20190601:Snapshot" }, { type: "azure-nextgen:netapp/v20190601:Snapshot" }, { type: "azure-native:netapp/v20190701:Snapshot" }, { type: "azure-nextgen:netapp/v20190701:Snapshot" }, { type: "azure-native:netapp/v20190801:Snapshot" }, { type: "azure-nextgen:netapp/v20190801:Snapshot" }, { type: "azure-native:netapp/v20191001:Snapshot" }, { type: "azure-nextgen:netapp/v20191001:Snapshot" }, { type: "azure-native:netapp/v20191101:Snapshot" }, { type: "azure-nextgen:netapp/v20191101:Snapshot" }, { type: "azure-native:netapp/v20200201:Snapshot" }, { type: "azure-nextgen:netapp/v20200201:Snapshot" }, { type: "azure-native:netapp/v20200301:Snapshot" }, { type: "azure-nextgen:netapp/v20200301:Snapshot" }, { type: "azure-native:netapp/v20200501:Snapshot" }, { type: "azure-nextgen:netapp/v20200501:Snapshot" }, { type: "azure-native:netapp/v20200601:Snapshot" }, { type: "azure-nextgen:netapp/v20200601:Snapshot" }, { type: "azure-native:netapp/v20200701:Snapshot" }, { type: "azure-nextgen:netapp/v20200701:Snapshot" }, { type: "azure-native:netapp/v20200801:Snapshot" }, { type: "azure-nextgen:netapp/v20200801:Snapshot" }, { type: "azure-native:netapp/v20200901:Snapshot" }, { type: "azure-nextgen:netapp/v20200901:Snapshot" }, { type: "azure-native:netapp/v20201101:Snapshot" }, { type: "azure-nextgen:netapp/v20201101:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

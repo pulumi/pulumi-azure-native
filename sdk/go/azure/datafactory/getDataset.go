@@ -11,7 +11,7 @@ import (
 // API Version: 2018-06-01.
 func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.InvokeOption) (*LookupDatasetResult, error) {
 	var rv LookupDatasetResult
-	err := ctx.Invoke("azure-nextgen:datafactory:getDataset", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datafactory:getDataset", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

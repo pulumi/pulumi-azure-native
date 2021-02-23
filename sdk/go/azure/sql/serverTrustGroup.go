@@ -47,7 +47,13 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:sql/v20200202preview:ServerTrustGroup"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerTrustGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:sql/v20200801preview:ServerTrustGroup"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerTrustGroup"),
@@ -55,7 +61,7 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerTrustGroup
-	err := ctx.RegisterResource("azure-nextgen:sql:ServerTrustGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:sql:ServerTrustGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +73,7 @@ func NewServerTrustGroup(ctx *pulumi.Context,
 func GetServerTrustGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerTrustGroupState, opts ...pulumi.ResourceOption) (*ServerTrustGroup, error) {
 	var resource ServerTrustGroup
-	err := ctx.ReadResource("azure-nextgen:sql:ServerTrustGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:sql:ServerTrustGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // Access Review Schedule Definition.
 func LookupAccessReviewScheduleDefinitionById(ctx *pulumi.Context, args *LookupAccessReviewScheduleDefinitionByIdArgs, opts ...pulumi.InvokeOption) (*LookupAccessReviewScheduleDefinitionByIdResult, error) {
 	var rv LookupAccessReviewScheduleDefinitionByIdResult
-	err := ctx.Invoke("azure-nextgen:authorization/v20180501preview:getAccessReviewScheduleDefinitionById", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:authorization/v20180501preview:getAccessReviewScheduleDefinitionById", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

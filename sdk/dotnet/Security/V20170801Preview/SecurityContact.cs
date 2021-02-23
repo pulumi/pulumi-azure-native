@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20170801Preview
+namespace Pulumi.AzureNative.Security.V20170801Preview
 {
     /// <summary>
     /// Contact details for security issues
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:security/v20170801preview:SecurityContact")]
+    [AzureNativeResourceType("azure-native:security/v20170801preview:SecurityContact")]
     public partial class SecurityContact : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityContact(string name, SecurityContactArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20170801preview:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:security/v20170801preview:SecurityContact", name, args ?? new SecurityContactArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityContact(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:security/v20170801preview:SecurityContact", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:security/v20170801preview:SecurityContact", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -76,7 +76,9 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:security:SecurityContact"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:SecurityContact"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101preview:SecurityContact"},
                 },
             };
@@ -105,13 +107,13 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// Whether to send security alerts notifications to the security contact
         /// </summary>
         [Input("alertNotifications", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.AlertNotifications> AlertNotifications { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20170801Preview.AlertNotifications> AlertNotifications { get; set; } = null!;
 
         /// <summary>
         /// Whether to send security alerts notifications to subscription admins
         /// </summary>
         [Input("alertsToAdmins", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.AlertsToAdmins> AlertsToAdmins { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Security.V20170801Preview.AlertsToAdmins> AlertsToAdmins { get; set; } = null!;
 
         /// <summary>
         /// The email of this security contact

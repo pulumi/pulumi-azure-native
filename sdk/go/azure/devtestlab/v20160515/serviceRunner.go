@@ -42,10 +42,19 @@ func NewServiceRunner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceRunner"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/latest:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceRunner"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceRunner"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceRunner"),
@@ -53,7 +62,7 @@ func NewServiceRunner(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServiceRunner
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20160515:ServiceRunner", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20160515:ServiceRunner", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +74,7 @@ func NewServiceRunner(ctx *pulumi.Context,
 func GetServiceRunner(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceRunnerState, opts ...pulumi.ResourceOption) (*ServiceRunner, error) {
 	var resource ServiceRunner
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20160515:ServiceRunner", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20160515:ServiceRunner", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

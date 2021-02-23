@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response to put/get patch schedules for Redis cache.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getPatchSchedule'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPatchSchedule'. */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
-    pulumi.log.warn("getPatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getPatchSchedule'.")
+    pulumi.log.warn("getPatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPatchSchedule'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/latest:getPatchSchedule", {
+    return pulumi.runtime.invoke("azure-native:cache/latest:getPatchSchedule", {
         "default": args.default,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

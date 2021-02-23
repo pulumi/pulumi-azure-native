@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationsManagement
+namespace Pulumi.AzureNative.OperationsManagement
 {
     /// <summary>
     /// The container for solution.
     /// API Version: 2015-11-01-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:operationsmanagement:ManagementConfiguration")]
+    [AzureNativeResourceType("azure-native:operationsmanagement:ManagementConfiguration")]
     public partial class ManagementConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.OperationsManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementConfiguration(string name, ManagementConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationsmanagement:ManagementConfiguration", name, args ?? new ManagementConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:operationsmanagement:ManagementConfiguration", name, args ?? new ManagementConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ManagementConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:operationsmanagement:ManagementConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:operationsmanagement:ManagementConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationsmanagement/v20151101preview:ManagementConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration"},
                 },
             };

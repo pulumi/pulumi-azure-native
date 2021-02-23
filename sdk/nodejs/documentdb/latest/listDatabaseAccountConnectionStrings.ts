@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The connection strings for the given database account.
  * Latest API Version: 2021-01-15.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountConnectionStrings'. */
 export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountConnectionStringsResult> {
-    pulumi.log.warn("listDatabaseAccountConnectionStrings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:documentdb:listDatabaseAccountConnectionStrings'.")
+    pulumi.log.warn("listDatabaseAccountConnectionStrings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountConnectionStrings'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listDatabaseAccountConnectionStrings(args: ListDatabaseAccountCo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb/latest:listDatabaseAccountConnectionStrings", {
+    return pulumi.runtime.invoke("azure-native:documentdb/latest:listDatabaseAccountConnectionStrings", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

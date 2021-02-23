@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Cloud Endpoint object.
  * Latest API Version: 2020-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'.
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CloudEndpoint {
-        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.")
+        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'.")
         return new CloudEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storagesync/latest:CloudEndpoint';
+    public static readonly __pulumiType = 'azure-native:storagesync/latest:CloudEndpoint';
 
     /**
      * Returns true if the given object is an instance of CloudEndpoint.  This is designed to work even
@@ -90,9 +90,9 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'. */
     constructor(name: string, args: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storagesync:CloudEndpoint'.")
+        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -139,7 +139,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagesync:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20170605preview:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180402:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180701:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20181001:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190201:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190301:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190601:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20191001:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20200301:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20200901:CloudEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagesync:CloudEndpoint" }, { type: "azure-nextgen:storagesync:CloudEndpoint" }, { type: "azure-native:storagesync/v20170605preview:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20170605preview:CloudEndpoint" }, { type: "azure-native:storagesync/v20180402:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180402:CloudEndpoint" }, { type: "azure-native:storagesync/v20180701:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20180701:CloudEndpoint" }, { type: "azure-native:storagesync/v20181001:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20181001:CloudEndpoint" }, { type: "azure-native:storagesync/v20190201:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190201:CloudEndpoint" }, { type: "azure-native:storagesync/v20190301:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190301:CloudEndpoint" }, { type: "azure-native:storagesync/v20190601:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20190601:CloudEndpoint" }, { type: "azure-native:storagesync/v20191001:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20191001:CloudEndpoint" }, { type: "azure-native:storagesync/v20200301:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20200301:CloudEndpoint" }, { type: "azure-native:storagesync/v20200901:CloudEndpoint" }, { type: "azure-nextgen:storagesync/v20200901:CloudEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CloudEndpoint.__pulumiType, name, inputs, opts);
     }

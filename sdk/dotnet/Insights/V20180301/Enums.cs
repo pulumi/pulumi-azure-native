@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Insights.V20180301
+namespace Pulumi.AzureNative.Insights.V20180301
 {
     /// <summary>
     /// the criteria time aggregation types.

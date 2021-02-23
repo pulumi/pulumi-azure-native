@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch.V20210101.Inputs
+namespace Pulumi.AzureNative.Batch.V20210101.Inputs
 {
 
     public sealed class NetworkSecurityGroupRuleArgs : Pulumi.ResourceArgs
     {
         [Input("access", required: true)]
-        public Input<Pulumi.AzureNextGen.Batch.V20210101.NetworkSecurityGroupRuleAccess> Access { get; set; } = null!;
+        public Input<Pulumi.AzureNative.Batch.V20210101.NetworkSecurityGroupRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
         /// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.

@@ -64,10 +64,19 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:notificationhubs/latest:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NamespaceAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:NamespaceAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:NamespaceAuthorizationRule"),
@@ -75,7 +84,7 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceAuthorizationRule
-	err := ctx.RegisterResource("azure-nextgen:notificationhubs:NamespaceAuthorizationRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:notificationhubs:NamespaceAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +96,7 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamespaceAuthorizationRuleState, opts ...pulumi.ResourceOption) (*NamespaceAuthorizationRule, error) {
 	var resource NamespaceAuthorizationRule
-	err := ctx.ReadResource("azure-nextgen:notificationhubs:NamespaceAuthorizationRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:notificationhubs:NamespaceAuthorizationRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

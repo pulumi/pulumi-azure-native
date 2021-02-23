@@ -11,7 +11,7 @@ import (
 // API Version: 2019-05-01.
 func ListIntegrationAccountMapContentCallbackUrl(ctx *pulumi.Context, args *ListIntegrationAccountMapContentCallbackUrlArgs, opts ...pulumi.InvokeOption) (*ListIntegrationAccountMapContentCallbackUrlResult, error) {
 	var rv ListIntegrationAccountMapContentCallbackUrlResult
-	err := ctx.Invoke("azure-nextgen:logic:listIntegrationAccountMapContentCallbackUrl", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic:listIntegrationAccountMapContentCallbackUrl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

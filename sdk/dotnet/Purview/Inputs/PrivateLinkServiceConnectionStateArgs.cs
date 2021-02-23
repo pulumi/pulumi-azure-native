@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.Inputs
+namespace Pulumi.AzureNative.Purview.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Purview.Inputs
         /// The status.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNextGen.Purview.Status>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.Status>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

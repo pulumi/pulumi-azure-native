@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:devtestlab/v20150521preview:ArtifactSourceResource":
+	case "azure-native:devtestlab/v20150521preview:ArtifactSourceResource":
 		r, err = NewArtifactSourceResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:CustomImageResource":
+	case "azure-native:devtestlab/v20150521preview:CustomImageResource":
 		r, err = NewCustomImageResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:FormulaResource":
+	case "azure-native:devtestlab/v20150521preview:FormulaResource":
 		r, err = NewFormulaResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:LabResource":
+	case "azure-native:devtestlab/v20150521preview:LabResource":
 		r, err = NewLabResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:PolicyResource":
+	case "azure-native:devtestlab/v20150521preview:PolicyResource":
 		r, err = NewPolicyResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:ScheduleResource":
+	case "azure-native:devtestlab/v20150521preview:ScheduleResource":
 		r, err = NewScheduleResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource":
+	case "azure-native:devtestlab/v20150521preview:VirtualMachineResource":
 		r, err = NewVirtualMachineResource(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource":
+	case "azure-native:devtestlab/v20150521preview:VirtualNetworkResource":
 		r, err = NewVirtualNetworkResource(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"devtestlab/v20150521preview",
 		&module{version},
 	)

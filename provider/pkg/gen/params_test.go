@@ -15,7 +15,7 @@ func TestFlattenParams(t *testing.T) {
 	var metadata resources.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
-	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
+	f, err := os.Open("../../cmd/pulumi-resource-azure-native/metadata.json")
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()
@@ -34,7 +34,7 @@ func TestFlattenParams(t *testing.T) {
 	}{
 		{
 			name:         "ContainersInBody",
-			resourceName: "azure-nextgen:compute/v20200601:VirtualMachine",
+			resourceName: "azure-native:compute/v20200601:VirtualMachine",
 			input: map[string]interface{}{
 				"parameters": map[string]interface{}{
 					"resourceGroupName": "myResourceGroup",
@@ -153,7 +153,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-nextgen:botservice/v20200602:BotConnection",
+			resourceName: "azure-native:botservice/v20200602:BotConnection",
 			expected: map[string]interface{}{
 				"resourceGroupName": "OneResourceGroupName",
 				"resourceName":      "samplebotname",
@@ -224,7 +224,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-nextgen:apimanagement/v20170301:Backend",
+			resourceName: "azure-native:apimanagement/v20170301:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
@@ -295,7 +295,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-nextgen:apimanagement/v20170301:Backend",
+			resourceName: "azure-native:apimanagement/v20170301:Backend",
 			expected: map[string]interface{}{
 				"serviceName":       "apimService1",
 				"resourceGroupName": "rg1",
@@ -362,7 +362,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-nextgen:network/v20200501:NetworkSecurityGroup",
+			resourceName: "azure-native:network/v20200501:NetworkSecurityGroup",
 			expected: map[string]interface{}{
 				"networkSecurityGroupName": "rancher-security-group",
 				"securityRules": []interface{}{
@@ -388,7 +388,7 @@ func TestFlattenParams(t *testing.T) {
 		{
 			name:         "NestedObject",
 			inputFunc:    serialize(npe),
-			resourceName: "azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName",
+			resourceName: "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName",
 			expected: map[string]interface{}{
 				"automationAccountName": "myaccount",
 				"resourceGroupName":     "mygroup",
@@ -484,7 +484,7 @@ func TestFlattenParams(t *testing.T) {
 		{
 			name:         "VMScaleSet",
 			inputFunc:    serialize(vmScaleSet),
-			resourceName: "azure-nextgen:compute:VirtualMachineScaleSet",
+			resourceName: "azure-native:compute:VirtualMachineScaleSet",
 			expected: map[string]interface{}{
 				"location":          "westus",
 				"overprovision":     true,
@@ -563,7 +563,7 @@ func TestFlattenParams(t *testing.T) {
 					"appName":           "myapp",
 				},
 			},
-			resourceName: "azure-nextgen:appplatform:App",
+			resourceName: "azure-native:appplatform:App",
 			expected: map[string]interface{}{
 				"appName":  "myapp",
 				"location": "eastus",
@@ -626,7 +626,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-nextgen:containerinstance:ContainerGroup",
+			resourceName: "azure-native:containerinstance:ContainerGroup",
 			expected: map[string]interface{}{
 				"containers": []interface{}{
 					map[string]interface{}{
@@ -670,7 +670,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-nextgen:web/v20150801:Site",
+			resourceName: "azure-native:web/v20150801:Site",
 			expected: map[string]interface{}{
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
 				"siteConfig":   "[variables('configReference')[parameters('language')]]",
@@ -708,7 +708,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount",
+			resourceName: "azure-native:documentdb/v20200601preview:DatabaseAccount",
 			expected: map[string]interface{}{
 				"properties": map[string]interface{}{
 					"backupPolicy": map[string]interface{}{
@@ -757,7 +757,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-nextgen:compute/v20190701:VirtualMachineExtension",
+			resourceName: "azure-native:compute/v20190701:VirtualMachineExtension",
 			expected: map[string]interface{}{
 				"autoUpgradeMinorVersion": true,
 				"publisher":               "Microsoft.OSTCExtensions",
@@ -795,7 +795,7 @@ func TestFlattenParams(t *testing.T) {
 					},
 				},
 			},
-			resourceName: "azure-nextgen:botservice/v20200602:Channel",
+			resourceName: "azure-native:botservice/v20200602:Channel",
 			expected: map[string]interface{}{
 				"channelName": "AlexaChannel",
 				"location":    "global",

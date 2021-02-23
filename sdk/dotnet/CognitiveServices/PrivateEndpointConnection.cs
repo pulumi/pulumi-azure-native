@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CognitiveServices
+namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// API Version: 2017-04-18.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:cognitiveservices:PrivateEndpointConnection")]
+    [AzureNativeResourceType("azure-native:cognitiveservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -43,12 +43,12 @@ namespace Pulumi.AzureNextGen.CognitiveServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateEndpointConnection(string name, PrivateEndpointConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cognitiveservices:PrivateEndpointConnection", name, args ?? new PrivateEndpointConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cognitiveservices:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cognitiveservices:PrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -59,7 +59,9 @@ namespace Pulumi.AzureNextGen.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection"},
                 },
             };

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
+namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     /// <summary>
     /// A Trigger data transfer object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datashare/v20201001preview:Trigger")]
+    [AzureNativeResourceType("azure-native:datashare/v20201001preview:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20201001preview:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datashare/v20201001preview:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Trigger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datashare/v20201001preview:Trigger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datashare/v20201001preview:Trigger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -64,10 +64,15 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datashare:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20191101:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:datashare/v20200901:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:Trigger"},
                 },
             };
@@ -102,7 +107,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20201001Preview
         /// Kind of synchronization on trigger.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataShare.V20201001Preview.TriggerKind> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataShare.V20201001Preview.TriggerKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

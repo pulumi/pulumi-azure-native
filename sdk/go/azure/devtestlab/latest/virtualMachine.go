@@ -14,7 +14,7 @@ import (
 // A virtual machine.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:devtestlab:VirtualMachine'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachine'.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -113,13 +113,25 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20150521preview:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:VirtualMachine"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualMachine"),
@@ -127,7 +139,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachine
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/latest:VirtualMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/latest:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -139,7 +151,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 func GetVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineState, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
 	var resource VirtualMachine
-	err := ctx.ReadResource("azure-nextgen:devtestlab/latest:VirtualMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/latest:VirtualMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

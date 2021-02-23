@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AadIam.Inputs
+namespace Pulumi.AzureNative.AadIam.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AadIam.Inputs
         /// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
         [Input("category")]
-        public InputUnion<string, Pulumi.AzureNextGen.AadIam.Category>? Category { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AadIam.Category>? Category { get; set; }
 
         /// <summary>
         /// A value indicating whether this log is enabled.

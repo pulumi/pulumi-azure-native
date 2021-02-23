@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceBus.Latest
+namespace Pulumi.AzureNative.ServiceBus.Latest
 {
     /// <summary>
     /// Description of Rule Resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:servicebus:Rule'.")]
-    [AzureNextGenResourceType("azure-nextgen:servicebus/latest:Rule")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Rule'.")]
+    [AzureNativeResourceType("azure-native:servicebus/latest:Rule")]
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rule(string name, RuleArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:servicebus/latest:Rule", name, args ?? new RuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Rule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:servicebus/latest:Rule", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:servicebus/latest:Rule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,8 +78,11 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:servicebus:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Rule"},
                 },
             };
@@ -120,7 +123,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Filter type that is evaluated against a BrokeredMessage.
         /// </summary>
         [Input("filterType")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.Latest.FilterType>? FilterType { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.Latest.FilterType>? FilterType { get; set; }
 
         /// <summary>
         /// The namespace name

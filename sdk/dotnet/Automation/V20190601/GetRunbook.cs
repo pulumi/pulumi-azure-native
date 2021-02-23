@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.V20190601
+namespace Pulumi.AzureNative.Automation.V20190601
 {
     public static class GetRunbook
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Automation.V20190601
         /// Definition of the runbook type.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-nextgen:automation/v20190601:getRunbook", args ?? new GetRunbookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation/v20190601:getRunbook", args ?? new GetRunbookArgs(), options.WithVersion());
     }
 
 

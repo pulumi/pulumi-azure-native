@@ -42,25 +42,49 @@ func NewTagByProduct(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:TagByProduct"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagByProduct"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagByProduct"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByProduct"),
@@ -68,7 +92,7 @@ func NewTagByProduct(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TagByProduct
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:TagByProduct", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:TagByProduct", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +104,7 @@ func NewTagByProduct(ctx *pulumi.Context,
 func GetTagByProduct(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TagByProductState, opts ...pulumi.ResourceOption) (*TagByProduct, error) {
 	var resource TagByProduct
-	err := ctx.ReadResource("azure-nextgen:apimanagement:TagByProduct", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:TagByProduct", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20150801
+namespace Pulumi.AzureNative.Web.V20150801
 {
     public static class GetSiteVNETConnection
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
         /// </summary>
         public static Task<GetSiteVNETConnectionResult> InvokeAsync(GetSiteVNETConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionResult>("azure-nextgen:web/v20150801:getSiteVNETConnection", args ?? new GetSiteVNETConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteVNETConnectionResult>("azure-native:web/v20150801:getSiteVNETConnection", args ?? new GetSiteVNETConnectionArgs(), options.WithVersion());
     }
 
 

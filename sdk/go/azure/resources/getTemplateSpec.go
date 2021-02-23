@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01-preview.
 func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts ...pulumi.InvokeOption) (*LookupTemplateSpecResult, error) {
 	var rv LookupTemplateSpecResult
-	err := ctx.Invoke("azure-nextgen:resources:getTemplateSpec", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:resources:getTemplateSpec", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

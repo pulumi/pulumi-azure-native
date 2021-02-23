@@ -17,7 +17,7 @@ export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:peering:getRegisteredAsn", {
+    return pulumi.runtime.invoke("azure-native:peering:getRegisteredAsn", {
         "peeringName": args.peeringName,
         "registeredAsnName": args.registeredAsnName,
         "resourceGroupName": args.resourceGroupName,

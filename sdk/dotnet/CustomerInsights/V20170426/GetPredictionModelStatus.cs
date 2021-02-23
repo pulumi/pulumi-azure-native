@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
+namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     public static class GetPredictionModelStatus
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// The prediction model status.
         /// </summary>
         public static Task<GetPredictionModelStatusResult> InvokeAsync(GetPredictionModelStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-nextgen:customerinsights/v20170426:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPredictionModelStatusResult>("azure-native:customerinsights/v20170426:getPredictionModelStatus", args ?? new GetPredictionModelStatusArgs(), options.WithVersion());
     }
 
 

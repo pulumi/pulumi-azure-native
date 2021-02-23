@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Subscription.V20191001Preview.Inputs
+namespace Pulumi.AzureNative.Subscription.V20191001Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview.Inputs
         /// The workload type of the subscription. It can be either Production or DevTest.
         /// </summary>
         [Input("workload", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Subscription.V20191001Preview.Workload> Workload { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Subscription.V20191001Preview.Workload> Workload { get; set; } = null!;
 
         public PutAliasRequestPropertiesArgs()
         {

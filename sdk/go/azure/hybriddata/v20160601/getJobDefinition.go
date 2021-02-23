@@ -10,7 +10,7 @@ import (
 // Job Definition.
 func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupJobDefinitionResult, error) {
 	var rv LookupJobDefinitionResult
-	err := ctx.Invoke("azure-nextgen:hybriddata/v20160601:getJobDefinition", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybriddata/v20160601:getJobDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

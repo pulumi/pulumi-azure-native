@@ -14,7 +14,7 @@ import (
 // The integration account RosettaNet process configuration.
 // Latest API Version: 2016-06-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:logic:RosettaNetProcessConfiguration'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:RosettaNetProcessConfiguration'.
 type RosettaNetProcessConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -81,7 +81,13 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:logic:RosettaNetProcessConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:logic:RosettaNetProcessConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:logic/v20160601:RosettaNetProcessConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"),
@@ -89,7 +95,7 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration
-	err := ctx.RegisterResource("azure-nextgen:logic/latest:RosettaNetProcessConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:logic/latest:RosettaNetProcessConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +107,7 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 func GetRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RosettaNetProcessConfigurationState, opts ...pulumi.ResourceOption) (*RosettaNetProcessConfiguration, error) {
 	var resource RosettaNetProcessConfiguration
-	err := ctx.ReadResource("azure-nextgen:logic/latest:RosettaNetProcessConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:logic/latest:RosettaNetProcessConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

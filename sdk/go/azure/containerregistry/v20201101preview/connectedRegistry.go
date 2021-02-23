@@ -66,12 +66,15 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:containerregistry:ConnectedRegistry"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:containerregistry:ConnectedRegistry"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectedRegistry
-	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:containerregistry/v20201101preview:ConnectedRegistry", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +86,7 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 func GetConnectedRegistry(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectedRegistryState, opts ...pulumi.ResourceOption) (*ConnectedRegistry, error) {
 	var resource ConnectedRegistry
-	err := ctx.ReadResource("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:containerregistry/v20201101preview:ConnectedRegistry", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,10 +10,10 @@ import (
 // The list of language extension objects.
 // Latest API Version: 2020-09-18.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:kusto:listClusterLanguageExtensions'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listClusterLanguageExtensions'.
 func ListClusterLanguageExtensions(ctx *pulumi.Context, args *ListClusterLanguageExtensionsArgs, opts ...pulumi.InvokeOption) (*ListClusterLanguageExtensionsResult, error) {
 	var rv ListClusterLanguageExtensionsResult
-	err := ctx.Invoke("azure-nextgen:kusto/latest:listClusterLanguageExtensions", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:kusto/latest:listClusterLanguageExtensions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

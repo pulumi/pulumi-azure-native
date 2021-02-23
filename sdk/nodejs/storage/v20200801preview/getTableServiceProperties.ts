@@ -16,7 +16,7 @@ export function getTableServiceProperties(args: GetTableServicePropertiesArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20200801preview:getTableServiceProperties", {
+    return pulumi.runtime.invoke("azure-native:storage/v20200801preview:getTableServiceProperties", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "tableServiceName": args.tableServiceName,

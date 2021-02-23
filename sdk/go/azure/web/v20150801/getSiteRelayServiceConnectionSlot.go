@@ -10,7 +10,7 @@ import (
 // Class that represents a BizTalk Hybrid Connection
 func LookupSiteRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupSiteRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteRelayServiceConnectionSlotResult, error) {
 	var rv LookupSiteRelayServiceConnectionSlotResult
-	err := ctx.Invoke("azure-nextgen:web/v20150801:getSiteRelayServiceConnectionSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -61,10 +61,19 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:automation/latest:SoftwareUpdateConfigurationByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"),
 		},
 		{
+			Type: pulumi.String("azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"),
@@ -72,7 +81,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SoftwareUpdateConfigurationByName
-	err := ctx.RegisterResource("azure-nextgen:automation:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:automation:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +93,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 func GetSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SoftwareUpdateConfigurationByNameState, opts ...pulumi.ResourceOption) (*SoftwareUpdateConfigurationByName, error) {
 	var resource SoftwareUpdateConfigurationByName
-	err := ctx.ReadResource("azure-nextgen:automation:SoftwareUpdateConfigurationByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:automation:SoftwareUpdateConfigurationByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -46,12 +46,15 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource DelegatedSubnetServiceDetails
-	err := ctx.RegisterResource("azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:delegatednetwork:DelegatedSubnetServiceDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +66,7 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 func GetDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DelegatedSubnetServiceDetailsState, opts ...pulumi.ResourceOption) (*DelegatedSubnetServiceDetails, error) {
 	var resource DelegatedSubnetServiceDetails
-	err := ctx.ReadResource("azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:delegatednetwork:DelegatedSubnetServiceDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

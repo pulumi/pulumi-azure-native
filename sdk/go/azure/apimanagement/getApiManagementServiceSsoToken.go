@@ -11,7 +11,7 @@ import (
 // API Version: 2019-12-01.
 func GetApiManagementServiceSsoToken(ctx *pulumi.Context, args *GetApiManagementServiceSsoTokenArgs, opts ...pulumi.InvokeOption) (*GetApiManagementServiceSsoTokenResult, error) {
 	var rv GetApiManagementServiceSsoTokenResult
-	err := ctx.Invoke("azure-nextgen:apimanagement:getApiManagementServiceSsoToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement:getApiManagementServiceSsoToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

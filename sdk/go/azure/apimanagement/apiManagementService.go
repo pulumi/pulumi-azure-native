@@ -108,31 +108,61 @@ func NewApiManagementService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20161010:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiManagementService"),
@@ -140,7 +170,7 @@ func NewApiManagementService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ApiManagementService
-	err := ctx.RegisterResource("azure-nextgen:apimanagement:ApiManagementService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:apimanagement:ApiManagementService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -152,7 +182,7 @@ func NewApiManagementService(ctx *pulumi.Context,
 func GetApiManagementService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiManagementServiceState, opts ...pulumi.ResourceOption) (*ApiManagementService, error) {
 	var resource ApiManagementService
-	err := ctx.ReadResource("azure-nextgen:apimanagement:ApiManagementService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:apimanagement:ApiManagementService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

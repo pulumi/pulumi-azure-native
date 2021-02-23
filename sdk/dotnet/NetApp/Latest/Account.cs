@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.Latest
+namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// NetApp account resource
     /// Latest API Version: 2020-11-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:netapp:Account'.")]
-    [AzureNextGenResourceType("azure-nextgen:netapp/latest:Account")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Account'.")]
+    [AzureNativeResourceType("azure-native:netapp/latest:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp/latest:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/latest:Account", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp/latest:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -90,21 +90,37 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200601:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200601:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Account"},
                 },
             };

@@ -10,10 +10,10 @@ import (
 // Premier add-on.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:web:getWebAppPremierAddOnSlot'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOnSlot'.
 func LookupWebAppPremierAddOnSlot(ctx *pulumi.Context, args *LookupWebAppPremierAddOnSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnSlotResult, error) {
 	var rv LookupWebAppPremierAddOnSlotResult
-	err := ctx.Invoke("azure-nextgen:web/latest:getWebAppPremierAddOnSlot", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/latest:getWebAppPremierAddOnSlot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

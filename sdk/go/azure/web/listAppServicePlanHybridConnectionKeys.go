@@ -11,7 +11,7 @@ import (
 // API Version: 2020-10-01.
 func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppServicePlanHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListAppServicePlanHybridConnectionKeysResult, error) {
 	var rv ListAppServicePlanHybridConnectionKeysResult
-	err := ctx.Invoke("azure-nextgen:web:listAppServicePlanHybridConnectionKeys", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web:listAppServicePlanHybridConnectionKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

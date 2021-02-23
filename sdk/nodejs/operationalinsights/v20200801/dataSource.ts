@@ -22,7 +22,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationalinsights/v20200801:DataSource';
+    public static readonly __pulumiType = 'azure-native:operationalinsights/v20200801:DataSource';
 
     /**
      * Returns true if the given object is an instance of DataSource.  This is designed to work even
@@ -106,7 +106,7 @@ export class DataSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:DataSource" }, { type: "azure-nextgen:operationalinsights/latest:DataSource" }, { type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:DataSource" }, { type: "azure-nextgen:operationalinsights:DataSource" }, { type: "azure-native:operationalinsights/latest:DataSource" }, { type: "azure-nextgen:operationalinsights/latest:DataSource" }, { type: "azure-native:operationalinsights/v20151101preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20151101preview:DataSource" }, { type: "azure-native:operationalinsights/v20200301preview:DataSource" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSource.__pulumiType, name, inputs, opts);
     }

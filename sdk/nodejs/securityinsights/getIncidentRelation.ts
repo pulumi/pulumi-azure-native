@@ -17,7 +17,7 @@ export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights:getIncidentRelation", {
+    return pulumi.runtime.invoke("azure-native:securityinsights:getIncidentRelation", {
         "incidentId": args.incidentId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "relationName": args.relationName,

@@ -22,7 +22,7 @@ export class ProviderInstance extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:hanaonazure:ProviderInstance';
+    public static readonly __pulumiType = 'azure-native:hanaonazure:ProviderInstance';
 
     /**
      * Returns true if the given object is an instance of ProviderInstance.  This is designed to work even
@@ -94,7 +94,7 @@ export class ProviderInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hanaonazure/v20200207preview:ProviderInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure/v20200207preview:ProviderInstance" }, { type: "azure-nextgen:hanaonazure/v20200207preview:ProviderInstance" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProviderInstance.__pulumiType, name, inputs, opts);
     }

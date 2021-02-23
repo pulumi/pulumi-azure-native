@@ -10,7 +10,7 @@ import (
 // An Account Filter.
 func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opts ...pulumi.InvokeOption) (*LookupAccountFilterResult, error) {
 	var rv LookupAccountFilterResult
-	err := ctx.Invoke("azure-nextgen:media/v20200501:getAccountFilter", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20200501:getAccountFilter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

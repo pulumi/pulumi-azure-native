@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.ServiceFabric.V20190301Preview
+namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview
 {
     /// <summary>
     /// The activation Mode of the service package

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The identity type. Currently the only supported type is 'SystemAssigned'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNextGen.DataFactory.V20170901Preview.FactoryIdentityType> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNative.DataFactory.V20170901Preview.FactoryIdentityType> Type { get; set; } = null!;
 
         public FactoryIdentityArgs()
         {

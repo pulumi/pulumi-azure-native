@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StreamAnalytics
+namespace Pulumi.AzureNative.StreamAnalytics
 {
     public static class GetOutput
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics
         /// API Version: 2016-03-01.
         /// </summary>
         public static Task<GetOutputResult> InvokeAsync(GetOutputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-nextgen:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOutputResult>("azure-native:streamanalytics:getOutput", args ?? new GetOutputArgs(), options.WithVersion());
     }
 
 

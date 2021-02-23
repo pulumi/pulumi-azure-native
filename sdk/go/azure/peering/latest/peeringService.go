@@ -14,7 +14,7 @@ import (
 // Peering Service
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:PeeringService'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeeringService'.
 type PeeringService struct {
 	pulumi.CustomResourceState
 
@@ -48,19 +48,37 @@ func NewPeeringService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:peering:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20190801preview:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20190801preview:PeeringService"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20190901preview:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20200101preview:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20200101preview:PeeringService"),
 		},
 		{
+			Type: pulumi.String("azure-native:peering/v20200401:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:peering/v20200401:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azure-native:peering/v20201001:PeeringService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:PeeringService"),
@@ -68,7 +86,7 @@ func NewPeeringService(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PeeringService
-	err := ctx.RegisterResource("azure-nextgen:peering/latest:PeeringService", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:peering/latest:PeeringService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +98,7 @@ func NewPeeringService(ctx *pulumi.Context,
 func GetPeeringService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PeeringServiceState, opts ...pulumi.ResourceOption) (*PeeringService, error) {
 	var resource PeeringService
-	err := ctx.ReadResource("azure-nextgen:peering/latest:PeeringService", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:peering/latest:PeeringService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

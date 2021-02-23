@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
+namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
     public static class GetPartnerTopicEventSubscriptionFullUrl
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20201015Preview
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionFullUrlResult> InvokeAsync(GetPartnerTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-nextgen:eventgrid/v20201015preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20201015preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlArgs(), options.WithVersion());
     }
 
 

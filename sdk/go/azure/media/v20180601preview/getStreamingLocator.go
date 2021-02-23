@@ -10,7 +10,7 @@ import (
 // A Streaming Locator resource
 func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArgs, opts ...pulumi.InvokeOption) (*LookupStreamingLocatorResult, error) {
 	var rv LookupStreamingLocatorResult
-	err := ctx.Invoke("azure-nextgen:media/v20180601preview:getStreamingLocator", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180601preview:getStreamingLocator", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

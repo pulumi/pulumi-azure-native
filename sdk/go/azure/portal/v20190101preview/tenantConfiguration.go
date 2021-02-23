@@ -31,7 +31,13 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:portal:TenantConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:portal:TenantConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:portal/v20200901preview:TenantConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:portal/v20200901preview:TenantConfiguration"),
@@ -39,7 +45,7 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource TenantConfiguration
-	err := ctx.RegisterResource("azure-nextgen:portal/v20190101preview:TenantConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:portal/v20190101preview:TenantConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +57,7 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 func GetTenantConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TenantConfigurationState, opts ...pulumi.ResourceOption) (*TenantConfiguration, error) {
 	var resource TenantConfiguration
-	err := ctx.ReadResource("azure-nextgen:portal/v20190101preview:TenantConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:portal/v20190101preview:TenantConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

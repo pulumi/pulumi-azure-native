@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * An Azure Cosmos DB Table.
  * Latest API Version: 2021-01-15.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:TableResourceTable'.
  */
 export class TableResourceTable extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TableResourceTable {
-        pulumi.log.warn("TableResourceTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.")
+        pulumi.log.warn("TableResourceTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:TableResourceTable'.")
         return new TableResourceTable(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:documentdb/latest:TableResourceTable';
+    public static readonly __pulumiType = 'azure-native:documentdb/latest:TableResourceTable';
 
     /**
      * Returns true if the given object is an instance of TableResourceTable.  This is designed to work even
@@ -65,9 +65,9 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:TableResourceTable'. */
     constructor(name: string, args: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TableResourceTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:TableResourceTable'.")
+        pulumi.log.warn("TableResourceTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:TableResourceTable'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
@@ -103,7 +103,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:TableResourceTable" }, { type: "azure-nextgen:documentdb:TableResourceTable" }, { type: "azure-native:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-native:documentdb/v20191212:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20191212:TableResourceTable" }, { type: "azure-native:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-native:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-native:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-native:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-native:documentdb/v20210115:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

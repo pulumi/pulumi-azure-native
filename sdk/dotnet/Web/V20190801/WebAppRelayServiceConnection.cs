@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.V20190801
+namespace Pulumi.AzureNative.Web.V20190801
 {
     /// <summary>
     /// Hybrid Connection for an App Service app.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:web/v20190801:WebAppRelayServiceConnection")]
+    [AzureNativeResourceType("azure-native:web/v20190801:WebAppRelayServiceConnection")]
     public partial class WebAppRelayServiceConnection : Pulumi.CustomResource
     {
         [Output("biztalkUri")]
@@ -63,12 +63,12 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebAppRelayServiceConnection(string name, WebAppRelayServiceConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppRelayServiceConnection", name, args ?? new WebAppRelayServiceConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/v20190801:WebAppRelayServiceConnection", name, args ?? new WebAppRelayServiceConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebAppRelayServiceConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/v20190801:WebAppRelayServiceConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/v20190801:WebAppRelayServiceConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,14 +79,23 @@ namespace Pulumi.AzureNextGen.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppRelayServiceConnection"},
                 },
             };

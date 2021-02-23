@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * The policy definition.
  * Latest API Version: 2020-09-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyDefinition'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinition'. */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
-    pulumi.log.warn("getPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:authorization:getPolicyDefinition'.")
+    pulumi.log.warn("getPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinition'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:authorization/latest:getPolicyDefinition", {
+    return pulumi.runtime.invoke("azure-native:authorization/latest:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);
 }

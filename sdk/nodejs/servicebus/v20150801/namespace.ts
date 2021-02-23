@@ -22,7 +22,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:servicebus/v20150801:Namespace';
+    public static readonly __pulumiType = 'azure-native:servicebus/v20150801:Namespace';
 
     /**
      * Returns true if the given object is an instance of Namespace.  This is designed to work even
@@ -132,7 +132,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:Namespace" }, { type: "azure-nextgen:servicebus/latest:Namespace" }, { type: "azure-nextgen:servicebus/v20140901:Namespace" }, { type: "azure-nextgen:servicebus/v20170401:Namespace" }, { type: "azure-nextgen:servicebus/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Namespace" }, { type: "azure-nextgen:servicebus:Namespace" }, { type: "azure-native:servicebus/latest:Namespace" }, { type: "azure-nextgen:servicebus/latest:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-nextgen:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-nextgen:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-nextgen:servicebus/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

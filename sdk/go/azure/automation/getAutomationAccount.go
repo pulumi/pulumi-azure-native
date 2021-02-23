@@ -11,7 +11,7 @@ import (
 // API Version: 2019-06-01.
 func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountArgs, opts ...pulumi.InvokeOption) (*LookupAutomationAccountResult, error) {
 	var rv LookupAutomationAccountResult
-	err := ctx.Invoke("azure-nextgen:automation:getAutomationAccount", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:automation:getAutomationAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

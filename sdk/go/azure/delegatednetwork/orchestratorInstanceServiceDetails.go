@@ -62,12 +62,15 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource OrchestratorInstanceServiceDetails
-	err := ctx.RegisterResource("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +82,7 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 func GetOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrchestratorInstanceServiceDetailsState, opts ...pulumi.ResourceOption) (*OrchestratorInstanceServiceDetails, error) {
 	var resource OrchestratorInstanceServiceDetails
-	err := ctx.ReadResource("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension';
+    public static readonly __pulumiType = 'azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension';
 
     /**
      * Returns true if the given object is an instance of VirtualMachineScaleSetVMExtension.  This is designed to work even
@@ -134,7 +134,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVMExtension.__pulumiType, name, inputs, opts);
     }

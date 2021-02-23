@@ -29,17 +29,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:devices/v20200401:Certificate":
+            case "azure-native:devices/v20200401:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200401:IotHubResource":
+            case "azure-native:devices/v20200401:IotHubResource":
                 return new IotHubResource(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200401:IotHubResourceEventHubConsumerGroup":
+            case "azure-native:devices/v20200401:IotHubResourceEventHubConsumerGroup":
                 return new IotHubResourceEventHubConsumerGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:devices/v20200401:PrivateEndpointConnection":
+            case "azure-native:devices/v20200401:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "devices/v20200401", _module)
+pulumi.runtime.registerResourceModule("azure-native", "devices/v20200401", _module)

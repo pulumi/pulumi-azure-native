@@ -10,10 +10,10 @@ import (
 // The extended Info of the Data Box Edge/Gateway device.
 // Latest API Version: 2020-09-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:databoxedge:getDeviceExtendedInformation'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDeviceExtendedInformation'.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
 	var rv GetDeviceExtendedInformationResult
-	err := ctx.Invoke("azure-nextgen:databoxedge/latest:getDeviceExtendedInformation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:databoxedge/latest:getDeviceExtendedInformation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

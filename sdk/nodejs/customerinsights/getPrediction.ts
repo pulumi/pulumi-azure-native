@@ -17,7 +17,7 @@ export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customerinsights:getPrediction", {
+    return pulumi.runtime.invoke("azure-native:customerinsights:getPrediction", {
         "hubName": args.hubName,
         "predictionName": args.predictionName,
         "resourceGroupName": args.resourceGroupName,

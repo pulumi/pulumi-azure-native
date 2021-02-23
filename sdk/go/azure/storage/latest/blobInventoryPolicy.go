@@ -14,7 +14,7 @@ import (
 // The storage account blob inventory policy.
 // Latest API Version: 2021-01-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storage:BlobInventoryPolicy'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobInventoryPolicy'.
 type BlobInventoryPolicy struct {
 	pulumi.CustomResourceState
 
@@ -48,13 +48,25 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:storage:BlobInventoryPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20190601:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobInventoryPolicy"),
 		},
 		{
+			Type: pulumi.String("azure-native:storage/v20200801preview:BlobInventoryPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210101:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobInventoryPolicy"),
@@ -62,7 +74,7 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BlobInventoryPolicy
-	err := ctx.RegisterResource("azure-nextgen:storage/latest:BlobInventoryPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:storage/latest:BlobInventoryPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 func GetBlobInventoryPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BlobInventoryPolicyState, opts ...pulumi.ResourceOption) (*BlobInventoryPolicy, error) {
 	var resource BlobInventoryPolicy
-	err := ctx.ReadResource("azure-nextgen:storage/latest:BlobInventoryPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:storage/latest:BlobInventoryPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

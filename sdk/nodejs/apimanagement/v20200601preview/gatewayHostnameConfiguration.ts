@@ -21,7 +21,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration';
+    public static readonly __pulumiType = 'azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration';
 
     /**
      * Returns true if the given object is an instance of GatewayHostnameConfiguration.  This is designed to work even
@@ -115,7 +115,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/latest:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayHostnameConfiguration.__pulumiType, name, inputs, opts);
     }

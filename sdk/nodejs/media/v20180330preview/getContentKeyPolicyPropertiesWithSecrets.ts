@@ -16,7 +16,7 @@ export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPoli
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", {
+    return pulumi.runtime.invoke("azure-native:media/v20180330preview:getContentKeyPolicyPropertiesWithSecrets", {
         "accountName": args.accountName,
         "contentKeyPolicyName": args.contentKeyPolicyName,
         "resourceGroupName": args.resourceGroupName,

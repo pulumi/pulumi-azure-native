@@ -56,10 +56,19 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerAdministrator"),
 		},
 		{
+			Type: pulumi.String("azure-native:dbforpostgresql/latest:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:ServerAdministrator"),
+		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator"),
@@ -67,7 +76,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ServerAdministrator
-	err := ctx.RegisterResource("azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20171201:ServerAdministrator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +88,7 @@ func NewServerAdministrator(ctx *pulumi.Context,
 func GetServerAdministrator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerAdministratorState, opts ...pulumi.ResourceOption) (*ServerAdministrator, error) {
 	var resource ServerAdministrator
-	err := ctx.ReadResource("azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbforpostgresql/v20171201:ServerAdministrator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

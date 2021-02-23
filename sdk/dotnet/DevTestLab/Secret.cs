@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DevTestLab
+namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A secret.
     /// API Version: 2018-09-15.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:devtestlab:Secret")]
+    [AzureNativeResourceType("azure-native:devtestlab:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {
         /// <summary>
@@ -67,12 +67,12 @@ namespace Pulumi.AzureNextGen.DevTestLab
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:devtestlab:Secret", name, args ?? new SecretArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Secret(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:devtestlab:Secret", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:devtestlab:Secret", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,8 +83,11 @@ namespace Pulumi.AzureNextGen.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Secret"},
+                    new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Secret"},
                 },
             };

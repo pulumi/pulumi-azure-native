@@ -50,7 +50,13 @@ func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:WorkloadNetworkPortMirroring"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkPortMirroring"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkPortMirroring"),
@@ -58,7 +64,7 @@ func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WorkloadNetworkPortMirroring
-	err := ctx.RegisterResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +76,7 @@ func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 func GetWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkloadNetworkPortMirroringState, opts ...pulumi.ResourceOption) (*WorkloadNetworkPortMirroring, error) {
 	var resource WorkloadNetworkPortMirroring
-	err := ctx.ReadResource("azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

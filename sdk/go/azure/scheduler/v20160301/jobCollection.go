@@ -38,13 +38,25 @@ func NewJobCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:scheduler:JobCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:scheduler:JobCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:scheduler/latest:JobCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:scheduler/latest:JobCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:scheduler/v20140801preview:JobCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:JobCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:scheduler/v20160101:JobCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:scheduler/v20160101:JobCollection"),
@@ -52,7 +64,7 @@ func NewJobCollection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource JobCollection
-	err := ctx.RegisterResource("azure-nextgen:scheduler/v20160301:JobCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:scheduler/v20160301:JobCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +76,7 @@ func NewJobCollection(ctx *pulumi.Context,
 func GetJobCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobCollectionState, opts ...pulumi.ResourceOption) (*JobCollection, error) {
 	var resource JobCollection
-	err := ctx.ReadResource("azure-nextgen:scheduler/v20160301:JobCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:scheduler/v20160301:JobCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

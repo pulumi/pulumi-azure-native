@@ -10,7 +10,7 @@ import (
 // Description of a namespace resource.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
-	err := ctx.Invoke("azure-nextgen:relay/v20180101preview:getNamespace", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:relay/v20180101preview:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

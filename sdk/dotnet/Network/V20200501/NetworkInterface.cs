@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20200501
+namespace Pulumi.AzureNative.Network.V20200501
 {
     /// <summary>
     /// A network interface in a resource group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20200501:NetworkInterface")]
+    [AzureNativeResourceType("azure-native:network/v20200501:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
         /// <summary>
@@ -132,12 +132,12 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterface(string name, NetworkInterfaceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200501:NetworkInterface", name, args ?? new NetworkInterfaceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20200501:NetworkInterface", name, args ?? new NetworkInterfaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkInterface(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20200501:NetworkInterface", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20200501:NetworkInterface", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -148,41 +148,77 @@ namespace Pulumi.AzureNextGen.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkInterface"},
                 },
             };

@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.SignalRService.Latest
+namespace Pulumi.AzureNative.SignalRService.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:signalrservice:getSignalR'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:signalrservice:getSignalR'.")]
     public static class GetSignalR
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
         /// Latest API Version: 2020-05-01.
         /// </summary>
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-nextgen:signalrservice/latest:getSignalR", args ?? new GetSignalRArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-native:signalrservice/latest:getSignalR", args ?? new GetSignalRArgs(), options.WithVersion());
     }
 
 

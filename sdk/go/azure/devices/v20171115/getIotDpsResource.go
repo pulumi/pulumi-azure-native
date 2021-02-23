@@ -10,7 +10,7 @@ import (
 // The description of the provisioning service.
 func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourceResult, error) {
 	var rv LookupIotDpsResourceResult
-	err := ctx.Invoke("azure-nextgen:devices/v20171115:getIotDpsResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20171115:getIotDpsResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

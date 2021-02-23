@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
+namespace Pulumi.AzureNative.KeyVault.V20200401Preview
 {
     /// <summary>
     /// A message indicating if changes on the service provider require any updates on the consumer.

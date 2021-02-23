@@ -11,7 +11,7 @@ import (
 // API Version: 2018-10-15.
 func GetLabAccountRegionalAvailability(ctx *pulumi.Context, args *GetLabAccountRegionalAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetLabAccountRegionalAvailabilityResult, error) {
 	var rv GetLabAccountRegionalAvailabilityResult
-	err := ctx.Invoke("azure-nextgen:labservices:getLabAccountRegionalAvailability", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:labservices:getLabAccountRegionalAvailability", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

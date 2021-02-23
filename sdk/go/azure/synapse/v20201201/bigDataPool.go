@@ -76,10 +76,19 @@ func NewBigDataPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:synapse:BigDataPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse:BigDataPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:synapse/latest:BigDataPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:synapse/latest:BigDataPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20190601preview:BigDataPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:BigDataPool"),
@@ -87,7 +96,7 @@ func NewBigDataPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BigDataPool
-	err := ctx.RegisterResource("azure-nextgen:synapse/v20201201:BigDataPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:synapse/v20201201:BigDataPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +108,7 @@ func NewBigDataPool(ctx *pulumi.Context,
 func GetBigDataPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BigDataPoolState, opts ...pulumi.ResourceOption) (*BigDataPool, error) {
 	var resource BigDataPool
-	err := ctx.ReadResource("azure-nextgen:synapse/v20201201:BigDataPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:synapse/v20201201:BigDataPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearning.Latest.Inputs
+namespace Pulumi.AzureNative.MachineLearning.Latest.Inputs
 {
 
     /// <summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest.Inputs
         /// Asset's type.
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.Latest.AssetType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearning.Latest.AssetType> Type { get; set; } = null!;
 
         public AssetItemArgs()
         {

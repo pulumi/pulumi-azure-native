@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Latest API Version: 2016-03-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:JobCollection'.
  */
 export class JobCollection extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class JobCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobCollection {
-        pulumi.log.warn("JobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.")
+        pulumi.log.warn("JobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:JobCollection'.")
         return new JobCollection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:scheduler/latest:JobCollection';
+    public static readonly __pulumiType = 'azure-native:scheduler/latest:JobCollection';
 
     /**
      * Returns true if the given object is an instance of JobCollection.  This is designed to work even
@@ -66,9 +66,9 @@ export class JobCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:JobCollection'. */
     constructor(name: string, args: JobCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("JobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:scheduler:JobCollection'.")
+        pulumi.log.warn("JobCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:JobCollection'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class JobCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:scheduler:JobCollection" }, { type: "azure-nextgen:scheduler/v20140801preview:JobCollection" }, { type: "azure-nextgen:scheduler/v20160101:JobCollection" }, { type: "azure-nextgen:scheduler/v20160301:JobCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scheduler:JobCollection" }, { type: "azure-nextgen:scheduler:JobCollection" }, { type: "azure-native:scheduler/v20140801preview:JobCollection" }, { type: "azure-nextgen:scheduler/v20140801preview:JobCollection" }, { type: "azure-native:scheduler/v20160101:JobCollection" }, { type: "azure-nextgen:scheduler/v20160101:JobCollection" }, { type: "azure-native:scheduler/v20160301:JobCollection" }, { type: "azure-nextgen:scheduler/v20160301:JobCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobCollection.__pulumiType, name, inputs, opts);
     }

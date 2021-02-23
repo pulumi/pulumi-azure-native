@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
+namespace Pulumi.AzureNative.DataBox.Latest.Inputs
 {
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.SkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataBox.Latest.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder":
+            case "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder":
                 return new AppServiceCertificateOrder(name, <any>undefined, { urn })
-            case "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate":
+            case "azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate":
                 return new AppServiceCertificateOrderCertificate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "certificateregistration/v20201001", _module)
+pulumi.runtime.registerResourceModule("azure-native", "certificateregistration/v20201001", _module)

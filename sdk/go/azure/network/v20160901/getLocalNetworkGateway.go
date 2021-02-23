@@ -10,7 +10,7 @@ import (
 // A common class for general resource information
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	var rv LookupLocalNetworkGatewayResult
-	err := ctx.Invoke("azure-nextgen:network/v20160901:getLocalNetworkGateway", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20160901:getLocalNetworkGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

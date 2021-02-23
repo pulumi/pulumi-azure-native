@@ -11,7 +11,7 @@ import (
 // API Version: 2018-03-01-beta.
 func ListSaasSubscriptionLevelAccessToken(ctx *pulumi.Context, args *ListSaasSubscriptionLevelAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasSubscriptionLevelAccessTokenResult, error) {
 	var rv ListSaasSubscriptionLevelAccessTokenResult
-	err := ctx.Invoke("azure-nextgen:saas:listSaasSubscriptionLevelAccessToken", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:saas:listSaasSubscriptionLevelAccessToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

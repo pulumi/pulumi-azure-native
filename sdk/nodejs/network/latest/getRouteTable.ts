@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Route table resource.
  * Latest API Version: 2020-08-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteTable'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteTable'. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    pulumi.log.warn("getRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:network:getRouteTable'.")
+    pulumi.log.warn("getRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteTable'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:network/latest:getRouteTable", {
+    return pulumi.runtime.invoke("azure-native:network/latest:getRouteTable", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "routeTableName": args.routeTableName,

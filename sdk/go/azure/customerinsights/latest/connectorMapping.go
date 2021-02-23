@@ -14,7 +14,7 @@ import (
 // The connector mapping resource format.
 // Latest API Version: 2017-04-26.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:customerinsights:ConnectorMapping'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:ConnectorMapping'.
 type ConnectorMapping struct {
 	pulumi.CustomResourceState
 
@@ -78,10 +78,19 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:customerinsights:ConnectorMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights:ConnectorMapping"),
 		},
 		{
+			Type: pulumi.String("azure-native:customerinsights/v20170101:ConnectorMapping"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:ConnectorMapping"),
+		},
+		{
+			Type: pulumi.String("azure-native:customerinsights/v20170426:ConnectorMapping"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:ConnectorMapping"),
@@ -89,7 +98,7 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ConnectorMapping
-	err := ctx.RegisterResource("azure-nextgen:customerinsights/latest:ConnectorMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:customerinsights/latest:ConnectorMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +110,7 @@ func NewConnectorMapping(ctx *pulumi.Context,
 func GetConnectorMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectorMappingState, opts ...pulumi.ResourceOption) (*ConnectorMapping, error) {
 	var resource ConnectorMapping
-	err := ctx.ReadResource("azure-nextgen:customerinsights/latest:ConnectorMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:customerinsights/latest:ConnectorMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

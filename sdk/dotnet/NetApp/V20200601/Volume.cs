@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.V20200601
+namespace Pulumi.AzureNative.NetApp.V20200601
 {
     /// <summary>
     /// Volume resource
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:netapp/v20200601:Volume")]
+    [AzureNativeResourceType("azure-native:netapp/v20200601:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
@@ -159,12 +159,12 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/v20200601:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:netapp/v20200601:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Volume(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:netapp/v20200601:Volume", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:netapp/v20200601:Volume", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -175,21 +175,37 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:netapp:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190501:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190601:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190701:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20190801:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190801:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191001:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191001:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20191101:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20191101:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200201:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200301:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200701:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200701:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200801:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20200901:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Volume"},
                 },
             };
@@ -290,13 +306,13 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         /// </summary>
         [Input("securityStyle")]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.SecurityStyle>? SecurityStyle { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.V20200601.SecurityStyle>? SecurityStyle { get; set; }
 
         /// <summary>
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel")]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.ServiceLevel>? ServiceLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.V20200601.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).

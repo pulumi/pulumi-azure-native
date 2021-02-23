@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation
+namespace Pulumi.AzureNative.Automation
 {
     public static class GetPython2Package
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetPython2PackageResult> InvokeAsync(GetPython2PackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-nextgen:automation:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPython2PackageResult>("azure-native:automation:getPython2Package", args ?? new GetPython2PackageArgs(), options.WithVersion());
     }
 
 

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Cdn.Latest
+namespace Pulumi.AzureNative.Cdn.Latest
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
     /// Latest API Version: 2020-09-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cdn:Policy'.")]
-    [AzureNextGenResourceType("azure-nextgen:cdn/latest:Policy")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Policy'.")]
+    [AzureNativeResourceType("azure-native:cdn/latest:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
@@ -107,12 +107,12 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:cdn/latest:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Policy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:cdn/latest:Policy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:cdn/latest:Policy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -123,11 +123,17 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Policy"},
+                    new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Policy"},
                 },
             };

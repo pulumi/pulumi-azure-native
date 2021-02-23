@@ -11,7 +11,7 @@ import (
 // API Version: 2017-03-01-preview.
 func LookupSqlVirtualMachine(ctx *pulumi.Context, args *LookupSqlVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupSqlVirtualMachineResult, error) {
 	var rv LookupSqlVirtualMachineResult
-	err := ctx.Invoke("azure-nextgen:sqlvirtualmachine:getSqlVirtualMachine", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

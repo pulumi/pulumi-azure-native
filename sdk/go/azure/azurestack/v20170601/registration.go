@@ -48,13 +48,25 @@ func NewRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:azurestack:Registration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack:Registration"),
+		},
+		{
+			Type: pulumi.String("azure-native:azurestack/latest:Registration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azurestack/latest:Registration"),
 		},
 		{
+			Type: pulumi.String("azure-native:azurestack/v20160101:Registration"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:azurestack/v20160101:Registration"),
+		},
+		{
+			Type: pulumi.String("azure-native:azurestack/v20200601preview:Registration"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:azurestack/v20200601preview:Registration"),
@@ -62,7 +74,7 @@ func NewRegistration(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Registration
-	err := ctx.RegisterResource("azure-nextgen:azurestack/v20170601:Registration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:azurestack/v20170601:Registration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +86,7 @@ func NewRegistration(ctx *pulumi.Context,
 func GetRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistrationState, opts ...pulumi.ResourceOption) (*Registration, error) {
 	var resource Registration
-	err := ctx.ReadResource("azure-nextgen:azurestack/v20170601:Registration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:azurestack/v20170601:Registration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

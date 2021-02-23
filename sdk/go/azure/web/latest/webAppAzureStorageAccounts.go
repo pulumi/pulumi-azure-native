@@ -14,7 +14,7 @@ import (
 // AzureStorageInfo dictionary resource.
 // Latest API Version: 2020-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:WebAppAzureStorageAccounts'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.
 type WebAppAzureStorageAccounts struct {
 	pulumi.CustomResourceState
 
@@ -45,22 +45,43 @@ func NewWebAppAzureStorageAccounts(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:WebAppAzureStorageAccounts"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccounts"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20181101:WebAppAzureStorageAccounts"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200601:WebAppAzureStorageAccounts"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"),
 		},
 		{
+			Type: pulumi.String("azure-native:web/v20200901:WebAppAzureStorageAccounts"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAzureStorageAccounts"),
@@ -68,7 +89,7 @@ func NewWebAppAzureStorageAccounts(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAzureStorageAccounts
-	err := ctx.RegisterResource("azure-nextgen:web/latest:WebAppAzureStorageAccounts", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/latest:WebAppAzureStorageAccounts", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +101,7 @@ func NewWebAppAzureStorageAccounts(ctx *pulumi.Context,
 func GetWebAppAzureStorageAccounts(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebAppAzureStorageAccountsState, opts ...pulumi.ResourceOption) (*WebAppAzureStorageAccounts, error) {
 	var resource WebAppAzureStorageAccounts
-	err := ctx.ReadResource("azure-nextgen:web/latest:WebAppAzureStorageAccounts", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/latest:WebAppAzureStorageAccounts", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

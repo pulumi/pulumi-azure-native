@@ -23,13 +23,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:domainregistration/v20180201:Domain":
+            case "azure-native:domainregistration/v20180201:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier":
+            case "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier":
                 return new DomainOwnershipIdentifier(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "domainregistration/v20180201", _module)
+pulumi.runtime.registerResourceModule("azure-native", "domainregistration/v20180201", _module)

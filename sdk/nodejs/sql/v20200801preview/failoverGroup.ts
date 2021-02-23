@@ -22,7 +22,7 @@ export class FailoverGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql/v20200801preview:FailoverGroup';
+    public static readonly __pulumiType = 'azure-native:sql/v20200801preview:FailoverGroup';
 
     /**
      * Returns true if the given object is an instance of FailoverGroup.  This is designed to work even
@@ -130,7 +130,7 @@ export class FailoverGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:FailoverGroup" }, { type: "azure-nextgen:sql/v20150501preview:FailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:FailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:FailoverGroup" }, { type: "azure-nextgen:sql:FailoverGroup" }, { type: "azure-native:sql/v20150501preview:FailoverGroup" }, { type: "azure-nextgen:sql/v20150501preview:FailoverGroup" }, { type: "azure-native:sql/v20200202preview:FailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:FailoverGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FailoverGroup.__pulumiType, name, inputs, opts);
     }

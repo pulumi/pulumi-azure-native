@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Automation.V20180630
+namespace Pulumi.AzureNative.Automation.V20180630
 {
     /// <summary>
     /// Gets or sets the type of the runbook.

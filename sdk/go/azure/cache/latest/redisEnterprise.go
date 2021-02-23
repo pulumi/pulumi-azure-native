@@ -14,7 +14,7 @@ import (
 // Describes the RedisEnterprise cluster
 // Latest API Version: 2021-03-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:cache:RedisEnterprise'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:RedisEnterprise'.
 type RedisEnterprise struct {
 	pulumi.CustomResourceState
 
@@ -59,10 +59,19 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:cache:RedisEnterprise"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache:RedisEnterprise"),
 		},
 		{
+			Type: pulumi.String("azure-native:cache/v20201001preview:RedisEnterprise"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:RedisEnterprise"),
+		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210301:RedisEnterprise"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20210301:RedisEnterprise"),
@@ -70,7 +79,7 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource RedisEnterprise
-	err := ctx.RegisterResource("azure-nextgen:cache/latest:RedisEnterprise", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:cache/latest:RedisEnterprise", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +91,7 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 func GetRedisEnterprise(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RedisEnterpriseState, opts ...pulumi.ResourceOption) (*RedisEnterprise, error) {
 	var resource RedisEnterprise
-	err := ctx.ReadResource("azure-nextgen:cache/latest:RedisEnterprise", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:cache/latest:RedisEnterprise", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:insights:getLogProfile", {
+    return pulumi.runtime.invoke("azure-native:insights:getLogProfile", {
         "logProfileName": args.logProfileName,
     }, opts);
 }

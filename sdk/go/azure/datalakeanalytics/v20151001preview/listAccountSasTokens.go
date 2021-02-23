@@ -10,7 +10,7 @@ import (
 // The SAS response that contains the storage account, container and associated SAS token for connection use.
 func ListAccountSasTokens(ctx *pulumi.Context, args *ListAccountSasTokensArgs, opts ...pulumi.InvokeOption) (*ListAccountSasTokensResult, error) {
 	var rv ListAccountSasTokensResult
-	err := ctx.Invoke("azure-nextgen:datalakeanalytics/v20151001preview:listAccountSasTokens", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datalakeanalytics/v20151001preview:listAccountSasTokens", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

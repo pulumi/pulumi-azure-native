@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
+namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
 {
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.Inputs
         /// Name of the resource.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.AutoScalingResourceMetricName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabricMesh.AutoScalingResourceMetricName> Name { get; set; } = null!;
 
         public AutoScalingResourceMetricArgs()
         {

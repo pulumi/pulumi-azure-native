@@ -14,7 +14,7 @@ import (
 // A private cloud resource
 // Latest API Version: 2020-03-20.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:avs:PrivateCloud'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 
@@ -82,13 +82,25 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:avs:PrivateCloud"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs:PrivateCloud"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20200320:PrivateCloud"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20200320:PrivateCloud"),
 		},
 		{
+			Type: pulumi.String("azure-native:avs/v20200717preview:PrivateCloud"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:avs/v20200717preview:PrivateCloud"),
+		},
+		{
+			Type: pulumi.String("azure-native:avs/v20210101preview:PrivateCloud"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:avs/v20210101preview:PrivateCloud"),
@@ -96,7 +108,7 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateCloud
-	err := ctx.RegisterResource("azure-nextgen:avs/latest:PrivateCloud", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:avs/latest:PrivateCloud", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -108,7 +120,7 @@ func NewPrivateCloud(ctx *pulumi.Context,
 func GetPrivateCloud(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateCloudState, opts ...pulumi.ResourceOption) (*PrivateCloud, error) {
 	var resource PrivateCloud
-	err := ctx.ReadResource("azure-nextgen:avs/latest:PrivateCloud", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:avs/latest:PrivateCloud", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

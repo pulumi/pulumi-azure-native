@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Batch
+namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about a pool.
     /// API Version: 2021-01-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:batch:Pool")]
+    [AzureNativeResourceType("azure-native:batch:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         [Output("allocationState")]
@@ -175,12 +175,12 @@ namespace Pulumi.AzureNextGen.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pool(string name, PoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:batch:Pool", name, args ?? new PoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:batch:Pool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:batch:Pool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -191,14 +191,23 @@ namespace Pulumi.AzureNextGen.Batch
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:batch/latest:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20181201:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20190801:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200301:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200501:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20200901:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20210101:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Pool"},
                 },
             };
@@ -287,7 +296,7 @@ namespace Pulumi.AzureNextGen.Batch
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         [Input("interNodeCommunication")]
-        public Input<Pulumi.AzureNextGen.Batch.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
+        public Input<Pulumi.AzureNative.Batch.InterNodeCommunicationState>? InterNodeCommunication { get; set; }
 
         [Input("metadata")]
         private InputList<Inputs.MetadataItemArgs>? _metadata;

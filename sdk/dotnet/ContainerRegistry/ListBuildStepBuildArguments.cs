@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class ListBuildStepBuildArguments
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<ListBuildStepBuildArgumentsResult> InvokeAsync(ListBuildStepBuildArgumentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-nextgen:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildStepBuildArgumentsResult>("azure-native:containerregistry:listBuildStepBuildArguments", args ?? new ListBuildStepBuildArgumentsArgs(), options.WithVersion());
     }
 
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview.Inputs
+namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Inputs
 {
 
     /// <summary>
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview.Inputs
         /// The name of the SKU for the tenant.
         /// </summary>
         [Input("name")]
-        public Input<Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview.B2CResourceSKUName>? Name { get; set; }
+        public Input<Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.B2CResourceSKUName>? Name { get; set; }
 
         /// <summary>
         /// The tier of the tenant.
         /// </summary>
         [Input("tier")]
-        public Input<Pulumi.AzureNextGen.AzureActiveDirectory.V20190101Preview.B2CResourceSKUTier>? Tier { get; set; }
+        public Input<Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.B2CResourceSKUTier>? Tier { get; set; }
 
         public B2CResourceSKUArgs()
         {

@@ -10,7 +10,7 @@ import (
 // Subscription keys.
 func ListSubscriptionSecrets(ctx *pulumi.Context, args *ListSubscriptionSecretsArgs, opts ...pulumi.InvokeOption) (*ListSubscriptionSecretsResult, error) {
 	var rv ListSubscriptionSecretsResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20191201preview:listSubscriptionSecrets", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:listSubscriptionSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:dbformariadb/v20180601:getConfiguration", {
+    return pulumi.runtime.invoke("azure-native:dbformariadb/v20180601:getConfiguration", {
         "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,

@@ -53,12 +53,15 @@ func NewOrderByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:edgeorder:OrderByName"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:edgeorder:OrderByName"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource OrderByName
-	err := ctx.RegisterResource("azure-nextgen:edgeorder/v20201201preview:OrderByName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:edgeorder/v20201201preview:OrderByName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +73,7 @@ func NewOrderByName(ctx *pulumi.Context,
 func GetOrderByName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrderByNameState, opts ...pulumi.ResourceOption) (*OrderByName, error) {
 	var resource OrderByName
-	err := ctx.ReadResource("azure-nextgen:edgeorder/v20201201preview:OrderByName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:edgeorder/v20201201preview:OrderByName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

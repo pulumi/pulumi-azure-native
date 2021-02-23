@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
+namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
     /// <summary>
     /// Machine Learning datastore object wrapped into ARM resource envelope.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore")]
+    [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore")]
     public partial class MachineLearningDatastore : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineLearningDatastore(string name, MachineLearningDatastoreArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore", name, args ?? new MachineLearningDatastoreArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore", name, args ?? new MachineLearningDatastoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineLearningDatastore(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDatastore"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningDatastore"},
                 },
             };
@@ -158,7 +159,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// Specifies datastore type.
         /// </summary>
         [Input("dataStoreType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.DatastoreTypeArm> DataStoreType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20200501Preview.DatastoreTypeArm> DataStoreType { get; set; } = null!;
 
         /// <summary>
         /// The database name.

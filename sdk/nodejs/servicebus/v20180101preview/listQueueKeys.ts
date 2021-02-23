@@ -16,7 +16,7 @@ export function listQueueKeys(args: ListQueueKeysArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicebus/v20180101preview:listQueueKeys", {
+    return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:listQueueKeys", {
         "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,

@@ -80,13 +80,25 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:devtestlab:VirtualMachineResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/latest:VirtualMachineResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualMachineResource"),
 		},
 		{
+			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineResource"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualMachineResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:devtestlab/v20180915:VirtualMachineResource"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualMachineResource"),
@@ -94,7 +106,7 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineResource
-	err := ctx.RegisterResource("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +118,7 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 func GetVirtualMachineResource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMachineResourceState, opts ...pulumi.ResourceOption) (*VirtualMachineResource, error) {
 	var resource VirtualMachineResource
-	err := ctx.ReadResource("azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:devtestlab/v20150521preview:VirtualMachineResource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

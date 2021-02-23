@@ -14,7 +14,7 @@ import (
 // PrivateEndpointConnection resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.
 type PrivateLinkServicePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -49,31 +49,61 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:PrivateLinkServicePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateLinkServicePrivateEndpointConnection"),
@@ -81,7 +111,7 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkServicePrivateEndpointConnection
-	err := ctx.RegisterResource("azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:PrivateLinkServicePrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +123,7 @@ func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 func GetPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrivateLinkServicePrivateEndpointConnectionState, opts ...pulumi.ResourceOption) (*PrivateLinkServicePrivateEndpointConnection, error) {
 	var resource PrivateLinkServicePrivateEndpointConnection
-	err := ctx.ReadResource("azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:PrivateLinkServicePrivateEndpointConnection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

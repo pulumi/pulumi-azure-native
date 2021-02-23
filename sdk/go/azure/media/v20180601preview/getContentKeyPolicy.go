@@ -10,7 +10,7 @@ import (
 // A Content Key Policy resource.
 func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContentKeyPolicyResult, error) {
 	var rv LookupContentKeyPolicyResult
-	err := ctx.Invoke("azure-nextgen:media/v20180601preview:getContentKeyPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media/v20180601preview:getContentKeyPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

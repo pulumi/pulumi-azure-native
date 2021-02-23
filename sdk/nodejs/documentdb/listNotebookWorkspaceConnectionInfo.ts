@@ -17,7 +17,7 @@ export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:documentdb:listNotebookWorkspaceConnectionInfo", {
+    return pulumi.runtime.invoke("azure-native:documentdb:listNotebookWorkspaceConnectionInfo", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,
         "resourceGroupName": args.resourceGroupName,

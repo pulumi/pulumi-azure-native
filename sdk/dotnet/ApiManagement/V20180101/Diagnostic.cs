@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.V20180101
+namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Diagnostic details.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/v20180101:Diagnostic")]
+    [AzureNativeResourceType("azure-native:apimanagement/v20180101:Diagnostic")]
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Diagnostic(string name, DiagnosticArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Diagnostic", name, args ?? new DiagnosticArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/v20180101:Diagnostic", name, args ?? new DiagnosticArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Diagnostic(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/v20180101:Diagnostic", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/v20180101:Diagnostic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -58,13 +58,21 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Diagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Diagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Diagnostic"},
                 },
             };

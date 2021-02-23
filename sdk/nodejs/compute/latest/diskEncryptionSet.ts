@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * disk encryption set resource.
  * Latest API Version: 2020-09-30.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskEncryptionSet {
-        pulumi.log.warn("DiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.")
+        pulumi.log.warn("DiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.")
         return new DiskEncryptionSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:compute/latest:DiskEncryptionSet';
+    public static readonly __pulumiType = 'azure-native:compute/latest:DiskEncryptionSet';
 
     /**
      * Returns true if the given object is an instance of DiskEncryptionSet.  This is designed to work even
@@ -83,9 +83,9 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'. */
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:compute:DiskEncryptionSet'.")
+        pulumi.log.warn("DiskEncryptionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -120,7 +120,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-nextgen:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }

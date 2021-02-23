@@ -10,10 +10,10 @@ import (
 // Description of NetworkRuleSet resource.
 // Latest API Version: 2017-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:servicebus:getNamespaceNetworkRuleSet'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getNamespaceNetworkRuleSet'.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
-	err := ctx.Invoke("azure-nextgen:servicebus/latest:getNamespaceNetworkRuleSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:servicebus/latest:getNamespaceNetworkRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

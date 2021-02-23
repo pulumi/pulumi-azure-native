@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.AnalysisServices.Latest
+namespace Pulumi.AzureNative.AnalysisServices.Latest
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// Latest API Version: 2017-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:analysisservices:ServerDetails'.")]
-    [AzureNextGenResourceType("azure-nextgen:analysisservices/latest:ServerDetails")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.")]
+    [AzureNativeResourceType("azure-native:analysisservices/latest:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {
         /// <summary>
@@ -116,12 +116,12 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerDetails(string name, ServerDetailsArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/latest:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:analysisservices/latest:ServerDetails", name, args ?? new ServerDetailsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServerDetails(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:analysisservices/latest:ServerDetails", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:analysisservices/latest:ServerDetails", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -132,10 +132,15 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801beta:ServerDetails"},
                 },
             };
@@ -200,7 +205,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.
         /// </summary>
         [Input("querypoolConnectionMode")]
-        public Input<Pulumi.AzureNextGen.AnalysisServices.Latest.ConnectionMode>? QuerypoolConnectionMode { get; set; }
+        public Input<Pulumi.AzureNative.AnalysisServices.Latest.ConnectionMode>? QuerypoolConnectionMode { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
@@ -241,7 +246,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         public ServerDetailsArgs()
         {
             ManagedMode = 1;
-            QuerypoolConnectionMode = Pulumi.AzureNextGen.AnalysisServices.Latest.ConnectionMode.All;
+            QuerypoolConnectionMode = Pulumi.AzureNative.AnalysisServices.Latest.ConnectionMode.All;
             ServerMonitorMode = 1;
         }
     }

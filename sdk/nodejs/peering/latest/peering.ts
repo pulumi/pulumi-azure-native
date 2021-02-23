@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  * Latest API Version: 2020-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'.
  */
 export class Peering extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class Peering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Peering {
-        pulumi.log.warn("Peering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'.")
+        pulumi.log.warn("Peering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'.")
         return new Peering(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:peering/latest:Peering';
+    public static readonly __pulumiType = 'azure-native:peering/latest:Peering';
 
     /**
      * Returns true if the given object is an instance of Peering.  This is designed to work even
@@ -87,9 +87,9 @@ export class Peering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'. */
     constructor(name: string, args: PeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Peering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:peering:Peering'.")
+        pulumi.log.warn("Peering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
@@ -132,7 +132,7 @@ export class Peering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:peering:Peering" }, { type: "azure-nextgen:peering/v20190801preview:Peering" }, { type: "azure-nextgen:peering/v20190901preview:Peering" }, { type: "azure-nextgen:peering/v20200101preview:Peering" }, { type: "azure-nextgen:peering/v20200401:Peering" }, { type: "azure-nextgen:peering/v20201001:Peering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:peering:Peering" }, { type: "azure-nextgen:peering:Peering" }, { type: "azure-native:peering/v20190801preview:Peering" }, { type: "azure-nextgen:peering/v20190801preview:Peering" }, { type: "azure-native:peering/v20190901preview:Peering" }, { type: "azure-nextgen:peering/v20190901preview:Peering" }, { type: "azure-native:peering/v20200101preview:Peering" }, { type: "azure-nextgen:peering/v20200101preview:Peering" }, { type: "azure-native:peering/v20200401:Peering" }, { type: "azure-nextgen:peering/v20200401:Peering" }, { type: "azure-native:peering/v20201001:Peering" }, { type: "azure-nextgen:peering/v20201001:Peering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Peering.__pulumiType, name, inputs, opts);
     }

@@ -90,12 +90,15 @@ func NewWatchlist(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:securityinsights:Watchlist"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:securityinsights:Watchlist"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Watchlist
-	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:Watchlist", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +110,7 @@ func NewWatchlist(ctx *pulumi.Context,
 func GetWatchlist(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WatchlistState, opts ...pulumi.ResourceOption) (*Watchlist, error) {
 	var resource Watchlist
-	err := ctx.ReadResource("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:Watchlist", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -16,7 +16,7 @@ export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:databoxedge/v20190801:getOrder", {
+    return pulumi.runtime.invoke("azure-native:databoxedge/v20190801:getOrder", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

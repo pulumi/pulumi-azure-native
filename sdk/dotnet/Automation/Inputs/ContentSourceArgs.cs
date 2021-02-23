@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Automation.Inputs
+namespace Pulumi.AzureNative.Automation.Inputs
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Automation.Inputs
         /// Gets or sets the content source type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNextGen.Automation.ContentSourceType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Automation.ContentSourceType>? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the value of the content. This is based on the content source type.

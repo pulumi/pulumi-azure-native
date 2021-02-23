@@ -36,23 +36,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:migrate/latest:Assessment":
+            case "azure-native:migrate/latest:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:Group":
+            case "azure-native:migrate/latest:Group":
                 return new Group(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:HyperVCollector":
+            case "azure-native:migrate/latest:HyperVCollector":
                 return new HyperVCollector(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:MoveCollection":
+            case "azure-native:migrate/latest:MoveCollection":
                 return new MoveCollection(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:MoveResource":
+            case "azure-native:migrate/latest:MoveResource":
                 return new MoveResource(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:Project":
+            case "azure-native:migrate/latest:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "azure-nextgen:migrate/latest:VMwareCollector":
+            case "azure-native:migrate/latest:VMwareCollector":
                 return new VMwareCollector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "migrate/latest", _module)
+pulumi.runtime.registerResourceModule("azure-native", "migrate/latest", _module)

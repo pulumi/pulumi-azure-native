@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
+namespace Pulumi.AzureNative.Security.V20190101Preview.Inputs
 {
 
     public sealed class SuppressionAlertsScopeArgs : Pulumi.ResourceArgs

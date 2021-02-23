@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190301
+namespace Pulumi.AzureNative.Compute.V20190301
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20190301:ProximityPlacementGroup")]
+    [AzureNativeResourceType("azure-native:compute/v20190301:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProximityPlacementGroup(string name, ProximityPlacementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:ProximityPlacementGroup", name, args ?? new ProximityPlacementGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20190301:ProximityPlacementGroup", name, args ?? new ProximityPlacementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProximityPlacementGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190301:ProximityPlacementGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20190301:ProximityPlacementGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,14 +88,23 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180401:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20180601:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180601:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20181001:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20181001:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190701:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:ProximityPlacementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:ProximityPlacementGroup"},
                 },
             };
@@ -136,7 +145,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190301
         /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
         /// </summary>
         [Input("proximityPlacementGroupType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190301.ProximityPlacementGroupType>? ProximityPlacementGroupType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20190301.ProximityPlacementGroupType>? ProximityPlacementGroupType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

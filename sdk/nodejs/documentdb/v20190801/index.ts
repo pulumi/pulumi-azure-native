@@ -60,37 +60,37 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraKeyspace":
+            case "azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace":
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable":
+            case "azure-native:documentdb/v20190801:CassandraResourceCassandraTable":
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:DatabaseAccount":
+            case "azure-native:documentdb/v20190801:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinDatabase":
+            case "azure-native:documentdb/v20190801:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph":
+            case "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph":
                 return new GremlinResourceGremlinGraph(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBCollection":
+            case "azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection":
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase":
+            case "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:NotebookWorkspace":
+            case "azure-native:documentdb/v20190801:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:SqlResourceSqlContainer":
+            case "azure-native:documentdb/v20190801:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:SqlResourceSqlDatabase":
+            case "azure-native:documentdb/v20190801:SqlResourceSqlDatabase":
                 return new SqlResourceSqlDatabase(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure":
+            case "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure":
                 return new SqlResourceSqlStoredProcedure(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger":
+            case "azure-native:documentdb/v20190801:SqlResourceSqlTrigger":
                 return new SqlResourceSqlTrigger(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction":
+            case "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction":
                 return new SqlResourceSqlUserDefinedFunction(name, <any>undefined, { urn })
-            case "azure-nextgen:documentdb/v20190801:TableResourceTable":
+            case "azure-native:documentdb/v20190801:TableResourceTable":
                 return new TableResourceTable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "documentdb/v20190801", _module)
+pulumi.runtime.registerResourceModule("azure-native", "documentdb/v20190801", _module)

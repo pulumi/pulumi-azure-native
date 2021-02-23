@@ -14,7 +14,7 @@ import (
 // Azure Migrate Project.
 // Latest API Version: 2019-10-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:migrate:Project'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:Project'.
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -44,7 +44,13 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:migrate:Project"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:migrate:Project"),
+		},
+		{
+			Type: pulumi.String("azure-native:migrate/v20191001:Project"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:migrate/v20191001:Project"),
@@ -52,7 +58,7 @@ func NewProject(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Project
-	err := ctx.RegisterResource("azure-nextgen:migrate/latest:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:migrate/latest:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +70,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("azure-nextgen:migrate/latest:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:migrate/latest:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

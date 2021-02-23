@@ -67,10 +67,19 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:alertsmanagement:SmartDetectorAlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement:SmartDetectorAlertRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:alertsmanagement/latest:SmartDetectorAlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"),
@@ -78,7 +87,7 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource SmartDetectorAlertRule
-	err := ctx.RegisterResource("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +99,7 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 func GetSmartDetectorAlertRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SmartDetectorAlertRuleState, opts ...pulumi.ResourceOption) (*SmartDetectorAlertRule, error) {
 	var resource SmartDetectorAlertRule
-	err := ctx.ReadResource("azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

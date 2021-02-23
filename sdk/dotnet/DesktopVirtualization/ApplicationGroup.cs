@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DesktopVirtualization
+namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
     /// API Version: 2021-01-14-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:desktopvirtualization:ApplicationGroup")]
+    [AzureNativeResourceType("azure-native:desktopvirtualization:ApplicationGroup")]
     public partial class ApplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGroup(string name, ApplicationGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:ApplicationGroup", name, args ?? new ApplicationGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:desktopvirtualization:ApplicationGroup", name, args ?? new ApplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApplicationGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:desktopvirtualization:ApplicationGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:desktopvirtualization:ApplicationGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,14 +95,23 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201019preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210201preview:ApplicationGroup"},
                 },
             };
@@ -137,7 +146,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization
         /// Resource Type of ApplicationGroup.
         /// </summary>
         [Input("applicationGroupType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.ApplicationGroupType> ApplicationGroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.ApplicationGroupType> ApplicationGroupType { get; set; } = null!;
 
         /// <summary>
         /// Description of ApplicationGroup.

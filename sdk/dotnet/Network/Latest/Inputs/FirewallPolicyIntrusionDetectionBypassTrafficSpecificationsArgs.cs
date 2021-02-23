@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest.Inputs
+namespace Pulumi.AzureNative.Network.Latest.Inputs
 {
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The rule bypass protocol.
         /// </summary>
         [Input("protocol")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FirewallPolicyIntrusionDetectionProtocol>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.FirewallPolicyIntrusionDetectionProtocol>? Protocol { get; set; }
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.Inputs
+namespace Pulumi.AzureNative.Media.Inputs
 {
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Media.Inputs
         /// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         /// </summary>
         [Input("rotation")]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.Rotation>? Rotation { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Media.Rotation>? Rotation { get; set; }
 
         public FiltersArgs()
         {

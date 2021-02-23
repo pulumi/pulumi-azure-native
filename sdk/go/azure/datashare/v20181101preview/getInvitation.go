@@ -10,7 +10,7 @@ import (
 // A Invitation data transfer object.
 func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...pulumi.InvokeOption) (*LookupInvitationResult, error) {
 	var rv LookupInvitationResult
-	err := ctx.Invoke("azure-nextgen:datashare/v20181101preview:getInvitation", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:datashare/v20181101preview:getInvitation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

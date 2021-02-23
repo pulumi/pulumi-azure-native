@@ -10,7 +10,7 @@ import (
 // A provider instance associated with a SAP monitor.
 func LookupProviderInstance(ctx *pulumi.Context, args *LookupProviderInstanceArgs, opts ...pulumi.InvokeOption) (*LookupProviderInstanceResult, error) {
 	var rv LookupProviderInstanceResult
-	err := ctx.Invoke("azure-nextgen:hanaonazure/v20200207preview:getProviderInstance", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hanaonazure/v20200207preview:getProviderInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

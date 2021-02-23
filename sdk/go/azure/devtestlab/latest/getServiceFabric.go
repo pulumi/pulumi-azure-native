@@ -10,10 +10,10 @@ import (
 // A Service Fabric.
 // Latest API Version: 2018-09-15.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:devtestlab:getServiceFabric'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabric'.
 func LookupServiceFabric(ctx *pulumi.Context, args *LookupServiceFabricArgs, opts ...pulumi.InvokeOption) (*LookupServiceFabricResult, error) {
 	var rv LookupServiceFabricResult
-	err := ctx.Invoke("azure-nextgen:devtestlab/latest:getServiceFabric", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devtestlab/latest:getServiceFabric", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

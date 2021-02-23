@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.Latest
+namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
     /// Latest API Version: 2020-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteCircuitAuthorization'.")]
-    [AzureNextGenResourceType("azure-nextgen:network/latest:ExpressRouteCircuitAuthorization")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCircuitAuthorization'.")]
+    [AzureNativeResourceType("azure-native:network/latest:ExpressRouteCircuitAuthorization")]
     public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource
     {
         /// <summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteCircuitAuthorization(string name, ExpressRouteCircuitAuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:ExpressRouteCircuitAuthorization", name, args ?? new ExpressRouteCircuitAuthorizationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/latest:ExpressRouteCircuitAuthorization", name, args ?? new ExpressRouteCircuitAuthorizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExpressRouteCircuitAuthorization(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/latest:ExpressRouteCircuitAuthorization", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/latest:ExpressRouteCircuitAuthorization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -78,41 +78,77 @@ namespace Pulumi.AzureNextGen.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160330:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160330:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160601:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20160901:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20161201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20161201:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170301:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170801:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170801:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20170901:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20170901:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171001:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171001:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20171101:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180101:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180101:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180601:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180701:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180701:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181201:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190801:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190901:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191101:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20191201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200301:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200401:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200501:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200601:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200701:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCircuitAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCircuitAuthorization"},
                 },
             };
@@ -153,7 +189,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The authorization use status.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// The name of the express route circuit.

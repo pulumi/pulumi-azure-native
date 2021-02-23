@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ContainerRegistry
+namespace Pulumi.AzureNative.ContainerRegistry
 {
     public static class GetAgentPool
     {
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-nextgen:containerregistry:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerregistry:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
     }
 
 

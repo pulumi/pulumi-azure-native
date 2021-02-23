@@ -9,7 +9,7 @@ import (
 
 func LookupIntegrationAccountSchema(ctx *pulumi.Context, args *LookupIntegrationAccountSchemaArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountSchemaResult, error) {
 	var rv LookupIntegrationAccountSchemaResult
-	err := ctx.Invoke("azure-nextgen:logic/v20150801preview:getIntegrationAccountSchema", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:logic/v20150801preview:getIntegrationAccountSchema", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

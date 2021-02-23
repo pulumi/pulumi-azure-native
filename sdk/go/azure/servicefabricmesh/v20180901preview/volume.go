@@ -52,7 +52,13 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:servicefabricmesh:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:servicefabricmesh/v20180701preview:Volume"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180701preview:Volume"),
@@ -60,7 +66,7 @@ func NewVolume(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Volume
-	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Volume", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:servicefabricmesh/v20180901preview:Volume", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +78,7 @@ func NewVolume(ctx *pulumi.Context,
 func GetVolume(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VolumeState, opts ...pulumi.ResourceOption) (*Volume, error) {
 	var resource Volume
-	err := ctx.ReadResource("azure-nextgen:servicefabricmesh/v20180901preview:Volume", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:servicefabricmesh/v20180901preview:Volume", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

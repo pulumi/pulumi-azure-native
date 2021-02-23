@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.HybridCompute.V20191212
+namespace Pulumi.AzureNative.HybridCompute.V20191212
 {
     /// <summary>
     /// The identity type.

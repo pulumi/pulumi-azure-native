@@ -16,7 +16,7 @@ export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20201201:getSqlPoolWorkloadClassifier", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,
         "workloadClassifierName": args.workloadClassifierName,

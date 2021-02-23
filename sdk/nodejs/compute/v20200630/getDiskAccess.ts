@@ -16,7 +16,7 @@ export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:compute/v20200630:getDiskAccess", {
+    return pulumi.runtime.invoke("azure-native:compute/v20200630:getDiskAccess", {
         "diskAccessName": args.diskAccessName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -11,7 +11,7 @@ import (
 // API Version: 2020-08-15-preview.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
-	err := ctx.Invoke("azure-nextgen:hybridcompute:getPrivateLinkScope", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:hybridcompute:getPrivateLinkScope", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

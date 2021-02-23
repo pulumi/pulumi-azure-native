@@ -14,7 +14,7 @@ import (
 // Dedicated cloud node model
 // Latest API Version: 2019-04-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:vmwarecloudsimple:DedicatedCloudNode'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 
@@ -86,7 +86,13 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple:DedicatedCloudNode"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"),
+		},
+		{
+			Type: pulumi.String("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"),
@@ -94,7 +100,7 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedCloudNode
-	err := ctx.RegisterResource("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:vmwarecloudsimple/latest:DedicatedCloudNode", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +112,7 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 func GetDedicatedCloudNode(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DedicatedCloudNodeState, opts ...pulumi.ResourceOption) (*DedicatedCloudNode, error) {
 	var resource DedicatedCloudNode
-	err := ctx.ReadResource("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:vmwarecloudsimple/latest:DedicatedCloudNode", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:devtestlab:getUser", {
+    return pulumi.runtime.invoke("azure-native:devtestlab:getUser", {
         "expand": args.expand,
         "labName": args.labName,
         "name": args.name,

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
+namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The PlayReady content type.
         /// </summary>
         [Input("contentType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.ContentKeyPolicyPlayReadyContentType> ContentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180330Preview.ContentKeyPolicyPlayReadyContentType> ContentType { get; set; } = null!;
 
         /// <summary>
         /// The expiration date of license.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The license type.
         /// </summary>
         [Input("licenseType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.ContentKeyPolicyPlayReadyLicenseType> LicenseType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Media.V20180330Preview.ContentKeyPolicyPlayReadyLicenseType> LicenseType { get; set; } = null!;
 
         /// <summary>
         /// The license PlayRight

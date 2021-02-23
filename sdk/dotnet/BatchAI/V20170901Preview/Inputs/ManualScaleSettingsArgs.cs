@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
+namespace Pulumi.AzureNative.BatchAI.V20170901Preview.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
         /// The default value is requeue.
         /// </summary>
         [Input("nodeDeallocationOption")]
-        public Input<Pulumi.AzureNextGen.BatchAI.V20170901Preview.DeallocationOption>? NodeDeallocationOption { get; set; }
+        public Input<Pulumi.AzureNative.BatchAI.V20170901Preview.DeallocationOption>? NodeDeallocationOption { get; set; }
 
         /// <summary>
         /// Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
 
         public ManualScaleSettingsArgs()
         {
-            NodeDeallocationOption = Pulumi.AzureNextGen.BatchAI.V20170901Preview.DeallocationOption.Requeue;
+            NodeDeallocationOption = Pulumi.AzureNative.BatchAI.V20170901Preview.DeallocationOption.Requeue;
             TargetNodeCount = 0;
         }
     }

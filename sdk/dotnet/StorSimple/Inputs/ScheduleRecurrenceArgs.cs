@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.StorSimple.Inputs
+namespace Pulumi.AzureNative.StorSimple.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Inputs
         /// The recurrence type.
         /// </summary>
         [Input("recurrenceType", required: true)]
-        public Input<Pulumi.AzureNextGen.StorSimple.RecurrenceType> RecurrenceType { get; set; } = null!;
+        public Input<Pulumi.AzureNative.StorSimple.RecurrenceType> RecurrenceType { get; set; } = null!;
 
         /// <summary>
         /// The recurrence value.
@@ -28,14 +28,14 @@ namespace Pulumi.AzureNextGen.StorSimple.Inputs
         public Input<int> RecurrenceValue { get; set; } = null!;
 
         [Input("weeklyDaysList")]
-        private InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek>? _weeklyDaysList;
+        private InputList<Pulumi.AzureNative.StorSimple.DayOfWeek>? _weeklyDaysList;
 
         /// <summary>
         /// The week days list. Applicable only for schedules of recurrence type 'weekly'.
         /// </summary>
-        public InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek> WeeklyDaysList
+        public InputList<Pulumi.AzureNative.StorSimple.DayOfWeek> WeeklyDaysList
         {
-            get => _weeklyDaysList ?? (_weeklyDaysList = new InputList<Pulumi.AzureNextGen.StorSimple.DayOfWeek>());
+            get => _weeklyDaysList ?? (_weeklyDaysList = new InputList<Pulumi.AzureNative.StorSimple.DayOfWeek>());
             set => _weeklyDaysList = value;
         }
 

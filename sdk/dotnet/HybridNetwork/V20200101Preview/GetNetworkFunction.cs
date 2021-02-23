@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
+namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     public static class GetNetworkFunction
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// Network function resource response.
         /// </summary>
         public static Task<GetNetworkFunctionResult> InvokeAsync(GetNetworkFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-nextgen:hybridnetwork/v20200101preview:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20200101preview:getNetworkFunction", args ?? new GetNetworkFunctionArgs(), options.WithVersion());
     }
 
 

@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement
+namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy Contract details.
     /// API Version: 2019-12-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:apimanagement:ApiPolicy")]
+    [AzureNativeResourceType("azure-native:apimanagement:ApiPolicy")]
     public partial class ApiPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiPolicy(string name, ApiPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiPolicy", name, args ?? new ApiPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement:ApiPolicy", name, args ?? new ApiPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement:ApiPolicy", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement:ApiPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,13 +65,21 @@ namespace Pulumi.AzureNextGen.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiPolicy"},
                 },
             };
@@ -106,7 +114,7 @@ namespace Pulumi.AzureNextGen.ApiManagement
         /// Format of the policyContent.
         /// </summary>
         [Input("format")]
-        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.PolicyContentFormat>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.PolicyContentFormat>? Format { get; set; }
 
         /// <summary>
         /// The identifier of the Policy.

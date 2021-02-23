@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Web.Latest
+namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Certificate signing request object
     /// Latest API Version: 2015-08-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:web:CertificateCsr'.")]
-    [AzureNextGenResourceType("azure-nextgen:web/latest:CertificateCsr")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:CertificateCsr'.")]
+    [AzureNativeResourceType("azure-native:web/latest:CertificateCsr")]
     public partial class CertificateCsr : Pulumi.CustomResource
     {
         /// <summary>
@@ -92,12 +92,12 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateCsr(string name, CertificateCsrArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:CertificateCsr", name, args ?? new CertificateCsrArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:web/latest:CertificateCsr", name, args ?? new CertificateCsrArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CertificateCsr(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:web/latest:CertificateCsr", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:web/latest:CertificateCsr", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -108,7 +108,9 @@ namespace Pulumi.AzureNextGen.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:web:CertificateCsr"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:CertificateCsr"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20150801:CertificateCsr"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:CertificateCsr"},
                 },
             };

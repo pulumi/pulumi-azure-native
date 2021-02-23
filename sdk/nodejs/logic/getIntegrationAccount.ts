@@ -17,7 +17,7 @@ export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:logic:getIntegrationAccount", {
+    return pulumi.runtime.invoke("azure-native:logic:getIntegrationAccount", {
         "integrationAccountName": args.integrationAccountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

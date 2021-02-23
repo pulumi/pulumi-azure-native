@@ -16,7 +16,7 @@ export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:customproviders/v20180901preview:getAssociation", {
+    return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getAssociation", {
         "associationName": args.associationName,
         "scope": args.scope,
     }, opts);

@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Relay.Latest
+namespace Pulumi.AzureNative.Relay.Latest
 {
     /// <summary>
     /// Description of hybrid connection resource.
     /// Latest API Version: 2017-04-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:relay:HybridConnection'.")]
-    [AzureNextGenResourceType("azure-nextgen:relay/latest:HybridConnection")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnection'.")]
+    [AzureNativeResourceType("azure-native:relay/latest:HybridConnection")]
     public partial class HybridConnection : Pulumi.CustomResource
     {
         /// <summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureNextGen.Relay.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridConnection(string name, HybridConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/latest:HybridConnection", name, args ?? new HybridConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:relay/latest:HybridConnection", name, args ?? new HybridConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HybridConnection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:relay/latest:HybridConnection", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:relay/latest:HybridConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,8 +84,11 @@ namespace Pulumi.AzureNextGen.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:relay:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:HybridConnection"},
                 },
             };

@@ -100,22 +100,43 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:domainregistration/latest:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/latest:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20150401:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20150401:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20180201:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20180201:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20190801:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20190801:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20200601:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200601:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:domainregistration/v20200901:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20201001:Domain"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20201001:Domain"),
@@ -123,7 +144,7 @@ func NewDomain(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Domain
-	err := ctx.RegisterResource("azure-nextgen:domainregistration:Domain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:domainregistration:Domain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +156,7 @@ func NewDomain(ctx *pulumi.Context,
 func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
 	var resource Domain
-	err := ctx.ReadResource("azure-nextgen:domainregistration:Domain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:domainregistration:Domain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

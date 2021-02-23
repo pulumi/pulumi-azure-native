@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-nextgen:streamanalytics:Cluster":
+	case "azure-native:streamanalytics:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics:Function":
+	case "azure-native:streamanalytics:Function":
 		r, err = NewFunction(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics:Input":
+	case "azure-native:streamanalytics:Input":
 		r, err = NewInput(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics:Output":
+	case "azure-native:streamanalytics:Output":
 		r, err = NewOutput(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics:PrivateEndpoint":
+	case "azure-native:streamanalytics:PrivateEndpoint":
 		r, err = NewPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-nextgen:streamanalytics:StreamingJob":
+	case "azure-native:streamanalytics:StreamingJob":
 		r, err = NewStreamingJob(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
 	pulumi.RegisterResourceModule(
-		"azure-nextgen",
+		"azure-native",
 		"streamanalytics",
 		&module{version},
 	)

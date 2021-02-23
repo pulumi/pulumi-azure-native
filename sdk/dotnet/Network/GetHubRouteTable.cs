@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network
+namespace Pulumi.AzureNative.Network
 {
     public static class GetHubRouteTable
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Network
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<GetHubRouteTableResult> InvokeAsync(GetHubRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-nextgen:network:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubRouteTableResult>("azure-native:network:getHubRouteTable", args ?? new GetHubRouteTableArgs(), options.WithVersion());
     }
 
 

@@ -97,13 +97,25 @@ func NewComponent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:insights/latest:Component"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/latest:Component"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20150501:Component"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:Component"),
 		},
 		{
+			Type: pulumi.String("azure-native:insights/v20180501preview:Component"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:insights/v20180501preview:Component"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20200202preview:Component"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20200202preview:Component"),
@@ -111,7 +123,7 @@ func NewComponent(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource Component
-	err := ctx.RegisterResource("azure-nextgen:insights:Component", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:insights:Component", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -123,7 +135,7 @@ func NewComponent(ctx *pulumi.Context,
 func GetComponent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentState, opts ...pulumi.ResourceOption) (*Component, error) {
 	var resource Component
-	err := ctx.ReadResource("azure-nextgen:insights:Component", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:insights:Component", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

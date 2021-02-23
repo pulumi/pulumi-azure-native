@@ -66,37 +66,73 @@ func NewBatchAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:batch/latest:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/latest:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20151201:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20151201:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170101:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170101:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20170501:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20170501:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20170901:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20170901:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20181201:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20181201:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20190401:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20190401:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20190801:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20190801:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200301:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200301:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20200501:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azure-native:batch/v20200901:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:batch/v20210101:BatchAccount"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20210101:BatchAccount"),
@@ -104,7 +140,7 @@ func NewBatchAccount(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource BatchAccount
-	err := ctx.RegisterResource("azure-nextgen:batch:BatchAccount", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:batch:BatchAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +152,7 @@ func NewBatchAccount(ctx *pulumi.Context,
 func GetBatchAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BatchAccountState, opts ...pulumi.ResourceOption) (*BatchAccount, error) {
 	var resource BatchAccount
-	err := ctx.ReadResource("azure-nextgen:batch:BatchAccount", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:batch:BatchAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ import (
 // The backup policy.
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
-	err := ctx.Invoke("azure-nextgen:storsimple/v20170601:getBackupPolicy", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:storsimple/v20170601:getBackupPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

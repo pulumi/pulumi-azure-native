@@ -16,7 +16,7 @@ export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storage/v20181101:listStorageAccountServiceSAS", {
+    return pulumi.runtime.invoke("azure-native:storage/v20181101:listStorageAccountServiceSAS", {
         "accountName": args.accountName,
         "cacheControl": args.cacheControl,
         "canonicalizedResource": args.canonicalizedResource,

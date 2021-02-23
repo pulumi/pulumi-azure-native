@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Bot channel resource definition
  * Latest API Version: 2020-06-02.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getBotConnection'. */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
-    pulumi.log.warn("getBotConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:botservice:getBotConnection'.")
+    pulumi.log.warn("getBotConnection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getBotConnection'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:botservice/latest:getBotConnection", {
+    return pulumi.runtime.invoke("azure-native:botservice/latest:getBotConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

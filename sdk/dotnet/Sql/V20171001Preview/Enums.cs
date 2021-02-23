@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Sql.V20171001Preview
+namespace Pulumi.AzureNative.Sql.V20171001Preview
 {
     /// <summary>
     /// Collation of the metadata catalog.

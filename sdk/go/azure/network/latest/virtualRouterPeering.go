@@ -14,7 +14,7 @@ import (
 // Virtual Router Peering resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:VirtualRouterPeering'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualRouterPeering'.
 type VirtualRouterPeering struct {
 	pulumi.CustomResourceState
 
@@ -47,37 +47,73 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualRouterPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190801:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualRouterPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191101:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualRouterPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200301:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualRouterPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200501:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualRouterPeering"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:VirtualRouterPeering"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualRouterPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:VirtualRouterPeering"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualRouterPeering"),
@@ -85,7 +121,7 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource VirtualRouterPeering
-	err := ctx.RegisterResource("azure-nextgen:network/latest:VirtualRouterPeering", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:VirtualRouterPeering", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +133,7 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 func GetVirtualRouterPeering(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualRouterPeeringState, opts ...pulumi.ResourceOption) (*VirtualRouterPeering, error) {
 	var resource VirtualRouterPeering
-	err := ctx.ReadResource("azure-nextgen:network/latest:VirtualRouterPeering", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:VirtualRouterPeering", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

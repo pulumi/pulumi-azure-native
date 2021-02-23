@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.IoTCentral
+namespace Pulumi.AzureNative.IoTCentral
 {
     /// <summary>
     /// The IoT Central application.
     /// API Version: 2018-09-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:iotcentral:App")]
+    [AzureNativeResourceType("azure-native:iotcentral:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNextGen.IoTCentral
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:iotcentral:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:iotcentral:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:iotcentral:App", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:iotcentral:App", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,8 +95,11 @@ namespace Pulumi.AzureNextGen.IoTCentral
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:iotcentral/latest:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/latest:App"},
+                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20170701privatepreview:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
+                    new Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20180901:App"},
                 },
             };

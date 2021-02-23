@@ -16,7 +16,7 @@ export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:eventhub/v20180101preview:getEventHubAuthorizationRule", {
+    return pulumi.runtime.invoke("azure-native:eventhub/v20180101preview:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
         "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,

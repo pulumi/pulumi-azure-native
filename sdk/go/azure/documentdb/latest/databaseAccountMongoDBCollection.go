@@ -14,7 +14,7 @@ import (
 // An Azure Cosmos DB MongoDB collection.
 // Latest API Version: 2016-03-31.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:documentdb:DatabaseAccountMongoDBCollection'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBCollection'.
 type DatabaseAccountMongoDBCollection struct {
 	pulumi.CustomResourceState
 
@@ -56,19 +56,37 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:documentdb:DatabaseAccountMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountMongoDBCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBCollection"),
@@ -76,7 +94,7 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountMongoDBCollection
-	err := ctx.RegisterResource("azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:documentdb/latest:DatabaseAccountMongoDBCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +106,7 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 func GetDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseAccountMongoDBCollectionState, opts ...pulumi.ResourceOption) (*DatabaseAccountMongoDBCollection, error) {
 	var resource DatabaseAccountMongoDBCollection
-	err := ctx.ReadResource("azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:documentdb/latest:DatabaseAccountMongoDBCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

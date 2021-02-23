@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Compute.V20190701
+namespace Pulumi.AzureNative.Compute.V20190701
 {
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:compute/v20190701:DedicatedHostGroup")]
+    [AzureNativeResourceType("azure-native:compute/v20190701:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHostGroup(string name, DedicatedHostGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190701:DedicatedHostGroup", name, args ?? new DedicatedHostGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:compute/v20190701:DedicatedHostGroup", name, args ?? new DedicatedHostGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedHostGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:compute/v20190701:DedicatedHostGroup", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:compute/v20190701:DedicatedHostGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,11 +82,17 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:compute:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/latest:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20200601:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200601:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DedicatedHostGroup"},
                 },
             };

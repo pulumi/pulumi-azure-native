@@ -85,12 +85,15 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:Server"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Server"),
 		},
 	})
 	opts = append(opts, aliases)
 	var resource Server
-	err := ctx.RegisterResource("azure-nextgen:dbformysql/v20200701preview:Server", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:dbformysql/v20200701preview:Server", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +105,7 @@ func NewServer(ctx *pulumi.Context,
 func GetServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
 	var resource Server
-	err := ctx.ReadResource("azure-nextgen:dbformysql/v20200701preview:Server", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:dbformysql/v20200701preview:Server", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

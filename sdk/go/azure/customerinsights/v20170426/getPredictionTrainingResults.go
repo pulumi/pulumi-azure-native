@@ -10,7 +10,7 @@ import (
 // The training results of the prediction.
 func GetPredictionTrainingResults(ctx *pulumi.Context, args *GetPredictionTrainingResultsArgs, opts ...pulumi.InvokeOption) (*GetPredictionTrainingResultsResult, error) {
 	var rv GetPredictionTrainingResultsResult
-	err := ctx.Invoke("azure-nextgen:customerinsights/v20170426:getPredictionTrainingResults", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getPredictionTrainingResults", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

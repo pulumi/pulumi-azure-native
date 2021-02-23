@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20181201
+namespace Pulumi.AzureNative.Network.V20181201
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:network/v20181201:P2sVpnServerConfiguration")]
+    [AzureNativeResourceType("azure-native:network/v20181201:P2sVpnServerConfiguration")]
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public P2sVpnServerConfiguration(string name, P2sVpnServerConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20181201:P2sVpnServerConfiguration", name, args ?? new P2sVpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:network/v20181201:P2sVpnServerConfiguration", name, args ?? new P2sVpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private P2sVpnServerConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:network/v20181201:P2sVpnServerConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:network/v20181201:P2sVpnServerConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,14 +109,23 @@ namespace Pulumi.AzureNextGen.Network.V20181201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:network:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/latest:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181001:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20181101:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190201:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190401:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190401:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190601:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:P2sVpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20190701:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:P2sVpnServerConfiguration"},
                 },
             };
@@ -250,14 +259,14 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         }
 
         [Input("vpnProtocols")]
-        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20181201.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
 
         /// <summary>
         /// VPN protocols for the P2SVpnServerConfiguration.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>> VpnProtocols
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20181201.VpnGatewayTunnelingProtocol>> VpnProtocols
         {
-            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20181201.VpnGatewayTunnelingProtocol>>());
+            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.V20181201.VpnGatewayTunnelingProtocol>>());
             set => _vpnProtocols = value;
         }
 

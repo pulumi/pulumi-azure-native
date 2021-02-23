@@ -14,7 +14,7 @@ import (
 // ExpressRoute gateway resource.
 // Latest API Version: 2020-08-01.
 //
-// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:network:ExpressRouteGateway'.
+// Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteGateway'.
 type ExpressRouteGateway struct {
 	pulumi.CustomResourceState
 
@@ -53,58 +53,115 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:network:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20190901:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteGateway"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteGateway"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteGateway"),
@@ -112,7 +169,7 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteGateway
-	err := ctx.RegisterResource("azure-nextgen:network/latest:ExpressRouteGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:network/latest:ExpressRouteGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +181,7 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 func GetExpressRouteGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExpressRouteGatewayState, opts ...pulumi.ResourceOption) (*ExpressRouteGateway, error) {
 	var resource ExpressRouteGateway
-	err := ctx.ReadResource("azure-nextgen:network/latest:ExpressRouteGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:network/latest:ExpressRouteGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

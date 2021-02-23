@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HardwareSecurityModules
+namespace Pulumi.AzureNative.HardwareSecurityModules
 {
     /// <summary>
     /// Resource information with extended details.
     /// API Version: 2018-10-31-preview.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:hardwaresecuritymodules:DedicatedHsm")]
+    [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
     public partial class DedicatedHsm : Pulumi.CustomResource
     {
         /// <summary>
@@ -85,12 +85,12 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHsm(string name, DedicatedHsmArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hardwaresecuritymodules:DedicatedHsm", name, args ?? new DedicatedHsmArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hardwaresecuritymodules:DedicatedHsm", name, args ?? new DedicatedHsmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DedicatedHsm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:hardwaresecuritymodules:DedicatedHsm", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hardwaresecuritymodules:DedicatedHsm", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
                     new Pulumi.Alias { Type = "azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
                 },
             };

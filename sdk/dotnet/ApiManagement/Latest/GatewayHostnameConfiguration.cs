@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Gateway hostname configuration details.
     /// Latest API Version: 2019-12-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:GatewayHostnameConfiguration'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayHostnameConfiguration'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:GatewayHostnameConfiguration")]
     public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -56,12 +56,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayHostnameConfiguration(string name, GatewayHostnameConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, args ?? new GatewayHostnameConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:GatewayHostnameConfiguration", name, args ?? new GatewayHostnameConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayHostnameConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:GatewayHostnameConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,13 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
                 },
             };

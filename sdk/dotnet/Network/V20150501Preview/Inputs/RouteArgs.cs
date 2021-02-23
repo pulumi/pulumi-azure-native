@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
+namespace Pulumi.AzureNative.Network.V20150501Preview.Inputs
 {
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets the type of Azure hop the packet should be sent to.
         /// </summary>
         [Input("nextHopType", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.RouteNextHopType> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Network.V20150501Preview.RouteNextHopType> NextHopType { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets Provisioning state of the resource Updating/Deleting/Failed

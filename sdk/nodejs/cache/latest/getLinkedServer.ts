@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Response to put/get linked server (with properties) for Redis cache.
  * Latest API Version: 2020-06-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getLinkedServer'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getLinkedServer'. */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
-    pulumi.log.warn("getLinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:cache:getLinkedServer'.")
+    pulumi.log.warn("getLinkedServer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getLinkedServer'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:cache/latest:getLinkedServer", {
+    return pulumi.runtime.invoke("azure-native:cache/latest:getLinkedServer", {
         "linkedServerName": args.linkedServerName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

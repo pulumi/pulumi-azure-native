@@ -96,21 +96,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:containerservice:AgentPool":
+            case "azure-native:containerservice:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-nextgen:containerservice:ContainerService":
+            case "azure-native:containerservice:ContainerService":
                 return new ContainerService(name, <any>undefined, { urn })
-            case "azure-nextgen:containerservice:MaintenanceConfiguration":
+            case "azure-native:containerservice:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
-            case "azure-nextgen:containerservice:ManagedCluster":
+            case "azure-native:containerservice:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure-nextgen:containerservice:OpenShiftManagedCluster":
+            case "azure-native:containerservice:OpenShiftManagedCluster":
                 return new OpenShiftManagedCluster(name, <any>undefined, { urn })
-            case "azure-nextgen:containerservice:PrivateEndpointConnection":
+            case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "containerservice", _module)
+pulumi.runtime.registerResourceModule("azure-native", "containerservice", _module)

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.NetApp.Inputs
+namespace Pulumi.AzureNative.NetApp.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.NetApp.Inputs
         /// Indicates whether the local volume is the source or destination for the Volume Replication
         /// </summary>
         [Input("endpointType")]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.EndpointType>? EndpointType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.NetApp.EndpointType>? EndpointType { get; set; }
 
         /// <summary>
         /// The remote region for the other end of the Volume Replication.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.NetApp.Inputs
         /// Schedule
         /// </summary>
         [Input("replicationSchedule", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.NetApp.ReplicationSchedule> ReplicationSchedule { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.NetApp.ReplicationSchedule> ReplicationSchedule { get; set; } = null!;
 
         public ReplicationObjectArgs()
         {

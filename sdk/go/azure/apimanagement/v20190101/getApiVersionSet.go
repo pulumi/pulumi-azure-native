@@ -10,7 +10,7 @@ import (
 // Api Version Set Contract details.
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
-	err := ctx.Invoke("azure-nextgen:apimanagement/v20190101:getApiVersionSet", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:apimanagement/v20190101:getApiVersionSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

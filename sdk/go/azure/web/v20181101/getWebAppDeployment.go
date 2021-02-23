@@ -10,7 +10,7 @@ import (
 // User credentials used for publishing activity.
 func LookupWebAppDeployment(ctx *pulumi.Context, args *LookupWebAppDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDeploymentResult, error) {
 	var rv LookupWebAppDeploymentResult
-	err := ctx.Invoke("azure-nextgen:web/v20181101:getWebAppDeployment", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:web/v20181101:getWebAppDeployment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

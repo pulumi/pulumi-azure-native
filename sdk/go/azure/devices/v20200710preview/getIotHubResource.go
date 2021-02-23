@@ -10,7 +10,7 @@ import (
 // The description of the IoT hub.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
-	err := ctx.Invoke("azure-nextgen:devices/v20200710preview:getIotHubResource", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:devices/v20200710preview:getIotHubResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

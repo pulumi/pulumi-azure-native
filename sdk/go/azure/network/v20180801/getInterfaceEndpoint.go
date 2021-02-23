@@ -10,7 +10,7 @@ import (
 // Interface endpoint resource.
 func LookupInterfaceEndpoint(ctx *pulumi.Context, args *LookupInterfaceEndpointArgs, opts ...pulumi.InvokeOption) (*LookupInterfaceEndpointResult, error) {
 	var rv LookupInterfaceEndpointResult
-	err := ctx.Invoke("azure-nextgen:network/v20180801:getInterfaceEndpoint", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:network/v20180801:getInterfaceEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

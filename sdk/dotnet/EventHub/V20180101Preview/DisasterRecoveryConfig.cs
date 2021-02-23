@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
+namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig")]
+    [AzureNativeResourceType("azure-native:eventhub/v20180101preview:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DisasterRecoveryConfig(string name, DisasterRecoveryConfigArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:eventhub/v20180101preview:DisasterRecoveryConfig", name, args ?? new DisasterRecoveryConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DisasterRecoveryConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:eventhub/v20180101preview:DisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +82,11 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:eventhub:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:DisasterRecoveryConfig"},
                 },
             };

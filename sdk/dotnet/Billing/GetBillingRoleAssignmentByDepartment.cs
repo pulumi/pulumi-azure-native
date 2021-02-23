@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Billing
+namespace Pulumi.AzureNative.Billing
 {
     public static class GetBillingRoleAssignmentByDepartment
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Billing
         /// API Version: 2019-10-01-preview.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByDepartmentResult> InvokeAsync(GetBillingRoleAssignmentByDepartmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-nextgen:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithVersion());
     }
 
 

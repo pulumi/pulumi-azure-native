@@ -7,14 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.ApiManagement.Latest
+namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Logger details.
     /// Latest API Version: 2018-01-01.
     /// </summary>
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ApiDiagnosticLogger'.")]
-    [AzureNextGenResourceType("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnosticLogger'.")]
+    [AzureNativeResourceType("azure-native:apimanagement/latest:ApiDiagnosticLogger")]
     public partial class ApiDiagnosticLogger : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiDiagnosticLogger(string name, ApiDiagnosticLoggerArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger", name, args ?? new ApiDiagnosticLoggerArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:apimanagement/latest:ApiDiagnosticLogger", name, args ?? new ApiDiagnosticLoggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiDiagnosticLogger(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:apimanagement/latest:ApiDiagnosticLogger", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,8 +79,11 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiDiagnosticLogger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger"},
                 },
             };

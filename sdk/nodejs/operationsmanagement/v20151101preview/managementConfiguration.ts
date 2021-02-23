@@ -22,7 +22,7 @@ export class ManagementConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration';
+    public static readonly __pulumiType = 'azure-native:operationsmanagement/v20151101preview:ManagementConfiguration';
 
     /**
      * Returns true if the given object is an instance of ManagementConfiguration.  This is designed to work even
@@ -84,7 +84,7 @@ export class ManagementConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationsmanagement:ManagementConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement:ManagementConfiguration" }, { type: "azure-nextgen:operationsmanagement:ManagementConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementConfiguration.__pulumiType, name, inputs, opts);
     }

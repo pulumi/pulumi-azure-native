@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
+namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
 {
 
     /// <summary>
@@ -16,50 +16,50 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
     public sealed class PermissionsArgs : Pulumi.ResourceArgs
     {
         [Input("certificates")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.CertificatePermissions>>? _certificates;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.CertificatePermissions>>? _certificates;
 
         /// <summary>
         /// Permissions to certificates
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.CertificatePermissions>> Certificates
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.CertificatePermissions>> Certificates
         {
-            get => _certificates ?? (_certificates = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.CertificatePermissions>>());
+            get => _certificates ?? (_certificates = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.CertificatePermissions>>());
             set => _certificates = value;
         }
 
         [Input("keys")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.KeyPermissions>>? _keys;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.KeyPermissions>>? _keys;
 
         /// <summary>
         /// Permissions to keys
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.KeyPermissions>> Keys
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.KeyPermissions>> Keys
         {
-            get => _keys ?? (_keys = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.KeyPermissions>>());
+            get => _keys ?? (_keys = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.KeyPermissions>>());
             set => _keys = value;
         }
 
         [Input("secrets")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.SecretPermissions>>? _secrets;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.SecretPermissions>>? _secrets;
 
         /// <summary>
         /// Permissions to secrets
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.SecretPermissions>> Secrets
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.SecretPermissions>> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.SecretPermissions>>());
+            get => _secrets ?? (_secrets = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.SecretPermissions>>());
             set => _secrets = value;
         }
 
         [Input("storage")]
-        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.StoragePermissions>>? _storage;
+        private InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.StoragePermissions>>? _storage;
 
         /// <summary>
         /// Permissions to storage accounts
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.StoragePermissions>> Storage
+        public InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.StoragePermissions>> Storage
         {
-            get => _storage ?? (_storage = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.StoragePermissions>>());
+            get => _storage ?? (_storage = new InputList<Union<string, Pulumi.AzureNative.KeyVault.V20200401Preview.StoragePermissions>>());
             set => _storage = value;
         }
 

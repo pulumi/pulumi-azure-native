@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
+namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Inputs
 {
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// Describes how changes will be replicated from the source to the target. The default is OneTime.
         /// </summary>
         [Input("replication")]
-        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.MongoDbReplication>? Replication { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DataMigration.V20180715Preview.MongoDbReplication>? Replication { get; set; }
 
         /// <summary>
         /// Settings used to connect to the source cluster

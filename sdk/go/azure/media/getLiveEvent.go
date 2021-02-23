@@ -11,7 +11,7 @@ import (
 // API Version: 2020-05-01.
 func LookupLiveEvent(ctx *pulumi.Context, args *LookupLiveEventArgs, opts ...pulumi.InvokeOption) (*LookupLiveEventResult, error) {
 	var rv LookupLiveEventResult
-	err := ctx.Invoke("azure-nextgen:media:getLiveEvent", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:media:getLiveEvent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

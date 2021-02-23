@@ -16,7 +16,7 @@ export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:securityinsights/v20190101preview:getAction", {
+    return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getAction", {
         "actionId": args.actionId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,

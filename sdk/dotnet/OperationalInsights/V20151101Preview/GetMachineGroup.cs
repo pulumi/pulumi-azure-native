@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
+namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
     public static class GetMachineGroup
     {
@@ -15,7 +15,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// A user-defined logical grouping of machines.
         /// </summary>
         public static Task<GetMachineGroupResult> InvokeAsync(GetMachineGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-nextgen:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithVersion());
     }
 
 

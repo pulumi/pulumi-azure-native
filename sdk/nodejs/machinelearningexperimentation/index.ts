@@ -28,15 +28,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:machinelearningexperimentation:Account":
+            case "azure-native:machinelearningexperimentation:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningexperimentation:Project":
+            case "azure-native:machinelearningexperimentation:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "azure-nextgen:machinelearningexperimentation:Workspace":
+            case "azure-native:machinelearningexperimentation:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "machinelearningexperimentation", _module)
+pulumi.runtime.registerResourceModule("azure-native", "machinelearningexperimentation", _module)

@@ -9,9 +9,9 @@ import * as utilities from "../../utilities";
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  * Latest API Version: 2019-12-01.
  */
-/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listIdentityProviderSecrets'. */
+/** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listIdentityProviderSecrets'. */
 export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListIdentityProviderSecretsResult> {
-    pulumi.log.warn("listIdentityProviderSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:apimanagement:listIdentityProviderSecrets'.")
+    pulumi.log.warn("listIdentityProviderSecrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listIdentityProviderSecrets'.")
     if (!opts) {
         opts = {}
     }
@@ -19,7 +19,7 @@ export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArg
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:apimanagement/latest:listIdentityProviderSecrets", {
+    return pulumi.runtime.invoke("azure-native:apimanagement/latest:listIdentityProviderSecrets", {
         "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

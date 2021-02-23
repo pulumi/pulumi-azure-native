@@ -9,7 +9,7 @@ import * as utilities from "../../utilities";
  * The Backup Schedule Group
  * Latest API Version: 2016-10-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.
  */
 export class BackupScheduleGroup extends pulumi.CustomResource {
     /**
@@ -21,12 +21,12 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupScheduleGroup {
-        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.")
+        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.")
         return new BackupScheduleGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:storsimple/latest:BackupScheduleGroup';
+    public static readonly __pulumiType = 'azure-native:storsimple/latest:BackupScheduleGroup';
 
     /**
      * Returns true if the given object is an instance of BackupScheduleGroup.  This is designed to work even
@@ -59,9 +59,9 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'. */
     constructor(name: string, args: BackupScheduleGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:storsimple:BackupScheduleGroup'.")
+        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
@@ -95,7 +95,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/v20161001:BackupScheduleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple:BackupScheduleGroup" }, { type: "azure-native:storsimple/v20161001:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/v20161001:BackupScheduleGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupScheduleGroup.__pulumiType, name, inputs, opts);
     }

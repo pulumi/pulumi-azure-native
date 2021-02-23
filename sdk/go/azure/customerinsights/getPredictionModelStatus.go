@@ -11,7 +11,7 @@ import (
 // API Version: 2017-04-26.
 func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatusArgs, opts ...pulumi.InvokeOption) (*GetPredictionModelStatusResult, error) {
 	var rv GetPredictionModelStatusResult
-	err := ctx.Invoke("azure-nextgen:customerinsights:getPredictionModelStatus", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:customerinsights:getPredictionModelStatus", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

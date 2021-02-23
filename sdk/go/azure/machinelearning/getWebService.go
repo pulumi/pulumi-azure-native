@@ -11,7 +11,7 @@ import (
 // API Version: 2017-01-01.
 func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...pulumi.InvokeOption) (*LookupWebServiceResult, error) {
 	var rv LookupWebServiceResult
-	err := ctx.Invoke("azure-nextgen:machinelearning:getWebService", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:machinelearning:getWebService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}

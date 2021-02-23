@@ -41,7 +41,13 @@ func NewCustomApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:web:CustomApi"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:web:CustomApi"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/latest:CustomApi"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:CustomApi"),
@@ -49,7 +55,7 @@ func NewCustomApi(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource CustomApi
-	err := ctx.RegisterResource("azure-nextgen:web/v20160601:CustomApi", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:web/v20160601:CustomApi", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +67,7 @@ func NewCustomApi(ctx *pulumi.Context,
 func GetCustomApi(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomApiState, opts ...pulumi.ResourceOption) (*CustomApi, error) {
 	var resource CustomApi
-	err := ctx.ReadResource("azure-nextgen:web/v20160601:CustomApi", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:web/v20160601:CustomApi", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

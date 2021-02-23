@@ -16,7 +16,7 @@ export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:synapse/v20190601preview:getIpFirewallRule", {
+    return pulumi.runtime.invoke("azure-native:synapse/v20190601preview:getIpFirewallRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleName": args.ruleName,
         "workspaceName": args.workspaceName,

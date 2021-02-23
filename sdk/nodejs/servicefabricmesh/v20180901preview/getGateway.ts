@@ -16,7 +16,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:servicefabricmesh/v20180901preview:getGateway", {
+    return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getGateway", {
         "gatewayResourceName": args.gatewayResourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

@@ -22,7 +22,7 @@ export class MediaGraph extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:media/v20190901preview:MediaGraph';
+    public static readonly __pulumiType = 'azure-native:media/v20190901preview:MediaGraph';
 
     /**
      * Returns true if the given object is an instance of MediaGraph.  This is designed to work even
@@ -118,7 +118,7 @@ export class MediaGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20200201preview:MediaGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media/v20200201preview:MediaGraph" }, { type: "azure-nextgen:media/v20200201preview:MediaGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MediaGraph.__pulumiType, name, inputs, opts);
     }

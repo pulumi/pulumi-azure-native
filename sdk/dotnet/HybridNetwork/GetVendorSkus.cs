@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.HybridNetwork
+namespace Pulumi.AzureNative.HybridNetwork
 {
     public static class GetVendorSkus
     {
@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkusResult> InvokeAsync(GetVendorSkusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-nextgen:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithVersion());
     }
 
 

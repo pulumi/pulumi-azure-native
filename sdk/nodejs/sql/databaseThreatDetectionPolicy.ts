@@ -23,7 +23,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:sql:DatabaseThreatDetectionPolicy';
+    public static readonly __pulumiType = 'azure-native:sql:DatabaseThreatDetectionPolicy';
 
     /**
      * Returns true if the given object is an instance of DatabaseThreatDetectionPolicy.  This is designed to work even
@@ -144,7 +144,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseThreatDetectionPolicy.__pulumiType, name, inputs, opts);
     }

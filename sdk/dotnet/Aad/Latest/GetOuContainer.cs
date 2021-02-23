@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Aad.Latest
+namespace Pulumi.AzureNative.Aad.Latest
 {
-    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-nextgen:aad:getOuContainer'.")]
+    [Obsolete(@"The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.")]
     public static class GetOuContainer
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// Latest API Version: 2020-01-01.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-nextgen:aad/latest:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad/latest:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
     }
 
 

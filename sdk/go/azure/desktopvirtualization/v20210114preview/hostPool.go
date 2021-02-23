@@ -84,28 +84,55 @@ func NewHostPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization:HostPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:HostPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:HostPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:HostPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:HostPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:HostPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:HostPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:HostPool"),
 		},
 		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:HostPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:HostPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:HostPool"),
@@ -113,7 +140,7 @@ func NewHostPool(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	var resource HostPool
-	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20210114preview:HostPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("azure-native:desktopvirtualization/v20210114preview:HostPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +152,7 @@ func NewHostPool(ctx *pulumi.Context,
 func GetHostPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HostPoolState, opts ...pulumi.ResourceOption) (*HostPool, error) {
 	var resource HostPool
-	err := ctx.ReadResource("azure-nextgen:desktopvirtualization/v20210114preview:HostPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("azure-native:desktopvirtualization/v20210114preview:HostPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

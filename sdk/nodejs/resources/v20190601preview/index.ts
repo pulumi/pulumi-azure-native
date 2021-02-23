@@ -21,13 +21,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:resources/v20190601preview:TemplateSpec":
+            case "azure-native:resources/v20190601preview:TemplateSpec":
                 return new TemplateSpec(name, <any>undefined, { urn })
-            case "azure-nextgen:resources/v20190601preview:TemplateSpecVersion":
+            case "azure-native:resources/v20190601preview:TemplateSpecVersion":
                 return new TemplateSpecVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure-nextgen", "resources/v20190601preview", _module)
+pulumi.runtime.registerResourceModule("azure-native", "resources/v20190601preview", _module)

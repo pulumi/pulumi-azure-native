@@ -16,7 +16,7 @@ export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:storagepool/v20200315preview:getIscsiTarget", {
+    return pulumi.runtime.invoke("azure-native:storagepool/v20200315preview:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,
         "iscsiTargetName": args.iscsiTargetName,
         "resourceGroupName": args.resourceGroupName,

@@ -16,7 +16,7 @@ export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:operationalinsights/v20190901preview:getQueryPack", {
+    return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901preview:getQueryPack", {
         "queryPackName": args.queryPackName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);

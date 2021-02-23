@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
  * Content type contract details.
  * Latest API Version: 2019-12-01.
  *
- * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentType'.
+ * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentType'.
  */
 export class ContentType extends pulumi.CustomResource {
     /**
@@ -20,12 +20,12 @@ export class ContentType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContentType {
-        pulumi.log.warn("ContentType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentType'.")
+        pulumi.log.warn("ContentType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentType'.")
         return new ContentType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-nextgen:apimanagement/latest:ContentType';
+    public static readonly __pulumiType = 'azure-native:apimanagement/latest:ContentType';
 
     /**
      * Returns true if the given object is an instance of ContentType.  This is designed to work even
@@ -66,9 +66,9 @@ export class ContentType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentType'. */
+    /** @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentType'. */
     constructor(name: string, args: ContentTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ContentType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-nextgen:apimanagement:ContentType'.")
+        pulumi.log.warn("ContentType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentType'.")
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
@@ -99,7 +99,7 @@ export class ContentType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentType.__pulumiType, name, inputs, opts);
     }

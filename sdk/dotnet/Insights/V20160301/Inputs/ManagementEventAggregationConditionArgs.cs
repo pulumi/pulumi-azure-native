@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
+namespace Pulumi.AzureNative.Insights.V20160301.Inputs
 {
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
         /// the condition operator.
         /// </summary>
         [Input("operator")]
-        public Input<Pulumi.AzureNextGen.Insights.V20160301.ConditionOperator>? Operator { get; set; }
+        public Input<Pulumi.AzureNative.Insights.V20160301.ConditionOperator>? Operator { get; set; }
 
         /// <summary>
         /// The threshold value that activates the alert.

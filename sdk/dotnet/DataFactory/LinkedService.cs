@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.DataFactory
+namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Linked service resource type.
     /// API Version: 2018-06-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:datafactory:LinkedService")]
+    [AzureNativeResourceType("azure-native:datafactory:LinkedService")]
     public partial class LinkedService : Pulumi.CustomResource
     {
         /// <summary>
@@ -49,12 +49,12 @@ namespace Pulumi.AzureNextGen.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:datafactory:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkedService(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:datafactory:LinkedService", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:datafactory:LinkedService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,8 +65,11 @@ namespace Pulumi.AzureNextGen.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:LinkedService"},
                 },
             };

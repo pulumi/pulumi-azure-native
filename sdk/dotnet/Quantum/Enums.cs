@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using Pulumi;
 
-namespace Pulumi.AzureNextGen.Quantum
+namespace Pulumi.AzureNative.Quantum
 {
     /// <summary>
     /// The identity type.

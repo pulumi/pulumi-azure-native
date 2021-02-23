@@ -17,7 +17,7 @@ export function getIotSite(args: GetIotSiteArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-nextgen:security:getIotSite", {
+    return pulumi.runtime.invoke("azure-native:security:getIotSite", {
         "scope": args.scope,
     }, opts);
 }

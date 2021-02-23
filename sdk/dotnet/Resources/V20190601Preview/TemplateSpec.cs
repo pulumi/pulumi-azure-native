@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20190601Preview
+namespace Pulumi.AzureNative.Resources.V20190601Preview
 {
     /// <summary>
     /// Template Spec object.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20190601preview:TemplateSpec")]
+    [AzureNativeResourceType("azure-native:resources/v20190601preview:TemplateSpec")]
     public partial class TemplateSpec : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TemplateSpec(string name, TemplateSpecArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190601preview:TemplateSpec", name, args ?? new TemplateSpecArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:resources/v20190601preview:TemplateSpec", name, args ?? new TemplateSpecArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TemplateSpec(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20190601preview:TemplateSpec", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:resources/v20190601preview:TemplateSpec", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:resources:TemplateSpec"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:TemplateSpec"},
                 },
             };
