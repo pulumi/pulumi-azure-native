@@ -43,6 +43,15 @@ func NewQueryPack(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:operationalinsights:QueryPack"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:QueryPack"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource QueryPack
 	err := ctx.RegisterResource("azure-native:operationalinsights/v20190901preview:QueryPack", name, args, &resource, opts...)
 	if err != nil {

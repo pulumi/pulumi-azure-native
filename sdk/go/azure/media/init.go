@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewLiveEvent(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:media:LiveOutput":
 		r, err = NewLiveOutput(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:media:MediaGraph":
+		r, err = NewMediaGraph(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:media:MediaService":
 		r, err = NewMediaService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:media:PrivateEndpointConnection":

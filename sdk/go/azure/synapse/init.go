@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:synapse:PrivateLinkHub":
 		r, err = NewPrivateLinkHub(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:synapse:SqlDatabase":
+		r, err = NewSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:synapse:SqlPool":
 		r, err = NewSqlPool(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:synapse:SqlPoolSensitivityLabel":

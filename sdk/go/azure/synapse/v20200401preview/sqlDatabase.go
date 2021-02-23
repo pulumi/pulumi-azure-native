@@ -48,6 +48,15 @@ func NewSqlDatabase(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:synapse:SqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse:SqlDatabase"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlDatabase
 	err := ctx.RegisterResource("azure-native:synapse/v20200401preview:SqlDatabase", name, args, &resource, opts...)
 	if err != nil {

@@ -11,21 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An server Active Directory Administrator.
-// API Version: 2014-04-01.
+// Azure Active Directory administrator.
+// API Version: 2020-08-01-preview.
 type ServerAzureADAdministrator struct {
 	pulumi.CustomResourceState
 
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType pulumi.StringOutput `pulumi:"administratorType"`
-	// The server administrator login value.
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication pulumi.BoolOutput `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
 	Login pulumi.StringOutput `pulumi:"login"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid pulumi.StringOutput `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// Tenant ID of the administrator.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -51,9 +53,6 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	}
 	if args.Sid == nil {
 		return nil, errors.New("invalid value for required argument 'Sid'")
-	}
-	if args.TenantId == nil {
-		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -116,30 +115,34 @@ func GetServerAzureADAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAzureADAdministrator resources.
 type serverAzureADAdministratorState struct {
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType *string `pulumi:"administratorType"`
-	// The server administrator login value.
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
 	Login *string `pulumi:"login"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid *string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
+	// Tenant ID of the administrator.
 	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ServerAzureADAdministratorState struct {
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType pulumi.StringPtrInput
-	// The server administrator login value.
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication pulumi.BoolPtrInput
+	// Login name of the server administrator.
 	Login pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid pulumi.StringPtrInput
-	// The server Active Directory Administrator tenant id.
+	// Tenant ID of the administrator.
 	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
@@ -150,38 +153,38 @@ func (ServerAzureADAdministratorState) ElementType() reflect.Type {
 }
 
 type serverAzureADAdministratorArgs struct {
-	// Name of the server administrator resource.
+	// The name of server active directory administrator.
 	AdministratorName *string `pulumi:"administratorName"`
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType string `pulumi:"administratorType"`
-	// The server administrator login value.
+	// Login name of the server administrator.
 	Login string `pulumi:"login"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId string `pulumi:"tenantId"`
+	// Tenant ID of the administrator.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ServerAzureADAdministrator resource.
 type ServerAzureADAdministratorArgs struct {
-	// Name of the server administrator resource.
+	// The name of server active directory administrator.
 	AdministratorName pulumi.StringPtrInput
-	// The type of administrator.
+	// Type of the sever administrator.
 	AdministratorType pulumi.StringInput
-	// The server administrator login value.
+	// Login name of the server administrator.
 	Login pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
-	// The server administrator Sid (Secure ID).
+	// SID (object ID) of the server administrator.
 	Sid pulumi.StringInput
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringInput
+	// Tenant ID of the administrator.
+	TenantId pulumi.StringPtrInput
 }
 
 func (ServerAzureADAdministratorArgs) ElementType() reflect.Type {

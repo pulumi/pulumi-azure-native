@@ -37,6 +37,15 @@ func NewCloudService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:compute:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute:CloudService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CloudService
 	err := ctx.RegisterResource("azure-native:compute/v20201001preview:CloudService", name, args, &resource, opts...)
 	if err != nil {

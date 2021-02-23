@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a server firewall rule.
-// API Version: 2014-04-01.
+// A server firewall rule.
+// API Version: 2020-08-01-preview.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
 	err := ctx.Invoke("azure-native:sql:getFirewallRule", args, &rv, opts...)
@@ -27,20 +27,16 @@ type LookupFirewallRuleArgs struct {
 	ServerName string `pulumi:"serverName"`
 }
 
-// Represents a server firewall rule.
+// A server firewall rule.
 type LookupFirewallRuleResult struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	EndIpAddress string `pulumi:"endIpAddress"`
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress *string `pulumi:"endIpAddress"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Kind of server that contains this firewall rule.
-	Kind string `pulumi:"kind"`
-	// Location of the server that contains this firewall rule.
-	Location string `pulumi:"location"`
 	// Resource name.
-	Name string `pulumi:"name"`
-	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-	StartIpAddress string `pulumi:"startIpAddress"`
+	Name *string `pulumi:"name"`
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress *string `pulumi:"startIpAddress"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

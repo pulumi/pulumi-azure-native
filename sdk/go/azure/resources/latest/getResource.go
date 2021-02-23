@@ -8,7 +8,7 @@ import (
 )
 
 // Resource information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2019-05-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {

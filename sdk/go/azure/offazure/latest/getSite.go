@@ -8,7 +8,7 @@ import (
 )
 
 // Site REST Resource.
-// Latest API Version: 2020-07-07.
+// Latest API Version: 2020-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getSite'.
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {

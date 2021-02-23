@@ -8,7 +8,7 @@ import (
 )
 
 // Resource information.
-// API Version: 2020-10-01.
+// API Version: 2019-05-01.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("azure-native:resources:getResource", args, &rv, opts...)

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:compute:AvailabilitySet":
 		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute:CloudService":
+		r, err = NewCloudService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute:DedicatedHost":
 		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute:DedicatedHostGroup":

@@ -12,7 +12,7 @@ import (
 )
 
 // Role definition.
-// API Version: 2015-07-01.
+// API Version: 2018-01-01-preview.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 

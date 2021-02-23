@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAuthorization(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:avs:Cluster":
 		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:avs:Datastore":
+		r, err = NewDatastore(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:avs:GlobalReachConnection":
 		r, err = NewGlobalReachConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:avs:HcxEnterpriseSite":

@@ -8,7 +8,7 @@ import (
 )
 
 // Site REST Resource.
-// API Version: 2020-07-07.
+// API Version: 2020-01-01.
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	var rv LookupSiteResult
 	err := ctx.Invoke("azure-native:offazure:getSite", args, &rv, opts...)

@@ -8,7 +8,7 @@ import (
 )
 
 // Wrapper resource for tags API requests and responses.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2019-10-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'.
 func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...pulumi.InvokeOption) (*LookupTagAtScopeResult, error) {
