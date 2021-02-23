@@ -109,14 +109,15 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.authorizations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lockLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
@@ -155,15 +156,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplicationDefinition" }, { type: "azure-nextgen:solutions:ApplicationDefinition" }, { type: "azure-native:solutions/latest:ApplicationDefinition" }, { type: "azure-nextgen:solutions/latest:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplicationDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationDefinition.__pulumiType, name, inputs, opts);
     }
 }

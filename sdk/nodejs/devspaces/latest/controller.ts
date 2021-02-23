@@ -94,17 +94,18 @@ export class Controller extends pulumi.CustomResource {
     constructor(name: string, args: ControllerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Controller is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devspaces:Controller'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
             }
-            if ((!args || args.targetContainerHostResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetContainerHostResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -132,15 +133,11 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devspaces:Controller" }, { type: "azure-nextgen:devspaces:Controller" }, { type: "azure-native:devspaces/v20190401:Controller" }, { type: "azure-nextgen:devspaces/v20190401:Controller" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Controller.__pulumiType, name, inputs, opts);
     }
 }

@@ -133,11 +133,12 @@ export class Snapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.creationData === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.creationData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["creationData"] = args ? args.creationData : undefined;
@@ -188,15 +189,11 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Snapshot" }, { type: "azure-nextgen:compute:Snapshot" }, { type: "azure-native:compute/latest:Snapshot" }, { type: "azure-nextgen:compute/latest:Snapshot" }, { type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }

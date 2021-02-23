@@ -79,7 +79,8 @@ export class PeerAsn extends pulumi.CustomResource {
     constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PeerAsn is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["peerAsn"] = args ? args.peerAsn : undefined;
             inputs["peerAsnName"] = args ? args.peerAsnName : undefined;
             inputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
@@ -97,15 +98,11 @@ export class PeerAsn extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validationState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeerAsn" }, { type: "azure-nextgen:peering:PeerAsn" }, { type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-nextgen:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-nextgen:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-nextgen:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-nextgen:peering/v20201001:PeerAsn" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }
 }

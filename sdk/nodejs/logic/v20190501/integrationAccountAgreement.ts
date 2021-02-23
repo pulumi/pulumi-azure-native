@@ -97,29 +97,30 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountAgreementArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.agreementType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.agreementType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agreementType'");
             }
-            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.guestIdentity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.guestIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guestIdentity'");
             }
-            if ((!args || args.guestPartner === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.guestPartner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guestPartner'");
             }
-            if ((!args || args.hostIdentity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostIdentity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostIdentity'");
             }
-            if ((!args || args.hostPartner === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostPartner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostPartner'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agreementName"] = args ? args.agreementName : undefined;
@@ -153,15 +154,11 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic:IntegrationAccountAgreement" }, { type: "azure-native:logic/latest:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/latest:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
     }
 }

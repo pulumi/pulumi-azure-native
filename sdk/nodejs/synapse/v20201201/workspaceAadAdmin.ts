@@ -68,11 +68,12 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["administratorType"] = args ? args.administratorType : undefined;
@@ -91,15 +92,11 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse:WorkspaceAadAdmin" }, { type: "azure-native:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/latest:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
     }
 }

@@ -89,17 +89,18 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppHybridConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["hostname"] = args ? args.hostname : undefined;
@@ -129,15 +130,11 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             inputs["serviceBusSuffix"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web:WebAppHybridConnectionSlot" }, { type: "azure-native:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppHybridConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnectionSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHybridConnectionSlot.__pulumiType, name, inputs, opts);
     }
 }

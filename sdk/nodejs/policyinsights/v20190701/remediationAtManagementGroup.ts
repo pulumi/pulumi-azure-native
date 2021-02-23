@@ -85,11 +85,12 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: RemediationAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managementGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.managementGroupsNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managementGroupsNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupsNamespace'");
             }
             inputs["filters"] = args ? args.filters : undefined;
@@ -117,15 +118,11 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
             inputs["resourceDiscoveryMode"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtManagementGroup.__pulumiType, name, inputs, opts);
     }
 }

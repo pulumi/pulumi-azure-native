@@ -70,11 +70,12 @@ export class LinkedService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
@@ -94,15 +95,11 @@ export class LinkedService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["writeAccessResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/latest:LinkedService" }, { type: "azure-nextgen:operationalinsights/latest:LinkedService" }, { type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-nextgen:operationalinsights/v20200801:LinkedService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, inputs, opts);
     }
 }

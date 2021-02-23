@@ -62,17 +62,18 @@ export class DataConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -89,15 +90,11 @@ export class DataConnection extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto/latest:DataConnection" }, { type: "azure-nextgen:kusto/latest:DataConnection" }, { type: "azure-native:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-native:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-native:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-native:kusto/v20191109:DataConnection" }, { type: "azure-nextgen:kusto/v20191109:DataConnection" }, { type: "azure-native:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-native:kusto/v20200614:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }, { type: "azure-native:kusto/v20200918:DataConnection" }, { type: "azure-nextgen:kusto/v20200918:DataConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataConnection.__pulumiType, name, inputs, opts);
     }
 }

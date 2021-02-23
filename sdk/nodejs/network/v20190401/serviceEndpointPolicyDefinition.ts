@@ -68,11 +68,12 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointPolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceEndpointPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -93,15 +94,11 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             inputs["service"] = undefined /*out*/;
             inputs["serviceResources"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/latest:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/latest:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200701:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200801:ServiceEndpointPolicyDefinition" }, { type: "azure-nextgen:network/v20200801:ServiceEndpointPolicyDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointPolicyDefinition.__pulumiType, name, inputs, opts);
     }
 }

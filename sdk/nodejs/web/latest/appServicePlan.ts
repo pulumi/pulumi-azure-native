@@ -156,8 +156,9 @@ export class AppServicePlan extends pulumi.CustomResource {
     constructor(name: string, args: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlan'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
@@ -215,15 +216,11 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workerTierName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:AppServicePlan" }, { type: "azure-nextgen:web:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-nextgen:web/v20201001:AppServicePlan" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }
 }

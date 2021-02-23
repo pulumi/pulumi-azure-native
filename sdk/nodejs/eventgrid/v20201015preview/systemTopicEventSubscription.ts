@@ -105,11 +105,12 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: SystemTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.systemTopicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.systemTopicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'systemTopicName'");
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
@@ -145,15 +146,11 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopicEventSubscription.__pulumiType, name, inputs, opts);
     }
 }

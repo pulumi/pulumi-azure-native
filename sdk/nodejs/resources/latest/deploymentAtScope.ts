@@ -71,11 +71,12 @@ export class DeploymentAtScope extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DeploymentAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtScope'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["deploymentName"] = args ? args.deploymentName : undefined;
@@ -92,15 +93,11 @@ export class DeploymentAtScope extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtScope" }, { type: "azure-nextgen:resources:DeploymentAtScope" }, { type: "azure-native:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-native:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-native:resources/v20191001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }, { type: "azure-native:resources/v20200601:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtScope" }, { type: "azure-native:resources/v20200801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtScope" }, { type: "azure-native:resources/v20201001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtScope" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtScope.__pulumiType, name, inputs, opts);
     }
 }

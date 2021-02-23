@@ -67,11 +67,12 @@ export class ReplicationFabric extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationFabricArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationFabric'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
@@ -87,15 +88,11 @@ export class ReplicationFabric extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationFabric" }, { type: "azure-native:recoveryservices/v20180710:ReplicationFabric" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationFabric" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationFabric.__pulumiType, name, inputs, opts);
     }
 }

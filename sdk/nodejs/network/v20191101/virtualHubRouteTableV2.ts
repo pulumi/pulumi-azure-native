@@ -65,11 +65,12 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubRouteTableV2Args, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["attachedConnections"] = args ? args.attachedConnections : undefined;
@@ -88,15 +89,11 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network:VirtualHubRouteTableV2" }, { type: "azure-native:network/latest:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/latest:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20190901:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20190901:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20191201:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20191201:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200301:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200301:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200401:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200401:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200501:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200501:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200601:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200601:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200701:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200701:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200801:VirtualHubRouteTableV2" }, { type: "azure-nextgen:network/v20200801:VirtualHubRouteTableV2" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHubRouteTableV2.__pulumiType, name, inputs, opts);
     }
 }

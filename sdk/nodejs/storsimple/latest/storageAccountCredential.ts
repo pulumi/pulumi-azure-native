@@ -79,17 +79,18 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageAccountCredential'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endPoint === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endPoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endPoint'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sslStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sslStatus'");
             }
             inputs["accessKey"] = args ? args.accessKey : undefined;
@@ -111,15 +112,11 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["volumesCount"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:StorageAccountCredential" }, { type: "azure-nextgen:storsimple:StorageAccountCredential" }, { type: "azure-native:storsimple/v20161001:StorageAccountCredential" }, { type: "azure-nextgen:storsimple/v20161001:StorageAccountCredential" }, { type: "azure-native:storsimple/v20170601:StorageAccountCredential" }, { type: "azure-nextgen:storsimple/v20170601:StorageAccountCredential" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }
 }

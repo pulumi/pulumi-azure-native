@@ -71,14 +71,15 @@ export class EventSource extends pulumi.CustomResource {
     constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:EventSource'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
@@ -97,15 +98,11 @@ export class EventSource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:EventSource" }, { type: "azure-nextgen:timeseriesinsights:EventSource" }, { type: "azure-native:timeseriesinsights/v20170228preview:EventSource" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20171115:EventSource" }, { type: "azure-nextgen:timeseriesinsights/v20171115:EventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:EventSource" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20200515:EventSource" }, { type: "azure-nextgen:timeseriesinsights/v20200515:EventSource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSource.__pulumiType, name, inputs, opts);
     }
 }

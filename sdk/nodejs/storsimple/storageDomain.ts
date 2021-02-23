@@ -66,17 +66,18 @@ export class StorageDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.encryptionStatus === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.encryptionStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encryptionStatus'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountCredentialIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccountCredentialIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountCredentialIds'");
             }
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
@@ -94,15 +95,11 @@ export class StorageDomain extends pulumi.CustomResource {
             inputs["storageAccountCredentialIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:StorageDomain" }, { type: "azure-nextgen:storsimple/latest:StorageDomain" }, { type: "azure-native:storsimple/v20161001:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageDomain.__pulumiType, name, inputs, opts);
     }
 }

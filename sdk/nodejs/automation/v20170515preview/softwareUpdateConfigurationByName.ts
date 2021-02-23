@@ -89,17 +89,18 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
      */
     constructor(name: string, args: SoftwareUpdateConfigurationByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleInfo'");
             }
-            if ((!args || args.updateConfiguration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.updateConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -129,15 +130,11 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updateConfiguration"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/latest:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" }, { type: "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SoftwareUpdateConfigurationByName.__pulumiType, name, inputs, opts);
     }
 }

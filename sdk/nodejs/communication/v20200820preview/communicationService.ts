@@ -84,11 +84,12 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     constructor(name: string, args: CommunicationServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataLocation === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
@@ -115,15 +116,11 @@ export class CommunicationService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:communication:CommunicationService" }, { type: "azure-nextgen:communication:CommunicationService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationService.__pulumiType, name, inputs, opts);
     }
 }

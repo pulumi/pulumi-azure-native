@@ -74,11 +74,12 @@ export class ApplicationType extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApplicationType is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:ApplicationType'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
@@ -98,15 +99,11 @@ export class ApplicationType extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ApplicationType" }, { type: "azure-nextgen:servicefabric:ApplicationType" }, { type: "azure-native:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20190301:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationType" }, { type: "azure-native:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationType" }, { type: "azure-native:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20200301:ApplicationType" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationType" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }
 }

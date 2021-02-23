@@ -79,7 +79,8 @@ export class ManagementGroup extends pulumi.CustomResource {
     constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["details"] = args ? args.details : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["groupId"] = args ? args.groupId : undefined;
@@ -97,15 +98,11 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroup" }, { type: "azure-nextgen:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-nextgen:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-nextgen:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-nextgen:management/v20200501:ManagementGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }
 }

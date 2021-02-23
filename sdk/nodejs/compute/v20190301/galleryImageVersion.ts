@@ -77,17 +77,18 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: GalleryImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.galleryImageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.galleryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.publishingProfile === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publishingProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publishingProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
@@ -112,15 +113,11 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-nextgen:compute:GalleryImageVersion" }, { type: "azure-native:compute/latest:GalleryImageVersion" }, { type: "azure-nextgen:compute/latest:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20191201:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20191201:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-nextgen:compute/v20200930:GalleryImageVersion" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImageVersion.__pulumiType, name, inputs, opts);
     }
 }

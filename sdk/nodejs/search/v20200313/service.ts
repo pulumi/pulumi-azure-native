@@ -105,8 +105,9 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostingMode"] = (args ? args.hostingMode : undefined) || "default";
@@ -143,15 +144,11 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:search:Service" }, { type: "azure-nextgen:search:Service" }, { type: "azure-native:search/latest:Service" }, { type: "azure-nextgen:search/latest:Service" }, { type: "azure-native:search/v20150819:Service" }, { type: "azure-nextgen:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-nextgen:search/v20191001preview:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-nextgen:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-nextgen:search/v20200801preview:Service" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

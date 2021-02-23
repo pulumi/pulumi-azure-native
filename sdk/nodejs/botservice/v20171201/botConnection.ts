@@ -77,11 +77,12 @@ export class BotConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: BotConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["connectionName"] = args ? args.connectionName : undefined;
@@ -105,15 +106,11 @@ export class BotConnection extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-nextgen:botservice:BotConnection" }, { type: "azure-native:botservice/latest:BotConnection" }, { type: "azure-nextgen:botservice/latest:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-nextgen:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-nextgen:botservice/v20200602:BotConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BotConnection.__pulumiType, name, inputs, opts);
     }
 }

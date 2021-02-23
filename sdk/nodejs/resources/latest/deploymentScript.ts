@@ -79,11 +79,12 @@ export class DeploymentScript extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentScriptArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DeploymentScript is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentScript'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -104,15 +105,11 @@ export class DeploymentScript extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentScript" }, { type: "azure-nextgen:resources:DeploymentScript" }, { type: "azure-native:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-native:resources/v20201001:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentScript.__pulumiType, name, inputs, opts);
     }
 }

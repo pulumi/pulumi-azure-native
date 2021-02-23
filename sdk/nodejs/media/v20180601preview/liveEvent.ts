@@ -105,14 +105,15 @@ export class LiveEvent extends pulumi.CustomResource {
      */
     constructor(name: string, args: LiveEventArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.input === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.input === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -151,15 +152,11 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vanityUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:LiveEvent" }, { type: "azure-nextgen:media:LiveEvent" }, { type: "azure-native:media/latest:LiveEvent" }, { type: "azure-nextgen:media/latest:LiveEvent" }, { type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-nextgen:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-nextgen:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-nextgen:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }, { type: "azure-nextgen:media/v20200501:LiveEvent" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveEvent.__pulumiType, name, inputs, opts);
     }
 }

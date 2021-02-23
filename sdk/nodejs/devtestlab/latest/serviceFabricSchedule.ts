@@ -111,17 +111,18 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
     constructor(name: string, args: ServiceFabricScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabricSchedule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceFabricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceFabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceFabricName'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
@@ -160,15 +161,11 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["weeklyRecurrence"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ServiceFabricSchedule" }, { type: "azure-nextgen:devtestlab:ServiceFabricSchedule" }, { type: "azure-native:devtestlab/v20180915:ServiceFabricSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceFabricSchedule.__pulumiType, name, inputs, opts);
     }
 }

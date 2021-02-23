@@ -81,20 +81,21 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterPrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -120,15 +121,11 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             inputs["tenantName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/latest:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/latest:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPrincipalAssignment.__pulumiType, name, inputs, opts);
     }
 }

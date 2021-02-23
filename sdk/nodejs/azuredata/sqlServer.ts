@@ -73,11 +73,12 @@ export class SqlServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlServerRegistrationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlServerRegistrationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
             inputs["cores"] = args ? args.cores : undefined;
@@ -99,15 +100,11 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20170301preview:SqlServer" }, { type: "azure-nextgen:azuredata/v20170301preview:SqlServer" }, { type: "azure-native:azuredata/v20190724preview:SqlServer" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServer.__pulumiType, name, inputs, opts);
     }
 }

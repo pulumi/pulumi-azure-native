@@ -83,14 +83,15 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: AFDCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
@@ -118,15 +119,11 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validationProperties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:AFDCustomDomain" }, { type: "azure-nextgen:cdn/latest:AFDCustomDomain" }, { type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDCustomDomain.__pulumiType, name, inputs, opts);
     }
 }

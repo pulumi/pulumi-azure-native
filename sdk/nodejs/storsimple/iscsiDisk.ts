@@ -86,32 +86,33 @@ export class IscsiDisk extends pulumi.CustomResource {
      */
     constructor(name: string, args: IscsiDiskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accessControlRecords === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accessControlRecords === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessControlRecords'");
             }
-            if ((!args || args.dataPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.diskStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.diskStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskStatus'");
             }
-            if ((!args || args.iscsiServerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iscsiServerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iscsiServerName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if ((!args || args.provisionedCapacityInBytes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.provisionedCapacityInBytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessControlRecords"] = args ? args.accessControlRecords : undefined;
@@ -141,15 +142,11 @@ export class IscsiDisk extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:IscsiDisk" }, { type: "azure-nextgen:storsimple/latest:IscsiDisk" }, { type: "azure-native:storsimple/v20161001:IscsiDisk" }, { type: "azure-nextgen:storsimple/v20161001:IscsiDisk" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiDisk.__pulumiType, name, inputs, opts);
     }
 }

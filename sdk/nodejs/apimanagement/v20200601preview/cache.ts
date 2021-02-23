@@ -68,17 +68,18 @@ export class Cache extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.useFromLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.useFromLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'useFromLocation'");
             }
             inputs["cacheId"] = args ? args.cacheId : undefined;
@@ -98,15 +99,11 @@ export class Cache extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["useFromLocation"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Cache" }, { type: "azure-nextgen:apimanagement:Cache" }, { type: "azure-native:apimanagement/latest:Cache" }, { type: "azure-nextgen:apimanagement/latest:Cache" }, { type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-nextgen:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-nextgen:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-nextgen:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-nextgen:apimanagement/v20191201preview:Cache" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, inputs, opts);
     }
 }

@@ -93,11 +93,12 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
      */
     constructor(name: string, args: BillingRoleAssignmentByDepartmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.billingAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.departmentName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.departmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'departmentName'");
             }
             inputs["billingAccountName"] = args ? args.billingAccountName : undefined;
@@ -129,15 +130,11 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
             inputs["userAuthenticationType"] = undefined /*out*/;
             inputs["userEmailAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment" }, { type: "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingRoleAssignmentByDepartment.__pulumiType, name, inputs, opts);
     }
 }

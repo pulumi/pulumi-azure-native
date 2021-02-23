@@ -89,8 +89,9 @@ export class SqlManagedInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["admin"] = args ? args.admin : undefined;
@@ -119,15 +120,11 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vCore"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlManagedInstance" }, { type: "azure-nextgen:azuredata:SqlManagedInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlManagedInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlManagedInstance" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlManagedInstance.__pulumiType, name, inputs, opts);
     }
 }

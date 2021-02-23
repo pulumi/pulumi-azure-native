@@ -68,17 +68,18 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.appPackageUrl === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.appPackageUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appPackageUrl'");
             }
-            if ((!args || args.applicationTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;
@@ -99,15 +100,11 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/latest:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/latest:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190301:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azure-native:servicefabric/v20200301:ApplicationTypeVersion" }, { type: "azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationTypeVersion.__pulumiType, name, inputs, opts);
     }
 }

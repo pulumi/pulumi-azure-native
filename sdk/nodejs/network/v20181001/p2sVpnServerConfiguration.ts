@@ -90,11 +90,12 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualWanName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualWanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -127,15 +128,11 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnClientIpsecPolicies"] = undefined /*out*/;
             inputs["vpnProtocols"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network:P2sVpnServerConfiguration" }, { type: "azure-native:network/latest:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/latest:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190701:P2sVpnServerConfiguration" }, { type: "azure-nextgen:network/v20190701:P2sVpnServerConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(P2sVpnServerConfiguration.__pulumiType, name, inputs, opts);
     }
 }

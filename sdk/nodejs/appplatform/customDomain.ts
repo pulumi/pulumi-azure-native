@@ -58,14 +58,15 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.appName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.appName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["appName"] = args ? args.appName : undefined;
@@ -80,15 +81,11 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform/latest:CustomDomain" }, { type: "azure-nextgen:appplatform/latest:CustomDomain" }, { type: "azure-native:appplatform/v20190501preview:CustomDomain" }, { type: "azure-nextgen:appplatform/v20190501preview:CustomDomain" }, { type: "azure-native:appplatform/v20200701:CustomDomain" }, { type: "azure-nextgen:appplatform/v20200701:CustomDomain" }, { type: "azure-native:appplatform/v20201101preview:CustomDomain" }, { type: "azure-nextgen:appplatform/v20201101preview:CustomDomain" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }
 }

@@ -138,11 +138,12 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -196,15 +197,11 @@ export class Queue extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:Queue" }, { type: "azure-nextgen:servicebus/latest:Queue" }, { type: "azure-native:servicebus/v20140901:Queue" }, { type: "azure-nextgen:servicebus/v20140901:Queue" }, { type: "azure-native:servicebus/v20150801:Queue" }, { type: "azure-nextgen:servicebus/v20150801:Queue" }, { type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-nextgen:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-nextgen:servicebus/v20180101preview:Queue" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, inputs, opts);
     }
 }

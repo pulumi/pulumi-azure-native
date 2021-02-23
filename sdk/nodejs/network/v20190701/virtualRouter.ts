@@ -89,8 +89,9 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostedGateway"] = args ? args.hostedGateway : undefined;
@@ -120,15 +121,11 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["virtualRouterAsn"] = undefined /*out*/;
             inputs["virtualRouterIps"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualRouter" }, { type: "azure-nextgen:network:VirtualRouter" }, { type: "azure-native:network/latest:VirtualRouter" }, { type: "azure-nextgen:network/latest:VirtualRouter" }, { type: "azure-native:network/v20190801:VirtualRouter" }, { type: "azure-nextgen:network/v20190801:VirtualRouter" }, { type: "azure-native:network/v20190901:VirtualRouter" }, { type: "azure-nextgen:network/v20190901:VirtualRouter" }, { type: "azure-native:network/v20191101:VirtualRouter" }, { type: "azure-nextgen:network/v20191101:VirtualRouter" }, { type: "azure-native:network/v20191201:VirtualRouter" }, { type: "azure-nextgen:network/v20191201:VirtualRouter" }, { type: "azure-native:network/v20200301:VirtualRouter" }, { type: "azure-nextgen:network/v20200301:VirtualRouter" }, { type: "azure-native:network/v20200401:VirtualRouter" }, { type: "azure-nextgen:network/v20200401:VirtualRouter" }, { type: "azure-native:network/v20200501:VirtualRouter" }, { type: "azure-nextgen:network/v20200501:VirtualRouter" }, { type: "azure-native:network/v20200601:VirtualRouter" }, { type: "azure-nextgen:network/v20200601:VirtualRouter" }, { type: "azure-native:network/v20200701:VirtualRouter" }, { type: "azure-nextgen:network/v20200701:VirtualRouter" }, { type: "azure-native:network/v20200801:VirtualRouter" }, { type: "azure-nextgen:network/v20200801:VirtualRouter" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualRouter.__pulumiType, name, inputs, opts);
     }
 }

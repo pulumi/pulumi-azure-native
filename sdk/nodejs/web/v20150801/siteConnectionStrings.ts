@@ -69,11 +69,12 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteConnectionStringsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
@@ -92,15 +93,11 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteConnectionStrings" }, { type: "azure-nextgen:web:SiteConnectionStrings" }, { type: "azure-native:web/latest:SiteConnectionStrings" }, { type: "azure-nextgen:web/latest:SiteConnectionStrings" }, { type: "azure-native:web/v20160801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20160801:SiteConnectionStrings" }, { type: "azure-native:web/v20180201:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20180201:SiteConnectionStrings" }, { type: "azure-native:web/v20181101:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20181101:SiteConnectionStrings" }, { type: "azure-native:web/v20190801:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20190801:SiteConnectionStrings" }, { type: "azure-native:web/v20200601:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200601:SiteConnectionStrings" }, { type: "azure-native:web/v20200901:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20200901:SiteConnectionStrings" }, { type: "azure-native:web/v20201001:SiteConnectionStrings" }, { type: "azure-nextgen:web/v20201001:SiteConnectionStrings" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteConnectionStrings.__pulumiType, name, inputs, opts);
     }
 }

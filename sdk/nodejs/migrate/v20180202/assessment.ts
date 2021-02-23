@@ -141,50 +141,51 @@ export class Assessment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.azureHybridUseBenefit === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.azureHybridUseBenefit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureHybridUseBenefit'");
             }
-            if ((!args || args.azureLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azureLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureLocation'");
             }
-            if ((!args || args.azureOfferCode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azureOfferCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureOfferCode'");
             }
-            if ((!args || args.azurePricingTier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurePricingTier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurePricingTier'");
             }
-            if ((!args || args.azureStorageRedundancy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azureStorageRedundancy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureStorageRedundancy'");
             }
-            if ((!args || args.currency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.currency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'currency'");
             }
-            if ((!args || args.discountPercentage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.discountPercentage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'discountPercentage'");
             }
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.percentile === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.percentile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'percentile'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scalingFactor === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scalingFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingFactor'");
             }
-            if ((!args || args.sizingCriterion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sizingCriterion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizingCriterion'");
             }
-            if ((!args || args.stage === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.stage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            if ((!args || args.timeRange === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeRange === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeRange'");
             }
             inputs["assessmentName"] = args ? args.assessmentName : undefined;
@@ -241,15 +242,11 @@ export class Assessment extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedTimestamp"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20171111preview:Assessment" }, { type: "azure-nextgen:migrate/v20171111preview:Assessment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assessment.__pulumiType, name, inputs, opts);
     }
 }

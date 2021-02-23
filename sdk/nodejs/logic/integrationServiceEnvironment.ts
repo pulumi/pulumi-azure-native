@@ -70,8 +70,9 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
@@ -90,15 +91,11 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic/latest:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironment" }, { type: "azure-native:logic/v20190501:IntegrationServiceEnvironment" }, { type: "azure-nextgen:logic/v20190501:IntegrationServiceEnvironment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationServiceEnvironment.__pulumiType, name, inputs, opts);
     }
 }

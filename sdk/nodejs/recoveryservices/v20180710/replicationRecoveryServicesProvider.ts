@@ -61,17 +61,18 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationRecoveryServicesProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
@@ -88,15 +89,11 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationRecoveryServicesProvider.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,14 +78,15 @@ export class StorageInsightConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["containers"] = args ? args.containers : undefined;
@@ -109,15 +110,11 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageInsightConfig.__pulumiType, name, inputs, opts);
     }
 }

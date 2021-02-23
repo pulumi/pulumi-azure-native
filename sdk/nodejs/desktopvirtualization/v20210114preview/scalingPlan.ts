@@ -89,8 +89,9 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -119,15 +120,11 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan" }, { type: "azure-native:desktopvirtualization/v20210201preview:ScalingPlan" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlan.__pulumiType, name, inputs, opts);
     }
 }

@@ -57,14 +57,15 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      */
     constructor(name: string, args: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.azureADOnlyAuthentication === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authenticationName"] = args ? args.authenticationName : undefined;
@@ -78,15 +79,11 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }
 }

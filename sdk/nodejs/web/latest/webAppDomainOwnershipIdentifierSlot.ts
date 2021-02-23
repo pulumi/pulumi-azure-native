@@ -71,14 +71,15 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifierSlot'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
@@ -96,15 +97,11 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifierSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDomainOwnershipIdentifierSlot.__pulumiType, name, inputs, opts);
     }
 }

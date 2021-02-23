@@ -117,11 +117,12 @@ export class View extends pulumi.CustomResource {
      */
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.timeframe === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.timeframe === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
@@ -163,15 +164,11 @@ export class View extends pulumi.CustomResource {
             inputs["timeframe"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:View" }, { type: "azure-nextgen:costmanagement:View" }, { type: "azure-native:costmanagement/latest:View" }, { type: "azure-nextgen:costmanagement/latest:View" }, { type: "azure-native:costmanagement/v20190401preview:View" }, { type: "azure-nextgen:costmanagement/v20190401preview:View" }, { type: "azure-native:costmanagement/v20200601:View" }, { type: "azure-nextgen:costmanagement/v20200601:View" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, inputs, opts);
     }
 }

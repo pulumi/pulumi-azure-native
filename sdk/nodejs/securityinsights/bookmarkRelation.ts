@@ -73,20 +73,21 @@ export class BookmarkRelation extends pulumi.CustomResource {
      */
     constructor(name: string, args: BookmarkRelationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.bookmarkId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.bookmarkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bookmarkId'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if ((!args || args.relatedResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["bookmarkId"] = args ? args.bookmarkId : undefined;
@@ -110,15 +111,11 @@ export class BookmarkRelation extends pulumi.CustomResource {
             inputs["relatedResourceType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-nextgen:securityinsights/v20190101preview:BookmarkRelation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BookmarkRelation.__pulumiType, name, inputs, opts);
     }
 }

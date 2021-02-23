@@ -103,17 +103,18 @@ export class Connector extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Connector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Connector'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.connectorProperties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.connectorProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorProperties'");
             }
-            if ((!args || args.connectorType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.connectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectorName"] = args ? args.connectorName : undefined;
@@ -146,15 +147,11 @@ export class Connector extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Connector" }, { type: "azure-nextgen:customerinsights:Connector" }, { type: "azure-native:customerinsights/v20170101:Connector" }, { type: "azure-nextgen:customerinsights/v20170101:Connector" }, { type: "azure-native:customerinsights/v20170426:Connector" }, { type: "azure-nextgen:customerinsights/v20170426:Connector" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, inputs, opts);
     }
 }

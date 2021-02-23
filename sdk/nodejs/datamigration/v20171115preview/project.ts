@@ -89,17 +89,18 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.sourcePlatform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourcePlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourcePlatform'");
             }
-            if ((!args || args.targetPlatform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
             inputs["databasesInfo"] = args ? args.databasesInfo : undefined;
@@ -129,15 +130,11 @@ export class Project extends pulumi.CustomResource {
             inputs["targetPlatform"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Project" }, { type: "azure-nextgen:datamigration:Project" }, { type: "azure-native:datamigration/latest:Project" }, { type: "azure-nextgen:datamigration/latest:Project" }, { type: "azure-native:datamigration/v20180315preview:Project" }, { type: "azure-nextgen:datamigration/v20180315preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-nextgen:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-nextgen:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-nextgen:datamigration/v20180715preview:Project" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, inputs, opts);
     }
 }

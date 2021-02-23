@@ -217,11 +217,12 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
@@ -312,15 +313,11 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usageState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSlot" }, { type: "azure-nextgen:web:WebAppSlot" }, { type: "azure-native:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSlot.__pulumiType, name, inputs, opts);
     }
 }

@@ -93,14 +93,15 @@ export class PublicIpAddress extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublicIpAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.publicIPAllocationMethod === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.publicIPAllocationMethod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicIPAllocationMethod'");
             }
-            if ((!args || args.publicIpAddressName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publicIpAddressName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
@@ -131,15 +132,11 @@ export class PublicIpAddress extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PublicIpAddress" }, { type: "azure-nextgen:network:PublicIpAddress" }, { type: "azure-native:network/latest:PublicIpAddress" }, { type: "azure-nextgen:network/latest:PublicIpAddress" }, { type: "azure-native:network/v20150615:PublicIpAddress" }, { type: "azure-nextgen:network/v20150615:PublicIpAddress" }, { type: "azure-native:network/v20160330:PublicIpAddress" }, { type: "azure-nextgen:network/v20160330:PublicIpAddress" }, { type: "azure-native:network/v20160601:PublicIpAddress" }, { type: "azure-nextgen:network/v20160601:PublicIpAddress" }, { type: "azure-native:network/v20160901:PublicIpAddress" }, { type: "azure-nextgen:network/v20160901:PublicIpAddress" }, { type: "azure-native:network/v20161201:PublicIpAddress" }, { type: "azure-nextgen:network/v20161201:PublicIpAddress" }, { type: "azure-native:network/v20170301:PublicIpAddress" }, { type: "azure-nextgen:network/v20170301:PublicIpAddress" }, { type: "azure-native:network/v20170601:PublicIpAddress" }, { type: "azure-nextgen:network/v20170601:PublicIpAddress" }, { type: "azure-native:network/v20170801:PublicIpAddress" }, { type: "azure-nextgen:network/v20170801:PublicIpAddress" }, { type: "azure-native:network/v20170901:PublicIpAddress" }, { type: "azure-nextgen:network/v20170901:PublicIpAddress" }, { type: "azure-native:network/v20171001:PublicIpAddress" }, { type: "azure-nextgen:network/v20171001:PublicIpAddress" }, { type: "azure-native:network/v20171101:PublicIpAddress" }, { type: "azure-nextgen:network/v20171101:PublicIpAddress" }, { type: "azure-native:network/v20180101:PublicIpAddress" }, { type: "azure-nextgen:network/v20180101:PublicIpAddress" }, { type: "azure-native:network/v20180201:PublicIpAddress" }, { type: "azure-nextgen:network/v20180201:PublicIpAddress" }, { type: "azure-native:network/v20180401:PublicIpAddress" }, { type: "azure-nextgen:network/v20180401:PublicIpAddress" }, { type: "azure-native:network/v20180601:PublicIpAddress" }, { type: "azure-nextgen:network/v20180601:PublicIpAddress" }, { type: "azure-native:network/v20180701:PublicIpAddress" }, { type: "azure-nextgen:network/v20180701:PublicIpAddress" }, { type: "azure-native:network/v20180801:PublicIpAddress" }, { type: "azure-nextgen:network/v20180801:PublicIpAddress" }, { type: "azure-native:network/v20181001:PublicIpAddress" }, { type: "azure-nextgen:network/v20181001:PublicIpAddress" }, { type: "azure-native:network/v20181101:PublicIpAddress" }, { type: "azure-nextgen:network/v20181101:PublicIpAddress" }, { type: "azure-native:network/v20181201:PublicIpAddress" }, { type: "azure-nextgen:network/v20181201:PublicIpAddress" }, { type: "azure-native:network/v20190201:PublicIpAddress" }, { type: "azure-nextgen:network/v20190201:PublicIpAddress" }, { type: "azure-native:network/v20190401:PublicIpAddress" }, { type: "azure-nextgen:network/v20190401:PublicIpAddress" }, { type: "azure-native:network/v20190601:PublicIpAddress" }, { type: "azure-nextgen:network/v20190601:PublicIpAddress" }, { type: "azure-native:network/v20190701:PublicIpAddress" }, { type: "azure-nextgen:network/v20190701:PublicIpAddress" }, { type: "azure-native:network/v20190801:PublicIpAddress" }, { type: "azure-nextgen:network/v20190801:PublicIpAddress" }, { type: "azure-native:network/v20190901:PublicIpAddress" }, { type: "azure-nextgen:network/v20190901:PublicIpAddress" }, { type: "azure-native:network/v20191101:PublicIpAddress" }, { type: "azure-nextgen:network/v20191101:PublicIpAddress" }, { type: "azure-native:network/v20191201:PublicIpAddress" }, { type: "azure-nextgen:network/v20191201:PublicIpAddress" }, { type: "azure-native:network/v20200301:PublicIpAddress" }, { type: "azure-nextgen:network/v20200301:PublicIpAddress" }, { type: "azure-native:network/v20200401:PublicIpAddress" }, { type: "azure-nextgen:network/v20200401:PublicIpAddress" }, { type: "azure-native:network/v20200501:PublicIpAddress" }, { type: "azure-nextgen:network/v20200501:PublicIpAddress" }, { type: "azure-native:network/v20200601:PublicIpAddress" }, { type: "azure-nextgen:network/v20200601:PublicIpAddress" }, { type: "azure-native:network/v20200701:PublicIpAddress" }, { type: "azure-nextgen:network/v20200701:PublicIpAddress" }, { type: "azure-native:network/v20200801:PublicIpAddress" }, { type: "azure-nextgen:network/v20200801:PublicIpAddress" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublicIpAddress.__pulumiType, name, inputs, opts);
     }
 }

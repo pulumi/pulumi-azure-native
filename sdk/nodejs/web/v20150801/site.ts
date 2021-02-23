@@ -177,8 +177,9 @@ export class Site extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
@@ -255,15 +256,11 @@ export class Site extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usageState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:Site" }, { type: "azure-nextgen:web:Site" }, { type: "azure-native:web/latest:Site" }, { type: "azure-nextgen:web/latest:Site" }, { type: "azure-native:web/v20160801:Site" }, { type: "azure-nextgen:web/v20160801:Site" }, { type: "azure-native:web/v20180201:Site" }, { type: "azure-nextgen:web/v20180201:Site" }, { type: "azure-native:web/v20181101:Site" }, { type: "azure-nextgen:web/v20181101:Site" }, { type: "azure-native:web/v20190801:Site" }, { type: "azure-nextgen:web/v20190801:Site" }, { type: "azure-native:web/v20200601:Site" }, { type: "azure-nextgen:web/v20200601:Site" }, { type: "azure-native:web/v20200901:Site" }, { type: "azure-nextgen:web/v20200901:Site" }, { type: "azure-native:web/v20201001:Site" }, { type: "azure-nextgen:web/v20201001:Site" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, inputs, opts);
     }
 }

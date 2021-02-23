@@ -93,11 +93,12 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppHostNameBindingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureResourceName"] = args ? args.azureResourceName : undefined;
@@ -128,15 +129,11 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualIP"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppHostNameBinding" }, { type: "azure-nextgen:web:WebAppHostNameBinding" }, { type: "azure-native:web/latest:WebAppHostNameBinding" }, { type: "azure-nextgen:web/latest:WebAppHostNameBinding" }, { type: "azure-native:web/v20150801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20150801:WebAppHostNameBinding" }, { type: "azure-native:web/v20180201:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20180201:WebAppHostNameBinding" }, { type: "azure-native:web/v20181101:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20181101:WebAppHostNameBinding" }, { type: "azure-native:web/v20190801:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20190801:WebAppHostNameBinding" }, { type: "azure-native:web/v20200601:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200601:WebAppHostNameBinding" }, { type: "azure-native:web/v20200901:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20200901:WebAppHostNameBinding" }, { type: "azure-native:web/v20201001:WebAppHostNameBinding" }, { type: "azure-nextgen:web/v20201001:WebAppHostNameBinding" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHostNameBinding.__pulumiType, name, inputs, opts);
     }
 }

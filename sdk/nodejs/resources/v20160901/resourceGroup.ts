@@ -65,7 +65,8 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedBy"] = args ? args.managedBy : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -79,15 +80,11 @@ export class ResourceGroup extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:ResourceGroup" }, { type: "azure-nextgen:resources:ResourceGroup" }, { type: "azure-native:resources/latest:ResourceGroup" }, { type: "azure-nextgen:resources/latest:ResourceGroup" }, { type: "azure-native:resources/v20151101:ResourceGroup" }, { type: "azure-nextgen:resources/v20151101:ResourceGroup" }, { type: "azure-native:resources/v20160201:ResourceGroup" }, { type: "azure-nextgen:resources/v20160201:ResourceGroup" }, { type: "azure-native:resources/v20160701:ResourceGroup" }, { type: "azure-nextgen:resources/v20160701:ResourceGroup" }, { type: "azure-native:resources/v20170510:ResourceGroup" }, { type: "azure-nextgen:resources/v20170510:ResourceGroup" }, { type: "azure-native:resources/v20180201:ResourceGroup" }, { type: "azure-nextgen:resources/v20180201:ResourceGroup" }, { type: "azure-native:resources/v20180501:ResourceGroup" }, { type: "azure-nextgen:resources/v20180501:ResourceGroup" }, { type: "azure-native:resources/v20190301:ResourceGroup" }, { type: "azure-nextgen:resources/v20190301:ResourceGroup" }, { type: "azure-native:resources/v20190501:ResourceGroup" }, { type: "azure-nextgen:resources/v20190501:ResourceGroup" }, { type: "azure-native:resources/v20190510:ResourceGroup" }, { type: "azure-nextgen:resources/v20190510:ResourceGroup" }, { type: "azure-native:resources/v20190701:ResourceGroup" }, { type: "azure-nextgen:resources/v20190701:ResourceGroup" }, { type: "azure-native:resources/v20190801:ResourceGroup" }, { type: "azure-nextgen:resources/v20190801:ResourceGroup" }, { type: "azure-native:resources/v20191001:ResourceGroup" }, { type: "azure-nextgen:resources/v20191001:ResourceGroup" }, { type: "azure-native:resources/v20200601:ResourceGroup" }, { type: "azure-nextgen:resources/v20200601:ResourceGroup" }, { type: "azure-native:resources/v20200801:ResourceGroup" }, { type: "azure-nextgen:resources/v20200801:ResourceGroup" }, { type: "azure-native:resources/v20201001:ResourceGroup" }, { type: "azure-nextgen:resources/v20201001:ResourceGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceGroup.__pulumiType, name, inputs, opts);
     }
 }

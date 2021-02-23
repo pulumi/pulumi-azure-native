@@ -119,8 +119,9 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:Cache'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -161,15 +162,11 @@ export class Cache extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["upgradeStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:Cache" }, { type: "azure-nextgen:storagecache:Cache" }, { type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-nextgen:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-nextgen:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-nextgen:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-nextgen:storagecache/v20201001:Cache" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, inputs, opts);
     }
 }

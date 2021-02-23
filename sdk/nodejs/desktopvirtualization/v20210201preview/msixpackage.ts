@@ -97,11 +97,12 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     constructor(name: string, args: MSIXPackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hostPoolName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hostPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
@@ -135,15 +136,11 @@ export class MSIXPackage extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210114preview:MSIXPackage" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSIXPackage.__pulumiType, name, inputs, opts);
     }
 }

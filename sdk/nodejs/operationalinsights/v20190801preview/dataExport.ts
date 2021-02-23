@@ -80,17 +80,18 @@ export class DataExport extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataExportArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.tableNames === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableNames'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["createdDate"] = args ? args.createdDate : undefined;
@@ -116,15 +117,11 @@ export class DataExport extends pulumi.CustomResource {
             inputs["tableNames"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:DataExport" }, { type: "azure-nextgen:operationalinsights:DataExport" }, { type: "azure-native:operationalinsights/latest:DataExport" }, { type: "azure-nextgen:operationalinsights/latest:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }, { type: "azure-nextgen:operationalinsights/v20200801:DataExport" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataExport.__pulumiType, name, inputs, opts);
     }
 }

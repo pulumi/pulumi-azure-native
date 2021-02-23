@@ -91,17 +91,18 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagerExtendedInfo is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ManagerExtendedInfo'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.algorithm === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.algorithm === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'algorithm'");
             }
-            if ((!args || args.integrityKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrityKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrityKey'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
@@ -128,15 +129,11 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:ManagerExtendedInfo" }, { type: "azure-nextgen:storsimple:ManagerExtendedInfo" }, { type: "azure-native:storsimple/v20161001:ManagerExtendedInfo" }, { type: "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo" }, { type: "azure-native:storsimple/v20170601:ManagerExtendedInfo" }, { type: "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagerExtendedInfo.__pulumiType, name, inputs, opts);
     }
 }

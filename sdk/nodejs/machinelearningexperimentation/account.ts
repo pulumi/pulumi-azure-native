@@ -102,17 +102,18 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.keyVaultId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            if ((!args || args.vsoAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vsoAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vsoAccountId'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -147,15 +148,11 @@ export class Account extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vsoAccountId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningexperimentation/v20170501preview:Account" }, { type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Account" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

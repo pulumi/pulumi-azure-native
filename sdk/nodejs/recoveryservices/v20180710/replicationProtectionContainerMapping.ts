@@ -61,17 +61,18 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
      */
     constructor(name: string, args: ReplicationProtectionContainerMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.protectionContainerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.protectionContainerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protectionContainerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
@@ -89,15 +90,11 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationProtectionContainerMapping.__pulumiType, name, inputs, opts);
     }
 }

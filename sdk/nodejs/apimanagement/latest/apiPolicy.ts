@@ -67,17 +67,18 @@ export class ApiPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ApiPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -94,15 +95,11 @@ export class ApiPolicy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiPolicy" }, { type: "azure-nextgen:apimanagement:ApiPolicy" }, { type: "azure-native:apimanagement/v20170301:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ApiPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ApiPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ApiPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ApiPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiPolicy" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiPolicy.__pulumiType, name, inputs, opts);
     }
 }

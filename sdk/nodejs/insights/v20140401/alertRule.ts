@@ -89,17 +89,18 @@ export class AlertRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.condition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.isEnabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.isEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -128,15 +129,11 @@ export class AlertRule extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:AlertRule" }, { type: "azure-nextgen:insights:AlertRule" }, { type: "azure-native:insights/latest:AlertRule" }, { type: "azure-nextgen:insights/latest:AlertRule" }, { type: "azure-native:insights/v20160301:AlertRule" }, { type: "azure-nextgen:insights/v20160301:AlertRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertRule.__pulumiType, name, inputs, opts);
     }
 }

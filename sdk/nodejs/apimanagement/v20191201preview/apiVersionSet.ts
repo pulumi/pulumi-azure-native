@@ -73,17 +73,18 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiVersionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.versioningScheme === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.versioningScheme === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -105,15 +106,11 @@ export class ApiVersionSet extends pulumi.CustomResource {
             inputs["versionQueryName"] = undefined /*out*/;
             inputs["versioningScheme"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiVersionSet" }, { type: "azure-nextgen:apimanagement:ApiVersionSet" }, { type: "azure-native:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiVersionSet.__pulumiType, name, inputs, opts);
     }
 }

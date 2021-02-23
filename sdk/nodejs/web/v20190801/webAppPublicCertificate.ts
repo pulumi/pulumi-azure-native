@@ -69,11 +69,12 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppPublicCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["blob"] = args ? args.blob : undefined;
@@ -92,15 +93,11 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPublicCertificate" }, { type: "azure-nextgen:web:WebAppPublicCertificate" }, { type: "azure-native:web/latest:WebAppPublicCertificate" }, { type: "azure-nextgen:web/latest:WebAppPublicCertificate" }, { type: "azure-native:web/v20160801:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificate" }, { type: "azure-native:web/v20180201:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificate" }, { type: "azure-native:web/v20181101:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificate" }, { type: "azure-native:web/v20200601:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificate" }, { type: "azure-native:web/v20200901:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificate" }, { type: "azure-native:web/v20201001:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPublicCertificate.__pulumiType, name, inputs, opts);
     }
 }

@@ -74,8 +74,9 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
@@ -96,15 +97,11 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["roleType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/latest:RoleDefinition" }, { type: "azure-nextgen:authorization/latest:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }, { type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }, { type: "azure-native:authorization/v20200301preview:RoleDefinition" }, { type: "azure-nextgen:authorization/v20200301preview:RoleDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }
 }

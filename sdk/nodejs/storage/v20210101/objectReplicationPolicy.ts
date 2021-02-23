@@ -73,17 +73,18 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.destinationAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destinationAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAccount'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -105,15 +106,11 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             inputs["sourceAccount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage:ObjectReplicationPolicy" }, { type: "azure-native:storage/latest:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/latest:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
     }
 }

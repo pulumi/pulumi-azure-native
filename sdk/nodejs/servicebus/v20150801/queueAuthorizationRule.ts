@@ -61,17 +61,18 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.queueName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.queueName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queueName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -88,15 +89,11 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:QueueAuthorizationRule" }, { type: "azure-nextgen:servicebus:QueueAuthorizationRule" }, { type: "azure-native:servicebus/latest:QueueAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

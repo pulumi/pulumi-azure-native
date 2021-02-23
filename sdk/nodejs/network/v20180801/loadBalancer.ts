@@ -105,8 +105,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
@@ -144,15 +145,11 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:LoadBalancer" }, { type: "azure-nextgen:network:LoadBalancer" }, { type: "azure-native:network/latest:LoadBalancer" }, { type: "azure-nextgen:network/latest:LoadBalancer" }, { type: "azure-native:network/v20150501preview:LoadBalancer" }, { type: "azure-nextgen:network/v20150501preview:LoadBalancer" }, { type: "azure-native:network/v20150615:LoadBalancer" }, { type: "azure-nextgen:network/v20150615:LoadBalancer" }, { type: "azure-native:network/v20160330:LoadBalancer" }, { type: "azure-nextgen:network/v20160330:LoadBalancer" }, { type: "azure-native:network/v20160601:LoadBalancer" }, { type: "azure-nextgen:network/v20160601:LoadBalancer" }, { type: "azure-native:network/v20160901:LoadBalancer" }, { type: "azure-nextgen:network/v20160901:LoadBalancer" }, { type: "azure-native:network/v20161201:LoadBalancer" }, { type: "azure-nextgen:network/v20161201:LoadBalancer" }, { type: "azure-native:network/v20170301:LoadBalancer" }, { type: "azure-nextgen:network/v20170301:LoadBalancer" }, { type: "azure-native:network/v20170601:LoadBalancer" }, { type: "azure-nextgen:network/v20170601:LoadBalancer" }, { type: "azure-native:network/v20170801:LoadBalancer" }, { type: "azure-nextgen:network/v20170801:LoadBalancer" }, { type: "azure-native:network/v20170901:LoadBalancer" }, { type: "azure-nextgen:network/v20170901:LoadBalancer" }, { type: "azure-native:network/v20171001:LoadBalancer" }, { type: "azure-nextgen:network/v20171001:LoadBalancer" }, { type: "azure-native:network/v20171101:LoadBalancer" }, { type: "azure-nextgen:network/v20171101:LoadBalancer" }, { type: "azure-native:network/v20180101:LoadBalancer" }, { type: "azure-nextgen:network/v20180101:LoadBalancer" }, { type: "azure-native:network/v20180201:LoadBalancer" }, { type: "azure-nextgen:network/v20180201:LoadBalancer" }, { type: "azure-native:network/v20180401:LoadBalancer" }, { type: "azure-nextgen:network/v20180401:LoadBalancer" }, { type: "azure-native:network/v20180601:LoadBalancer" }, { type: "azure-nextgen:network/v20180601:LoadBalancer" }, { type: "azure-native:network/v20180701:LoadBalancer" }, { type: "azure-nextgen:network/v20180701:LoadBalancer" }, { type: "azure-native:network/v20181001:LoadBalancer" }, { type: "azure-nextgen:network/v20181001:LoadBalancer" }, { type: "azure-native:network/v20181101:LoadBalancer" }, { type: "azure-nextgen:network/v20181101:LoadBalancer" }, { type: "azure-native:network/v20181201:LoadBalancer" }, { type: "azure-nextgen:network/v20181201:LoadBalancer" }, { type: "azure-native:network/v20190201:LoadBalancer" }, { type: "azure-nextgen:network/v20190201:LoadBalancer" }, { type: "azure-native:network/v20190401:LoadBalancer" }, { type: "azure-nextgen:network/v20190401:LoadBalancer" }, { type: "azure-native:network/v20190601:LoadBalancer" }, { type: "azure-nextgen:network/v20190601:LoadBalancer" }, { type: "azure-native:network/v20190701:LoadBalancer" }, { type: "azure-nextgen:network/v20190701:LoadBalancer" }, { type: "azure-native:network/v20190801:LoadBalancer" }, { type: "azure-nextgen:network/v20190801:LoadBalancer" }, { type: "azure-native:network/v20190901:LoadBalancer" }, { type: "azure-nextgen:network/v20190901:LoadBalancer" }, { type: "azure-native:network/v20191101:LoadBalancer" }, { type: "azure-nextgen:network/v20191101:LoadBalancer" }, { type: "azure-native:network/v20191201:LoadBalancer" }, { type: "azure-nextgen:network/v20191201:LoadBalancer" }, { type: "azure-native:network/v20200301:LoadBalancer" }, { type: "azure-nextgen:network/v20200301:LoadBalancer" }, { type: "azure-native:network/v20200401:LoadBalancer" }, { type: "azure-nextgen:network/v20200401:LoadBalancer" }, { type: "azure-native:network/v20200501:LoadBalancer" }, { type: "azure-nextgen:network/v20200501:LoadBalancer" }, { type: "azure-native:network/v20200601:LoadBalancer" }, { type: "azure-nextgen:network/v20200601:LoadBalancer" }, { type: "azure-native:network/v20200701:LoadBalancer" }, { type: "azure-nextgen:network/v20200701:LoadBalancer" }, { type: "azure-native:network/v20200801:LoadBalancer" }, { type: "azure-nextgen:network/v20200801:LoadBalancer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }
 }

@@ -153,23 +153,24 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:domainregistration:Domain'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.consent === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.consent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'consent'");
             }
-            if ((!args || args.contactAdmin === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contactAdmin === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactAdmin'");
             }
-            if ((!args || args.contactBilling === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contactBilling === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactBilling'");
             }
-            if ((!args || args.contactRegistrant === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contactRegistrant === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactRegistrant'");
             }
-            if ((!args || args.contactTech === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contactTech === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authCode"] = args ? args.authCode : undefined;
@@ -228,15 +229,11 @@ export class Domain extends pulumi.CustomResource {
             inputs["targetDnsType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:Domain" }, { type: "azure-nextgen:domainregistration:Domain" }, { type: "azure-native:domainregistration/v20150401:Domain" }, { type: "azure-nextgen:domainregistration/v20150401:Domain" }, { type: "azure-native:domainregistration/v20180201:Domain" }, { type: "azure-nextgen:domainregistration/v20180201:Domain" }, { type: "azure-native:domainregistration/v20190801:Domain" }, { type: "azure-nextgen:domainregistration/v20190801:Domain" }, { type: "azure-native:domainregistration/v20200601:Domain" }, { type: "azure-nextgen:domainregistration/v20200601:Domain" }, { type: "azure-native:domainregistration/v20200901:Domain" }, { type: "azure-nextgen:domainregistration/v20200901:Domain" }, { type: "azure-native:domainregistration/v20201001:Domain" }, { type: "azure-nextgen:domainregistration/v20201001:Domain" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

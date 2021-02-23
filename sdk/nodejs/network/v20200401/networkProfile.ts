@@ -81,8 +81,9 @@ export class NetworkProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containerNetworkInterfaceConfigurations"] = args ? args.containerNetworkInterfaceConfigurations : undefined;
@@ -108,15 +109,11 @@ export class NetworkProfile extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkProfile" }, { type: "azure-nextgen:network:NetworkProfile" }, { type: "azure-native:network/latest:NetworkProfile" }, { type: "azure-nextgen:network/latest:NetworkProfile" }, { type: "azure-native:network/v20180801:NetworkProfile" }, { type: "azure-nextgen:network/v20180801:NetworkProfile" }, { type: "azure-native:network/v20181001:NetworkProfile" }, { type: "azure-nextgen:network/v20181001:NetworkProfile" }, { type: "azure-native:network/v20181101:NetworkProfile" }, { type: "azure-nextgen:network/v20181101:NetworkProfile" }, { type: "azure-native:network/v20181201:NetworkProfile" }, { type: "azure-nextgen:network/v20181201:NetworkProfile" }, { type: "azure-native:network/v20190201:NetworkProfile" }, { type: "azure-nextgen:network/v20190201:NetworkProfile" }, { type: "azure-native:network/v20190401:NetworkProfile" }, { type: "azure-nextgen:network/v20190401:NetworkProfile" }, { type: "azure-native:network/v20190601:NetworkProfile" }, { type: "azure-nextgen:network/v20190601:NetworkProfile" }, { type: "azure-native:network/v20190701:NetworkProfile" }, { type: "azure-nextgen:network/v20190701:NetworkProfile" }, { type: "azure-native:network/v20190801:NetworkProfile" }, { type: "azure-nextgen:network/v20190801:NetworkProfile" }, { type: "azure-native:network/v20190901:NetworkProfile" }, { type: "azure-nextgen:network/v20190901:NetworkProfile" }, { type: "azure-native:network/v20191101:NetworkProfile" }, { type: "azure-nextgen:network/v20191101:NetworkProfile" }, { type: "azure-native:network/v20191201:NetworkProfile" }, { type: "azure-nextgen:network/v20191201:NetworkProfile" }, { type: "azure-native:network/v20200301:NetworkProfile" }, { type: "azure-nextgen:network/v20200301:NetworkProfile" }, { type: "azure-native:network/v20200501:NetworkProfile" }, { type: "azure-nextgen:network/v20200501:NetworkProfile" }, { type: "azure-native:network/v20200601:NetworkProfile" }, { type: "azure-nextgen:network/v20200601:NetworkProfile" }, { type: "azure-native:network/v20200701:NetworkProfile" }, { type: "azure-nextgen:network/v20200701:NetworkProfile" }, { type: "azure-native:network/v20200801:NetworkProfile" }, { type: "azure-nextgen:network/v20200801:NetworkProfile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkProfile.__pulumiType, name, inputs, opts);
     }
 }

@@ -61,11 +61,12 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -81,15 +82,11 @@ export class Application extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["packages"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:Application" }, { type: "azure-nextgen:batch:Application" }, { type: "azure-native:batch/latest:Application" }, { type: "azure-nextgen:batch/latest:Application" }, { type: "azure-native:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-native:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-native:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-native:batch/v20181201:Application" }, { type: "azure-nextgen:batch/v20181201:Application" }, { type: "azure-native:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-native:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-native:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-native:batch/v20200501:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }, { type: "azure-native:batch/v20200901:Application" }, { type: "azure-nextgen:batch/v20200901:Application" }, { type: "azure-native:batch/v20210101:Application" }, { type: "azure-nextgen:batch/v20210101:Application" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

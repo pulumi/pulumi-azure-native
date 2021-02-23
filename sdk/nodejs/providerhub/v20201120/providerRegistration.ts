@@ -51,7 +51,8 @@ export class ProviderRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["name"] = undefined /*out*/;
@@ -61,15 +62,11 @@ export class ProviderRegistration extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:ProviderRegistration" }, { type: "azure-nextgen:providerhub:ProviderRegistration" }, { type: "azure-native:providerhub/latest:ProviderRegistration" }, { type: "azure-nextgen:providerhub/latest:ProviderRegistration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderRegistration.__pulumiType, name, inputs, opts);
     }
 }

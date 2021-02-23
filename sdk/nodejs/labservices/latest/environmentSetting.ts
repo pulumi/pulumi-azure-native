@@ -107,17 +107,18 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentSettingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:EnvironmentSetting'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSettings'");
             }
             inputs["configurationState"] = args ? args.configurationState : undefined;
@@ -154,15 +155,11 @@ export class EnvironmentSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices:EnvironmentSetting" }, { type: "azure-nextgen:labservices:EnvironmentSetting" }, { type: "azure-native:labservices/v20181015:EnvironmentSetting" }, { type: "azure-nextgen:labservices/v20181015:EnvironmentSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentSetting.__pulumiType, name, inputs, opts);
     }
 }

@@ -161,14 +161,15 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataLakeStoreAccounts === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataLakeStoreAccounts === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeStoreAccounts'");
             }
-            if ((!args || args.defaultDataLakeStoreAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultDataLakeStoreAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultDataLakeStoreAccount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -233,15 +234,11 @@ export class Account extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkRules"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics:Account" }, { type: "azure-nextgen:datalakeanalytics:Account" }, { type: "azure-native:datalakeanalytics/latest:Account" }, { type: "azure-nextgen:datalakeanalytics/latest:Account" }, { type: "azure-native:datalakeanalytics/v20151001preview:Account" }, { type: "azure-nextgen:datalakeanalytics/v20151001preview:Account" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

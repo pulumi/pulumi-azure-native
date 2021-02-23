@@ -65,11 +65,12 @@ export class Experiment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["experimentName"] = args ? args.experimentName : undefined;
@@ -87,15 +88,11 @@ export class Experiment extends pulumi.CustomResource {
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batchai/latest:Experiment" }, { type: "azure-nextgen:batchai/latest:Experiment" }, { type: "azure-native:batchai/v20180501:Experiment" }, { type: "azure-nextgen:batchai/v20180501:Experiment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Experiment.__pulumiType, name, inputs, opts);
     }
 }

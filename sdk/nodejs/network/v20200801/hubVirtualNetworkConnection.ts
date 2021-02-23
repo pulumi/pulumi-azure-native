@@ -77,11 +77,12 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: HubVirtualNetworkConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["allowHubToRemoteVnetTransit"] = args ? args.allowHubToRemoteVnetTransit : undefined;
@@ -106,15 +107,11 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             inputs["remoteVirtualNetwork"] = undefined /*out*/;
             inputs["routingConfiguration"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network:HubVirtualNetworkConnection" }, { type: "azure-native:network/latest:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/latest:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200701:HubVirtualNetworkConnection" }, { type: "azure-nextgen:network/v20200701:HubVirtualNetworkConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HubVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }
 }

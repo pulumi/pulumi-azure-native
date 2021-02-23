@@ -141,11 +141,12 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.productType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.productType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = (args ? args.autoRenew : undefined) || true;
@@ -200,15 +201,11 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validityInYears"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder" }, { type: "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
     }
 }

@@ -121,8 +121,9 @@ export class PartnerRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizedAzureSubscriptionIds"] = args ? args.authorizedAzureSubscriptionIds : undefined;
@@ -163,15 +164,11 @@ export class PartnerRegistration extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["visibilityState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerRegistration" }, { type: "azure-nextgen:eventgrid:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerRegistration.__pulumiType, name, inputs, opts);
     }
 }

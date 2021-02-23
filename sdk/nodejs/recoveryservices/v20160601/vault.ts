@@ -77,8 +77,9 @@ export class Vault extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -101,15 +102,11 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/latest:Vault" }, { type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-native:recoveryservices/v20200202:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, inputs, opts);
     }
 }

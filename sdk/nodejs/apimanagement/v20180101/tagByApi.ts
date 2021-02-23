@@ -56,14 +56,15 @@ export class TagByApi extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagByApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -78,15 +79,11 @@ export class TagByApi extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagByApi" }, { type: "azure-nextgen:apimanagement:TagByApi" }, { type: "azure-native:apimanagement/latest:TagByApi" }, { type: "azure-nextgen:apimanagement/latest:TagByApi" }, { type: "azure-native:apimanagement/v20170301:TagByApi" }, { type: "azure-nextgen:apimanagement/v20170301:TagByApi" }, { type: "azure-native:apimanagement/v20180601preview:TagByApi" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByApi" }, { type: "azure-native:apimanagement/v20190101:TagByApi" }, { type: "azure-nextgen:apimanagement/v20190101:TagByApi" }, { type: "azure-native:apimanagement/v20191201:TagByApi" }, { type: "azure-nextgen:apimanagement/v20191201:TagByApi" }, { type: "azure-native:apimanagement/v20191201preview:TagByApi" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByApi" }, { type: "azure-native:apimanagement/v20200601preview:TagByApi" }, { type: "azure-nextgen:apimanagement/v20200601preview:TagByApi" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagByApi.__pulumiType, name, inputs, opts);
     }
 }

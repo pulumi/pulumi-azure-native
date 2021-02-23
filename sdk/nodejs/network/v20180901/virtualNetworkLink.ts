@@ -81,11 +81,12 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -111,15 +112,11 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             inputs["virtualNetwork"] = undefined /*out*/;
             inputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-nextgen:network:VirtualNetworkLink" }, { type: "azure-native:network/latest:VirtualNetworkLink" }, { type: "azure-nextgen:network/latest:VirtualNetworkLink" }, { type: "azure-native:network/v20200101:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkLink" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, inputs, opts);
     }
 }

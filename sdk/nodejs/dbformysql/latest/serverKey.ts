@@ -75,14 +75,15 @@ export class ServerKey extends pulumi.CustomResource {
     constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ServerKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:ServerKey'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverKeyType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverKeyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -102,15 +103,11 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:ServerKey" }, { type: "azure-nextgen:dbformysql:ServerKey" }, { type: "azure-native:dbformysql/v20200101:ServerKey" }, { type: "azure-nextgen:dbformysql/v20200101:ServerKey" }, { type: "azure-native:dbformysql/v20200101privatepreview:ServerKey" }, { type: "azure-nextgen:dbformysql/v20200101privatepreview:ServerKey" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, inputs, opts);
     }
 }

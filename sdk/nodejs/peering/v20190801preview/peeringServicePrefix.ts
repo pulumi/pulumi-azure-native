@@ -69,11 +69,12 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
      */
     constructor(name: string, args: PeeringServicePrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.peeringServiceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.peeringServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["learnedType"] = args ? args.learnedType : undefined;
@@ -93,15 +94,11 @@ export class PeeringServicePrefix extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringServicePrefix" }, { type: "azure-nextgen:peering:PeeringServicePrefix" }, { type: "azure-native:peering/latest:PeeringServicePrefix" }, { type: "azure-nextgen:peering/latest:PeeringServicePrefix" }, { type: "azure-native:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20190901preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200101preview:PeeringServicePrefix" }, { type: "azure-native:peering/v20200401:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20200401:PeeringServicePrefix" }, { type: "azure-native:peering/v20201001:PeeringServicePrefix" }, { type: "azure-nextgen:peering/v20201001:PeeringServicePrefix" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeeringServicePrefix.__pulumiType, name, inputs, opts);
     }
 }

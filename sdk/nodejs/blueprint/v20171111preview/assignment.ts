@@ -93,14 +93,15 @@ export class Assignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.resourceGroups === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroups'");
             }
             inputs["assignmentName"] = args ? args.assignmentName : undefined;
@@ -131,12 +132,8 @@ export class Assignment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Assignment.__pulumiType, name, inputs, opts);
     }

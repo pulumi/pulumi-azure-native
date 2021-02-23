@@ -85,11 +85,12 @@ export class PublishedBlueprint extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublishedBlueprintArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.blueprintName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.managementGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
             inputs["blueprintName"] = args ? args.blueprintName : undefined;
@@ -116,12 +117,8 @@ export class PublishedBlueprint extends pulumi.CustomResource {
             inputs["targetScope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PublishedBlueprint.__pulumiType, name, inputs, opts);
     }

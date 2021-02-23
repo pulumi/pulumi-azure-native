@@ -93,14 +93,15 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.ownerEmail === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.ownerEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ownerEmail'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userStorageAccountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userStorageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
             inputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
@@ -131,15 +132,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceState"] = undefined /*out*/;
             inputs["workspaceType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearning/latest:Workspace" }, { type: "azure-nextgen:machinelearning/latest:Workspace" }, { type: "azure-native:machinelearning/v20160401:Workspace" }, { type: "azure-nextgen:machinelearning/v20160401:Workspace" }, { type: "azure-native:machinelearning/v20191001:Workspace" }, { type: "azure-nextgen:machinelearning/v20191001:Workspace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

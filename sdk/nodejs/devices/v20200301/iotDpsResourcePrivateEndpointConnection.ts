@@ -57,14 +57,15 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
      */
     constructor(name: string, args: IotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
@@ -78,15 +79,11 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/latest:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

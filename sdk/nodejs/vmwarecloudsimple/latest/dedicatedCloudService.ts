@@ -82,11 +82,12 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     constructor(name: string, args: DedicatedCloudServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudService'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gatewaySubnet === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gatewaySubnet === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewaySubnet'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dedicatedCloudServiceName"] = args ? args.dedicatedCloudServiceName : undefined;
@@ -109,15 +110,11 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudService" }, { type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedCloudService.__pulumiType, name, inputs, opts);
     }
 }

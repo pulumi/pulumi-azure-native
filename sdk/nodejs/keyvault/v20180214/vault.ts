@@ -65,11 +65,12 @@ export class Vault extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -86,15 +87,11 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Vault" }, { type: "azure-nextgen:keyvault:Vault" }, { type: "azure-native:keyvault/latest:Vault" }, { type: "azure-nextgen:keyvault/latest:Vault" }, { type: "azure-native:keyvault/v20150601:Vault" }, { type: "azure-nextgen:keyvault/v20150601:Vault" }, { type: "azure-native:keyvault/v20161001:Vault" }, { type: "azure-nextgen:keyvault/v20161001:Vault" }, { type: "azure-native:keyvault/v20180214preview:Vault" }, { type: "azure-nextgen:keyvault/v20180214preview:Vault" }, { type: "azure-native:keyvault/v20190901:Vault" }, { type: "azure-nextgen:keyvault/v20190901:Vault" }, { type: "azure-native:keyvault/v20200401preview:Vault" }, { type: "azure-nextgen:keyvault/v20200401preview:Vault" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, inputs, opts);
     }
 }

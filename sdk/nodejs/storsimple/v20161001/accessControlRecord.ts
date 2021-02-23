@@ -56,14 +56,15 @@ export class AccessControlRecord extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessControlRecordArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.initiatorName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.initiatorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'initiatorName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
@@ -77,15 +78,11 @@ export class AccessControlRecord extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-nextgen:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/latest:AccessControlRecord" }, { type: "azure-nextgen:storsimple/latest:AccessControlRecord" }, { type: "azure-native:storsimple/v20170601:AccessControlRecord" }, { type: "azure-nextgen:storsimple/v20170601:AccessControlRecord" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessControlRecord.__pulumiType, name, inputs, opts);
     }
 }

@@ -73,11 +73,12 @@ export class HybridUseBenefit extends pulumi.CustomResource {
      */
     constructor(name: string, args: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["planId"] = args ? args.planId : undefined;
@@ -98,15 +99,11 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:softwareplan:HybridUseBenefit" }, { type: "azure-nextgen:softwareplan:HybridUseBenefit" }, { type: "azure-native:softwareplan/v20191201:HybridUseBenefit" }, { type: "azure-nextgen:softwareplan/v20191201:HybridUseBenefit" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridUseBenefit.__pulumiType, name, inputs, opts);
     }
 }

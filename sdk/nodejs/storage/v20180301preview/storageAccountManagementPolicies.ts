@@ -60,11 +60,12 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageAccountManagementPoliciesArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -80,15 +81,11 @@ export class StorageAccountManagementPolicies extends pulumi.CustomResource {
             inputs["policy"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage:StorageAccountManagementPolicies" }, { type: "azure-native:storage/latest:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/latest:StorageAccountManagementPolicies" }, { type: "azure-native:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies" }, { type: "azure-native:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies" }, { type: "azure-native:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies" }, { type: "azure-native:storage/v20200801preview:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies" }, { type: "azure-native:storage/v20210101:StorageAccountManagementPolicies" }, { type: "azure-nextgen:storage/v20210101:StorageAccountManagementPolicies" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccountManagementPolicies.__pulumiType, name, inputs, opts);
     }
 }

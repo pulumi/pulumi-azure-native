@@ -106,14 +106,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.aadClientId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.aadClientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aadClientId'");
             }
-            if ((!args || args.aadTenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.aadTenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aadTenantId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadClientId"] = args ? args.aadClientId : undefined;
@@ -150,15 +151,11 @@ export class Cluster extends pulumi.CustomResource {
             inputs["trialDaysRemaining"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/latest:Cluster" }, { type: "azure-nextgen:azurestackhci/latest:Cluster" }, { type: "azure-native:azurestackhci/v20200301preview:Cluster" }, { type: "azure-nextgen:azurestackhci/v20200301preview:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-nextgen:azurestackhci/v20201001:Cluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

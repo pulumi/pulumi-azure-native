@@ -73,11 +73,12 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.platformFaultDomainCount === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostGroupName"] = args ? args.hostGroupName : undefined;
@@ -98,15 +99,11 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHostGroup" }, { type: "azure-nextgen:compute:DedicatedHostGroup" }, { type: "azure-native:compute/latest:DedicatedHostGroup" }, { type: "azure-nextgen:compute/latest:DedicatedHostGroup" }, { type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20191201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20191201:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-nextgen:compute/v20201201:DedicatedHostGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHostGroup.__pulumiType, name, inputs, opts);
     }
 }

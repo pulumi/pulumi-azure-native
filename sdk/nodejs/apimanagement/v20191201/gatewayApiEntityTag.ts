@@ -125,14 +125,15 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayApiEntityTagArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -182,15 +183,11 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
             inputs["subscriptionRequired"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/latest:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayApiEntityTag.__pulumiType, name, inputs, opts);
     }
 }

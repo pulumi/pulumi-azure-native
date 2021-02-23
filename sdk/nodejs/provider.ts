@@ -32,6 +32,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
             inputs["auxiliaryTenantIds"] = pulumi.output((args ? args.auxiliaryTenantIds : undefined) || <any>utilities.getEnv("ARM_AUXILIARY_TENANT_IDS")).apply(JSON.stringify);
             inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
@@ -46,12 +47,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["tenantId"] = (args ? args.tenantId : undefined) || utilities.getEnv("ARM_TENANT_ID");
             inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (<any>utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

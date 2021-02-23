@@ -101,11 +101,12 @@ export class SqlPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["collation"] = args ? args.collation : undefined;
@@ -141,15 +142,11 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPool" }, { type: "azure-nextgen:synapse:SqlPool" }, { type: "azure-native:synapse/latest:SqlPool" }, { type: "azure-nextgen:synapse/latest:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-nextgen:synapse/v20201201:SqlPool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPool.__pulumiType, name, inputs, opts);
     }
 }

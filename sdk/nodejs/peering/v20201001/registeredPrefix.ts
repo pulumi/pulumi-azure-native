@@ -72,11 +72,12 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.peeringName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["peeringName"] = args ? args.peeringName : undefined;
@@ -98,15 +99,11 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredPrefix" }, { type: "azure-nextgen:peering:RegisteredPrefix" }, { type: "azure-native:peering/latest:RegisteredPrefix" }, { type: "azure-nextgen:peering/latest:RegisteredPrefix" }, { type: "azure-native:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200101preview:RegisteredPrefix" }, { type: "azure-native:peering/v20200401:RegisteredPrefix" }, { type: "azure-nextgen:peering/v20200401:RegisteredPrefix" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredPrefix.__pulumiType, name, inputs, opts);
     }
 }

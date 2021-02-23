@@ -83,11 +83,12 @@ export class CapacityDetails extends pulumi.CustomResource {
     constructor(name: string, args: CapacityDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["administration"] = args ? args.administration : undefined;
@@ -110,15 +111,11 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }
 }

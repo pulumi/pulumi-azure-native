@@ -73,8 +73,9 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["jobName"] = args ? args.jobName : undefined;
@@ -95,15 +96,11 @@ export class Job extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:importexport:Job" }, { type: "azure-nextgen:importexport:Job" }, { type: "azure-native:importexport/latest:Job" }, { type: "azure-nextgen:importexport/latest:Job" }, { type: "azure-native:importexport/v20200801:Job" }, { type: "azure-nextgen:importexport/v20200801:Job" }, { type: "azure-native:importexport/v20210101:Job" }, { type: "azure-nextgen:importexport/v20210101:Job" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, inputs, opts);
     }
 }

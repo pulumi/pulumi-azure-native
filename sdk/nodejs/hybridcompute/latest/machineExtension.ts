@@ -99,11 +99,12 @@ export class MachineExtension extends pulumi.CustomResource {
     constructor(name: string, args: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:MachineExtension'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
@@ -134,15 +135,11 @@ export class MachineExtension extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["typeHandlerVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:MachineExtension" }, { type: "azure-nextgen:hybridcompute:MachineExtension" }, { type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20191212:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20191212:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-nextgen:hybridcompute/v20200815preview:MachineExtension" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }
 }

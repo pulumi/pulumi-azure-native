@@ -109,14 +109,15 @@ export class Module extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentLink === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -156,15 +157,11 @@ export class Module extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Module" }, { type: "azure-nextgen:automation:Module" }, { type: "azure-native:automation/latest:Module" }, { type: "azure-nextgen:automation/latest:Module" }, { type: "azure-native:automation/v20190601:Module" }, { type: "azure-nextgen:automation/v20190601:Module" }, { type: "azure-native:automation/v20200113preview:Module" }, { type: "azure-nextgen:automation/v20200113preview:Module" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Module.__pulumiType, name, inputs, opts);
     }
 }

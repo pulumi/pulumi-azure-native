@@ -150,17 +150,18 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.amountOfRam === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.amountOfRam === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
-            if ((!args || args.numberOfCores === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.numberOfCores === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
-            if ((!args || args.privateCloudId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateCloudId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["amountOfRam"] = args ? args.amountOfRam : undefined;
@@ -219,15 +220,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["vmId"] = undefined /*out*/;
             inputs["vmwaretools"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple/latest:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple/latest:VirtualMachine" }, { type: "azure-native:vmwarecloudsimple/v20190401:VirtualMachine" }, { type: "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
 }

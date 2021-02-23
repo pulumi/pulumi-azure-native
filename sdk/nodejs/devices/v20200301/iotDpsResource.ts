@@ -73,14 +73,15 @@ export class IotDpsResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -101,15 +102,11 @@ export class IotDpsResource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResource" }, { type: "azure-nextgen:devices:IotDpsResource" }, { type: "azure-native:devices/latest:IotDpsResource" }, { type: "azure-nextgen:devices/latest:IotDpsResource" }, { type: "azure-native:devices/v20170821preview:IotDpsResource" }, { type: "azure-nextgen:devices/v20170821preview:IotDpsResource" }, { type: "azure-native:devices/v20171115:IotDpsResource" }, { type: "azure-nextgen:devices/v20171115:IotDpsResource" }, { type: "azure-native:devices/v20180122:IotDpsResource" }, { type: "azure-nextgen:devices/v20180122:IotDpsResource" }, { type: "azure-native:devices/v20200101:IotDpsResource" }, { type: "azure-nextgen:devices/v20200101:IotDpsResource" }, { type: "azure-native:devices/v20200901preview:IotDpsResource" }, { type: "azure-nextgen:devices/v20200901preview:IotDpsResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResource.__pulumiType, name, inputs, opts);
     }
 }

@@ -63,14 +63,15 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: MongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -90,15 +91,11 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20191212:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20191212:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20200301:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20200301:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20200401:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase" }, { type: "azure-native:documentdb/v20210115:MongoDBResourceMongoDBDatabase" }, { type: "azure-nextgen:documentdb/v20210115:MongoDBResourceMongoDBDatabase" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoDBDatabase.__pulumiType, name, inputs, opts);
     }
 }

@@ -99,14 +99,15 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IntegrationAccountMap is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountMap'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mapType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -138,15 +139,11 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountMap" }, { type: "azure-nextgen:logic:IntegrationAccountMap" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20160601:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountMap" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20190501:IntegrationAccountMap" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountMap" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
     }
 }

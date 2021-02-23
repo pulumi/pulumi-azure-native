@@ -86,14 +86,15 @@ export class Order extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.contactInformation === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.contactInformation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactInformation'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contactInformation"] = args ? args.contactInformation : undefined;
@@ -120,15 +121,11 @@ export class Order extends pulumi.CustomResource {
             inputs["shippingAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Order" }, { type: "azure-nextgen:databoxedge/latest:Order" }, { type: "azure-native:databoxedge/v20190301:Order" }, { type: "azure-nextgen:databoxedge/v20190301:Order" }, { type: "azure-native:databoxedge/v20190701:Order" }, { type: "azure-nextgen:databoxedge/v20190701:Order" }, { type: "azure-native:databoxedge/v20190801:Order" }, { type: "azure-nextgen:databoxedge/v20190801:Order" }, { type: "azure-native:databoxedge/v20200501preview:Order" }, { type: "azure-nextgen:databoxedge/v20200501preview:Order" }, { type: "azure-native:databoxedge/v20200901:Order" }, { type: "azure-nextgen:databoxedge/v20200901:Order" }, { type: "azure-native:databoxedge/v20200901preview:Order" }, { type: "azure-nextgen:databoxedge/v20200901preview:Order" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Order.__pulumiType, name, inputs, opts);
     }
 }

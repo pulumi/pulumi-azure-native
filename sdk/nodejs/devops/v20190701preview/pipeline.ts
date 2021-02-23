@@ -77,17 +77,18 @@ export class Pipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.bootstrapConfiguration === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.bootstrapConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bootstrapConfiguration'");
             }
-            if ((!args || args.organization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.organization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'organization'");
             }
-            if ((!args || args.project === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.project === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["bootstrapConfiguration"] = args ? args.bootstrapConfiguration : undefined;
@@ -110,15 +111,11 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devops:Pipeline" }, { type: "azure-nextgen:devops:Pipeline" }, { type: "azure-native:devops/v20200713preview:Pipeline" }, { type: "azure-nextgen:devops/v20200713preview:Pipeline" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }

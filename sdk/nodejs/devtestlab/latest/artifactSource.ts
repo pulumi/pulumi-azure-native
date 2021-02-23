@@ -111,11 +111,12 @@ export class ArtifactSource extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ArtifactSource'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["armTemplateFolderPath"] = args ? args.armTemplateFolderPath : undefined;
@@ -152,15 +153,11 @@ export class ArtifactSource extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ArtifactSource" }, { type: "azure-nextgen:devtestlab:ArtifactSource" }, { type: "azure-native:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-native:devtestlab/v20160515:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20160515:ArtifactSource" }, { type: "azure-native:devtestlab/v20180915:ArtifactSource" }, { type: "azure-nextgen:devtestlab/v20180915:ArtifactSource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactSource.__pulumiType, name, inputs, opts);
     }
 }

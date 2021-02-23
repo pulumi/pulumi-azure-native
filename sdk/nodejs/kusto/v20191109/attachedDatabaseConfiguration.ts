@@ -77,20 +77,21 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: AttachedDatabaseConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
@@ -114,15 +115,11 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/latest:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/latest:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
     }
 }

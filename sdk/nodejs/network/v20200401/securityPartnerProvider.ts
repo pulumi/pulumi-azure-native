@@ -81,8 +81,9 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityPartnerProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
@@ -108,15 +109,11 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualHub"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityPartnerProvider" }, { type: "azure-nextgen:network:SecurityPartnerProvider" }, { type: "azure-native:network/latest:SecurityPartnerProvider" }, { type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-native:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-native:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-native:network/v20200601:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200601:SecurityPartnerProvider" }, { type: "azure-native:network/v20200701:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200701:SecurityPartnerProvider" }, { type: "azure-native:network/v20200801:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200801:SecurityPartnerProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
     }
 }

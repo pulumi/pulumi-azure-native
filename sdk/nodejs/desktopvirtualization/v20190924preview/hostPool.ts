@@ -117,17 +117,18 @@ export class HostPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hostPoolType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hostPoolType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolType'");
             }
-            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.preferredAppGroupType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.preferredAppGroupType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'preferredAppGroupType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
@@ -170,15 +171,11 @@ export class HostPool extends pulumi.CustomResource {
             inputs["validationEnvironment"] = undefined /*out*/;
             inputs["vmTemplate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:HostPool" }, { type: "azure-nextgen:desktopvirtualization:HostPool" }, { type: "azure-native:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:HostPool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HostPool.__pulumiType, name, inputs, opts);
     }
 }

@@ -65,8 +65,9 @@ export class HierarchySetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: HierarchySettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
@@ -82,15 +83,11 @@ export class HierarchySetting extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management/latest:HierarchySetting" }, { type: "azure-nextgen:management/latest:HierarchySetting" }, { type: "azure-native:management/v20200201:HierarchySetting" }, { type: "azure-nextgen:management/v20200201:HierarchySetting" }, { type: "azure-native:management/v20200501:HierarchySetting" }, { type: "azure-nextgen:management/v20200501:HierarchySetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HierarchySetting.__pulumiType, name, inputs, opts);
     }
 }

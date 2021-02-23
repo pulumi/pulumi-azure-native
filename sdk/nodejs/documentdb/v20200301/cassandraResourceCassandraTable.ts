@@ -63,20 +63,21 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: CassandraResourceCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.keyspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -97,15 +98,11 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/latest:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/latest:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20190801:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20191212:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200401:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20200901:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20200901:CassandraResourceCassandraTable" }, { type: "azure-native:documentdb/v20210115:CassandraResourceCassandraTable" }, { type: "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraTable" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraResourceCassandraTable.__pulumiType, name, inputs, opts);
     }
 }

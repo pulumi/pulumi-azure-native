@@ -69,17 +69,18 @@ export class ProtectedItem extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectedItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["containerName"] = args ? args.containerName : undefined;
@@ -101,15 +102,11 @@ export class ProtectedItem extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectedItem" }, { type: "azure-nextgen:recoveryservices:ProtectedItem" }, { type: "azure-native:recoveryservices/latest:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/latest:ProtectedItem" }, { type: "azure-native:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectedItem" }, { type: "azure-native:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20190615:ProtectedItem" }, { type: "azure-native:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectedItem" }, { type: "azure-native:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectedItem" }, { type: "azure-native:recoveryservices/v20210101:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectedItem" }, { type: "azure-native:recoveryservices/v20210201:ProtectedItem" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectedItem" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectedItem.__pulumiType, name, inputs, opts);
     }
 }

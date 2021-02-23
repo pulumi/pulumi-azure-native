@@ -103,8 +103,9 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     constructor(name: string, args: OpenShiftClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("OpenShiftCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:redhatopenshift:OpenShiftCluster'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
@@ -137,15 +138,11 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workerProfiles"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:OpenShiftCluster" }, { type: "azure-nextgen:redhatopenshift:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftCluster.__pulumiType, name, inputs, opts);
     }
 }

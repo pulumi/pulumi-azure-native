@@ -54,8 +54,9 @@ export class NotificationRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
             inputs["notificationRegistrationName"] = args ? args.notificationRegistrationName : undefined;
@@ -68,15 +69,11 @@ export class NotificationRegistration extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:NotificationRegistration" }, { type: "azure-nextgen:providerhub:NotificationRegistration" }, { type: "azure-native:providerhub/latest:NotificationRegistration" }, { type: "azure-nextgen:providerhub/latest:NotificationRegistration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRegistration.__pulumiType, name, inputs, opts);
     }
 }

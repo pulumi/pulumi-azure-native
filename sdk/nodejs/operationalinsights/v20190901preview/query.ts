@@ -93,17 +93,18 @@ export class Query extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.body === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.body === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.queryPackName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.queryPackName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryPackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["body"] = args ? args.body : undefined;
@@ -135,12 +136,8 @@ export class Query extends pulumi.CustomResource {
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Query.__pulumiType, name, inputs, opts);
     }

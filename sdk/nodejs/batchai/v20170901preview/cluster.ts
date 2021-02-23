@@ -109,14 +109,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userAccountSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userAccountSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userAccountSettings'");
             }
-            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -161,15 +162,11 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmPriority"] = undefined /*out*/;
             inputs["vmSize"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batchai/v20180301:Cluster" }, { type: "azure-nextgen:batchai/v20180301:Cluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

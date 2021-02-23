@@ -104,11 +104,12 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Policy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;
@@ -143,15 +144,11 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Policy" }, { type: "azure-nextgen:cdn:Policy" }, { type: "azure-native:cdn/v20190615:Policy" }, { type: "azure-nextgen:cdn/v20190615:Policy" }, { type: "azure-native:cdn/v20190615preview:Policy" }, { type: "azure-nextgen:cdn/v20190615preview:Policy" }, { type: "azure-native:cdn/v20200331:Policy" }, { type: "azure-nextgen:cdn/v20200331:Policy" }, { type: "azure-native:cdn/v20200415:Policy" }, { type: "azure-nextgen:cdn/v20200415:Policy" }, { type: "azure-native:cdn/v20200901:Policy" }, { type: "azure-nextgen:cdn/v20200901:Policy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

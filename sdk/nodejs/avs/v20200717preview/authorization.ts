@@ -64,11 +64,12 @@ export class Authorization extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationName"] = args ? args.authorizationName : undefined;
@@ -86,15 +87,11 @@ export class Authorization extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:Authorization" }, { type: "azure-nextgen:avs:Authorization" }, { type: "azure-native:avs/latest:Authorization" }, { type: "azure-nextgen:avs/latest:Authorization" }, { type: "azure-native:avs/v20200320:Authorization" }, { type: "azure-nextgen:avs/v20200320:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-nextgen:avs/v20210101preview:Authorization" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Authorization.__pulumiType, name, inputs, opts);
     }
 }

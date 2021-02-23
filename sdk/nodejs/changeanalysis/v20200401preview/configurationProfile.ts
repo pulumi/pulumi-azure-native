@@ -65,7 +65,8 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -79,15 +80,11 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:changeanalysis:ConfigurationProfile" }, { type: "azure-nextgen:changeanalysis:ConfigurationProfile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfile.__pulumiType, name, inputs, opts);
     }
 }

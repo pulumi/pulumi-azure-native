@@ -97,17 +97,18 @@ export class StreamingLocator extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.assetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingPolicyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.streamingPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamingPolicyName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -141,15 +142,11 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingLocator" }, { type: "azure-nextgen:media:StreamingLocator" }, { type: "azure-native:media/latest:StreamingLocator" }, { type: "azure-nextgen:media/latest:StreamingLocator" }, { type: "azure-native:media/v20180330preview:StreamingLocator" }, { type: "azure-nextgen:media/v20180330preview:StreamingLocator" }, { type: "azure-native:media/v20180601preview:StreamingLocator" }, { type: "azure-nextgen:media/v20180601preview:StreamingLocator" }, { type: "azure-native:media/v20180701:StreamingLocator" }, { type: "azure-nextgen:media/v20180701:StreamingLocator" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingLocator.__pulumiType, name, inputs, opts);
     }
 }

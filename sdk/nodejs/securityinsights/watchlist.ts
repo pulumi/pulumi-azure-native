@@ -138,23 +138,24 @@ export class Watchlist extends pulumi.CustomResource {
      */
     constructor(name: string, args: WatchlistArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if ((!args || args.provider === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.provider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["contentType"] = args ? args.contentType : undefined;
@@ -208,15 +209,11 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["watchlistItemsCount"] = undefined /*out*/;
             inputs["watchlistType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-nextgen:securityinsights/v20190101preview:Watchlist" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watchlist.__pulumiType, name, inputs, opts);
     }
 }

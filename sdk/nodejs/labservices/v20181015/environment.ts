@@ -109,17 +109,18 @@ export class Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.environmentSettingName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.environmentSettingName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentSettingName'");
             }
-            if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
@@ -161,15 +162,11 @@ export class Environment extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices:Environment" }, { type: "azure-nextgen:labservices:Environment" }, { type: "azure-native:labservices/latest:Environment" }, { type: "azure-nextgen:labservices/latest:Environment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, inputs, opts);
     }
 }

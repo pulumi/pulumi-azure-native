@@ -91,14 +91,15 @@ export class Peering extends pulumi.CustomResource {
     constructor(name: string, args: PeeringArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Peering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["direct"] = args ? args.direct : undefined;
@@ -125,15 +126,11 @@ export class Peering extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:Peering" }, { type: "azure-nextgen:peering:Peering" }, { type: "azure-native:peering/v20190801preview:Peering" }, { type: "azure-nextgen:peering/v20190801preview:Peering" }, { type: "azure-native:peering/v20190901preview:Peering" }, { type: "azure-nextgen:peering/v20190901preview:Peering" }, { type: "azure-native:peering/v20200101preview:Peering" }, { type: "azure-nextgen:peering/v20200101preview:Peering" }, { type: "azure-native:peering/v20200401:Peering" }, { type: "azure-nextgen:peering/v20200401:Peering" }, { type: "azure-native:peering/v20201001:Peering" }, { type: "azure-nextgen:peering/v20201001:Peering" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Peering.__pulumiType, name, inputs, opts);
     }
 }

@@ -73,8 +73,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
@@ -95,15 +96,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201102preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:Workspace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

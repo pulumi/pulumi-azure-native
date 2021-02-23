@@ -88,8 +88,9 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:Namespace'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -116,15 +117,11 @@ export class Namespace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay:Namespace" }, { type: "azure-nextgen:relay:Namespace" }, { type: "azure-native:relay/v20160701:Namespace" }, { type: "azure-nextgen:relay/v20160701:Namespace" }, { type: "azure-native:relay/v20170401:Namespace" }, { type: "azure-nextgen:relay/v20170401:Namespace" }, { type: "azure-native:relay/v20180101preview:Namespace" }, { type: "azure-nextgen:relay/v20180101preview:Namespace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, inputs, opts);
     }
 }

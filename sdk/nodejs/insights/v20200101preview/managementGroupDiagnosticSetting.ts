@@ -81,8 +81,9 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementGroupDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managementGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
             inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
@@ -106,12 +107,8 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ManagementGroupDiagnosticSetting.__pulumiType, name, inputs, opts);
     }

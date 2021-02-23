@@ -105,11 +105,12 @@ export class ServerDetails extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["asAdministrators"] = args ? args.asAdministrators : undefined;
@@ -146,15 +147,11 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:analysisservices:ServerDetails" }, { type: "azure-nextgen:analysisservices:ServerDetails" }, { type: "azure-native:analysisservices/latest:ServerDetails" }, { type: "azure-nextgen:analysisservices/latest:ServerDetails" }, { type: "azure-native:analysisservices/v20160516:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20160516:ServerDetails" }, { type: "azure-native:analysisservices/v20170714:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170714:ServerDetails" }, { type: "azure-native:analysisservices/v20170801beta:ServerDetails" }, { type: "azure-nextgen:analysisservices/v20170801beta:ServerDetails" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerDetails.__pulumiType, name, inputs, opts);
     }
 }

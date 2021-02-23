@@ -91,8 +91,9 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RemediationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResourceGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["filters"] = args ? args.filters : undefined;
@@ -119,15 +120,11 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             inputs["resourceDiscoveryMode"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResourceGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtResourceGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtResourceGroup.__pulumiType, name, inputs, opts);
     }
 }

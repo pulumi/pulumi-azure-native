@@ -66,11 +66,12 @@ export class CustomerSubscription extends pulumi.CustomResource {
     constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CustomerSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:azurestack:CustomerSubscription'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.registrationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registrationName'");
             }
-            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["customerSubscriptionName"] = args ? args.customerSubscriptionName : undefined;
@@ -86,15 +87,11 @@ export class CustomerSubscription extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack:CustomerSubscription" }, { type: "azure-nextgen:azurestack:CustomerSubscription" }, { type: "azure-native:azurestack/v20170601:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20170601:CustomerSubscription" }, { type: "azure-native:azurestack/v20200601preview:CustomerSubscription" }, { type: "azure-nextgen:azurestack/v20200601preview:CustomerSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomerSubscription.__pulumiType, name, inputs, opts);
     }
 }

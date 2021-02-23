@@ -75,11 +75,12 @@ export class Output extends pulumi.CustomResource {
     constructor(name: string, args: OutputArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["datasource"] = args ? args.datasource : undefined;
@@ -99,15 +100,11 @@ export class Output extends pulumi.CustomResource {
             inputs["serialization"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-nextgen:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-nextgen:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Output" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Output.__pulumiType, name, inputs, opts);
     }
 }

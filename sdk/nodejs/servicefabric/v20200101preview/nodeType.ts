@@ -117,20 +117,21 @@ export class NodeType extends pulumi.CustomResource {
      */
     constructor(name: string, args: NodeTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.dataDiskSizeGB === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataDiskSizeGB === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataDiskSizeGB'");
             }
-            if ((!args || args.isPrimary === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.isPrimary === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isPrimary'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmInstanceCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmInstanceCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
             inputs["applicationPorts"] = args ? args.applicationPorts : undefined;
@@ -174,15 +175,11 @@ export class NodeType extends pulumi.CustomResource {
             inputs["vmSecrets"] = undefined /*out*/;
             inputs["vmSize"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:NodeType" }, { type: "azure-nextgen:servicefabric:NodeType" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NodeType.__pulumiType, name, inputs, opts);
     }
 }

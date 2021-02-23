@@ -61,11 +61,12 @@ export class DefenderSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefenderSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceQuota === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceQuota === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceQuota'");
             }
-            if ((!args || args.sentinelWorkspaceResourceIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sentinelWorkspaceResourceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
             }
             inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
@@ -78,15 +79,11 @@ export class DefenderSetting extends pulumi.CustomResource {
             inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }, { type: "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefenderSetting.__pulumiType, name, inputs, opts);
     }
 }

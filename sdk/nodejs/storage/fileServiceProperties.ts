@@ -70,11 +70,12 @@ export class FileServiceProperties extends pulumi.CustomResource {
      */
     constructor(name: string, args: FileServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -94,15 +95,11 @@ export class FileServiceProperties extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }, { type: "azure-native:storage/v20210101:FileServiceProperties" }, { type: "azure-nextgen:storage/v20210101:FileServiceProperties" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }
 }

@@ -69,20 +69,21 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.linkedRedisCacheId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
-            if ((!args || args.linkedRedisCacheLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.linkedRedisCacheLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverRole === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverRole'");
             }
             inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
@@ -101,15 +102,11 @@ export class RedisLinkedServer extends pulumi.CustomResource {
             inputs["serverRole"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisLinkedServer" }, { type: "azure-nextgen:cache:RedisLinkedServer" }, { type: "azure-native:cache/latest:RedisLinkedServer" }, { type: "azure-nextgen:cache/latest:RedisLinkedServer" }, { type: "azure-native:cache/v20171001:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20171001:RedisLinkedServer" }, { type: "azure-native:cache/v20180301:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20180301:RedisLinkedServer" }, { type: "azure-native:cache/v20190701:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20190701:RedisLinkedServer" }, { type: "azure-native:cache/v20200601:RedisLinkedServer" }, { type: "azure-nextgen:cache/v20200601:RedisLinkedServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisLinkedServer.__pulumiType, name, inputs, opts);
     }
 }

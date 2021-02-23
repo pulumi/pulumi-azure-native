@@ -91,8 +91,9 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Namespace'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -119,15 +120,11 @@ export class Namespace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Namespace" }, { type: "azure-nextgen:servicebus:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-nextgen:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-nextgen:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-nextgen:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-nextgen:servicebus/v20180101preview:Namespace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, inputs, opts);
     }
 }

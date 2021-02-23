@@ -97,8 +97,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -131,15 +132,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceCapping"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Workspace" }, { type: "azure-nextgen:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/latest:Workspace" }, { type: "azure-nextgen:operationalinsights/latest:Workspace" }, { type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-nextgen:operationalinsights/v20201001:Workspace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

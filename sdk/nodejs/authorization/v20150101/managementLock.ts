@@ -61,7 +61,8 @@ export class ManagementLock extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ManagementLockArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["level"] = args ? args.level : undefined;
             inputs["lockName"] = args ? args.lockName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -73,15 +74,11 @@ export class ManagementLock extends pulumi.CustomResource {
             inputs["notes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLock" }, { type: "azure-nextgen:authorization:ManagementLock" }, { type: "azure-native:authorization/latest:ManagementLock" }, { type: "azure-nextgen:authorization/latest:ManagementLock" }, { type: "azure-native:authorization/v20160901:ManagementLock" }, { type: "azure-nextgen:authorization/v20160901:ManagementLock" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLock.__pulumiType, name, inputs, opts);
     }
 }

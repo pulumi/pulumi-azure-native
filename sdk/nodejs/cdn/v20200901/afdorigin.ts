@@ -98,17 +98,18 @@ export class AFDOrigin extends pulumi.CustomResource {
      */
     constructor(name: string, args: AFDOriginArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.originGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureOrigin"] = args ? args.azureOrigin : undefined;
@@ -145,15 +146,11 @@ export class AFDOrigin extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["weight"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDOrigin" }, { type: "azure-nextgen:cdn:AFDOrigin" }, { type: "azure-native:cdn/latest:AFDOrigin" }, { type: "azure-nextgen:cdn/latest:AFDOrigin" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDOrigin.__pulumiType, name, inputs, opts);
     }
 }

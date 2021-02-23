@@ -117,8 +117,9 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
@@ -162,15 +163,11 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnClientRootCertificates"] = undefined /*out*/;
             inputs["vpnProtocols"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnServerConfiguration" }, { type: "azure-nextgen:network:VpnServerConfiguration" }, { type: "azure-native:network/latest:VpnServerConfiguration" }, { type: "azure-nextgen:network/latest:VpnServerConfiguration" }, { type: "azure-native:network/v20190801:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20190801:VpnServerConfiguration" }, { type: "azure-native:network/v20190901:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20190901:VpnServerConfiguration" }, { type: "azure-native:network/v20191101:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20191101:VpnServerConfiguration" }, { type: "azure-native:network/v20191201:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20191201:VpnServerConfiguration" }, { type: "azure-native:network/v20200301:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20200301:VpnServerConfiguration" }, { type: "azure-native:network/v20200401:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20200401:VpnServerConfiguration" }, { type: "azure-native:network/v20200501:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20200501:VpnServerConfiguration" }, { type: "azure-native:network/v20200701:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20200701:VpnServerConfiguration" }, { type: "azure-native:network/v20200801:VpnServerConfiguration" }, { type: "azure-nextgen:network/v20200801:VpnServerConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnServerConfiguration.__pulumiType, name, inputs, opts);
     }
 }

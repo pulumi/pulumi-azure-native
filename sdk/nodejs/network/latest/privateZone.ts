@@ -102,8 +102,9 @@ export class PrivateZone extends pulumi.CustomResource {
     constructor(name: string, args: PrivateZoneArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PrivateZone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateZone'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -136,15 +137,11 @@ export class PrivateZone extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateZone" }, { type: "azure-nextgen:network:PrivateZone" }, { type: "azure-native:network/v20180901:PrivateZone" }, { type: "azure-nextgen:network/v20180901:PrivateZone" }, { type: "azure-native:network/v20200101:PrivateZone" }, { type: "azure-nextgen:network/v20200101:PrivateZone" }, { type: "azure-native:network/v20200601:PrivateZone" }, { type: "azure-nextgen:network/v20200601:PrivateZone" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateZone.__pulumiType, name, inputs, opts);
     }
 }

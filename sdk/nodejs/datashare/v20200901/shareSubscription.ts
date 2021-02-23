@@ -117,17 +117,18 @@ export class ShareSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.invitationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.invitationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'invitationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceShareLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceShareLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -171,15 +172,11 @@ export class ShareSubscription extends pulumi.CustomResource {
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ShareSubscription" }, { type: "azure-nextgen:datashare:ShareSubscription" }, { type: "azure-native:datashare/latest:ShareSubscription" }, { type: "azure-nextgen:datashare/latest:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-nextgen:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20201001preview:ShareSubscription" }, { type: "azure-nextgen:datashare/v20201001preview:ShareSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ShareSubscription.__pulumiType, name, inputs, opts);
     }
 }

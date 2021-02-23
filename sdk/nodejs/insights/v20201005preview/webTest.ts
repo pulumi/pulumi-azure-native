@@ -133,17 +133,18 @@ export class WebTest extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.locations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.syntheticMonitorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.syntheticMonitorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'syntheticMonitorId'");
             }
-            if ((!args || args.webTestKind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.webTestKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webTestKind'");
             }
             inputs["configuration"] = args ? args.configuration : undefined;
@@ -193,15 +194,11 @@ export class WebTest extends pulumi.CustomResource {
             inputs["webTestKind"] = undefined /*out*/;
             inputs["webTestName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:WebTest" }, { type: "azure-nextgen:insights:WebTest" }, { type: "azure-native:insights/latest:WebTest" }, { type: "azure-nextgen:insights/latest:WebTest" }, { type: "azure-native:insights/v20150501:WebTest" }, { type: "azure-nextgen:insights/v20150501:WebTest" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebTest.__pulumiType, name, inputs, opts);
     }
 }

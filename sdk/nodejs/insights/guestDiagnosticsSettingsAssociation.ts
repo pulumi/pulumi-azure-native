@@ -65,11 +65,12 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: GuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.guestDiagnosticSettingsName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.guestDiagnosticSettingsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guestDiagnosticSettingsName'");
             }
-            if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["associationName"] = args ? args.associationName : undefined;
@@ -86,15 +87,11 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation" }, { type: "azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestDiagnosticsSettingsAssociation.__pulumiType, name, inputs, opts);
     }
 }

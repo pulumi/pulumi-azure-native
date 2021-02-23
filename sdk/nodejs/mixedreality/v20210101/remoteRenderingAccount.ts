@@ -93,8 +93,9 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: RemoteRenderingAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -125,15 +126,11 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/latest:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/latest:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemoteRenderingAccount.__pulumiType, name, inputs, opts);
     }
 }

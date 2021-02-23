@@ -61,11 +61,12 @@ export class Key extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["isActiveCMK"] = args ? args.isActiveCMK : undefined;
@@ -81,15 +82,11 @@ export class Key extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:Key" }, { type: "azure-nextgen:synapse/latest:Key" }, { type: "azure-native:synapse/v20190601preview:Key" }, { type: "azure-nextgen:synapse/v20190601preview:Key" }, { type: "azure-native:synapse/v20201201:Key" }, { type: "azure-nextgen:synapse/v20201201:Key" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Key.__pulumiType, name, inputs, opts);
     }
 }

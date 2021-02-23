@@ -62,17 +62,18 @@ export class TableResourceTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -91,15 +92,11 @@ export class TableResourceTable extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:TableResourceTable" }, { type: "azure-nextgen:documentdb:TableResourceTable" }, { type: "azure-native:documentdb/latest:TableResourceTable" }, { type: "azure-nextgen:documentdb/latest:TableResourceTable" }, { type: "azure-native:documentdb/v20190801:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20190801:TableResourceTable" }, { type: "azure-native:documentdb/v20200301:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200301:TableResourceTable" }, { type: "azure-native:documentdb/v20200401:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200401:TableResourceTable" }, { type: "azure-native:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200601preview:TableResourceTable" }, { type: "azure-native:documentdb/v20200901:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20200901:TableResourceTable" }, { type: "azure-native:documentdb/v20210115:TableResourceTable" }, { type: "azure-nextgen:documentdb/v20210115:TableResourceTable" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }
 }

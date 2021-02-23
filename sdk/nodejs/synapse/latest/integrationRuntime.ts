@@ -67,14 +67,15 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationRuntimeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:IntegrationRuntime'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -90,15 +91,11 @@ export class IntegrationRuntime extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:IntegrationRuntime" }, { type: "azure-nextgen:synapse:IntegrationRuntime" }, { type: "azure-native:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-native:synapse/v20201201:IntegrationRuntime" }, { type: "azure-nextgen:synapse/v20201201:IntegrationRuntime" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }
 }

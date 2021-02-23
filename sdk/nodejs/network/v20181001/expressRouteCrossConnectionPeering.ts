@@ -113,11 +113,12 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.crossConnectionName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.crossConnectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'crossConnectionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
@@ -160,15 +161,11 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["vlanId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/latest:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/latest:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180201:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20180201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180401:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20180401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180601:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20180601:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180701:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20180701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180801:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20180801:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20181101:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20181101:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20181201:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20181201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190201:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190401:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190601:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190601:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190701:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190801:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190801:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190901:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20190901:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20191101:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20191101:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20191201:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20191201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200301:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200301:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200401:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200501:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200501:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200601:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200601:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200701:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200801:ExpressRouteCrossConnectionPeering" }, { type: "azure-nextgen:network/v20200801:ExpressRouteCrossConnectionPeering" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteCrossConnectionPeering.__pulumiType, name, inputs, opts);
     }
 }

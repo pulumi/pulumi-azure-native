@@ -94,8 +94,9 @@ export class SignalR extends pulumi.CustomResource {
      */
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -127,15 +128,11 @@ export class SignalR extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-native:signalrservice/latest:SignalR" }, { type: "azure-nextgen:signalrservice/latest:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalR.__pulumiType, name, inputs, opts);
     }
 }

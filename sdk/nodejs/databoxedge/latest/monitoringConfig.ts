@@ -63,17 +63,18 @@ export class MonitoringConfig extends pulumi.CustomResource {
     constructor(name: string, args: MonitoringConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MonitoringConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.metricConfigurations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metricConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -87,15 +88,11 @@ export class MonitoringConfig extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }
 }

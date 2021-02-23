@@ -92,8 +92,9 @@ export class IotSensor extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;
@@ -124,15 +125,11 @@ export class IotSensor extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zone"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:IotSensor" }, { type: "azure-nextgen:security:IotSensor" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotSensor.__pulumiType, name, inputs, opts);
     }
 }

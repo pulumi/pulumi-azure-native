@@ -63,11 +63,12 @@ export class TagAtScope extends pulumi.CustomResource {
     constructor(name: string, args: TagAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("TagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:TagAtScope'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["properties"] = args ? args.properties : undefined;
@@ -79,15 +80,11 @@ export class TagAtScope extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:TagAtScope" }, { type: "azure-nextgen:resources:TagAtScope" }, { type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-nextgen:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-nextgen:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-nextgen:resources/v20200801:TagAtScope" }, { type: "azure-native:resources/v20201001:TagAtScope" }, { type: "azure-nextgen:resources/v20201001:TagAtScope" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }
 }

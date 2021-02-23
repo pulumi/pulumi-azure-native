@@ -133,11 +133,12 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: BigDataPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["autoPause"] = args ? args.autoPause : undefined;
@@ -190,15 +191,11 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:BigDataPool" }, { type: "azure-nextgen:synapse:BigDataPool" }, { type: "azure-native:synapse/latest:BigDataPool" }, { type: "azure-nextgen:synapse/latest:BigDataPool" }, { type: "azure-native:synapse/v20201201:BigDataPool" }, { type: "azure-nextgen:synapse/v20201201:BigDataPool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BigDataPool.__pulumiType, name, inputs, opts);
     }
 }

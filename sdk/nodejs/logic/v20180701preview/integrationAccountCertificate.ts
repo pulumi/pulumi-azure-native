@@ -81,11 +81,12 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateName"] = args ? args.certificateName : undefined;
@@ -111,15 +112,11 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic:IntegrationAccountCertificate" }, { type: "azure-native:logic/latest:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/latest:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountCertificate" }, { type: "azure-native:logic/v20190501:IntegrationAccountCertificate" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountCertificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountCertificate.__pulumiType, name, inputs, opts);
     }
 }

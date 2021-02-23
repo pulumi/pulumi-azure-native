@@ -56,11 +56,12 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageAccountStaticWebsiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -73,12 +74,8 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
             inputs["error404Document"] = undefined /*out*/;
             inputs["indexDocument"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(StorageAccountStaticWebsite.__pulumiType, name, inputs, opts);
     }

@@ -95,8 +95,9 @@ export class ADCCatalog extends pulumi.CustomResource {
     constructor(name: string, args: ADCCatalogArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["admins"] = args ? args.admins : undefined;
@@ -125,15 +126,11 @@ export class ADCCatalog extends pulumi.CustomResource {
             inputs["units"] = undefined /*out*/;
             inputs["users"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datacatalog:ADCCatalog" }, { type: "azure-nextgen:datacatalog:ADCCatalog" }, { type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADCCatalog.__pulumiType, name, inputs, opts);
     }
 }

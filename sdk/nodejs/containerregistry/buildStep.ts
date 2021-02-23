@@ -58,14 +58,15 @@ export class BuildStep extends pulumi.CustomResource {
      */
     constructor(name: string, args: BuildStepArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.buildTaskName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.buildTaskName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'buildTaskName'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["buildTaskName"] = args ? args.buildTaskName : undefined;
@@ -80,15 +81,11 @@ export class BuildStep extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20180201preview:BuildStep" }, { type: "azure-nextgen:containerregistry/v20180201preview:BuildStep" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildStep.__pulumiType, name, inputs, opts);
     }
 }

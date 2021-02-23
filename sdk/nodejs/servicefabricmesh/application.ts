@@ -102,8 +102,9 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationResourceName"] = args ? args.applicationResourceName : undefined;
@@ -138,15 +139,11 @@ export class Application extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["unhealthyEvaluation"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180701preview:Application" }, { type: "azure-nextgen:servicefabricmesh/v20180701preview:Application" }, { type: "azure-native:servicefabricmesh/v20180901preview:Application" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Application" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

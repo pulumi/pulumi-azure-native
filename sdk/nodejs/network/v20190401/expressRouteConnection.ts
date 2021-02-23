@@ -65,17 +65,18 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.expressRouteCircuitPeering === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.expressRouteCircuitPeering === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
-            if ((!args || args.expressRouteGatewayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.expressRouteGatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
@@ -94,15 +95,11 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["routingWeight"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteConnection" }, { type: "azure-nextgen:network:ExpressRouteConnection" }, { type: "azure-native:network/latest:ExpressRouteConnection" }, { type: "azure-nextgen:network/latest:ExpressRouteConnection" }, { type: "azure-native:network/v20180801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20180801:ExpressRouteConnection" }, { type: "azure-native:network/v20181001:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteConnection" }, { type: "azure-native:network/v20181101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteConnection" }, { type: "azure-native:network/v20181201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteConnection" }, { type: "azure-native:network/v20190201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteConnection" }, { type: "azure-native:network/v20190601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteConnection" }, { type: "azure-native:network/v20190701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteConnection" }, { type: "azure-native:network/v20190801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteConnection" }, { type: "azure-native:network/v20190901:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteConnection" }, { type: "azure-native:network/v20191101:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteConnection" }, { type: "azure-native:network/v20191201:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteConnection" }, { type: "azure-native:network/v20200301:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteConnection" }, { type: "azure-native:network/v20200401:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteConnection" }, { type: "azure-native:network/v20200501:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteConnection" }, { type: "azure-native:network/v20200601:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteConnection" }, { type: "azure-native:network/v20200701:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteConnection" }, { type: "azure-native:network/v20200801:ExpressRouteConnection" }, { type: "azure-nextgen:network/v20200801:ExpressRouteConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteConnection.__pulumiType, name, inputs, opts);
     }
 }

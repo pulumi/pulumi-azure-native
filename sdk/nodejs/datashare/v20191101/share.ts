@@ -81,11 +81,12 @@ export class Share extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -111,15 +112,11 @@ export class Share extends pulumi.CustomResource {
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Share" }, { type: "azure-nextgen:datashare:Share" }, { type: "azure-native:datashare/latest:Share" }, { type: "azure-nextgen:datashare/latest:Share" }, { type: "azure-native:datashare/v20181101preview:Share" }, { type: "azure-nextgen:datashare/v20181101preview:Share" }, { type: "azure-native:datashare/v20200901:Share" }, { type: "azure-nextgen:datashare/v20200901:Share" }, { type: "azure-native:datashare/v20201001preview:Share" }, { type: "azure-nextgen:datashare/v20201001preview:Share" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Share.__pulumiType, name, inputs, opts);
     }
 }

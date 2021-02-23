@@ -66,11 +66,12 @@ export class ManagementLockByScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementLockByScopeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.level === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.level === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["level"] = args ? args.level : undefined;
@@ -87,15 +88,11 @@ export class ManagementLockByScope extends pulumi.CustomResource {
             inputs["owners"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/latest:ManagementLockByScope" }, { type: "azure-nextgen:authorization/latest:ManagementLockByScope" }, { type: "azure-native:authorization/v20160901:ManagementLockByScope" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }
 }

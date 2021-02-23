@@ -53,8 +53,9 @@ export class Deployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deploymentName"] = args ? args.deploymentName : undefined;
@@ -65,15 +66,11 @@ export class Deployment extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:Deployment" }, { type: "azure-nextgen:resources:Deployment" }, { type: "azure-native:resources/latest:Deployment" }, { type: "azure-nextgen:resources/latest:Deployment" }, { type: "azure-native:resources/v20151101:Deployment" }, { type: "azure-nextgen:resources/v20151101:Deployment" }, { type: "azure-native:resources/v20160701:Deployment" }, { type: "azure-nextgen:resources/v20160701:Deployment" }, { type: "azure-native:resources/v20160901:Deployment" }, { type: "azure-nextgen:resources/v20160901:Deployment" }, { type: "azure-native:resources/v20170510:Deployment" }, { type: "azure-nextgen:resources/v20170510:Deployment" }, { type: "azure-native:resources/v20180201:Deployment" }, { type: "azure-nextgen:resources/v20180201:Deployment" }, { type: "azure-native:resources/v20180501:Deployment" }, { type: "azure-nextgen:resources/v20180501:Deployment" }, { type: "azure-native:resources/v20190301:Deployment" }, { type: "azure-nextgen:resources/v20190301:Deployment" }, { type: "azure-native:resources/v20190501:Deployment" }, { type: "azure-nextgen:resources/v20190501:Deployment" }, { type: "azure-native:resources/v20190510:Deployment" }, { type: "azure-nextgen:resources/v20190510:Deployment" }, { type: "azure-native:resources/v20190701:Deployment" }, { type: "azure-nextgen:resources/v20190701:Deployment" }, { type: "azure-native:resources/v20190801:Deployment" }, { type: "azure-nextgen:resources/v20190801:Deployment" }, { type: "azure-native:resources/v20191001:Deployment" }, { type: "azure-nextgen:resources/v20191001:Deployment" }, { type: "azure-native:resources/v20200601:Deployment" }, { type: "azure-nextgen:resources/v20200601:Deployment" }, { type: "azure-native:resources/v20200801:Deployment" }, { type: "azure-nextgen:resources/v20200801:Deployment" }, { type: "azure-native:resources/v20201001:Deployment" }, { type: "azure-nextgen:resources/v20201001:Deployment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, inputs, opts);
     }
 }

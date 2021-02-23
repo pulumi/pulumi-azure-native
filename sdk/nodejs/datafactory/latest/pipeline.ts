@@ -99,11 +99,12 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Pipeline'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.factoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["activities"] = args ? args.activities : undefined;
@@ -135,15 +136,11 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["variables"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Pipeline" }, { type: "azure-nextgen:datafactory:Pipeline" }, { type: "azure-native:datafactory/v20170901preview:Pipeline" }, { type: "azure-nextgen:datafactory/v20170901preview:Pipeline" }, { type: "azure-native:datafactory/v20180601:Pipeline" }, { type: "azure-nextgen:datafactory/v20180601:Pipeline" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }

@@ -121,8 +121,9 @@ export class Device extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
@@ -167,15 +168,11 @@ export class Device extends pulumi.CustomResource {
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Device" }, { type: "azure-nextgen:databoxedge:Device" }, { type: "azure-native:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, inputs, opts);
     }
 }

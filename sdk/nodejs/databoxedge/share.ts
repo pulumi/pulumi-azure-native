@@ -98,20 +98,21 @@ export class Share extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accessProtocol === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accessProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accessProtocol'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareStatus'");
             }
             inputs["accessProtocol"] = args ? args.accessProtocol : undefined;
@@ -144,15 +145,11 @@ export class Share extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userAccessRights"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Share" }, { type: "azure-nextgen:databoxedge/latest:Share" }, { type: "azure-native:databoxedge/v20190301:Share" }, { type: "azure-nextgen:databoxedge/v20190301:Share" }, { type: "azure-native:databoxedge/v20190701:Share" }, { type: "azure-nextgen:databoxedge/v20190701:Share" }, { type: "azure-native:databoxedge/v20190801:Share" }, { type: "azure-nextgen:databoxedge/v20190801:Share" }, { type: "azure-native:databoxedge/v20200501preview:Share" }, { type: "azure-nextgen:databoxedge/v20200501preview:Share" }, { type: "azure-native:databoxedge/v20200901:Share" }, { type: "azure-nextgen:databoxedge/v20200901:Share" }, { type: "azure-native:databoxedge/v20200901preview:Share" }, { type: "azure-nextgen:databoxedge/v20200901preview:Share" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Share.__pulumiType, name, inputs, opts);
     }
 }

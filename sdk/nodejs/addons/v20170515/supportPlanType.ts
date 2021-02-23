@@ -56,8 +56,9 @@ export class SupportPlanType extends pulumi.CustomResource {
      */
     constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
             inputs["planTypeName"] = args ? args.planTypeName : undefined;
@@ -70,15 +71,11 @@ export class SupportPlanType extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:addons:SupportPlanType" }, { type: "azure-nextgen:addons:SupportPlanType" }, { type: "azure-native:addons/latest:SupportPlanType" }, { type: "azure-nextgen:addons/latest:SupportPlanType" }, { type: "azure-native:addons/v20180301:SupportPlanType" }, { type: "azure-nextgen:addons/v20180301:SupportPlanType" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SupportPlanType.__pulumiType, name, inputs, opts);
     }
 }

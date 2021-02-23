@@ -72,8 +72,9 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Connection'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionName"] = args ? args.connectionName : undefined;
@@ -93,15 +94,11 @@ export class Connection extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:Connection" }, { type: "azure-nextgen:web:Connection" }, { type: "azure-native:web/v20150801preview:Connection" }, { type: "azure-nextgen:web/v20150801preview:Connection" }, { type: "azure-native:web/v20160601:Connection" }, { type: "azure-nextgen:web/v20160601:Connection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connection.__pulumiType, name, inputs, opts);
     }
 }

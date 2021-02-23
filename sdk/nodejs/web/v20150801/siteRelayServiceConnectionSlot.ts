@@ -71,14 +71,15 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
@@ -110,15 +111,11 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200601:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200601:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200901:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20200901:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201001:SiteRelayServiceConnectionSlot" }, { type: "azure-nextgen:web/v20201001:SiteRelayServiceConnectionSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }
 }

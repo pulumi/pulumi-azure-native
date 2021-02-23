@@ -73,11 +73,12 @@ export class AddressByName extends pulumi.CustomResource {
      */
     constructor(name: string, args: AddressByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.contactDetails === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.contactDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contactDetails'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressName"] = args ? args.addressName : undefined;
@@ -98,15 +99,11 @@ export class AddressByName extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:AddressByName" }, { type: "azure-nextgen:edgeorder:AddressByName" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AddressByName.__pulumiType, name, inputs, opts);
     }
 }

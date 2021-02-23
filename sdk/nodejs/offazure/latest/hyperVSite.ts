@@ -72,8 +72,9 @@ export class HyperVSite extends pulumi.CustomResource {
     constructor(name: string, args: HyperVSiteArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("HyperVSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:offazure:HyperVSite'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -92,15 +93,11 @@ export class HyperVSite extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:offazure:HyperVSite" }, { type: "azure-nextgen:offazure:HyperVSite" }, { type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-nextgen:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-nextgen:offazure/v20200707:HyperVSite" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVSite.__pulumiType, name, inputs, opts);
     }
 }

@@ -73,11 +73,12 @@ export class IotHubResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotHubResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -98,15 +99,11 @@ export class IotHubResource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:IotHubResource" }, { type: "azure-nextgen:devices:IotHubResource" }, { type: "azure-native:devices/latest:IotHubResource" }, { type: "azure-nextgen:devices/latest:IotHubResource" }, { type: "azure-native:devices/v20160203:IotHubResource" }, { type: "azure-nextgen:devices/v20160203:IotHubResource" }, { type: "azure-native:devices/v20170119:IotHubResource" }, { type: "azure-nextgen:devices/v20170119:IotHubResource" }, { type: "azure-native:devices/v20170701:IotHubResource" }, { type: "azure-nextgen:devices/v20170701:IotHubResource" }, { type: "azure-native:devices/v20180122:IotHubResource" }, { type: "azure-nextgen:devices/v20180122:IotHubResource" }, { type: "azure-native:devices/v20181201preview:IotHubResource" }, { type: "azure-nextgen:devices/v20181201preview:IotHubResource" }, { type: "azure-native:devices/v20190322:IotHubResource" }, { type: "azure-nextgen:devices/v20190322:IotHubResource" }, { type: "azure-native:devices/v20190322preview:IotHubResource" }, { type: "azure-nextgen:devices/v20190322preview:IotHubResource" }, { type: "azure-native:devices/v20190701preview:IotHubResource" }, { type: "azure-nextgen:devices/v20190701preview:IotHubResource" }, { type: "azure-native:devices/v20191104:IotHubResource" }, { type: "azure-nextgen:devices/v20191104:IotHubResource" }, { type: "azure-native:devices/v20200301:IotHubResource" }, { type: "azure-nextgen:devices/v20200301:IotHubResource" }, { type: "azure-native:devices/v20200401:IotHubResource" }, { type: "azure-nextgen:devices/v20200401:IotHubResource" }, { type: "azure-native:devices/v20200615:IotHubResource" }, { type: "azure-nextgen:devices/v20200615:IotHubResource" }, { type: "azure-native:devices/v20200710preview:IotHubResource" }, { type: "azure-nextgen:devices/v20200710preview:IotHubResource" }, { type: "azure-native:devices/v20200801:IotHubResource" }, { type: "azure-nextgen:devices/v20200801:IotHubResource" }, { type: "azure-native:devices/v20200831:IotHubResource" }, { type: "azure-nextgen:devices/v20200831:IotHubResource" }, { type: "azure-native:devices/v20200831preview:IotHubResource" }, { type: "azure-nextgen:devices/v20200831preview:IotHubResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotHubResource.__pulumiType, name, inputs, opts);
     }
 }

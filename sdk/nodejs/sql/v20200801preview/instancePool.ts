@@ -77,17 +77,18 @@ export class InstancePool extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstancePoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.licenseType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.licenseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.vCores === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vCores === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vCores'");
             }
             inputs["instancePoolName"] = args ? args.instancePoolName : undefined;
@@ -110,15 +111,11 @@ export class InstancePool extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vCores"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:InstancePool" }, { type: "azure-nextgen:sql:InstancePool" }, { type: "azure-native:sql/v20180601preview:InstancePool" }, { type: "azure-nextgen:sql/v20180601preview:InstancePool" }, { type: "azure-native:sql/v20200202preview:InstancePool" }, { type: "azure-nextgen:sql/v20200202preview:InstancePool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstancePool.__pulumiType, name, inputs, opts);
     }
 }

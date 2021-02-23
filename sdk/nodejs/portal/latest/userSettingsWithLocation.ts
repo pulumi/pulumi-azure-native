@@ -55,11 +55,12 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
     constructor(name: string, args: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:UserSettingsWithLocation'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -68,15 +69,11 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         } else {
             inputs["properties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:UserSettingsWithLocation" }, { type: "azure-nextgen:portal:UserSettingsWithLocation" }, { type: "azure-native:portal/v20181001:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
     }
 }

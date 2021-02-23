@@ -106,8 +106,9 @@ export class NetworkFunction extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["device"] = args ? args.device : undefined;
@@ -144,15 +145,11 @@ export class NetworkFunction extends pulumi.CustomResource {
             inputs["vendorName"] = undefined /*out*/;
             inputs["vendorProvisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:NetworkFunction" }, { type: "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFunction.__pulumiType, name, inputs, opts);
     }
 }

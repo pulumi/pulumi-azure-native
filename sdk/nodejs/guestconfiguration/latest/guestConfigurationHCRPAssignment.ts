@@ -67,11 +67,12 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     constructor(name: string, args: GuestConfigurationHCRPAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GuestConfigurationHCRPAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:guestconfiguration:GuestConfigurationHCRPAssignment'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.machineName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.machineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
@@ -87,15 +88,11 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationHCRPAssignment.__pulumiType, name, inputs, opts);
     }
 }

@@ -64,8 +64,9 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleManagementPolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["policyId"] = args ? args.policyId : undefined;
@@ -81,12 +82,8 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             inputs["scope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RoleManagementPolicyAssignment.__pulumiType, name, inputs, opts);
     }

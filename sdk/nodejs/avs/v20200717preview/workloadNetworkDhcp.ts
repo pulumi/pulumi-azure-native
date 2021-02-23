@@ -73,14 +73,15 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkloadNetworkDhcpArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dhcpType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dhcpType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dhcpType'");
             }
-            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dhcpId"] = args ? args.dhcpId : undefined;
@@ -102,15 +103,11 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
             inputs["segments"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDhcp" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDhcp.__pulumiType, name, inputs, opts);
     }
 }

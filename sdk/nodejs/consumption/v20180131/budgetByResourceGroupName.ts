@@ -85,20 +85,21 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
      */
     constructor(name: string, args: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.amount === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.amount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.timeGrain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeGrain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if ((!args || args.timePeriod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timePeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
             inputs["amount"] = args ? args.amount : undefined;
@@ -125,15 +126,11 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
             inputs["timePeriod"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:consumption:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption:BudgetByResourceGroupName" }, { type: "azure-native:consumption/latest:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/latest:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180331:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180331:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180831:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180831:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20181001:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BudgetByResourceGroupName.__pulumiType, name, inputs, opts);
     }
 }

@@ -82,17 +82,18 @@ export class OriginGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: OriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.origins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
@@ -119,15 +120,11 @@ export class OriginGroup extends pulumi.CustomResource {
             inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:OriginGroup" }, { type: "azure-nextgen:cdn/latest:OriginGroup" }, { type: "azure-native:cdn/v20191231:OriginGroup" }, { type: "azure-nextgen:cdn/v20191231:OriginGroup" }, { type: "azure-native:cdn/v20200331:OriginGroup" }, { type: "azure-nextgen:cdn/v20200331:OriginGroup" }, { type: "azure-native:cdn/v20200415:OriginGroup" }, { type: "azure-nextgen:cdn/v20200415:OriginGroup" }, { type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-nextgen:cdn/v20200901:OriginGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OriginGroup.__pulumiType, name, inputs, opts);
     }
 }

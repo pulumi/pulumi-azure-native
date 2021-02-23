@@ -79,8 +79,9 @@ export class IntegrationAccount extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationAccountArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IntegrationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccount'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
@@ -101,15 +102,11 @@ export class IntegrationAccount extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccount" }, { type: "azure-nextgen:logic:IntegrationAccount" }, { type: "azure-native:logic/v20150801preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccount" }, { type: "azure-native:logic/v20160601:IntegrationAccount" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccount" }, { type: "azure-native:logic/v20180701preview:IntegrationAccount" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccount" }, { type: "azure-native:logic/v20190501:IntegrationAccount" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccount" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccount.__pulumiType, name, inputs, opts);
     }
 }

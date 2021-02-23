@@ -65,11 +65,12 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: SignalRPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
@@ -87,15 +88,11 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

@@ -131,11 +131,12 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Profile'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
@@ -183,15 +184,11 @@ export class Profile extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["typeName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Profile" }, { type: "azure-nextgen:customerinsights:Profile" }, { type: "azure-native:customerinsights/v20170101:Profile" }, { type: "azure-nextgen:customerinsights/v20170101:Profile" }, { type: "azure-native:customerinsights/v20170426:Profile" }, { type: "azure-nextgen:customerinsights/v20170426:Profile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, inputs, opts);
     }
 }

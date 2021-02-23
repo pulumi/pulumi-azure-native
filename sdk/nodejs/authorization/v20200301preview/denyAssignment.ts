@@ -109,14 +109,15 @@ export class DenyAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DenyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.permissions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principals === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principals === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["condition"] = args ? args.condition : undefined;
@@ -153,15 +154,11 @@ export class DenyAssignment extends pulumi.CustomResource {
             inputs["updatedBy"] = undefined /*out*/;
             inputs["updatedOn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:DenyAssignment" }, { type: "azure-nextgen:authorization:DenyAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DenyAssignment.__pulumiType, name, inputs, opts);
     }
 }

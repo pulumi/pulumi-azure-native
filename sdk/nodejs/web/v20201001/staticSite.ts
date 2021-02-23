@@ -97,8 +97,9 @@ export class StaticSite extends pulumi.CustomResource {
      */
     constructor(name: string, args: StaticSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["branch"] = args ? args.branch : undefined;
@@ -130,15 +131,11 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSite" }, { type: "azure-nextgen:web:StaticSite" }, { type: "azure-native:web/latest:StaticSite" }, { type: "azure-nextgen:web/latest:StaticSite" }, { type: "azure-native:web/v20190801:StaticSite" }, { type: "azure-nextgen:web/v20190801:StaticSite" }, { type: "azure-native:web/v20200601:StaticSite" }, { type: "azure-nextgen:web/v20200601:StaticSite" }, { type: "azure-native:web/v20200901:StaticSite" }, { type: "azure-nextgen:web/v20200901:StaticSite" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSite.__pulumiType, name, inputs, opts);
     }
 }

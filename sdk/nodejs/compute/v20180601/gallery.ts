@@ -73,8 +73,9 @@ export class Gallery extends pulumi.CustomResource {
      */
     constructor(name: string, args: GalleryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -95,15 +96,11 @@ export class Gallery extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Gallery" }, { type: "azure-nextgen:compute:Gallery" }, { type: "azure-native:compute/latest:Gallery" }, { type: "azure-nextgen:compute/latest:Gallery" }, { type: "azure-native:compute/v20190301:Gallery" }, { type: "azure-nextgen:compute/v20190301:Gallery" }, { type: "azure-native:compute/v20190701:Gallery" }, { type: "azure-nextgen:compute/v20190701:Gallery" }, { type: "azure-native:compute/v20191201:Gallery" }, { type: "azure-nextgen:compute/v20191201:Gallery" }, { type: "azure-native:compute/v20200930:Gallery" }, { type: "azure-nextgen:compute/v20200930:Gallery" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, inputs, opts);
     }
 }

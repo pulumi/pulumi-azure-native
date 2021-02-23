@@ -93,23 +93,24 @@ export class SqlServerInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.containerResourceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.containerResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerResourceId'");
             }
-            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.edition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.vCore === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vCore === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vCore'");
             }
-            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["containerResourceId"] = args ? args.containerResourceId : undefined;
@@ -140,15 +141,11 @@ export class SqlServerInstance extends pulumi.CustomResource {
             inputs["vCore"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServerInstance" }, { type: "azure-nextgen:azuredata:SqlServerInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlServerInstance" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, inputs, opts);
     }
 }

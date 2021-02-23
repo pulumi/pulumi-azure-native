@@ -69,14 +69,15 @@ export class IscsiTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: IscsiTargetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.diskPoolName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.diskPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tpgs === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tpgs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tpgs'");
             }
             inputs["diskPoolName"] = args ? args.diskPoolName : undefined;
@@ -96,15 +97,11 @@ export class IscsiTarget extends pulumi.CustomResource {
             inputs["tpgs"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagepool:IscsiTarget" }, { type: "azure-nextgen:storagepool:IscsiTarget" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiTarget.__pulumiType, name, inputs, opts);
     }
 }

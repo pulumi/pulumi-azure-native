@@ -111,14 +111,15 @@ export class ViewByScope extends pulumi.CustomResource {
     constructor(name: string, args: ViewByScopeArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ViewByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.timeframe === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeframe === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
@@ -154,15 +155,11 @@ export class ViewByScope extends pulumi.CustomResource {
             inputs["timeframe"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ViewByScope" }, { type: "azure-nextgen:costmanagement:ViewByScope" }, { type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20200601:ViewByScope" }, { type: "azure-nextgen:costmanagement/v20200601:ViewByScope" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ViewByScope.__pulumiType, name, inputs, opts);
     }
 }

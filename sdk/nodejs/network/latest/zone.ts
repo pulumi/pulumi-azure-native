@@ -99,8 +99,9 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Zone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Zone'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -131,15 +132,11 @@ export class Zone extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zoneType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Zone" }, { type: "azure-nextgen:network:Zone" }, { type: "azure-native:network/v20150504preview:Zone" }, { type: "azure-nextgen:network/v20150504preview:Zone" }, { type: "azure-native:network/v20160401:Zone" }, { type: "azure-nextgen:network/v20160401:Zone" }, { type: "azure-native:network/v20170901:Zone" }, { type: "azure-nextgen:network/v20170901:Zone" }, { type: "azure-native:network/v20171001:Zone" }, { type: "azure-nextgen:network/v20171001:Zone" }, { type: "azure-native:network/v20180301preview:Zone" }, { type: "azure-nextgen:network/v20180301preview:Zone" }, { type: "azure-native:network/v20180501:Zone" }, { type: "azure-nextgen:network/v20180501:Zone" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Zone.__pulumiType, name, inputs, opts);
     }
 }

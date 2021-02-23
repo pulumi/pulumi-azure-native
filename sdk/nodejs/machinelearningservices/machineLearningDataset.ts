@@ -74,20 +74,21 @@ export class MachineLearningDataset extends pulumi.CustomResource {
      */
     constructor(name: string, args: MachineLearningDatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.datasetType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.datasetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.registration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["datasetName"] = args ? args.datasetName : undefined;
@@ -114,15 +115,11 @@ export class MachineLearningDataset extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDataset" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningDataset.__pulumiType, name, inputs, opts);
     }
 }

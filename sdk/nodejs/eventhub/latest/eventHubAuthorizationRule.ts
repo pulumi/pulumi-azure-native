@@ -63,17 +63,18 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventHubAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHubAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.eventHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -88,15 +89,11 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule" }, { type: "azure-native:eventhub/v20180101preview:EventHubAuthorizationRule" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

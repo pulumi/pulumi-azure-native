@@ -74,14 +74,15 @@ export class ProductGroup extends pulumi.CustomResource {
     constructor(name: string, args: ProductGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProductGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ProductGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["groupId"] = args ? args.groupId : undefined;
@@ -102,15 +103,11 @@ export class ProductGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductGroup" }, { type: "azure-nextgen:apimanagement:ProductGroup" }, { type: "azure-native:apimanagement/v20170301:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20170301:ProductGroup" }, { type: "azure-native:apimanagement/v20180101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180101:ProductGroup" }, { type: "azure-native:apimanagement/v20180601preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductGroup" }, { type: "azure-native:apimanagement/v20190101:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20190101:ProductGroup" }, { type: "azure-native:apimanagement/v20191201:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201:ProductGroup" }, { type: "azure-native:apimanagement/v20191201preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductGroup" }, { type: "azure-native:apimanagement/v20200601preview:ProductGroup" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -141,11 +141,12 @@ export class VirtualMachineResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["artifactDeploymentStatus"] = args ? args.artifactDeploymentStatus : undefined;
@@ -201,15 +202,11 @@ export class VirtualMachineResource extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineResource" }, { type: "azure-nextgen:devtestlab:VirtualMachineResource" }, { type: "azure-native:devtestlab/latest:VirtualMachineResource" }, { type: "azure-nextgen:devtestlab/latest:VirtualMachineResource" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineResource" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineResource" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineResource" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineResource.__pulumiType, name, inputs, opts);
     }
 }

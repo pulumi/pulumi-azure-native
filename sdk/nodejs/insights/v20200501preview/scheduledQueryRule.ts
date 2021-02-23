@@ -122,26 +122,27 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.criteria === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.criteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.evaluationFrequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.evaluationFrequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'evaluationFrequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.windowSize === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.windowSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowSize'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -188,15 +189,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["windowSize"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20180416:ScheduledQueryRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }
 }

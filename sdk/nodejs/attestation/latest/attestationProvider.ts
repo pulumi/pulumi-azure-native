@@ -87,11 +87,12 @@ export class AttestationProvider extends pulumi.CustomResource {
     constructor(name: string, args: AttestationProviderArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:attestation:AttestationProvider'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -117,15 +118,11 @@ export class AttestationProvider extends pulumi.CustomResource {
             inputs["trustModel"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:attestation:AttestationProvider" }, { type: "azure-nextgen:attestation:AttestationProvider" }, { type: "azure-native:attestation/v20180901preview:AttestationProvider" }, { type: "azure-nextgen:attestation/v20180901preview:AttestationProvider" }, { type: "azure-native:attestation/v20201001:AttestationProvider" }, { type: "azure-nextgen:attestation/v20201001:AttestationProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationProvider.__pulumiType, name, inputs, opts);
     }
 }

@@ -61,11 +61,12 @@ export class DpsCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: DpsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.provisioningServiceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.provisioningServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisioningServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
@@ -82,15 +83,11 @@ export class DpsCertificate extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:DpsCertificate" }, { type: "azure-nextgen:devices:DpsCertificate" }, { type: "azure-native:devices/latest:DpsCertificate" }, { type: "azure-nextgen:devices/latest:DpsCertificate" }, { type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-nextgen:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-nextgen:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200301:DpsCertificate" }, { type: "azure-nextgen:devices/v20200301:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-nextgen:devices/v20200901preview:DpsCertificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DpsCertificate.__pulumiType, name, inputs, opts);
     }
 }

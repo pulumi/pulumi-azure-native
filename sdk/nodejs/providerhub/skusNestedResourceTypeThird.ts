@@ -54,23 +54,24 @@ export class SkusNestedResourceTypeThird extends pulumi.CustomResource {
      */
     constructor(name: string, args: SkusNestedResourceTypeThirdArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.nestedResourceTypeFirst === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.nestedResourceTypeFirst === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeFirst'");
             }
-            if ((!args || args.nestedResourceTypeSecond === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nestedResourceTypeSecond === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeSecond'");
             }
-            if ((!args || args.nestedResourceTypeThird === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nestedResourceTypeThird === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nestedResourceTypeThird'");
             }
-            if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.skuSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.skuSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuSettings'");
             }
             inputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
@@ -88,15 +89,11 @@ export class SkusNestedResourceTypeThird extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:SkusNestedResourceTypeThird" }, { type: "azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird" }, { type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeThird" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SkusNestedResourceTypeThird.__pulumiType, name, inputs, opts);
     }
 }

@@ -60,17 +60,18 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
@@ -86,15 +87,11 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:FirewallRule" }, { type: "azure-nextgen:dbformariadb:FirewallRule" }, { type: "azure-native:dbformariadb/latest:FirewallRule" }, { type: "azure-nextgen:dbformariadb/latest:FirewallRule" }, { type: "azure-native:dbformariadb/v20180601:FirewallRule" }, { type: "azure-nextgen:dbformariadb/v20180601:FirewallRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }
 }

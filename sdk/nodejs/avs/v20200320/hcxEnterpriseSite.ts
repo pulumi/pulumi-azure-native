@@ -60,11 +60,12 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      */
     constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
@@ -80,15 +81,11 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-nextgen:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/latest:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/latest:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }
 }

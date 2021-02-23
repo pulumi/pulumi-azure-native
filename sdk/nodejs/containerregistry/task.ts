@@ -103,17 +103,18 @@ export class Task extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.platform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.step === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.step === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'step'");
             }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
@@ -149,15 +150,11 @@ export class Task extends pulumi.CustomResource {
             inputs["trigger"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/latest:Task" }, { type: "azure-nextgen:containerregistry/latest:Task" }, { type: "azure-native:containerregistry/v20180901:Task" }, { type: "azure-nextgen:containerregistry/v20180901:Task" }, { type: "azure-native:containerregistry/v20190401:Task" }, { type: "azure-nextgen:containerregistry/v20190401:Task" }, { type: "azure-native:containerregistry/v20190601preview:Task" }, { type: "azure-nextgen:containerregistry/v20190601preview:Task" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Task.__pulumiType, name, inputs, opts);
     }
 }

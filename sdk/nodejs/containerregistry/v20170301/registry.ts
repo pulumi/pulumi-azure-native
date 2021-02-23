@@ -85,14 +85,15 @@ export class Registry extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageAccount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
             inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) || false;
@@ -119,15 +120,11 @@ export class Registry extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Registry" }, { type: "azure-nextgen:containerregistry:Registry" }, { type: "azure-native:containerregistry/latest:Registry" }, { type: "azure-nextgen:containerregistry/latest:Registry" }, { type: "azure-native:containerregistry/v20160627preview:Registry" }, { type: "azure-nextgen:containerregistry/v20160627preview:Registry" }, { type: "azure-native:containerregistry/v20170601preview:Registry" }, { type: "azure-nextgen:containerregistry/v20170601preview:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-nextgen:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-nextgen:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-nextgen:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-nextgen:containerregistry/v20201101preview:Registry" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, inputs, opts);
     }
 }

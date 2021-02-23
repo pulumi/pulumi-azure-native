@@ -62,8 +62,9 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["plan"] = args ? args.plan : undefined;
@@ -78,15 +79,11 @@ export class RegistrationDefinition extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managedservices/latest:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/latest:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-native:managedservices/v20200201preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }
 }

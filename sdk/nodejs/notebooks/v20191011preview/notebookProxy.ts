@@ -60,8 +60,9 @@ export class NotebookProxy extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotebookProxyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostname"] = args ? args.hostname : undefined;
@@ -76,15 +77,11 @@ export class NotebookProxy extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notebooks:NotebookProxy" }, { type: "azure-nextgen:notebooks:NotebookProxy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotebookProxy.__pulumiType, name, inputs, opts);
     }
 }

@@ -93,20 +93,21 @@ export class LiveOutput extends pulumi.CustomResource {
      */
     constructor(name: string, args: LiveOutputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.archiveWindowLength === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.archiveWindowLength === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'archiveWindowLength'");
             }
-            if ((!args || args.assetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.assetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetName'");
             }
-            if ((!args || args.liveEventName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.liveEventName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'liveEventName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -139,15 +140,11 @@ export class LiveOutput extends pulumi.CustomResource {
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:LiveOutput" }, { type: "azure-nextgen:media:LiveOutput" }, { type: "azure-native:media/latest:LiveOutput" }, { type: "azure-nextgen:media/latest:LiveOutput" }, { type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-nextgen:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-nextgen:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-nextgen:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-nextgen:media/v20190501preview:LiveOutput" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveOutput.__pulumiType, name, inputs, opts);
     }
 }

@@ -67,17 +67,18 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseAccountTableArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DatabaseAccountTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountTable'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -95,15 +96,11 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountTable" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountTable" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountTable.__pulumiType, name, inputs, opts);
     }
 }

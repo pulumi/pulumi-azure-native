@@ -62,11 +62,12 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
@@ -82,15 +83,11 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/latest:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }
 }

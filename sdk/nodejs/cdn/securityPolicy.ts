@@ -67,11 +67,12 @@ export class SecurityPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -91,15 +92,11 @@ export class SecurityPolicy extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:SecurityPolicy" }, { type: "azure-nextgen:cdn/latest:SecurityPolicy" }, { type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-nextgen:cdn/v20200901:SecurityPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPolicy.__pulumiType, name, inputs, opts);
     }
 }

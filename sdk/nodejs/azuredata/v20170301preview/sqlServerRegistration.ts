@@ -72,8 +72,9 @@ export class SqlServerRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlServerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -94,15 +95,11 @@ export class SqlServerRegistration extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServerRegistration" }, { type: "azure-nextgen:azuredata:SqlServerRegistration" }, { type: "azure-native:azuredata/v20190724preview:SqlServerRegistration" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerRegistration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerRegistration.__pulumiType, name, inputs, opts);
     }
 }

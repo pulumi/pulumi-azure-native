@@ -81,11 +81,12 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHub === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHub === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHub'");
             }
             inputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
@@ -111,15 +112,11 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualHub"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteGateway" }, { type: "azure-nextgen:network:ExpressRouteGateway" }, { type: "azure-native:network/latest:ExpressRouteGateway" }, { type: "azure-nextgen:network/latest:ExpressRouteGateway" }, { type: "azure-native:network/v20180801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20180801:ExpressRouteGateway" }, { type: "azure-native:network/v20181001:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181001:ExpressRouteGateway" }, { type: "azure-native:network/v20181101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20181101:ExpressRouteGateway" }, { type: "azure-native:network/v20190201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190201:ExpressRouteGateway" }, { type: "azure-native:network/v20190401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190401:ExpressRouteGateway" }, { type: "azure-native:network/v20190601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190601:ExpressRouteGateway" }, { type: "azure-native:network/v20190701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190701:ExpressRouteGateway" }, { type: "azure-native:network/v20190801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190801:ExpressRouteGateway" }, { type: "azure-native:network/v20190901:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20190901:ExpressRouteGateway" }, { type: "azure-native:network/v20191101:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191101:ExpressRouteGateway" }, { type: "azure-native:network/v20191201:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20191201:ExpressRouteGateway" }, { type: "azure-native:network/v20200301:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200301:ExpressRouteGateway" }, { type: "azure-native:network/v20200401:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200401:ExpressRouteGateway" }, { type: "azure-native:network/v20200501:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200501:ExpressRouteGateway" }, { type: "azure-native:network/v20200601:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200601:ExpressRouteGateway" }, { type: "azure-native:network/v20200701:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200701:ExpressRouteGateway" }, { type: "azure-native:network/v20200801:ExpressRouteGateway" }, { type: "azure-nextgen:network/v20200801:ExpressRouteGateway" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteGateway.__pulumiType, name, inputs, opts);
     }
 }

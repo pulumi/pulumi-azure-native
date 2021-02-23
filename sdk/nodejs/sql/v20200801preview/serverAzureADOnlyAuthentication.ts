@@ -56,14 +56,15 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.azureADOnlyAuthentication === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["authenticationName"] = args ? args.authenticationName : undefined;
@@ -77,15 +78,11 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }
 }

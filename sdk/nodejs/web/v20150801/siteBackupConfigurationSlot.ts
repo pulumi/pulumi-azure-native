@@ -81,17 +81,18 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteBackupConfigurationSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["backupSchedule"] = args ? args.backupSchedule : undefined;
@@ -117,15 +118,11 @@ export class SiteBackupConfigurationSlot extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web:SiteBackupConfigurationSlot" }, { type: "azure-native:web/latest:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/latest:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20160801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20180201:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20181101:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20190801:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200601:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20200901:SiteBackupConfigurationSlot" }, { type: "azure-native:web/v20201001:SiteBackupConfigurationSlot" }, { type: "azure-nextgen:web/v20201001:SiteBackupConfigurationSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteBackupConfigurationSlot.__pulumiType, name, inputs, opts);
     }
 }

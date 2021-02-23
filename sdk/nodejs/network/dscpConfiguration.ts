@@ -106,8 +106,9 @@ export class DscpConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
@@ -145,15 +146,11 @@ export class DscpConfiguration extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/latest:DscpConfiguration" }, { type: "azure-nextgen:network/latest:DscpConfiguration" }, { type: "azure-native:network/v20200601:DscpConfiguration" }, { type: "azure-nextgen:network/v20200601:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-nextgen:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-nextgen:network/v20200801:DscpConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscpConfiguration.__pulumiType, name, inputs, opts);
     }
 }

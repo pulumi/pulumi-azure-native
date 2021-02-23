@@ -81,11 +81,12 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkloadNetworkPortMirroringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destination"] = args ? args.destination : undefined;
@@ -111,15 +112,11 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs:WorkloadNetworkPortMirroring" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring" }, { type: "azure-nextgen:avs/v20210101preview:WorkloadNetworkPortMirroring" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkPortMirroring.__pulumiType, name, inputs, opts);
     }
 }

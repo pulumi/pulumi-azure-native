@@ -61,14 +61,15 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationRecoveryPlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["properties"] = args ? args.properties : undefined;
@@ -84,15 +85,11 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/latest:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationRecoveryPlan.__pulumiType, name, inputs, opts);
     }
 }

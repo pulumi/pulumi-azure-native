@@ -61,11 +61,12 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
@@ -82,15 +83,11 @@ export class Certificate extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:Certificate" }, { type: "azure-nextgen:devices:Certificate" }, { type: "azure-native:devices/latest:Certificate" }, { type: "azure-nextgen:devices/latest:Certificate" }, { type: "azure-native:devices/v20170701:Certificate" }, { type: "azure-nextgen:devices/v20170701:Certificate" }, { type: "azure-native:devices/v20180122:Certificate" }, { type: "azure-nextgen:devices/v20180122:Certificate" }, { type: "azure-native:devices/v20180401:Certificate" }, { type: "azure-nextgen:devices/v20180401:Certificate" }, { type: "azure-native:devices/v20181201preview:Certificate" }, { type: "azure-nextgen:devices/v20181201preview:Certificate" }, { type: "azure-native:devices/v20190322:Certificate" }, { type: "azure-nextgen:devices/v20190322:Certificate" }, { type: "azure-native:devices/v20190701preview:Certificate" }, { type: "azure-nextgen:devices/v20190701preview:Certificate" }, { type: "azure-native:devices/v20191104:Certificate" }, { type: "azure-nextgen:devices/v20191104:Certificate" }, { type: "azure-native:devices/v20200301:Certificate" }, { type: "azure-nextgen:devices/v20200301:Certificate" }, { type: "azure-native:devices/v20200401:Certificate" }, { type: "azure-nextgen:devices/v20200401:Certificate" }, { type: "azure-native:devices/v20200615:Certificate" }, { type: "azure-nextgen:devices/v20200615:Certificate" }, { type: "azure-native:devices/v20200710preview:Certificate" }, { type: "azure-nextgen:devices/v20200710preview:Certificate" }, { type: "azure-native:devices/v20200801:Certificate" }, { type: "azure-nextgen:devices/v20200801:Certificate" }, { type: "azure-native:devices/v20200831:Certificate" }, { type: "azure-nextgen:devices/v20200831:Certificate" }, { type: "azure-native:devices/v20200831preview:Certificate" }, { type: "azure-nextgen:devices/v20200831preview:Certificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

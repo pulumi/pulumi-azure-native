@@ -121,11 +121,12 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["catalogCollation"] = args ? args.catalogCollation : undefined;
@@ -171,15 +172,11 @@ export class ManagedDatabase extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabase" }, { type: "azure-nextgen:sql:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200202preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200202preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-nextgen:sql/v20200801preview:ManagedDatabase" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedDatabase.__pulumiType, name, inputs, opts);
     }
 }

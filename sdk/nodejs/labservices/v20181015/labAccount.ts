@@ -81,8 +81,9 @@ export class LabAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: LabAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["enabledRegionSelection"] = args ? args.enabledRegionSelection : undefined;
@@ -107,15 +108,11 @@ export class LabAccount extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices:LabAccount" }, { type: "azure-nextgen:labservices:LabAccount" }, { type: "azure-native:labservices/latest:LabAccount" }, { type: "azure-nextgen:labservices/latest:LabAccount" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabAccount.__pulumiType, name, inputs, opts);
     }
 }

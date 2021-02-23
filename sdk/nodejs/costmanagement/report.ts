@@ -74,11 +74,12 @@ export class Report extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReportArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -98,15 +99,11 @@ export class Report extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:Report" }, { type: "azure-nextgen:costmanagement/v20180801preview:Report" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Report.__pulumiType, name, inputs, opts);
     }
 }

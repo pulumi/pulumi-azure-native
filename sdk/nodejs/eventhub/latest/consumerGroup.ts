@@ -70,14 +70,15 @@ export class ConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:ConsumerGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.eventHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
@@ -96,15 +97,11 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["updatedAt"] = undefined /*out*/;
             inputs["userMetadata"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:ConsumerGroup" }, { type: "azure-nextgen:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-nextgen:eventhub/v20180101preview:ConsumerGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsumerGroup.__pulumiType, name, inputs, opts);
     }
 }

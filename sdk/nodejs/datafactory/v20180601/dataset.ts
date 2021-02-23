@@ -61,14 +61,15 @@ export class Dataset extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.factoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["datasetName"] = args ? args.datasetName : undefined;
@@ -84,15 +85,11 @@ export class Dataset extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Dataset" }, { type: "azure-nextgen:datafactory:Dataset" }, { type: "azure-native:datafactory/latest:Dataset" }, { type: "azure-nextgen:datafactory/latest:Dataset" }, { type: "azure-native:datafactory/v20170901preview:Dataset" }, { type: "azure-nextgen:datafactory/v20170901preview:Dataset" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dataset.__pulumiType, name, inputs, opts);
     }
 }

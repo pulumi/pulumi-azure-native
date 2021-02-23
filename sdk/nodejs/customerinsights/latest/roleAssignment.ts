@@ -139,17 +139,18 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RoleAssignment'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.principals === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principals === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["assignmentName"] = args ? args.assignmentName : undefined;
@@ -200,15 +201,11 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["views"] = undefined /*out*/;
             inputs["widgetTypes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RoleAssignment" }, { type: "azure-nextgen:customerinsights:RoleAssignment" }, { type: "azure-native:customerinsights/v20170101:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170101:RoleAssignment" }, { type: "azure-native:customerinsights/v20170426:RoleAssignment" }, { type: "azure-nextgen:customerinsights/v20170426:RoleAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }
 }

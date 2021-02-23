@@ -63,11 +63,12 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     constructor(name: string, args: SharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.searchServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.searchServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
             inputs["properties"] = args ? args.properties : undefined;
@@ -81,15 +82,11 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:search:SharedPrivateLinkResource" }, { type: "azure-nextgen:search:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }
 }

@@ -105,14 +105,15 @@ export class SyncGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["conflictLoggingRetentionInDays"] = args ? args.conflictLoggingRetentionInDays : undefined;
@@ -151,15 +152,11 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usePrivateLinkConnection"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-nextgen:sql:SyncGroup" }, { type: "azure-native:sql/v20150501preview:SyncGroup" }, { type: "azure-nextgen:sql/v20150501preview:SyncGroup" }, { type: "azure-native:sql/v20190601preview:SyncGroup" }, { type: "azure-nextgen:sql/v20190601preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-nextgen:sql/v20200801preview:SyncGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }
 }

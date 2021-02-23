@@ -109,8 +109,9 @@ export class PrivateLinkService extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateLinkServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoApproval"] = args ? args.autoApproval : undefined;
@@ -150,15 +151,11 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["visibility"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateLinkService" }, { type: "azure-nextgen:network:PrivateLinkService" }, { type: "azure-native:network/latest:PrivateLinkService" }, { type: "azure-nextgen:network/latest:PrivateLinkService" }, { type: "azure-native:network/v20190401:PrivateLinkService" }, { type: "azure-nextgen:network/v20190401:PrivateLinkService" }, { type: "azure-native:network/v20190601:PrivateLinkService" }, { type: "azure-nextgen:network/v20190601:PrivateLinkService" }, { type: "azure-native:network/v20190701:PrivateLinkService" }, { type: "azure-nextgen:network/v20190701:PrivateLinkService" }, { type: "azure-native:network/v20190801:PrivateLinkService" }, { type: "azure-nextgen:network/v20190801:PrivateLinkService" }, { type: "azure-native:network/v20190901:PrivateLinkService" }, { type: "azure-nextgen:network/v20190901:PrivateLinkService" }, { type: "azure-native:network/v20191101:PrivateLinkService" }, { type: "azure-nextgen:network/v20191101:PrivateLinkService" }, { type: "azure-native:network/v20191201:PrivateLinkService" }, { type: "azure-nextgen:network/v20191201:PrivateLinkService" }, { type: "azure-native:network/v20200301:PrivateLinkService" }, { type: "azure-nextgen:network/v20200301:PrivateLinkService" }, { type: "azure-native:network/v20200401:PrivateLinkService" }, { type: "azure-nextgen:network/v20200401:PrivateLinkService" }, { type: "azure-native:network/v20200501:PrivateLinkService" }, { type: "azure-nextgen:network/v20200501:PrivateLinkService" }, { type: "azure-native:network/v20200601:PrivateLinkService" }, { type: "azure-nextgen:network/v20200601:PrivateLinkService" }, { type: "azure-native:network/v20200701:PrivateLinkService" }, { type: "azure-nextgen:network/v20200701:PrivateLinkService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkService.__pulumiType, name, inputs, opts);
     }
 }

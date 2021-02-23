@@ -83,11 +83,12 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: WebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebAppDiagnosticLogsConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDiagnosticLogsConfiguration'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationLogs"] = args ? args.applicationLogs : undefined;
@@ -109,15 +110,11 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20180201:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDiagnosticLogsConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -85,11 +85,12 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.virtualSubnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualSubnetId'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -116,15 +117,11 @@ export class Service extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualSubnetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Service" }, { type: "azure-nextgen:datamigration:Service" }, { type: "azure-native:datamigration/latest:Service" }, { type: "azure-nextgen:datamigration/latest:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-nextgen:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-nextgen:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-nextgen:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-nextgen:datamigration/v20180715preview:Service" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

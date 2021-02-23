@@ -103,23 +103,24 @@ export class RelationshipLink extends pulumi.CustomResource {
     constructor(name: string, args: RelationshipLinkArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RelationshipLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:RelationshipLink'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.interactionType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.interactionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'interactionType'");
             }
-            if ((!args || args.profilePropertyReferences === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profilePropertyReferences === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profilePropertyReferences'");
             }
-            if ((!args || args.relatedProfilePropertyReferences === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.relatedProfilePropertyReferences === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfilePropertyReferences'");
             }
-            if ((!args || args.relationshipName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.relationshipName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relationshipName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -153,15 +154,11 @@ export class RelationshipLink extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RelationshipLink" }, { type: "azure-nextgen:customerinsights:RelationshipLink" }, { type: "azure-native:customerinsights/v20170101:RelationshipLink" }, { type: "azure-nextgen:customerinsights/v20170101:RelationshipLink" }, { type: "azure-native:customerinsights/v20170426:RelationshipLink" }, { type: "azure-nextgen:customerinsights/v20170426:RelationshipLink" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RelationshipLink.__pulumiType, name, inputs, opts);
     }
 }

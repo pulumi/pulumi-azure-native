@@ -64,17 +64,18 @@ export class Action extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleId'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["actionId"] = args ? args.actionId : undefined;
@@ -95,12 +96,8 @@ export class Action extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workflowId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Action.__pulumiType, name, inputs, opts);
     }

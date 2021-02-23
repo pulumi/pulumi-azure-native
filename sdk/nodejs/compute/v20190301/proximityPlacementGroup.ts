@@ -77,8 +77,9 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -101,15 +102,11 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             inputs["virtualMachineScaleSets"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:ProximityPlacementGroup" }, { type: "azure-nextgen:compute:ProximityPlacementGroup" }, { type: "azure-native:compute/latest:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/latest:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180401:ProximityPlacementGroup" }, { type: "azure-native:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20180601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20181001:ProximityPlacementGroup" }, { type: "azure-native:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20190701:ProximityPlacementGroup" }, { type: "azure-native:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20191201:ProximityPlacementGroup" }, { type: "azure-native:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20200601:ProximityPlacementGroup" }, { type: "azure-native:compute/v20201201:ProximityPlacementGroup" }, { type: "azure-nextgen:compute/v20201201:ProximityPlacementGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProximityPlacementGroup.__pulumiType, name, inputs, opts);
     }
 }

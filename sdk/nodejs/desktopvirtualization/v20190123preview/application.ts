@@ -93,14 +93,15 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.applicationGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.applicationGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if ((!args || args.commandLineSetting === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.commandLineSetting === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'commandLineSetting'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
@@ -132,15 +133,11 @@ export class Application extends pulumi.CustomResource {
             inputs["showInPortal"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:Application" }, { type: "azure-nextgen:desktopvirtualization:Application" }, { type: "azure-native:desktopvirtualization/v20190924preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20190924preview:Application" }, { type: "azure-native:desktopvirtualization/v20191210preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20191210preview:Application" }, { type: "azure-native:desktopvirtualization/v20200921preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20200921preview:Application" }, { type: "azure-native:desktopvirtualization/v20201019preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20201019preview:Application" }, { type: "azure-native:desktopvirtualization/v20201102preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20201102preview:Application" }, { type: "azure-native:desktopvirtualization/v20201110preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20201110preview:Application" }, { type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-nextgen:desktopvirtualization/v20210201preview:Application" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

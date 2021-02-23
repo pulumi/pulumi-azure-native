@@ -105,17 +105,18 @@ export class Workbook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serializedData === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serializedData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serializedData'");
             }
             inputs["category"] = args ? args.category : undefined;
@@ -153,15 +154,11 @@ export class Workbook extends pulumi.CustomResource {
             inputs["userId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:Workbook" }, { type: "azure-nextgen:insights:Workbook" }, { type: "azure-native:insights/latest:Workbook" }, { type: "azure-nextgen:insights/latest:Workbook" }, { type: "azure-native:insights/v20150501:Workbook" }, { type: "azure-nextgen:insights/v20150501:Workbook" }, { type: "azure-native:insights/v20180617preview:Workbook" }, { type: "azure-nextgen:insights/v20180617preview:Workbook" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workbook.__pulumiType, name, inputs, opts);
     }
 }

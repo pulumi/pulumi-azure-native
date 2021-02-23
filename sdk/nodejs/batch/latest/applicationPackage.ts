@@ -82,14 +82,15 @@ export class ApplicationPackage extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApplicationPackage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:ApplicationPackage'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.applicationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -114,15 +115,11 @@ export class ApplicationPackage extends pulumi.CustomResource {
             inputs["storageUrlExpiry"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:ApplicationPackage" }, { type: "azure-nextgen:batch:ApplicationPackage" }, { type: "azure-native:batch/v20151201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20151201:ApplicationPackage" }, { type: "azure-native:batch/v20170101:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170101:ApplicationPackage" }, { type: "azure-native:batch/v20170501:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170501:ApplicationPackage" }, { type: "azure-native:batch/v20170901:ApplicationPackage" }, { type: "azure-nextgen:batch/v20170901:ApplicationPackage" }, { type: "azure-native:batch/v20181201:ApplicationPackage" }, { type: "azure-nextgen:batch/v20181201:ApplicationPackage" }, { type: "azure-native:batch/v20190401:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190401:ApplicationPackage" }, { type: "azure-native:batch/v20190801:ApplicationPackage" }, { type: "azure-nextgen:batch/v20190801:ApplicationPackage" }, { type: "azure-native:batch/v20200301:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200301:ApplicationPackage" }, { type: "azure-native:batch/v20200501:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200501:ApplicationPackage" }, { type: "azure-native:batch/v20200901:ApplicationPackage" }, { type: "azure-nextgen:batch/v20200901:ApplicationPackage" }, { type: "azure-native:batch/v20210101:ApplicationPackage" }, { type: "azure-nextgen:batch/v20210101:ApplicationPackage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationPackage.__pulumiType, name, inputs, opts);
     }
 }

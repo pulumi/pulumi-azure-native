@@ -77,11 +77,12 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
      */
     constructor(name: string, args: PolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managementGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.policyDefinitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -104,15 +105,11 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             inputs["policyType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/latest:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-nextgen:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, inputs, opts);
     }
 }

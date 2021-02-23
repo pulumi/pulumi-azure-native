@@ -79,11 +79,12 @@ export class ReportConfig extends pulumi.CustomResource {
     constructor(name: string, args: ReportConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReportConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfig'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -103,15 +104,11 @@ export class ReportConfig extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportConfig" }, { type: "azure-nextgen:costmanagement:ReportConfig" }, { type: "azure-native:costmanagement/v20180531:ReportConfig" }, { type: "azure-nextgen:costmanagement/v20180531:ReportConfig" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReportConfig.__pulumiType, name, inputs, opts);
     }
 }

@@ -133,11 +133,12 @@ export class Redis extends pulumi.CustomResource {
      */
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
@@ -187,15 +188,11 @@ export class Redis extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-nextgen:cache:Redis" }, { type: "azure-native:cache/latest:Redis" }, { type: "azure-nextgen:cache/latest:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-nextgen:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-nextgen:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-nextgen:cache/v20170201:Redis" }, { type: "azure-native:cache/v20171001:Redis" }, { type: "azure-nextgen:cache/v20171001:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-nextgen:cache/v20180301:Redis" }, { type: "azure-native:cache/v20200601:Redis" }, { type: "azure-nextgen:cache/v20200601:Redis" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Redis.__pulumiType, name, inputs, opts);
     }
 }

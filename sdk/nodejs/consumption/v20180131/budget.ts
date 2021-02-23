@@ -85,17 +85,18 @@ export class Budget extends pulumi.CustomResource {
      */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.amount === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.amount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.timeGrain === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeGrain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if ((!args || args.timePeriod === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timePeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
             inputs["amount"] = args ? args.amount : undefined;
@@ -121,15 +122,11 @@ export class Budget extends pulumi.CustomResource {
             inputs["timePeriod"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20171230preview:Budget" }, { type: "azure-nextgen:consumption/v20171230preview:Budget" }, { type: "azure-native:consumption/v20180331:Budget" }, { type: "azure-nextgen:consumption/v20180331:Budget" }, { type: "azure-native:consumption/v20180630:Budget" }, { type: "azure-nextgen:consumption/v20180630:Budget" }, { type: "azure-native:consumption/v20180831:Budget" }, { type: "azure-nextgen:consumption/v20180831:Budget" }, { type: "azure-native:consumption/v20181001:Budget" }, { type: "azure-nextgen:consumption/v20181001:Budget" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, inputs, opts);
     }
 }

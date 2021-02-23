@@ -123,26 +123,27 @@ export class AuthorizationServer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientRegistrationEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientRegistrationEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.grantTypes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.grantTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
@@ -186,15 +187,11 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationServer" }, { type: "azure-nextgen:apimanagement:AuthorizationServer" }, { type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-nextgen:apimanagement/v20200601preview:AuthorizationServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }
 }

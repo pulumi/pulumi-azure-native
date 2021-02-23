@@ -81,8 +81,9 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -108,15 +109,11 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualWan"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHub" }, { type: "azure-nextgen:network:VirtualHub" }, { type: "azure-native:network/latest:VirtualHub" }, { type: "azure-nextgen:network/latest:VirtualHub" }, { type: "azure-native:network/v20180601:VirtualHub" }, { type: "azure-nextgen:network/v20180601:VirtualHub" }, { type: "azure-native:network/v20180701:VirtualHub" }, { type: "azure-nextgen:network/v20180701:VirtualHub" }, { type: "azure-native:network/v20180801:VirtualHub" }, { type: "azure-nextgen:network/v20180801:VirtualHub" }, { type: "azure-native:network/v20181001:VirtualHub" }, { type: "azure-nextgen:network/v20181001:VirtualHub" }, { type: "azure-native:network/v20181101:VirtualHub" }, { type: "azure-nextgen:network/v20181101:VirtualHub" }, { type: "azure-native:network/v20181201:VirtualHub" }, { type: "azure-nextgen:network/v20181201:VirtualHub" }, { type: "azure-native:network/v20190201:VirtualHub" }, { type: "azure-nextgen:network/v20190201:VirtualHub" }, { type: "azure-native:network/v20190401:VirtualHub" }, { type: "azure-nextgen:network/v20190401:VirtualHub" }, { type: "azure-native:network/v20190601:VirtualHub" }, { type: "azure-nextgen:network/v20190601:VirtualHub" }, { type: "azure-native:network/v20190701:VirtualHub" }, { type: "azure-nextgen:network/v20190701:VirtualHub" }, { type: "azure-native:network/v20190801:VirtualHub" }, { type: "azure-nextgen:network/v20190801:VirtualHub" }, { type: "azure-native:network/v20190901:VirtualHub" }, { type: "azure-nextgen:network/v20190901:VirtualHub" }, { type: "azure-native:network/v20191101:VirtualHub" }, { type: "azure-nextgen:network/v20191101:VirtualHub" }, { type: "azure-native:network/v20191201:VirtualHub" }, { type: "azure-nextgen:network/v20191201:VirtualHub" }, { type: "azure-native:network/v20200301:VirtualHub" }, { type: "azure-nextgen:network/v20200301:VirtualHub" }, { type: "azure-native:network/v20200401:VirtualHub" }, { type: "azure-nextgen:network/v20200401:VirtualHub" }, { type: "azure-native:network/v20200501:VirtualHub" }, { type: "azure-nextgen:network/v20200501:VirtualHub" }, { type: "azure-native:network/v20200601:VirtualHub" }, { type: "azure-nextgen:network/v20200601:VirtualHub" }, { type: "azure-native:network/v20200701:VirtualHub" }, { type: "azure-nextgen:network/v20200701:VirtualHub" }, { type: "azure-native:network/v20200801:VirtualHub" }, { type: "azure-nextgen:network/v20200801:VirtualHub" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHub.__pulumiType, name, inputs, opts);
     }
 }

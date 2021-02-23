@@ -97,8 +97,9 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -130,15 +131,11 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["scope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyAssignment" }, { type: "azure-nextgen:authorization:PolicyAssignment" }, { type: "azure-native:authorization/latest:PolicyAssignment" }, { type: "azure-nextgen:authorization/latest:PolicyAssignment" }, { type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20160401:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20160401:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180301:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-nextgen:authorization/v20200301:PolicyAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }
 }

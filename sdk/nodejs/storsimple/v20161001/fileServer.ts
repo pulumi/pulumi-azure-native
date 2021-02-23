@@ -68,23 +68,24 @@ export class FileServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: FileServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.backupScheduleGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupScheduleGroupId'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageDomainId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDomainId'");
             }
             inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
@@ -105,15 +106,11 @@ export class FileServer extends pulumi.CustomResource {
             inputs["storageDomainId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:FileServer" }, { type: "azure-nextgen:storsimple:FileServer" }, { type: "azure-native:storsimple/latest:FileServer" }, { type: "azure-nextgen:storsimple/latest:FileServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileServer.__pulumiType, name, inputs, opts);
     }
 }

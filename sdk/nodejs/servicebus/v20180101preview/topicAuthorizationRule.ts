@@ -57,17 +57,18 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -82,15 +83,11 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus:TopicAuthorizationRule" }, { type: "azure-native:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/latest:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20140901:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-nextgen:servicebus/v20170401:TopicAuthorizationRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

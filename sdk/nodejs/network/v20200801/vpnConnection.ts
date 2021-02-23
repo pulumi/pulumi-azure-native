@@ -125,11 +125,12 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
@@ -178,15 +179,11 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["vpnConnectionProtocolType"] = undefined /*out*/;
             inputs["vpnLinkConnections"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnConnection" }, { type: "azure-nextgen:network:VpnConnection" }, { type: "azure-native:network/latest:VpnConnection" }, { type: "azure-nextgen:network/latest:VpnConnection" }, { type: "azure-native:network/v20180401:VpnConnection" }, { type: "azure-nextgen:network/v20180401:VpnConnection" }, { type: "azure-native:network/v20180601:VpnConnection" }, { type: "azure-nextgen:network/v20180601:VpnConnection" }, { type: "azure-native:network/v20180701:VpnConnection" }, { type: "azure-nextgen:network/v20180701:VpnConnection" }, { type: "azure-native:network/v20180801:VpnConnection" }, { type: "azure-nextgen:network/v20180801:VpnConnection" }, { type: "azure-native:network/v20181001:VpnConnection" }, { type: "azure-nextgen:network/v20181001:VpnConnection" }, { type: "azure-native:network/v20181101:VpnConnection" }, { type: "azure-nextgen:network/v20181101:VpnConnection" }, { type: "azure-native:network/v20181201:VpnConnection" }, { type: "azure-nextgen:network/v20181201:VpnConnection" }, { type: "azure-native:network/v20190201:VpnConnection" }, { type: "azure-nextgen:network/v20190201:VpnConnection" }, { type: "azure-native:network/v20190401:VpnConnection" }, { type: "azure-nextgen:network/v20190401:VpnConnection" }, { type: "azure-native:network/v20190601:VpnConnection" }, { type: "azure-nextgen:network/v20190601:VpnConnection" }, { type: "azure-native:network/v20190701:VpnConnection" }, { type: "azure-nextgen:network/v20190701:VpnConnection" }, { type: "azure-native:network/v20190801:VpnConnection" }, { type: "azure-nextgen:network/v20190801:VpnConnection" }, { type: "azure-native:network/v20190901:VpnConnection" }, { type: "azure-nextgen:network/v20190901:VpnConnection" }, { type: "azure-native:network/v20191101:VpnConnection" }, { type: "azure-nextgen:network/v20191101:VpnConnection" }, { type: "azure-native:network/v20191201:VpnConnection" }, { type: "azure-nextgen:network/v20191201:VpnConnection" }, { type: "azure-native:network/v20200301:VpnConnection" }, { type: "azure-nextgen:network/v20200301:VpnConnection" }, { type: "azure-native:network/v20200401:VpnConnection" }, { type: "azure-nextgen:network/v20200401:VpnConnection" }, { type: "azure-native:network/v20200501:VpnConnection" }, { type: "azure-nextgen:network/v20200501:VpnConnection" }, { type: "azure-native:network/v20200601:VpnConnection" }, { type: "azure-nextgen:network/v20200601:VpnConnection" }, { type: "azure-native:network/v20200701:VpnConnection" }, { type: "azure-nextgen:network/v20200701:VpnConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }
 }

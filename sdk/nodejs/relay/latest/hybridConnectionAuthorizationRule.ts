@@ -63,17 +63,18 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, args: HybridConnectionAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("HybridConnectionAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:HybridConnectionAuthorizationRule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hybridConnectionName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hybridConnectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hybridConnectionName'");
             }
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -88,15 +89,11 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" }, { type: "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridConnectionAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

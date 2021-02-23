@@ -89,11 +89,12 @@ export class SourceControl extends pulumi.CustomResource {
      */
     constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoSync"] = args ? args.autoSync : undefined;
@@ -124,15 +125,11 @@ export class SourceControl extends pulumi.CustomResource {
             inputs["sourceType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:SourceControl" }, { type: "azure-nextgen:automation:SourceControl" }, { type: "azure-native:automation/latest:SourceControl" }, { type: "azure-nextgen:automation/latest:SourceControl" }, { type: "azure-native:automation/v20170515preview:SourceControl" }, { type: "azure-nextgen:automation/v20170515preview:SourceControl" }, { type: "azure-native:automation/v20200113preview:SourceControl" }, { type: "azure-nextgen:automation/v20200113preview:SourceControl" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, inputs, opts);
     }
 }

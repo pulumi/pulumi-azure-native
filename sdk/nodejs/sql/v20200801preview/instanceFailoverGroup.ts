@@ -77,20 +77,21 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.locationName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.locationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if ((!args || args.managedInstancePairs === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedInstancePairs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstancePairs'");
             }
-            if ((!args || args.partnerRegions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.partnerRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partnerRegions'");
             }
-            if ((!args || args.readWriteEndpoint === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.readWriteEndpoint === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'readWriteEndpoint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
@@ -114,15 +115,11 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             inputs["replicationState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-nextgen:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstanceFailoverGroup.__pulumiType, name, inputs, opts);
     }
 }

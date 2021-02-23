@@ -91,14 +91,15 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentsMetadataSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.assessmentType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.assessmentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assessmentType'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
             inputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
@@ -130,15 +131,11 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userImpact"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:AssessmentsMetadataSubscription" }, { type: "azure-nextgen:security:AssessmentsMetadataSubscription" }, { type: "azure-native:security/latest:AssessmentsMetadataSubscription" }, { type: "azure-nextgen:security/latest:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20200101:AssessmentsMetadataSubscription" }, { type: "azure-nextgen:security/v20200101:AssessmentsMetadataSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentsMetadataSubscription.__pulumiType, name, inputs, opts);
     }
 }

@@ -154,7 +154,8 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["autoApplyDecisionsEnabled"] = args ? args.autoApplyDecisionsEnabled : undefined;
             inputs["defaultDecision"] = args ? args.defaultDecision : undefined;
             inputs["defaultDecisionEnabled"] = args ? args.defaultDecisionEnabled : undefined;
@@ -212,15 +213,11 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userPrincipalName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessReviewScheduleDefinitionById.__pulumiType, name, inputs, opts);
     }
 }

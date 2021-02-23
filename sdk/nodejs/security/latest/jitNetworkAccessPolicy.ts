@@ -75,14 +75,15 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("JitNetworkAccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:JitNetworkAccessPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.ascLocation === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.ascLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachines === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachines === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachines'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
@@ -104,15 +105,11 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20150601preview:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20200101:JitNetworkAccessPolicy" }, { type: "azure-nextgen:security/v20200101:JitNetworkAccessPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitNetworkAccessPolicy.__pulumiType, name, inputs, opts);
     }
 }

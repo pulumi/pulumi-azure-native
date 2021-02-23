@@ -90,7 +90,8 @@ export class Partner extends pulumi.CustomResource {
     constructor(name: string, args?: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managementpartner:Partner'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["partnerId"] = args ? args.partnerId : undefined;
             inputs["createdTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
@@ -113,15 +114,11 @@ export class Partner extends pulumi.CustomResource {
             inputs["updatedTime"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managementpartner:Partner" }, { type: "azure-nextgen:managementpartner:Partner" }, { type: "azure-native:managementpartner/v20180201:Partner" }, { type: "azure-nextgen:managementpartner/v20180201:Partner" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Partner.__pulumiType, name, inputs, opts);
     }
 }

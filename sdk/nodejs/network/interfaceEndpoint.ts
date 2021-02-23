@@ -90,8 +90,9 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: InterfaceEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointService"] = args ? args.endpointService : undefined;
@@ -121,15 +122,11 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/latest:InterfaceEndpoint" }, { type: "azure-nextgen:network/latest:InterfaceEndpoint" }, { type: "azure-native:network/v20180801:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20180801:InterfaceEndpoint" }, { type: "azure-native:network/v20181001:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181001:InterfaceEndpoint" }, { type: "azure-native:network/v20181101:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181101:InterfaceEndpoint" }, { type: "azure-native:network/v20181201:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20181201:InterfaceEndpoint" }, { type: "azure-native:network/v20190201:InterfaceEndpoint" }, { type: "azure-nextgen:network/v20190201:InterfaceEndpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InterfaceEndpoint.__pulumiType, name, inputs, opts);
     }
 }

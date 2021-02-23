@@ -103,11 +103,12 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VirtualMachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineExtension'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
@@ -141,15 +142,11 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["typeHandlerVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineExtension" }, { type: "azure-nextgen:compute:VirtualMachineExtension" }, { type: "azure-native:compute/v20150615:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20150615:VirtualMachineExtension" }, { type: "azure-native:compute/v20160330:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20160330:VirtualMachineExtension" }, { type: "azure-native:compute/v20160430preview:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachineExtension" }, { type: "azure-native:compute/v20170330:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20170330:VirtualMachineExtension" }, { type: "azure-native:compute/v20171201:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20171201:VirtualMachineExtension" }, { type: "azure-native:compute/v20180401:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20180401:VirtualMachineExtension" }, { type: "azure-native:compute/v20180601:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20180601:VirtualMachineExtension" }, { type: "azure-native:compute/v20181001:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20181001:VirtualMachineExtension" }, { type: "azure-native:compute/v20190301:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20190301:VirtualMachineExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20200601:VirtualMachineExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineExtension" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineExtension.__pulumiType, name, inputs, opts);
     }
 }

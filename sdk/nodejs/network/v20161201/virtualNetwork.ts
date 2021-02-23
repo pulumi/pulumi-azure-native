@@ -89,8 +89,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
@@ -120,15 +121,11 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkPeerings"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetwork" }, { type: "azure-nextgen:network:VirtualNetwork" }, { type: "azure-native:network/latest:VirtualNetwork" }, { type: "azure-nextgen:network/latest:VirtualNetwork" }, { type: "azure-native:network/v20150501preview:VirtualNetwork" }, { type: "azure-nextgen:network/v20150501preview:VirtualNetwork" }, { type: "azure-native:network/v20150615:VirtualNetwork" }, { type: "azure-nextgen:network/v20150615:VirtualNetwork" }, { type: "azure-native:network/v20160330:VirtualNetwork" }, { type: "azure-nextgen:network/v20160330:VirtualNetwork" }, { type: "azure-native:network/v20160601:VirtualNetwork" }, { type: "azure-nextgen:network/v20160601:VirtualNetwork" }, { type: "azure-native:network/v20160901:VirtualNetwork" }, { type: "azure-nextgen:network/v20160901:VirtualNetwork" }, { type: "azure-native:network/v20170301:VirtualNetwork" }, { type: "azure-nextgen:network/v20170301:VirtualNetwork" }, { type: "azure-native:network/v20170601:VirtualNetwork" }, { type: "azure-nextgen:network/v20170601:VirtualNetwork" }, { type: "azure-native:network/v20170801:VirtualNetwork" }, { type: "azure-nextgen:network/v20170801:VirtualNetwork" }, { type: "azure-native:network/v20170901:VirtualNetwork" }, { type: "azure-nextgen:network/v20170901:VirtualNetwork" }, { type: "azure-native:network/v20171001:VirtualNetwork" }, { type: "azure-nextgen:network/v20171001:VirtualNetwork" }, { type: "azure-native:network/v20171101:VirtualNetwork" }, { type: "azure-nextgen:network/v20171101:VirtualNetwork" }, { type: "azure-native:network/v20180101:VirtualNetwork" }, { type: "azure-nextgen:network/v20180101:VirtualNetwork" }, { type: "azure-native:network/v20180201:VirtualNetwork" }, { type: "azure-nextgen:network/v20180201:VirtualNetwork" }, { type: "azure-native:network/v20180401:VirtualNetwork" }, { type: "azure-nextgen:network/v20180401:VirtualNetwork" }, { type: "azure-native:network/v20180601:VirtualNetwork" }, { type: "azure-nextgen:network/v20180601:VirtualNetwork" }, { type: "azure-native:network/v20180701:VirtualNetwork" }, { type: "azure-nextgen:network/v20180701:VirtualNetwork" }, { type: "azure-native:network/v20180801:VirtualNetwork" }, { type: "azure-nextgen:network/v20180801:VirtualNetwork" }, { type: "azure-native:network/v20181001:VirtualNetwork" }, { type: "azure-nextgen:network/v20181001:VirtualNetwork" }, { type: "azure-native:network/v20181101:VirtualNetwork" }, { type: "azure-nextgen:network/v20181101:VirtualNetwork" }, { type: "azure-native:network/v20181201:VirtualNetwork" }, { type: "azure-nextgen:network/v20181201:VirtualNetwork" }, { type: "azure-native:network/v20190201:VirtualNetwork" }, { type: "azure-nextgen:network/v20190201:VirtualNetwork" }, { type: "azure-native:network/v20190401:VirtualNetwork" }, { type: "azure-nextgen:network/v20190401:VirtualNetwork" }, { type: "azure-native:network/v20190601:VirtualNetwork" }, { type: "azure-nextgen:network/v20190601:VirtualNetwork" }, { type: "azure-native:network/v20190701:VirtualNetwork" }, { type: "azure-nextgen:network/v20190701:VirtualNetwork" }, { type: "azure-native:network/v20190801:VirtualNetwork" }, { type: "azure-nextgen:network/v20190801:VirtualNetwork" }, { type: "azure-native:network/v20190901:VirtualNetwork" }, { type: "azure-nextgen:network/v20190901:VirtualNetwork" }, { type: "azure-native:network/v20191101:VirtualNetwork" }, { type: "azure-nextgen:network/v20191101:VirtualNetwork" }, { type: "azure-native:network/v20191201:VirtualNetwork" }, { type: "azure-nextgen:network/v20191201:VirtualNetwork" }, { type: "azure-native:network/v20200301:VirtualNetwork" }, { type: "azure-nextgen:network/v20200301:VirtualNetwork" }, { type: "azure-native:network/v20200401:VirtualNetwork" }, { type: "azure-nextgen:network/v20200401:VirtualNetwork" }, { type: "azure-native:network/v20200501:VirtualNetwork" }, { type: "azure-nextgen:network/v20200501:VirtualNetwork" }, { type: "azure-native:network/v20200601:VirtualNetwork" }, { type: "azure-nextgen:network/v20200601:VirtualNetwork" }, { type: "azure-native:network/v20200701:VirtualNetwork" }, { type: "azure-nextgen:network/v20200701:VirtualNetwork" }, { type: "azure-native:network/v20200801:VirtualNetwork" }, { type: "azure-nextgen:network/v20200801:VirtualNetwork" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }
 }

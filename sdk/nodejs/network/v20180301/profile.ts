@@ -85,8 +85,9 @@ export class Profile extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
@@ -114,15 +115,11 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficViewEnrollmentStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }, { type: "azure-nextgen:network:Profile" }, { type: "azure-native:network/latest:Profile" }, { type: "azure-nextgen:network/latest:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, inputs, opts);
     }
 }

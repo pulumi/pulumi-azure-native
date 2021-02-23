@@ -81,17 +81,18 @@ export class IdentityProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["allowedTenants"] = args ? args.allowedTenants : undefined;
@@ -117,15 +118,11 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["signupPolicyName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:IdentityProvider" }, { type: "azure-nextgen:apimanagement:IdentityProvider" }, { type: "azure-native:apimanagement/latest:IdentityProvider" }, { type: "azure-nextgen:apimanagement/latest:IdentityProvider" }, { type: "azure-native:apimanagement/v20160707:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20160707:IdentityProvider" }, { type: "azure-native:apimanagement/v20161010:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20161010:IdentityProvider" }, { type: "azure-native:apimanagement/v20170301:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20170301:IdentityProvider" }, { type: "azure-native:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20190101:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20190101:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20200601preview:IdentityProvider" }, { type: "azure-nextgen:apimanagement/v20200601preview:IdentityProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }
 }

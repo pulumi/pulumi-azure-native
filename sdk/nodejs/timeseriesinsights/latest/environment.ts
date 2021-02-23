@@ -75,14 +75,15 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:Environment'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
@@ -101,15 +102,11 @@ export class Environment extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:Environment" }, { type: "azure-nextgen:timeseriesinsights:Environment" }, { type: "azure-native:timeseriesinsights/v20170228preview:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20171115:Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20180815preview:Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Environment" }, { type: "azure-nextgen:timeseriesinsights/v20200515:Environment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, inputs, opts);
     }
 }

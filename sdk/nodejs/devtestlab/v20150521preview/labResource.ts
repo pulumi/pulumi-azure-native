@@ -93,8 +93,9 @@ export class LabResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: LabResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["artifactsStorageAccount"] = args ? args.artifactsStorageAccount : undefined;
@@ -125,15 +126,11 @@ export class LabResource extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vaultName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:LabResource" }, { type: "azure-nextgen:devtestlab:LabResource" }, { type: "azure-native:devtestlab/latest:LabResource" }, { type: "azure-nextgen:devtestlab/latest:LabResource" }, { type: "azure-native:devtestlab/v20160515:LabResource" }, { type: "azure-nextgen:devtestlab/v20160515:LabResource" }, { type: "azure-native:devtestlab/v20180915:LabResource" }, { type: "azure-nextgen:devtestlab/v20180915:LabResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabResource.__pulumiType, name, inputs, opts);
     }
 }

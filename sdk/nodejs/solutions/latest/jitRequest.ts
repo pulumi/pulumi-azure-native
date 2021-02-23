@@ -99,17 +99,18 @@ export class JitRequest extends pulumi.CustomResource {
     constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("JitRequest is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:solutions:JitRequest'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.applicationResourceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.applicationResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationResourceId'");
             }
-            if ((!args || args.jitAuthorizationPolicies === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jitAuthorizationPolicies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jitAuthorizationPolicies'");
             }
-            if ((!args || args.jitSchedulingPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jitSchedulingPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jitSchedulingPolicy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
@@ -140,15 +141,11 @@ export class JitRequest extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:JitRequest" }, { type: "azure-nextgen:solutions:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-nextgen:solutions/v20200821preview:JitRequest" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitRequest.__pulumiType, name, inputs, opts);
     }
 }

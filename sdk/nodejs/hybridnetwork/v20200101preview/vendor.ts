@@ -61,7 +61,8 @@ export class Vendor extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VendorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["vendorName"] = args ? args.vendorName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -73,15 +74,11 @@ export class Vendor extends pulumi.CustomResource {
             inputs["skus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:Vendor" }, { type: "azure-nextgen:hybridnetwork:Vendor" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vendor.__pulumiType, name, inputs, opts);
     }
 }

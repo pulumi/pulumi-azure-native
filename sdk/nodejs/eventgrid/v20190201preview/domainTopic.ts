@@ -56,11 +56,12 @@ export class DomainTopic extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainTopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -74,15 +75,11 @@ export class DomainTopic extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainTopic" }, { type: "azure-nextgen:eventgrid:DomainTopic" }, { type: "azure-native:eventgrid/latest:DomainTopic" }, { type: "azure-nextgen:eventgrid/latest:DomainTopic" }, { type: "azure-native:eventgrid/v20190601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20190601:DomainTopic" }, { type: "azure-native:eventgrid/v20200101preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200101preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20201015preview:DomainTopic" }, { type: "azure-nextgen:eventgrid/v20201015preview:DomainTopic" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }
 }

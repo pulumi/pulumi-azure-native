@@ -97,14 +97,15 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -138,15 +139,11 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDeploymentSlot" }, { type: "azure-nextgen:web:WebAppDeploymentSlot" }, { type: "azure-native:web/latest:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/latest:WebAppDeploymentSlot" }, { type: "azure-native:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-native:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-native:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
     }
 }

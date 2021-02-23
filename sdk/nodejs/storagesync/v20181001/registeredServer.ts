@@ -128,11 +128,12 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             inputs["agentVersion"] = args ? args.agentVersion : undefined;
@@ -181,15 +182,11 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:RegisteredServer" }, { type: "azure-nextgen:storagesync:RegisteredServer" }, { type: "azure-native:storagesync/latest:RegisteredServer" }, { type: "azure-nextgen:storagesync/latest:RegisteredServer" }, { type: "azure-native:storagesync/v20170605preview:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20170605preview:RegisteredServer" }, { type: "azure-native:storagesync/v20180402:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20180402:RegisteredServer" }, { type: "azure-native:storagesync/v20180701:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20180701:RegisteredServer" }, { type: "azure-native:storagesync/v20190201:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20190201:RegisteredServer" }, { type: "azure-native:storagesync/v20190301:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20190301:RegisteredServer" }, { type: "azure-native:storagesync/v20190601:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20190601:RegisteredServer" }, { type: "azure-native:storagesync/v20191001:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20191001:RegisteredServer" }, { type: "azure-native:storagesync/v20200301:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20200301:RegisteredServer" }, { type: "azure-native:storagesync/v20200901:RegisteredServer" }, { type: "azure-nextgen:storagesync/v20200901:RegisteredServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredServer.__pulumiType, name, inputs, opts);
     }
 }

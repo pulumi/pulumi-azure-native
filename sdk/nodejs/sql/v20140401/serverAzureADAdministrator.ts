@@ -69,23 +69,24 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.administratorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorType'");
             }
-            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.sid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
-            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["administratorName"] = args ? args.administratorName : undefined;
@@ -105,15 +106,11 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql:ServerAzureADAdministrator" }, { type: "azure-native:sql/latest:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/latest:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20200202preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20200801preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAzureADAdministrator.__pulumiType, name, inputs, opts);
     }
 }

@@ -81,17 +81,18 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountPartnerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.partnerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.partnerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partnerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -117,15 +118,11 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountPartner" }, { type: "azure-nextgen:logic:IntegrationAccountPartner" }, { type: "azure-native:logic/latest:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/latest:IntegrationAccountPartner" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azure-native:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountPartner" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountPartner" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountPartner.__pulumiType, name, inputs, opts);
     }
 }
