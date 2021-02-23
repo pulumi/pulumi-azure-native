@@ -48,16 +48,39 @@ var versionMap = map[string]VersionResources{
 	},
 }
 
-func TestFindingLatestResourceVersions(t *testing.T) {
-	knownVersions := codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01")
+func TestFindingKnownLatestResourceVersions(t *testing.T) {
+	checker := versioner{lookup: map[string]map[string]codegen.StringSet{
+		"test": {
+			// Version '2020-04-01' isn't known for any resource.
+			"": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01"),
+			// Res1 isn't known in '2020-01-01'.
+			"res1":codegen.NewStringSet("2020-02-01", "2020-03-01"),
+			// Res2 isn't explicitly listed in the lookup: parent lookup is used.
+			// Res3 isn't known in '2020-03-01'.
+			"res3": codegen.NewStringSet("2020-01-01", "2020-02-01"),
+		},
+	}}
 	expected := map[string]*ResourceSpec{
 		"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
 		"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
-		"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
+		"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v2"),
 		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 	}
 
-	actual := calculateLatestVersions(knownVersions, "test", versionMap, false /* invokes */, false /* preview */)
+	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
+	assert.Equal(t, expected, actual)
+}
+
+func TestFindingUnknownLatestResourceVersions(t *testing.T) {
+	checker := versioner{lookup: map[string]map[string]codegen.StringSet{}}
+	expected := map[string]*ResourceSpec{
+		"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
+		"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
+		"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
+		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
+	}
+
+	actual := checker.calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
 	assert.Equal(t, expected, actual)
 }
 
@@ -69,7 +92,8 @@ func TestFindingPathVersions(t *testing.T) {
 		"/someprefix/microsoft.foo/res4/{}": codegen.NewStringSet("2020-02-01", "2020-03-01", "2020-04-01"),
 	}
 
-	actual := calculatePathVersions(versionMap)
+	checker := versioner{}
+	actual := checker.calculatePathVersions(versionMap)
 	assert.Equal(t, actual, expected)
 }
 
