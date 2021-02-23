@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-01-11.
+    /// API Version: 2020-03-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// System metadata for this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

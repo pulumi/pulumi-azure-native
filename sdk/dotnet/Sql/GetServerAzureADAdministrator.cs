@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.Sql
     public static class GetServerAzureADAdministrator
     {
         /// <summary>
-        /// An server Active Directory Administrator.
-        /// API Version: 2014-04-01.
+        /// Azure Active Directory administrator.
+        /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetServerAzureADAdministratorResult> InvokeAsync(GetServerAzureADAdministratorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADAdministratorResult>("azure-native:sql:getServerAzureADAdministrator", args ?? new GetServerAzureADAdministratorArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerAzureADAdministratorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the server administrator resource.
+        /// The name of server active directory administrator.
         /// </summary>
         [Input("administratorName", required: true)]
         public string AdministratorName { get; set; } = null!;
@@ -50,15 +50,19 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerAzureADAdministratorResult
     {
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         public readonly string AdministratorType;
+        /// <summary>
+        /// Azure Active Directory only Authentication enabled.
+        /// </summary>
+        public readonly bool AzureADOnlyAuthentication;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The server administrator login value.
+        /// Login name of the server administrator.
         /// </summary>
         public readonly string Login;
         /// <summary>
@@ -66,13 +70,13 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         public readonly string Sid;
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
-        public readonly string TenantId;
+        public readonly string? TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNative.Sql
         private GetServerAzureADAdministratorResult(
             string administratorType,
 
+            bool azureADOnlyAuthentication,
+
             string id,
 
             string login,
@@ -90,11 +96,12 @@ namespace Pulumi.AzureNative.Sql
 
             string sid,
 
-            string tenantId,
+            string? tenantId,
 
             string type)
         {
             AdministratorType = administratorType;
+            AzureADOnlyAuthentication = azureADOnlyAuthentication;
             Id = id;
             Login = login;
             Name = name;

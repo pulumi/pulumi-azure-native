@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
     {
         /// <summary>
         /// States and configurations of Cost Analysis.
-        /// Latest API Version: 2020-06-01.
+        /// Latest API Version: 2019-11-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement/latest:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithVersion());
@@ -57,9 +57,17 @@ namespace Pulumi.AzureNative.CostManagement.Latest
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
+        /// Selected currency.
+        /// </summary>
+        public readonly string Currency;
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDatasetResponse? Dataset;
+        public readonly Outputs.ReportConfigDatasetResponse? DataSet;
+        /// <summary>
+        /// Selected date range for viewing cost in.
+        /// </summary>
+        public readonly string DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -72,6 +80,10 @@ namespace Pulumi.AzureNative.CostManagement.Latest
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Include monetary commitment
+        /// </summary>
+        public readonly bool IncludeMonetaryCommitment;
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
@@ -117,13 +129,19 @@ namespace Pulumi.AzureNative.CostManagement.Latest
 
             string createdOn,
 
-            Outputs.ReportConfigDatasetResponse? dataset,
+            string currency,
+
+            Outputs.ReportConfigDatasetResponse? dataSet,
+
+            string dateRange,
 
             string? displayName,
 
             string? eTag,
 
             string id,
+
+            bool includeMonetaryCommitment,
 
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 
@@ -146,10 +164,13 @@ namespace Pulumi.AzureNative.CostManagement.Latest
             Accumulated = accumulated;
             Chart = chart;
             CreatedOn = createdOn;
-            Dataset = dataset;
+            Currency = currency;
+            DataSet = dataSet;
+            DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;
             Id = id;
+            IncludeMonetaryCommitment = includeMonetaryCommitment;
             Kpis = kpis;
             Metric = metric;
             ModifiedOn = modifiedOn;

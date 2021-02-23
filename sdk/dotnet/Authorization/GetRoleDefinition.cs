@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Role definition.
-        /// API Version: 2015-07-01.
+        /// API Version: 2018-01-01-preview.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());

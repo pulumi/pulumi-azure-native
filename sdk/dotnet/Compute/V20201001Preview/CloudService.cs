@@ -68,6 +68,11 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-native:compute:CloudService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:CloudService"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

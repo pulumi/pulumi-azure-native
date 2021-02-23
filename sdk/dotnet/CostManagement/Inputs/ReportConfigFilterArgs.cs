@@ -30,14 +30,8 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         /// <summary>
         /// Has comparison expression for a dimension
         /// </summary>
-        [Input("dimension")]
-        public Input<Inputs.ReportConfigComparisonExpressionArgs>? Dimension { get; set; }
-
-        /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        [Input("not")]
-        public Input<Inputs.ReportConfigFilterArgs>? Not { get; set; }
+        [Input("dimensions")]
+        public Input<Inputs.ReportConfigComparisonExpressionArgs>? Dimensions { get; set; }
 
         [Input("or")]
         private InputList<Inputs.ReportConfigFilterArgs>? _or;
@@ -52,10 +46,16 @@ namespace Pulumi.AzureNative.CostManagement.Inputs
         }
 
         /// <summary>
+        /// Has comparison expression for a tag key
+        /// </summary>
+        [Input("tagKey")]
+        public Input<Inputs.ReportConfigComparisonExpressionArgs>? TagKey { get; set; }
+
+        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
-        [Input("tag")]
-        public Input<Inputs.ReportConfigComparisonExpressionArgs>? Tag { get; set; }
+        [Input("tags")]
+        public Input<Inputs.ReportConfigComparisonExpressionArgs>? Tags { get; set; }
 
         public ReportConfigFilterArgs()
         {

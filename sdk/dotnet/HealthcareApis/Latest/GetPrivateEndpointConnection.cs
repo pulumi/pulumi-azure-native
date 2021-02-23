@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HealthcareApis.Latest
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Latest API Version: 2021-01-11.
+        /// Latest API Version: 2020-03-30.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis/latest:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.HealthcareApis.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// System metadata for this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -91,8 +87,6 @@ namespace Pulumi.AzureNative.HealthcareApis.Latest
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -100,7 +94,6 @@ namespace Pulumi.AzureNative.HealthcareApis.Latest
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Type = type;
         }
     }
