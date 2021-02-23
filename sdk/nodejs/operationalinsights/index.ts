@@ -14,6 +14,8 @@ export * from "./getDataSource";
 export * from "./getLinkedService";
 export * from "./getLinkedStorageAccount";
 export * from "./getMachineGroup";
+export * from "./getQuery";
+export * from "./getQueryPack";
 export * from "./getSavedSearch";
 export * from "./getStorageInsightConfig";
 export * from "./getWorkspace";
@@ -21,6 +23,8 @@ export * from "./linkedService";
 export * from "./linkedStorageAccount";
 export * from "./listWorkspaceKeys";
 export * from "./machineGroup";
+export * from "./query";
+export * from "./queryPack";
 export * from "./savedSearch";
 export * from "./storageInsightConfig";
 export * from "./workspace";
@@ -56,6 +60,8 @@ import { DataSource } from "./dataSource";
 import { LinkedService } from "./linkedService";
 import { LinkedStorageAccount } from "./linkedStorageAccount";
 import { MachineGroup } from "./machineGroup";
+import { Query } from "./query";
+import { QueryPack } from "./queryPack";
 import { SavedSearch } from "./savedSearch";
 import { StorageInsightConfig } from "./storageInsightConfig";
 import { Workspace } from "./workspace";
@@ -76,6 +82,10 @@ const _module = {
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:MachineGroup":
                 return new MachineGroup(name, <any>undefined, { urn })
+            case "azure-native:operationalinsights:Query":
+                return new Query(name, <any>undefined, { urn })
+            case "azure-native:operationalinsights:QueryPack":
+                return new QueryPack(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:SavedSearch":
                 return new SavedSearch(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:StorageInsightConfig":

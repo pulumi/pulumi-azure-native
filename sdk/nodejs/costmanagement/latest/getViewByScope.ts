@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * States and configurations of Cost Analysis.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2019-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getViewByScope'. */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
@@ -53,9 +53,17 @@ export interface GetViewByScopeResult {
      */
     readonly createdOn: string;
     /**
+     * Selected currency.
+     */
+    readonly currency: string;
+    /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.latest.ReportConfigDatasetResponse;
+    readonly dataSet?: outputs.costmanagement.latest.ReportConfigDatasetResponse;
+    /**
+     * Selected date range for viewing cost in.
+     */
+    readonly dateRange: string;
     /**
      * User input name of the view. Required.
      */
@@ -68,6 +76,10 @@ export interface GetViewByScopeResult {
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * Include monetary commitment
+     */
+    readonly includeMonetaryCommitment: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

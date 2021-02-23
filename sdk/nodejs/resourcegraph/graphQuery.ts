@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Graph Query entity definition.
- * API Version: 2020-04-01-preview.
+ * API Version: 2018-09-01-preview.
  */
 export class GraphQuery extends pulumi.CustomResource {
     /**
@@ -41,13 +40,13 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * This will be used to handle Optimistic Concurrency.
+     * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
@@ -60,10 +59,6 @@ export class GraphQuery extends pulumi.CustomResource {
      * Enum indicating a type of graph query.
      */
     public /*out*/ readonly resultKind!: pulumi.Output<string>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.resourcegraph.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -96,14 +91,13 @@ export class GraphQuery extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["resultKind"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -113,7 +107,6 @@ export class GraphQuery extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["query"] = undefined /*out*/;
             inputs["resultKind"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -136,9 +129,13 @@ export interface GraphQueryArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * This will be used to handle Optimistic Concurrency.
+     * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * The location of the resource
+     */
+    readonly location?: pulumi.Input<string>;
     /**
      * KQL query that will be graph.
      */

@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./attestationAtResource";
+export * from "./attestationAtResourceGroup";
+export * from "./attestationAtSubscription";
+export * from "./getAttestationAtResource";
+export * from "./getAttestationAtResourceGroup";
+export * from "./getAttestationAtSubscription";
 export * from "./getRemediationAtManagementGroup";
 export * from "./getRemediationAtResource";
 export * from "./getRemediationAtResourceGroup";
@@ -22,6 +28,9 @@ export * from "./remediationAtSubscription";
 export * from "../../types/enums/policyinsights/latest";
 
 // Import resources to register:
+import { AttestationAtResource } from "./attestationAtResource";
+import { AttestationAtResourceGroup } from "./attestationAtResourceGroup";
+import { AttestationAtSubscription } from "./attestationAtSubscription";
 import { RemediationAtManagementGroup } from "./remediationAtManagementGroup";
 import { RemediationAtResource } from "./remediationAtResource";
 import { RemediationAtResourceGroup } from "./remediationAtResourceGroup";
@@ -31,6 +40,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:policyinsights/latest:AttestationAtResource":
+                return new AttestationAtResource(name, <any>undefined, { urn })
+            case "azure-native:policyinsights/latest:AttestationAtResourceGroup":
+                return new AttestationAtResourceGroup(name, <any>undefined, { urn })
+            case "azure-native:policyinsights/latest:AttestationAtSubscription":
+                return new AttestationAtSubscription(name, <any>undefined, { urn })
             case "azure-native:policyinsights/latest:RemediationAtManagementGroup":
                 return new RemediationAtManagementGroup(name, <any>undefined, { urn })
             case "azure-native:policyinsights/latest:RemediationAtResource":

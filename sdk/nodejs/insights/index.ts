@@ -33,6 +33,7 @@ export * from "./getExportConfiguration";
 export * from "./getFavorite";
 export * from "./getGuestDiagnosticsSettingsAssociation";
 export * from "./getLogProfile";
+export * from "./getManagementGroupDiagnosticSetting";
 export * from "./getMetricAlert";
 export * from "./getMyWorkbook";
 export * from "./getPrivateEndpointConnection";
@@ -49,6 +50,7 @@ export * from "./guestDiagnosticsSetting";
 export * from "./guestDiagnosticsSettingsAssociation";
 export * from "./listEASubscriptionListMigrationDatePost";
 export * from "./logProfile";
+export * from "./managementGroupDiagnosticSetting";
 export * from "./metricAlert";
 export * from "./myWorkbook";
 export * from "./privateEndpointConnection";
@@ -136,6 +138,7 @@ import { ExportConfiguration } from "./exportConfiguration";
 import { Favorite } from "./favorite";
 import { GuestDiagnosticsSettingsAssociation } from "./guestDiagnosticsSettingsAssociation";
 import { LogProfile } from "./logProfile";
+import { ManagementGroupDiagnosticSetting } from "./managementGroupDiagnosticSetting";
 import { MetricAlert } from "./metricAlert";
 import { MyWorkbook } from "./myWorkbook";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
@@ -182,6 +185,8 @@ const _module = {
                 return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
             case "azure-native:insights:LogProfile":
                 return new LogProfile(name, <any>undefined, { urn })
+            case "azure-native:insights:ManagementGroupDiagnosticSetting":
+                return new ManagementGroupDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:insights:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure-native:insights:MyWorkbook":

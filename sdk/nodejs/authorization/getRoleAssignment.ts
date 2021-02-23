@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role Assignments
- * API Version: 2015-07-01.
+ * API Version: 2020-04-01-preview.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
     if (!opts) {
@@ -39,6 +39,34 @@ export interface GetRoleAssignmentArgs {
  */
 export interface GetRoleAssignmentResult {
     /**
+     * The Delegation flag for the role assignment
+     */
+    readonly canDelegate?: boolean;
+    /**
+     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+     */
+    readonly condition?: string;
+    /**
+     * Version of the condition. Currently accepted value is '2.0'
+     */
+    readonly conditionVersion?: string;
+    /**
+     * Id of the user who created the assignment
+     */
+    readonly createdBy?: string;
+    /**
+     * Time it was created
+     */
+    readonly createdOn?: string;
+    /**
+     * Id of the delegated managed identity resource
+     */
+    readonly delegatedManagedIdentityResourceId?: string;
+    /**
+     * Description of role assignment
+     */
+    readonly description?: string;
+    /**
      * The role assignment ID.
      */
     readonly id: string;
@@ -47,11 +75,31 @@ export interface GetRoleAssignmentResult {
      */
     readonly name: string;
     /**
-     * Role assignment properties.
+     * The principal ID.
      */
-    readonly properties: outputs.authorization.RoleAssignmentPropertiesWithScopeResponse;
+    readonly principalId?: string;
+    /**
+     * The principal type of the assigned principal ID.
+     */
+    readonly principalType?: string;
+    /**
+     * The role definition ID.
+     */
+    readonly roleDefinitionId?: string;
+    /**
+     * The role assignment scope.
+     */
+    readonly scope?: string;
     /**
      * The role assignment type.
      */
     readonly type: string;
+    /**
+     * Id of the user who updated the assignment
+     */
+    readonly updatedBy?: string;
+    /**
+     * Time it was updated
+     */
+    readonly updatedOn?: string;
 }

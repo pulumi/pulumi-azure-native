@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An server Active Directory Administrator.
- * API Version: 2014-04-01.
+ * Azure Active Directory administrator.
+ * API Version: 2020-08-01-preview.
  */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
     if (!opts) {
@@ -26,7 +26,7 @@ export function getServerAzureADAdministrator(args: GetServerAzureADAdministrato
 
 export interface GetServerAzureADAdministratorArgs {
     /**
-     * Name of the server administrator resource.
+     * The name of server active directory administrator.
      */
     readonly administratorName: string;
     /**
@@ -40,19 +40,23 @@ export interface GetServerAzureADAdministratorArgs {
 }
 
 /**
- * An server Active Directory Administrator.
+ * Azure Active Directory administrator.
  */
 export interface GetServerAzureADAdministratorResult {
     /**
-     * The type of administrator.
+     * Type of the sever administrator.
      */
     readonly administratorType: string;
+    /**
+     * Azure Active Directory only Authentication enabled.
+     */
+    readonly azureADOnlyAuthentication: boolean;
     /**
      * Resource ID.
      */
     readonly id: string;
     /**
-     * The server administrator login value.
+     * Login name of the server administrator.
      */
     readonly login: string;
     /**
@@ -60,13 +64,13 @@ export interface GetServerAzureADAdministratorResult {
      */
     readonly name: string;
     /**
-     * The server administrator Sid (Secure ID).
+     * SID (object ID) of the server administrator.
      */
     readonly sid: string;
     /**
-     * The server Active Directory Administrator tenant id.
+     * Tenant ID of the administrator.
      */
-    readonly tenantId: string;
+    readonly tenantId?: string;
     /**
      * Resource type.
      */

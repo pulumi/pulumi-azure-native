@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource group information.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2019-05-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResourceGroup'. */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {

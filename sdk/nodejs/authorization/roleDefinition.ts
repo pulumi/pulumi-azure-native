@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * API Version: 2015-07-01.
+ * API Version: 2018-01-01-preview.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
- * Latest API Version: 2020-07-07.
+ * Latest API Version: 2020-01-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getSite'. */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {

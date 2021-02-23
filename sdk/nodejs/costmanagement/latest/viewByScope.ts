@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * States and configurations of Cost Analysis.
- * Latest API Version: 2020-06-01.
+ * Latest API Version: 2019-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ViewByScope'.
  */
@@ -52,9 +52,17 @@ export class ViewByScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
+     * Selected currency.
+     */
+    public /*out*/ readonly currency!: pulumi.Output<string>;
+    /**
      * Has definition for data in this report config.
      */
-    public readonly dataset!: pulumi.Output<outputs.costmanagement.latest.ReportConfigDatasetResponse | undefined>;
+    public readonly dataSet!: pulumi.Output<outputs.costmanagement.latest.ReportConfigDatasetResponse | undefined>;
+    /**
+     * Selected date range for viewing cost in.
+     */
+    public /*out*/ readonly dateRange!: pulumi.Output<string>;
     /**
      * User input name of the view. Required.
      */
@@ -63,6 +71,10 @@ export class ViewByScope extends pulumi.CustomResource {
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * Include monetary commitment
+     */
+    public /*out*/ readonly includeMonetaryCommitment!: pulumi.Output<boolean>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
@@ -124,7 +136,7 @@ export class ViewByScope extends pulumi.CustomResource {
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
             inputs["chart"] = args ? args.chart : undefined;
-            inputs["dataset"] = args ? args.dataset : undefined;
+            inputs["dataSet"] = args ? args.dataSet : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["kpis"] = args ? args.kpis : undefined;
@@ -136,15 +148,21 @@ export class ViewByScope extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["viewName"] = args ? args.viewName : undefined;
             inputs["createdOn"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
+            inputs["includeMonetaryCommitment"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["accumulated"] = undefined /*out*/;
             inputs["chart"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
-            inputs["dataset"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["dataSet"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["includeMonetaryCommitment"] = undefined /*out*/;
             inputs["kpis"] = undefined /*out*/;
             inputs["metric"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
@@ -179,7 +197,7 @@ export interface ViewByScopeArgs {
     /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: pulumi.Input<inputs.costmanagement.latest.ReportConfigDataset>;
+    readonly dataSet?: pulumi.Input<inputs.costmanagement.latest.ReportConfigDataset>;
     /**
      * User input name of the view. Required.
      */

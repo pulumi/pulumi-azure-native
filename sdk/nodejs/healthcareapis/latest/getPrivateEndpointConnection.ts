@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2020-03-30.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:healthcareapis:getPrivateEndpointConnection'. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
@@ -65,10 +65,6 @@ export interface GetPrivateEndpointConnectionResult {
      * The provisioning state of the private endpoint connection resource.
      */
     readonly provisioningState: string;
-    /**
-     * System metadata for this resource.
-     */
-    readonly systemData: outputs.healthcareapis.latest.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

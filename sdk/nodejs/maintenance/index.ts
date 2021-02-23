@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./configurationAssignment";
+export * from "./configurationAssignmentParent";
+export * from "./getConfigurationAssignment";
+export * from "./getConfigurationAssignmentParent";
 export * from "./getMaintenanceConfiguration";
 export * from "./maintenanceConfiguration";
 
@@ -27,12 +31,18 @@ export {
 };
 
 // Import resources to register:
+import { ConfigurationAssignment } from "./configurationAssignment";
+import { ConfigurationAssignmentParent } from "./configurationAssignmentParent";
 import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:maintenance:ConfigurationAssignment":
+                return new ConfigurationAssignment(name, <any>undefined, { urn })
+            case "azure-native:maintenance:ConfigurationAssignmentParent":
+                return new ConfigurationAssignmentParent(name, <any>undefined, { urn })
             case "azure-native:maintenance:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             default:
