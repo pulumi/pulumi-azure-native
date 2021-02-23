@@ -77,20 +77,21 @@ export class EventHubConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventHubConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.consumerGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventHubResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.eventHubResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventHubResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -115,15 +116,11 @@ export class EventHubConnection extends pulumi.CustomResource {
             inputs["tableName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:EventHubConnection" }, { type: "azure-nextgen:kusto:EventHubConnection" }, { type: "azure-native:kusto/v20180907preview:EventHubConnection" }, { type: "azure-nextgen:kusto/v20180907preview:EventHubConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubConnection.__pulumiType, name, inputs, opts);
     }
 }

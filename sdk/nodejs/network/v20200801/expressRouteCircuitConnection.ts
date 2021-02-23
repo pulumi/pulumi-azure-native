@@ -85,14 +85,15 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.circuitName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.peeringName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -122,15 +123,11 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network:ExpressRouteCircuitConnection" }, { type: "azure-native:network/latest:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/latest:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20180201:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20180201:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20180401:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20180401:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20180601:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20180601:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20180701:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20180701:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20180801:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20180801:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20181001:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20181001:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20181101:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20181101:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20181201:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20181201:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190201:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190201:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190401:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190401:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190601:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190601:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190701:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190701:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190801:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190801:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20190901:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20190901:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20191101:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20191101:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20191201:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20191201:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20200301:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20200301:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20200401:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20200401:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20200501:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20200501:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20200601:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20200601:ExpressRouteCircuitConnection" }, { type: "azure-native:network/v20200701:ExpressRouteCircuitConnection" }, { type: "azure-nextgen:network/v20200701:ExpressRouteCircuitConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteCircuitConnection.__pulumiType, name, inputs, opts);
     }
 }

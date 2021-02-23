@@ -73,11 +73,12 @@ export class Profile extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -98,15 +99,11 @@ export class Profile extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Profile" }, { type: "azure-nextgen:cdn:Profile" }, { type: "azure-native:cdn/latest:Profile" }, { type: "azure-nextgen:cdn/latest:Profile" }, { type: "azure-native:cdn/v20150601:Profile" }, { type: "azure-nextgen:cdn/v20150601:Profile" }, { type: "azure-native:cdn/v20160402:Profile" }, { type: "azure-nextgen:cdn/v20160402:Profile" }, { type: "azure-native:cdn/v20161002:Profile" }, { type: "azure-nextgen:cdn/v20161002:Profile" }, { type: "azure-native:cdn/v20170402:Profile" }, { type: "azure-nextgen:cdn/v20170402:Profile" }, { type: "azure-native:cdn/v20171012:Profile" }, { type: "azure-nextgen:cdn/v20171012:Profile" }, { type: "azure-native:cdn/v20190415:Profile" }, { type: "azure-nextgen:cdn/v20190415:Profile" }, { type: "azure-native:cdn/v20190615:Profile" }, { type: "azure-nextgen:cdn/v20190615:Profile" }, { type: "azure-native:cdn/v20191231:Profile" }, { type: "azure-nextgen:cdn/v20191231:Profile" }, { type: "azure-native:cdn/v20200331:Profile" }, { type: "azure-nextgen:cdn/v20200331:Profile" }, { type: "azure-native:cdn/v20200415:Profile" }, { type: "azure-nextgen:cdn/v20200415:Profile" }, { type: "azure-native:cdn/v20200901:Profile" }, { type: "azure-nextgen:cdn/v20200901:Profile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, inputs, opts);
     }
 }

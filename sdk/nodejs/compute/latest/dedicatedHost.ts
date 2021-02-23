@@ -103,14 +103,15 @@ export class DedicatedHost extends pulumi.CustomResource {
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DedicatedHost is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHost'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hostGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hostGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
@@ -144,15 +145,11 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHost" }, { type: "azure-nextgen:compute:DedicatedHost" }, { type: "azure-native:compute/v20190301:DedicatedHost" }, { type: "azure-nextgen:compute/v20190301:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-nextgen:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-nextgen:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20200601:DedicatedHost" }, { type: "azure-nextgen:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-nextgen:compute/v20201201:DedicatedHost" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHost.__pulumiType, name, inputs, opts);
     }
 }

@@ -66,8 +66,9 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementLockAtSubscriptionLevelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.level === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.level === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
             inputs["level"] = args ? args.level : undefined;
@@ -83,15 +84,11 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
             inputs["owners"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtSubscriptionLevel" }, { type: "azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtSubscriptionLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockAtSubscriptionLevel.__pulumiType, name, inputs, opts);
     }
 }

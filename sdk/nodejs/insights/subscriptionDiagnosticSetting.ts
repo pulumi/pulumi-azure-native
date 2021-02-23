@@ -82,7 +82,8 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SubscriptionDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -103,15 +104,11 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting" }, { type: "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionDiagnosticSetting.__pulumiType, name, inputs, opts);
     }
 }

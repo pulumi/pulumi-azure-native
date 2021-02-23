@@ -85,8 +85,9 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     constructor(name: string, args: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AdaptiveApplicationControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AdaptiveApplicationControl'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.ascLocation === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.ascLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
@@ -115,15 +116,11 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vmRecommendations"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:AdaptiveApplicationControl" }, { type: "azure-nextgen:security:AdaptiveApplicationControl" }, { type: "azure-native:security/v20150601preview:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/v20150601preview:AdaptiveApplicationControl" }, { type: "azure-native:security/v20200101:AdaptiveApplicationControl" }, { type: "azure-nextgen:security/v20200101:AdaptiveApplicationControl" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdaptiveApplicationControl.__pulumiType, name, inputs, opts);
     }
 }

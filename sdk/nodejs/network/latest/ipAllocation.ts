@@ -99,8 +99,9 @@ export class IpAllocation extends pulumi.CustomResource {
     constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpAllocation'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocationTags"] = args ? args.allocationTags : undefined;
@@ -132,15 +133,11 @@ export class IpAllocation extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetwork"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:IpAllocation" }, { type: "azure-nextgen:network:IpAllocation" }, { type: "azure-native:network/v20200301:IpAllocation" }, { type: "azure-nextgen:network/v20200301:IpAllocation" }, { type: "azure-native:network/v20200401:IpAllocation" }, { type: "azure-nextgen:network/v20200401:IpAllocation" }, { type: "azure-native:network/v20200501:IpAllocation" }, { type: "azure-nextgen:network/v20200501:IpAllocation" }, { type: "azure-native:network/v20200601:IpAllocation" }, { type: "azure-nextgen:network/v20200601:IpAllocation" }, { type: "azure-native:network/v20200701:IpAllocation" }, { type: "azure-nextgen:network/v20200701:IpAllocation" }, { type: "azure-native:network/v20200801:IpAllocation" }, { type: "azure-nextgen:network/v20200801:IpAllocation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpAllocation.__pulumiType, name, inputs, opts);
     }
 }

@@ -113,8 +113,9 @@ export class FrontDoor extends pulumi.CustomResource {
      */
     constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendPools"] = args ? args.backendPools : undefined;
@@ -155,15 +156,11 @@ export class FrontDoor extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FrontDoor" }, { type: "azure-nextgen:network:FrontDoor" }, { type: "azure-native:network/latest:FrontDoor" }, { type: "azure-nextgen:network/latest:FrontDoor" }, { type: "azure-native:network/v20180801:FrontDoor" }, { type: "azure-nextgen:network/v20180801:FrontDoor" }, { type: "azure-native:network/v20190401:FrontDoor" }, { type: "azure-nextgen:network/v20190401:FrontDoor" }, { type: "azure-native:network/v20190501:FrontDoor" }, { type: "azure-nextgen:network/v20190501:FrontDoor" }, { type: "azure-native:network/v20200401:FrontDoor" }, { type: "azure-nextgen:network/v20200401:FrontDoor" }, { type: "azure-native:network/v20200501:FrontDoor" }, { type: "azure-nextgen:network/v20200501:FrontDoor" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontDoor.__pulumiType, name, inputs, opts);
     }
 }

@@ -69,11 +69,12 @@ export class SecretValue extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecretValueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.secretResourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.secretResourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretResourceName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -93,15 +94,11 @@ export class SecretValue extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:SecretValue" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:SecretValue" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecretValue.__pulumiType, name, inputs, opts);
     }
 }

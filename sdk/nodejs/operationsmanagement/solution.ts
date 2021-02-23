@@ -70,8 +70,9 @@ export class Solution extends pulumi.CustomResource {
      */
     constructor(name: string, args: SolutionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -90,15 +91,11 @@ export class Solution extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:Solution" }, { type: "azure-nextgen:operationsmanagement/v20151101preview:Solution" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, inputs, opts);
     }
 }

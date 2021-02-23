@@ -89,11 +89,12 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolsV3Args, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -123,15 +124,11 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolsV3" }, { type: "azure-nextgen:synapse:SqlPoolsV3" }, { type: "azure-native:synapse/latest:SqlPoolsV3" }, { type: "azure-nextgen:synapse/latest:SqlPoolsV3" }, { type: "azure-native:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-native:synapse/v20201201:SqlPoolsV3" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolsV3" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolsV3.__pulumiType, name, inputs, opts);
     }
 }

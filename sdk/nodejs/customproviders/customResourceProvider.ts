@@ -78,8 +78,9 @@ export class CustomResourceProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomResourceProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -102,15 +103,11 @@ export class CustomResourceProvider extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["validations"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customproviders/v20180901preview:CustomResourceProvider" }, { type: "azure-nextgen:customproviders/v20180901preview:CustomResourceProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomResourceProvider.__pulumiType, name, inputs, opts);
     }
 }

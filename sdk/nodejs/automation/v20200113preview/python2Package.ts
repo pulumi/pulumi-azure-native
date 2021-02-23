@@ -109,14 +109,15 @@ export class Python2Package extends pulumi.CustomResource {
      */
     constructor(name: string, args: Python2PackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentLink === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -156,15 +157,11 @@ export class Python2Package extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Python2Package" }, { type: "azure-nextgen:automation:Python2Package" }, { type: "azure-native:automation/latest:Python2Package" }, { type: "azure-nextgen:automation/latest:Python2Package" }, { type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-nextgen:automation/v20190601:Python2Package" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python2Package.__pulumiType, name, inputs, opts);
     }
 }

@@ -181,14 +181,15 @@ export class SiteAuthSettingsSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SiteAuthSettingsSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["aadClientId"] = args ? args.aadClientId : undefined;
@@ -246,15 +247,11 @@ export class SiteAuthSettingsSlot extends pulumi.CustomResource {
             inputs["twitterConsumerSecret"] = undefined /*out*/;
             inputs["unauthenticatedClientAction"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web:SiteAuthSettingsSlot" }, { type: "azure-native:web/latest:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/latest:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:SiteAuthSettingsSlot" }, { type: "azure-native:web/v20201001:SiteAuthSettingsSlot" }, { type: "azure-nextgen:web/v20201001:SiteAuthSettingsSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }
 }

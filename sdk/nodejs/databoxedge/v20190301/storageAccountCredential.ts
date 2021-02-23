@@ -81,20 +81,21 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountType'");
             }
-            if ((!args || args.alias === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.alias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sslStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sslStatus'");
             }
             inputs["accountKey"] = args ? args.accountKey : undefined;
@@ -119,15 +120,11 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge:StorageAccountCredential" }, { type: "azure-native:databoxedge/latest:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/latest:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccountCredential" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }
 }

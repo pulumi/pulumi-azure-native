@@ -57,17 +57,18 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: WCFRelayAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.relayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.relayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -82,15 +83,11 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay:WCFRelayAuthorizationRule" }, { type: "azure-native:relay/latest:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/latest:WCFRelayAuthorizationRule" }, { type: "azure-native:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelayAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }

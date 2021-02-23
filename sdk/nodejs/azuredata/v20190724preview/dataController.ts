@@ -69,11 +69,12 @@ export class DataController extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataControllerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.onPremiseProperty === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.onPremiseProperty === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'onPremiseProperty'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataControllerName"] = args ? args.dataControllerName : undefined;
@@ -92,15 +93,11 @@ export class DataController extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata:DataController" }, { type: "azure-nextgen:azuredata:DataController" }, { type: "azure-native:azuredata/v20200908preview:DataController" }, { type: "azure-nextgen:azuredata/v20200908preview:DataController" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, inputs, opts);
     }
 }

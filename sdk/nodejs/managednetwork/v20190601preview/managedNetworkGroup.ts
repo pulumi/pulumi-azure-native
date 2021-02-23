@@ -85,11 +85,12 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedNetworkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedNetworkName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["kind"] = args ? args.kind : undefined;
@@ -117,15 +118,11 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworks"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork:ManagedNetworkGroup" }, { type: "azure-nextgen:managednetwork:ManagedNetworkGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetworkGroup.__pulumiType, name, inputs, opts);
     }
 }

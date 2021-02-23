@@ -77,8 +77,9 @@ export class IpGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: IpGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
@@ -102,15 +103,11 @@ export class IpGroup extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:IpGroup" }, { type: "azure-nextgen:network:IpGroup" }, { type: "azure-native:network/latest:IpGroup" }, { type: "azure-nextgen:network/latest:IpGroup" }, { type: "azure-native:network/v20190901:IpGroup" }, { type: "azure-nextgen:network/v20190901:IpGroup" }, { type: "azure-native:network/v20191201:IpGroup" }, { type: "azure-nextgen:network/v20191201:IpGroup" }, { type: "azure-native:network/v20200301:IpGroup" }, { type: "azure-nextgen:network/v20200301:IpGroup" }, { type: "azure-native:network/v20200401:IpGroup" }, { type: "azure-nextgen:network/v20200401:IpGroup" }, { type: "azure-native:network/v20200501:IpGroup" }, { type: "azure-nextgen:network/v20200501:IpGroup" }, { type: "azure-native:network/v20200601:IpGroup" }, { type: "azure-nextgen:network/v20200601:IpGroup" }, { type: "azure-native:network/v20200701:IpGroup" }, { type: "azure-nextgen:network/v20200701:IpGroup" }, { type: "azure-native:network/v20200801:IpGroup" }, { type: "azure-nextgen:network/v20200801:IpGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -76,20 +76,21 @@ export class WorkloadClassifier extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.memberName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.memberName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.workloadGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workloadGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
             inputs["context"] = args ? args.context : undefined;
@@ -115,15 +116,11 @@ export class WorkloadClassifier extends pulumi.CustomResource {
             inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadClassifier" }, { type: "azure-nextgen:sql:WorkloadClassifier" }, { type: "azure-native:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadClassifier" }, { type: "azure-native:sql/v20200202preview:WorkloadClassifier" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadClassifier" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadClassifier.__pulumiType, name, inputs, opts);
     }
 }

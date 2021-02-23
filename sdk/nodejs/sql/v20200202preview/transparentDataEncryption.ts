@@ -57,17 +57,18 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
      */
     constructor(name: string, args: TransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -82,15 +83,11 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:TransparentDataEncryption" }, { type: "azure-nextgen:sql:TransparentDataEncryption" }, { type: "azure-native:sql/latest:TransparentDataEncryption" }, { type: "azure-nextgen:sql/latest:TransparentDataEncryption" }, { type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-nextgen:sql/v20200801preview:TransparentDataEncryption" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TransparentDataEncryption.__pulumiType, name, inputs, opts);
     }
 }

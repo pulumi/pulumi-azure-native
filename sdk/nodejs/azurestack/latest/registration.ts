@@ -83,11 +83,12 @@ export class Registration extends pulumi.CustomResource {
     constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Registration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:azurestack:Registration'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.registrationToken === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.registrationToken === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registrationToken'");
             }
-            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -111,15 +112,11 @@ export class Registration extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack:Registration" }, { type: "azure-nextgen:azurestack:Registration" }, { type: "azure-native:azurestack/v20160101:Registration" }, { type: "azure-nextgen:azurestack/v20160101:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registration.__pulumiType, name, inputs, opts);
     }
 }

@@ -82,14 +82,15 @@ export class LogProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.categories === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'categories'");
             }
-            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
             inputs["categories"] = args ? args.categories : undefined;
@@ -113,15 +114,11 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:LogProfile" }, { type: "azure-nextgen:insights/latest:LogProfile" }, { type: "azure-native:insights/v20160301:LogProfile" }, { type: "azure-nextgen:insights/v20160301:LogProfile" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogProfile.__pulumiType, name, inputs, opts);
     }
 }

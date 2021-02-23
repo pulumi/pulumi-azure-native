@@ -73,8 +73,9 @@ export class DiskAccess extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiskAccessArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["diskAccessName"] = args ? args.diskAccessName : undefined;
@@ -95,15 +96,11 @@ export class DiskAccess extends pulumi.CustomResource {
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccess" }, { type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-native:compute/latest:DiskAccess" }, { type: "azure-nextgen:compute/latest:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }
 }

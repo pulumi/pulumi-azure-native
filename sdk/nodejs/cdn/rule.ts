@@ -79,20 +79,21 @@ export class Rule extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.order === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.order === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -119,15 +120,11 @@ export class Rule extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:Rule" }, { type: "azure-nextgen:cdn/latest:Rule" }, { type: "azure-native:cdn/v20200901:Rule" }, { type: "azure-nextgen:cdn/v20200901:Rule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rule.__pulumiType, name, inputs, opts);
     }
 }

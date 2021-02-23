@@ -113,8 +113,9 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
@@ -156,15 +157,11 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRoutePort" }, { type: "azure-nextgen:network:ExpressRoutePort" }, { type: "azure-native:network/latest:ExpressRoutePort" }, { type: "azure-nextgen:network/latest:ExpressRoutePort" }, { type: "azure-native:network/v20180801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20180801:ExpressRoutePort" }, { type: "azure-native:network/v20181001:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181001:ExpressRoutePort" }, { type: "azure-native:network/v20181101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181101:ExpressRoutePort" }, { type: "azure-native:network/v20181201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20181201:ExpressRoutePort" }, { type: "azure-native:network/v20190201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190201:ExpressRoutePort" }, { type: "azure-native:network/v20190401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190401:ExpressRoutePort" }, { type: "azure-native:network/v20190601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190601:ExpressRoutePort" }, { type: "azure-native:network/v20190701:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190701:ExpressRoutePort" }, { type: "azure-native:network/v20190901:ExpressRoutePort" }, { type: "azure-nextgen:network/v20190901:ExpressRoutePort" }, { type: "azure-native:network/v20191101:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191101:ExpressRoutePort" }, { type: "azure-native:network/v20191201:ExpressRoutePort" }, { type: "azure-nextgen:network/v20191201:ExpressRoutePort" }, { type: "azure-native:network/v20200301:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200301:ExpressRoutePort" }, { type: "azure-native:network/v20200401:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200401:ExpressRoutePort" }, { type: "azure-native:network/v20200501:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200501:ExpressRoutePort" }, { type: "azure-native:network/v20200601:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200601:ExpressRoutePort" }, { type: "azure-native:network/v20200701:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200701:ExpressRoutePort" }, { type: "azure-native:network/v20200801:ExpressRoutePort" }, { type: "azure-nextgen:network/v20200801:ExpressRoutePort" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRoutePort.__pulumiType, name, inputs, opts);
     }
 }

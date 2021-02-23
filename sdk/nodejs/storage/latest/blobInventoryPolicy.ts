@@ -71,14 +71,15 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
     constructor(name: string, args: BlobInventoryPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BlobInventoryPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobInventoryPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.policy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -96,15 +97,11 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobInventoryPolicy" }, { type: "azure-nextgen:storage:BlobInventoryPolicy" }, { type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-nextgen:storage/v20210101:BlobInventoryPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobInventoryPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -94,17 +94,18 @@ export class DiskPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiskPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.availabilityZones === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.tier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -135,15 +136,11 @@ export class DiskPool extends pulumi.CustomResource {
             inputs["tier"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagepool/v20200315preview:DiskPool" }, { type: "azure-nextgen:storagepool/v20200315preview:DiskPool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskPool.__pulumiType, name, inputs, opts);
     }
 }

@@ -54,11 +54,12 @@ export class VMwareCollector extends pulumi.CustomResource {
     constructor(name: string, args: VMwareCollectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VMwareCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:VMwareCollector'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -74,15 +75,11 @@ export class VMwareCollector extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate:VMwareCollector" }, { type: "azure-nextgen:migrate:VMwareCollector" }, { type: "azure-native:migrate/v20191001:VMwareCollector" }, { type: "azure-nextgen:migrate/v20191001:VMwareCollector" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VMwareCollector.__pulumiType, name, inputs, opts);
     }
 }

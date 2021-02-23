@@ -141,11 +141,12 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
@@ -200,15 +201,11 @@ export class Application extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:Application" }, { type: "azure-nextgen:solutions:Application" }, { type: "azure-native:solutions/latest:Application" }, { type: "azure-nextgen:solutions/latest:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-nextgen:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-nextgen:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-nextgen:solutions/v20190701:Application" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

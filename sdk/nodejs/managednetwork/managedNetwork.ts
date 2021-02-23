@@ -78,8 +78,9 @@ export class ManagedNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedNetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -102,15 +103,11 @@ export class ManagedNetwork extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ManagedNetwork" }, { type: "azure-nextgen:managednetwork/v20190601preview:ManagedNetwork" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetwork.__pulumiType, name, inputs, opts);
     }
 }

@@ -86,11 +86,12 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedHsmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -116,15 +117,11 @@ export class DedicatedHsm extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm" }, { type: "azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHsm.__pulumiType, name, inputs, opts);
     }
 }

@@ -115,8 +115,9 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Cluster'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["billingType"] = args ? args.billingType : undefined;
@@ -155,15 +156,11 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Cluster" }, { type: "azure-nextgen:operationalinsights:Cluster" }, { type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-nextgen:operationalinsights/v20201001:Cluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

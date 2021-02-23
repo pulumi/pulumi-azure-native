@@ -114,8 +114,9 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["bootStrapConfigurationBlobs"] = args ? args.bootStrapConfigurationBlobs : undefined;
@@ -157,15 +158,11 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             inputs["virtualApplianceSites"] = undefined /*out*/;
             inputs["virtualHub"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/latest:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/latest:NetworkVirtualAppliance" }, { type: "azure-native:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200301:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200801:NetworkVirtualAppliance" }, { type: "azure-nextgen:network/v20200801:NetworkVirtualAppliance" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
     }
 }

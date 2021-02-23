@@ -49,8 +49,9 @@ export class Console extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConsoleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
             inputs["consoleName"] = args ? args.consoleName : undefined;
@@ -58,15 +59,11 @@ export class Console extends pulumi.CustomResource {
         } else {
             inputs["properties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:Console" }, { type: "azure-nextgen:portal:Console" }, { type: "azure-native:portal/latest:Console" }, { type: "azure-nextgen:portal/latest:Console" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Console.__pulumiType, name, inputs, opts);
     }
 }

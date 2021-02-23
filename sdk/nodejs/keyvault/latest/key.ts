@@ -92,14 +92,15 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Key is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:Key'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -130,15 +131,11 @@ export class Key extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Key" }, { type: "azure-nextgen:keyvault:Key" }, { type: "azure-native:keyvault/v20190901:Key" }, { type: "azure-nextgen:keyvault/v20190901:Key" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Key.__pulumiType, name, inputs, opts);
     }
 }

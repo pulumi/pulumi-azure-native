@@ -260,14 +260,15 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppAuthSettingsSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["aadClaimsAuthorization"] = args ? args.aadClaimsAuthorization : undefined;
@@ -356,15 +357,11 @@ export class WebAppAuthSettingsSlot extends pulumi.CustomResource {
             inputs["unauthenticatedClientAction"] = undefined /*out*/;
             inputs["validateIssuer"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web:WebAppAuthSettingsSlot" }, { type: "azure-native:web/latest:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettingsSlot.__pulumiType, name, inputs, opts);
     }
 }

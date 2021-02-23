@@ -123,11 +123,12 @@ export class Topic extends pulumi.CustomResource {
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Topic'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -171,15 +172,11 @@ export class Topic extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Topic" }, { type: "azure-nextgen:servicebus:Topic" }, { type: "azure-native:servicebus/v20140901:Topic" }, { type: "azure-nextgen:servicebus/v20140901:Topic" }, { type: "azure-native:servicebus/v20150801:Topic" }, { type: "azure-nextgen:servicebus/v20150801:Topic" }, { type: "azure-native:servicebus/v20170401:Topic" }, { type: "azure-nextgen:servicebus/v20170401:Topic" }, { type: "azure-native:servicebus/v20180101preview:Topic" }, { type: "azure-nextgen:servicebus/v20180101preview:Topic" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Topic.__pulumiType, name, inputs, opts);
     }
 }

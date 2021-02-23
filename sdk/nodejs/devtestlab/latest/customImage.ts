@@ -115,11 +115,12 @@ export class CustomImage extends pulumi.CustomResource {
     constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["author"] = args ? args.author : undefined;
@@ -158,15 +159,11 @@ export class CustomImage extends pulumi.CustomResource {
             inputs["vhd"] = undefined /*out*/;
             inputs["vm"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImage" }, { type: "azure-nextgen:devtestlab:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }, { type: "azure-native:devtestlab/v20180915:CustomImage" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomImage.__pulumiType, name, inputs, opts);
     }
 }

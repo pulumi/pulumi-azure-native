@@ -67,17 +67,18 @@ export class ProductPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ProductPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProductPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ProductPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.productId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["format"] = (args ? args.format : undefined) || "xml";
@@ -94,15 +95,11 @@ export class ProductPolicy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductPolicy" }, { type: "azure-nextgen:apimanagement:ProductPolicy" }, { type: "azure-native:apimanagement/v20170301:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20170301:ProductPolicy" }, { type: "azure-native:apimanagement/v20180101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180101:ProductPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20190101:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20190101:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20191201preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ProductPolicy" }, { type: "azure-nextgen:apimanagement/v20200601preview:ProductPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -73,11 +73,12 @@ export class MachineLearningCompute extends pulumi.CustomResource {
      */
     constructor(name: string, args: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["computeName"] = args ? args.computeName : undefined;
@@ -99,15 +100,11 @@ export class MachineLearningCompute extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/latest:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/latest:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20180301preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200601:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200801:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningCompute" }, { type: "azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningCompute.__pulumiType, name, inputs, opts);
     }
 }

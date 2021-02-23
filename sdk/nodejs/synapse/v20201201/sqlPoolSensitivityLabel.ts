@@ -90,23 +90,24 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.columnName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.columnName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'columnName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["columnName"] = args ? args.columnName : undefined;
@@ -139,15 +140,11 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
             inputs["tableName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse:SqlPoolSensitivityLabel" }, { type: "azure-native:synapse/latest:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/latest:SqlPoolSensitivityLabel" }, { type: "azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolSensitivityLabel.__pulumiType, name, inputs, opts);
     }
 }

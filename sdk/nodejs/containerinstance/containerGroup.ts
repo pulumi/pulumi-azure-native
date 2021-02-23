@@ -125,14 +125,15 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.containers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containerGroupName"] = args ? args.containerGroupName : undefined;
@@ -177,15 +178,11 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["volumes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/latest:ContainerGroup" }, { type: "azure-nextgen:containerinstance/latest:ContainerGroup" }, { type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-nextgen:containerinstance/v20210301:ContainerGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }
 }

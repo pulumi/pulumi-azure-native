@@ -88,17 +88,18 @@ export class Origin extends pulumi.CustomResource {
      */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -129,15 +130,11 @@ export class Origin extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["weight"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Origin" }, { type: "azure-nextgen:cdn:Origin" }, { type: "azure-native:cdn/latest:Origin" }, { type: "azure-nextgen:cdn/latest:Origin" }, { type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200415:Origin" }, { type: "azure-nextgen:cdn/v20200415:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Origin.__pulumiType, name, inputs, opts);
     }
 }

@@ -98,8 +98,9 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualWanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
@@ -135,15 +136,11 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["virtualHubs"] = undefined /*out*/;
             inputs["vpnSites"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualWan" }, { type: "azure-nextgen:network:VirtualWan" }, { type: "azure-native:network/latest:VirtualWan" }, { type: "azure-nextgen:network/latest:VirtualWan" }, { type: "azure-native:network/v20180401:VirtualWan" }, { type: "azure-nextgen:network/v20180401:VirtualWan" }, { type: "azure-native:network/v20180601:VirtualWan" }, { type: "azure-nextgen:network/v20180601:VirtualWan" }, { type: "azure-native:network/v20180701:VirtualWan" }, { type: "azure-nextgen:network/v20180701:VirtualWan" }, { type: "azure-native:network/v20180801:VirtualWan" }, { type: "azure-nextgen:network/v20180801:VirtualWan" }, { type: "azure-native:network/v20181001:VirtualWan" }, { type: "azure-nextgen:network/v20181001:VirtualWan" }, { type: "azure-native:network/v20181201:VirtualWan" }, { type: "azure-nextgen:network/v20181201:VirtualWan" }, { type: "azure-native:network/v20190201:VirtualWan" }, { type: "azure-nextgen:network/v20190201:VirtualWan" }, { type: "azure-native:network/v20190401:VirtualWan" }, { type: "azure-nextgen:network/v20190401:VirtualWan" }, { type: "azure-native:network/v20190601:VirtualWan" }, { type: "azure-nextgen:network/v20190601:VirtualWan" }, { type: "azure-native:network/v20190701:VirtualWan" }, { type: "azure-nextgen:network/v20190701:VirtualWan" }, { type: "azure-native:network/v20190801:VirtualWan" }, { type: "azure-nextgen:network/v20190801:VirtualWan" }, { type: "azure-native:network/v20190901:VirtualWan" }, { type: "azure-nextgen:network/v20190901:VirtualWan" }, { type: "azure-native:network/v20191101:VirtualWan" }, { type: "azure-nextgen:network/v20191101:VirtualWan" }, { type: "azure-native:network/v20191201:VirtualWan" }, { type: "azure-nextgen:network/v20191201:VirtualWan" }, { type: "azure-native:network/v20200301:VirtualWan" }, { type: "azure-nextgen:network/v20200301:VirtualWan" }, { type: "azure-native:network/v20200401:VirtualWan" }, { type: "azure-nextgen:network/v20200401:VirtualWan" }, { type: "azure-native:network/v20200501:VirtualWan" }, { type: "azure-nextgen:network/v20200501:VirtualWan" }, { type: "azure-native:network/v20200601:VirtualWan" }, { type: "azure-nextgen:network/v20200601:VirtualWan" }, { type: "azure-native:network/v20200701:VirtualWan" }, { type: "azure-nextgen:network/v20200701:VirtualWan" }, { type: "azure-native:network/v20200801:VirtualWan" }, { type: "azure-nextgen:network/v20200801:VirtualWan" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualWan.__pulumiType, name, inputs, opts);
     }
 }

@@ -67,14 +67,15 @@ export class Role extends pulumi.CustomResource {
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Role is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Role'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -89,15 +90,11 @@ export class Role extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Role" }, { type: "azure-nextgen:databoxedge:Role" }, { type: "azure-native:databoxedge/v20190301:Role" }, { type: "azure-nextgen:databoxedge/v20190301:Role" }, { type: "azure-native:databoxedge/v20190701:Role" }, { type: "azure-nextgen:databoxedge/v20190701:Role" }, { type: "azure-native:databoxedge/v20190801:Role" }, { type: "azure-nextgen:databoxedge/v20190801:Role" }, { type: "azure-native:databoxedge/v20200501preview:Role" }, { type: "azure-nextgen:databoxedge/v20200501preview:Role" }, { type: "azure-native:databoxedge/v20200901:Role" }, { type: "azure-nextgen:databoxedge/v20200901:Role" }, { type: "azure-native:databoxedge/v20200901preview:Role" }, { type: "azure-nextgen:databoxedge/v20200901preview:Role" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Role.__pulumiType, name, inputs, opts);
     }
 }

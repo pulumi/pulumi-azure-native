@@ -64,11 +64,12 @@ export class Suppression extends pulumi.CustomResource {
      */
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.recommendationId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.recommendationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recommendationId'");
             }
-            if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["name"] = args ? args.name : undefined;
@@ -85,15 +86,11 @@ export class Suppression extends pulumi.CustomResource {
             inputs["ttl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:advisor:Suppression" }, { type: "azure-nextgen:advisor:Suppression" }, { type: "azure-native:advisor/latest:Suppression" }, { type: "azure-nextgen:advisor/latest:Suppression" }, { type: "azure-native:advisor/v20160712preview:Suppression" }, { type: "azure-nextgen:advisor/v20160712preview:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-nextgen:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-nextgen:advisor/v20170419:Suppression" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Suppression.__pulumiType, name, inputs, opts);
     }
 }

@@ -67,11 +67,12 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Gateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Gateway'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -87,15 +88,11 @@ export class Gateway extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Gateway" }, { type: "azure-nextgen:apimanagement:Gateway" }, { type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-nextgen:apimanagement/v20200601preview:Gateway" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,17 +78,18 @@ export class MigrationConfig extends pulumi.CustomResource {
     constructor(name: string, args: MigrationConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.postMigrationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.postMigrationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'postMigrationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
             inputs["configName"] = args ? args.configName : undefined;
@@ -110,15 +111,11 @@ export class MigrationConfig extends pulumi.CustomResource {
             inputs["targetNamespace"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:MigrationConfig" }, { type: "azure-nextgen:servicebus:MigrationConfig" }, { type: "azure-native:servicebus/v20170401:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20170401:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:MigrationConfig" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrationConfig.__pulumiType, name, inputs, opts);
     }
 }

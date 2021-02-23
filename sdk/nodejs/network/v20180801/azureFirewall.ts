@@ -85,8 +85,9 @@ export class AzureFirewall extends pulumi.CustomResource {
      */
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
@@ -114,15 +115,11 @@ export class AzureFirewall extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:AzureFirewall" }, { type: "azure-nextgen:network:AzureFirewall" }, { type: "azure-native:network/latest:AzureFirewall" }, { type: "azure-nextgen:network/latest:AzureFirewall" }, { type: "azure-native:network/v20180401:AzureFirewall" }, { type: "azure-nextgen:network/v20180401:AzureFirewall" }, { type: "azure-native:network/v20180601:AzureFirewall" }, { type: "azure-nextgen:network/v20180601:AzureFirewall" }, { type: "azure-native:network/v20180701:AzureFirewall" }, { type: "azure-nextgen:network/v20180701:AzureFirewall" }, { type: "azure-native:network/v20181001:AzureFirewall" }, { type: "azure-nextgen:network/v20181001:AzureFirewall" }, { type: "azure-native:network/v20181101:AzureFirewall" }, { type: "azure-nextgen:network/v20181101:AzureFirewall" }, { type: "azure-native:network/v20181201:AzureFirewall" }, { type: "azure-nextgen:network/v20181201:AzureFirewall" }, { type: "azure-native:network/v20190201:AzureFirewall" }, { type: "azure-nextgen:network/v20190201:AzureFirewall" }, { type: "azure-native:network/v20190401:AzureFirewall" }, { type: "azure-nextgen:network/v20190401:AzureFirewall" }, { type: "azure-native:network/v20190601:AzureFirewall" }, { type: "azure-nextgen:network/v20190601:AzureFirewall" }, { type: "azure-native:network/v20190701:AzureFirewall" }, { type: "azure-nextgen:network/v20190701:AzureFirewall" }, { type: "azure-native:network/v20190801:AzureFirewall" }, { type: "azure-nextgen:network/v20190801:AzureFirewall" }, { type: "azure-native:network/v20190901:AzureFirewall" }, { type: "azure-nextgen:network/v20190901:AzureFirewall" }, { type: "azure-native:network/v20191101:AzureFirewall" }, { type: "azure-nextgen:network/v20191101:AzureFirewall" }, { type: "azure-native:network/v20191201:AzureFirewall" }, { type: "azure-nextgen:network/v20191201:AzureFirewall" }, { type: "azure-native:network/v20200301:AzureFirewall" }, { type: "azure-nextgen:network/v20200301:AzureFirewall" }, { type: "azure-native:network/v20200401:AzureFirewall" }, { type: "azure-nextgen:network/v20200401:AzureFirewall" }, { type: "azure-native:network/v20200501:AzureFirewall" }, { type: "azure-nextgen:network/v20200501:AzureFirewall" }, { type: "azure-native:network/v20200601:AzureFirewall" }, { type: "azure-nextgen:network/v20200601:AzureFirewall" }, { type: "azure-native:network/v20200701:AzureFirewall" }, { type: "azure-nextgen:network/v20200701:AzureFirewall" }, { type: "azure-native:network/v20200801:AzureFirewall" }, { type: "azure-nextgen:network/v20200801:AzureFirewall" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureFirewall.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,8 +78,9 @@ export class VirtualWAN extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualWANArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
@@ -105,15 +106,11 @@ export class VirtualWAN extends pulumi.CustomResource {
             inputs["virtualHubs"] = undefined /*out*/;
             inputs["vpnSites"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualWAN" }, { type: "azure-nextgen:network:VirtualWAN" }, { type: "azure-native:network/latest:VirtualWAN" }, { type: "azure-nextgen:network/latest:VirtualWAN" }, { type: "azure-native:network/v20180401:VirtualWAN" }, { type: "azure-nextgen:network/v20180401:VirtualWAN" }, { type: "azure-native:network/v20180701:VirtualWAN" }, { type: "azure-nextgen:network/v20180701:VirtualWAN" }, { type: "azure-native:network/v20180801:VirtualWAN" }, { type: "azure-nextgen:network/v20180801:VirtualWAN" }, { type: "azure-native:network/v20181001:VirtualWAN" }, { type: "azure-nextgen:network/v20181001:VirtualWAN" }, { type: "azure-native:network/v20181101:VirtualWAN" }, { type: "azure-nextgen:network/v20181101:VirtualWAN" }, { type: "azure-native:network/v20181201:VirtualWAN" }, { type: "azure-nextgen:network/v20181201:VirtualWAN" }, { type: "azure-native:network/v20190201:VirtualWAN" }, { type: "azure-nextgen:network/v20190201:VirtualWAN" }, { type: "azure-native:network/v20190401:VirtualWAN" }, { type: "azure-nextgen:network/v20190401:VirtualWAN" }, { type: "azure-native:network/v20190601:VirtualWAN" }, { type: "azure-nextgen:network/v20190601:VirtualWAN" }, { type: "azure-native:network/v20190701:VirtualWAN" }, { type: "azure-nextgen:network/v20190701:VirtualWAN" }, { type: "azure-native:network/v20190801:VirtualWAN" }, { type: "azure-nextgen:network/v20190801:VirtualWAN" }, { type: "azure-native:network/v20190901:VirtualWAN" }, { type: "azure-nextgen:network/v20190901:VirtualWAN" }, { type: "azure-native:network/v20191101:VirtualWAN" }, { type: "azure-nextgen:network/v20191101:VirtualWAN" }, { type: "azure-native:network/v20191201:VirtualWAN" }, { type: "azure-nextgen:network/v20191201:VirtualWAN" }, { type: "azure-native:network/v20200301:VirtualWAN" }, { type: "azure-nextgen:network/v20200301:VirtualWAN" }, { type: "azure-native:network/v20200401:VirtualWAN" }, { type: "azure-nextgen:network/v20200401:VirtualWAN" }, { type: "azure-native:network/v20200501:VirtualWAN" }, { type: "azure-nextgen:network/v20200501:VirtualWAN" }, { type: "azure-native:network/v20200601:VirtualWAN" }, { type: "azure-nextgen:network/v20200601:VirtualWAN" }, { type: "azure-native:network/v20200701:VirtualWAN" }, { type: "azure-nextgen:network/v20200701:VirtualWAN" }, { type: "azure-native:network/v20200801:VirtualWAN" }, { type: "azure-nextgen:network/v20200801:VirtualWAN" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualWAN.__pulumiType, name, inputs, opts);
     }
 }

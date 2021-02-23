@@ -82,11 +82,12 @@ export class Device extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureStackEdge"] = args ? args.azureStackEdge : undefined;
@@ -111,15 +112,11 @@ export class Device extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:Device" }, { type: "azure-nextgen:hybridnetwork/v20200101preview:Device" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, inputs, opts);
     }
 }

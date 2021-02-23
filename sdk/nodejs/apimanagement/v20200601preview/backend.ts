@@ -89,17 +89,18 @@ export class Backend extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["backendId"] = args ? args.backendId : undefined;
@@ -129,15 +130,11 @@ export class Backend extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Backend" }, { type: "azure-nextgen:apimanagement:Backend" }, { type: "azure-native:apimanagement/latest:Backend" }, { type: "azure-nextgen:apimanagement/latest:Backend" }, { type: "azure-native:apimanagement/v20160707:Backend" }, { type: "azure-nextgen:apimanagement/v20160707:Backend" }, { type: "azure-native:apimanagement/v20161010:Backend" }, { type: "azure-nextgen:apimanagement/v20161010:Backend" }, { type: "azure-native:apimanagement/v20170301:Backend" }, { type: "azure-nextgen:apimanagement/v20170301:Backend" }, { type: "azure-native:apimanagement/v20180101:Backend" }, { type: "azure-nextgen:apimanagement/v20180101:Backend" }, { type: "azure-native:apimanagement/v20180601preview:Backend" }, { type: "azure-nextgen:apimanagement/v20180601preview:Backend" }, { type: "azure-native:apimanagement/v20190101:Backend" }, { type: "azure-nextgen:apimanagement/v20190101:Backend" }, { type: "azure-native:apimanagement/v20191201:Backend" }, { type: "azure-nextgen:apimanagement/v20191201:Backend" }, { type: "azure-native:apimanagement/v20191201preview:Backend" }, { type: "azure-nextgen:apimanagement/v20191201preview:Backend" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Backend.__pulumiType, name, inputs, opts);
     }
 }

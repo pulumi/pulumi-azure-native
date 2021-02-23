@@ -66,11 +66,12 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["configName"] = args ? args.configName : undefined;
@@ -88,15 +89,11 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             inputs["timeInWeek"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice/latest:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/latest:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,14 +78,15 @@ export class AnalyticsItem extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.scopePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopePath'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -111,15 +112,11 @@ export class AnalyticsItem extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:AnalyticsItem" }, { type: "azure-nextgen:insights/latest:AnalyticsItem" }, { type: "azure-native:insights/v20150501:AnalyticsItem" }, { type: "azure-nextgen:insights/v20150501:AnalyticsItem" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AnalyticsItem.__pulumiType, name, inputs, opts);
     }
 }

@@ -70,8 +70,9 @@ export class SshPublicKey extends pulumi.CustomResource {
     constructor(name: string, args: SshPublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SshPublicKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:SshPublicKey'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -88,15 +89,11 @@ export class SshPublicKey extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:SshPublicKey" }, { type: "azure-nextgen:compute:SshPublicKey" }, { type: "azure-native:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-native:compute/v20200601:SshPublicKey" }, { type: "azure-nextgen:compute/v20200601:SshPublicKey" }, { type: "azure-native:compute/v20201201:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }
 }

@@ -68,14 +68,15 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerCommunicationLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.partnerServer === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.partnerServer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partnerServer'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["communicationLinkName"] = args ? args.communicationLinkName : undefined;
@@ -95,15 +96,11 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerCommunicationLink" }, { type: "azure-nextgen:sql:ServerCommunicationLink" }, { type: "azure-native:sql/latest:ServerCommunicationLink" }, { type: "azure-nextgen:sql/latest:ServerCommunicationLink" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerCommunicationLink.__pulumiType, name, inputs, opts);
     }
 }

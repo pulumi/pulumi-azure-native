@@ -120,11 +120,12 @@ export class ExportConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;
@@ -172,15 +173,11 @@ export class ExportConfiguration extends pulumi.CustomResource {
             inputs["storageName"] = undefined /*out*/;
             inputs["subscriptionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ExportConfiguration" }, { type: "azure-nextgen:insights:ExportConfiguration" }, { type: "azure-native:insights/latest:ExportConfiguration" }, { type: "azure-nextgen:insights/latest:ExportConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExportConfiguration.__pulumiType, name, inputs, opts);
     }
 }

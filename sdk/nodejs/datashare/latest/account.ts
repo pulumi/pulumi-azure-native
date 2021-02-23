@@ -91,11 +91,12 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Account is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:Account'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -122,15 +123,11 @@ export class Account extends pulumi.CustomResource {
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Account" }, { type: "azure-nextgen:datashare:Account" }, { type: "azure-native:datashare/v20181101preview:Account" }, { type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

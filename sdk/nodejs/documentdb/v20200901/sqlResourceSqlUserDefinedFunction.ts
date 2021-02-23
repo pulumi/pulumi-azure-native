@@ -62,20 +62,21 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -96,15 +97,11 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction" }, { type: "azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }
 }

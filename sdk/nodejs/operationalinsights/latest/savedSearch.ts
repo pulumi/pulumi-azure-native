@@ -91,20 +91,21 @@ export class SavedSearch extends pulumi.CustomResource {
     constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["category"] = args ? args.category : undefined;
@@ -132,15 +133,11 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:SavedSearch" }, { type: "azure-nextgen:operationalinsights:SavedSearch" }, { type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-nextgen:operationalinsights/v20200801:SavedSearch" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }
 }

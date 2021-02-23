@@ -70,7 +70,8 @@ export class SecurityContact extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             inputs["emails"] = args ? args.emails : undefined;
             inputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
@@ -86,15 +87,11 @@ export class SecurityContact extends pulumi.CustomResource {
             inputs["phone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:SecurityContact" }, { type: "azure-nextgen:security/v20170801preview:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }, { type: "azure-nextgen:security/v20200101preview:SecurityContact" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityContact.__pulumiType, name, inputs, opts);
     }
 }

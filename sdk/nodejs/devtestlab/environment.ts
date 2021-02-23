@@ -86,14 +86,15 @@ export class Environment extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["armTemplateDisplayName"] = args ? args.armTemplateDisplayName : undefined;
@@ -121,15 +122,11 @@ export class Environment extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/latest:Environment" }, { type: "azure-nextgen:devtestlab/latest:Environment" }, { type: "azure-native:devtestlab/v20160515:Environment" }, { type: "azure-nextgen:devtestlab/v20160515:Environment" }, { type: "azure-native:devtestlab/v20180915:Environment" }, { type: "azure-nextgen:devtestlab/v20180915:Environment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, inputs, opts);
     }
 }

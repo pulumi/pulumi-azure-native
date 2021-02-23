@@ -74,17 +74,18 @@ export class ConnectionType extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.fieldDefinitions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fieldDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fieldDefinitions'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -106,15 +107,11 @@ export class ConnectionType extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:ConnectionType" }, { type: "azure-nextgen:automation/latest:ConnectionType" }, { type: "azure-native:automation/v20151031:ConnectionType" }, { type: "azure-nextgen:automation/v20151031:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-nextgen:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }, { type: "azure-nextgen:automation/v20200113preview:ConnectionType" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionType.__pulumiType, name, inputs, opts);
     }
 }

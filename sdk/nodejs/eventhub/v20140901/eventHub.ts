@@ -81,11 +81,12 @@ export class EventHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
@@ -111,15 +112,11 @@ export class EventHub extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHub" }, { type: "azure-nextgen:eventhub:EventHub" }, { type: "azure-native:eventhub/latest:EventHub" }, { type: "azure-nextgen:eventhub/latest:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-nextgen:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-nextgen:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-nextgen:eventhub/v20180101preview:EventHub" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHub.__pulumiType, name, inputs, opts);
     }
 }

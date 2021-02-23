@@ -122,17 +122,18 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managementCluster === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managementCluster === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if ((!args || args.networkBlock === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkBlock === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkBlock'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["identitySources"] = args ? args.identitySources : undefined;
@@ -177,15 +178,11 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["vcenterPassword"] = undefined /*out*/;
             inputs["vmotionNetwork"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs/latest:PrivateCloud" }, { type: "azure-nextgen:avs/latest:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20210101preview:PrivateCloud" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }
 }

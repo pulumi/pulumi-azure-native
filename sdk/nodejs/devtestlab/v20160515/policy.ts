@@ -97,14 +97,15 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.policySetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policySetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -138,15 +139,11 @@ export class Policy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Policy" }, { type: "azure-nextgen:devtestlab:Policy" }, { type: "azure-native:devtestlab/latest:Policy" }, { type: "azure-nextgen:devtestlab/latest:Policy" }, { type: "azure-native:devtestlab/v20150521preview:Policy" }, { type: "azure-nextgen:devtestlab/v20150521preview:Policy" }, { type: "azure-native:devtestlab/v20180915:Policy" }, { type: "azure-nextgen:devtestlab/v20180915:Policy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

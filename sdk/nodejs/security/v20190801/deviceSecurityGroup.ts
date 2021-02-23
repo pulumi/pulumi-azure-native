@@ -69,8 +69,9 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeviceSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["allowlistRules"] = args ? args.allowlistRules : undefined;
@@ -89,15 +90,11 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
             inputs["timeWindowRules"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:DeviceSecurityGroup" }, { type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-native:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-native:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }
 }

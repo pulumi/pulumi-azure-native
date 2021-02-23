@@ -62,11 +62,12 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobCollectionName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobCollectionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["jobCollectionName"] = args ? args.jobCollectionName : undefined;
@@ -80,15 +81,11 @@ export class Job extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:scheduler:Job" }, { type: "azure-nextgen:scheduler:Job" }, { type: "azure-native:scheduler/v20140801preview:Job" }, { type: "azure-nextgen:scheduler/v20140801preview:Job" }, { type: "azure-native:scheduler/v20160101:Job" }, { type: "azure-nextgen:scheduler/v20160101:Job" }, { type: "azure-native:scheduler/v20160301:Job" }, { type: "azure-nextgen:scheduler/v20160301:Job" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, inputs, opts);
     }
 }

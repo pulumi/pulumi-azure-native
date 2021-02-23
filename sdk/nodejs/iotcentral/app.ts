@@ -82,11 +82,12 @@ export class App extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
@@ -111,15 +112,11 @@ export class App extends pulumi.CustomResource {
             inputs["template"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotcentral/latest:App" }, { type: "azure-nextgen:iotcentral/latest:App" }, { type: "azure-native:iotcentral/v20170701privatepreview:App" }, { type: "azure-nextgen:iotcentral/v20170701privatepreview:App" }, { type: "azure-native:iotcentral/v20180901:App" }, { type: "azure-nextgen:iotcentral/v20180901:App" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(App.__pulumiType, name, inputs, opts);
     }
 }

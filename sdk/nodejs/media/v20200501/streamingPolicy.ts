@@ -81,11 +81,12 @@ export class StreamingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -111,15 +112,11 @@ export class StreamingPolicy extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingPolicy" }, { type: "azure-nextgen:media:StreamingPolicy" }, { type: "azure-native:media/latest:StreamingPolicy" }, { type: "azure-nextgen:media/latest:StreamingPolicy" }, { type: "azure-native:media/v20180330preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180330preview:StreamingPolicy" }, { type: "azure-native:media/v20180601preview:StreamingPolicy" }, { type: "azure-nextgen:media/v20180601preview:StreamingPolicy" }, { type: "azure-native:media/v20180701:StreamingPolicy" }, { type: "azure-nextgen:media/v20180701:StreamingPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingPolicy.__pulumiType, name, inputs, opts);
     }
 }

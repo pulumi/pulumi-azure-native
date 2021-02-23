@@ -77,14 +77,15 @@ export class ExportPipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.target === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
             inputs["exportPipelineName"] = args ? args.exportPipelineName : undefined;
@@ -108,15 +109,11 @@ export class ExportPipeline extends pulumi.CustomResource {
             inputs["target"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ExportPipeline" }, { type: "azure-nextgen:containerregistry:ExportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ExportPipeline" }, { type: "azure-nextgen:containerregistry/v20201101preview:ExportPipeline" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExportPipeline.__pulumiType, name, inputs, opts);
     }
 }

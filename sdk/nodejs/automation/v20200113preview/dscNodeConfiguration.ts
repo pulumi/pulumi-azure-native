@@ -77,17 +77,18 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.configuration === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -112,15 +113,11 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["source"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:DscNodeConfiguration" }, { type: "azure-nextgen:automation:DscNodeConfiguration" }, { type: "azure-native:automation/latest:DscNodeConfiguration" }, { type: "azure-nextgen:automation/latest:DscNodeConfiguration" }, { type: "azure-native:automation/v20151031:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20151031:DscNodeConfiguration" }, { type: "azure-native:automation/v20180115:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20180115:DscNodeConfiguration" }, { type: "azure-native:automation/v20190601:DscNodeConfiguration" }, { type: "azure-nextgen:automation/v20190601:DscNodeConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -81,11 +81,12 @@ export class TransactionNode extends pulumi.CustomResource {
      */
     constructor(name: string, args: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.blockchainMemberName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.blockchainMemberName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'blockchainMemberName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
@@ -111,15 +112,11 @@ export class TransactionNode extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blockchain:TransactionNode" }, { type: "azure-nextgen:blockchain:TransactionNode" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TransactionNode.__pulumiType, name, inputs, opts);
     }
 }

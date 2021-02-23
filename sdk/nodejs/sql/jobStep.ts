@@ -78,26 +78,27 @@ export class JobStep extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobStepArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.credential === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.credential === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'credential'");
             }
-            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.jobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.targetGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroup'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -123,15 +124,11 @@ export class JobStep extends pulumi.CustomResource {
             inputs["targetGroup"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobStep" }, { type: "azure-nextgen:sql/v20170301preview:JobStep" }, { type: "azure-native:sql/v20200202preview:JobStep" }, { type: "azure-nextgen:sql/v20200202preview:JobStep" }, { type: "azure-native:sql/v20200801preview:JobStep" }, { type: "azure-nextgen:sql/v20200801preview:JobStep" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobStep.__pulumiType, name, inputs, opts);
     }
 }

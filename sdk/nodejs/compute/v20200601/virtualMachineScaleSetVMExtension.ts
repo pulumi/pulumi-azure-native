@@ -89,14 +89,15 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.instanceId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.instanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmScaleSetName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
@@ -127,15 +128,11 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["typeHandlerVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/latest:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension" }, { type: "azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVMExtension.__pulumiType, name, inputs, opts);
     }
 }

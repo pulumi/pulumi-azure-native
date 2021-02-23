@@ -77,11 +77,12 @@ export class Token extends pulumi.CustomResource {
      */
     constructor(name: string, args: TokenArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["credentials"] = args ? args.credentials : undefined;
@@ -105,15 +106,11 @@ export class Token extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Token" }, { type: "azure-nextgen:containerregistry:Token" }, { type: "azure-native:containerregistry/v20190501preview:Token" }, { type: "azure-nextgen:containerregistry/v20190501preview:Token" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Token.__pulumiType, name, inputs, opts);
     }
 }

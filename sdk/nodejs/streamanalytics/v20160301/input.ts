@@ -57,11 +57,12 @@ export class Input extends pulumi.CustomResource {
      */
     constructor(name: string, args: InputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["inputName"] = args ? args.inputName : undefined;
@@ -75,15 +76,11 @@ export class Input extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Input" }, { type: "azure-nextgen:streamanalytics:Input" }, { type: "azure-native:streamanalytics/latest:Input" }, { type: "azure-nextgen:streamanalytics/latest:Input" }, { type: "azure-native:streamanalytics/v20170401preview:Input" }, { type: "azure-nextgen:streamanalytics/v20170401preview:Input" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Input.__pulumiType, name, inputs, opts);
     }
 }

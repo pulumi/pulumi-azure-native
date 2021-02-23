@@ -77,8 +77,9 @@ export class Image extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -101,15 +102,11 @@ export class Image extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Image" }, { type: "azure-nextgen:compute:Image" }, { type: "azure-native:compute/latest:Image" }, { type: "azure-nextgen:compute/latest:Image" }, { type: "azure-native:compute/v20160430preview:Image" }, { type: "azure-nextgen:compute/v20160430preview:Image" }, { type: "azure-native:compute/v20170330:Image" }, { type: "azure-nextgen:compute/v20170330:Image" }, { type: "azure-native:compute/v20171201:Image" }, { type: "azure-nextgen:compute/v20171201:Image" }, { type: "azure-native:compute/v20180401:Image" }, { type: "azure-nextgen:compute/v20180401:Image" }, { type: "azure-native:compute/v20180601:Image" }, { type: "azure-nextgen:compute/v20180601:Image" }, { type: "azure-native:compute/v20181001:Image" }, { type: "azure-nextgen:compute/v20181001:Image" }, { type: "azure-native:compute/v20190301:Image" }, { type: "azure-nextgen:compute/v20190301:Image" }, { type: "azure-native:compute/v20190701:Image" }, { type: "azure-nextgen:compute/v20190701:Image" }, { type: "azure-native:compute/v20191201:Image" }, { type: "azure-nextgen:compute/v20191201:Image" }, { type: "azure-native:compute/v20201201:Image" }, { type: "azure-nextgen:compute/v20201201:Image" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Image.__pulumiType, name, inputs, opts);
     }
 }

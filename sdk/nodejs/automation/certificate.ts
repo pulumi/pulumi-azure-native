@@ -77,17 +77,18 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.base64Value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.base64Value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'base64Value'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -112,15 +113,11 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:Certificate" }, { type: "azure-nextgen:automation/latest:Certificate" }, { type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }, { type: "azure-nextgen:automation/v20200113preview:Certificate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

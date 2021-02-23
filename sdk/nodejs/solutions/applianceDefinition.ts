@@ -98,17 +98,18 @@ export class ApplianceDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplianceDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.authorizations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lockLevel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.packageFileUri === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.packageFileUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageFileUri'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applianceDefinitionName"] = args ? args.applianceDefinitionName : undefined;
@@ -141,15 +142,11 @@ export class ApplianceDefinition extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20160901preview:ApplianceDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplianceDefinition.__pulumiType, name, inputs, opts);
     }
 }

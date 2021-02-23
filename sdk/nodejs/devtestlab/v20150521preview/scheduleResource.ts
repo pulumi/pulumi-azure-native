@@ -89,11 +89,12 @@ export class ScheduleResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduleResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
@@ -123,15 +124,11 @@ export class ScheduleResource extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["weeklyRecurrence"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ScheduleResource" }, { type: "azure-nextgen:devtestlab:ScheduleResource" }, { type: "azure-native:devtestlab/latest:ScheduleResource" }, { type: "azure-nextgen:devtestlab/latest:ScheduleResource" }, { type: "azure-native:devtestlab/v20160515:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20160515:ScheduleResource" }, { type: "azure-native:devtestlab/v20180915:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20180915:ScheduleResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduleResource.__pulumiType, name, inputs, opts);
     }
 }

@@ -97,14 +97,15 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrchestratorInstanceServiceDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.controllerDetails === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.controllerDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'controllerDetails'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
@@ -137,15 +138,11 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrchestratorInstanceServiceDetails.__pulumiType, name, inputs, opts);
     }
 }

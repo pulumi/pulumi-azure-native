@@ -137,11 +137,12 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.circuitName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureASN"] = args ? args.azureASN : undefined;
@@ -196,15 +197,11 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vlanId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network:ExpressRouteCircuitPeering" }, { type: "azure-native:network/latest:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/latest:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20150501preview:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20150501preview:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20150615:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20150615:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20160330:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20160330:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20160601:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20160601:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20160901:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20160901:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20161201:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20161201:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20170301:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20170301:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20170601:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20170601:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20170801:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20170801:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20170901:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20170901:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20171001:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20171001:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20171101:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20171101:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180101:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180101:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180201:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180201:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180401:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180401:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180601:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180601:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180701:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180701:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20180801:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20180801:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20181001:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20181001:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20181101:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20181101:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20181201:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20181201:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190201:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190201:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190401:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190401:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190601:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190601:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190701:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190701:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190801:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190801:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20190901:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20190901:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20191101:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20191101:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20191201:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20191201:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20200301:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20200301:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20200401:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20200401:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20200501:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20200501:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20200701:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20200701:ExpressRouteCircuitPeering" }, { type: "azure-native:network/v20200801:ExpressRouteCircuitPeering" }, { type: "azure-nextgen:network/v20200801:ExpressRouteCircuitPeering" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteCircuitPeering.__pulumiType, name, inputs, opts);
     }
 }

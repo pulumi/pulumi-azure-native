@@ -85,8 +85,9 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
@@ -113,15 +114,11 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventSubscription" }, { type: "azure-nextgen:eventgrid:EventSubscription" }, { type: "azure-native:eventgrid/latest:EventSubscription" }, { type: "azure-nextgen:eventgrid/latest:EventSubscription" }, { type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:EventSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }
 }

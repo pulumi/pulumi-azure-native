@@ -69,11 +69,12 @@ export class ProtectionPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -93,15 +94,11 @@ export class ProtectionPolicy extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices:ProtectionPolicy" }, { type: "azure-native:recoveryservices/latest:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/latest:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20160601:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20160601:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210201:ProtectionPolicy" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectionPolicy.__pulumiType, name, inputs, opts);
     }
 }

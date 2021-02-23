@@ -67,17 +67,18 @@ export class DataSet extends pulumi.CustomResource {
     constructor(name: string, args: DataSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:DataSet'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -94,15 +95,11 @@ export class DataSet extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSet" }, { type: "azure-nextgen:datashare:DataSet" }, { type: "azure-native:datashare/v20181101preview:DataSet" }, { type: "azure-nextgen:datashare/v20181101preview:DataSet" }, { type: "azure-native:datashare/v20191101:DataSet" }, { type: "azure-nextgen:datashare/v20191101:DataSet" }, { type: "azure-native:datashare/v20200901:DataSet" }, { type: "azure-nextgen:datashare/v20200901:DataSet" }, { type: "azure-native:datashare/v20201001preview:DataSet" }, { type: "azure-nextgen:datashare/v20201001preview:DataSet" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataSet.__pulumiType, name, inputs, opts);
     }
 }

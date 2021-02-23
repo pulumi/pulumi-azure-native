@@ -59,11 +59,12 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
     constructor(name: string, args: ComponentCurrentBillingFeatureArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ComponentCurrentBillingFeature'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["currentBillingFeatures"] = args ? args.currentBillingFeatures : undefined;
@@ -74,15 +75,11 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
             inputs["currentBillingFeatures"] = undefined /*out*/;
             inputs["dataVolumeCap"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ComponentCurrentBillingFeature" }, { type: "azure-nextgen:insights:ComponentCurrentBillingFeature" }, { type: "azure-native:insights/v20150501:ComponentCurrentBillingFeature" }, { type: "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentCurrentBillingFeature.__pulumiType, name, inputs, opts);
     }
 }

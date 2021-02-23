@@ -101,14 +101,15 @@ export class OperationalizationCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: OperationalizationClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.containerService === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.containerService === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerService'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["appInsights"] = args ? args.appInsights : undefined;
@@ -143,15 +144,11 @@ export class OperationalizationCluster extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningcompute:OperationalizationCluster" }, { type: "azure-nextgen:machinelearningcompute:OperationalizationCluster" }, { type: "azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster" }, { type: "azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OperationalizationCluster.__pulumiType, name, inputs, opts);
     }
 }

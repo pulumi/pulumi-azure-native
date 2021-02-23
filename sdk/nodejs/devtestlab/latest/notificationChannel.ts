@@ -99,11 +99,12 @@ export class NotificationChannel extends pulumi.CustomResource {
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NotificationChannel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:NotificationChannel'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -134,15 +135,11 @@ export class NotificationChannel extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["webHookUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-nextgen:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }, { type: "azure-nextgen:devtestlab/v20160515:NotificationChannel" }, { type: "azure-native:devtestlab/v20180915:NotificationChannel" }, { type: "azure-nextgen:devtestlab/v20180915:NotificationChannel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationChannel.__pulumiType, name, inputs, opts);
     }
 }

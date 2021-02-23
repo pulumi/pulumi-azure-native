@@ -89,23 +89,24 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataServiceName'");
             }
-            if ((!args || args.dataSinkId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataSinkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSinkId'");
             }
-            if ((!args || args.dataSourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
@@ -136,15 +137,11 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userConfirmation"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:JobDefinition" }, { type: "azure-nextgen:hybriddata:JobDefinition" }, { type: "azure-native:hybriddata/latest:JobDefinition" }, { type: "azure-nextgen:hybriddata/latest:JobDefinition" }, { type: "azure-native:hybriddata/v20190601:JobDefinition" }, { type: "azure-nextgen:hybriddata/v20190601:JobDefinition" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobDefinition.__pulumiType, name, inputs, opts);
     }
 }

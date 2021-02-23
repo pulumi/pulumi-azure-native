@@ -109,20 +109,21 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.galleryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.osState === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
-            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -162,15 +163,11 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImage" }, { type: "azure-nextgen:compute:GalleryImage" }, { type: "azure-native:compute/latest:GalleryImage" }, { type: "azure-nextgen:compute/latest:GalleryImage" }, { type: "azure-native:compute/v20190301:GalleryImage" }, { type: "azure-nextgen:compute/v20190301:GalleryImage" }, { type: "azure-native:compute/v20190701:GalleryImage" }, { type: "azure-nextgen:compute/v20190701:GalleryImage" }, { type: "azure-native:compute/v20191201:GalleryImage" }, { type: "azure-nextgen:compute/v20191201:GalleryImage" }, { type: "azure-native:compute/v20200930:GalleryImage" }, { type: "azure-nextgen:compute/v20200930:GalleryImage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }
 }

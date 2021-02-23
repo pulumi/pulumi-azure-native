@@ -106,26 +106,27 @@ export class Link extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.participantPropertyReferences === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.participantPropertyReferences === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceEntityType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceEntityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityType'");
             }
-            if ((!args || args.sourceEntityTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceEntityTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityTypeName'");
             }
-            if ((!args || args.targetEntityType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetEntityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityType'");
             }
-            if ((!args || args.targetEntityTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetEntityTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityTypeName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -162,15 +163,11 @@ export class Link extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:Link" }, { type: "azure-nextgen:customerinsights/latest:Link" }, { type: "azure-native:customerinsights/v20170101:Link" }, { type: "azure-nextgen:customerinsights/v20170101:Link" }, { type: "azure-native:customerinsights/v20170426:Link" }, { type: "azure-nextgen:customerinsights/v20170426:Link" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Link.__pulumiType, name, inputs, opts);
     }
 }

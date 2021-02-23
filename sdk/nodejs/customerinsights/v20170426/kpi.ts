@@ -129,26 +129,27 @@ export class Kpi extends pulumi.CustomResource {
      */
     constructor(name: string, args: KpiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.calculationWindow === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.calculationWindow === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'calculationWindow'");
             }
-            if ((!args || args.entityType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.expression === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.expression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.function === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.function === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aliases"] = args ? args.aliases : undefined;
@@ -197,15 +198,11 @@ export class Kpi extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["unit"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Kpi" }, { type: "azure-nextgen:customerinsights:Kpi" }, { type: "azure-native:customerinsights/latest:Kpi" }, { type: "azure-nextgen:customerinsights/latest:Kpi" }, { type: "azure-native:customerinsights/v20170101:Kpi" }, { type: "azure-nextgen:customerinsights/v20170101:Kpi" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Kpi.__pulumiType, name, inputs, opts);
     }
 }

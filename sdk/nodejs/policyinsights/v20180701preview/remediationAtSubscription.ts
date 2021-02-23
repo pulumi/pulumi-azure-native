@@ -81,7 +81,8 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["deploymentStatus"] = args ? args.deploymentStatus : undefined;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
@@ -103,15 +104,11 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights:RemediationAtSubscription" }, { type: "azure-native:policyinsights/latest:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/latest:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20190701:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtSubscription.__pulumiType, name, inputs, opts);
     }
 }

@@ -126,8 +126,9 @@ export class DomainService extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
@@ -174,15 +175,11 @@ export class DomainService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aad/latest:DomainService" }, { type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-nextgen:aad/v20170601:DomainService" }, { type: "azure-native:aad/v20200101:DomainService" }, { type: "azure-nextgen:aad/v20200101:DomainService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainService.__pulumiType, name, inputs, opts);
     }
 }

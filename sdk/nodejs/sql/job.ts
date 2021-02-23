@@ -66,14 +66,15 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["description"] = (args ? args.description : undefined) || "";
@@ -92,15 +93,11 @@ export class Job extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:Job" }, { type: "azure-nextgen:sql/v20170301preview:Job" }, { type: "azure-native:sql/v20200202preview:Job" }, { type: "azure-nextgen:sql/v20200202preview:Job" }, { type: "azure-native:sql/v20200801preview:Job" }, { type: "azure-nextgen:sql/v20200801preview:Job" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, inputs, opts);
     }
 }

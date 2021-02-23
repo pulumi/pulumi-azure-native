@@ -63,17 +63,18 @@ export class SerialPort extends pulumi.CustomResource {
     constructor(name: string, args: SerialPortArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SerialPort is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:serialconsole:SerialPort'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.parentResource === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.parentResource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentResource'");
             }
-            if ((!args || args.parentResourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentResourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentResourceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
             inputs["parentResource"] = args ? args.parentResource : undefined;
@@ -89,15 +90,11 @@ export class SerialPort extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:serialconsole:SerialPort" }, { type: "azure-nextgen:serialconsole:SerialPort" }, { type: "azure-native:serialconsole/v20180501:SerialPort" }, { type: "azure-nextgen:serialconsole/v20180501:SerialPort" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SerialPort.__pulumiType, name, inputs, opts);
     }
 }

@@ -111,17 +111,18 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.originGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.originGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'originGroup'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["compressionSettings"] = args ? args.compressionSettings : undefined;
@@ -164,15 +165,11 @@ export class Route extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/latest:Route" }, { type: "azure-nextgen:cdn/latest:Route" }, { type: "azure-native:cdn/v20200901:Route" }, { type: "azure-nextgen:cdn/v20200901:Route" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

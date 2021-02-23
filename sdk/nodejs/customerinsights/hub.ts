@@ -82,8 +82,9 @@ export class Hub extends pulumi.CustomResource {
      */
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
@@ -108,15 +109,11 @@ export class Hub extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["webEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:Hub" }, { type: "azure-nextgen:customerinsights/latest:Hub" }, { type: "azure-native:customerinsights/v20170101:Hub" }, { type: "azure-nextgen:customerinsights/v20170101:Hub" }, { type: "azure-native:customerinsights/v20170426:Hub" }, { type: "azure-nextgen:customerinsights/v20170426:Hub" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Hub.__pulumiType, name, inputs, opts);
     }
 }

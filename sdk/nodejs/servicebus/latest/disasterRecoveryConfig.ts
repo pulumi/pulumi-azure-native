@@ -78,11 +78,12 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DisasterRecoveryConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:DisasterRecoveryConfig'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["alias"] = args ? args.alias : undefined;
@@ -104,15 +105,11 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             inputs["role"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }
 }

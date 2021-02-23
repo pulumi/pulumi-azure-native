@@ -105,14 +105,15 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.groupShortName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.groupShortName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["actionGroupName"] = args ? args.actionGroupName : undefined;
@@ -149,15 +150,11 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["voiceReceivers"] = undefined /*out*/;
             inputs["webhookReceivers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ActionGroup" }, { type: "azure-nextgen:insights:ActionGroup" }, { type: "azure-native:insights/latest:ActionGroup" }, { type: "azure-nextgen:insights/latest:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-nextgen:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20190601:ActionGroup" }, { type: "azure-nextgen:insights/v20190601:ActionGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }
 }

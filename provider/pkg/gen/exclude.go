@@ -6,20 +6,7 @@ import (
 
 // excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
-	"azure-native:billing:ReportByBillingAccount",
-	"azure-native:billing:ReportByDepartment",
-	"azure-native:costmanagement:ReportConfig",
-	"azure-native:costmanagement:Report",
 	"azure-native:costmanagement:Budget",
-	"azure-native:datamigration:ServiceTask",
-	"azure-native:datamigration:Task",
-	"azure-native:machinelearning:WebService",
-	"azure-native:machinelearningservices:LabelingJob",
-	"azure-native:media:Job",
-	"azure-native:migrate:MoveCollection",
-	"azure-native:migrate:MoveResource",
-	"azure-native:portal:Dashboard", // go codegen stack overflow
-
 	"azure-native:datafactory:Pipeline", // go codegen goes full CPU and doesn't return
 
 	"azure-native:hybridcompute:GuestConfigurationHCRPAssignment",    // python name mismatch

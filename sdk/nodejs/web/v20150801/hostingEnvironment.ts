@@ -186,11 +186,12 @@ export class HostingEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostingEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             inputs["allowedMultiSizes"] = args ? args.allowedMultiSizes : undefined;
@@ -267,15 +268,11 @@ export class HostingEnvironment extends pulumi.CustomResource {
             inputs["vnetSubnetName"] = undefined /*out*/;
             inputs["workerPools"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:HostingEnvironment" }, { type: "azure-nextgen:web:HostingEnvironment" }, { type: "azure-native:web/latest:HostingEnvironment" }, { type: "azure-nextgen:web/latest:HostingEnvironment" }, { type: "azure-native:web/v20160901:HostingEnvironment" }, { type: "azure-nextgen:web/v20160901:HostingEnvironment" }, { type: "azure-native:web/v20180201:HostingEnvironment" }, { type: "azure-nextgen:web/v20180201:HostingEnvironment" }, { type: "azure-native:web/v20190801:HostingEnvironment" }, { type: "azure-nextgen:web/v20190801:HostingEnvironment" }, { type: "azure-native:web/v20200601:HostingEnvironment" }, { type: "azure-nextgen:web/v20200601:HostingEnvironment" }, { type: "azure-native:web/v20200901:HostingEnvironment" }, { type: "azure-nextgen:web/v20200901:HostingEnvironment" }, { type: "azure-native:web/v20201001:HostingEnvironment" }, { type: "azure-nextgen:web/v20201001:HostingEnvironment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HostingEnvironment.__pulumiType, name, inputs, opts);
     }
 }

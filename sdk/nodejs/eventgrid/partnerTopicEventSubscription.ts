@@ -102,11 +102,12 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: PartnerTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.partnerTopicName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.partnerTopicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partnerTopicName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
@@ -140,15 +141,11 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerTopicEventSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopicEventSubscription.__pulumiType, name, inputs, opts);
     }
 }

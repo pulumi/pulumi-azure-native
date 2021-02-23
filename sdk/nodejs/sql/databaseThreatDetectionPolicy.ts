@@ -94,17 +94,18 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseThreatDetectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -137,15 +138,11 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["useServerDefault"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseThreatDetectionPolicy.__pulumiType, name, inputs, opts);
     }
 }

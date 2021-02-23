@@ -74,20 +74,21 @@ export class ServiceUnit extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceUnitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceTopologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if ((!args || args.targetResourceGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroup'");
             }
             inputs["artifacts"] = args ? args.artifacts : undefined;
@@ -110,15 +111,11 @@ export class ServiceUnit extends pulumi.CustomResource {
             inputs["targetResourceGroup"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceUnit.__pulumiType, name, inputs, opts);
     }
 }

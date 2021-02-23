@@ -81,14 +81,15 @@ export class CognitiveServicesAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: CognitiveServicesAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -113,15 +114,11 @@ export class CognitiveServicesAccount extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:CognitiveServicesAccount" }, { type: "azure-nextgen:cognitiveservices:CognitiveServicesAccount" }, { type: "azure-native:cognitiveservices/latest:CognitiveServicesAccount" }, { type: "azure-nextgen:cognitiveservices/latest:CognitiveServicesAccount" }, { type: "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount" }, { type: "azure-nextgen:cognitiveservices/v20170418:CognitiveServicesAccount" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CognitiveServicesAccount.__pulumiType, name, inputs, opts);
     }
 }

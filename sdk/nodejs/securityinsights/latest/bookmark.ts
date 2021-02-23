@@ -115,17 +115,18 @@ export class Bookmark extends pulumi.CustomResource {
     constructor(name: string, args: BookmarkArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Bookmark is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityinsights:Bookmark'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["bookmarkId"] = args ? args.bookmarkId : undefined;
@@ -165,15 +166,11 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["updated"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Bookmark" }, { type: "azure-nextgen:securityinsights:Bookmark" }, { type: "azure-native:securityinsights/v20200101:Bookmark" }, { type: "azure-nextgen:securityinsights/v20200101:Bookmark" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bookmark.__pulumiType, name, inputs, opts);
     }
 }

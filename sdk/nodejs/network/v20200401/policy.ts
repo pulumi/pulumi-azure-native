@@ -90,8 +90,9 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;
@@ -122,15 +123,11 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Policy" }, { type: "azure-nextgen:network:Policy" }, { type: "azure-native:network/latest:Policy" }, { type: "azure-nextgen:network/latest:Policy" }, { type: "azure-native:network/v20180801:Policy" }, { type: "azure-nextgen:network/v20180801:Policy" }, { type: "azure-native:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-native:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-native:network/v20201101:Policy" }, { type: "azure-nextgen:network/v20201101:Policy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

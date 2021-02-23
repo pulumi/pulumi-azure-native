@@ -103,17 +103,18 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VirtualMachineImageTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:virtualmachineimages:VirtualMachineImageTemplate'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.distribute === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.distribute === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distribute'");
             }
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["buildTimeoutInMinutes"] = args ? args.buildTimeoutInMinutes : undefined;
@@ -146,15 +147,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vmProfile"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }, { type: "azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineImageTemplate.__pulumiType, name, inputs, opts);
     }
 }

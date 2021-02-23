@@ -65,14 +65,15 @@ export class BandwidthSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: BandwidthSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schedules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.schedules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
             inputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
@@ -90,15 +91,11 @@ export class BandwidthSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["volumeCount"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BandwidthSetting" }, { type: "azure-nextgen:storsimple:BandwidthSetting" }, { type: "azure-native:storsimple/latest:BandwidthSetting" }, { type: "azure-nextgen:storsimple/latest:BandwidthSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BandwidthSetting.__pulumiType, name, inputs, opts);
     }
 }

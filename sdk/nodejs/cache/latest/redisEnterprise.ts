@@ -99,11 +99,12 @@ export class RedisEnterprise extends pulumi.CustomResource {
     constructor(name: string, args: RedisEnterpriseArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RedisEnterprise is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:RedisEnterprise'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -134,15 +135,11 @@ export class RedisEnterprise extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisEnterprise" }, { type: "azure-nextgen:cache:RedisEnterprise" }, { type: "azure-native:cache/v20201001preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }, { type: "azure-native:cache/v20210301:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210301:RedisEnterprise" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisEnterprise.__pulumiType, name, inputs, opts);
     }
 }

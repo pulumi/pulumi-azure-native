@@ -65,14 +65,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -90,12 +91,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

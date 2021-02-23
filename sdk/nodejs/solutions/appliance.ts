@@ -106,11 +106,12 @@ export class Appliance extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplianceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedResourceGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applianceDefinitionId"] = args ? args.applianceDefinitionId : undefined;
@@ -147,15 +148,11 @@ export class Appliance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uiDefinitionUri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:Appliance" }, { type: "azure-nextgen:solutions/v20160901preview:Appliance" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Appliance.__pulumiType, name, inputs, opts);
     }
 }

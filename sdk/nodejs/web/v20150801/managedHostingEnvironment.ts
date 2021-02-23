@@ -186,11 +186,12 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedHostingEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             inputs["allowedMultiSizes"] = args ? args.allowedMultiSizes : undefined;
@@ -267,15 +268,11 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
             inputs["vnetSubnetName"] = undefined /*out*/;
             inputs["workerPools"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:ManagedHostingEnvironment" }, { type: "azure-nextgen:web:ManagedHostingEnvironment" }, { type: "azure-native:web/latest:ManagedHostingEnvironment" }, { type: "azure-nextgen:web/latest:ManagedHostingEnvironment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedHostingEnvironment.__pulumiType, name, inputs, opts);
     }
 }

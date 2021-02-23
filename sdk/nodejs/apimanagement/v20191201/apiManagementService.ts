@@ -165,17 +165,18 @@ export class ApiManagementService extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.publisherEmail === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.publisherEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if ((!args || args.publisherName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.publisherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
@@ -242,15 +243,11 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["virtualNetworkConfiguration"] = undefined /*out*/;
             inputs["virtualNetworkType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiManagementService" }, { type: "azure-nextgen:apimanagement:ApiManagementService" }, { type: "azure-native:apimanagement/latest:ApiManagementService" }, { type: "azure-nextgen:apimanagement/latest:ApiManagementService" }, { type: "azure-native:apimanagement/v20160707:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20160707:ApiManagementService" }, { type: "azure-native:apimanagement/v20161010:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20161010:ApiManagementService" }, { type: "azure-native:apimanagement/v20170301:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20170301:ApiManagementService" }, { type: "azure-native:apimanagement/v20180101:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180101:ApiManagementService" }, { type: "azure-native:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20190101:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20190101:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20200601preview:ApiManagementService" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiManagementService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiManagementService.__pulumiType, name, inputs, opts);
     }
 }

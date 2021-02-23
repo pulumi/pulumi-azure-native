@@ -71,11 +71,12 @@ export class App extends pulumi.CustomResource {
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appplatform:App'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["appName"] = args ? args.appName : undefined;
@@ -93,15 +94,11 @@ export class App extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform:App" }, { type: "azure-nextgen:appplatform:App" }, { type: "azure-native:appplatform/v20190501preview:App" }, { type: "azure-nextgen:appplatform/v20190501preview:App" }, { type: "azure-native:appplatform/v20200701:App" }, { type: "azure-nextgen:appplatform/v20200701:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-nextgen:appplatform/v20201101preview:App" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(App.__pulumiType, name, inputs, opts);
     }
 }

@@ -63,11 +63,12 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleAssignment'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["properties"] = args ? args.properties : undefined;
@@ -80,15 +81,11 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleAssignment" }, { type: "azure-nextgen:authorization:RoleAssignment" }, { type: "azure-native:authorization/v20150701:RoleAssignment" }, { type: "azure-nextgen:authorization/v20150701:RoleAssignment" }, { type: "azure-native:authorization/v20171001preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20171001preview:RoleAssignment" }, { type: "azure-native:authorization/v20180101preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180101preview:RoleAssignment" }, { type: "azure-native:authorization/v20180901preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180901preview:RoleAssignment" }, { type: "azure-native:authorization/v20200301preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200301preview:RoleAssignment" }, { type: "azure-native:authorization/v20200401preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200401preview:RoleAssignment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }
 }

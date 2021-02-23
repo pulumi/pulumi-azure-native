@@ -133,14 +133,15 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.adminUserName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.adminUserName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.dnsName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dnsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addonFeatures"] = args ? args.addonFeatures : undefined;
@@ -191,15 +192,11 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ManagedCluster" }, { type: "azure-nextgen:servicefabric:ManagedCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }
 }

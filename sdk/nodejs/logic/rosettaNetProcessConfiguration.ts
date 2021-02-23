@@ -102,29 +102,30 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: RosettaNetProcessConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.activitySettings === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.activitySettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'activitySettings'");
             }
-            if ((!args || args.initiatorRoleSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.initiatorRoleSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'initiatorRoleSettings'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.processCode === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.processCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'processCode'");
             }
-            if ((!args || args.processName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.processName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'processName'");
             }
-            if ((!args || args.processVersion === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.processVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'processVersion'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.responderRoleSettings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.responderRoleSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'responderRoleSettings'");
             }
             inputs["activitySettings"] = args ? args.activitySettings : undefined;
@@ -160,15 +161,11 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic/latest:RosettaNetProcessConfiguration" }, { type: "azure-nextgen:logic/latest:RosettaNetProcessConfiguration" }, { type: "azure-native:logic/v20160601:RosettaNetProcessConfiguration" }, { type: "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RosettaNetProcessConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -68,11 +68,12 @@ export class WorkspaceConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["authType"] = args ? args.authType : undefined;
@@ -92,15 +93,11 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/latest:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/latest:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceConnection.__pulumiType, name, inputs, opts);
     }
 }

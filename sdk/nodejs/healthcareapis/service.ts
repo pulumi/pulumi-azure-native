@@ -82,11 +82,12 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -111,15 +112,11 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/latest:Service" }, { type: "azure-nextgen:healthcareapis/latest:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210111:Service" }, { type: "azure-nextgen:healthcareapis/v20210111:Service" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

@@ -81,8 +81,9 @@ export class Factory extends pulumi.CustomResource {
      */
     constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;
@@ -107,15 +108,11 @@ export class Factory extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["vstsConfiguration"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Factory" }, { type: "azure-nextgen:datafactory:Factory" }, { type: "azure-native:datafactory/latest:Factory" }, { type: "azure-nextgen:datafactory/latest:Factory" }, { type: "azure-native:datafactory/v20180601:Factory" }, { type: "azure-nextgen:datafactory/v20180601:Factory" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Factory.__pulumiType, name, inputs, opts);
     }
 }

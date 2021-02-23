@@ -56,11 +56,12 @@ export class ServerDnsAlias extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerDnsAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["dnsAliasName"] = args ? args.dnsAliasName : undefined;
@@ -74,15 +75,11 @@ export class ServerDnsAlias extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerDnsAlias" }, { type: "azure-nextgen:sql:ServerDnsAlias" }, { type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-nextgen:sql/v20200801preview:ServerDnsAlias" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerDnsAlias.__pulumiType, name, inputs, opts);
     }
 }

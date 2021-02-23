@@ -72,11 +72,12 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
@@ -98,15 +99,11 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["updatedAt"] = undefined /*out*/;
             inputs["userMetadata"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay:HybridConnection" }, { type: "azure-nextgen:relay:HybridConnection" }, { type: "azure-native:relay/latest:HybridConnection" }, { type: "azure-nextgen:relay/latest:HybridConnection" }, { type: "azure-native:relay/v20170401:HybridConnection" }, { type: "azure-nextgen:relay/v20170401:HybridConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridConnection.__pulumiType, name, inputs, opts);
     }
 }

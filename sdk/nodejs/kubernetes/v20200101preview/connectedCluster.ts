@@ -117,17 +117,18 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.aadProfile === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.aadProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aadProfile'");
             }
-            if ((!args || args.agentPublicKeyCertificate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.agentPublicKeyCertificate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentPublicKeyCertificate'");
             }
-            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
@@ -170,15 +171,11 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["totalNodeCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetes:ConnectedCluster" }, { type: "azure-nextgen:kubernetes:ConnectedCluster" }, { type: "azure-native:kubernetes/latest:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/latest:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210301:ConnectedCluster" }, { type: "azure-native:kubernetes/v20210401preview:ConnectedCluster" }, { type: "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedCluster.__pulumiType, name, inputs, opts);
     }
 }

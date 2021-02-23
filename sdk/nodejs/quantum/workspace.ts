@@ -86,8 +86,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -114,15 +115,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:quantum/v20191104preview:Workspace" }, { type: "azure-nextgen:quantum/v20191104preview:Workspace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

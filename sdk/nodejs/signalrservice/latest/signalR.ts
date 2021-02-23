@@ -129,8 +129,9 @@ export class SignalR extends pulumi.CustomResource {
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:signalrservice:SignalR'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cors"] = args ? args.cors : undefined;
@@ -173,15 +174,11 @@ export class SignalR extends pulumi.CustomResource {
             inputs["upstream"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-nextgen:signalrservice:SignalR" }, { type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-nextgen:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-nextgen:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-nextgen:signalrservice/v20200701preview:SignalR" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalR.__pulumiType, name, inputs, opts);
     }
 }

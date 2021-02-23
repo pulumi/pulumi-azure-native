@@ -85,26 +85,27 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.actionGroups === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.actionGroups === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionGroups'");
             }
-            if ((!args || args.detector === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.detector === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detector'");
             }
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["actionGroups"] = args ? args.actionGroups : undefined;
@@ -131,15 +132,11 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["throttling"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }
 }

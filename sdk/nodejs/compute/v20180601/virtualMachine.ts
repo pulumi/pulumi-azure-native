@@ -125,8 +125,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -173,15 +174,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["vmId"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachine" }, { type: "azure-nextgen:compute:VirtualMachine" }, { type: "azure-native:compute/latest:VirtualMachine" }, { type: "azure-nextgen:compute/latest:VirtualMachine" }, { type: "azure-native:compute/v20150615:VirtualMachine" }, { type: "azure-nextgen:compute/v20150615:VirtualMachine" }, { type: "azure-native:compute/v20160330:VirtualMachine" }, { type: "azure-nextgen:compute/v20160330:VirtualMachine" }, { type: "azure-native:compute/v20160430preview:VirtualMachine" }, { type: "azure-nextgen:compute/v20160430preview:VirtualMachine" }, { type: "azure-native:compute/v20170330:VirtualMachine" }, { type: "azure-nextgen:compute/v20170330:VirtualMachine" }, { type: "azure-native:compute/v20171201:VirtualMachine" }, { type: "azure-nextgen:compute/v20171201:VirtualMachine" }, { type: "azure-native:compute/v20180401:VirtualMachine" }, { type: "azure-nextgen:compute/v20180401:VirtualMachine" }, { type: "azure-native:compute/v20181001:VirtualMachine" }, { type: "azure-nextgen:compute/v20181001:VirtualMachine" }, { type: "azure-native:compute/v20190301:VirtualMachine" }, { type: "azure-nextgen:compute/v20190301:VirtualMachine" }, { type: "azure-native:compute/v20190701:VirtualMachine" }, { type: "azure-nextgen:compute/v20190701:VirtualMachine" }, { type: "azure-native:compute/v20191201:VirtualMachine" }, { type: "azure-nextgen:compute/v20191201:VirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachine" }, { type: "azure-nextgen:compute/v20200601:VirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachine" }, { type: "azure-nextgen:compute/v20201201:VirtualMachine" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
 }

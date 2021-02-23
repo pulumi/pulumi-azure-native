@@ -63,11 +63,12 @@ export class MoveResource extends pulumi.CustomResource {
     constructor(name: string, args: MoveResourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.moveCollectionName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.moveCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'moveCollectionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["moveCollectionName"] = args ? args.moveCollectionName : undefined;
@@ -81,15 +82,11 @@ export class MoveResource extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate:MoveResource" }, { type: "azure-nextgen:migrate:MoveResource" }, { type: "azure-native:migrate/v20191001preview:MoveResource" }, { type: "azure-nextgen:migrate/v20191001preview:MoveResource" }, { type: "azure-native:migrate/v20210101:MoveResource" }, { type: "azure-nextgen:migrate/v20210101:MoveResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MoveResource.__pulumiType, name, inputs, opts);
     }
 }

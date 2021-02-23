@@ -65,8 +65,9 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentAtTenantScopeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
             inputs["deploymentName"] = args ? args.deploymentName : undefined;
@@ -82,15 +83,11 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources:DeploymentAtTenantScope" }, { type: "azure-native:resources/latest:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/latest:DeploymentAtTenantScope" }, { type: "azure-native:resources/v20190701:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtTenantScope" }, { type: "azure-native:resources/v20190801:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtTenantScope" }, { type: "azure-native:resources/v20200601:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtTenantScope" }, { type: "azure-native:resources/v20200801:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtTenantScope" }, { type: "azure-native:resources/v20201001:DeploymentAtTenantScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtTenantScope" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtTenantScope.__pulumiType, name, inputs, opts);
     }
 }

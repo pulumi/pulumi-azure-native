@@ -260,11 +260,12 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppAuthSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadClaimsAuthorization"] = args ? args.aadClaimsAuthorization : undefined;
@@ -352,15 +353,11 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
             inputs["unauthenticatedClientAction"] = undefined /*out*/;
             inputs["validateIssuer"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAuthSettings" }, { type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-native:web/latest:WebAppAuthSettings" }, { type: "azure-nextgen:web/latest:WebAppAuthSettings" }, { type: "azure-native:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-native:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-native:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-native:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-native:web/v20190801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettings" }, { type: "azure-native:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-native:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettings.__pulumiType, name, inputs, opts);
     }
 }

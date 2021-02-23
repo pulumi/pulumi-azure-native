@@ -85,8 +85,9 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
@@ -114,15 +115,11 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["virtualHub"] = undefined /*out*/;
             inputs["vpnGatewayScaleUnit"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnGateway" }, { type: "azure-nextgen:network:VpnGateway" }, { type: "azure-native:network/latest:VpnGateway" }, { type: "azure-nextgen:network/latest:VpnGateway" }, { type: "azure-native:network/v20180401:VpnGateway" }, { type: "azure-nextgen:network/v20180401:VpnGateway" }, { type: "azure-native:network/v20180601:VpnGateway" }, { type: "azure-nextgen:network/v20180601:VpnGateway" }, { type: "azure-native:network/v20180701:VpnGateway" }, { type: "azure-nextgen:network/v20180701:VpnGateway" }, { type: "azure-native:network/v20181001:VpnGateway" }, { type: "azure-nextgen:network/v20181001:VpnGateway" }, { type: "azure-native:network/v20181101:VpnGateway" }, { type: "azure-nextgen:network/v20181101:VpnGateway" }, { type: "azure-native:network/v20181201:VpnGateway" }, { type: "azure-nextgen:network/v20181201:VpnGateway" }, { type: "azure-native:network/v20190201:VpnGateway" }, { type: "azure-nextgen:network/v20190201:VpnGateway" }, { type: "azure-native:network/v20190401:VpnGateway" }, { type: "azure-nextgen:network/v20190401:VpnGateway" }, { type: "azure-native:network/v20190601:VpnGateway" }, { type: "azure-nextgen:network/v20190601:VpnGateway" }, { type: "azure-native:network/v20190701:VpnGateway" }, { type: "azure-nextgen:network/v20190701:VpnGateway" }, { type: "azure-native:network/v20190801:VpnGateway" }, { type: "azure-nextgen:network/v20190801:VpnGateway" }, { type: "azure-native:network/v20190901:VpnGateway" }, { type: "azure-nextgen:network/v20190901:VpnGateway" }, { type: "azure-native:network/v20191101:VpnGateway" }, { type: "azure-nextgen:network/v20191101:VpnGateway" }, { type: "azure-native:network/v20191201:VpnGateway" }, { type: "azure-nextgen:network/v20191201:VpnGateway" }, { type: "azure-native:network/v20200301:VpnGateway" }, { type: "azure-nextgen:network/v20200301:VpnGateway" }, { type: "azure-native:network/v20200401:VpnGateway" }, { type: "azure-nextgen:network/v20200401:VpnGateway" }, { type: "azure-native:network/v20200501:VpnGateway" }, { type: "azure-nextgen:network/v20200501:VpnGateway" }, { type: "azure-native:network/v20200601:VpnGateway" }, { type: "azure-nextgen:network/v20200601:VpnGateway" }, { type: "azure-native:network/v20200701:VpnGateway" }, { type: "azure-nextgen:network/v20200701:VpnGateway" }, { type: "azure-native:network/v20200801:VpnGateway" }, { type: "azure-nextgen:network/v20200801:VpnGateway" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnGateway.__pulumiType, name, inputs, opts);
     }
 }

@@ -75,17 +75,18 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
     constructor(name: string, args: ApiDiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnosticLogger'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.diagnosticId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -107,15 +108,11 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement:ApiDiagnosticLogger" }, { type: "azure-native:apimanagement/v20170301:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger" }, { type: "azure-native:apimanagement/v20180101:ApiDiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiDiagnosticLogger.__pulumiType, name, inputs, opts);
     }
 }

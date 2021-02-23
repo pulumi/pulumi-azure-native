@@ -84,14 +84,15 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endpointType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
@@ -121,15 +122,11 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["weight"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Endpoint" }, { type: "azure-nextgen:network:Endpoint" }, { type: "azure-native:network/latest:Endpoint" }, { type: "azure-nextgen:network/latest:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-nextgen:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

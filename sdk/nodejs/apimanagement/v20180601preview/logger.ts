@@ -74,17 +74,18 @@ export class Logger extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoggerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.credentials === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.credentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'credentials'");
             }
-            if ((!args || args.loggerType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.loggerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["credentials"] = args ? args.credentials : undefined;
@@ -106,15 +107,11 @@ export class Logger extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Logger" }, { type: "azure-nextgen:apimanagement:Logger" }, { type: "azure-native:apimanagement/latest:Logger" }, { type: "azure-nextgen:apimanagement/latest:Logger" }, { type: "azure-native:apimanagement/v20160707:Logger" }, { type: "azure-nextgen:apimanagement/v20160707:Logger" }, { type: "azure-native:apimanagement/v20161010:Logger" }, { type: "azure-nextgen:apimanagement/v20161010:Logger" }, { type: "azure-native:apimanagement/v20170301:Logger" }, { type: "azure-nextgen:apimanagement/v20170301:Logger" }, { type: "azure-native:apimanagement/v20180101:Logger" }, { type: "azure-nextgen:apimanagement/v20180101:Logger" }, { type: "azure-native:apimanagement/v20190101:Logger" }, { type: "azure-nextgen:apimanagement/v20190101:Logger" }, { type: "azure-native:apimanagement/v20191201:Logger" }, { type: "azure-nextgen:apimanagement/v20191201:Logger" }, { type: "azure-native:apimanagement/v20191201preview:Logger" }, { type: "azure-nextgen:apimanagement/v20191201preview:Logger" }, { type: "azure-native:apimanagement/v20200601preview:Logger" }, { type: "azure-nextgen:apimanagement/v20200601preview:Logger" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Logger.__pulumiType, name, inputs, opts);
     }
 }

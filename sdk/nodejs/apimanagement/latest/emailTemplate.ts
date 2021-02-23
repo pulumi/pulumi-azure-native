@@ -83,11 +83,12 @@ export class EmailTemplate extends pulumi.CustomResource {
     constructor(name: string, args: EmailTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:EmailTemplate'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["body"] = args ? args.body : undefined;
@@ -111,15 +112,11 @@ export class EmailTemplate extends pulumi.CustomResource {
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:EmailTemplate" }, { type: "azure-nextgen:apimanagement:EmailTemplate" }, { type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-nextgen:apimanagement/v20200601preview:EmailTemplate" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailTemplate.__pulumiType, name, inputs, opts);
     }
 }

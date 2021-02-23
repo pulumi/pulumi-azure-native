@@ -78,14 +78,15 @@ export class Secret extends pulumi.CustomResource {
     constructor(name: string, args: SecretArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Secret is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:Secret'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
             inputs["labName"] = args ? args.labName : undefined;
@@ -107,15 +108,11 @@ export class Secret extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Secret" }, { type: "azure-nextgen:devtestlab:Secret" }, { type: "azure-native:devtestlab/v20160515:Secret" }, { type: "azure-nextgen:devtestlab/v20160515:Secret" }, { type: "azure-native:devtestlab/v20180915:Secret" }, { type: "azure-nextgen:devtestlab/v20180915:Secret" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, inputs, opts);
     }
 }

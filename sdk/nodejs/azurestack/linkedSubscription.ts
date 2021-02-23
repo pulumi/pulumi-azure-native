@@ -102,14 +102,15 @@ export class LinkedSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.linkedSubscriptionId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.linkedSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedSubscriptionId'");
             }
-            if ((!args || args.registrationResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registrationResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registrationResourceId'");
             }
-            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
@@ -144,15 +145,11 @@ export class LinkedSubscription extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack/v20200601preview:LinkedSubscription" }, { type: "azure-nextgen:azurestack/v20200601preview:LinkedSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedSubscription.__pulumiType, name, inputs, opts);
     }
 }

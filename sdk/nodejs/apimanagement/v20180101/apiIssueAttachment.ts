@@ -64,26 +64,27 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.contentFormat === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.contentFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentFormat'");
             }
-            if ((!args || args.issueId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.issueId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issueId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -103,15 +104,11 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement:ApiIssueAttachment" }, { type: "azure-native:apimanagement/latest:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/latest:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueAttachment" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssueAttachment.__pulumiType, name, inputs, opts);
     }
 }

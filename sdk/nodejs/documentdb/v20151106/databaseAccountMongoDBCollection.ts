@@ -69,20 +69,21 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseAccountMongoDBCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -105,15 +106,11 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBCollection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountMongoDBCollection.__pulumiType, name, inputs, opts);
     }
 }

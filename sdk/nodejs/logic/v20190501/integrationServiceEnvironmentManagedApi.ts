@@ -65,11 +65,12 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      */
     constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.integrationServiceEnvironmentName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.integrationServiceEnvironmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
-            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["apiName"] = args ? args.apiName : undefined;
@@ -87,15 +88,11 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi" }, { type: "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }
 }

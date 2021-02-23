@@ -122,8 +122,9 @@ export class BlockchainMember extends pulumi.CustomResource {
      */
     constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
@@ -168,15 +169,11 @@ export class BlockchainMember extends pulumi.CustomResource {
             inputs["userName"] = undefined /*out*/;
             inputs["validatorNodesSku"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blockchain/v20180601preview:BlockchainMember" }, { type: "azure-nextgen:blockchain/v20180601preview:BlockchainMember" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlockchainMember.__pulumiType, name, inputs, opts);
     }
 }

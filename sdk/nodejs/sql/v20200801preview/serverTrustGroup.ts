@@ -61,17 +61,18 @@ export class ServerTrustGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerTrustGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupMembers === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupMembers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupMembers'");
             }
-            if ((!args || args.locationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trustScopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.trustScopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustScopes'");
             }
             inputs["groupMembers"] = args ? args.groupMembers : undefined;
@@ -87,15 +88,11 @@ export class ServerTrustGroup extends pulumi.CustomResource {
             inputs["trustScopes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustGroup" }, { type: "azure-nextgen:sql:ServerTrustGroup" }, { type: "azure-native:sql/v20200202preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20200202preview:ServerTrustGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerTrustGroup.__pulumiType, name, inputs, opts);
     }
 }

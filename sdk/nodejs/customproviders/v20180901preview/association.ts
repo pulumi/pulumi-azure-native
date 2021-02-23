@@ -60,8 +60,9 @@ export class Association extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["associationName"] = args ? args.associationName : undefined;
@@ -76,15 +77,11 @@ export class Association extends pulumi.CustomResource {
             inputs["targetResourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customproviders:Association" }, { type: "azure-nextgen:customproviders:Association" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Association.__pulumiType, name, inputs, opts);
     }
 }

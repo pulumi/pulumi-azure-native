@@ -61,14 +61,15 @@ export class ReplicationvCenter extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationvCenterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
@@ -85,15 +86,11 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices:ReplicationvCenter" }, { type: "azure-native:recoveryservices/latest:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/latest:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180710:ReplicationvCenter" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationvCenter" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationvCenter.__pulumiType, name, inputs, opts);
     }
 }

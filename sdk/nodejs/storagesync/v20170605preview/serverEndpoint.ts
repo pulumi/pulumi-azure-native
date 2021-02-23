@@ -132,14 +132,15 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["byteProgress"] = args ? args.byteProgress : undefined;
@@ -192,15 +193,11 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["volumeFreeSpacePercent"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:ServerEndpoint" }, { type: "azure-nextgen:storagesync:ServerEndpoint" }, { type: "azure-native:storagesync/latest:ServerEndpoint" }, { type: "azure-nextgen:storagesync/latest:ServerEndpoint" }, { type: "azure-native:storagesync/v20180402:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20180402:ServerEndpoint" }, { type: "azure-native:storagesync/v20180701:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20180701:ServerEndpoint" }, { type: "azure-native:storagesync/v20181001:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20181001:ServerEndpoint" }, { type: "azure-native:storagesync/v20190201:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20190201:ServerEndpoint" }, { type: "azure-native:storagesync/v20190301:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20190301:ServerEndpoint" }, { type: "azure-native:storagesync/v20190601:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20190601:ServerEndpoint" }, { type: "azure-native:storagesync/v20191001:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20191001:ServerEndpoint" }, { type: "azure-native:storagesync/v20200301:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20200301:ServerEndpoint" }, { type: "azure-native:storagesync/v20200901:ServerEndpoint" }, { type: "azure-nextgen:storagesync/v20200901:ServerEndpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerEndpoint.__pulumiType, name, inputs, opts);
     }
 }

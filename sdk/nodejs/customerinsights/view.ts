@@ -81,14 +81,15 @@ export class View extends pulumi.CustomResource {
      */
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -113,15 +114,11 @@ export class View extends pulumi.CustomResource {
             inputs["userId"] = undefined /*out*/;
             inputs["viewName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:View" }, { type: "azure-nextgen:customerinsights/latest:View" }, { type: "azure-native:customerinsights/v20170101:View" }, { type: "azure-nextgen:customerinsights/v20170101:View" }, { type: "azure-native:customerinsights/v20170426:View" }, { type: "azure-nextgen:customerinsights/v20170426:View" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, inputs, opts);
     }
 }

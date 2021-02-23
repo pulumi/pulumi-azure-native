@@ -66,11 +66,12 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationName"] = args ? args.applicationName : undefined;
@@ -88,15 +89,11 @@ export class Application extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-nextgen:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-nextgen:hdinsight/v20180601preview:Application" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

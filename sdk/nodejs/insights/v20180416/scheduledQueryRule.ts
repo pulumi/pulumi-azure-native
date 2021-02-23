@@ -109,14 +109,15 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.action === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -155,15 +156,11 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }
 }

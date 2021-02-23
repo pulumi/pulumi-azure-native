@@ -86,11 +86,12 @@ export class WCFRelay extends pulumi.CustomResource {
      */
     constructor(name: string, args: WCFRelayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -118,15 +119,11 @@ export class WCFRelay extends pulumi.CustomResource {
             inputs["updatedAt"] = undefined /*out*/;
             inputs["userMetadata"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay/latest:WCFRelay" }, { type: "azure-nextgen:relay/latest:WCFRelay" }, { type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-nextgen:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }, { type: "azure-nextgen:relay/v20170401:WCFRelay" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelay.__pulumiType, name, inputs, opts);
     }
 }

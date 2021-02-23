@@ -65,11 +65,12 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -86,15 +87,11 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/latest:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }
 }

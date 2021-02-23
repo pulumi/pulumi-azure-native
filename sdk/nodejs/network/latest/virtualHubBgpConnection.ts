@@ -78,11 +78,12 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     constructor(name: string, args: VirtualHubBgpConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VirtualHubBgpConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHubBgpConnection'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["connectionName"] = args ? args.connectionName : undefined;
@@ -105,15 +106,11 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubBgpConnection" }, { type: "azure-nextgen:network:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200601:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200601:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200701:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200701:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200801:VirtualHubBgpConnection" }, { type: "azure-nextgen:network/v20200801:VirtualHubBgpConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHubBgpConnection.__pulumiType, name, inputs, opts);
     }
 }

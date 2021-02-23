@@ -85,20 +85,21 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.firstName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.lastName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["appType"] = args ? args.appType : undefined;
@@ -130,15 +131,11 @@ export class User extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:User" }, { type: "azure-nextgen:apimanagement:User" }, { type: "azure-native:apimanagement/latest:User" }, { type: "azure-nextgen:apimanagement/latest:User" }, { type: "azure-native:apimanagement/v20160707:User" }, { type: "azure-nextgen:apimanagement/v20160707:User" }, { type: "azure-native:apimanagement/v20161010:User" }, { type: "azure-nextgen:apimanagement/v20161010:User" }, { type: "azure-native:apimanagement/v20170301:User" }, { type: "azure-nextgen:apimanagement/v20170301:User" }, { type: "azure-native:apimanagement/v20180101:User" }, { type: "azure-nextgen:apimanagement/v20180101:User" }, { type: "azure-native:apimanagement/v20180601preview:User" }, { type: "azure-nextgen:apimanagement/v20180601preview:User" }, { type: "azure-native:apimanagement/v20191201:User" }, { type: "azure-nextgen:apimanagement/v20191201:User" }, { type: "azure-native:apimanagement/v20191201preview:User" }, { type: "azure-nextgen:apimanagement/v20191201preview:User" }, { type: "azure-native:apimanagement/v20200601preview:User" }, { type: "azure-nextgen:apimanagement/v20200601preview:User" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, inputs, opts);
     }
 }

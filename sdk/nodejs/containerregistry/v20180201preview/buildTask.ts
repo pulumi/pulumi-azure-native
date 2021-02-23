@@ -89,20 +89,21 @@ export class BuildTask extends pulumi.CustomResource {
      */
     constructor(name: string, args: BuildTaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.alias === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.alias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.platform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceRepository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceRepository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRepository'");
             }
             inputs["alias"] = args ? args.alias : undefined;
@@ -132,15 +133,11 @@ export class BuildTask extends pulumi.CustomResource {
             inputs["timeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildTask.__pulumiType, name, inputs, opts);
     }
 }

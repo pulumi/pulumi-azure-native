@@ -67,11 +67,12 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     constructor(name: string, args: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PrivateDnsZoneGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateDnsZoneGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateEndpointName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateEndpointName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
@@ -88,15 +89,11 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             inputs["privateDnsZoneConfigs"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200501:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200701:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200701:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200801:PrivateDnsZoneGroup" }, { type: "azure-nextgen:network/v20200801:PrivateDnsZoneGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateDnsZoneGroup.__pulumiType, name, inputs, opts);
     }
 }

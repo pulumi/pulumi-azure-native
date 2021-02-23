@@ -111,14 +111,15 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("VirtualMachineSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualMachineSchedule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
             inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
@@ -156,15 +157,11 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["weeklyRecurrence"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineSchedule.__pulumiType, name, inputs, opts);
     }
 }

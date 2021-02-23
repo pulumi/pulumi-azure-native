@@ -89,8 +89,9 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cidr"] = args ? args.cidr : undefined;
@@ -120,15 +121,11 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:CustomIPPrefix" }, { type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-native:network/latest:CustomIPPrefix" }, { type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }
 }

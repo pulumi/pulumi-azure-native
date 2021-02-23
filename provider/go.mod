@@ -11,13 +11,12 @@ require (
 	github.com/go-openapi/jsonreference v0.19.2
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/swag v0.19.9
-	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-azure-helpers v0.12.0
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.19.0
-	github.com/pulumi/pulumi/sdk/v2 v2.19.0
+	github.com/pulumi/pulumi/pkg/v2 v2.21.3-0.20210223102042-7a3cb91fd75b
+	github.com/pulumi/pulumi/sdk/v2 v2.21.3-0.20210223102042-7a3cb91fd75b
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.6.1

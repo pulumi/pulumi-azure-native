@@ -111,14 +111,15 @@ export class RecordSet extends pulumi.CustomResource {
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if ((!args || args.recordType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.recordType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aRecords"] = args ? args.aRecords : undefined;
@@ -157,15 +158,11 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["txtRecords"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RecordSet" }, { type: "azure-nextgen:network:RecordSet" }, { type: "azure-native:network/v20180901:RecordSet" }, { type: "azure-nextgen:network/v20180901:RecordSet" }, { type: "azure-native:network/v20200101:RecordSet" }, { type: "azure-nextgen:network/v20200101:RecordSet" }, { type: "azure-native:network/v20200601:RecordSet" }, { type: "azure-nextgen:network/v20200601:RecordSet" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RecordSet.__pulumiType, name, inputs, opts);
     }
 }

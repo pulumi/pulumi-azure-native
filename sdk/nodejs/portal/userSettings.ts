@@ -50,8 +50,9 @@ export class UserSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
             inputs["properties"] = args ? args.properties : undefined;
@@ -59,15 +60,11 @@ export class UserSettings extends pulumi.CustomResource {
         } else {
             inputs["properties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal/latest:UserSettings" }, { type: "azure-nextgen:portal/latest:UserSettings" }, { type: "azure-native:portal/v20181001:UserSettings" }, { type: "azure-nextgen:portal/v20181001:UserSettings" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserSettings.__pulumiType, name, inputs, opts);
     }
 }

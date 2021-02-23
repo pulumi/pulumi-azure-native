@@ -58,14 +58,15 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: DigitalTwinsEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
@@ -79,15 +80,11 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/latest:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DigitalTwinsEndpoint.__pulumiType, name, inputs, opts);
     }
 }

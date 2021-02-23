@@ -60,17 +60,18 @@ export class RedisFirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: RedisFirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.endIP === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.endIP === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIP'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIP === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIP === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIP'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -86,15 +87,11 @@ export class RedisFirewallRule extends pulumi.CustomResource {
             inputs["startIP"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:RedisFirewallRule" }, { type: "azure-nextgen:cache:RedisFirewallRule" }, { type: "azure-native:cache/latest:RedisFirewallRule" }, { type: "azure-nextgen:cache/latest:RedisFirewallRule" }, { type: "azure-native:cache/v20170201:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20170201:RedisFirewallRule" }, { type: "azure-native:cache/v20171001:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20171001:RedisFirewallRule" }, { type: "azure-native:cache/v20180301:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20180301:RedisFirewallRule" }, { type: "azure-native:cache/v20190701:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20190701:RedisFirewallRule" }, { type: "azure-native:cache/v20200601:RedisFirewallRule" }, { type: "azure-nextgen:cache/v20200601:RedisFirewallRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisFirewallRule.__pulumiType, name, inputs, opts);
     }
 }

@@ -83,7 +83,8 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     constructor(name: string, args?: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aadiam:DiagnosticSetting'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["logs"] = args ? args.logs : undefined;
@@ -102,15 +103,11 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aadiam:DiagnosticSetting" }, { type: "azure-nextgen:aadiam:DiagnosticSetting" }, { type: "azure-native:aadiam/v20170401:DiagnosticSetting" }, { type: "azure-nextgen:aadiam/v20170401:DiagnosticSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }
 }

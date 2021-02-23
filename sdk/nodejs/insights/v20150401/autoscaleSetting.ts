@@ -77,11 +77,12 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.profiles === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.profiles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profiles'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
@@ -104,15 +105,11 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["targetResourceUri"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:AutoscaleSetting" }, { type: "azure-nextgen:insights:AutoscaleSetting" }, { type: "azure-native:insights/latest:AutoscaleSetting" }, { type: "azure-nextgen:insights/latest:AutoscaleSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }
 }

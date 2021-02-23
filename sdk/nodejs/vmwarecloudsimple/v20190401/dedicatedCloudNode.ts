@@ -117,26 +117,27 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      */
     constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.availabilityZoneId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.availabilityZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
-            if ((!args || args.id === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.id === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.nodesCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nodesCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodesCount'");
             }
-            if ((!args || args.placementGroupId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.placementGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'placementGroupId'");
             }
-            if ((!args || args.purchaseId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.purchaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'purchaseId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
@@ -180,15 +181,11 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vmwareClusterName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudNode" }, { type: "azure-nextgen:vmwarecloudsimple:DedicatedCloudNode" }, { type: "azure-native:vmwarecloudsimple/latest:DedicatedCloudNode" }, { type: "azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedCloudNode.__pulumiType, name, inputs, opts);
     }
 }

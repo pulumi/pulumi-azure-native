@@ -57,14 +57,15 @@ export class PatchSchedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleEntries === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleEntries'");
             }
             inputs["default"] = args ? args.default : undefined;
@@ -77,15 +78,11 @@ export class PatchSchedule extends pulumi.CustomResource {
             inputs["scheduleEntries"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:PatchSchedule" }, { type: "azure-nextgen:cache:PatchSchedule" }, { type: "azure-native:cache/latest:PatchSchedule" }, { type: "azure-nextgen:cache/latest:PatchSchedule" }, { type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-nextgen:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-nextgen:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20200601:PatchSchedule" }, { type: "azure-nextgen:cache/v20200601:PatchSchedule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }
 }

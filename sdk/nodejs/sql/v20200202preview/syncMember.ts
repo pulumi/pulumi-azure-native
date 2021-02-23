@@ -101,17 +101,18 @@ export class SyncMember extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyncMemberArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -147,15 +148,11 @@ export class SyncMember extends pulumi.CustomResource {
             inputs["usePrivateLinkConnection"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncMember" }, { type: "azure-nextgen:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-nextgen:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-nextgen:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-nextgen:sql/v20200801preview:SyncMember" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncMember.__pulumiType, name, inputs, opts);
     }
 }

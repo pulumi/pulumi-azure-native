@@ -122,32 +122,33 @@ export class Prediction extends pulumi.CustomResource {
      */
     constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.autoAnalyze === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.autoAnalyze === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoAnalyze'");
             }
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mappings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mappings'");
             }
-            if ((!args || args.negativeOutcomeExpression === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.negativeOutcomeExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'negativeOutcomeExpression'");
             }
-            if ((!args || args.positiveOutcomeExpression === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.positiveOutcomeExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
             }
-            if ((!args || args.primaryProfileType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.primaryProfileType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'primaryProfileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeExpression === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopeExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeExpression'");
             }
-            if ((!args || args.scoreLabel === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scoreLabel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scoreLabel'");
             }
             inputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
@@ -192,15 +193,11 @@ export class Prediction extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/latest:Prediction" }, { type: "azure-nextgen:customerinsights/latest:Prediction" }, { type: "azure-native:customerinsights/v20170426:Prediction" }, { type: "azure-nextgen:customerinsights/v20170426:Prediction" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Prediction.__pulumiType, name, inputs, opts);
     }
 }

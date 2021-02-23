@@ -67,17 +67,18 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationNetworkMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationNetworkMapping'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.networkName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.networkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
@@ -95,15 +96,11 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationNetworkMapping.__pulumiType, name, inputs, opts);
     }
 }

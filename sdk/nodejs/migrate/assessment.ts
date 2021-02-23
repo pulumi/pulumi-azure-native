@@ -62,17 +62,18 @@ export class Assessment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["assessmentName"] = args ? args.assessmentName : undefined;
@@ -89,15 +90,11 @@ export class Assessment extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/latest:Assessment" }, { type: "azure-nextgen:migrate/latest:Assessment" }, { type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-nextgen:migrate/v20191001:Assessment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assessment.__pulumiType, name, inputs, opts);
     }
 }

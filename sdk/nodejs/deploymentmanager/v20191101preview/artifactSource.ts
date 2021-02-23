@@ -73,14 +73,15 @@ export class ArtifactSource extends pulumi.CustomResource {
      */
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.authentication === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.authentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
             inputs["artifactRoot"] = args ? args.artifactRoot : undefined;
@@ -101,15 +102,11 @@ export class ArtifactSource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ArtifactSource" }, { type: "azure-nextgen:deploymentmanager:ArtifactSource" }, { type: "azure-native:deploymentmanager/v20180901preview:ArtifactSource" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactSource.__pulumiType, name, inputs, opts);
     }
 }

@@ -89,11 +89,12 @@ export class CustomImageResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomImageResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["author"] = args ? args.author : undefined;
@@ -123,15 +124,11 @@ export class CustomImageResource extends pulumi.CustomResource {
             inputs["vhd"] = undefined /*out*/;
             inputs["vm"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImageResource" }, { type: "azure-nextgen:devtestlab:CustomImageResource" }, { type: "azure-native:devtestlab/latest:CustomImageResource" }, { type: "azure-nextgen:devtestlab/latest:CustomImageResource" }, { type: "azure-native:devtestlab/v20160515:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImageResource" }, { type: "azure-native:devtestlab/v20180915:CustomImageResource" }, { type: "azure-nextgen:devtestlab/v20180915:CustomImageResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomImageResource.__pulumiType, name, inputs, opts);
     }
 }

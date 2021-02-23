@@ -98,11 +98,12 @@ export class OuContainer extends pulumi.CustomResource {
      */
     constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.domainServiceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.domainServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -139,15 +140,11 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aad/latest:OuContainer" }, { type: "azure-nextgen:aad/latest:OuContainer" }, { type: "azure-native:aad/v20170601:OuContainer" }, { type: "azure-nextgen:aad/v20170601:OuContainer" }, { type: "azure-native:aad/v20200101:OuContainer" }, { type: "azure-nextgen:aad/v20200101:OuContainer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OuContainer.__pulumiType, name, inputs, opts);
     }
 }

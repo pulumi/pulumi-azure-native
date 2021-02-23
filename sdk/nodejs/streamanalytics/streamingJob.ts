@@ -138,8 +138,9 @@ export class StreamingJob extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
@@ -192,15 +193,11 @@ export class StreamingJob extends pulumi.CustomResource {
             inputs["transformation"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/latest:StreamingJob" }, { type: "azure-nextgen:streamanalytics/latest:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-nextgen:streamanalytics/v20170401preview:StreamingJob" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingJob.__pulumiType, name, inputs, opts);
     }
 }

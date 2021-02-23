@@ -225,14 +225,15 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AppServiceEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServiceEnvironment'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            if ((!args || args.workerPools === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workerPools === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workerPools'");
             }
             inputs["apiManagementAccountId"] = args ? args.apiManagementAccountId : undefined;
@@ -324,15 +325,11 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             inputs["vnetSubnetName"] = undefined /*out*/;
             inputs["workerPools"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:AppServiceEnvironment" }, { type: "azure-nextgen:web:AppServiceEnvironment" }, { type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-nextgen:web/v20201001:AppServiceEnvironment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }
 }

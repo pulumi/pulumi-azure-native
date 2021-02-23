@@ -117,23 +117,24 @@ export class Volume extends pulumi.CustomResource {
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.creationToken === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.creationToken === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'creationToken'");
             }
-            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.poolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.usageThreshold === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.usageThreshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -178,15 +179,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["usedBytes"] = undefined /*out*/;
             inputs["volumeType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-nextgen:netapp:Volume" }, { type: "azure-native:netapp/latest:Volume" }, { type: "azure-nextgen:netapp/latest:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, inputs, opts);
     }
 }

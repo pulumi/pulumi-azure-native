@@ -57,7 +57,8 @@ export class SubscriptionAlias extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SubscriptionAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["aliasName"] = args ? args.aliasName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["name"] = undefined /*out*/;
@@ -67,15 +68,11 @@ export class SubscriptionAlias extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:subscription:SubscriptionAlias" }, { type: "azure-nextgen:subscription:SubscriptionAlias" }, { type: "azure-native:subscription/latest:SubscriptionAlias" }, { type: "azure-nextgen:subscription/latest:SubscriptionAlias" }, { type: "azure-native:subscription/v20200901:SubscriptionAlias" }, { type: "azure-nextgen:subscription/v20200901:SubscriptionAlias" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionAlias.__pulumiType, name, inputs, opts);
     }
 }

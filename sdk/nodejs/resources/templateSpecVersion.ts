@@ -78,11 +78,12 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: TemplateSpecVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateSpecName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.templateSpecName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
             inputs["artifacts"] = args ? args.artifacts : undefined;
@@ -106,15 +107,11 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             inputs["template"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-nextgen:resources/v20190601preview:TemplateSpecVersion" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateSpecVersion.__pulumiType, name, inputs, opts);
     }
 }

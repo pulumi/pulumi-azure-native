@@ -87,32 +87,33 @@ export class BackupSchedule extends pulumi.CustomResource {
     constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupSchedule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.backupPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
-            if ((!args || args.backupType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.backupType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupType'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionCount === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.retentionCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionCount'");
             }
-            if ((!args || args.scheduleRecurrence === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleRecurrence === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleRecurrence'");
             }
-            if ((!args || args.scheduleStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scheduleStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleStatus'");
             }
-            if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
@@ -140,15 +141,11 @@ export class BackupSchedule extends pulumi.CustomResource {
             inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupSchedule" }, { type: "azure-nextgen:storsimple:BackupSchedule" }, { type: "azure-native:storsimple/v20170601:BackupSchedule" }, { type: "azure-nextgen:storsimple/v20170601:BackupSchedule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupSchedule.__pulumiType, name, inputs, opts);
     }
 }

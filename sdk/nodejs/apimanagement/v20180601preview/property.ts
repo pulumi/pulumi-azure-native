@@ -68,17 +68,18 @@ export class Property extends pulumi.CustomResource {
      */
     constructor(name: string, args: PropertyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
@@ -98,15 +99,11 @@ export class Property extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Property" }, { type: "azure-nextgen:apimanagement:Property" }, { type: "azure-native:apimanagement/latest:Property" }, { type: "azure-nextgen:apimanagement/latest:Property" }, { type: "azure-native:apimanagement/v20160707:Property" }, { type: "azure-nextgen:apimanagement/v20160707:Property" }, { type: "azure-native:apimanagement/v20161010:Property" }, { type: "azure-nextgen:apimanagement/v20161010:Property" }, { type: "azure-native:apimanagement/v20170301:Property" }, { type: "azure-nextgen:apimanagement/v20170301:Property" }, { type: "azure-native:apimanagement/v20180101:Property" }, { type: "azure-nextgen:apimanagement/v20180101:Property" }, { type: "azure-native:apimanagement/v20190101:Property" }, { type: "azure-nextgen:apimanagement/v20190101:Property" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Property.__pulumiType, name, inputs, opts);
     }
 }

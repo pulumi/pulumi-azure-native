@@ -77,23 +77,24 @@ export class ApiIssue extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiIssueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -117,15 +118,11 @@ export class ApiIssue extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssue" }, { type: "azure-nextgen:apimanagement:ApiIssue" }, { type: "azure-native:apimanagement/latest:ApiIssue" }, { type: "azure-nextgen:apimanagement/latest:ApiIssue" }, { type: "azure-native:apimanagement/v20170301:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20170301:ApiIssue" }, { type: "azure-native:apimanagement/v20180101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180101:ApiIssue" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiIssue" }, { type: "azure-native:apimanagement/v20190101:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20190101:ApiIssue" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiIssue" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssue" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiIssue" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssue.__pulumiType, name, inputs, opts);
     }
 }

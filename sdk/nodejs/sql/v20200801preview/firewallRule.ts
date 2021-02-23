@@ -60,11 +60,12 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
@@ -80,15 +81,11 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["startIpAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:FirewallRule" }, { type: "azure-nextgen:sql:FirewallRule" }, { type: "azure-native:sql/latest:FirewallRule" }, { type: "azure-nextgen:sql/latest:FirewallRule" }, { type: "azure-native:sql/v20140401:FirewallRule" }, { type: "azure-nextgen:sql/v20140401:FirewallRule" }, { type: "azure-native:sql/v20150501preview:FirewallRule" }, { type: "azure-nextgen:sql/v20150501preview:FirewallRule" }, { type: "azure-native:sql/v20200202preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200202preview:FirewallRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }
 }

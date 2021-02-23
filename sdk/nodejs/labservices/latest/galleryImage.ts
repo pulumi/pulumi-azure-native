@@ -115,11 +115,12 @@ export class GalleryImage extends pulumi.CustomResource {
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:GalleryImage'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
@@ -159,15 +160,11 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices:GalleryImage" }, { type: "azure-nextgen:labservices:GalleryImage" }, { type: "azure-native:labservices/v20181015:GalleryImage" }, { type: "azure-nextgen:labservices/v20181015:GalleryImage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }
 }

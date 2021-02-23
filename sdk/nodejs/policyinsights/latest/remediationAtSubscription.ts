@@ -91,7 +91,8 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
     constructor(name: string, args?: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RemediationAtSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtSubscription'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["filters"] = args ? args.filters : undefined;
             inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
@@ -115,15 +116,11 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
             inputs["resourceDiscoveryMode"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription" }, { type: "azure-native:policyinsights/v20190701:RemediationAtSubscription" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtSubscription.__pulumiType, name, inputs, opts);
     }
 }

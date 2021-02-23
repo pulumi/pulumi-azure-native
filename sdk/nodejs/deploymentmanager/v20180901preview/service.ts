@@ -68,17 +68,18 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceTopologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if ((!args || args.targetLocation === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetLocation'");
             }
-            if ((!args || args.targetSubscriptionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -98,15 +99,11 @@ export class Service extends pulumi.CustomResource {
             inputs["targetSubscriptionId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Service" }, { type: "azure-nextgen:deploymentmanager:Service" }, { type: "azure-native:deploymentmanager/v20191101preview:Service" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:Service" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

@@ -84,11 +84,12 @@ export class EventChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.partnerNamespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.partnerNamespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destination"] = args ? args.destination : undefined;
@@ -114,15 +115,11 @@ export class EventChannel extends pulumi.CustomResource {
             inputs["source"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:EventChannel" }, { type: "azure-nextgen:eventgrid/v20200401preview:EventChannel" }, { type: "azure-native:eventgrid/v20201015preview:EventChannel" }, { type: "azure-nextgen:eventgrid/v20201015preview:EventChannel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventChannel.__pulumiType, name, inputs, opts);
     }
 }

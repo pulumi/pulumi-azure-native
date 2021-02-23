@@ -77,11 +77,12 @@ export class HubRouteTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: HubRouteTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["id"] = args ? args.id : undefined;
@@ -106,15 +107,11 @@ export class HubRouteTable extends pulumi.CustomResource {
             inputs["routes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:HubRouteTable" }, { type: "azure-nextgen:network:HubRouteTable" }, { type: "azure-native:network/latest:HubRouteTable" }, { type: "azure-nextgen:network/latest:HubRouteTable" }, { type: "azure-native:network/v20200401:HubRouteTable" }, { type: "azure-nextgen:network/v20200401:HubRouteTable" }, { type: "azure-native:network/v20200501:HubRouteTable" }, { type: "azure-nextgen:network/v20200501:HubRouteTable" }, { type: "azure-native:network/v20200601:HubRouteTable" }, { type: "azure-nextgen:network/v20200601:HubRouteTable" }, { type: "azure-native:network/v20200701:HubRouteTable" }, { type: "azure-nextgen:network/v20200701:HubRouteTable" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HubRouteTable.__pulumiType, name, inputs, opts);
     }
 }

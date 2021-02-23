@@ -96,11 +96,12 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
     constructor(name: string, args: WebAppVnetConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebAppVnetConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnection'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certBlob"] = args ? args.certBlob : undefined;
@@ -129,15 +130,11 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vnetResourceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppVnetConnection" }, { type: "azure-nextgen:web:WebAppVnetConnection" }, { type: "azure-native:web/v20150801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnection" }, { type: "azure-native:web/v20160801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnection" }, { type: "azure-native:web/v20180201:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnection" }, { type: "azure-native:web/v20181101:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnection" }, { type: "azure-native:web/v20190801:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20190801:WebAppVnetConnection" }, { type: "azure-native:web/v20200601:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnection" }, { type: "azure-native:web/v20200901:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnection" }, { type: "azure-native:web/v20201001:WebAppVnetConnection" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppVnetConnection.__pulumiType, name, inputs, opts);
     }
 }

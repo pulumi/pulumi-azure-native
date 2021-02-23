@@ -80,11 +80,12 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
      */
     constructor(name: string, args: IoMAMPolicyByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.friendlyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
             inputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
@@ -139,15 +140,11 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
             inputs["touchId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:intune:IoMAMPolicyByName" }, { type: "azure-nextgen:intune:IoMAMPolicyByName" }, { type: "azure-native:intune/v20150114preview:IoMAMPolicyByName" }, { type: "azure-nextgen:intune/v20150114preview:IoMAMPolicyByName" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoMAMPolicyByName.__pulumiType, name, inputs, opts);
     }
 }

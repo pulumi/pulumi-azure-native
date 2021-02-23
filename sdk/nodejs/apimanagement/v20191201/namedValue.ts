@@ -68,17 +68,18 @@ export class NamedValue extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamedValueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
@@ -98,15 +99,11 @@ export class NamedValue extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NamedValue" }, { type: "azure-nextgen:apimanagement:NamedValue" }, { type: "azure-native:apimanagement/latest:NamedValue" }, { type: "azure-nextgen:apimanagement/latest:NamedValue" }, { type: "azure-native:apimanagement/v20191201preview:NamedValue" }, { type: "azure-nextgen:apimanagement/v20191201preview:NamedValue" }, { type: "azure-native:apimanagement/v20200601preview:NamedValue" }, { type: "azure-nextgen:apimanagement/v20200601preview:NamedValue" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamedValue.__pulumiType, name, inputs, opts);
     }
 }

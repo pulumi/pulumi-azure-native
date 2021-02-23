@@ -109,8 +109,9 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
@@ -149,15 +150,11 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:ManagedCluster" }, { type: "azure-nextgen:containerservice:ManagedCluster" }, { type: "azure-native:containerservice/latest:ManagedCluster" }, { type: "azure-nextgen:containerservice/latest:ManagedCluster" }, { type: "azure-native:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-native:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-native:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-native:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-native:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-native:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-native:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-native:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-native:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-native:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-native:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-native:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-native:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-native:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-native:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-native:containerservice/v20201101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }, { type: "azure-native:containerservice/v20201201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201201:ManagedCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }
 }

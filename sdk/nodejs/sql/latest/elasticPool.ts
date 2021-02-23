@@ -103,11 +103,12 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ElasticPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ElasticPool'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["databaseDtuMax"] = args ? args.databaseDtuMax : undefined;
@@ -141,15 +142,11 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ElasticPool" }, { type: "azure-nextgen:sql:ElasticPool" }, { type: "azure-native:sql/v20140401:ElasticPool" }, { type: "azure-nextgen:sql/v20140401:ElasticPool" }, { type: "azure-native:sql/v20171001preview:ElasticPool" }, { type: "azure-nextgen:sql/v20171001preview:ElasticPool" }, { type: "azure-native:sql/v20200202preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200202preview:ElasticPool" }, { type: "azure-native:sql/v20200801preview:ElasticPool" }, { type: "azure-nextgen:sql/v20200801preview:ElasticPool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }
 }

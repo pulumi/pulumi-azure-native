@@ -117,8 +117,9 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
@@ -161,15 +162,11 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             inputs["virtualMachineResourceId"] = undefined /*out*/;
             inputs["wsfcDomainCredentials"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-nextgen:sqlvirtualmachine:SqlVirtualMachine" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachine.__pulumiType, name, inputs, opts);
     }
 }

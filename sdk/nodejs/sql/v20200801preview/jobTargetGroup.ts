@@ -57,17 +57,18 @@ export class JobTargetGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.jobAgentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if ((!args || args.members === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.members === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["jobAgentName"] = args ? args.jobAgentName : undefined;
@@ -82,15 +83,11 @@ export class JobTargetGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:JobTargetGroup" }, { type: "azure-nextgen:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-nextgen:sql/v20200202preview:JobTargetGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobTargetGroup.__pulumiType, name, inputs, opts);
     }
 }

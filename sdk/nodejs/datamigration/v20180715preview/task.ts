@@ -61,14 +61,15 @@ export class Task extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -85,15 +86,11 @@ export class Task extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Task" }, { type: "azure-nextgen:datamigration:Task" }, { type: "azure-native:datamigration/latest:Task" }, { type: "azure-nextgen:datamigration/latest:Task" }, { type: "azure-native:datamigration/v20171115preview:Task" }, { type: "azure-nextgen:datamigration/v20171115preview:Task" }, { type: "azure-native:datamigration/v20180315preview:Task" }, { type: "azure-nextgen:datamigration/v20180315preview:Task" }, { type: "azure-native:datamigration/v20180331preview:Task" }, { type: "azure-nextgen:datamigration/v20180331preview:Task" }, { type: "azure-native:datamigration/v20180419:Task" }, { type: "azure-nextgen:datamigration/v20180419:Task" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Task.__pulumiType, name, inputs, opts);
     }
 }

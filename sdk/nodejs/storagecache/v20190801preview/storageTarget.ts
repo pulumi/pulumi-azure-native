@@ -77,11 +77,12 @@ export class StorageTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.cacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -105,15 +106,11 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["unknown"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-nextgen:storagecache:StorageTarget" }, { type: "azure-native:storagecache/latest:StorageTarget" }, { type: "azure-nextgen:storagecache/latest:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-nextgen:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-nextgen:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-nextgen:storagecache/v20201001:StorageTarget" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTarget.__pulumiType, name, inputs, opts);
     }
 }

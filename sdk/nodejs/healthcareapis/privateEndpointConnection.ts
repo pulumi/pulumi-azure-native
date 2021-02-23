@@ -70,14 +70,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
@@ -97,15 +98,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210111:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

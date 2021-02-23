@@ -97,11 +97,12 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebApplicationFirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedRules === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;
@@ -135,15 +136,11 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network:WebApplicationFirewallPolicy" }, { type: "azure-native:network/latest:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/latest:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20181201:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20181201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190201:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190401:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190401:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190601:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190601:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190701:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190701:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190801:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190801:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20190901:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20190901:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20191101:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20191101:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20191201:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20191201:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200401:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20200401:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200501:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20200501:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200601:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20200601:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200701:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20200701:WebApplicationFirewallPolicy" }, { type: "azure-native:network/v20200801:WebApplicationFirewallPolicy" }, { type: "azure-nextgen:network/v20200801:WebApplicationFirewallPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebApplicationFirewallPolicy.__pulumiType, name, inputs, opts);
     }
 }

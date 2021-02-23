@@ -65,11 +65,12 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.environmentName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
@@ -87,15 +88,11 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["roles"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/latest:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20200515:AccessPolicy" }, { type: "azure-nextgen:timeseriesinsights/v20200515:AccessPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, inputs, opts);
     }
 }

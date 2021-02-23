@@ -121,14 +121,15 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.origins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
@@ -174,15 +175,11 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-nextgen:cdn:Endpoint" }, { type: "azure-native:cdn/latest:Endpoint" }, { type: "azure-nextgen:cdn/latest:Endpoint" }, { type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-nextgen:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-nextgen:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20161002:Endpoint" }, { type: "azure-nextgen:cdn/v20161002:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-nextgen:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-nextgen:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-nextgen:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-nextgen:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-nextgen:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-nextgen:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-nextgen:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-nextgen:cdn/v20200901:Endpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

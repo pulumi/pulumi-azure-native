@@ -65,11 +65,12 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementLockAtResourceGroupLevelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.level === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.level === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["level"] = args ? args.level : undefined;
@@ -86,15 +87,11 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
             inputs["owners"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockAtResourceGroupLevel" }, { type: "azure-nextgen:authorization:ManagementLockAtResourceGroupLevel" }, { type: "azure-native:authorization/latest:ManagementLockAtResourceGroupLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel" }, { type: "azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel" }, { type: "azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockAtResourceGroupLevel.__pulumiType, name, inputs, opts);
     }
 }

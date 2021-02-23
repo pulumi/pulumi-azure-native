@@ -87,14 +87,15 @@ export class Export extends pulumi.CustomResource {
     constructor(name: string, args: ExportArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.definition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -119,15 +120,11 @@ export class Export extends pulumi.CustomResource {
             inputs["schedule"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-nextgen:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-nextgen:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-nextgen:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-nextgen:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-nextgen:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-nextgen:costmanagement/v20200601:Export" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Export.__pulumiType, name, inputs, opts);
     }
 }

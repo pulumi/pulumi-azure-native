@@ -52,7 +52,8 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OnPremiseIotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["onPremiseIotSensorName"] = args ? args.onPremiseIotSensorName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -60,15 +61,11 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:OnPremiseIotSensor" }, { type: "azure-nextgen:security:OnPremiseIotSensor" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnPremiseIotSensor.__pulumiType, name, inputs, opts);
     }
 }

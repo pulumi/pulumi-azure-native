@@ -76,14 +76,15 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppSourceControlSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["branch"] = args ? args.branch : undefined;
@@ -106,15 +107,11 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             inputs["repoUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSourceControlSlot" }, { type: "azure-nextgen:web:WebAppSourceControlSlot" }, { type: "azure-native:web/latest:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/latest:WebAppSourceControlSlot" }, { type: "azure-native:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-native:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-native:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201001:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSourceControlSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSourceControlSlot.__pulumiType, name, inputs, opts);
     }
 }

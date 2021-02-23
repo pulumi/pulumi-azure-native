@@ -82,14 +82,15 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertsSuppressionRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.alertType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.alertType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alertType'");
             }
-            if ((!args || args.reason === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.reason === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'reason'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["alertType"] = args ? args.alertType : undefined;
@@ -113,15 +114,11 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
             inputs["suppressionAlertsScope"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AlertsSuppressionRule" }, { type: "azure-nextgen:security/v20190101preview:AlertsSuppressionRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertsSuppressionRule.__pulumiType, name, inputs, opts);
     }
 }

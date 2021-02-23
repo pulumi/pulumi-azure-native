@@ -91,11 +91,12 @@ export class NatRule extends pulumi.CustomResource {
     constructor(name: string, args: NatRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NatRule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.gatewayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["externalMappings"] = args ? args.externalMappings : undefined;
@@ -124,15 +125,11 @@ export class NatRule extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-nextgen:network:NatRule" }, { type: "azure-native:network/v20200801:NatRule" }, { type: "azure-nextgen:network/v20200801:NatRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatRule.__pulumiType, name, inputs, opts);
     }
 }

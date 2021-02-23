@@ -85,32 +85,33 @@ export class FileShare extends pulumi.CustomResource {
      */
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.adminUser === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.adminUser === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminUser'");
             }
-            if ((!args || args.dataPolicy === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.fileServerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fileServerName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if ((!args || args.provisionedCapacityInBytes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.provisionedCapacityInBytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareStatus === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareStatus'");
             }
             inputs["adminUser"] = args ? args.adminUser : undefined;
@@ -140,15 +141,11 @@ export class FileShare extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:FileShare" }, { type: "azure-nextgen:storsimple:FileShare" }, { type: "azure-native:storsimple/latest:FileShare" }, { type: "azure-nextgen:storsimple/latest:FileShare" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileShare.__pulumiType, name, inputs, opts);
     }
 }

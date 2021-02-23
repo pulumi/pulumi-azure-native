@@ -93,11 +93,12 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
@@ -128,15 +129,11 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetwork" }, { type: "azure-nextgen:devtestlab:VirtualNetwork" }, { type: "azure-native:devtestlab/latest:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetwork" }, { type: "azure-native:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azure-native:devtestlab/v20160515:VirtualNetwork" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetwork" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }
 }

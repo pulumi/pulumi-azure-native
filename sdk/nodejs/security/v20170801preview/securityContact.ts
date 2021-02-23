@@ -69,14 +69,15 @@ export class SecurityContact extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.alertNotifications === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.alertNotifications === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alertNotifications'");
             }
-            if ((!args || args.alertsToAdmins === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.alertsToAdmins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alertsToAdmins'");
             }
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
@@ -94,15 +95,11 @@ export class SecurityContact extends pulumi.CustomResource {
             inputs["phone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityContact" }, { type: "azure-nextgen:security:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }, { type: "azure-nextgen:security/v20200101preview:SecurityContact" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityContact.__pulumiType, name, inputs, opts);
     }
 }

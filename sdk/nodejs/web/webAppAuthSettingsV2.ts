@@ -66,11 +66,12 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppAuthSettingsV2Args, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["globalValidation"] = args ? args.globalValidation : undefined;
@@ -94,15 +95,11 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/latest:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200601:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettingsV2.__pulumiType, name, inputs, opts);
     }
 }

@@ -91,23 +91,24 @@ export class ApiOperation extends pulumi.CustomResource {
     constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiOperation'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.method === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.method === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.urlTemplate === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.urlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -136,15 +137,11 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["urlTemplate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperation" }, { type: "azure-nextgen:apimanagement:ApiOperation" }, { type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperation" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiOperation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }
 }

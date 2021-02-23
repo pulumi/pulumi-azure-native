@@ -63,11 +63,12 @@ export class QueueServiceProperties extends pulumi.CustomResource {
     constructor(name: string, args: QueueServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("QueueServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -81,15 +82,11 @@ export class QueueServiceProperties extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:QueueServiceProperties" }, { type: "azure-nextgen:storage:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210101:QueueServiceProperties" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueServiceProperties.__pulumiType, name, inputs, opts);
     }
 }

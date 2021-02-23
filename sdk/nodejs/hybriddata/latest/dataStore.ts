@@ -79,17 +79,18 @@ export class DataStore extends pulumi.CustomResource {
     constructor(name: string, args: DataStoreArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataManagerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataStoreTypeId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dataStoreTypeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataStoreTypeId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
@@ -111,15 +112,11 @@ export class DataStore extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataStore" }, { type: "azure-nextgen:hybriddata:DataStore" }, { type: "azure-native:hybriddata/v20160601:DataStore" }, { type: "azure-nextgen:hybriddata/v20160601:DataStore" }, { type: "azure-native:hybriddata/v20190601:DataStore" }, { type: "azure-nextgen:hybriddata/v20190601:DataStore" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataStore.__pulumiType, name, inputs, opts);
     }
 }

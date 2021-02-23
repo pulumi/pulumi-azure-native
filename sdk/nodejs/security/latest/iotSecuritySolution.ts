@@ -115,14 +115,15 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.iotHubs === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.iotHubs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iotHubs'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
@@ -161,15 +162,11 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["userDefinedResources"] = undefined /*out*/;
             inputs["workspace"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:IotSecuritySolution" }, { type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-native:security/v20170801preview:IotSecuritySolution" }, { type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }, { type: "azure-native:security/v20190801:IotSecuritySolution" }, { type: "azure-nextgen:security/v20190801:IotSecuritySolution" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotSecuritySolution.__pulumiType, name, inputs, opts);
     }
 }

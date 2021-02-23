@@ -65,17 +65,18 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverGroupName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
@@ -93,12 +94,8 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

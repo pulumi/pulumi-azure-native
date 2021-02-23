@@ -77,11 +77,12 @@ export class Network extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.addressPrefix === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.addressPrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -104,15 +105,11 @@ export class Network extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:Network" }, { type: "azure-nextgen:servicefabricmesh:Network" }, { type: "azure-native:servicefabricmesh/v20180901preview:Network" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Network" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Network.__pulumiType, name, inputs, opts);
     }
 }

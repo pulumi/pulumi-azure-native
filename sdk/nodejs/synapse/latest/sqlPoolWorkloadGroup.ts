@@ -82,23 +82,24 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     constructor(name: string, args: SqlPoolWorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.maxResourcePercent === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxResourcePercent'");
             }
-            if ((!args || args.minResourcePercent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minResourcePercent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercent'");
             }
-            if ((!args || args.minResourcePercentPerRequest === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minResourcePercentPerRequest === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercentPerRequest'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sqlPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["importance"] = args ? args.importance : undefined;
@@ -123,15 +124,11 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             inputs["queryExecutionTimeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
     }
 }

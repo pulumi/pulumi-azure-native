@@ -64,14 +64,15 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.virtualNetworkSubnetId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.virtualNetworkSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
             inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
@@ -89,15 +90,11 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb:VirtualNetworkRule" }, { type: "azure-native:dbformariadb/latest:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/latest:VirtualNetworkRule" }, { type: "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule" }, { type: "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }
 }

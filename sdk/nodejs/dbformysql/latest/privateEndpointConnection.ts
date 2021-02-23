@@ -71,11 +71,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformysql:PrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
@@ -93,15 +94,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformysql:PrivateEndpointConnection" }, { type: "azure-native:dbformysql/v20180601:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformysql/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-nextgen:dbformysql/v20180601privatepreview:PrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

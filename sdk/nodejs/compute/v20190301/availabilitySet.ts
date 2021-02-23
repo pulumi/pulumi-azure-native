@@ -85,8 +85,9 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
@@ -113,15 +114,11 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:AvailabilitySet" }, { type: "azure-nextgen:compute:AvailabilitySet" }, { type: "azure-native:compute/latest:AvailabilitySet" }, { type: "azure-nextgen:compute/latest:AvailabilitySet" }, { type: "azure-native:compute/v20150615:AvailabilitySet" }, { type: "azure-nextgen:compute/v20150615:AvailabilitySet" }, { type: "azure-native:compute/v20160330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160330:AvailabilitySet" }, { type: "azure-native:compute/v20160430preview:AvailabilitySet" }, { type: "azure-nextgen:compute/v20160430preview:AvailabilitySet" }, { type: "azure-native:compute/v20170330:AvailabilitySet" }, { type: "azure-nextgen:compute/v20170330:AvailabilitySet" }, { type: "azure-native:compute/v20171201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20171201:AvailabilitySet" }, { type: "azure-native:compute/v20180401:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180401:AvailabilitySet" }, { type: "azure-native:compute/v20180601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20180601:AvailabilitySet" }, { type: "azure-native:compute/v20181001:AvailabilitySet" }, { type: "azure-nextgen:compute/v20181001:AvailabilitySet" }, { type: "azure-native:compute/v20190701:AvailabilitySet" }, { type: "azure-nextgen:compute/v20190701:AvailabilitySet" }, { type: "azure-native:compute/v20191201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20191201:AvailabilitySet" }, { type: "azure-native:compute/v20200601:AvailabilitySet" }, { type: "azure-nextgen:compute/v20200601:AvailabilitySet" }, { type: "azure-native:compute/v20201201:AvailabilitySet" }, { type: "azure-nextgen:compute/v20201201:AvailabilitySet" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }
 }

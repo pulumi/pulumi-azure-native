@@ -242,8 +242,9 @@ export class WebApp extends pulumi.CustomResource {
     constructor(name: string, args: WebAppArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebApp is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebApp'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
@@ -341,15 +342,11 @@ export class WebApp extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["usageState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebApp" }, { type: "azure-nextgen:web:WebApp" }, { type: "azure-native:web/v20150801:WebApp" }, { type: "azure-nextgen:web/v20150801:WebApp" }, { type: "azure-native:web/v20160801:WebApp" }, { type: "azure-nextgen:web/v20160801:WebApp" }, { type: "azure-native:web/v20180201:WebApp" }, { type: "azure-nextgen:web/v20180201:WebApp" }, { type: "azure-native:web/v20181101:WebApp" }, { type: "azure-nextgen:web/v20181101:WebApp" }, { type: "azure-native:web/v20190801:WebApp" }, { type: "azure-nextgen:web/v20190801:WebApp" }, { type: "azure-native:web/v20200601:WebApp" }, { type: "azure-nextgen:web/v20200601:WebApp" }, { type: "azure-native:web/v20200901:WebApp" }, { type: "azure-nextgen:web/v20200901:WebApp" }, { type: "azure-native:web/v20201001:WebApp" }, { type: "azure-nextgen:web/v20201001:WebApp" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebApp.__pulumiType, name, inputs, opts);
     }
 }

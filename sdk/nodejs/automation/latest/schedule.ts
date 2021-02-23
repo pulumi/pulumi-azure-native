@@ -115,20 +115,21 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Schedule'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
@@ -168,15 +169,11 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Schedule" }, { type: "azure-nextgen:automation:Schedule" }, { type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, inputs, opts);
     }
 }

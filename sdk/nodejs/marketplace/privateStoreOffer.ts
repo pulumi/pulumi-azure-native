@@ -98,8 +98,9 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.privateStoreId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.privateStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -131,15 +132,11 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             inputs["uniqueOfferId"] = undefined /*out*/;
             inputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:marketplace/latest:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/latest:PrivateStoreOffer" }, { type: "azure-native:marketplace/v20200101:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/v20200101:PrivateStoreOffer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreOffer.__pulumiType, name, inputs, opts);
     }
 }

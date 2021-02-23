@@ -63,20 +63,21 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
      */
     constructor(name: string, args: GremlinResourceGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -97,15 +98,11 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200301:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph" }, { type: "azure-native:documentdb/v20210115:GremlinResourceGremlinGraph" }, { type: "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GremlinResourceGremlinGraph.__pulumiType, name, inputs, opts);
     }
 }

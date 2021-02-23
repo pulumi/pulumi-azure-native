@@ -84,14 +84,15 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["kind"] = args ? args.kind : undefined;
@@ -119,15 +120,11 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vendor"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web:WebAppPremierAddOnSlot" }, { type: "azure-native:web/latest:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/latest:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20190801:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20200601:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20200901:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20201001:WebAppPremierAddOnSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOnSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPremierAddOnSlot.__pulumiType, name, inputs, opts);
     }
 }

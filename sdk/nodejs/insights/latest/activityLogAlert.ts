@@ -87,17 +87,18 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     constructor(name: string, args: ActivityLogAlertArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.condition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -122,15 +123,11 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-nextgen:insights:ActivityLogAlert" }, { type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-nextgen:insights/v20201001:ActivityLogAlert" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }
 }

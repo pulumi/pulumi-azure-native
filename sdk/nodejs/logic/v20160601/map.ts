@@ -93,14 +93,15 @@ export class Map extends pulumi.CustomResource {
      */
     constructor(name: string, args: MapArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mapType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -132,15 +133,11 @@ export class Map extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Map" }, { type: "azure-nextgen:logic:Map" }, { type: "azure-native:logic/latest:Map" }, { type: "azure-nextgen:logic/latest:Map" }, { type: "azure-native:logic/v20150801preview:Map" }, { type: "azure-nextgen:logic/v20150801preview:Map" }, { type: "azure-native:logic/v20180701preview:Map" }, { type: "azure-nextgen:logic/v20180701preview:Map" }, { type: "azure-native:logic/v20190501:Map" }, { type: "azure-nextgen:logic/v20190501:Map" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Map.__pulumiType, name, inputs, opts);
     }
 }

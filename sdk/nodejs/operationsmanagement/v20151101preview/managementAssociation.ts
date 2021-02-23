@@ -61,17 +61,18 @@ export class ManagementAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -89,15 +90,11 @@ export class ManagementAssociation extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement:ManagementAssociation" }, { type: "azure-nextgen:operationsmanagement:ManagementAssociation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementAssociation.__pulumiType, name, inputs, opts);
     }
 }

@@ -69,8 +69,9 @@ export class Dashboard extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dashboardName"] = args ? args.dashboardName : undefined;
@@ -89,15 +90,11 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:Dashboard" }, { type: "azure-nextgen:portal:Dashboard" }, { type: "azure-native:portal/v20150801preview:Dashboard" }, { type: "azure-nextgen:portal/v20150801preview:Dashboard" }, { type: "azure-native:portal/v20190101preview:Dashboard" }, { type: "azure-nextgen:portal/v20190101preview:Dashboard" }, { type: "azure-native:portal/v20200901preview:Dashboard" }, { type: "azure-nextgen:portal/v20200901preview:Dashboard" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dashboard.__pulumiType, name, inputs, opts);
     }
 }

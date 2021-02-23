@@ -106,11 +106,12 @@ export class Watcher extends pulumi.CustomResource {
     constructor(name: string, args: WatcherArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Watcher is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Watcher'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -146,15 +147,11 @@ export class Watcher extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Watcher" }, { type: "azure-nextgen:automation:Watcher" }, { type: "azure-native:automation/v20151031:Watcher" }, { type: "azure-nextgen:automation/v20151031:Watcher" }, { type: "azure-native:automation/v20190601:Watcher" }, { type: "azure-nextgen:automation/v20190601:Watcher" }, { type: "azure-native:automation/v20200113preview:Watcher" }, { type: "azure-nextgen:automation/v20200113preview:Watcher" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watcher.__pulumiType, name, inputs, opts);
     }
 }

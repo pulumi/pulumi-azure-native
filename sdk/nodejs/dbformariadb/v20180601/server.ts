@@ -113,11 +113,12 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -159,15 +160,11 @@ export class Server extends pulumi.CustomResource {
             inputs["userVisibleState"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:Server" }, { type: "azure-nextgen:dbformariadb:Server" }, { type: "azure-native:dbformariadb/latest:Server" }, { type: "azure-nextgen:dbformariadb/latest:Server" }, { type: "azure-native:dbformariadb/v20180601preview:Server" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Server" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, inputs, opts);
     }
 }

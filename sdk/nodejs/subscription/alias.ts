@@ -58,8 +58,9 @@ export class Alias extends pulumi.CustomResource {
      */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
             inputs["aliasName"] = args ? args.aliasName : undefined;
@@ -71,15 +72,11 @@ export class Alias extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:subscription/latest:Alias" }, { type: "azure-nextgen:subscription/latest:Alias" }, { type: "azure-native:subscription/v20191001preview:Alias" }, { type: "azure-nextgen:subscription/v20191001preview:Alias" }, { type: "azure-native:subscription/v20200901:Alias" }, { type: "azure-nextgen:subscription/v20200901:Alias" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Alias.__pulumiType, name, inputs, opts);
     }
 }

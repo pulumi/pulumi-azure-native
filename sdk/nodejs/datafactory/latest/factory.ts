@@ -103,8 +103,9 @@ export class Factory extends pulumi.CustomResource {
     constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Factory is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Factory'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["encryption"] = args ? args.encryption : undefined;
@@ -137,15 +138,11 @@ export class Factory extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Factory" }, { type: "azure-nextgen:datafactory:Factory" }, { type: "azure-native:datafactory/v20170901preview:Factory" }, { type: "azure-nextgen:datafactory/v20170901preview:Factory" }, { type: "azure-native:datafactory/v20180601:Factory" }, { type: "azure-nextgen:datafactory/v20180601:Factory" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Factory.__pulumiType, name, inputs, opts);
     }
 }

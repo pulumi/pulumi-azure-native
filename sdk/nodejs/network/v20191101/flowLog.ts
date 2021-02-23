@@ -97,17 +97,18 @@ export class FlowLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -142,15 +143,11 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["targetResourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FlowLog" }, { type: "azure-nextgen:network:FlowLog" }, { type: "azure-native:network/latest:FlowLog" }, { type: "azure-nextgen:network/latest:FlowLog" }, { type: "azure-native:network/v20191201:FlowLog" }, { type: "azure-nextgen:network/v20191201:FlowLog" }, { type: "azure-native:network/v20200301:FlowLog" }, { type: "azure-nextgen:network/v20200301:FlowLog" }, { type: "azure-native:network/v20200401:FlowLog" }, { type: "azure-nextgen:network/v20200401:FlowLog" }, { type: "azure-native:network/v20200501:FlowLog" }, { type: "azure-nextgen:network/v20200501:FlowLog" }, { type: "azure-native:network/v20200601:FlowLog" }, { type: "azure-nextgen:network/v20200601:FlowLog" }, { type: "azure-native:network/v20200701:FlowLog" }, { type: "azure-nextgen:network/v20200701:FlowLog" }, { type: "azure-native:network/v20200801:FlowLog" }, { type: "azure-nextgen:network/v20200801:FlowLog" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FlowLog.__pulumiType, name, inputs, opts);
     }
 }

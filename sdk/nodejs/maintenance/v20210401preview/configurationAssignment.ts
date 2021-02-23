@@ -69,17 +69,18 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
             inputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
@@ -101,12 +102,8 @@ export class ConfigurationAssignment extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ConfigurationAssignment.__pulumiType, name, inputs, opts);
     }

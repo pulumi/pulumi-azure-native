@@ -57,17 +57,18 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupScheduleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
@@ -82,15 +83,11 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple:BackupScheduleGroup" }, { type: "azure-native:storsimple/latest:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/latest:BackupScheduleGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupScheduleGroup.__pulumiType, name, inputs, opts);
     }
 }

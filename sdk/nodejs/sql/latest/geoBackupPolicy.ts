@@ -75,17 +75,18 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
     constructor(name: string, args: GeoBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -106,15 +107,11 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             inputs["storageType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-nextgen:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoBackupPolicy.__pulumiType, name, inputs, opts);
     }
 }

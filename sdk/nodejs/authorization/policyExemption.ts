@@ -86,14 +86,15 @@ export class PolicyExemption extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyExemptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.exemptionCategory === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'exemptionCategory'");
             }
-            if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -120,15 +121,11 @@ export class PolicyExemption extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200701preview:PolicyExemption" }, { type: "azure-nextgen:authorization/v20200701preview:PolicyExemption" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyExemption.__pulumiType, name, inputs, opts);
     }
 }

@@ -125,11 +125,12 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessControl"] = args ? args.accessControl : undefined;
@@ -178,15 +179,11 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-nextgen:media:StreamingEndpoint" }, { type: "azure-native:media/latest:StreamingEndpoint" }, { type: "azure-nextgen:media/latest:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-nextgen:media/v20200501:StreamingEndpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingEndpoint.__pulumiType, name, inputs, opts);
     }
 }

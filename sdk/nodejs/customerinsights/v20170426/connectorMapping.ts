@@ -113,23 +113,24 @@ export class ConnectorMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectorMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.connectorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorName'");
             }
-            if ((!args || args.entityType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entityType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.hubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappingProperties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.mappingProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mappingProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectorName"] = args ? args.connectorName : undefined;
@@ -171,15 +172,11 @@ export class ConnectorMapping extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:ConnectorMapping" }, { type: "azure-nextgen:customerinsights:ConnectorMapping" }, { type: "azure-native:customerinsights/latest:ConnectorMapping" }, { type: "azure-nextgen:customerinsights/latest:ConnectorMapping" }, { type: "azure-native:customerinsights/v20170101:ConnectorMapping" }, { type: "azure-nextgen:customerinsights/v20170101:ConnectorMapping" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectorMapping.__pulumiType, name, inputs, opts);
     }
 }

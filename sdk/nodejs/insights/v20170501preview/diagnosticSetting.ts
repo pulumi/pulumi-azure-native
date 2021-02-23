@@ -85,8 +85,9 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
@@ -112,15 +113,11 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:DiagnosticSetting" }, { type: "azure-nextgen:insights:DiagnosticSetting" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }
 }

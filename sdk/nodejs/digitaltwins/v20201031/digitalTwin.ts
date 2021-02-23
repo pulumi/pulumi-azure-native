@@ -76,8 +76,9 @@ export class DigitalTwin extends pulumi.CustomResource {
      */
     constructor(name: string, args: DigitalTwinArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -100,15 +101,11 @@ export class DigitalTwin extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins:DigitalTwin" }, { type: "azure-nextgen:digitaltwins:DigitalTwin" }, { type: "azure-native:digitaltwins/latest:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/latest:DigitalTwin" }, { type: "azure-native:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwin" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwin" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwin" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DigitalTwin.__pulumiType, name, inputs, opts);
     }
 }

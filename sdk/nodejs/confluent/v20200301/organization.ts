@@ -85,8 +85,9 @@ export class Organization extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -113,15 +114,11 @@ export class Organization extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userDetail"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:confluent:Organization" }, { type: "azure-nextgen:confluent:Organization" }, { type: "azure-native:confluent/latest:Organization" }, { type: "azure-nextgen:confluent/latest:Organization" }, { type: "azure-native:confluent/v20200301preview:Organization" }, { type: "azure-nextgen:confluent/v20200301preview:Organization" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Organization.__pulumiType, name, inputs, opts);
     }
 }

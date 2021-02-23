@@ -67,11 +67,12 @@ export class ReplicationPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ReplicationPolicy'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["policyName"] = args ? args.policyName : undefined;
@@ -87,15 +88,11 @@ export class ReplicationPolicy extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices:ReplicationPolicy" }, { type: "azure-native:recoveryservices/v20160810:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20160810:ReplicationPolicy" }, { type: "azure-native:recoveryservices/v20180110:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationPolicy" }, { type: "azure-native:recoveryservices/v20180710:ReplicationPolicy" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationPolicy.__pulumiType, name, inputs, opts);
     }
 }

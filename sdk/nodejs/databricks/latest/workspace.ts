@@ -115,11 +115,12 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:Workspace'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedResourceGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;
@@ -158,15 +159,11 @@ export class Workspace extends pulumi.CustomResource {
             inputs["workspaceId"] = undefined /*out*/;
             inputs["workspaceUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databricks:Workspace" }, { type: "azure-nextgen:databricks:Workspace" }, { type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-nextgen:databricks/v20180401:Workspace" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

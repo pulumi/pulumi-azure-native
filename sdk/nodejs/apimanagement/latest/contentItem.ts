@@ -62,14 +62,15 @@ export class ContentItem extends pulumi.CustomResource {
     constructor(name: string, args: ContentItemArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ContentItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ContentItem'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.contentTypeId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.contentTypeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentTypeId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["contentItemId"] = args ? args.contentItemId : undefined;
@@ -84,15 +85,11 @@ export class ContentItem extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentItem" }, { type: "azure-nextgen:apimanagement:ContentItem" }, { type: "azure-native:apimanagement/v20191201:ContentItem" }, { type: "azure-nextgen:apimanagement/v20191201:ContentItem" }, { type: "azure-native:apimanagement/v20200601preview:ContentItem" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentItem" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentItem.__pulumiType, name, inputs, opts);
     }
 }

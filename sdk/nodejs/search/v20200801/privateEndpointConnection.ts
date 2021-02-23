@@ -57,11 +57,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.searchServiceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.searchServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
@@ -75,15 +76,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:search:PrivateEndpointConnection" }, { type: "azure-nextgen:search:PrivateEndpointConnection" }, { type: "azure-native:search/latest:PrivateEndpointConnection" }, { type: "azure-nextgen:search/latest:PrivateEndpointConnection" }, { type: "azure-native:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20200313:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200313:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801preview:PrivateEndpointConnection" }, { type: "azure-nextgen:search/v20200801preview:PrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

@@ -69,8 +69,9 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagementGroupSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["groupId"] = args ? args.groupId : undefined;
@@ -89,15 +90,11 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
             inputs["tenant"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroupSubscription" }, { type: "azure-nextgen:management:ManagementGroupSubscription" }, { type: "azure-native:management/latest:ManagementGroupSubscription" }, { type: "azure-nextgen:management/latest:ManagementGroupSubscription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupSubscription.__pulumiType, name, inputs, opts);
     }
 }

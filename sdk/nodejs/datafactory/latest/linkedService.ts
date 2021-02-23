@@ -67,14 +67,15 @@ export class LinkedService extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:LinkedService'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.factoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;
@@ -90,15 +91,11 @@ export class LinkedService extends pulumi.CustomResource {
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:LinkedService" }, { type: "azure-nextgen:datafactory:LinkedService" }, { type: "azure-native:datafactory/v20170901preview:LinkedService" }, { type: "azure-nextgen:datafactory/v20170901preview:LinkedService" }, { type: "azure-native:datafactory/v20180601:LinkedService" }, { type: "azure-nextgen:datafactory/v20180601:LinkedService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, inputs, opts);
     }
 }

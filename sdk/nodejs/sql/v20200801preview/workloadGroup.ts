@@ -76,23 +76,24 @@ export class WorkloadGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.maxResourcePercent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxResourcePercent'");
             }
-            if ((!args || args.minResourcePercent === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minResourcePercent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercent'");
             }
-            if ((!args || args.minResourcePercentPerRequest === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.minResourcePercentPerRequest === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercentPerRequest'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -117,15 +118,11 @@ export class WorkloadGroup extends pulumi.CustomResource {
             inputs["queryExecutionTimeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:WorkloadGroup" }, { type: "azure-nextgen:sql:WorkloadGroup" }, { type: "azure-native:sql/v20190601preview:WorkloadGroup" }, { type: "azure-nextgen:sql/v20190601preview:WorkloadGroup" }, { type: "azure-native:sql/v20200202preview:WorkloadGroup" }, { type: "azure-nextgen:sql/v20200202preview:WorkloadGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadGroup.__pulumiType, name, inputs, opts);
     }
 }

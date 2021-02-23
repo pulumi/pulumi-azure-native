@@ -97,17 +97,18 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clusterRp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -143,15 +144,11 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             inputs["repositoryUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/latest:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControlConfiguration.__pulumiType, name, inputs, opts);
     }
 }

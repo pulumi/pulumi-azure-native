@@ -69,14 +69,15 @@ export class DiagnosticLogger extends pulumi.CustomResource {
      */
     constructor(name: string, args: DiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.diagnosticId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
@@ -97,15 +98,11 @@ export class DiagnosticLogger extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement:DiagnosticLogger" }, { type: "azure-native:apimanagement/latest:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/latest:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20170301:DiagnosticLogger" }, { type: "azure-nextgen:apimanagement/v20170301:DiagnosticLogger" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiagnosticLogger.__pulumiType, name, inputs, opts);
     }
 }

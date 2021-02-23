@@ -80,14 +80,15 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppSitePushSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.isPushEnabled === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.isPushEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'isPushEnabled'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dynamicTagsJson"] = args ? args.dynamicTagsJson : undefined;
@@ -109,15 +110,11 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
             inputs["tagsRequiringAuth"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSitePushSettings" }, { type: "azure-nextgen:web:WebAppSitePushSettings" }, { type: "azure-native:web/latest:WebAppSitePushSettings" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettings" }, { type: "azure-native:web/v20160801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettings" }, { type: "azure-native:web/v20180201:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettings" }, { type: "azure-native:web/v20181101:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettings" }, { type: "azure-native:web/v20190801:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettings" }, { type: "azure-native:web/v20200601:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettings" }, { type: "azure-native:web/v20201001:WebAppSitePushSettings" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettings" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitePushSettings.__pulumiType, name, inputs, opts);
     }
 }

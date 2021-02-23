@@ -86,11 +86,12 @@ export class Blueprint extends pulumi.CustomResource {
      */
     constructor(name: string, args: BlueprintArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceScope === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            if ((!args || args.targetScope === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.targetScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetScope'");
             }
             inputs["blueprintName"] = args ? args.blueprintName : undefined;
@@ -117,15 +118,11 @@ export class Blueprint extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["versions"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:Blueprint" }, { type: "azure-nextgen:blueprint/v20181101preview:Blueprint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Blueprint.__pulumiType, name, inputs, opts);
     }
 }

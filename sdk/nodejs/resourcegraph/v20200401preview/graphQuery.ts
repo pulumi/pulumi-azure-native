@@ -85,11 +85,12 @@ export class GraphQuery extends pulumi.CustomResource {
      */
     constructor(name: string, args: GraphQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -116,15 +117,11 @@ export class GraphQuery extends pulumi.CustomResource {
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resourcegraph:GraphQuery" }, { type: "azure-nextgen:resourcegraph:GraphQuery" }, { type: "azure-native:resourcegraph/v20180901preview:GraphQuery" }, { type: "azure-nextgen:resourcegraph/v20180901preview:GraphQuery" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphQuery.__pulumiType, name, inputs, opts);
     }
 }

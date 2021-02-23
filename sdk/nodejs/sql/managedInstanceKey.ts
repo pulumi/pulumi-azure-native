@@ -74,14 +74,15 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedInstanceKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverKeyType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverKeyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -103,15 +104,11 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceKey" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceKey.__pulumiType, name, inputs, opts);
     }
 }

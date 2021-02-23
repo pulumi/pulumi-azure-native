@@ -66,11 +66,12 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
      */
     constructor(name: string, args: ManagedInstancePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
@@ -88,15 +89,11 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstancePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

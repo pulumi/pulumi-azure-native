@@ -82,17 +82,18 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseAccountSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.options === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -120,15 +121,11 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["users"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb/latest:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountSqlDatabase.__pulumiType, name, inputs, opts);
     }
 }

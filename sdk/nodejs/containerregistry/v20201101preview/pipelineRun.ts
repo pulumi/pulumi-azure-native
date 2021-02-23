@@ -73,11 +73,12 @@ export class PipelineRun extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineRunArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.registryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
@@ -99,15 +100,11 @@ export class PipelineRun extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:PipelineRun" }, { type: "azure-nextgen:containerregistry:PipelineRun" }, { type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-nextgen:containerregistry/v20191201preview:PipelineRun" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineRun.__pulumiType, name, inputs, opts);
     }
 }

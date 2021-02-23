@@ -56,17 +56,18 @@ export class TagByOperation extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagByOperationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.operationId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.operationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -82,15 +83,11 @@ export class TagByOperation extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagByOperation" }, { type: "azure-nextgen:apimanagement:TagByOperation" }, { type: "azure-native:apimanagement/latest:TagByOperation" }, { type: "azure-nextgen:apimanagement/latest:TagByOperation" }, { type: "azure-native:apimanagement/v20170301:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20170301:TagByOperation" }, { type: "azure-native:apimanagement/v20180101:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20180101:TagByOperation" }, { type: "azure-native:apimanagement/v20180601preview:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20180601preview:TagByOperation" }, { type: "azure-native:apimanagement/v20190101:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20190101:TagByOperation" }, { type: "azure-native:apimanagement/v20191201:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20191201:TagByOperation" }, { type: "azure-native:apimanagement/v20191201preview:TagByOperation" }, { type: "azure-nextgen:apimanagement/v20191201preview:TagByOperation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagByOperation.__pulumiType, name, inputs, opts);
     }
 }

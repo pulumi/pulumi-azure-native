@@ -99,11 +99,12 @@ export class ConfigurationStore extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appconfiguration:ConfigurationStore'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["configStoreName"] = args ? args.configStoreName : undefined;
@@ -134,15 +135,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }, { type: "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }
 }

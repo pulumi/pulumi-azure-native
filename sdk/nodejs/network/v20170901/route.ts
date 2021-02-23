@@ -69,14 +69,15 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.nextHopType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.nextHopType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.routeTableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
@@ -97,15 +98,11 @@ export class Route extends pulumi.CustomResource {
             inputs["nextHopType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Route" }, { type: "azure-nextgen:network:Route" }, { type: "azure-native:network/latest:Route" }, { type: "azure-nextgen:network/latest:Route" }, { type: "azure-native:network/v20150501preview:Route" }, { type: "azure-nextgen:network/v20150501preview:Route" }, { type: "azure-native:network/v20150615:Route" }, { type: "azure-nextgen:network/v20150615:Route" }, { type: "azure-native:network/v20160330:Route" }, { type: "azure-nextgen:network/v20160330:Route" }, { type: "azure-native:network/v20160601:Route" }, { type: "azure-nextgen:network/v20160601:Route" }, { type: "azure-native:network/v20160901:Route" }, { type: "azure-nextgen:network/v20160901:Route" }, { type: "azure-native:network/v20161201:Route" }, { type: "azure-nextgen:network/v20161201:Route" }, { type: "azure-native:network/v20170301:Route" }, { type: "azure-nextgen:network/v20170301:Route" }, { type: "azure-native:network/v20170601:Route" }, { type: "azure-nextgen:network/v20170601:Route" }, { type: "azure-native:network/v20170801:Route" }, { type: "azure-nextgen:network/v20170801:Route" }, { type: "azure-native:network/v20171001:Route" }, { type: "azure-nextgen:network/v20171001:Route" }, { type: "azure-native:network/v20171101:Route" }, { type: "azure-nextgen:network/v20171101:Route" }, { type: "azure-native:network/v20180101:Route" }, { type: "azure-nextgen:network/v20180101:Route" }, { type: "azure-native:network/v20180201:Route" }, { type: "azure-nextgen:network/v20180201:Route" }, { type: "azure-native:network/v20180401:Route" }, { type: "azure-nextgen:network/v20180401:Route" }, { type: "azure-native:network/v20180601:Route" }, { type: "azure-nextgen:network/v20180601:Route" }, { type: "azure-native:network/v20180701:Route" }, { type: "azure-nextgen:network/v20180701:Route" }, { type: "azure-native:network/v20180801:Route" }, { type: "azure-nextgen:network/v20180801:Route" }, { type: "azure-native:network/v20181001:Route" }, { type: "azure-nextgen:network/v20181001:Route" }, { type: "azure-native:network/v20181101:Route" }, { type: "azure-nextgen:network/v20181101:Route" }, { type: "azure-native:network/v20181201:Route" }, { type: "azure-nextgen:network/v20181201:Route" }, { type: "azure-native:network/v20190201:Route" }, { type: "azure-nextgen:network/v20190201:Route" }, { type: "azure-native:network/v20190401:Route" }, { type: "azure-nextgen:network/v20190401:Route" }, { type: "azure-native:network/v20190601:Route" }, { type: "azure-nextgen:network/v20190601:Route" }, { type: "azure-native:network/v20190701:Route" }, { type: "azure-nextgen:network/v20190701:Route" }, { type: "azure-native:network/v20190801:Route" }, { type: "azure-nextgen:network/v20190801:Route" }, { type: "azure-native:network/v20190901:Route" }, { type: "azure-nextgen:network/v20190901:Route" }, { type: "azure-native:network/v20191101:Route" }, { type: "azure-nextgen:network/v20191101:Route" }, { type: "azure-native:network/v20191201:Route" }, { type: "azure-nextgen:network/v20191201:Route" }, { type: "azure-native:network/v20200301:Route" }, { type: "azure-nextgen:network/v20200301:Route" }, { type: "azure-native:network/v20200401:Route" }, { type: "azure-nextgen:network/v20200401:Route" }, { type: "azure-native:network/v20200501:Route" }, { type: "azure-nextgen:network/v20200501:Route" }, { type: "azure-native:network/v20200601:Route" }, { type: "azure-nextgen:network/v20200601:Route" }, { type: "azure-native:network/v20200701:Route" }, { type: "azure-nextgen:network/v20200701:Route" }, { type: "azure-native:network/v20200801:Route" }, { type: "azure-nextgen:network/v20200801:Route" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

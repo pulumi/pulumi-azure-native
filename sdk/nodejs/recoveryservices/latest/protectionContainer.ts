@@ -75,14 +75,15 @@ export class ProtectionContainer extends pulumi.CustomResource {
     constructor(name: string, args: ProtectionContainerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProtectionContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionContainer'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.fabricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["containerName"] = args ? args.containerName : undefined;
@@ -103,15 +104,11 @@ export class ProtectionContainer extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20161201:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210201:ProtectionContainer" }, { type: "azure-nextgen:recoveryservices/v20210201:ProtectionContainer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }
 }

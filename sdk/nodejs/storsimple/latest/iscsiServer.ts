@@ -78,20 +78,21 @@ export class IscsiServer extends pulumi.CustomResource {
     constructor(name: string, args: IscsiServerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiServer'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.backupScheduleGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupScheduleGroupId'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageDomainId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.storageDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDomainId'");
             }
             inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
@@ -114,15 +115,11 @@ export class IscsiServer extends pulumi.CustomResource {
             inputs["storageDomainId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:IscsiServer" }, { type: "azure-nextgen:storsimple:IscsiServer" }, { type: "azure-native:storsimple/v20161001:IscsiServer" }, { type: "azure-nextgen:storsimple/v20161001:IscsiServer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiServer.__pulumiType, name, inputs, opts);
     }
 }

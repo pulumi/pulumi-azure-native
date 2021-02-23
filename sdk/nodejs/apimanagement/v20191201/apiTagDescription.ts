@@ -72,14 +72,15 @@ export class ApiTagDescription extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiTagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -102,15 +103,11 @@ export class ApiTagDescription extends pulumi.CustomResource {
             inputs["tagId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiTagDescription" }, { type: "azure-nextgen:apimanagement:ApiTagDescription" }, { type: "azure-native:apimanagement/latest:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/latest:ApiTagDescription" }, { type: "azure-native:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20200601preview:ApiTagDescription" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiTagDescription.__pulumiType, name, inputs, opts);
     }
 }

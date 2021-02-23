@@ -65,11 +65,12 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -86,15 +87,11 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkRules"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/latest:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }
 }

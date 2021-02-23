@@ -56,7 +56,8 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TrafficManagerUserMetricsKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["key"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -65,12 +66,8 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TrafficManagerUserMetricsKey.__pulumiType, name, inputs, opts);
     }

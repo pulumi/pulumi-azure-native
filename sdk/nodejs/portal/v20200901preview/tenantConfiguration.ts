@@ -56,7 +56,8 @@ export class TenantConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
+        opts = opts || {};
+        if (!opts.id) {
             inputs["configurationName"] = args ? args.configurationName : undefined;
             inputs["enforcePrivateMarkdownStorage"] = args ? args.enforcePrivateMarkdownStorage : undefined;
             inputs["name"] = undefined /*out*/;
@@ -66,15 +67,11 @@ export class TenantConfiguration extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:TenantConfiguration" }, { type: "azure-nextgen:portal:TenantConfiguration" }, { type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-nextgen:portal/v20190101preview:TenantConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TenantConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -85,11 +85,12 @@ export class InboundNatRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: InboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendPort"] = args ? args.backendPort : undefined;
@@ -118,15 +119,11 @@ export class InboundNatRule extends pulumi.CustomResource {
             inputs["protocol"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:InboundNatRule" }, { type: "azure-nextgen:network:InboundNatRule" }, { type: "azure-native:network/latest:InboundNatRule" }, { type: "azure-nextgen:network/latest:InboundNatRule" }, { type: "azure-native:network/v20170601:InboundNatRule" }, { type: "azure-nextgen:network/v20170601:InboundNatRule" }, { type: "azure-native:network/v20170801:InboundNatRule" }, { type: "azure-nextgen:network/v20170801:InboundNatRule" }, { type: "azure-native:network/v20170901:InboundNatRule" }, { type: "azure-nextgen:network/v20170901:InboundNatRule" }, { type: "azure-native:network/v20171001:InboundNatRule" }, { type: "azure-nextgen:network/v20171001:InboundNatRule" }, { type: "azure-native:network/v20180101:InboundNatRule" }, { type: "azure-nextgen:network/v20180101:InboundNatRule" }, { type: "azure-native:network/v20180201:InboundNatRule" }, { type: "azure-nextgen:network/v20180201:InboundNatRule" }, { type: "azure-native:network/v20180401:InboundNatRule" }, { type: "azure-nextgen:network/v20180401:InboundNatRule" }, { type: "azure-native:network/v20180601:InboundNatRule" }, { type: "azure-nextgen:network/v20180601:InboundNatRule" }, { type: "azure-native:network/v20180701:InboundNatRule" }, { type: "azure-nextgen:network/v20180701:InboundNatRule" }, { type: "azure-native:network/v20180801:InboundNatRule" }, { type: "azure-nextgen:network/v20180801:InboundNatRule" }, { type: "azure-native:network/v20181001:InboundNatRule" }, { type: "azure-nextgen:network/v20181001:InboundNatRule" }, { type: "azure-native:network/v20181101:InboundNatRule" }, { type: "azure-nextgen:network/v20181101:InboundNatRule" }, { type: "azure-native:network/v20181201:InboundNatRule" }, { type: "azure-nextgen:network/v20181201:InboundNatRule" }, { type: "azure-native:network/v20190201:InboundNatRule" }, { type: "azure-nextgen:network/v20190201:InboundNatRule" }, { type: "azure-native:network/v20190401:InboundNatRule" }, { type: "azure-nextgen:network/v20190401:InboundNatRule" }, { type: "azure-native:network/v20190601:InboundNatRule" }, { type: "azure-nextgen:network/v20190601:InboundNatRule" }, { type: "azure-native:network/v20190701:InboundNatRule" }, { type: "azure-nextgen:network/v20190701:InboundNatRule" }, { type: "azure-native:network/v20190801:InboundNatRule" }, { type: "azure-nextgen:network/v20190801:InboundNatRule" }, { type: "azure-native:network/v20190901:InboundNatRule" }, { type: "azure-nextgen:network/v20190901:InboundNatRule" }, { type: "azure-native:network/v20191101:InboundNatRule" }, { type: "azure-nextgen:network/v20191101:InboundNatRule" }, { type: "azure-native:network/v20191201:InboundNatRule" }, { type: "azure-nextgen:network/v20191201:InboundNatRule" }, { type: "azure-native:network/v20200301:InboundNatRule" }, { type: "azure-nextgen:network/v20200301:InboundNatRule" }, { type: "azure-native:network/v20200401:InboundNatRule" }, { type: "azure-nextgen:network/v20200401:InboundNatRule" }, { type: "azure-native:network/v20200501:InboundNatRule" }, { type: "azure-nextgen:network/v20200501:InboundNatRule" }, { type: "azure-native:network/v20200601:InboundNatRule" }, { type: "azure-nextgen:network/v20200601:InboundNatRule" }, { type: "azure-native:network/v20200701:InboundNatRule" }, { type: "azure-nextgen:network/v20200701:InboundNatRule" }, { type: "azure-native:network/v20200801:InboundNatRule" }, { type: "azure-nextgen:network/v20200801:InboundNatRule" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InboundNatRule.__pulumiType, name, inputs, opts);
     }
 }

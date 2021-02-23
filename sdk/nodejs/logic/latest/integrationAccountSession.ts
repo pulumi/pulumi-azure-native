@@ -78,11 +78,12 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationAccountSessionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IntegrationAccountSession is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountSession'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -104,15 +105,11 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountSession" }, { type: "azure-nextgen:logic:IntegrationAccountSession" }, { type: "azure-native:logic/v20160601:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountSession" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20180701preview:IntegrationAccountSession" }, { type: "azure-native:logic/v20190501:IntegrationAccountSession" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountSession" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountSession.__pulumiType, name, inputs, opts);
     }
 }

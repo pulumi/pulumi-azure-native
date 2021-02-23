@@ -82,14 +82,15 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.dataPolicy === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.deviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
@@ -115,15 +116,11 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:StorageAccount" }, { type: "azure-nextgen:databoxedge/latest:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-nextgen:databoxedge/v20200901preview:StorageAccount" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }
 }

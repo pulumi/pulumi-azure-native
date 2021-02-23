@@ -81,11 +81,12 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
@@ -111,15 +112,11 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab:VirtualNetworkResource" }, { type: "azure-native:devtestlab/latest:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/latest:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20180915:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetworkResource" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkResource.__pulumiType, name, inputs, opts);
     }
 }

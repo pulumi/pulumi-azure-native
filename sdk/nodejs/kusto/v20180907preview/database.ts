@@ -81,14 +81,15 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.softDeletePeriodInDays === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.softDeletePeriodInDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'softDeletePeriodInDays'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -114,15 +115,11 @@ export class Database extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:Database" }, { type: "azure-nextgen:kusto:Database" }, { type: "azure-native:kusto/latest:Database" }, { type: "azure-nextgen:kusto/latest:Database" }, { type: "azure-native:kusto/v20170907privatepreview:Database" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Database" }, { type: "azure-native:kusto/v20190121:Database" }, { type: "azure-nextgen:kusto/v20190121:Database" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-nextgen:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190907:Database" }, { type: "azure-nextgen:kusto/v20190907:Database" }, { type: "azure-native:kusto/v20191109:Database" }, { type: "azure-nextgen:kusto/v20191109:Database" }, { type: "azure-native:kusto/v20200215:Database" }, { type: "azure-nextgen:kusto/v20200215:Database" }, { type: "azure-native:kusto/v20200614:Database" }, { type: "azure-nextgen:kusto/v20200614:Database" }, { type: "azure-native:kusto/v20200918:Database" }, { type: "azure-nextgen:kusto/v20200918:Database" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, inputs, opts);
     }
 }

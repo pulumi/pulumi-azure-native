@@ -97,8 +97,9 @@ export class VpnSite extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
@@ -132,15 +133,11 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["virtualWan"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnSite" }, { type: "azure-nextgen:network:VpnSite" }, { type: "azure-native:network/latest:VpnSite" }, { type: "azure-nextgen:network/latest:VpnSite" }, { type: "azure-native:network/v20180401:VpnSite" }, { type: "azure-nextgen:network/v20180401:VpnSite" }, { type: "azure-native:network/v20180601:VpnSite" }, { type: "azure-nextgen:network/v20180601:VpnSite" }, { type: "azure-native:network/v20180701:VpnSite" }, { type: "azure-nextgen:network/v20180701:VpnSite" }, { type: "azure-native:network/v20180801:VpnSite" }, { type: "azure-nextgen:network/v20180801:VpnSite" }, { type: "azure-native:network/v20181001:VpnSite" }, { type: "azure-nextgen:network/v20181001:VpnSite" }, { type: "azure-native:network/v20181101:VpnSite" }, { type: "azure-nextgen:network/v20181101:VpnSite" }, { type: "azure-native:network/v20181201:VpnSite" }, { type: "azure-nextgen:network/v20181201:VpnSite" }, { type: "azure-native:network/v20190401:VpnSite" }, { type: "azure-nextgen:network/v20190401:VpnSite" }, { type: "azure-native:network/v20190601:VpnSite" }, { type: "azure-nextgen:network/v20190601:VpnSite" }, { type: "azure-native:network/v20190701:VpnSite" }, { type: "azure-nextgen:network/v20190701:VpnSite" }, { type: "azure-native:network/v20190801:VpnSite" }, { type: "azure-nextgen:network/v20190801:VpnSite" }, { type: "azure-native:network/v20190901:VpnSite" }, { type: "azure-nextgen:network/v20190901:VpnSite" }, { type: "azure-native:network/v20191101:VpnSite" }, { type: "azure-nextgen:network/v20191101:VpnSite" }, { type: "azure-native:network/v20191201:VpnSite" }, { type: "azure-nextgen:network/v20191201:VpnSite" }, { type: "azure-native:network/v20200301:VpnSite" }, { type: "azure-nextgen:network/v20200301:VpnSite" }, { type: "azure-native:network/v20200401:VpnSite" }, { type: "azure-nextgen:network/v20200401:VpnSite" }, { type: "azure-native:network/v20200501:VpnSite" }, { type: "azure-nextgen:network/v20200501:VpnSite" }, { type: "azure-native:network/v20200601:VpnSite" }, { type: "azure-nextgen:network/v20200601:VpnSite" }, { type: "azure-native:network/v20200701:VpnSite" }, { type: "azure-nextgen:network/v20200701:VpnSite" }, { type: "azure-native:network/v20200801:VpnSite" }, { type: "azure-nextgen:network/v20200801:VpnSite" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnSite.__pulumiType, name, inputs, opts);
     }
 }

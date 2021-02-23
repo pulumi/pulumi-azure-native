@@ -90,11 +90,12 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DisasterRecoveryConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DisasterRecoveryConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DisasterRecoveryConfiguration'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
@@ -122,15 +123,11 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:DisasterRecoveryConfiguration" }, { type: "azure-nextgen:sql:DisasterRecoveryConfiguration" }, { type: "azure-native:sql/v20140401:DisasterRecoveryConfiguration" }, { type: "azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -83,8 +83,9 @@ export class PeeringService extends pulumi.CustomResource {
     constructor(name: string, args: PeeringServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeeringService'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -107,15 +108,11 @@ export class PeeringService extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeeringService" }, { type: "azure-nextgen:peering:PeeringService" }, { type: "azure-native:peering/v20190801preview:PeeringService" }, { type: "azure-nextgen:peering/v20190801preview:PeeringService" }, { type: "azure-native:peering/v20190901preview:PeeringService" }, { type: "azure-nextgen:peering/v20190901preview:PeeringService" }, { type: "azure-native:peering/v20200101preview:PeeringService" }, { type: "azure-nextgen:peering/v20200101preview:PeeringService" }, { type: "azure-native:peering/v20200401:PeeringService" }, { type: "azure-nextgen:peering/v20200401:PeeringService" }, { type: "azure-native:peering/v20201001:PeeringService" }, { type: "azure-nextgen:peering/v20201001:PeeringService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeeringService.__pulumiType, name, inputs, opts);
     }
 }

@@ -91,14 +91,15 @@ export class GalleryApplication extends pulumi.CustomResource {
     constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GalleryApplication is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryApplication'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.galleryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.supportedOSType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.supportedOSType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -126,15 +127,11 @@ export class GalleryApplication extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplication" }, { type: "azure-nextgen:compute:GalleryApplication" }, { type: "azure-native:compute/v20190301:GalleryApplication" }, { type: "azure-nextgen:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-nextgen:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-nextgen:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-nextgen:compute/v20200930:GalleryApplication" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryApplication.__pulumiType, name, inputs, opts);
     }
 }

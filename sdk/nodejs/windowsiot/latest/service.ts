@@ -90,8 +90,9 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:windowsiot:Service'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminDomainName"] = args ? args.adminDomainName : undefined;
@@ -118,15 +119,11 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:windowsiot:Service" }, { type: "azure-nextgen:windowsiot:Service" }, { type: "azure-native:windowsiot/v20180216preview:Service" }, { type: "azure-nextgen:windowsiot/v20180216preview:Service" }, { type: "azure-native:windowsiot/v20190601:Service" }, { type: "azure-nextgen:windowsiot/v20190601:Service" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

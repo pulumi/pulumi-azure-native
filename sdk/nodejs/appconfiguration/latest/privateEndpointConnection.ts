@@ -71,14 +71,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:appconfiguration:PrivateEndpointConnection'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.configStoreName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["configStoreName"] = args ? args.configStoreName : undefined;
@@ -96,15 +97,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:PrivateEndpointConnection" }, { type: "azure-nextgen:appconfiguration:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection" }, { type: "azure-nextgen:appconfiguration/v20191101preview:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection" }, { type: "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection" }, { type: "azure-nextgen:appconfiguration/v20200701preview:PrivateEndpointConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

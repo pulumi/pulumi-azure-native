@@ -105,11 +105,12 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.openShiftVersion === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.openShiftVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'openShiftVersion'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
@@ -146,15 +147,11 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/latest:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/latest:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20190930preview:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster" }, { type: "azure-nextgen:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftManagedCluster.__pulumiType, name, inputs, opts);
     }
 }

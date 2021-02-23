@@ -69,11 +69,12 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["kind"] = args ? args.kind : undefined;
@@ -91,15 +92,11 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/latest:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection" }, { type: "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSwiftVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }
 }

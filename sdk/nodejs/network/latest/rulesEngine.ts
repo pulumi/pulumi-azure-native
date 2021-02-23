@@ -67,11 +67,12 @@ export class RulesEngine extends pulumi.CustomResource {
     constructor(name: string, args: RulesEngineArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.frontDoorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
@@ -87,15 +88,11 @@ export class RulesEngine extends pulumi.CustomResource {
             inputs["rules"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RulesEngine" }, { type: "azure-nextgen:network:RulesEngine" }, { type: "azure-native:network/v20200101:RulesEngine" }, { type: "azure-nextgen:network/v20200101:RulesEngine" }, { type: "azure-native:network/v20200401:RulesEngine" }, { type: "azure-nextgen:network/v20200401:RulesEngine" }, { type: "azure-native:network/v20200501:RulesEngine" }, { type: "azure-nextgen:network/v20200501:RulesEngine" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }
 }

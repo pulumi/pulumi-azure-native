@@ -71,23 +71,24 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     constructor(name: string, args: ManagementLockAtResourceLevelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.level === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.level === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if ((!args || args.parentResourcePath === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
             inputs["level"] = args ? args.level : undefined;
@@ -108,15 +109,11 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             inputs["owners"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
     }
 }

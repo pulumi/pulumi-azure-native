@@ -97,11 +97,12 @@ export class BlobContainer extends pulumi.CustomResource {
      */
     constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -135,15 +136,11 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["publicAccess"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobContainer" }, { type: "azure-nextgen:storage:BlobContainer" }, { type: "azure-native:storage/latest:BlobContainer" }, { type: "azure-nextgen:storage/latest:BlobContainer" }, { type: "azure-native:storage/v20180201:BlobContainer" }, { type: "azure-nextgen:storage/v20180201:BlobContainer" }, { type: "azure-native:storage/v20180701:BlobContainer" }, { type: "azure-nextgen:storage/v20180701:BlobContainer" }, { type: "azure-native:storage/v20181101:BlobContainer" }, { type: "azure-nextgen:storage/v20181101:BlobContainer" }, { type: "azure-native:storage/v20190401:BlobContainer" }, { type: "azure-nextgen:storage/v20190401:BlobContainer" }, { type: "azure-native:storage/v20190601:BlobContainer" }, { type: "azure-nextgen:storage/v20190601:BlobContainer" }, { type: "azure-native:storage/v20200801preview:BlobContainer" }, { type: "azure-nextgen:storage/v20200801preview:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-nextgen:storage/v20210101:BlobContainer" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }
 }

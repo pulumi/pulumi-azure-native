@@ -85,11 +85,12 @@ export class Volume extends pulumi.CustomResource {
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.provider === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.provider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureFileParameters"] = args ? args.azureFileParameters : undefined;
@@ -116,15 +117,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:Volume" }, { type: "azure-nextgen:servicefabricmesh:Volume" }, { type: "azure-native:servicefabricmesh/v20180701preview:Volume" }, { type: "azure-nextgen:servicefabricmesh/v20180701preview:Volume" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, inputs, opts);
     }
 }

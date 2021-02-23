@@ -208,11 +208,12 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["collation"] = args ? args.collation : undefined;
@@ -282,15 +283,11 @@ export class Database extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:Database" }, { type: "azure-nextgen:sql/latest:Database" }, { type: "azure-native:sql/v20140401:Database" }, { type: "azure-nextgen:sql/v20140401:Database" }, { type: "azure-native:sql/v20170301preview:Database" }, { type: "azure-nextgen:sql/v20170301preview:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-nextgen:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-nextgen:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-nextgen:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-nextgen:sql/v20200801preview:Database" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, inputs, opts);
     }
 }

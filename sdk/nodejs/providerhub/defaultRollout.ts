@@ -57,8 +57,9 @@ export class DefaultRollout extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefaultRolloutArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.providerNamespace === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
@@ -75,15 +76,11 @@ export class DefaultRollout extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:DefaultRollout" }, { type: "azure-nextgen:providerhub/latest:DefaultRollout" }, { type: "azure-native:providerhub/v20201120:DefaultRollout" }, { type: "azure-nextgen:providerhub/v20201120:DefaultRollout" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultRollout.__pulumiType, name, inputs, opts);
     }
 }

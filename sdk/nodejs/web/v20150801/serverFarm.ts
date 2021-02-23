@@ -114,8 +114,9 @@ export class ServerFarm extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminSiteName"] = args ? args.adminSiteName : undefined;
@@ -157,15 +158,11 @@ export class ServerFarm extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["workerTierName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarm" }, { type: "azure-nextgen:web:ServerFarm" }, { type: "azure-native:web/latest:ServerFarm" }, { type: "azure-nextgen:web/latest:ServerFarm" }, { type: "azure-native:web/v20160901:ServerFarm" }, { type: "azure-nextgen:web/v20160901:ServerFarm" }, { type: "azure-native:web/v20180201:ServerFarm" }, { type: "azure-nextgen:web/v20180201:ServerFarm" }, { type: "azure-native:web/v20190801:ServerFarm" }, { type: "azure-nextgen:web/v20190801:ServerFarm" }, { type: "azure-native:web/v20200601:ServerFarm" }, { type: "azure-nextgen:web/v20200601:ServerFarm" }, { type: "azure-native:web/v20200901:ServerFarm" }, { type: "azure-nextgen:web/v20200901:ServerFarm" }, { type: "azure-native:web/v20201001:ServerFarm" }, { type: "azure-nextgen:web/v20201001:ServerFarm" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerFarm.__pulumiType, name, inputs, opts);
     }
 }

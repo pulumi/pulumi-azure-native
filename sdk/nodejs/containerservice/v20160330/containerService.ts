@@ -89,17 +89,18 @@ export class ContainerService extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.agentPoolProfiles === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.agentPoolProfiles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentPoolProfiles'");
             }
-            if ((!args || args.linuxProfile === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.linuxProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
-            if ((!args || args.masterProfile === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.masterProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'masterProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
@@ -128,15 +129,11 @@ export class ContainerService extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["windowsProfile"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:ContainerService" }, { type: "azure-nextgen:containerservice:ContainerService" }, { type: "azure-native:containerservice/latest:ContainerService" }, { type: "azure-nextgen:containerservice/latest:ContainerService" }, { type: "azure-native:containerservice/v20151101preview:ContainerService" }, { type: "azure-nextgen:containerservice/v20151101preview:ContainerService" }, { type: "azure-native:containerservice/v20160930:ContainerService" }, { type: "azure-nextgen:containerservice/v20160930:ContainerService" }, { type: "azure-native:containerservice/v20170131:ContainerService" }, { type: "azure-nextgen:containerservice/v20170131:ContainerService" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerService.__pulumiType, name, inputs, opts);
     }
 }

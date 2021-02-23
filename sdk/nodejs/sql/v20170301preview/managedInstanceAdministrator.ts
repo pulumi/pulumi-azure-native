@@ -69,20 +69,21 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedInstanceAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.administratorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorType'");
             }
-            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.login === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.sid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
             inputs["administratorName"] = args ? args.administratorName : undefined;
@@ -102,15 +103,11 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceAdministrator.__pulumiType, name, inputs, opts);
     }
 }

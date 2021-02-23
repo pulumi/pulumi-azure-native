@@ -119,14 +119,15 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppInstanceFunctionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("WebAppInstanceFunctionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["config"] = args ? args.config : undefined;
@@ -168,15 +169,11 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["testDataHref"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20201001:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppInstanceFunctionSlot.__pulumiType, name, inputs, opts);
     }
 }

@@ -105,14 +105,15 @@ export class Invitation extends pulumi.CustomResource {
     constructor(name: string, args: InvitationArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Invitation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:Invitation'.")
         let inputs: pulumi.Inputs = {};
-        if (!(opts && opts.id)) {
-            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
+        opts = opts || {};
+        if (!opts.id) {
+            if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -147,15 +148,11 @@ export class Invitation extends pulumi.CustomResource {
             inputs["userEmail"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Invitation" }, { type: "azure-nextgen:datashare:Invitation" }, { type: "azure-native:datashare/v20181101preview:Invitation" }, { type: "azure-nextgen:datashare/v20181101preview:Invitation" }, { type: "azure-native:datashare/v20191101:Invitation" }, { type: "azure-nextgen:datashare/v20191101:Invitation" }, { type: "azure-native:datashare/v20200901:Invitation" }, { type: "azure-nextgen:datashare/v20200901:Invitation" }, { type: "azure-native:datashare/v20201001preview:Invitation" }, { type: "azure-nextgen:datashare/v20201001preview:Invitation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Invitation.__pulumiType, name, inputs, opts);
     }
 }
