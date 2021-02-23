@@ -83,7 +83,7 @@ def get_tag_at_scope(scope: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagAtScopeResult:
     """
     Wrapper resource for tags API requests and responses.
-    API Version: 2020-10-01.
+    API Version: 2019-10-01.
 
 
     :param str scope: The resource scope.

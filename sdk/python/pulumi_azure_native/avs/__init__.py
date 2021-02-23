@@ -7,9 +7,11 @@ from ._enums import *
 from .addon import *
 from .authorization import *
 from .cluster import *
+from .datastore import *
 from .get_addon import *
 from .get_authorization import *
 from .get_cluster import *
+from .get_datastore import *
 from .get_global_reach_connection import *
 from .get_hcx_enterprise_site import *
 from .get_private_cloud import *
@@ -58,6 +60,8 @@ def _register_module():
                 return Authorization(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:avs:Cluster":
                 return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:avs:Datastore":
+                return Datastore(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:avs:GlobalReachConnection":
                 return GlobalReachConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:avs:HcxEnterpriseSite":

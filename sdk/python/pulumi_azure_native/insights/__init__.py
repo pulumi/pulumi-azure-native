@@ -32,6 +32,7 @@ from .get_export_configuration import *
 from .get_favorite import *
 from .get_guest_diagnostics_settings_association import *
 from .get_log_profile import *
+from .get_management_group_diagnostic_setting import *
 from .get_metric_alert import *
 from .get_my_workbook import *
 from .get_private_endpoint_connection import *
@@ -48,6 +49,7 @@ from .guest_diagnostics_setting import *
 from .guest_diagnostics_settings_association import *
 from .list_ea_subscription_list_migration_date_post import *
 from .log_profile import *
+from .management_group_diagnostic_setting import *
 from .metric_alert import *
 from .my_workbook import *
 from .private_endpoint_connection import *
@@ -133,6 +135,8 @@ def _register_module():
                 return GuestDiagnosticsSettingsAssociation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:LogProfile":
                 return LogProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:insights:ManagementGroupDiagnosticSetting":
+                return ManagementGroupDiagnosticSetting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:MetricAlert":
                 return MetricAlert(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:MyWorkbook":

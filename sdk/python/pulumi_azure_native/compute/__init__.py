@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .availability_set import *
+from .cloud_service import *
 from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk import *
@@ -17,6 +18,7 @@ from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
 from .get_availability_set import *
+from .get_cloud_service import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk import *
@@ -95,6 +97,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:compute:AvailabilitySet":
                 return AvailabilitySet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute:CloudService":
+                return CloudService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute:DedicatedHost":
                 return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute:DedicatedHostGroup":

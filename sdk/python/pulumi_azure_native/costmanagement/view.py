@@ -20,7 +20,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
@@ -36,13 +36,13 @@ class View(pulumi.CustomResource):
                  __opts__=None):
         """
         States and configurations of Cost Analysis.
-        API Version: 2020-06-01.
+        API Version: 2019-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] dataset: Has definition for data in this report config.
+        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
@@ -73,7 +73,7 @@ class View(pulumi.CustomResource):
 
             __props__['accumulated'] = accumulated
             __props__['chart'] = chart
-            __props__['dataset'] = dataset
+            __props__['data_set'] = data_set
             __props__['display_name'] = display_name
             __props__['e_tag'] = e_tag
             __props__['kpis'] = kpis
@@ -89,6 +89,9 @@ class View(pulumi.CustomResource):
             __props__['type'] = type
             __props__['view_name'] = view_name
             __props__['created_on'] = None
+            __props__['currency'] = None
+            __props__['date_range'] = None
+            __props__['include_monetary_commitment'] = None
             __props__['modified_on'] = None
             __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/latest:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/latest:View"), pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:View")])
@@ -143,11 +146,27 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dataset(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
+    def currency(self) -> pulumi.Output[str]:
+        """
+        Selected currency.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "dataset")
+        return pulumi.get(self, "data_set")
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> pulumi.Output[str]:
+        """
+        Selected date range for viewing cost in.
+        """
+        return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter(name="displayName")
@@ -164,6 +183,14 @@ class View(pulumi.CustomResource):
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="includeMonetaryCommitment")
+    def include_monetary_commitment(self) -> pulumi.Output[bool]:
+        """
+        Include monetary commitment
+        """
+        return pulumi.get(self, "include_monetary_commitment")
 
     @property
     @pulumi.getter

@@ -132,7 +132,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleDefinitionResult:
     """
     Role definition.
-    API Version: 2015-07-01.
+    API Version: 2018-01-01-preview.
 
 
     :param str role_definition_id: The ID of the role definition.

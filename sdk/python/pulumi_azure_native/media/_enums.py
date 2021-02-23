@@ -33,6 +33,7 @@ __all__ = [
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
     'ManagedIdentityType',
+    'MediaGraphRtspTransport',
     'OnErrorType',
     'Priority',
     'PrivateEndpointServiceConnectionStatus',
@@ -320,6 +321,14 @@ class ManagedIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
+
+
+class MediaGraphRtspTransport(str, Enum):
+    """
+    Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+    """
+    HTTP = "Http"
+    TCP = "Tcp"
 
 
 class OnErrorType(str, Enum):

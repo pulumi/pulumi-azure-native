@@ -7,13 +7,19 @@ from enum import Enum
 __all__ = [
     'AccessReviewRecurrencePatternType',
     'AccessReviewRecurrenceRangeType',
+    'ApprovalMode',
     'DefaultDecisionType',
     'EnforcementMode',
     'ExemptionCategory',
     'LockLevel',
+    'NotificationDeliveryMechanism',
+    'NotificationLevel',
     'ParameterType',
     'PolicyType',
+    'PrincipalType',
+    'RecipientType',
     'ResourceIdentityType',
+    'RoleManagementPolicyRuleType',
 ]
 
 
@@ -32,6 +38,16 @@ class AccessReviewRecurrenceRangeType(str, Enum):
     END_DATE = "endDate"
     NO_END = "noEnd"
     NUMBERED = "numbered"
+
+
+class ApprovalMode(str, Enum):
+    """
+    The type of rule
+    """
+    SINGLE_STAGE = "SingleStage"
+    SERIAL = "Serial"
+    PARALLEL = "Parallel"
+    NO_APPROVAL = "NoApproval"
 
 
 class DefaultDecisionType(str, Enum):
@@ -68,6 +84,22 @@ class LockLevel(str, Enum):
     READ_ONLY = "ReadOnly"
 
 
+class NotificationDeliveryMechanism(str, Enum):
+    """
+    The type of notification.
+    """
+    EMAIL = "Email"
+
+
+class NotificationLevel(str, Enum):
+    """
+    The notification level.
+    """
+    NONE = "NONE"
+    CRITICAL = "CRITICAL"
+    ALL = "ALL"
+
+
 class ParameterType(str, Enum):
     """
     The data type of the parameter.
@@ -91,9 +123,45 @@ class PolicyType(str, Enum):
     STATIC = "Static"
 
 
+class PrincipalType(str, Enum):
+    """
+    The principal type of the assigned principal ID.
+    """
+    USER = "User"
+    GROUP = "Group"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    UNKNOWN = "Unknown"
+    DIRECTORY_ROLE_TEMPLATE = "DirectoryRoleTemplate"
+    FOREIGN_GROUP = "ForeignGroup"
+    APPLICATION = "Application"
+    MSI = "MSI"
+    DIRECTORY_OBJECT_OR_GROUP = "DirectoryObjectOrGroup"
+    EVERYONE = "Everyone"
+
+
+class RecipientType(str, Enum):
+    """
+    The recipient type.
+    """
+    REQUESTOR = "Requestor"
+    APPROVER = "Approver"
+    ADMIN = "Admin"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The identity type. This is the only required field when adding a system assigned identity to a resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
+
+
+class RoleManagementPolicyRuleType(str, Enum):
+    """
+    The type of rule
+    """
+    ROLE_MANAGEMENT_POLICY_APPROVAL_RULE = "RoleManagementPolicyApprovalRule"
+    ROLE_MANAGEMENT_POLICY_AUTHENTICATION_CONTEXT_RULE = "RoleManagementPolicyAuthenticationContextRule"
+    ROLE_MANAGEMENT_POLICY_ENABLEMENT_RULE = "RoleManagementPolicyEnablementRule"
+    ROLE_MANAGEMENT_POLICY_EXPIRATION_RULE = "RoleManagementPolicyExpirationRule"
+    ROLE_MANAGEMENT_POLICY_NOTIFICATION_RULE = "RoleManagementPolicyNotificationRule"

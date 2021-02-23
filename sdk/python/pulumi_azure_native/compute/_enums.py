@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CachingTypes',
+    'CloudServiceUpgradeMode',
     'ComponentNames',
     'DedicatedHostLicenseTypes',
     'DiffDiskOptions',
@@ -56,6 +57,17 @@ class CachingTypes(str, Enum):
     NONE = "None"
     READ_ONLY = "ReadOnly"
     READ_WRITE = "ReadWrite"
+
+
+class CloudServiceUpgradeMode(str, Enum):
+    """
+    Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+    Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+    If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+    """
+    AUTO = "Auto"
+    MANUAL = "Manual"
+    SIMULTANEOUS = "Simultaneous"
 
 
 class ComponentNames(str, Enum):

@@ -10,11 +10,53 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'DiskPoolVolumeArgs',
     'IdentitySourceArgs',
     'ManagementClusterArgs',
+    'NetAppVolumeArgs',
     'SkuArgs',
     'WorkloadNetworkSegmentSubnetArgs',
 ]
+
+@pulumi.input_type
+class DiskPoolVolumeArgs:
+    def __init__(__self__, *,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 lun_name: Optional[pulumi.Input[str]] = None):
+        """
+        An iSCSI volume from Microsoft.StoragePool provider
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoints: iSCSI provider target IP address list
+        :param pulumi.Input[str] lun_name: Name of the LUN to be used
+        """
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if lun_name is not None:
+            pulumi.set(__self__, "lun_name", lun_name)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        iSCSI provider target IP address list
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="lunName")
+    def lun_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the LUN to be used
+        """
+        return pulumi.get(self, "lun_name")
+
+    @lun_name.setter
+    def lun_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lun_name", value)
+
 
 @pulumi.input_type
 class IdentitySourceArgs:
@@ -205,6 +247,46 @@ class ManagementClusterArgs:
     @cluster_size.setter
     def cluster_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "cluster_size", value)
+
+
+@pulumi.input_type
+class NetAppVolumeArgs:
+    def __init__(__self__, *,
+                 nfs_file_path: Optional[pulumi.Input[str]] = None,
+                 nfs_provider_ip: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure NetApp Files volume from Microsoft.NetApp provider
+        :param pulumi.Input[str] nfs_file_path: File path through which the NFS volume is exposed by the provider
+        :param pulumi.Input[str] nfs_provider_ip: IP address of the NFS provider
+        """
+        if nfs_file_path is not None:
+            pulumi.set(__self__, "nfs_file_path", nfs_file_path)
+        if nfs_provider_ip is not None:
+            pulumi.set(__self__, "nfs_provider_ip", nfs_provider_ip)
+
+    @property
+    @pulumi.getter(name="nfsFilePath")
+    def nfs_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        File path through which the NFS volume is exposed by the provider
+        """
+        return pulumi.get(self, "nfs_file_path")
+
+    @nfs_file_path.setter
+    def nfs_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nfs_file_path", value)
+
+    @property
+    @pulumi.getter(name="nfsProviderIp")
+    def nfs_provider_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of the NFS provider
+        """
+        return pulumi.get(self, "nfs_provider_ip")
+
+    @nfs_provider_ip.setter
+    def nfs_provider_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nfs_provider_ip", value)
 
 
 @pulumi.input_type

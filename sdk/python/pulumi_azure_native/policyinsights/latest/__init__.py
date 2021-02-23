@@ -4,6 +4,12 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .attestation_at_resource import *
+from .attestation_at_resource_group import *
+from .attestation_at_subscription import *
+from .get_attestation_at_resource import *
+from .get_attestation_at_resource_group import *
+from .get_attestation_at_subscription import *
 from .get_remediation_at_management_group import *
 from .get_remediation_at_resource import *
 from .get_remediation_at_resource_group import *
@@ -31,7 +37,13 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:policyinsights/latest:RemediationAtManagementGroup":
+            if typ == "azure-native:policyinsights/latest:AttestationAtResource":
+                return AttestationAtResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:policyinsights/latest:AttestationAtResourceGroup":
+                return AttestationAtResourceGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:policyinsights/latest:AttestationAtSubscription":
+                return AttestationAtSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:policyinsights/latest:RemediationAtManagementGroup":
                 return RemediationAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:policyinsights/latest:RemediationAtResource":
                 return RemediationAtResource(name, pulumi.ResourceOptions(urn=urn))

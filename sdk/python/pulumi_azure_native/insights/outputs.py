@@ -52,6 +52,7 @@ __all__ = [
     'ManagedIdentityResponse',
     'ManagementEventAggregationConditionResponse',
     'ManagementEventRuleConditionResponse',
+    'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
     'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
     'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
@@ -2184,6 +2185,42 @@ class ManagementEventRuleConditionResponse(dict):
         the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         return pulumi.get(self, "data_source")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagementGroupLogSettingsResponse(dict):
+    """
+    Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+    """
+    def __init__(__self__, *,
+                 category: str,
+                 enabled: bool):
+        """
+        Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+        :param str category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        :param bool enabled: a value indicating whether this log is enabled.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        a value indicating whether this log is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -16,6 +16,7 @@ __all__ = [
     'ConnectionStateResponse',
     'DeadLetterWithResourceIdentityResponse',
     'DeliveryWithResourceIdentityResponse',
+    'DynamicDeliveryAttributeMappingResponseResult',
     'EventChannelDestinationResponse',
     'EventChannelFilterResponse',
     'EventChannelSourceResponse',
@@ -38,6 +39,7 @@ __all__ = [
     'RetryPolicyResponse',
     'ServiceBusQueueEventSubscriptionDestinationResponse',
     'ServiceBusTopicEventSubscriptionDestinationResponse',
+    'StaticDeliveryAttributeMappingResponseResult',
     'StorageBlobDeadLetterDestinationResponse',
     'StorageQueueEventSubscriptionDestinationResponse',
     'StringBeginsWithAdvancedFilterResponse',
@@ -290,6 +292,54 @@ class DeliveryWithResourceIdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DynamicDeliveryAttributeMappingResponseResult(dict):
+    """
+    Dynamic delivery attribute mapping details.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 name: Optional[str] = None,
+                 source_field: Optional[str] = None):
+        """
+        Dynamic delivery attribute mapping details.
+        :param str type: Type of the delivery attribute or header name.
+               Expected value is 'Dynamic'.
+        :param str name: Name of the delivery attribute or header.
+        :param str source_field: JSON path in the event which contains attribute value.
+        """
+        pulumi.set(__self__, "type", 'Dynamic')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the delivery attribute or header name.
+        Expected value is 'Dynamic'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the delivery attribute or header.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        JSON path in the event which contains attribute value.
+        """
+        return pulumi.get(self, "source_field")
 
 
 @pulumi.output_type
@@ -1340,6 +1390,66 @@ class ServiceBusTopicEventSubscriptionDestinationResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StaticDeliveryAttributeMappingResponseResult(dict):
+    """
+    Static delivery attribute mapping details.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 is_secret: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Static delivery attribute mapping details.
+        :param str type: Type of the delivery attribute or header name.
+               Expected value is 'Static'.
+        :param bool is_secret: Boolean flag to tell if the attribute contains sensitive information .
+        :param str name: Name of the delivery attribute or header.
+        :param str value: Value of the delivery attribute.
+        """
+        pulumi.set(__self__, "type", 'Static')
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the delivery attribute or header name.
+        Expected value is 'Static'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[bool]:
+        """
+        Boolean flag to tell if the attribute contains sensitive information .
+        """
+        return pulumi.get(self, "is_secret")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the delivery attribute or header.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the delivery attribute.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
