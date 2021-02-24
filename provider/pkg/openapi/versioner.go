@@ -88,7 +88,7 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 		switch {
 		case strings.Contains(version, "private"):
 			// skip
-		case deprecatedVersions.Has(version) && preview:
+		case deprecatedVersions.Has(version):
 			// Treat deprecated versions as preview for sorting purpose.
 			previews = append(previews, version)
 		case !IsPreview(version):
@@ -147,9 +147,7 @@ func (c *versioner) isKnown(provider, path, version string) bool {
 	resourceTypes := c.armResourceTypes(path)
 	for _, resourceType := range resourceTypes {
 		if resourceVersions, ok := providerLookup[resourceType]; ok {
-			if len(resourceVersions) > 0 {
-				return resourceVersions.Has(version)
-			}
+			return resourceVersions.Has(version)
 		}
 	}
 	return false
