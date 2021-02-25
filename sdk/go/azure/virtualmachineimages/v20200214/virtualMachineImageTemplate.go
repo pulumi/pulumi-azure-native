@@ -62,6 +62,9 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	if args.BuildTimeoutInMinutes == nil {
+		args.BuildTimeoutInMinutes = pulumi.IntPtr(0)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:virtualmachineimages:VirtualMachineImageTemplate"),

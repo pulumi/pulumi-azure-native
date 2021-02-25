@@ -1157,7 +1157,7 @@ type ImageTemplatePlatformImageSource struct {
 	// Specifies the type of source image you want to start with.
 	// Expected value is 'PlatformImage'.
 	Type string `pulumi:"type"`
-	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 	Version *string `pulumi:"version"`
 }
 
@@ -1185,7 +1185,7 @@ type ImageTemplatePlatformImageSourceArgs struct {
 	// Specifies the type of source image you want to start with.
 	// Expected value is 'PlatformImage'.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1242,7 +1242,7 @@ func (o ImageTemplatePlatformImageSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageTemplatePlatformImageSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 func (o ImageTemplatePlatformImageSourceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1260,7 +1260,7 @@ type ImageTemplatePlatformImageSourceResponse struct {
 	// Specifies the type of source image you want to start with.
 	// Expected value is 'PlatformImage'.
 	Type string `pulumi:"type"`
-	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 	Version *string `pulumi:"version"`
 }
 
@@ -1288,7 +1288,7 @@ type ImageTemplatePlatformImageSourceResponseArgs struct {
 	// Specifies the type of source image you want to start with.
 	// Expected value is 'PlatformImage'.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1345,7 +1345,7 @@ func (o ImageTemplatePlatformImageSourceResponseOutput) Type() pulumi.StringOutp
 	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
 func (o ImageTemplatePlatformImageSourceResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

@@ -231,6 +231,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
 
         public VirtualMachineImageTemplateArgs()
         {
+            BuildTimeoutInMinutes = 0;
         }
     }
 }

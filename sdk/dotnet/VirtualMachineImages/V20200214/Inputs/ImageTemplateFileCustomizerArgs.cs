@@ -48,6 +48,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
 
         public ImageTemplateFileCustomizerArgs()
         {
+            Sha256Checksum = "";
         }
     }
 }
