@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'CognitiveServicesAccountApiPropertiesResponse',
     'CognitiveServicesAccountPropertiesResponse',
+    'CognitiveServicesAccountSkuChangeInfoResponse',
     'EncryptionResponse',
     'IdentityResponse',
     'IpRuleResponse',
@@ -38,6 +39,8 @@ class CognitiveServicesAccountApiPropertiesResponse(dict):
                  aad_client_id: Optional[str] = None,
                  aad_tenant_id: Optional[str] = None,
                  event_hub_connection_string: Optional[str] = None,
+                 qna_azure_search_endpoint_id: Optional[str] = None,
+                 qna_azure_search_endpoint_key: Optional[str] = None,
                  qna_runtime_endpoint: Optional[str] = None,
                  statistics_enabled: Optional[bool] = None,
                  storage_account_connection_string: Optional[str] = None,
@@ -48,6 +51,8 @@ class CognitiveServicesAccountApiPropertiesResponse(dict):
         :param str aad_client_id: (Metrics Advisor Only) The Azure AD Client Id (Application Id).
         :param str aad_tenant_id: (Metrics Advisor Only) The Azure AD Tenant Id.
         :param str event_hub_connection_string: (Personalization Only) The flag to enable statistics of Bing Search.
+        :param str qna_azure_search_endpoint_id: (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        :param str qna_azure_search_endpoint_key: (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
         :param str qna_runtime_endpoint: (QnAMaker Only) The runtime endpoint of QnAMaker.
         :param bool statistics_enabled: (Bing Search Only) The flag to enable statistics of Bing Search.
         :param str storage_account_connection_string: (Personalization Only) The storage account connection string.
@@ -60,6 +65,10 @@ class CognitiveServicesAccountApiPropertiesResponse(dict):
             pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
         if event_hub_connection_string is not None:
             pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
+        if qna_azure_search_endpoint_id is not None:
+            pulumi.set(__self__, "qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
+        if qna_azure_search_endpoint_key is not None:
+            pulumi.set(__self__, "qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
         if qna_runtime_endpoint is not None:
             pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
         if statistics_enabled is not None:
@@ -94,6 +103,22 @@ class CognitiveServicesAccountApiPropertiesResponse(dict):
         (Personalization Only) The flag to enable statistics of Bing Search.
         """
         return pulumi.get(self, "event_hub_connection_string")
+
+    @property
+    @pulumi.getter(name="qnaAzureSearchEndpointId")
+    def qna_azure_search_endpoint_id(self) -> Optional[str]:
+        """
+        (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        """
+        return pulumi.get(self, "qna_azure_search_endpoint_id")
+
+    @property
+    @pulumi.getter(name="qnaAzureSearchEndpointKey")
+    def qna_azure_search_endpoint_key(self) -> Optional[str]:
+        """
+        (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        """
+        return pulumi.get(self, "qna_azure_search_endpoint_key")
 
     @property
     @pulumi.getter(name="qnaRuntimeEndpoint")
@@ -149,7 +174,9 @@ class CognitiveServicesAccountPropertiesResponse(dict):
                  date_created: str,
                  endpoint: str,
                  internal_id: str,
+                 is_migrated: bool,
                  provisioning_state: str,
+                 sku_change_info: 'outputs.CognitiveServicesAccountSkuChangeInfoResponse',
                  api_properties: Optional['outputs.CognitiveServicesAccountApiPropertiesResponse'] = None,
                  custom_sub_domain_name: Optional[str] = None,
                  encryption: Optional['outputs.EncryptionResponse'] = None,
@@ -163,7 +190,9 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         :param str date_created: Gets the date of cognitive services account creation.
         :param str endpoint: Endpoint of the created account.
         :param str internal_id: The internal identifier.
+        :param bool is_migrated: If the resource is migrated from an existing key.
         :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
+        :param 'CognitiveServicesAccountSkuChangeInfoResponseArgs' sku_change_info: Sku change info of account.
         :param 'CognitiveServicesAccountApiPropertiesResponseArgs' api_properties: The api properties for special APIs.
         :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
         :param 'EncryptionResponseArgs' encryption: The encryption properties for this resource.
@@ -176,7 +205,9 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         pulumi.set(__self__, "date_created", date_created)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "internal_id", internal_id)
+        pulumi.set(__self__, "is_migrated", is_migrated)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sku_change_info", sku_change_info)
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
         if custom_sub_domain_name is not None:
@@ -225,12 +256,28 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         return pulumi.get(self, "internal_id")
 
     @property
+    @pulumi.getter(name="isMigrated")
+    def is_migrated(self) -> bool:
+        """
+        If the resource is migrated from an existing key.
+        """
+        return pulumi.get(self, "is_migrated")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Gets the status of the cognitive services account at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="skuChangeInfo")
+    def sku_change_info(self) -> 'outputs.CognitiveServicesAccountSkuChangeInfoResponse':
+        """
+        Sku change info of account.
+        """
+        return pulumi.get(self, "sku_change_info")
 
     @property
     @pulumi.getter(name="apiProperties")
@@ -287,6 +334,53 @@ class CognitiveServicesAccountPropertiesResponse(dict):
         The storage accounts for this resource.
         """
         return pulumi.get(self, "user_owned_storage")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CognitiveServicesAccountSkuChangeInfoResponse(dict):
+    """
+    Sku change info of account.
+    """
+    def __init__(__self__, *,
+                 count_of_downgrades: float,
+                 count_of_upgrades_after_downgrades: float,
+                 last_change_date: str):
+        """
+        Sku change info of account.
+        :param float count_of_downgrades: Gets the count of downgrades.
+        :param float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
+        :param str last_change_date: Gets the last change date.
+        """
+        pulumi.set(__self__, "count_of_downgrades", count_of_downgrades)
+        pulumi.set(__self__, "count_of_upgrades_after_downgrades", count_of_upgrades_after_downgrades)
+        pulumi.set(__self__, "last_change_date", last_change_date)
+
+    @property
+    @pulumi.getter(name="countOfDowngrades")
+    def count_of_downgrades(self) -> float:
+        """
+        Gets the count of downgrades.
+        """
+        return pulumi.get(self, "count_of_downgrades")
+
+    @property
+    @pulumi.getter(name="countOfUpgradesAfterDowngrades")
+    def count_of_upgrades_after_downgrades(self) -> float:
+        """
+        Gets the count of upgrades after downgrades.
+        """
+        return pulumi.get(self, "count_of_upgrades_after_downgrades")
+
+    @property
+    @pulumi.getter(name="lastChangeDate")
+    def last_change_date(self) -> str:
+        """
+        Gets the last change date.
+        """
+        return pulumi.get(self, "last_change_date")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -572,22 +666,37 @@ class PrivateEndpointConnectionResponse(dict):
     The Private Endpoint Connection resource.
     """
     def __init__(__self__, *,
+                 etag: str,
                  id: str,
                  name: str,
                  type: str,
+                 location: Optional[str] = None,
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         The Private Endpoint Connection resource.
+        :param str etag: Entity Tag
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param str location: The location of the private endpoint connection
         :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Resource properties.
         """
+        pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Entity Tag
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -612,6 +721,14 @@ class PrivateEndpointConnectionResponse(dict):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the private endpoint connection
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -656,29 +773,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     A collection of information about the state of the connection between service consumer and provider.
     """
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param str action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter

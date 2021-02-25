@@ -132,7 +132,7 @@ class DataBoxDiskJobDetailsArgs:
                  destination_account_details: pulumi.Input[Sequence[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  passkey: Optional[pulumi.Input[str]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
                  preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
@@ -143,7 +143,7 @@ class DataBoxDiskJobDetailsArgs:
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         :param pulumi.Input[Mapping[str, pulumi.Input[int]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
@@ -152,8 +152,8 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(__self__, "destination_account_details", destination_account_details)
         pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
         pulumi.set(__self__, "shipping_address", shipping_address)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if passkey is not None:
             pulumi.set(__self__, "passkey", passkey)
         if preferences is not None:
@@ -211,16 +211,16 @@ class DataBoxDiskJobDetailsArgs:
         pulumi.set(self, "shipping_address", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter
@@ -267,7 +267,7 @@ class DataBoxHeavyJobDetailsArgs:
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
         Databox Heavy Device Job Details
@@ -277,7 +277,7 @@ class DataBoxHeavyJobDetailsArgs:
                Expected value is 'DataBoxHeavy'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -286,8 +286,8 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(__self__, "shipping_address", shipping_address)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
 
@@ -353,16 +353,16 @@ class DataBoxHeavyJobDetailsArgs:
         pulumi.set(self, "device_password", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter
@@ -385,7 +385,7 @@ class DataBoxJobDetailsArgs:
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
                  device_password: Optional[pulumi.Input[str]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[int]] = None,
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[int]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
         Databox Job Details
@@ -395,7 +395,7 @@ class DataBoxJobDetailsArgs:
                Expected value is 'DataBox'.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[str] device_password: Set Device password for unlocking Databox
-        :param pulumi.Input[int] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[int] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
         """
         pulumi.set(__self__, "contact_details", contact_details)
@@ -404,8 +404,8 @@ class DataBoxJobDetailsArgs:
         pulumi.set(__self__, "shipping_address", shipping_address)
         if device_password is not None:
             pulumi.set(__self__, "device_password", device_password)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
 
@@ -471,16 +471,16 @@ class DataBoxJobDetailsArgs:
         pulumi.set(self, "device_password", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The expected size of the data, which needs to be transferred in this job, in terabytes.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
 
     @property
     @pulumi.getter
@@ -688,6 +688,8 @@ class NotificationPreferenceArgs:
         :param pulumi.Input[bool] send_notification: Notification is required or not.
         :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
+        if send_notification is None:
+            send_notification = True
         pulumi.set(__self__, "send_notification", send_notification)
         pulumi.set(__self__, "stage_name", stage_name)
 
@@ -785,6 +787,8 @@ class ShippingAddressArgs:
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "postal_code", postal_code)
         pulumi.set(__self__, "street_address1", street_address1)
+        if address_type is None:
+            address_type = 'None'
         if address_type is not None:
             pulumi.set(__self__, "address_type", address_type)
         if city is not None:

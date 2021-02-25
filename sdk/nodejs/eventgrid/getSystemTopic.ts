@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid System Topic.
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
     if (!opts) {
@@ -43,6 +43,10 @@ export interface GetSystemTopicResult {
      */
     readonly id: string;
     /**
+     * Identity information for the resource.
+     */
+    readonly identity?: outputs.eventgrid.IdentityInfoResponse;
+    /**
      * Location of the resource.
      */
     readonly location: string;
@@ -51,7 +55,7 @@ export interface GetSystemTopicResult {
      */
     readonly metricResourceId: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -63,6 +67,10 @@ export interface GetSystemTopicResult {
      */
     readonly source?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};
@@ -71,7 +79,7 @@ export interface GetSystemTopicResult {
      */
     readonly topicType?: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

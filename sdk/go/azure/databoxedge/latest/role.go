@@ -12,7 +12,7 @@ import (
 )
 
 // Compute role.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Role'.
 type Role struct {
@@ -86,6 +86,12 @@ func NewRole(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Role"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Role"),
 		},
 	})
 	opts = append(opts, aliases)

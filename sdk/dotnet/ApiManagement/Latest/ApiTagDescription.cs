@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiTagDescription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiTagDescription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:ApiTagDescription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

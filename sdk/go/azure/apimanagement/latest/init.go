@@ -71,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewGateway(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:apimanagement/latest:GatewayApiEntityTag":
 		r, err = NewGatewayApiEntityTag(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:apimanagement/latest:GatewayCertificateAuthority":
+		r, err = NewGatewayCertificateAuthority(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:apimanagement/latest:GatewayHostnameConfiguration":
 		r, err = NewGatewayHostnameConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:apimanagement/latest:Group":

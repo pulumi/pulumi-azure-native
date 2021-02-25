@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * maintenance configuration.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getMaintenanceConfiguration'. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {

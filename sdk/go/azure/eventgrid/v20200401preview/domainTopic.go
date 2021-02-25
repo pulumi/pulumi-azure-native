@@ -15,11 +15,11 @@ import (
 type DomainTopic struct {
 	pulumi.CustomResourceState
 
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the domain topic.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -103,20 +103,20 @@ func GetDomainTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainTopic resources.
 type domainTopicState struct {
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// Provisioning state of the domain topic.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type DomainTopicState struct {
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// Provisioning state of the domain topic.
 	ProvisioningState pulumi.StringPtrInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

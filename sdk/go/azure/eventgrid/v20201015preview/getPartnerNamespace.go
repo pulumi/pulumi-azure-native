@@ -39,7 +39,7 @@ type LookupPartnerNamespaceResult struct {
 	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
 	// Provisioning state of the partner namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Namespace resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`

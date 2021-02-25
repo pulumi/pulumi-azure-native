@@ -51,7 +51,7 @@ type PartnerRegistration struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri pulumi.StringPtrOutput `pulumi:"setupUri"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Registration resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -144,7 +144,7 @@ type partnerRegistrationState struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri *string `pulumi:"setupUri"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Registration resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -191,7 +191,7 @@ type PartnerRegistrationState struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri pulumi.StringPtrInput
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Registration resource.
 	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput

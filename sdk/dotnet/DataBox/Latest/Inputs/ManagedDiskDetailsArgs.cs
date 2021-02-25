@@ -42,6 +42,7 @@ namespace Pulumi.AzureNative.DataBox.Latest.Inputs
 
         public ManagedDiskDetailsArgs()
         {
+            DataAccountType = "StorageAccount";
         }
     }
 }

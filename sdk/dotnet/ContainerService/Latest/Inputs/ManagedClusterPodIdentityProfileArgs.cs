@@ -13,6 +13,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
     public sealed class ManagedClusterPodIdentityProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+        /// </summary>
+        [Input("allowNetworkPluginKubenet")]
+        public Input<bool>? AllowNetworkPluginKubenet { get; set; }
+
+        /// <summary>
         /// Whether the pod identity addon is enabled.
         /// </summary>
         [Input("enabled")]

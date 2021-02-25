@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Managed cluster.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedCluster")]
     public partial class ManagedCluster : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.ManagedClusterAutoUpgradeProfileResponse?> AutoUpgradeProfile { get; private set; } = null!;
 
         /// <summary>
+        /// FQDN for the master pool which used by proxy config.
+        /// </summary>
+        [Output("azurePortalFQDN")]
+        public Output<string> AzurePortalFQDN { get; private set; } = null!;
+
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Output("diskEncryptionSetID")]
@@ -81,6 +87,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// </summary>
+        [Output("fqdnSubdomain")]
+        public Output<string?> FqdnSubdomain { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the managed cluster, if configured.
@@ -253,6 +265,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -347,6 +361,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("enableRBAC")]
         public Input<bool>? EnableRBAC { get; set; }
+
+        /// <summary>
+        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// </summary>
+        [Input("fqdnSubdomain")]
+        public Input<string>? FqdnSubdomain { get; set; }
 
         /// <summary>
         /// The identity of the managed cluster, if configured.

@@ -8,7 +8,7 @@ import (
 )
 
 // Agent Pool.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
@@ -63,6 +63,8 @@ type LookupAgentPoolResult struct {
 	NodeImageVersion string `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.

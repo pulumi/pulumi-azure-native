@@ -12,7 +12,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type Role struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +84,12 @@ func NewRole(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Role"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Role"),
 		},
 	})
 	opts = append(opts, aliases)

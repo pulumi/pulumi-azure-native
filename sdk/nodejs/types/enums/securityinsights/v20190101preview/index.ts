@@ -56,6 +56,8 @@ export const DataConnectorKind = {
     AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
     MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
     Dynamics365: "Dynamics365",
+    MicrosoftThreatProtection: "MicrosoftThreatProtection",
+    MicrosoftThreatIntelligence: "MicrosoftThreatIntelligence",
 } as const;
 
 /**

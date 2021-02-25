@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Inputs
     public sealed class EncryptionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// User identity used for CMK.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EncryptionPropertiesIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Encryption Key Source
         /// </summary>
         [Input("keySource")]

@@ -20,15 +20,15 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Describes a user that created the bookmark
         /// </summary>
-        public readonly Outputs.UserInfoResponse CreatedBy;
+        public readonly Outputs.UserInfoResponse? CreatedBy;
         /// <summary>
         /// The bookmark display name.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// The bookmark end time.
         /// </summary>
-        public readonly string EndTimeUtc;
+        public readonly string? EndTimeUtc;
         /// <summary>
         /// The bookmark event time.
         /// </summary>
@@ -45,21 +45,21 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// The notes of the bookmark
         /// </summary>
-        public readonly string Notes;
+        public readonly string? Notes;
         /// <summary>
         /// TThe bookmark start time.
         /// </summary>
-        public readonly string StartTimeUtc;
+        public readonly string? StartTimeUtc;
 
         [OutputConstructor]
         private BookmarkTimelineItemResponseResult(
             string azureResourceId,
 
-            Outputs.UserInfoResponse createdBy,
+            Outputs.UserInfoResponse? createdBy,
 
-            string displayName,
+            string? displayName,
 
-            string endTimeUtc,
+            string? endTimeUtc,
 
             string? eventTime,
 
@@ -67,9 +67,9 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             ImmutableArray<string> labels,
 
-            string notes,
+            string? notes,
 
-            string startTimeUtc)
+            string? startTimeUtc)
         {
             AzureResourceId = azureResourceId;
             CreatedBy = createdBy;

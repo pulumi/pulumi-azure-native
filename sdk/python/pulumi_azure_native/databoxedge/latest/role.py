@@ -30,7 +30,7 @@ class Role(pulumi.CustomResource):
                  __opts__=None):
         """
         Compute role.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -69,7 +69,7 @@ class Role(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Role")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Role"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Role"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Role")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Role, __self__).__init__(
             'azure-native:databoxedge/latest:Role',

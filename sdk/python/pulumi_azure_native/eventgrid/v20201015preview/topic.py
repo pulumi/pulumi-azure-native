@@ -80,6 +80,8 @@ class Topic(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['private_endpoint_connections'] = private_endpoint_connections
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -91,6 +93,7 @@ class Topic(pulumi.CustomResource):
             __props__['metric_resource_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid:Topic"), pulumi.Alias(type_="azure-native:eventgrid/latest:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/latest:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -227,6 +230,14 @@ class Topic(pulumi.CustomResource):
         The Sku pricing tier for the topic.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to Topic resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

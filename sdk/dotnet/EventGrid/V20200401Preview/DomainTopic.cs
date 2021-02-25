@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
     public partial class DomainTopic : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

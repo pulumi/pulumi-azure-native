@@ -12,7 +12,7 @@ import (
 )
 
 // The bandwidth schedule details.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type BandwidthSchedule struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +99,12 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:BandwidthSchedule"),
 		},
 	})
 	opts = append(opts, aliases)

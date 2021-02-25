@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Latest.Inputs
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The location of the private endpoint connection
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// Resource properties.
         /// </summary>
         [Input("properties")]

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetDeviceExtendedInformationResult',
@@ -21,7 +22,7 @@ class GetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, channel_integrity_key_name=None, channel_integrity_key_version=None, client_secret_store_id=None, client_secret_store_url=None, encryption_key=None, encryption_key_thumbprint=None, id=None, name=None, resource_key=None, type=None):
+    def __init__(__self__, channel_integrity_key_name=None, channel_integrity_key_version=None, client_secret_store_id=None, client_secret_store_url=None, device_secrets=None, encryption_key=None, encryption_key_thumbprint=None, id=None, key_vault_sync_status=None, name=None, resource_key=None, type=None):
         if channel_integrity_key_name and not isinstance(channel_integrity_key_name, str):
             raise TypeError("Expected argument 'channel_integrity_key_name' to be a str")
         pulumi.set(__self__, "channel_integrity_key_name", channel_integrity_key_name)
@@ -34,6 +35,9 @@ class GetDeviceExtendedInformationResult:
         if client_secret_store_url and not isinstance(client_secret_store_url, str):
             raise TypeError("Expected argument 'client_secret_store_url' to be a str")
         pulumi.set(__self__, "client_secret_store_url", client_secret_store_url)
+        if device_secrets and not isinstance(device_secrets, dict):
+            raise TypeError("Expected argument 'device_secrets' to be a dict")
+        pulumi.set(__self__, "device_secrets", device_secrets)
         if encryption_key and not isinstance(encryption_key, str):
             raise TypeError("Expected argument 'encryption_key' to be a str")
         pulumi.set(__self__, "encryption_key", encryption_key)
@@ -43,6 +47,9 @@ class GetDeviceExtendedInformationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault_sync_status and not isinstance(key_vault_sync_status, str):
+            raise TypeError("Expected argument 'key_vault_sync_status' to be a str")
+        pulumi.set(__self__, "key_vault_sync_status", key_vault_sync_status)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -86,6 +93,14 @@ class GetDeviceExtendedInformationResult:
         return pulumi.get(self, "client_secret_store_url")
 
     @property
+    @pulumi.getter(name="deviceSecrets")
+    def device_secrets(self) -> 'outputs.DeviceSecretsResponseResult':
+        """
+        Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
+        """
+        return pulumi.get(self, "device_secrets")
+
+    @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[str]:
         """
@@ -108,6 +123,14 @@ class GetDeviceExtendedInformationResult:
         The path ID that uniquely identifies the object.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultSyncStatus")
+    def key_vault_sync_status(self) -> Optional[str]:
+        """
+        Key vault sync status
+        """
+        return pulumi.get(self, "key_vault_sync_status")
 
     @property
     @pulumi.getter
@@ -144,9 +167,11 @@ class AwaitableGetDeviceExtendedInformationResult(GetDeviceExtendedInformationRe
             channel_integrity_key_version=self.channel_integrity_key_version,
             client_secret_store_id=self.client_secret_store_id,
             client_secret_store_url=self.client_secret_store_url,
+            device_secrets=self.device_secrets,
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
             id=self.id,
+            key_vault_sync_status=self.key_vault_sync_status,
             name=self.name,
             resource_key=self.resource_key,
             type=self.type)
@@ -157,7 +182,7 @@ def get_device_extended_information(device_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str device_name: The device name.
@@ -178,9 +203,11 @@ def get_device_extended_information(device_name: Optional[str] = None,
         channel_integrity_key_version=__ret__.channel_integrity_key_version,
         client_secret_store_id=__ret__.client_secret_store_id,
         client_secret_store_url=__ret__.client_secret_store_url,
+        device_secrets=__ret__.device_secrets,
         encryption_key=__ret__.encryption_key,
         encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
         id=__ret__.id,
+        key_vault_sync_status=__ret__.key_vault_sync_status,
         name=__ret__.name,
         resource_key=__ret__.resource_key,
         type=__ret__.type)

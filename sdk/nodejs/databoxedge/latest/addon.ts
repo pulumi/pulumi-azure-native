@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Addon
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Addon'.
  */
@@ -98,7 +98,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-nextgen:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Addon" }, { type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-nextgen:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }, { type: "azure-native:databoxedge/v20201201:Addon" }, { type: "azure-nextgen:databoxedge/v20201201:Addon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Addon.__pulumiType, name, inputs, opts);
     }

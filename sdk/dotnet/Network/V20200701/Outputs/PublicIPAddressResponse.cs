@@ -50,13 +50,25 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressResponse? LinkedPublicIPAddress;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        public readonly string? MigrationPhase;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        public readonly Outputs.NatGatewayResponse? NatGateway;
         /// <summary>
         /// The provisioning state of the public IP address resource.
         /// </summary>
@@ -114,9 +126,15 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
 
+            Outputs.PublicIPAddressResponse? linkedPublicIPAddress,
+
             string? location,
 
+            string? migrationPhase,
+
             string name,
+
+            Outputs.NatGatewayResponse? natGateway,
 
             string provisioningState,
 
@@ -145,8 +163,11 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;
             IpTags = ipTags;
+            LinkedPublicIPAddress = linkedPublicIPAddress;
             Location = location;
+            MigrationPhase = migrationPhase;
             Name = name;
+            NatGateway = natGateway;
             ProvisioningState = provisioningState;
             PublicIPAddressVersion = publicIPAddressVersion;
             PublicIPAllocationMethod = publicIPAllocationMethod;

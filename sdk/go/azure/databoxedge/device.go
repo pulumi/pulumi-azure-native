@@ -12,7 +12,7 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type Device struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +120,12 @@ func NewDevice(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Device"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Device"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Device"),
 		},
 	})
 	opts = append(opts, aliases)

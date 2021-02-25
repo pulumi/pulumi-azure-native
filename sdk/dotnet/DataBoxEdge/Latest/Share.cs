@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Share'.")]
     [AzureNativeResourceType("azure-native:databoxedge/latest:Share")]
@@ -134,6 +134,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

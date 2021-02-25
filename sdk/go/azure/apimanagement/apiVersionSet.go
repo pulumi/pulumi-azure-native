@@ -28,7 +28,7 @@ type ApiVersionSet struct {
 	VersionHeaderName pulumi.StringPtrOutput `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName pulumi.StringPtrOutput `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme pulumi.StringOutput `pulumi:"versioningScheme"`
 }
 
@@ -100,6 +100,12 @@ func NewApiVersionSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiVersionSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApiVersionSet
@@ -136,7 +142,7 @@ type apiVersionSetState struct {
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme *string `pulumi:"versioningScheme"`
 }
 
@@ -153,7 +159,7 @@ type ApiVersionSetState struct {
 	VersionHeaderName pulumi.StringPtrInput
 	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 	VersionQueryName pulumi.StringPtrInput
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme pulumi.StringPtrInput
 }
 
@@ -176,7 +182,7 @@ type apiVersionSetArgs struct {
 	VersionQueryName *string `pulumi:"versionQueryName"`
 	// Api Version Set identifier. Must be unique in the current API Management service instance.
 	VersionSetId *string `pulumi:"versionSetId"`
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme string `pulumi:"versioningScheme"`
 }
 
@@ -196,7 +202,7 @@ type ApiVersionSetArgs struct {
 	VersionQueryName pulumi.StringPtrInput
 	// Api Version Set identifier. Must be unique in the current API Management service instance.
 	VersionSetId pulumi.StringPtrInput
-	// An value that determines where the API Version identifer will be located in a HTTP request.
+	// An value that determines where the API Version identifier will be located in a HTTP request.
 	VersioningScheme pulumi.StringInput
 }
 

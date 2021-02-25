@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * API Version: 2020-12-01.
+ * API Version: 2021-02-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
     if (!opts) {
@@ -107,6 +107,10 @@ export interface GetAgentPoolResult {
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
     readonly nodeLabels?: {[key: string]: string};
+    /**
+     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     */
+    readonly nodePublicIPPrefixID?: string;
     /**
      * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */

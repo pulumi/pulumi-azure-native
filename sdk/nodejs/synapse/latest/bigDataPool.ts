@@ -200,7 +200,7 @@ export class BigDataPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:BigDataPool" }, { type: "azure-nextgen:synapse:BigDataPool" }, { type: "azure-native:synapse/v20190601preview:BigDataPool" }, { type: "azure-nextgen:synapse/v20190601preview:BigDataPool" }, { type: "azure-native:synapse/v20201201:BigDataPool" }, { type: "azure-nextgen:synapse/v20201201:BigDataPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:BigDataPool" }, { type: "azure-nextgen:synapse:BigDataPool" }, { type: "azure-native:synapse/v20190601preview:BigDataPool" }, { type: "azure-nextgen:synapse/v20190601preview:BigDataPool" }, { type: "azure-native:synapse/v20201201:BigDataPool" }, { type: "azure-nextgen:synapse/v20201201:BigDataPool" }, { type: "azure-native:synapse/v20210301:BigDataPool" }, { type: "azure-nextgen:synapse/v20210301:BigDataPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BigDataPool.__pulumiType, name, inputs, opts);
     }

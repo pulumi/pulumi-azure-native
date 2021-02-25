@@ -8,7 +8,7 @@ import (
 )
 
 // The order details.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {
 	var rv LookupOrderResult
 	err := ctx.Invoke("azure-native:databoxedge:getOrder", args, &rv, opts...)

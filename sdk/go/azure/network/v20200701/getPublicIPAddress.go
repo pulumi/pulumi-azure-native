@@ -46,10 +46,16 @@ type LookupPublicIPAddressResult struct {
 	IpConfiguration IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTagResponse `pulumi:"ipTags"`
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Migration phase of Public IP Address.
+	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The NatGateway for the Public IP address.
+	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The public IP address version.

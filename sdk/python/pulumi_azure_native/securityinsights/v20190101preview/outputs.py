@@ -139,37 +139,43 @@ class BookmarkTimelineItemResponseResult(dict):
     """
     def __init__(__self__, *,
                  azure_resource_id: str,
-                 created_by: 'outputs.UserInfoResponse',
-                 display_name: str,
-                 end_time_utc: str,
                  kind: str,
-                 labels: Sequence[str],
-                 notes: str,
-                 start_time_utc: str,
-                 event_time: Optional[str] = None):
+                 created_by: Optional['outputs.UserInfoResponse'] = None,
+                 display_name: Optional[str] = None,
+                 end_time_utc: Optional[str] = None,
+                 event_time: Optional[str] = None,
+                 labels: Optional[Sequence[str]] = None,
+                 notes: Optional[str] = None,
+                 start_time_utc: Optional[str] = None):
         """
         Represents bookmark timeline item.
         :param str azure_resource_id: The bookmark azure resource id.
+        :param str kind: The entity query kind type.
+               Expected value is 'Bookmark'.
         :param 'UserInfoResponseArgs' created_by: Describes a user that created the bookmark
         :param str display_name: The bookmark display name.
         :param str end_time_utc: The bookmark end time.
-        :param str kind: The entity query kind type.
-               Expected value is 'Bookmark'.
+        :param str event_time: The bookmark event time.
         :param Sequence[str] labels: List of labels relevant to this bookmark
         :param str notes: The notes of the bookmark
         :param str start_time_utc: TThe bookmark start time.
-        :param str event_time: The bookmark event time.
         """
         pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
         pulumi.set(__self__, "kind", 'Bookmark')
-        pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "notes", notes)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if end_time_utc is not None:
+            pulumi.set(__self__, "end_time_utc", end_time_utc)
         if event_time is not None:
             pulumi.set(__self__, "event_time", event_time)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if start_time_utc is not None:
+            pulumi.set(__self__, "start_time_utc", start_time_utc)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -178,30 +184,6 @@ class BookmarkTimelineItemResponseResult(dict):
         The bookmark azure resource id.
         """
         return pulumi.get(self, "azure_resource_id")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.UserInfoResponse':
-        """
-        Describes a user that created the bookmark
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
-        """
-        The bookmark display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="endTimeUtc")
-    def end_time_utc(self) -> str:
-        """
-        The bookmark end time.
-        """
-        return pulumi.get(self, "end_time_utc")
 
     @property
     @pulumi.getter
@@ -213,28 +195,28 @@ class BookmarkTimelineItemResponseResult(dict):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter
-    def labels(self) -> Sequence[str]:
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional['outputs.UserInfoResponse']:
         """
-        List of labels relevant to this bookmark
+        Describes a user that created the bookmark
         """
-        return pulumi.get(self, "labels")
+        return pulumi.get(self, "created_by")
 
     @property
-    @pulumi.getter
-    def notes(self) -> str:
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
-        The notes of the bookmark
+        The bookmark display name.
         """
-        return pulumi.get(self, "notes")
+        return pulumi.get(self, "display_name")
 
     @property
-    @pulumi.getter(name="startTimeUtc")
-    def start_time_utc(self) -> str:
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> Optional[str]:
         """
-        TThe bookmark start time.
+        The bookmark end time.
         """
-        return pulumi.get(self, "start_time_utc")
+        return pulumi.get(self, "end_time_utc")
 
     @property
     @pulumi.getter(name="eventTime")
@@ -243,6 +225,30 @@ class BookmarkTimelineItemResponseResult(dict):
         The bookmark event time.
         """
         return pulumi.get(self, "event_time")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence[str]]:
+        """
+        List of labels relevant to this bookmark
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        The notes of the bookmark
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> Optional[str]:
+        """
+        TThe bookmark start time.
+        """
+        return pulumi.get(self, "start_time_utc")
 
 
 @pulumi.output_type
@@ -786,10 +792,11 @@ class SecurityAlertTimelineItemResponseResult(dict):
                  display_name: str,
                  end_time_utc: str,
                  kind: str,
-                 product_name: str,
                  severity: str,
                  start_time_utc: str,
-                 time_generated: str):
+                 time_generated: str,
+                 description: Optional[str] = None,
+                 product_name: Optional[str] = None):
         """
         Represents security alert timeline item.
         :param str alert_type: The name of the alert type.
@@ -798,20 +805,24 @@ class SecurityAlertTimelineItemResponseResult(dict):
         :param str end_time_utc: The alert end time.
         :param str kind: The entity query kind type.
                Expected value is 'SecurityAlert'.
-        :param str product_name: The alert product name.
         :param str severity: The alert severity.
         :param str start_time_utc: The alert start time.
         :param str time_generated: The alert generated time.
+        :param str description: The alert description.
+        :param str product_name: The alert product name.
         """
         pulumi.set(__self__, "alert_type", alert_type)
         pulumi.set(__self__, "azure_resource_id", azure_resource_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "end_time_utc", end_time_utc)
         pulumi.set(__self__, "kind", 'SecurityAlert')
-        pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "severity", severity)
         pulumi.set(__self__, "start_time_utc", start_time_utc)
         pulumi.set(__self__, "time_generated", time_generated)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
 
     @property
     @pulumi.getter(name="alertType")
@@ -855,14 +866,6 @@ class SecurityAlertTimelineItemResponseResult(dict):
         return pulumi.get(self, "kind")
 
     @property
-    @pulumi.getter(name="productName")
-    def product_name(self) -> str:
-        """
-        The alert product name.
-        """
-        return pulumi.get(self, "product_name")
-
-    @property
     @pulumi.getter
     def severity(self) -> str:
         """
@@ -885,6 +888,22 @@ class SecurityAlertTimelineItemResponseResult(dict):
         The alert generated time.
         """
         return pulumi.get(self, "time_generated")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The alert description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[str]:
+        """
+        The alert product name.
+        """
+        return pulumi.get(self, "product_name")
 
 
 @pulumi.output_type

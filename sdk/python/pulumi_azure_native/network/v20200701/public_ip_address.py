@@ -25,7 +25,10 @@ class PublicIPAddress(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
+                 linked_public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]] = None,
+                 nat_gateway: Optional[pulumi.Input[pulumi.InputType['NatGatewayArgs']]] = None,
                  public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -49,7 +52,10 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP address.
+        :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] linked_public_ip_address: The linked public IP address of the public IP address resource.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']] migration_phase: Migration phase of Public IP Address.
+        :param pulumi.Input[pulumi.InputType['NatGatewayArgs']] nat_gateway: The NatGateway for the Public IP address.
         :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version.
         :param pulumi.Input[Union[str, 'IPAllocationMethod']] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
@@ -83,7 +89,10 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['ip_address'] = ip_address
             __props__['ip_tags'] = ip_tags
+            __props__['linked_public_ip_address'] = linked_public_ip_address
             __props__['location'] = location
+            __props__['migration_phase'] = migration_phase
+            __props__['nat_gateway'] = nat_gateway
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
             __props__['public_ip_prefix'] = public_ip_prefix
@@ -191,6 +200,14 @@ class PublicIPAddress(pulumi.CustomResource):
         return pulumi.get(self, "ip_tags")
 
     @property
+    @pulumi.getter(name="linkedPublicIPAddress")
+    def linked_public_ip_address(self) -> pulumi.Output[Optional['outputs.PublicIPAddressResponse']]:
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "linked_public_ip_address")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
@@ -199,12 +216,28 @@ class PublicIPAddress(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> pulumi.Output[Optional[str]]:
+        """
+        Migration phase of Public IP Address.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> pulumi.Output[Optional['outputs.NatGatewayResponse']]:
+        """
+        The NatGateway for the Public IP address.
+        """
+        return pulumi.get(self, "nat_gateway")
 
     @property
     @pulumi.getter(name="provisioningState")

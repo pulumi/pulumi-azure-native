@@ -57,6 +57,12 @@ func NewKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:Key"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210301:Key"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210301:Key"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Key

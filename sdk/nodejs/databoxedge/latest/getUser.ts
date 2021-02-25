@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -72,5 +72,5 @@ export interface GetUserResult {
     /**
      * Type of the user.
      */
-    readonly userType?: string;
+    readonly userType: string;
 }

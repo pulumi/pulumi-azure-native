@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge/latest:getUser", args ?? new GetUserArgs(), options.WithVersion());
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
         /// <summary>
         /// Type of the user.
         /// </summary>
-        public readonly string? UserType;
+        public readonly string UserType;
 
         [OutputConstructor]
         private GetUserResult(
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 
             string type,
 
-            string? userType)
+            string userType)
         {
             EncryptedPassword = encryptedPassword;
             Id = id;

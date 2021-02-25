@@ -34,6 +34,8 @@ type EventSubscription struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy RetryPolicyResponsePtrOutput `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic pulumi.StringOutput `pulumi:"topic"`
 	// Type of the resource.
@@ -49,6 +51,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.EventDeliverySchema == nil {
+		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -171,6 +176,8 @@ type eventSubscriptionState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic *string `pulumi:"topic"`
 	// Type of the resource.
@@ -196,6 +203,8 @@ type EventSubscriptionState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy RetryPolicyResponsePtrInput
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponsePtrInput
 	// Name of the topic of the event subscription.
 	Topic pulumi.StringPtrInput
 	// Type of the resource.

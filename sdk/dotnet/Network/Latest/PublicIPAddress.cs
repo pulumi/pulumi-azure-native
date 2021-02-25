@@ -66,16 +66,34 @@ namespace Pulumi.AzureNative.Network.Latest
         public Output<ImmutableArray<Outputs.IpTagResponse>> IpTags { get; private set; } = null!;
 
         /// <summary>
+        /// The source Public IP Address (IPv6) that links to this address (IPv4).
+        /// </summary>
+        [Output("linkedPublicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponse?> LinkedPublicIPAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Output("migrationPhase")]
+        public Output<string?> MigrationPhase { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Output("natGateway")]
+        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the public IP address resource.
@@ -106,6 +124,12 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        [Output("servicePublicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponse?> ServicePublicIPAddress { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address SKU.
@@ -300,10 +324,28 @@ namespace Pulumi.AzureNative.Network.Latest
         }
 
         /// <summary>
+        /// The source Public IP Address (IPv6) that links to this address (IPv4).
+        /// </summary>
+        [Input("linkedPublicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? LinkedPublicIPAddress { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Input("migrationPhase")]
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.PublicIpAddressMigrationPhase>? MigrationPhase { get; set; }
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Input("natGateway")]
+        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The public IP address version.
@@ -334,6 +376,12 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The service public IP address of the public IP address resource.
+        /// </summary>
+        [Input("servicePublicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? ServicePublicIPAddress { get; set; }
 
         /// <summary>
         /// The public IP address SKU.

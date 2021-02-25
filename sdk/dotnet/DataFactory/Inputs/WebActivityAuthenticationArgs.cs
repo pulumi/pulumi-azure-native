@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Pfx { get; set; }
 
         /// <summary>
-        /// Resource for which Azure Auth token will be requested when using MSI Authentication.
+        /// Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("resource")]
-        public Input<string>? Resource { get; set; }
+        public Input<object>? Resource { get; set; }
 
         /// <summary>
         /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? UserTenant { get; set; }
 
         /// <summary>
-        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("username")]
-        public Input<string>? Username { get; set; }
+        public Input<object>? Username { get; set; }
 
         public WebActivityAuthenticationArgs()
         {

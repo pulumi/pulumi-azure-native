@@ -48,6 +48,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
 import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
+import * as v20210201preview from "./v20210201preview";
 
 export {
     latest,
@@ -96,6 +97,7 @@ export {
     v20200701,
     v20200801,
     v20201101,
+    v20210201preview,
 };
 
 export const Access = {
@@ -119,6 +121,16 @@ export const ActionType = {
  * Describes the override action to be applied when rule matches.
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+export const AddressPrefixType = {
+    IPPrefix: "IPPrefix",
+    ServiceTag: "ServiceTag",
+} as const;
+
+/**
+ * Address prefix type.
+ */
+export type AddressPrefixType = (typeof AddressPrefixType)[keyof typeof AddressPrefixType];
 
 export const ApplicationGatewayCookieBasedAffinity = {
     Enabled: "Enabled",
@@ -414,6 +426,16 @@ export const ConnectionMonitorTestConfigurationProtocol = {
  */
 export type ConnectionMonitorTestConfigurationProtocol = (typeof ConnectionMonitorTestConfigurationProtocol)[keyof typeof ConnectionMonitorTestConfigurationProtocol];
 
+export const ConnectivityTopology = {
+    HubAndSpokeTopology: "HubAndSpokeTopology",
+    MeshTopology: "MeshTopology",
+} as const;
+
+/**
+ * Connectivity topology type.
+ */
+export type ConnectivityTopology = (typeof ConnectivityTopology)[keyof typeof ConnectivityTopology];
+
 export const CoverageLevel = {
     Default: "Default",
     Low: "Low",
@@ -470,6 +492,18 @@ export const DdosSettingsProtectionCoverage = {
  * The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
  */
 export type DdosSettingsProtectionCoverage = (typeof DdosSettingsProtectionCoverage)[keyof typeof DdosSettingsProtectionCoverage];
+
+export const DeploymentType = {
+    AdminPolicy: "AdminPolicy",
+    UserPolicy: "UserPolicy",
+    Routing: "Routing",
+    Connectivity: "Connectivity",
+} as const;
+
+/**
+ * Configuration Deployment Type.
+ */
+export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 export const DestinationPortBehavior = {
     None: "None",
@@ -890,6 +924,16 @@ export const FrontDoorRedirectType = {
  */
 export type FrontDoorRedirectType = (typeof FrontDoorRedirectType)[keyof typeof FrontDoorRedirectType];
 
+export const GroupConnectivity = {
+    None: "None",
+    DirectlyConnected: "DirectlyConnected",
+} as const;
+
+/**
+ * Group connectivity type.
+ */
+export type GroupConnectivity = (typeof GroupConnectivity)[keyof typeof GroupConnectivity];
+
 export const HTTPConfigurationMethod = {
     Get: "Get",
     Post: "Post",
@@ -1109,6 +1153,16 @@ export const MatchProcessingBehavior = {
  */
 export type MatchProcessingBehavior = (typeof MatchProcessingBehavior)[keyof typeof MatchProcessingBehavior];
 
+export const MemberType = {
+    VirtualNetwork: "VirtualNetwork",
+    Subnet: "Subnet",
+} as const;
+
+/**
+ * Group member type.
+ */
+export type MemberType = (typeof MemberType)[keyof typeof MemberType];
+
 export const MonitorProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",
@@ -1128,6 +1182,29 @@ export const NatGatewaySkuName = {
  * Name of Nat Gateway SKU.
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
+
+export const NetworkInterfaceMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Network Interface resource.
+ */
+export type NetworkInterfaceMigrationPhase = (typeof NetworkInterfaceMigrationPhase)[keyof typeof NetworkInterfaceMigrationPhase];
+
+export const NetworkInterfaceNicType = {
+    Standard: "Standard",
+    Elastic: "Elastic",
+} as const;
+
+/**
+ * Type of Network Interface resource.
+ */
+export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
 
 export const Operator = {
     Any: "Any",
@@ -1340,6 +1417,19 @@ export const PublicIPPrefixSkuTier = {
  */
 export type PublicIPPrefixSkuTier = (typeof PublicIPPrefixSkuTier)[keyof typeof PublicIPPrefixSkuTier];
 
+export const PublicIpAddressMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Public IP Address.
+ */
+export type PublicIpAddressMigrationPhase = (typeof PublicIpAddressMigrationPhase)[keyof typeof PublicIpAddressMigrationPhase];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -1433,6 +1523,49 @@ export const RulesEngineOperator = {
  */
 export type RulesEngineOperator = (typeof RulesEngineOperator)[keyof typeof RulesEngineOperator];
 
+export const ScopeAccesses = {
+    Security: "Security",
+    Routing: "Routing",
+    Connectivity: "Connectivity",
+} as const;
+
+export type ScopeAccesses = (typeof ScopeAccesses)[keyof typeof ScopeAccesses];
+
+export const SecurityConfigurationRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+    AlwaysAllow: "AlwaysAllow",
+} as const;
+
+/**
+ * Indicates the access allowed for this particular rule
+ */
+export type SecurityConfigurationRuleAccess = (typeof SecurityConfigurationRuleAccess)[keyof typeof SecurityConfigurationRuleAccess];
+
+export const SecurityConfigurationRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * Indicates if the traffic matched against the rule in inbound or outbound.
+ */
+export type SecurityConfigurationRuleDirection = (typeof SecurityConfigurationRuleDirection)[keyof typeof SecurityConfigurationRuleDirection];
+
+export const SecurityConfigurationRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Any: "Any",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityConfigurationRuleProtocol = (typeof SecurityConfigurationRuleProtocol)[keyof typeof SecurityConfigurationRuleProtocol];
+
 export const SecurityProviderName = {
     ZScaler: "ZScaler",
     IBoss: "IBoss",
@@ -1477,6 +1610,16 @@ export const SecurityRuleProtocol = {
  * Network protocol this rule applies to.
  */
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
+
+export const SecurityType = {
+    AdminPolicy: "AdminPolicy",
+    UserPolicy: "UserPolicy",
+} as const;
+
+/**
+ * Security Type.
+ */
+export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
 
 export const ServiceProviderProvisioningState = {
     NotProvisioned: "NotProvisioned",
@@ -1688,6 +1831,26 @@ export const VirtualNetworkPeeringState = {
  * The status of the virtual network peering.
  */
 export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
+
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
 
 export const VpnAuthenticationType = {
     Certificate: "Certificate",

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
 
         public ClusterCreatePropertiesArgs()
         {
+            Tier = Pulumi.AzureNative.HDInsight.V20180601Preview.Tier.Standard;
         }
     }
 }

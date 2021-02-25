@@ -76,6 +76,7 @@ class EventChannel(pulumi.CustomResource):
             __props__['name'] = None
             __props__['partner_topic_readiness_state'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:EventChannel"), pulumi.Alias(type_="azure-nextgen:eventgrid:EventChannel"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventChannel"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:EventChannel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -132,7 +133,7 @@ class EventChannel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -170,10 +171,18 @@ class EventChannel(pulumi.CustomResource):
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to Event Channel resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

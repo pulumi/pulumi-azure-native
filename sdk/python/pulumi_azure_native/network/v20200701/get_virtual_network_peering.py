@@ -20,7 +20,7 @@ class GetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, resource_guid=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -54,6 +54,12 @@ class GetVirtualNetworkPeeringResult:
         if remote_virtual_network and not isinstance(remote_virtual_network, dict):
             raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
         pulumi.set(__self__, "remote_virtual_network", remote_virtual_network)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
         if use_remote_gateways and not isinstance(use_remote_gateways, bool):
             raise TypeError("Expected argument 'use_remote_gateways' to be a bool")
         pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
@@ -147,6 +153,22 @@ class GetVirtualNetworkPeeringResult:
         return pulumi.get(self, "remote_virtual_network")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resourceGuid property of the Virtual Network peering resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
     @pulumi.getter(name="useRemoteGateways")
     def use_remote_gateways(self) -> Optional[bool]:
         """
@@ -172,6 +194,8 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
             remote_address_space=self.remote_address_space,
             remote_bgp_communities=self.remote_bgp_communities,
             remote_virtual_network=self.remote_virtual_network,
+            resource_guid=self.resource_guid,
+            type=self.type,
             use_remote_gateways=self.use_remote_gateways)
 
 
@@ -209,4 +233,6 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
         remote_address_space=__ret__.remote_address_space,
         remote_bgp_communities=__ret__.remote_bgp_communities,
         remote_virtual_network=__ret__.remote_virtual_network,
+        resource_guid=__ret__.resource_guid,
+        type=__ret__.type,
         use_remote_gateways=__ret__.use_remote_gateways)

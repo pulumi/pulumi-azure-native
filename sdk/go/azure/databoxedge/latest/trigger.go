@@ -12,7 +12,7 @@ import (
 )
 
 // Trigger details.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Trigger'.
 type Trigger struct {
@@ -86,6 +86,12 @@ func NewTrigger(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Trigger"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Trigger"),
 		},
 	})
 	opts = append(opts, aliases)

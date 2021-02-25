@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Latest
         /// <summary>
         /// Logic App Callback URL for this specific workflow.
         /// </summary>
-        [Input("triggerUri")]
-        public Input<string>? TriggerUri { get; set; }
+        [Input("triggerUri", required: true)]
+        public Input<string> TriggerUri { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

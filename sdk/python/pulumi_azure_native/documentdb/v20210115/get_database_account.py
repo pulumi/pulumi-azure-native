@@ -350,7 +350,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> str:
+    def public_network_access(self) -> Optional[str]:
         """
         Whether requests from Public Network are allowed
         """

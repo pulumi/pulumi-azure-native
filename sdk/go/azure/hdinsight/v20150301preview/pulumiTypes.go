@@ -16,6 +16,8 @@ type ApplicationGetEndpoint struct {
 	DestinationPort *int `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 }
@@ -37,6 +39,8 @@ type ApplicationGetEndpointArgs struct {
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 }
@@ -103,6 +107,11 @@ func (o ApplicationGetEndpointOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The private ip address of the endpoint.
+func (o ApplicationGetEndpointOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetEndpoint) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
 // The public port to connect to.
 func (o ApplicationGetEndpointOutput) PublicPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpoint) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
@@ -134,6 +143,8 @@ type ApplicationGetEndpointResponse struct {
 	DestinationPort *int `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 }
@@ -155,6 +166,8 @@ type ApplicationGetEndpointResponseArgs struct {
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 }
@@ -221,6 +234,11 @@ func (o ApplicationGetEndpointResponseOutput) Location() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ApplicationGetEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The private ip address of the endpoint.
+func (o ApplicationGetEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
 // The public port to connect to.
 func (o ApplicationGetEndpointResponseOutput) PublicPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpointResponse) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
@@ -252,12 +270,10 @@ type ApplicationGetHttpsEndpoint struct {
 	AccessModes []string `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// Disable gateway authentication.
+	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
-	// The location of the endpoint.
-	Location *string `pulumi:"location"`
-	// The public port to connect to.
-	PublicPort *int `pulumi:"publicPort"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
@@ -279,12 +295,10 @@ type ApplicationGetHttpsEndpointArgs struct {
 	AccessModes pulumi.StringArrayInput `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
-	// Disable gateway authentication.
+	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
-	// The location of the endpoint.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The public port to connect to.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
 }
@@ -351,19 +365,14 @@ func (o ApplicationGetHttpsEndpointOutput) DestinationPort() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
-// Disable gateway authentication.
+// The value indicates whether to disable GatewayAuth.
 func (o ApplicationGetHttpsEndpointOutput) DisableGatewayAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *bool { return v.DisableGatewayAuth }).(pulumi.BoolPtrOutput)
 }
 
-// The location of the endpoint.
-func (o ApplicationGetHttpsEndpointOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The public port to connect to.
-func (o ApplicationGetHttpsEndpointOutput) PublicPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
+// The private ip address of the endpoint.
+func (o ApplicationGetHttpsEndpointOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The subdomain suffix of the application.
@@ -397,12 +406,14 @@ type ApplicationGetHttpsEndpointResponse struct {
 	AccessModes []string `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// Disable gateway authentication.
+	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
-	PublicPort *int `pulumi:"publicPort"`
+	PublicPort int `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
@@ -424,12 +435,14 @@ type ApplicationGetHttpsEndpointResponseArgs struct {
 	AccessModes pulumi.StringArrayInput `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
-	// Disable gateway authentication.
+	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
-	Location pulumi.StringPtrInput `pulumi:"location"`
+	Location pulumi.StringInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
+	PublicPort pulumi.IntInput `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
 }
@@ -496,19 +509,24 @@ func (o ApplicationGetHttpsEndpointResponseOutput) DestinationPort() pulumi.IntP
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
-// Disable gateway authentication.
+// The value indicates whether to disable GatewayAuth.
 func (o ApplicationGetHttpsEndpointResponseOutput) DisableGatewayAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *bool { return v.DisableGatewayAuth }).(pulumi.BoolPtrOutput)
 }
 
 // The location of the endpoint.
-func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The private ip address of the endpoint.
+func (o ApplicationGetHttpsEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public port to connect to.
-func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
+func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) int { return v.PublicPort }).(pulumi.IntOutput)
 }
 
 // The subdomain suffix of the application.
@@ -2900,6 +2918,8 @@ type ClusterCreateProperties struct {
 	ClusterDefinition *ClusterDefinition `pulumi:"clusterDefinition"`
 	// The version of the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties *ComputeIsolationProperties `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile *ComputeProfile `pulumi:"computeProfile"`
 	// The disk encryption properties.
@@ -2939,6 +2959,8 @@ type ClusterCreatePropertiesArgs struct {
 	ClusterDefinition ClusterDefinitionPtrInput `pulumi:"clusterDefinition"`
 	// The version of the cluster.
 	ClusterVersion pulumi.StringPtrInput `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties ComputeIsolationPropertiesPtrInput `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile ComputeProfilePtrInput `pulumi:"computeProfile"`
 	// The disk encryption properties.
@@ -3049,6 +3071,11 @@ func (o ClusterCreatePropertiesOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
 }
 
+// The compute isolation properties.
+func (o ClusterCreatePropertiesOutput) ComputeIsolationProperties() ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *ComputeIsolationProperties { return v.ComputeIsolationProperties }).(ComputeIsolationPropertiesPtrOutput)
+}
+
 // The compute profile.
 func (o ClusterCreatePropertiesOutput) ComputeProfile() ComputeProfilePtrOutput {
 	return o.ApplyT(func(v ClusterCreateProperties) *ComputeProfile { return v.ComputeProfile }).(ComputeProfilePtrOutput)
@@ -3135,6 +3162,16 @@ func (o ClusterCreatePropertiesPtrOutput) ClusterVersion() pulumi.StringPtrOutpu
 		}
 		return v.ClusterVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterCreatePropertiesPtrOutput) ComputeIsolationProperties() ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *ComputeIsolationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesPtrOutput)
 }
 
 // The compute profile.
@@ -3623,12 +3660,16 @@ func (o ClusterDefinitionResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 type ClusterGetPropertiesResponse struct {
 	// The cluster definition.
 	ClusterDefinition ClusterDefinitionResponse `pulumi:"clusterDefinition"`
+	// The hdp version of the cluster.
+	ClusterHdpVersion *string `pulumi:"clusterHdpVersion"`
 	// The cluster id.
 	ClusterId *string `pulumi:"clusterId"`
 	// The state of the cluster.
 	ClusterState *string `pulumi:"clusterState"`
 	// The version of the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties *ComputeIsolationPropertiesResponse `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile *ComputeProfileResponse `pulumi:"computeProfile"`
 	// The list of connectivity endpoints.
@@ -3641,6 +3682,8 @@ type ClusterGetPropertiesResponse struct {
 	EncryptionInTransitProperties *EncryptionInTransitPropertiesResponse `pulumi:"encryptionInTransitProperties"`
 	// The list of errors.
 	Errors []ErrorsResponse `pulumi:"errors"`
+	// The excluded services config.
+	ExcludedServicesConfig *ExcludedServicesConfigResponse `pulumi:"excludedServicesConfig"`
 	// The cluster kafka rest proxy configuration.
 	KafkaRestProperties *KafkaRestPropertiesResponse `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
@@ -3655,6 +3698,8 @@ type ClusterGetPropertiesResponse struct {
 	QuotaInfo *QuotaInfoResponse `pulumi:"quotaInfo"`
 	// The security profile.
 	SecurityProfile *SecurityProfileResponse `pulumi:"securityProfile"`
+	// The storage profile.
+	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// The cluster tier.
 	Tier *string `pulumi:"tier"`
 }
@@ -3674,12 +3719,16 @@ type ClusterGetPropertiesResponseInput interface {
 type ClusterGetPropertiesResponseArgs struct {
 	// The cluster definition.
 	ClusterDefinition ClusterDefinitionResponseInput `pulumi:"clusterDefinition"`
+	// The hdp version of the cluster.
+	ClusterHdpVersion pulumi.StringPtrInput `pulumi:"clusterHdpVersion"`
 	// The cluster id.
 	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
 	// The state of the cluster.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
 	// The version of the cluster.
 	ClusterVersion pulumi.StringPtrInput `pulumi:"clusterVersion"`
+	// The compute isolation properties.
+	ComputeIsolationProperties ComputeIsolationPropertiesResponsePtrInput `pulumi:"computeIsolationProperties"`
 	// The compute profile.
 	ComputeProfile ComputeProfileResponsePtrInput `pulumi:"computeProfile"`
 	// The list of connectivity endpoints.
@@ -3692,6 +3741,8 @@ type ClusterGetPropertiesResponseArgs struct {
 	EncryptionInTransitProperties EncryptionInTransitPropertiesResponsePtrInput `pulumi:"encryptionInTransitProperties"`
 	// The list of errors.
 	Errors ErrorsResponseArrayInput `pulumi:"errors"`
+	// The excluded services config.
+	ExcludedServicesConfig ExcludedServicesConfigResponsePtrInput `pulumi:"excludedServicesConfig"`
 	// The cluster kafka rest proxy configuration.
 	KafkaRestProperties KafkaRestPropertiesResponsePtrInput `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
@@ -3706,6 +3757,8 @@ type ClusterGetPropertiesResponseArgs struct {
 	QuotaInfo QuotaInfoResponsePtrInput `pulumi:"quotaInfo"`
 	// The security profile.
 	SecurityProfile SecurityProfileResponsePtrInput `pulumi:"securityProfile"`
+	// The storage profile.
+	StorageProfile StorageProfileResponsePtrInput `pulumi:"storageProfile"`
 	// The cluster tier.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
@@ -3793,6 +3846,11 @@ func (o ClusterGetPropertiesResponseOutput) ClusterDefinition() ClusterDefinitio
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) ClusterDefinitionResponse { return v.ClusterDefinition }).(ClusterDefinitionResponseOutput)
 }
 
+// The hdp version of the cluster.
+func (o ClusterGetPropertiesResponseOutput) ClusterHdpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterHdpVersion }).(pulumi.StringPtrOutput)
+}
+
 // The cluster id.
 func (o ClusterGetPropertiesResponseOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
@@ -3806,6 +3864,13 @@ func (o ClusterGetPropertiesResponseOutput) ClusterState() pulumi.StringPtrOutpu
 // The version of the cluster.
 func (o ClusterGetPropertiesResponseOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterGetPropertiesResponseOutput) ComputeIsolationProperties() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
 }
 
 // The compute profile.
@@ -3840,6 +3905,11 @@ func (o ClusterGetPropertiesResponseOutput) EncryptionInTransitProperties() Encr
 // The list of errors.
 func (o ClusterGetPropertiesResponseOutput) Errors() ErrorsResponseArrayOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) []ErrorsResponse { return v.Errors }).(ErrorsResponseArrayOutput)
+}
+
+// The excluded services config.
+func (o ClusterGetPropertiesResponseOutput) ExcludedServicesConfig() ExcludedServicesConfigResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *ExcludedServicesConfigResponse { return v.ExcludedServicesConfig }).(ExcludedServicesConfigResponsePtrOutput)
 }
 
 // The cluster kafka rest proxy configuration.
@@ -3877,6 +3947,11 @@ func (o ClusterGetPropertiesResponseOutput) SecurityProfile() SecurityProfileRes
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *SecurityProfileResponse { return v.SecurityProfile }).(SecurityProfileResponsePtrOutput)
 }
 
+// The storage profile.
+func (o ClusterGetPropertiesResponseOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
 // The cluster tier.
 func (o ClusterGetPropertiesResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
@@ -3910,6 +3985,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) ClusterDefinition() ClusterDefini
 	}).(ClusterDefinitionResponsePtrOutput)
 }
 
+// The hdp version of the cluster.
+func (o ClusterGetPropertiesResponsePtrOutput) ClusterHdpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterHdpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // The cluster id.
 func (o ClusterGetPropertiesResponsePtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *string {
@@ -3938,6 +4023,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) ClusterVersion() pulumi.StringPtr
 		}
 		return v.ClusterVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+func (o ClusterGetPropertiesResponsePtrOutput) ComputeIsolationProperties() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeIsolationProperties
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
 }
 
 // The compute profile.
@@ -3998,6 +4093,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) Errors() ErrorsResponseArrayOutpu
 		}
 		return v.Errors
 	}).(ErrorsResponseArrayOutput)
+}
+
+// The excluded services config.
+func (o ClusterGetPropertiesResponsePtrOutput) ExcludedServicesConfig() ExcludedServicesConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *ExcludedServicesConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedServicesConfig
+	}).(ExcludedServicesConfigResponsePtrOutput)
 }
 
 // The cluster kafka rest proxy configuration.
@@ -4070,6 +4175,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) SecurityProfile() SecurityProfile
 	}).(SecurityProfileResponsePtrOutput)
 }
 
+// The storage profile.
+func (o ClusterGetPropertiesResponsePtrOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *StorageProfileResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StorageProfile
+	}).(StorageProfileResponsePtrOutput)
+}
+
 // The cluster tier.
 func (o ClusterGetPropertiesResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *string {
@@ -4085,7 +4200,7 @@ type ClusterIdentity struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ClusterIdentityUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
@@ -4104,7 +4219,7 @@ type ClusterIdentityArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ClusterIdentityUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ClusterIdentityArgs) ElementType() reflect.Type {
@@ -4191,8 +4306,10 @@ func (o ClusterIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+func (o ClusterIdentityOutput) UserAssignedIdentities() ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v ClusterIdentity) map[string]ClusterIdentityUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(ClusterIdentityUserAssignedIdentitiesMapOutput)
 }
 
 type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4224,13 +4341,13 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
-	return o.ApplyT(func(v *ClusterIdentity) map[string]interface{} {
+func (o ClusterIdentityPtrOutput) UserAssignedIdentities() ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *ClusterIdentity) map[string]ClusterIdentityUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.MapOutput)
+	}).(ClusterIdentityUserAssignedIdentitiesMapOutput)
 }
 
 // Identity for the cluster.
@@ -4431,6 +4548,8 @@ type ClusterIdentityResponseUserAssignedIdentities struct {
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // ClusterIdentityResponseUserAssignedIdentitiesInput is an input type that accepts ClusterIdentityResponseUserAssignedIdentitiesArgs and ClusterIdentityResponseUserAssignedIdentitiesOutput values.
@@ -4449,6 +4568,8 @@ type ClusterIdentityResponseUserAssignedIdentitiesArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ClusterIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
@@ -4512,6 +4633,11 @@ func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulum
 	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
+// The tenant id of user assigned identity.
+func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 type ClusterIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
@@ -4530,6 +4656,409 @@ func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulum
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityResponseUserAssignedIdentities {
 		return vs[0].(map[string]ClusterIdentityResponseUserAssignedIdentities)[vs[1].(string)]
 	}).(ClusterIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+type ClusterIdentityUserAssignedIdentities struct {
+	// The tenant id of user assigned identity.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ClusterIdentityUserAssignedIdentitiesInput is an input type that accepts ClusterIdentityUserAssignedIdentitiesArgs and ClusterIdentityUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `ClusterIdentityUserAssignedIdentitiesInput` via:
+//
+//          ClusterIdentityUserAssignedIdentitiesArgs{...}
+type ClusterIdentityUserAssignedIdentitiesInput interface {
+	pulumi.Input
+
+	ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput
+	ToClusterIdentityUserAssignedIdentitiesOutputWithContext(context.Context) ClusterIdentityUserAssignedIdentitiesOutput
+}
+
+type ClusterIdentityUserAssignedIdentitiesArgs struct {
+	// The tenant id of user assigned identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ClusterIdentityUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentityUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i ClusterIdentityUserAssignedIdentitiesArgs) ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput {
+	return i.ToClusterIdentityUserAssignedIdentitiesOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityUserAssignedIdentitiesArgs) ToClusterIdentityUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityUserAssignedIdentitiesOutput)
+}
+
+// ClusterIdentityUserAssignedIdentitiesMapInput is an input type that accepts ClusterIdentityUserAssignedIdentitiesMap and ClusterIdentityUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `ClusterIdentityUserAssignedIdentitiesMapInput` via:
+//
+//          ClusterIdentityUserAssignedIdentitiesMap{ "key": ClusterIdentityUserAssignedIdentitiesArgs{...} }
+type ClusterIdentityUserAssignedIdentitiesMapInput interface {
+	pulumi.Input
+
+	ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput
+	ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput
+}
+
+type ClusterIdentityUserAssignedIdentitiesMap map[string]ClusterIdentityUserAssignedIdentitiesInput
+
+func (ClusterIdentityUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterIdentityUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i ClusterIdentityUserAssignedIdentitiesMap) ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return i.ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityUserAssignedIdentitiesMap) ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityUserAssignedIdentitiesMapOutput)
+}
+
+type ClusterIdentityUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentityUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o ClusterIdentityUserAssignedIdentitiesOutput) ToClusterIdentityUserAssignedIdentitiesOutput() ClusterIdentityUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o ClusterIdentityUserAssignedIdentitiesOutput) ToClusterIdentityUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The tenant id of user assigned identity.
+func (o ClusterIdentityUserAssignedIdentitiesOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentityUserAssignedIdentities) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterIdentityUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterIdentityUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o ClusterIdentityUserAssignedIdentitiesMapOutput) ToClusterIdentityUserAssignedIdentitiesMapOutput() ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o ClusterIdentityUserAssignedIdentitiesMapOutput) ToClusterIdentityUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o ClusterIdentityUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityUserAssignedIdentities {
+		return vs[0].(map[string]ClusterIdentityUserAssignedIdentities)[vs[1].(string)]
+	}).(ClusterIdentityUserAssignedIdentitiesOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationProperties struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation *bool `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// ComputeIsolationPropertiesInput is an input type that accepts ComputeIsolationPropertiesArgs and ComputeIsolationPropertiesOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesInput` via:
+//
+//          ComputeIsolationPropertiesArgs{...}
+type ComputeIsolationPropertiesInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput
+	ToComputeIsolationPropertiesOutputWithContext(context.Context) ComputeIsolationPropertiesOutput
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesArgs struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation pulumi.BoolPtrInput `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (ComputeIsolationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput {
+	return i.ToComputeIsolationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesOutputWithContext(ctx context.Context) ComputeIsolationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesOutput)
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return i.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesArgs) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesOutput).ToComputeIsolationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ComputeIsolationPropertiesPtrInput is an input type that accepts ComputeIsolationPropertiesArgs, ComputeIsolationPropertiesPtr and ComputeIsolationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesPtrInput` via:
+//
+//          ComputeIsolationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeIsolationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput
+	ToComputeIsolationPropertiesPtrOutputWithContext(context.Context) ComputeIsolationPropertiesPtrOutput
+}
+
+type computeIsolationPropertiesPtrType ComputeIsolationPropertiesArgs
+
+func ComputeIsolationPropertiesPtr(v *ComputeIsolationPropertiesArgs) ComputeIsolationPropertiesPtrInput {
+	return (*computeIsolationPropertiesPtrType)(v)
+}
+
+func (*computeIsolationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (i *computeIsolationPropertiesPtrType) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return i.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeIsolationPropertiesPtrType) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesPtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesOutput() ComputeIsolationPropertiesOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesOutputWithContext(ctx context.Context) ComputeIsolationPropertiesOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return o.ToComputeIsolationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeIsolationPropertiesOutput) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *ComputeIsolationProperties {
+		return &v
+	}).(ComputeIsolationPropertiesPtrOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *bool { return v.EnableComputeIsolation }).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationProperties) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type ComputeIsolationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationProperties)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) ToComputeIsolationPropertiesPtrOutput() ComputeIsolationPropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) ToComputeIsolationPropertiesPtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesPtrOutput) Elem() ComputeIsolationPropertiesOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) ComputeIsolationProperties { return *v }).(ComputeIsolationPropertiesOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesPtrOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableComputeIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesPtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponse struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation *bool `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku *string `pulumi:"hostSku"`
+}
+
+// ComputeIsolationPropertiesResponseInput is an input type that accepts ComputeIsolationPropertiesResponseArgs and ComputeIsolationPropertiesResponseOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesResponseInput` via:
+//
+//          ComputeIsolationPropertiesResponseArgs{...}
+type ComputeIsolationPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput
+	ToComputeIsolationPropertiesResponseOutputWithContext(context.Context) ComputeIsolationPropertiesResponseOutput
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponseArgs struct {
+	// The flag indicates whether enable compute isolation or not.
+	EnableComputeIsolation pulumi.BoolPtrInput `pulumi:"enableComputeIsolation"`
+	// The host sku.
+	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
+}
+
+func (ComputeIsolationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput {
+	return i.ToComputeIsolationPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponseOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponseOutput)
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return i.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeIsolationPropertiesResponseArgs) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponseOutput).ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeIsolationPropertiesResponsePtrInput is an input type that accepts ComputeIsolationPropertiesResponseArgs, ComputeIsolationPropertiesResponsePtr and ComputeIsolationPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeIsolationPropertiesResponsePtrInput` via:
+//
+//          ComputeIsolationPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeIsolationPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput
+	ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Context) ComputeIsolationPropertiesResponsePtrOutput
+}
+
+type computeIsolationPropertiesResponsePtrType ComputeIsolationPropertiesResponseArgs
+
+func ComputeIsolationPropertiesResponsePtr(v *ComputeIsolationPropertiesResponseArgs) ComputeIsolationPropertiesResponsePtrInput {
+	return (*computeIsolationPropertiesResponsePtrType)(v)
+}
+
+func (*computeIsolationPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (i *computeIsolationPropertiesResponsePtrType) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return i.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeIsolationPropertiesResponsePtrType) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeIsolationPropertiesResponsePtrOutput)
+}
+
+// The compute isolation properties.
+type ComputeIsolationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponseOutput() ComputeIsolationPropertiesResponseOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponseOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponseOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ToComputeIsolationPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeIsolationPropertiesResponseOutput) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *ComputeIsolationPropertiesResponse {
+		return &v
+	}).(ComputeIsolationPropertiesResponsePtrOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesResponseOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *bool { return v.EnableComputeIsolation }).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesResponseOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeIsolationPropertiesResponse) *string { return v.HostSku }).(pulumi.StringPtrOutput)
+}
+
+type ComputeIsolationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeIsolationPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeIsolationPropertiesResponse)(nil)).Elem()
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) ToComputeIsolationPropertiesResponsePtrOutput() ComputeIsolationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) ToComputeIsolationPropertiesResponsePtrOutputWithContext(ctx context.Context) ComputeIsolationPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ComputeIsolationPropertiesResponsePtrOutput) Elem() ComputeIsolationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) ComputeIsolationPropertiesResponse { return *v }).(ComputeIsolationPropertiesResponseOutput)
+}
+
+// The flag indicates whether enable compute isolation or not.
+func (o ComputeIsolationPropertiesResponsePtrOutput) EnableComputeIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableComputeIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The host sku.
+func (o ComputeIsolationPropertiesResponsePtrOutput) HostSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeIsolationPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostSku
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the compute profile.
@@ -4808,6 +5337,8 @@ type ConnectivityEndpointResponse struct {
 	Name *string `pulumi:"name"`
 	// The port to connect to.
 	Port *int `pulumi:"port"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The protocol of the endpoint.
 	Protocol *string `pulumi:"protocol"`
 }
@@ -4831,6 +5362,8 @@ type ConnectivityEndpointResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The port to connect to.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The protocol of the endpoint.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
@@ -4900,6 +5433,11 @@ func (o ConnectivityEndpointResponseOutput) Name() pulumi.StringPtrOutput {
 // The port to connect to.
 func (o ConnectivityEndpointResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectivityEndpointResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o ConnectivityEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectivityEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The protocol of the endpoint.
@@ -6089,6 +6627,159 @@ func (o ErrorsResponseArrayOutput) Index(i pulumi.IntInput) ErrorsResponseOutput
 	}).(ErrorsResponseOutput)
 }
 
+// The configuration that services will be excluded when creating cluster.
+type ExcludedServicesConfigResponse struct {
+	// The config id of excluded services.
+	ExcludedServicesConfigId *string `pulumi:"excludedServicesConfigId"`
+	// The list of excluded services.
+	ExcludedServicesList *string `pulumi:"excludedServicesList"`
+}
+
+// ExcludedServicesConfigResponseInput is an input type that accepts ExcludedServicesConfigResponseArgs and ExcludedServicesConfigResponseOutput values.
+// You can construct a concrete instance of `ExcludedServicesConfigResponseInput` via:
+//
+//          ExcludedServicesConfigResponseArgs{...}
+type ExcludedServicesConfigResponseInput interface {
+	pulumi.Input
+
+	ToExcludedServicesConfigResponseOutput() ExcludedServicesConfigResponseOutput
+	ToExcludedServicesConfigResponseOutputWithContext(context.Context) ExcludedServicesConfigResponseOutput
+}
+
+// The configuration that services will be excluded when creating cluster.
+type ExcludedServicesConfigResponseArgs struct {
+	// The config id of excluded services.
+	ExcludedServicesConfigId pulumi.StringPtrInput `pulumi:"excludedServicesConfigId"`
+	// The list of excluded services.
+	ExcludedServicesList pulumi.StringPtrInput `pulumi:"excludedServicesList"`
+}
+
+func (ExcludedServicesConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedServicesConfigResponse)(nil)).Elem()
+}
+
+func (i ExcludedServicesConfigResponseArgs) ToExcludedServicesConfigResponseOutput() ExcludedServicesConfigResponseOutput {
+	return i.ToExcludedServicesConfigResponseOutputWithContext(context.Background())
+}
+
+func (i ExcludedServicesConfigResponseArgs) ToExcludedServicesConfigResponseOutputWithContext(ctx context.Context) ExcludedServicesConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedServicesConfigResponseOutput)
+}
+
+func (i ExcludedServicesConfigResponseArgs) ToExcludedServicesConfigResponsePtrOutput() ExcludedServicesConfigResponsePtrOutput {
+	return i.ToExcludedServicesConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExcludedServicesConfigResponseArgs) ToExcludedServicesConfigResponsePtrOutputWithContext(ctx context.Context) ExcludedServicesConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedServicesConfigResponseOutput).ToExcludedServicesConfigResponsePtrOutputWithContext(ctx)
+}
+
+// ExcludedServicesConfigResponsePtrInput is an input type that accepts ExcludedServicesConfigResponseArgs, ExcludedServicesConfigResponsePtr and ExcludedServicesConfigResponsePtrOutput values.
+// You can construct a concrete instance of `ExcludedServicesConfigResponsePtrInput` via:
+//
+//          ExcludedServicesConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExcludedServicesConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToExcludedServicesConfigResponsePtrOutput() ExcludedServicesConfigResponsePtrOutput
+	ToExcludedServicesConfigResponsePtrOutputWithContext(context.Context) ExcludedServicesConfigResponsePtrOutput
+}
+
+type excludedServicesConfigResponsePtrType ExcludedServicesConfigResponseArgs
+
+func ExcludedServicesConfigResponsePtr(v *ExcludedServicesConfigResponseArgs) ExcludedServicesConfigResponsePtrInput {
+	return (*excludedServicesConfigResponsePtrType)(v)
+}
+
+func (*excludedServicesConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExcludedServicesConfigResponse)(nil)).Elem()
+}
+
+func (i *excludedServicesConfigResponsePtrType) ToExcludedServicesConfigResponsePtrOutput() ExcludedServicesConfigResponsePtrOutput {
+	return i.ToExcludedServicesConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *excludedServicesConfigResponsePtrType) ToExcludedServicesConfigResponsePtrOutputWithContext(ctx context.Context) ExcludedServicesConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedServicesConfigResponsePtrOutput)
+}
+
+// The configuration that services will be excluded when creating cluster.
+type ExcludedServicesConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (ExcludedServicesConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedServicesConfigResponse)(nil)).Elem()
+}
+
+func (o ExcludedServicesConfigResponseOutput) ToExcludedServicesConfigResponseOutput() ExcludedServicesConfigResponseOutput {
+	return o
+}
+
+func (o ExcludedServicesConfigResponseOutput) ToExcludedServicesConfigResponseOutputWithContext(ctx context.Context) ExcludedServicesConfigResponseOutput {
+	return o
+}
+
+func (o ExcludedServicesConfigResponseOutput) ToExcludedServicesConfigResponsePtrOutput() ExcludedServicesConfigResponsePtrOutput {
+	return o.ToExcludedServicesConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExcludedServicesConfigResponseOutput) ToExcludedServicesConfigResponsePtrOutputWithContext(ctx context.Context) ExcludedServicesConfigResponsePtrOutput {
+	return o.ApplyT(func(v ExcludedServicesConfigResponse) *ExcludedServicesConfigResponse {
+		return &v
+	}).(ExcludedServicesConfigResponsePtrOutput)
+}
+
+// The config id of excluded services.
+func (o ExcludedServicesConfigResponseOutput) ExcludedServicesConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExcludedServicesConfigResponse) *string { return v.ExcludedServicesConfigId }).(pulumi.StringPtrOutput)
+}
+
+// The list of excluded services.
+func (o ExcludedServicesConfigResponseOutput) ExcludedServicesList() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExcludedServicesConfigResponse) *string { return v.ExcludedServicesList }).(pulumi.StringPtrOutput)
+}
+
+type ExcludedServicesConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExcludedServicesConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExcludedServicesConfigResponse)(nil)).Elem()
+}
+
+func (o ExcludedServicesConfigResponsePtrOutput) ToExcludedServicesConfigResponsePtrOutput() ExcludedServicesConfigResponsePtrOutput {
+	return o
+}
+
+func (o ExcludedServicesConfigResponsePtrOutput) ToExcludedServicesConfigResponsePtrOutputWithContext(ctx context.Context) ExcludedServicesConfigResponsePtrOutput {
+	return o
+}
+
+func (o ExcludedServicesConfigResponsePtrOutput) Elem() ExcludedServicesConfigResponseOutput {
+	return o.ApplyT(func(v *ExcludedServicesConfigResponse) ExcludedServicesConfigResponse { return *v }).(ExcludedServicesConfigResponseOutput)
+}
+
+// The config id of excluded services.
+func (o ExcludedServicesConfigResponsePtrOutput) ExcludedServicesConfigId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExcludedServicesConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedServicesConfigId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of excluded services.
+func (o ExcludedServicesConfigResponsePtrOutput) ExcludedServicesList() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExcludedServicesConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedServicesList
+	}).(pulumi.StringPtrOutput)
+}
+
 // The hardware profile.
 type HardwareProfile struct {
 	// The size of the VM
@@ -6361,6 +7052,8 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 type KafkaRestProperties struct {
 	// The information of AAD security group.
 	ClientGroupInfo *ClientGroupInfo `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride map[string]string `pulumi:"configurationOverride"`
 }
 
 // KafkaRestPropertiesInput is an input type that accepts KafkaRestPropertiesArgs and KafkaRestPropertiesOutput values.
@@ -6378,6 +7071,8 @@ type KafkaRestPropertiesInput interface {
 type KafkaRestPropertiesArgs struct {
 	// The information of AAD security group.
 	ClientGroupInfo ClientGroupInfoPtrInput `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride pulumi.StringMapInput `pulumi:"configurationOverride"`
 }
 
 func (KafkaRestPropertiesArgs) ElementType() reflect.Type {
@@ -6463,6 +7158,11 @@ func (o KafkaRestPropertiesOutput) ClientGroupInfo() ClientGroupInfoPtrOutput {
 	return o.ApplyT(func(v KafkaRestProperties) *ClientGroupInfo { return v.ClientGroupInfo }).(ClientGroupInfoPtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KafkaRestProperties) map[string]string { return v.ConfigurationOverride }).(pulumi.StringMapOutput)
+}
+
 type KafkaRestPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaRestPropertiesPtrOutput) ElementType() reflect.Type {
@@ -6491,10 +7191,22 @@ func (o KafkaRestPropertiesPtrOutput) ClientGroupInfo() ClientGroupInfoPtrOutput
 	}).(ClientGroupInfoPtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesPtrOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KafkaRestProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationOverride
+	}).(pulumi.StringMapOutput)
+}
+
 // The kafka rest proxy configuration which contains AAD security group information.
 type KafkaRestPropertiesResponse struct {
 	// The information of AAD security group.
 	ClientGroupInfo *ClientGroupInfoResponse `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride map[string]string `pulumi:"configurationOverride"`
 }
 
 // KafkaRestPropertiesResponseInput is an input type that accepts KafkaRestPropertiesResponseArgs and KafkaRestPropertiesResponseOutput values.
@@ -6512,6 +7224,8 @@ type KafkaRestPropertiesResponseInput interface {
 type KafkaRestPropertiesResponseArgs struct {
 	// The information of AAD security group.
 	ClientGroupInfo ClientGroupInfoResponsePtrInput `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride pulumi.StringMapInput `pulumi:"configurationOverride"`
 }
 
 func (KafkaRestPropertiesResponseArgs) ElementType() reflect.Type {
@@ -6597,6 +7311,11 @@ func (o KafkaRestPropertiesResponseOutput) ClientGroupInfo() ClientGroupInfoResp
 	return o.ApplyT(func(v KafkaRestPropertiesResponse) *ClientGroupInfoResponse { return v.ClientGroupInfo }).(ClientGroupInfoResponsePtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesResponseOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KafkaRestPropertiesResponse) map[string]string { return v.ConfigurationOverride }).(pulumi.StringMapOutput)
+}
+
 type KafkaRestPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaRestPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -6623,6 +7342,16 @@ func (o KafkaRestPropertiesResponsePtrOutput) ClientGroupInfo() ClientGroupInfoR
 		}
 		return v.ClientGroupInfo
 	}).(ClientGroupInfoResponsePtrOutput)
+}
+
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesResponsePtrOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KafkaRestPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationOverride
+	}).(pulumi.StringMapOutput)
 }
 
 // The ssh username, password, and ssh public key.
@@ -7683,6 +8412,8 @@ type Role struct {
 	AutoscaleConfiguration *Autoscale `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups []DataDisksGroups `pulumi:"dataDisksGroups"`
+	// Indicates whether encrypt the data disks.
+	EncryptDataDisks *bool `pulumi:"encryptDataDisks"`
 	// The hardware profile.
 	HardwareProfile *HardwareProfile `pulumi:"hardwareProfile"`
 	// The minimum instance count of the cluster.
@@ -7695,6 +8426,8 @@ type Role struct {
 	ScriptActions []ScriptAction `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount *int `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName *string `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile *VirtualNetworkProfile `pulumi:"virtualNetworkProfile"`
 }
@@ -7716,6 +8449,8 @@ type RoleArgs struct {
 	AutoscaleConfiguration AutoscalePtrInput `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups DataDisksGroupsArrayInput `pulumi:"dataDisksGroups"`
+	// Indicates whether encrypt the data disks.
+	EncryptDataDisks pulumi.BoolPtrInput `pulumi:"encryptDataDisks"`
 	// The hardware profile.
 	HardwareProfile HardwareProfilePtrInput `pulumi:"hardwareProfile"`
 	// The minimum instance count of the cluster.
@@ -7728,6 +8463,8 @@ type RoleArgs struct {
 	ScriptActions ScriptActionArrayInput `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount pulumi.IntPtrInput `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName pulumi.StringPtrInput `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput `pulumi:"virtualNetworkProfile"`
 }
@@ -7794,6 +8531,11 @@ func (o RoleOutput) DataDisksGroups() DataDisksGroupsArrayOutput {
 	return o.ApplyT(func(v Role) []DataDisksGroups { return v.DataDisksGroups }).(DataDisksGroupsArrayOutput)
 }
 
+// Indicates whether encrypt the data disks.
+func (o RoleOutput) EncryptDataDisks() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Role) *bool { return v.EncryptDataDisks }).(pulumi.BoolPtrOutput)
+}
+
 // The hardware profile.
 func (o RoleOutput) HardwareProfile() HardwareProfilePtrOutput {
 	return o.ApplyT(func(v Role) *HardwareProfile { return v.HardwareProfile }).(HardwareProfilePtrOutput)
@@ -7822,6 +8564,11 @@ func (o RoleOutput) ScriptActions() ScriptActionArrayOutput {
 // The instance count of the cluster.
 func (o RoleOutput) TargetInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Role) *int { return v.TargetInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The name of the virtual machine group.
+func (o RoleOutput) VMGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Role) *string { return v.VMGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The virtual network profile.
@@ -7855,6 +8602,8 @@ type RoleResponse struct {
 	AutoscaleConfiguration *AutoscaleResponse `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups []DataDisksGroupsResponse `pulumi:"dataDisksGroups"`
+	// Indicates whether encrypt the data disks.
+	EncryptDataDisks *bool `pulumi:"encryptDataDisks"`
 	// The hardware profile.
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
 	// The minimum instance count of the cluster.
@@ -7867,6 +8616,8 @@ type RoleResponse struct {
 	ScriptActions []ScriptActionResponse `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount *int `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName *string `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
 }
@@ -7888,6 +8639,8 @@ type RoleResponseArgs struct {
 	AutoscaleConfiguration AutoscaleResponsePtrInput `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups DataDisksGroupsResponseArrayInput `pulumi:"dataDisksGroups"`
+	// Indicates whether encrypt the data disks.
+	EncryptDataDisks pulumi.BoolPtrInput `pulumi:"encryptDataDisks"`
 	// The hardware profile.
 	HardwareProfile HardwareProfileResponsePtrInput `pulumi:"hardwareProfile"`
 	// The minimum instance count of the cluster.
@@ -7900,6 +8653,8 @@ type RoleResponseArgs struct {
 	ScriptActions ScriptActionResponseArrayInput `pulumi:"scriptActions"`
 	// The instance count of the cluster.
 	TargetInstanceCount pulumi.IntPtrInput `pulumi:"targetInstanceCount"`
+	// The name of the virtual machine group.
+	VMGroupName pulumi.StringPtrInput `pulumi:"vMGroupName"`
 	// The virtual network profile.
 	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput `pulumi:"virtualNetworkProfile"`
 }
@@ -7966,6 +8721,11 @@ func (o RoleResponseOutput) DataDisksGroups() DataDisksGroupsResponseArrayOutput
 	return o.ApplyT(func(v RoleResponse) []DataDisksGroupsResponse { return v.DataDisksGroups }).(DataDisksGroupsResponseArrayOutput)
 }
 
+// Indicates whether encrypt the data disks.
+func (o RoleResponseOutput) EncryptDataDisks() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleResponse) *bool { return v.EncryptDataDisks }).(pulumi.BoolPtrOutput)
+}
+
 // The hardware profile.
 func (o RoleResponseOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
 	return o.ApplyT(func(v RoleResponse) *HardwareProfileResponse { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
@@ -7994,6 +8754,11 @@ func (o RoleResponseOutput) ScriptActions() ScriptActionResponseArrayOutput {
 // The instance count of the cluster.
 func (o RoleResponseOutput) TargetInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoleResponse) *int { return v.TargetInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The name of the virtual machine group.
+func (o RoleResponseOutput) VMGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleResponse) *string { return v.VMGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The virtual network profile.
@@ -9566,6 +10331,8 @@ type StorageAccount struct {
 	Container *string `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem *string `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare *string `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault *bool `pulumi:"isDefault"`
 	// The storage account access key.
@@ -9576,6 +10343,8 @@ type StorageAccount struct {
 	Name *string `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId *string `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey *string `pulumi:"saskey"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -9595,6 +10364,8 @@ type StorageAccountArgs struct {
 	Container pulumi.StringPtrInput `pulumi:"container"`
 	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
 	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare pulumi.StringPtrInput `pulumi:"fileshare"`
 	// Whether or not the storage account is the default storage account.
 	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
 	// The storage account access key.
@@ -9605,6 +10376,8 @@ type StorageAccountArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey pulumi.StringPtrInput `pulumi:"saskey"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -9669,6 +10442,11 @@ func (o StorageAccountOutput) FileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
 }
 
+// The file share name.
+func (o StorageAccountOutput) Fileshare() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Fileshare }).(pulumi.StringPtrOutput)
+}
+
 // Whether or not the storage account is the default storage account.
 func (o StorageAccountOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
@@ -9694,6 +10472,11 @@ func (o StorageAccountOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The shared access signature key.
+func (o StorageAccountOutput) Saskey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Saskey }).(pulumi.StringPtrOutput)
+}
+
 type StorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountArrayOutput) ElementType() reflect.Type {
@@ -9712,6 +10495,178 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccount {
 		return vs[0].([]StorageAccount)[vs[1].(int)]
 	}).(StorageAccountOutput)
+}
+
+// The storage Account.
+type StorageAccountResponse struct {
+	// The container in the storage account, only to be specified for WASB storage accounts.
+	Container *string `pulumi:"container"`
+	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+	FileSystem *string `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare *string `pulumi:"fileshare"`
+	// Whether or not the storage account is the default storage account.
+	IsDefault *bool `pulumi:"isDefault"`
+	// The storage account access key.
+	Key *string `pulumi:"key"`
+	// The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+	MsiResourceId *string `pulumi:"msiResourceId"`
+	// The name of the storage account.
+	Name *string `pulumi:"name"`
+	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+	ResourceId *string `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey *string `pulumi:"saskey"`
+}
+
+// StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
+// You can construct a concrete instance of `StorageAccountResponseInput` via:
+//
+//          StorageAccountResponseArgs{...}
+type StorageAccountResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountResponseOutput() StorageAccountResponseOutput
+	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
+}
+
+// The storage Account.
+type StorageAccountResponseArgs struct {
+	// The container in the storage account, only to be specified for WASB storage accounts.
+	Container pulumi.StringPtrInput `pulumi:"container"`
+	// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
+	// The file share name.
+	Fileshare pulumi.StringPtrInput `pulumi:"fileshare"`
+	// Whether or not the storage account is the default storage account.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// The storage account access key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+	MsiResourceId pulumi.StringPtrInput `pulumi:"msiResourceId"`
+	// The name of the storage account.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The shared access signature key.
+	Saskey pulumi.StringPtrInput `pulumi:"saskey"`
+}
+
+func (StorageAccountResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
+	return i.ToStorageAccountResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountResponseArgs) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput)
+}
+
+// StorageAccountResponseArrayInput is an input type that accepts StorageAccountResponseArray and StorageAccountResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountResponseArrayInput` via:
+//
+//          StorageAccountResponseArray{ StorageAccountResponseArgs{...} }
+type StorageAccountResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput
+	ToStorageAccountResponseArrayOutputWithContext(context.Context) StorageAccountResponseArrayOutput
+}
+
+type StorageAccountResponseArray []StorageAccountResponseInput
+
+func (StorageAccountResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountResponse)(nil)).Elem()
+}
+
+func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput {
+	return i.ToStorageAccountResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithContext(ctx context.Context) StorageAccountResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
+}
+
+// The storage Account.
+type StorageAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
+	return o
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
+	return o
+}
+
+// The container in the storage account, only to be specified for WASB storage accounts.
+func (o StorageAccountResponseOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+func (o StorageAccountResponseOutput) FileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
+}
+
+// The file share name.
+func (o StorageAccountResponseOutput) Fileshare() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Fileshare }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the storage account is the default storage account.
+func (o StorageAccountResponseOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The storage account access key.
+func (o StorageAccountResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
+func (o StorageAccountResponseOutput) MsiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.MsiResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage account.
+func (o StorageAccountResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+func (o StorageAccountResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The shared access signature key.
+func (o StorageAccountResponseOutput) Saskey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Saskey }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponseArrayOutput) ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountResponseArrayOutput) ToStorageAccountResponseArrayOutputWithContext(ctx context.Context) StorageAccountResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountResponse {
+		return vs[0].([]StorageAccountResponse)[vs[1].(int)]
+	}).(StorageAccountResponseOutput)
 }
 
 // The storage profile.
@@ -9846,6 +10801,140 @@ func (o StorageProfilePtrOutput) Storageaccounts() StorageAccountArrayOutput {
 		}
 		return v.Storageaccounts
 	}).(StorageAccountArrayOutput)
+}
+
+// The storage profile.
+type StorageProfileResponse struct {
+	// The list of storage accounts in the cluster.
+	Storageaccounts []StorageAccountResponse `pulumi:"storageaccounts"`
+}
+
+// StorageProfileResponseInput is an input type that accepts StorageProfileResponseArgs and StorageProfileResponseOutput values.
+// You can construct a concrete instance of `StorageProfileResponseInput` via:
+//
+//          StorageProfileResponseArgs{...}
+type StorageProfileResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileResponseOutput() StorageProfileResponseOutput
+	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
+}
+
+// The storage profile.
+type StorageProfileResponseArgs struct {
+	// The list of storage accounts in the cluster.
+	Storageaccounts StorageAccountResponseArrayInput `pulumi:"storageaccounts"`
+}
+
+func (StorageProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileResponse)(nil)).Elem()
+}
+
+func (i StorageProfileResponseArgs) ToStorageProfileResponseOutput() StorageProfileResponseOutput {
+	return i.ToStorageProfileResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileResponseArgs) ToStorageProfileResponseOutputWithContext(ctx context.Context) StorageProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponseOutput)
+}
+
+func (i StorageProfileResponseArgs) ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput {
+	return i.ToStorageProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageProfileResponseArgs) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponseOutput).ToStorageProfileResponsePtrOutputWithContext(ctx)
+}
+
+// StorageProfileResponsePtrInput is an input type that accepts StorageProfileResponseArgs, StorageProfileResponsePtr and StorageProfileResponsePtrOutput values.
+// You can construct a concrete instance of `StorageProfileResponsePtrInput` via:
+//
+//          StorageProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput
+	ToStorageProfileResponsePtrOutputWithContext(context.Context) StorageProfileResponsePtrOutput
+}
+
+type storageProfileResponsePtrType StorageProfileResponseArgs
+
+func StorageProfileResponsePtr(v *StorageProfileResponseArgs) StorageProfileResponsePtrInput {
+	return (*storageProfileResponsePtrType)(v)
+}
+
+func (*storageProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageProfileResponse)(nil)).Elem()
+}
+
+func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput {
+	return i.ToStorageProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
+}
+
+// The storage profile.
+type StorageProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileResponse)(nil)).Elem()
+}
+
+func (o StorageProfileResponseOutput) ToStorageProfileResponseOutput() StorageProfileResponseOutput {
+	return o
+}
+
+func (o StorageProfileResponseOutput) ToStorageProfileResponseOutputWithContext(ctx context.Context) StorageProfileResponseOutput {
+	return o
+}
+
+func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput {
+	return o.ToStorageProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+		return &v
+	}).(StorageProfileResponsePtrOutput)
+}
+
+// The list of storage accounts in the cluster.
+func (o StorageProfileResponseOutput) Storageaccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v StorageProfileResponse) []StorageAccountResponse { return v.Storageaccounts }).(StorageAccountResponseArrayOutput)
+}
+
+type StorageProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageProfileResponse)(nil)).Elem()
+}
+
+func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutput() StorageProfileResponsePtrOutput {
+	return o
+}
+
+func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
+	return o
+}
+
+func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+}
+
+// The list of storage accounts in the cluster.
+func (o StorageProfileResponsePtrOutput) Storageaccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) []StorageAccountResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Storageaccounts
+	}).(StorageAccountResponseArrayOutput)
 }
 
 // The virtual network properties.
@@ -10205,6 +11294,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ComputeIsolationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputeProfileOutput{})
 	pulumi.RegisterOutputType(ComputeProfilePtrOutput{})
 	pulumi.RegisterOutputType(ComputeProfileResponseOutput{})
@@ -10227,6 +11322,8 @@ func init() {
 	pulumi.RegisterOutputType(ErrorsArrayOutput{})
 	pulumi.RegisterOutputType(ErrorsResponseOutput{})
 	pulumi.RegisterOutputType(ErrorsResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExcludedServicesConfigResponseOutput{})
+	pulumi.RegisterOutputType(ExcludedServicesConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileOutput{})
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
@@ -10275,8 +11372,12 @@ func init() {
 	pulumi.RegisterOutputType(SshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
+	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

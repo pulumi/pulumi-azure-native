@@ -29,7 +29,7 @@ type Topic struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the topic.
 	MetricResourceId pulumi.StringOutput `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the topic.
@@ -41,7 +41,7 @@ type Topic struct {
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -57,6 +57,9 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -175,7 +178,7 @@ type topicState struct {
 	Location *string `pulumi:"location"`
 	// Metric resource id for the topic.
 	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name                       *string                             `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the topic.
@@ -187,7 +190,7 @@ type topicState struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -206,7 +209,7 @@ type TopicState struct {
 	Location pulumi.StringPtrInput
 	// Metric resource id for the topic.
 	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name                       pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Provisioning state of the topic.
@@ -218,7 +221,7 @@ type TopicState struct {
 	Sku ResourceSkuResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to Topic resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -232,6 +238,7 @@ namespace Pulumi.AzureNative.EventGrid
         public TopicArgs()
         {
             InputSchema = "EventGridSchema";
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

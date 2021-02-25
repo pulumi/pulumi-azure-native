@@ -32,7 +32,7 @@ class User(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,11 +68,13 @@ class User(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if user_type is None and not opts.urn:
+                raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
             __props__['share_access_rights'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:User"), pulumi.Alias(type_="azure-nextgen:databoxedge:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:User"), pulumi.Alias(type_="azure-nextgen:databoxedge:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:User"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:databoxedge/latest:User',
@@ -140,7 +142,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userType")
-    def user_type(self) -> pulumi.Output[Optional[str]]:
+    def user_type(self) -> pulumi.Output[str]:
         """
         Type of the user.
         """

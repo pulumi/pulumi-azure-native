@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public static DataConnectorKind AzureAdvancedThreatProtection { get; } = new DataConnectorKind("AzureAdvancedThreatProtection");
         public static DataConnectorKind MicrosoftDefenderAdvancedThreatProtection { get; } = new DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection");
         public static DataConnectorKind Dynamics365 { get; } = new DataConnectorKind("Dynamics365");
+        public static DataConnectorKind MicrosoftThreatProtection { get; } = new DataConnectorKind("MicrosoftThreatProtection");
+        public static DataConnectorKind MicrosoftThreatIntelligence { get; } = new DataConnectorKind("MicrosoftThreatIntelligence");
 
         public static bool operator ==(DataConnectorKind left, DataConnectorKind right) => left.Equals(right);
         public static bool operator !=(DataConnectorKind left, DataConnectorKind right) => !left.Equals(right);

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301.Inputs
         public Input<string>? VersionQueryName { get; set; }
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.V20170301.VersioningScheme> VersioningScheme { get; set; } = null!;

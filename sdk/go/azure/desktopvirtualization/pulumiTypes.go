@@ -1140,18 +1140,18 @@ type ScalingSchedule struct {
 	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
 	// Notification message for users during ramp down period.
 	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownNotificationMinutes *int `pulumi:"rampDownNotificationMinutes"`
 	// Starting time for ramp down period.
 	RampDownStartTime *string `pulumi:"rampDownStartTime"`
 	// Specifies when to stop hosts during ramp down period.
 	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Load balancing algorithm for ramp up period.
-	RampUpAlgorithm *string `pulumi:"rampUpAlgorithm"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
 	// Capacity threshold for ramp up period.
 	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
 	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostPct *int `pulumi:"rampUpMinimumHostPct"`
+	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
 	// Starting time for ramp up period.
 	RampUpStartTime *string `pulumi:"rampUpStartTime"`
 }
@@ -1191,18 +1191,18 @@ type ScalingScheduleArgs struct {
 	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
 	// Notification message for users during ramp down period.
 	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownNotificationMinutes pulumi.IntPtrInput `pulumi:"rampDownNotificationMinutes"`
 	// Starting time for ramp down period.
 	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
 	// Specifies when to stop hosts during ramp down period.
 	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Load balancing algorithm for ramp up period.
-	RampUpAlgorithm pulumi.StringPtrInput `pulumi:"rampUpAlgorithm"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
 	// Capacity threshold for ramp up period.
 	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
 	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostPct"`
+	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
 	// Starting time for ramp up period.
 	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
 }
@@ -1314,11 +1314,6 @@ func (o ScalingScheduleOutput) RampDownNotificationMessage() pulumi.StringPtrOut
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
-func (o ScalingScheduleOutput) RampDownNotificationMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownNotificationMinutes }).(pulumi.IntPtrOutput)
-}
-
 // Starting time for ramp down period.
 func (o ScalingScheduleOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
@@ -1329,9 +1324,9 @@ func (o ScalingScheduleOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
-func (o ScalingScheduleOutput) RampUpAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpAlgorithm }).(pulumi.StringPtrOutput)
+// Number of minutes to wait to stop hosts during ramp down period.
+func (o ScalingScheduleOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Capacity threshold for ramp up period.
@@ -1339,9 +1334,14 @@ func (o ScalingScheduleOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
+// Load balancing algorithm for ramp up period.
+func (o ScalingScheduleOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
 // Minimum host percentage for ramp up period.
-func (o ScalingScheduleOutput) RampUpMinimumHostPct() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpMinimumHostPct }).(pulumi.IntPtrOutput)
+func (o ScalingScheduleOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
 // Starting time for ramp up period.
@@ -1393,18 +1393,18 @@ type ScalingScheduleResponse struct {
 	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
 	// Notification message for users during ramp down period.
 	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownNotificationMinutes *int `pulumi:"rampDownNotificationMinutes"`
 	// Starting time for ramp down period.
 	RampDownStartTime *string `pulumi:"rampDownStartTime"`
 	// Specifies when to stop hosts during ramp down period.
 	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Load balancing algorithm for ramp up period.
-	RampUpAlgorithm *string `pulumi:"rampUpAlgorithm"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
 	// Capacity threshold for ramp up period.
 	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
 	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostPct *int `pulumi:"rampUpMinimumHostPct"`
+	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
 	// Starting time for ramp up period.
 	RampUpStartTime *string `pulumi:"rampUpStartTime"`
 }
@@ -1444,18 +1444,18 @@ type ScalingScheduleResponseArgs struct {
 	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
 	// Notification message for users during ramp down period.
 	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownNotificationMinutes pulumi.IntPtrInput `pulumi:"rampDownNotificationMinutes"`
 	// Starting time for ramp down period.
 	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
 	// Specifies when to stop hosts during ramp down period.
 	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Load balancing algorithm for ramp up period.
-	RampUpAlgorithm pulumi.StringPtrInput `pulumi:"rampUpAlgorithm"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
 	// Capacity threshold for ramp up period.
 	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
 	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostPct"`
+	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
 	// Starting time for ramp up period.
 	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
 }
@@ -1567,11 +1567,6 @@ func (o ScalingScheduleResponseOutput) RampDownNotificationMessage() pulumi.Stri
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
-func (o ScalingScheduleResponseOutput) RampDownNotificationMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownNotificationMinutes }).(pulumi.IntPtrOutput)
-}
-
 // Starting time for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
@@ -1582,9 +1577,9 @@ func (o ScalingScheduleResponseOutput) RampDownStopHostsWhen() pulumi.StringPtrO
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
-func (o ScalingScheduleResponseOutput) RampUpAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpAlgorithm }).(pulumi.StringPtrOutput)
+// Number of minutes to wait to stop hosts during ramp down period.
+func (o ScalingScheduleResponseOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Capacity threshold for ramp up period.
@@ -1592,9 +1587,14 @@ func (o ScalingScheduleResponseOutput) RampUpCapacityThresholdPct() pulumi.IntPt
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
+// Load balancing algorithm for ramp up period.
+func (o ScalingScheduleResponseOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
 // Minimum host percentage for ramp up period.
-func (o ScalingScheduleResponseOutput) RampUpMinimumHostPct() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpMinimumHostPct }).(pulumi.IntPtrOutput)
+func (o ScalingScheduleResponseOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
 // Starting time for ramp up period.

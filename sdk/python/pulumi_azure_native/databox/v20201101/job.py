@@ -65,6 +65,8 @@ class Job(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['delivery_info'] = delivery_info
+            if delivery_type is None:
+                delivery_type = 'NonScheduled'
             __props__['delivery_type'] = delivery_type
             __props__['details'] = details
             __props__['identity'] = identity

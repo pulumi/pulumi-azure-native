@@ -64,7 +64,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -114,7 +114,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;

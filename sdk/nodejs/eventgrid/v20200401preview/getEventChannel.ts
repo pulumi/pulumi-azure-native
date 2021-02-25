@@ -60,7 +60,7 @@ export interface GetEventChannelResult {
      */
     readonly id: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -81,7 +81,11 @@ export interface GetEventChannelResult {
      */
     readonly source?: outputs.eventgrid.v20200401preview.EventChannelSourceResponse;
     /**
-     * Type of the resource
+     * The system metadata relating to Event Channel resource.
+     */
+    readonly systemData: outputs.eventgrid.v20200401preview.SystemDataResponse;
+    /**
+     * Type of the resource.
      */
     readonly type: string;
 }

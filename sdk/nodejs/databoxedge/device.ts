@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -208,7 +208,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Device" }, { type: "azure-nextgen:databoxedge/latest:Device" }, { type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-nextgen:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-nextgen:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-nextgen:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-nextgen:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-nextgen:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-nextgen:databoxedge/v20200901preview:Device" }, { type: "azure-native:databoxedge/v20201201:Device" }, { type: "azure-nextgen:databoxedge/v20201201:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, inputs, opts);
     }

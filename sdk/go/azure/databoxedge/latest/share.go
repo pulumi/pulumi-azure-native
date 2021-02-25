@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Share'.
 type Share struct {
@@ -110,6 +110,12 @@ func NewShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Share"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Share"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Share"),
 		},
 	})
 	opts = append(opts, aliases)

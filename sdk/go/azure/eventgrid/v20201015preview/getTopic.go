@@ -56,6 +56,8 @@ type LookupTopicResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the topic.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The system metadata relating to Topic resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.

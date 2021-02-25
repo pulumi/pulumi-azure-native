@@ -80,6 +80,10 @@ export interface GetPublicIPPrefixResult {
      */
     readonly name: string;
     /**
+     * NatGateway of Public IP Prefix.
+     */
+    readonly natGateway?: outputs.network.NatGatewayResponse;
+    /**
      * The Length of the Public IP Prefix.
      */
     readonly prefixLength?: number;

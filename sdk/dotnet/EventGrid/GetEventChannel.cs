@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Event Channel.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2020-10-15-preview.
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -88,7 +88,11 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly Outputs.EventChannelSourceResponse? Source;
         /// <summary>
-        /// Type of the resource
+        /// The system metadata relating to Event Channel resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
 
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.EventGrid
 
             Outputs.EventChannelSourceResponse? source,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Destination = destination;
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.EventGrid
             PartnerTopicReadinessState = partnerTopicReadinessState;
             ProvisioningState = provisioningState;
             Source = source;
+            SystemData = systemData;
             Type = type;
         }
     }

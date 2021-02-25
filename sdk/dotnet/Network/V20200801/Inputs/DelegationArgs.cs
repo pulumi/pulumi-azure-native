@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public DelegationArgs()
         {
         }

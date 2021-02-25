@@ -111,6 +111,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
             set => _nodeLabels = value;
         }
 
+        /// <summary>
+        /// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        /// </summary>
+        [Input("nodePublicIPPrefixID")]
+        public Input<string>? NodePublicIPPrefixID { get; set; }
+
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
 

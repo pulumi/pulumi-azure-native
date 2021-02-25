@@ -48,7 +48,7 @@ type LookupEventChannelResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source *EventChannelSourceResponse `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Event Channel resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource.
 	Type string `pulumi:"type"`

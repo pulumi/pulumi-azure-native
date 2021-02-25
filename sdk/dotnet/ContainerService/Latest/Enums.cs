@@ -382,6 +382,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         }
 
         public static KubeletDiskType OS { get; } = new KubeletDiskType("OS");
+        public static KubeletDiskType Temporary { get; } = new KubeletDiskType("Temporary");
 
         public static bool operator ==(KubeletDiskType left, KubeletDiskType right) => left.Equals(right);
         public static bool operator !=(KubeletDiskType left, KubeletDiskType right) => !left.Equals(right);

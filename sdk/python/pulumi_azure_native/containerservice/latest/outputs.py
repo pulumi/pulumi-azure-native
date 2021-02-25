@@ -1225,6 +1225,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  min_count: Optional[int] = None,
                  mode: Optional[str] = None,
                  node_labels: Optional[Mapping[str, str]] = None,
+                 node_public_ip_prefix_id: Optional[str] = None,
                  node_taints: Optional[Sequence[str]] = None,
                  orchestrator_version: Optional[str] = None,
                  os_disk_size_gb: Optional[int] = None,
@@ -1259,6 +1260,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param int min_count: Minimum number of nodes for auto-scaling
         :param str mode: AgentPoolMode represents mode of an agent pool
         :param Mapping[str, str] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
+        :param str node_public_ip_prefix_id: Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
         :param Sequence[str] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param str orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
@@ -1305,6 +1307,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "mode", mode)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id is not None:
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if orchestrator_version is not None:
@@ -1471,6 +1475,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         Agent pool node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIPPrefixID")
+    def node_public_ip_prefix_id(self) -> Optional[str]:
+        """
+        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="nodeTaints")
@@ -1930,20 +1942,32 @@ class ManagedClusterPodIdentityExceptionResponse(dict):
 @pulumi.output_type
 class ManagedClusterPodIdentityProfileResponse(dict):
     def __init__(__self__, *,
+                 allow_network_plugin_kubenet: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  user_assigned_identities: Optional[Sequence['outputs.ManagedClusterPodIdentityResponse']] = None,
                  user_assigned_identity_exceptions: Optional[Sequence['outputs.ManagedClusterPodIdentityExceptionResponse']] = None):
         """
+        :param bool allow_network_plugin_kubenet: Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
         :param bool enabled: Whether the pod identity addon is enabled.
         :param Sequence['ManagedClusterPodIdentityResponseArgs'] user_assigned_identities: User assigned pod identity settings.
         :param Sequence['ManagedClusterPodIdentityExceptionResponseArgs'] user_assigned_identity_exceptions: User assigned pod identity exception settings.
         """
+        if allow_network_plugin_kubenet is not None:
+            pulumi.set(__self__, "allow_network_plugin_kubenet", allow_network_plugin_kubenet)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
         if user_assigned_identity_exceptions is not None:
             pulumi.set(__self__, "user_assigned_identity_exceptions", user_assigned_identity_exceptions)
+
+    @property
+    @pulumi.getter(name="allowNetworkPluginKubenet")
+    def allow_network_plugin_kubenet(self) -> Optional[bool]:
+        """
+        Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+        """
+        return pulumi.get(self, "allow_network_plugin_kubenet")
 
     @property
     @pulumi.getter

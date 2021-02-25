@@ -8,7 +8,7 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:databoxedge:getDevice", args, &rv, opts...)

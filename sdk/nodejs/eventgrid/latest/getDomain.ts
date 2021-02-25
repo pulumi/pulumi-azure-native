@@ -86,6 +86,10 @@ export interface GetDomainResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * The system metadata relating to Domain resource.
+     */
+    readonly systemData: outputs.eventgrid.latest.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};

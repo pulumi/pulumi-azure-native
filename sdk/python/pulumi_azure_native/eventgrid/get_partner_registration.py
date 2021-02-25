@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetPartnerRegistrationResult',
@@ -19,7 +20,7 @@ class GetPartnerRegistrationResult:
     """
     Information about a partner registration.
     """
-    def __init__(__self__, authorized_azure_subscription_ids=None, customer_service_uri=None, id=None, location=None, logo_uri=None, long_description=None, name=None, partner_customer_service_extension=None, partner_customer_service_number=None, partner_name=None, partner_resource_type_description=None, partner_resource_type_display_name=None, partner_resource_type_name=None, provisioning_state=None, setup_uri=None, tags=None, type=None, visibility_state=None):
+    def __init__(__self__, authorized_azure_subscription_ids=None, customer_service_uri=None, id=None, location=None, logo_uri=None, long_description=None, name=None, partner_customer_service_extension=None, partner_customer_service_number=None, partner_name=None, partner_resource_type_description=None, partner_resource_type_display_name=None, partner_resource_type_name=None, provisioning_state=None, setup_uri=None, system_data=None, tags=None, type=None, visibility_state=None):
         if authorized_azure_subscription_ids and not isinstance(authorized_azure_subscription_ids, list):
             raise TypeError("Expected argument 'authorized_azure_subscription_ids' to be a list")
         pulumi.set(__self__, "authorized_azure_subscription_ids", authorized_azure_subscription_ids)
@@ -65,6 +66,9 @@ class GetPartnerRegistrationResult:
         if setup_uri and not isinstance(setup_uri, str):
             raise TypeError("Expected argument 'setup_uri' to be a str")
         pulumi.set(__self__, "setup_uri", setup_uri)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -131,7 +135,7 @@ class GetPartnerRegistrationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -204,6 +208,14 @@ class GetPartnerRegistrationResult:
         return pulumi.get(self, "setup_uri")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Partner Registration resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -215,7 +227,7 @@ class GetPartnerRegistrationResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -249,6 +261,7 @@ class AwaitableGetPartnerRegistrationResult(GetPartnerRegistrationResult):
             partner_resource_type_name=self.partner_resource_type_name,
             provisioning_state=self.provisioning_state,
             setup_uri=self.setup_uri,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             visibility_state=self.visibility_state)
@@ -259,7 +272,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerRegistrationResult:
     """
     Information about a partner registration.
-    API Version: 2020-04-01-preview.
+    API Version: 2020-10-15-preview.
 
 
     :param str partner_registration_name: Name of the partner registration.
@@ -290,6 +303,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
         partner_resource_type_name=__ret__.partner_resource_type_name,
         provisioning_state=__ret__.provisioning_state,
         setup_uri=__ret__.setup_uri,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         visibility_state=__ret__.visibility_state)

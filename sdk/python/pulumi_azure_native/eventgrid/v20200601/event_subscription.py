@@ -64,6 +64,8 @@ class EventSubscription(pulumi.CustomResource):
 
             __props__['dead_letter_destination'] = dead_letter_destination
             __props__['destination'] = destination
+            if event_delivery_schema is None:
+                event_delivery_schema = 'EventGridSchema'
             __props__['event_delivery_schema'] = event_delivery_schema
             __props__['event_subscription_name'] = event_subscription_name
             __props__['expiration_time_utc'] = expiration_time_utc
@@ -75,6 +77,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['topic'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/latest:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/latest:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:EventSubscription")])
@@ -174,6 +177,14 @@ class EventSubscription(pulumi.CustomResource):
         The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """
         return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to Event Subscription resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

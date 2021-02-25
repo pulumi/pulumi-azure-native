@@ -22,9 +22,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Pfx;
         /// <summary>
-        /// Resource for which Azure Auth token will be requested when using MSI Authentication.
+        /// Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? Resource;
+        public readonly object? Resource;
         /// <summary>
         /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         /// </summary>
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? UserTenant;
         /// <summary>
-        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        /// Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private WebActivityAuthenticationResponse(
@@ -44,13 +44,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? pfx,
 
-            string? resource,
+            object? resource,
 
             string type,
 
             object? userTenant,
 
-            string? username)
+            object? username)
         {
             Password = password;
             Pfx = pfx;

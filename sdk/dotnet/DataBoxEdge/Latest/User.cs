@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.")]
     [AzureNativeResourceType("azure-native:databoxedge/latest:User")]
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
         /// Type of the user.
         /// </summary>
         [Output("userType")]
-        public Output<string?> UserType { get; private set; } = null!;
+        public Output<string> UserType { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,8 +144,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
         /// <summary>
         /// Type of the user.
         /// </summary>
-        [Input("userType")]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.UserType>? UserType { get; set; }
+        [Input("userType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.Latest.UserType> UserType { get; set; } = null!;
 
         public UserArgs()
         {

@@ -50,14 +50,16 @@ type LookupPartnerTopicEventSubscriptionResult struct {
 	Id string `pulumi:"id"`
 	// List of user defined labels.
 	Labels []string `pulumi:"labels"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the event subscription.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic string `pulumi:"topic"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

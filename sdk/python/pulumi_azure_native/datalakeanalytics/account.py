@@ -117,6 +117,7 @@ class Account(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['public_data_lake_store_accounts'] = None
             __props__['state'] = None
             __props__['system_max_degree_of_parallelism'] = None
             __props__['system_max_job_count'] = None
@@ -214,7 +215,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> pulumi.Output[str]:
+    def firewall_allow_azure_ips(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
@@ -230,7 +231,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> pulumi.Output[str]:
+    def firewall_state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the IP address firewall for this account.
         """
@@ -270,7 +271,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[int]:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum supported degree of parallelism per job for this account.
         """
@@ -302,7 +303,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> pulumi.Output[str]:
+    def new_tier(self) -> pulumi.Output[Optional[str]]:
         """
         The commitment tier for the next month.
         """
@@ -315,6 +316,14 @@ class Account(pulumi.CustomResource):
         The provisioning status of the Data Lake Analytics account.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicDataLakeStoreAccounts")
+    def public_data_lake_store_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.DataLakeStoreAccountInformationResponse']]]:
+        """
+        The list of Data Lake Store accounts associated with this account.
+        """
+        return pulumi.get(self, "public_data_lake_store_accounts")
 
     @property
     @pulumi.getter(name="queryStoreRetention")

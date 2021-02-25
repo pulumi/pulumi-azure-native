@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DataBox.V20180101.Inputs
 
         public ShippingAddressArgs()
         {
+            AddressType = "None";
         }
     }
 }

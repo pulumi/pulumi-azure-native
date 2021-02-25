@@ -54,6 +54,8 @@ namespace Pulumi.AzureNative.EventGrid.Latest.Inputs
 
         public WebHookEventSubscriptionDestinationArgs()
         {
+            MaxEventsPerBatch = 1;
+            PreferredBatchSizeInKilobytes = 64;
         }
     }
 }

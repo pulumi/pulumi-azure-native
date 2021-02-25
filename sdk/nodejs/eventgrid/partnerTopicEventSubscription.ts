@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export class PartnerTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -73,7 +73,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -85,11 +85,15 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.RetryPolicyResponse | undefined>;
     /**
+     * The system metadata relating to Event Subscription resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    /**
      * Name of the topic of the event subscription.
      */
     public /*out*/ readonly topic!: pulumi.Output<string>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -114,7 +118,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             inputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
             inputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
             inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) || "EventGridSchema";
             inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["filter"] = args ? args.filter : undefined;
@@ -124,6 +128,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -138,6 +143,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["retryPolicy"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

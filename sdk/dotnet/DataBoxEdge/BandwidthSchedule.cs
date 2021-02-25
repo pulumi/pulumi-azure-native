@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The bandwidth schedule details.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:BandwidthSchedule")]
     public partial class BandwidthSchedule : Pulumi.CustomResource
@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

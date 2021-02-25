@@ -13,6 +13,7 @@ from . import outputs
 # Make subpackages available:
 from . import (
     v20200701preview,
+    v20210201preview,
 )
 
 def _register_module():

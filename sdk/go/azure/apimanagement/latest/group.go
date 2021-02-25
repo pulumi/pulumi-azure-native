@@ -109,6 +109,12 @@ func NewGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Group"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:Group"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Group"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Group

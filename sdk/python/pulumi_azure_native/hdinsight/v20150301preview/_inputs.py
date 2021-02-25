@@ -22,6 +22,8 @@ __all__ = [
     'ClusterCreatePropertiesArgs',
     'ClusterDefinitionArgs',
     'ClusterIdentityArgs',
+    'ClusterIdentityUserAssignedIdentitiesArgs',
+    'ComputeIsolationPropertiesArgs',
     'ComputeProfileArgs',
     'DataDisksGroupsArgs',
     'DiskEncryptionPropertiesArgs',
@@ -48,17 +50,21 @@ class ApplicationGetEndpointArgs:
     def __init__(__self__, *,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  public_port: Optional[pulumi.Input[int]] = None):
         """
         Gets the application SSH endpoint
         :param pulumi.Input[int] destination_port: The destination port to connect to.
         :param pulumi.Input[str] location: The location of the endpoint.
+        :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
         :param pulumi.Input[int] public_port: The public port to connect to.
         """
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_port is not None:
             pulumi.set(__self__, "public_port", public_port)
 
@@ -87,6 +93,18 @@ class ApplicationGetEndpointArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
     @pulumi.getter(name="publicPort")
     def public_port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -105,16 +123,14 @@ class ApplicationGetHttpsEndpointArgs:
                  access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  disable_gateway_auth: Optional[pulumi.Input[bool]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 public_port: Optional[pulumi.Input[int]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  sub_domain_suffix: Optional[pulumi.Input[str]] = None):
         """
         Gets the application HTTP endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_modes: The list of access modes for the application.
         :param pulumi.Input[int] destination_port: The destination port to connect to.
-        :param pulumi.Input[bool] disable_gateway_auth: Disable gateway authentication.
-        :param pulumi.Input[str] location: The location of the endpoint.
-        :param pulumi.Input[int] public_port: The public port to connect to.
+        :param pulumi.Input[bool] disable_gateway_auth: The value indicates whether to disable GatewayAuth.
+        :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
         :param pulumi.Input[str] sub_domain_suffix: The subdomain suffix of the application.
         """
         if access_modes is not None:
@@ -123,10 +139,8 @@ class ApplicationGetHttpsEndpointArgs:
             pulumi.set(__self__, "destination_port", destination_port)
         if disable_gateway_auth is not None:
             pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if sub_domain_suffix is not None:
             pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
 
@@ -158,7 +172,7 @@ class ApplicationGetHttpsEndpointArgs:
     @pulumi.getter(name="disableGatewayAuth")
     def disable_gateway_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disable gateway authentication.
+        The value indicates whether to disable GatewayAuth.
         """
         return pulumi.get(self, "disable_gateway_auth")
 
@@ -167,28 +181,16 @@ class ApplicationGetHttpsEndpointArgs:
         pulumi.set(self, "disable_gateway_auth", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the endpoint.
+        The private ip address of the endpoint.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "private_ip_address")
 
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The public port to connect to.
-        """
-        return pulumi.get(self, "public_port")
-
-    @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "public_port", value)
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
 
     @property
     @pulumi.getter(name="subDomainSuffix")
@@ -584,6 +586,7 @@ class ClusterCreatePropertiesArgs:
     def __init__(__self__, *,
                  cluster_definition: Optional[pulumi.Input['ClusterDefinitionArgs']] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
+                 compute_isolation_properties: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']] = None,
                  compute_profile: Optional[pulumi.Input['ComputeProfileArgs']] = None,
                  disk_encryption_properties: Optional[pulumi.Input['DiskEncryptionPropertiesArgs']] = None,
                  encryption_in_transit_properties: Optional[pulumi.Input['EncryptionInTransitPropertiesArgs']] = None,
@@ -598,6 +601,7 @@ class ClusterCreatePropertiesArgs:
         The cluster create parameters.
         :param pulumi.Input['ClusterDefinitionArgs'] cluster_definition: The cluster definition.
         :param pulumi.Input[str] cluster_version: The version of the cluster.
+        :param pulumi.Input['ComputeIsolationPropertiesArgs'] compute_isolation_properties: The compute isolation properties.
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: The compute profile.
         :param pulumi.Input['DiskEncryptionPropertiesArgs'] disk_encryption_properties: The disk encryption properties.
         :param pulumi.Input['EncryptionInTransitPropertiesArgs'] encryption_in_transit_properties: The encryption-in-transit properties.
@@ -613,6 +617,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "cluster_definition", cluster_definition)
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
+        if compute_isolation_properties is not None:
+            pulumi.set(__self__, "compute_isolation_properties", compute_isolation_properties)
         if compute_profile is not None:
             pulumi.set(__self__, "compute_profile", compute_profile)
         if disk_encryption_properties is not None:
@@ -631,6 +637,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -657,6 +665,18 @@ class ClusterCreatePropertiesArgs:
     @cluster_version.setter
     def cluster_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="computeIsolationProperties")
+    def compute_isolation_properties(self) -> Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]:
+        """
+        The compute isolation properties.
+        """
+        return pulumi.get(self, "compute_isolation_properties")
+
+    @compute_isolation_properties.setter
+    def compute_isolation_properties(self, value: Optional[pulumi.Input['ComputeIsolationPropertiesArgs']]):
+        pulumi.set(self, "compute_isolation_properties", value)
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -855,11 +875,11 @@ class ClusterDefinitionArgs:
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]] = None):
         """
         Identity for the cluster.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -880,15 +900,78 @@ class ClusterIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]:
         """
         The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ClusterIdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__, *,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ComputeIsolationPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_compute_isolation: Optional[pulumi.Input[bool]] = None,
+                 host_sku: Optional[pulumi.Input[str]] = None):
+        """
+        The compute isolation properties.
+        :param pulumi.Input[bool] enable_compute_isolation: The flag indicates whether enable compute isolation or not.
+        :param pulumi.Input[str] host_sku: The host sku.
+        """
+        if enable_compute_isolation is not None:
+            pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
+        if host_sku is not None:
+            pulumi.set(__self__, "host_sku", host_sku)
+
+    @property
+    @pulumi.getter(name="enableComputeIsolation")
+    def enable_compute_isolation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicates whether enable compute isolation or not.
+        """
+        return pulumi.get(self, "enable_compute_isolation")
+
+    @enable_compute_isolation.setter
+    def enable_compute_isolation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_compute_isolation", value)
+
+    @property
+    @pulumi.getter(name="hostSku")
+    def host_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host sku.
+        """
+        return pulumi.get(self, "host_sku")
+
+    @host_sku.setter
+    def host_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_sku", value)
 
 
 @pulumi.input_type
@@ -1138,13 +1221,17 @@ class HardwareProfileArgs:
 @pulumi.input_type
 class KafkaRestPropertiesArgs:
     def __init__(__self__, *,
-                 client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None):
+                 client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None,
+                 configuration_override: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
         :param pulumi.Input['ClientGroupInfoArgs'] client_group_info: The information of AAD security group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_override: The configurations that need to be overriden.
         """
         if client_group_info is not None:
             pulumi.set(__self__, "client_group_info", client_group_info)
+        if configuration_override is not None:
+            pulumi.set(__self__, "configuration_override", configuration_override)
 
     @property
     @pulumi.getter(name="clientGroupInfo")
@@ -1157,6 +1244,18 @@ class KafkaRestPropertiesArgs:
     @client_group_info.setter
     def client_group_info(self, value: Optional[pulumi.Input['ClientGroupInfoArgs']]):
         pulumi.set(self, "client_group_info", value)
+
+    @property
+    @pulumi.getter(name="configurationOverride")
+    def configuration_override(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The configurations that need to be overriden.
+        """
+        return pulumi.get(self, "configuration_override")
+
+    @configuration_override.setter
+    def configuration_override(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration_override", value)
 
 
 @pulumi.input_type
@@ -1284,29 +1383,37 @@ class RoleArgs:
     def __init__(__self__, *,
                  autoscale_configuration: Optional[pulumi.Input['AutoscaleArgs']] = None,
                  data_disks_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]] = None,
+                 encrypt_data_disks: Optional[pulumi.Input[bool]] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
                  script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]] = None,
                  target_instance_count: Optional[pulumi.Input[int]] = None,
+                 v_m_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None):
         """
         Describes a role on the cluster.
         :param pulumi.Input['AutoscaleArgs'] autoscale_configuration: The autoscale configurations.
         :param pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]] data_disks_groups: The data disks groups for the role.
+        :param pulumi.Input[bool] encrypt_data_disks: Indicates whether encrypt the data disks.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: The hardware profile.
         :param pulumi.Input[int] min_instance_count: The minimum instance count of the cluster.
         :param pulumi.Input[str] name: The name of the role.
         :param pulumi.Input['OsProfileArgs'] os_profile: The operating system profile.
         :param pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]] script_actions: The list of script actions on the role.
         :param pulumi.Input[int] target_instance_count: The instance count of the cluster.
+        :param pulumi.Input[str] v_m_group_name: The name of the virtual machine group.
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if data_disks_groups is not None:
             pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is None:
+            encrypt_data_disks = False
+        if encrypt_data_disks is not None:
+            pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if min_instance_count is not None:
@@ -1319,6 +1426,8 @@ class RoleArgs:
             pulumi.set(__self__, "script_actions", script_actions)
         if target_instance_count is not None:
             pulumi.set(__self__, "target_instance_count", target_instance_count)
+        if v_m_group_name is not None:
+            pulumi.set(__self__, "v_m_group_name", v_m_group_name)
         if virtual_network_profile is not None:
             pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
 
@@ -1345,6 +1454,18 @@ class RoleArgs:
     @data_disks_groups.setter
     def data_disks_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]):
         pulumi.set(self, "data_disks_groups", value)
+
+    @property
+    @pulumi.getter(name="encryptDataDisks")
+    def encrypt_data_disks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether encrypt the data disks.
+        """
+        return pulumi.get(self, "encrypt_data_disks")
+
+    @encrypt_data_disks.setter
+    def encrypt_data_disks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypt_data_disks", value)
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -1417,6 +1538,18 @@ class RoleArgs:
     @target_instance_count.setter
     def target_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_instance_count", value)
+
+    @property
+    @pulumi.getter(name="vMGroupName")
+    def v_m_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual machine group.
+        """
+        return pulumi.get(self, "v_m_group_name")
+
+    @v_m_group_name.setter
+    def v_m_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_m_group_name", value)
 
     @property
     @pulumi.getter(name="virtualNetworkProfile")
@@ -1758,25 +1891,31 @@ class StorageAccountArgs:
     def __init__(__self__, *,
                  container: Optional[pulumi.Input[str]] = None,
                  file_system: Optional[pulumi.Input[str]] = None,
+                 fileshare: Optional[pulumi.Input[str]] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  msi_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 saskey: Optional[pulumi.Input[str]] = None):
         """
         The storage Account.
         :param pulumi.Input[str] container: The container in the storage account, only to be specified for WASB storage accounts.
         :param pulumi.Input[str] file_system: The filesystem, only to be specified for Azure Data Lake Storage Gen 2.
+        :param pulumi.Input[str] fileshare: The file share name.
         :param pulumi.Input[bool] is_default: Whether or not the storage account is the default storage account.
         :param pulumi.Input[str] key: The storage account access key.
         :param pulumi.Input[str] msi_resource_id: The managed identity (MSI) that is allowed to access the storage account, only to be specified for Azure Data Lake Storage Gen 2.
         :param pulumi.Input[str] name: The name of the storage account.
         :param pulumi.Input[str] resource_id: The resource ID of storage account, only to be specified for Azure Data Lake Storage Gen 2.
+        :param pulumi.Input[str] saskey: The shared access signature key.
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
         if file_system is not None:
             pulumi.set(__self__, "file_system", file_system)
+        if fileshare is not None:
+            pulumi.set(__self__, "fileshare", fileshare)
         if is_default is not None:
             pulumi.set(__self__, "is_default", is_default)
         if key is not None:
@@ -1787,6 +1926,8 @@ class StorageAccountArgs:
             pulumi.set(__self__, "name", name)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if saskey is not None:
+            pulumi.set(__self__, "saskey", saskey)
 
     @property
     @pulumi.getter
@@ -1811,6 +1952,18 @@ class StorageAccountArgs:
     @file_system.setter
     def file_system(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter
+    def fileshare(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file share name.
+        """
+        return pulumi.get(self, "fileshare")
+
+    @fileshare.setter
+    def fileshare(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fileshare", value)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -1871,6 +2024,18 @@ class StorageAccountArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter
+    def saskey(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access signature key.
+        """
+        return pulumi.get(self, "saskey")
+
+    @saskey.setter
+    def saskey(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "saskey", value)
 
 
 @pulumi.input_type

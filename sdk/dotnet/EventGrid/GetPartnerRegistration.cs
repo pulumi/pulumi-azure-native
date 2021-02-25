@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Information about a partner registration.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2020-10-15-preview.
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? LongDescription;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -112,11 +112,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? SetupUri;
         /// <summary>
+        /// The system metadata relating to Partner Registration resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? setupUri,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.EventGrid
             PartnerResourceTypeName = partnerResourceTypeName;
             ProvisioningState = provisioningState;
             SetupUri = setupUri;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VisibilityState = visibilityState;

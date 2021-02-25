@@ -63,7 +63,7 @@ export interface GetActionResult {
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */
-    readonly logicAppResourceId?: string;
+    readonly logicAppResourceId: string;
     /**
      * Azure resource name
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// maintenance configuration.
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

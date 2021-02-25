@@ -19,6 +19,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
+        :param pulumi.Input[str] location: The location of the private endpoint connection
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Cognitive Services Account
         :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -56,11 +58,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['location'] = location
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection")])
@@ -88,6 +92,22 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__ = dict()
 
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Entity Tag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location of the private endpoint connection
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

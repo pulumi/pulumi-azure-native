@@ -50,7 +50,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly id: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -66,7 +66,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState?: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

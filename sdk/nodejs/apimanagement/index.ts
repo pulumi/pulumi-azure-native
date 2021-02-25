@@ -38,6 +38,7 @@ export * from "./getApiIssue";
 export * from "./getApiIssueAttachment";
 export * from "./getApiIssueComment";
 export * from "./getApiManagementService";
+export * from "./getApiManagementServiceDomainOwnershipIdentifier";
 export * from "./getApiManagementServiceSsoToken";
 export * from "./getApiOperation";
 export * from "./getApiOperationPolicy";
@@ -116,6 +117,7 @@ import * as v20190101 from "./v20190101";
 import * as v20191201 from "./v20191201";
 import * as v20191201preview from "./v20191201preview";
 import * as v20200601preview from "./v20200601preview";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -128,6 +130,7 @@ export {
     v20191201,
     v20191201preview,
     v20200601preview,
+    v20201201,
 };
 
 // Import resources to register:

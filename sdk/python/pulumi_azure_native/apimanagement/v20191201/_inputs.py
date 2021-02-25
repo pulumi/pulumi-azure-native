@@ -281,7 +281,7 @@ class ApiVersionSetContractDetailsArgs:
         :param pulumi.Input[str] name: The display Name of the API Version Set.
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-        :param pulumi.Input[str] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
+        :param pulumi.Input[str] versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -360,7 +360,7 @@ class ApiVersionSetContractDetailsArgs:
     @pulumi.getter(name="versioningScheme")
     def versioning_scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        An value that determines where the API Version identifer will be located in a HTTP request.
+        An value that determines where the API Version identifier will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
 

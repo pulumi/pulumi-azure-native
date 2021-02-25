@@ -255,6 +255,7 @@ namespace Pulumi.AzureNative.DataBox.V20200401
 
         public JobArgs()
         {
+            DeliveryType = "NonScheduled";
         }
     }
 }

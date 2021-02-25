@@ -174,7 +174,7 @@ class EventChannel(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        The system metadata relating to Event Channel resource.
         """
         return pulumi.get(self, "system_data")
 

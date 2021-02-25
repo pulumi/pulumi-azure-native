@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
         /// Whether requests from Public Network are allowed
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.
@@ -456,6 +456,12 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
             get => _networkAclBypassResourceIds ?? (_networkAclBypassResourceIds = new InputList<string>());
             set => _networkAclBypassResourceIds = value;
         }
+
+        /// <summary>
+        /// Whether requests from Public Network are allowed
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.Latest.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

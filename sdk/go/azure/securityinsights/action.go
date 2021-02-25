@@ -44,6 +44,9 @@ func NewAction(ctx *pulumi.Context,
 	if args.RuleId == nil {
 		return nil, errors.New("invalid value for required argument 'RuleId'")
 	}
+	if args.TriggerUri == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerUri'")
+	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
@@ -125,7 +128,7 @@ type actionArgs struct {
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
 	// Logic App Callback URL for this specific workflow.
-	TriggerUri *string `pulumi:"triggerUri"`
+	TriggerUri string `pulumi:"triggerUri"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -143,7 +146,7 @@ type ActionArgs struct {
 	// Alert rule ID
 	RuleId pulumi.StringInput
 	// Logic App Callback URL for this specific workflow.
-	TriggerUri pulumi.StringPtrInput
+	TriggerUri pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

@@ -81,7 +81,7 @@ export interface GetEventChannelResult {
      */
     readonly source?: outputs.eventgrid.v20201015preview.EventChannelSourceResponse;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Event Channel resource.
      */
     readonly systemData: outputs.eventgrid.v20201015preview.SystemDataResponse;
     /**

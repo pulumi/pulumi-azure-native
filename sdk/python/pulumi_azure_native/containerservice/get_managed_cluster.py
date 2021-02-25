@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, pod_identity_profile=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_portal_fqdn=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, fqdn_subdomain=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, pod_identity_profile=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -39,6 +39,9 @@ class GetManagedClusterResult:
         if auto_upgrade_profile and not isinstance(auto_upgrade_profile, dict):
             raise TypeError("Expected argument 'auto_upgrade_profile' to be a dict")
         pulumi.set(__self__, "auto_upgrade_profile", auto_upgrade_profile)
+        if azure_portal_fqdn and not isinstance(azure_portal_fqdn, str):
+            raise TypeError("Expected argument 'azure_portal_fqdn' to be a str")
+        pulumi.set(__self__, "azure_portal_fqdn", azure_portal_fqdn)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -54,6 +57,9 @@ class GetManagedClusterResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if fqdn_subdomain and not isinstance(fqdn_subdomain, str):
+            raise TypeError("Expected argument 'fqdn_subdomain' to be a str")
+        pulumi.set(__self__, "fqdn_subdomain", fqdn_subdomain)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -161,6 +167,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "auto_upgrade_profile")
 
     @property
+    @pulumi.getter(name="azurePortalFQDN")
+    def azure_portal_fqdn(self) -> str:
+        """
+        FQDN for the master pool which used by proxy config.
+        """
+        return pulumi.get(self, "azure_portal_fqdn")
+
+    @property
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> Optional[str]:
         """
@@ -199,6 +213,14 @@ class GetManagedClusterResult:
         FQDN for the master pool.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="fqdnSubdomain")
+    def fqdn_subdomain(self) -> Optional[str]:
+        """
+        FQDN subdomain specified when creating private cluster with custom private dns zone.
+        """
+        return pulumi.get(self, "fqdn_subdomain")
 
     @property
     @pulumi.getter
@@ -365,11 +387,13 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             api_server_access_profile=self.api_server_access_profile,
             auto_scaler_profile=self.auto_scaler_profile,
             auto_upgrade_profile=self.auto_upgrade_profile,
+            azure_portal_fqdn=self.azure_portal_fqdn,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             enable_pod_security_policy=self.enable_pod_security_policy,
             enable_rbac=self.enable_rbac,
             fqdn=self.fqdn,
+            fqdn_subdomain=self.fqdn_subdomain,
             id=self.id,
             identity=self.identity,
             identity_profile=self.identity_profile,
@@ -396,7 +420,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Managed cluster.
-    API Version: 2020-12-01.
+    API Version: 2021-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -418,11 +442,13 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         api_server_access_profile=__ret__.api_server_access_profile,
         auto_scaler_profile=__ret__.auto_scaler_profile,
         auto_upgrade_profile=__ret__.auto_upgrade_profile,
+        azure_portal_fqdn=__ret__.azure_portal_fqdn,
         disk_encryption_set_id=__ret__.disk_encryption_set_id,
         dns_prefix=__ret__.dns_prefix,
         enable_pod_security_policy=__ret__.enable_pod_security_policy,
         enable_rbac=__ret__.enable_rbac,
         fqdn=__ret__.fqdn,
+        fqdn_subdomain=__ret__.fqdn_subdomain,
         id=__ret__.id,
         identity=__ret__.identity,
         identity_profile=__ret__.identity_profile,

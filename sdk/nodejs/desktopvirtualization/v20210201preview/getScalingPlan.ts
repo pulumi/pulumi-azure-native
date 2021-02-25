@@ -54,7 +54,7 @@ export interface GetScalingPlanResult {
      */
     readonly hostPoolReferences?: outputs.desktopvirtualization.v20210201preview.ScalingHostPoolReferenceResponse[];
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     readonly hostPoolType?: string;
     /**

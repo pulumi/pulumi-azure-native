@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string MetricResourceId;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? Source;
         /// <summary>
+        /// The system metadata relating to System Topic resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -75,7 +79,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? TopicType;
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
 
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 
             string? source,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? topicType,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
             Name = name;
             ProvisioningState = provisioningState;
             Source = source;
+            SystemData = systemData;
             Tags = tags;
             TopicType = topicType;
             Type = type;

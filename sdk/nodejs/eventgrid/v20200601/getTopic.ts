@@ -80,6 +80,10 @@ export interface GetTopicResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * The system metadata relating to Topic resource.
+     */
+    readonly systemData: outputs.eventgrid.v20200601.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};

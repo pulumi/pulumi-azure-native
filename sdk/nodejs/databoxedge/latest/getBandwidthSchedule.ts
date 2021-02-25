@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getBandwidthSchedule'. */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {

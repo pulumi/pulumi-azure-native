@@ -59,6 +59,10 @@ export interface GetSubnetResult {
      */
     readonly addressPrefixes?: string[];
     /**
+     * Application gateway IP configurations of virtual network resource.
+     */
+    readonly applicationGatewayIpConfigurations?: outputs.network.latest.ApplicationGatewayIPConfigurationResponse[];
+    /**
      * An array of references to the delegations on the subnet.
      */
     readonly delegations?: outputs.network.latest.DelegationResponse[];
@@ -134,4 +138,8 @@ export interface GetSubnetResult {
      * An array of service endpoints.
      */
     readonly serviceEndpoints?: outputs.network.latest.ServiceEndpointPropertiesFormatResponse[];
+    /**
+     * Resource type.
+     */
+    readonly type?: string;
 }

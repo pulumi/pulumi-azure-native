@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterPodIdentityProfileResponse
     {
         /// <summary>
+        /// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+        /// </summary>
+        public readonly bool? AllowNetworkPluginKubenet;
+        /// <summary>
         /// Whether the pod identity addon is enabled.
         /// </summary>
         public readonly bool? Enabled;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private ManagedClusterPodIdentityProfileResponse(
+            bool? allowNetworkPluginKubenet,
+
             bool? enabled,
 
             ImmutableArray<Outputs.ManagedClusterPodIdentityResponse> userAssignedIdentities,
 
             ImmutableArray<Outputs.ManagedClusterPodIdentityExceptionResponse> userAssignedIdentityExceptions)
         {
+            AllowNetworkPluginKubenet = allowNetworkPluginKubenet;
             Enabled = enabled;
             UserAssignedIdentities = userAssignedIdentities;
             UserAssignedIdentityExceptions = userAssignedIdentityExceptions;

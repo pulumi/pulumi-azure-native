@@ -12,7 +12,7 @@ import (
 )
 
 // Managed cluster.
-// API Version: 2020-12-01.
+// API Version: 2021-02-01.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type ManagedCluster struct {
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput `pulumi:"autoScalerProfile"`
 	// Profile of auto upgrade configuration.
 	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrOutput `pulumi:"autoUpgradeProfile"`
+	// FQDN for the master pool which used by proxy config.
+	AzurePortalFQDN pulumi.StringOutput `pulumi:"azurePortalFQDN"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrOutput `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -38,6 +40,8 @@ type ManagedCluster struct {
 	EnableRBAC pulumi.BoolPtrOutput `pulumi:"enableRBAC"`
 	// FQDN for the master pool.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain pulumi.StringPtrOutput `pulumi:"fqdnSubdomain"`
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityResponsePtrOutput `pulumi:"identity"`
 	// Identities associated with the cluster.
@@ -201,6 +205,12 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210201:ManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210201:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster
@@ -237,6 +247,8 @@ type managedClusterState struct {
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// Profile of auto upgrade configuration.
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
+	// FQDN for the master pool which used by proxy config.
+	AzurePortalFQDN *string `pulumi:"azurePortalFQDN"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -247,6 +259,8 @@ type managedClusterState struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// FQDN for the master pool.
 	Fqdn *string `pulumi:"fqdn"`
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
 	// Identities associated with the cluster.
@@ -298,6 +312,8 @@ type ManagedClusterState struct {
 	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrInput
 	// Profile of auto upgrade configuration.
 	AutoUpgradeProfile ManagedClusterAutoUpgradeProfileResponsePtrInput
+	// FQDN for the master pool which used by proxy config.
+	AzurePortalFQDN pulumi.StringPtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
@@ -308,6 +324,8 @@ type ManagedClusterState struct {
 	EnableRBAC pulumi.BoolPtrInput
 	// FQDN for the master pool.
 	Fqdn pulumi.StringPtrInput
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain pulumi.StringPtrInput
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityResponsePtrInput
 	// Identities associated with the cluster.
@@ -371,6 +389,8 @@ type managedClusterArgs struct {
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentity `pulumi:"identity"`
 	// Identities associated with the cluster.
@@ -423,6 +443,8 @@ type ManagedClusterArgs struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrInput
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain pulumi.StringPtrInput
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityPtrInput
 	// Identities associated with the cluster.

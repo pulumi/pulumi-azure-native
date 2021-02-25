@@ -111,6 +111,12 @@ namespace Pulumi.AzureNative.Network.V20200801.Inputs
         [Input("subnet")]
         public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         [Input("virtualNetworkTaps")]
         private InputList<Inputs.VirtualNetworkTapArgs>? _virtualNetworkTaps;
 

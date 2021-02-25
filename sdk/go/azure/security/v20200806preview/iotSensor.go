@@ -21,6 +21,8 @@ type IotSensor struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Dynamic mode status of the IoT sensor
 	DynamicLearning pulumi.BoolOutput `pulumi:"dynamicLearning"`
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor pulumi.BoolPtrOutput `pulumi:"isEnterpriseSensor"`
 	// Learning mode status of the IoT sensor
 	LearningMode pulumi.BoolOutput `pulumi:"learningMode"`
 	// Resource name
@@ -88,6 +90,8 @@ type iotSensorState struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// Dynamic mode status of the IoT sensor
 	DynamicLearning *bool `pulumi:"dynamicLearning"`
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor *bool `pulumi:"isEnterpriseSensor"`
 	// Learning mode status of the IoT sensor
 	LearningMode *bool `pulumi:"learningMode"`
 	// Resource name
@@ -115,6 +119,8 @@ type IotSensorState struct {
 	CreationTime pulumi.StringPtrInput
 	// Dynamic mode status of the IoT sensor
 	DynamicLearning pulumi.BoolPtrInput
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor pulumi.BoolPtrInput
 	// Learning mode status of the IoT sensor
 	LearningMode pulumi.BoolPtrInput
 	// Resource name
@@ -142,6 +148,8 @@ func (IotSensorState) ElementType() reflect.Type {
 type iotSensorArgs struct {
 	// Name of the IoT sensor
 	IotSensorName *string `pulumi:"iotSensorName"`
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor *bool `pulumi:"isEnterpriseSensor"`
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope string `pulumi:"scope"`
 	// TI Automatic mode status of the IoT sensor
@@ -154,6 +162,8 @@ type iotSensorArgs struct {
 type IotSensorArgs struct {
 	// Name of the IoT sensor
 	IotSensorName pulumi.StringPtrInput
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor pulumi.BoolPtrInput
 	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
 	Scope pulumi.StringInput
 	// TI Automatic mode status of the IoT sensor

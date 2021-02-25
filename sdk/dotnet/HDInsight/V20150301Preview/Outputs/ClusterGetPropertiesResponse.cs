@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly Outputs.ClusterDefinitionResponse ClusterDefinition;
         /// <summary>
+        /// The hdp version of the cluster.
+        /// </summary>
+        public readonly string? ClusterHdpVersion;
+        /// <summary>
         /// The cluster id.
         /// </summary>
         public readonly string? ClusterId;
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// The version of the cluster.
         /// </summary>
         public readonly string? ClusterVersion;
+        /// <summary>
+        /// The compute isolation properties.
+        /// </summary>
+        public readonly Outputs.ComputeIsolationPropertiesResponse? ComputeIsolationProperties;
         /// <summary>
         /// The compute profile.
         /// </summary>
@@ -53,6 +61,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// The list of errors.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorsResponse> Errors;
+        /// <summary>
+        /// The excluded services config.
+        /// </summary>
+        public readonly Outputs.ExcludedServicesConfigResponse? ExcludedServicesConfig;
         /// <summary>
         /// The cluster kafka rest proxy configuration.
         /// </summary>
@@ -82,6 +94,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly Outputs.SecurityProfileResponse? SecurityProfile;
         /// <summary>
+        /// The storage profile.
+        /// </summary>
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
+        /// <summary>
         /// The cluster tier.
         /// </summary>
         public readonly string? Tier;
@@ -90,11 +106,15 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         private ClusterGetPropertiesResponse(
             Outputs.ClusterDefinitionResponse clusterDefinition,
 
+            string? clusterHdpVersion,
+
             string? clusterId,
 
             string? clusterState,
 
             string? clusterVersion,
+
+            Outputs.ComputeIsolationPropertiesResponse? computeIsolationProperties,
 
             Outputs.ComputeProfileResponse? computeProfile,
 
@@ -107,6 +127,8 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
             Outputs.EncryptionInTransitPropertiesResponse? encryptionInTransitProperties,
 
             ImmutableArray<Outputs.ErrorsResponse> errors,
+
+            Outputs.ExcludedServicesConfigResponse? excludedServicesConfig,
 
             Outputs.KafkaRestPropertiesResponse? kafkaRestProperties,
 
@@ -122,18 +144,23 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 
             Outputs.SecurityProfileResponse? securityProfile,
 
+            Outputs.StorageProfileResponse? storageProfile,
+
             string? tier)
         {
             ClusterDefinition = clusterDefinition;
+            ClusterHdpVersion = clusterHdpVersion;
             ClusterId = clusterId;
             ClusterState = clusterState;
             ClusterVersion = clusterVersion;
+            ComputeIsolationProperties = computeIsolationProperties;
             ComputeProfile = computeProfile;
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedDate = createdDate;
             DiskEncryptionProperties = diskEncryptionProperties;
             EncryptionInTransitProperties = encryptionInTransitProperties;
             Errors = errors;
+            ExcludedServicesConfig = excludedServicesConfig;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;
             NetworkProperties = networkProperties;
@@ -141,6 +168,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
             ProvisioningState = provisioningState;
             QuotaInfo = quotaInfo;
             SecurityProfile = securityProfile;
+            StorageProfile = storageProfile;
             Tier = tier;
         }
     }

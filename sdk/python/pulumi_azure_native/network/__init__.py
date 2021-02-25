@@ -4,12 +4,14 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .admin_rule import *
 from .application_gateway import *
 from .application_gateway_private_endpoint_connection import *
 from .application_security_group import *
 from .azure_firewall import *
 from .bastion_host import *
 from .connection_monitor import *
+from .connectivity_configuration import *
 from .custom_ip_prefix import *
 from .ddos_custom_policy import *
 from .ddos_protection_plan import *
@@ -30,6 +32,7 @@ from .firewall_policy_rule_group import *
 from .flow_log import *
 from .front_door import *
 from .get_active_sessions import *
+from .get_admin_rule import *
 from .get_application_gateway import *
 from .get_application_gateway_backend_health_on_demand import *
 from .get_application_gateway_private_endpoint_connection import *
@@ -38,6 +41,7 @@ from .get_azure_firewall import *
 from .get_bastion_host import *
 from .get_bastion_shareable_link import *
 from .get_connection_monitor import *
+from .get_connectivity_configuration import *
 from .get_custom_ip_prefix import *
 from .get_ddos_custom_policy import *
 from .get_ddos_protection_plan import *
@@ -70,8 +74,10 @@ from .get_local_network_gateway import *
 from .get_nat_gateway import *
 from .get_nat_rule import *
 from .get_network_experiment_profile import *
+from .get_network_group import *
 from .get_network_interface import *
 from .get_network_interface_tap_configuration import *
+from .get_network_manager import *
 from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_virtual_appliance import *
@@ -96,12 +102,14 @@ from .get_route_filter import *
 from .get_route_filter_rule import *
 from .get_route_table import *
 from .get_rules_engine import *
+from .get_security_configuration import *
 from .get_security_partner_provider import *
 from .get_security_rule import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
 from .get_subnet import *
 from .get_traffic_manager_user_metrics_key import *
+from .get_user_rule import *
 from .get_virtual_appliance_site import *
 from .get_virtual_hub import *
 from .get_virtual_hub_bgp_connection import *
@@ -133,14 +141,19 @@ from .inbound_nat_rule import *
 from .interface_endpoint import *
 from .ip_allocation import *
 from .ip_group import *
+from .list_effective_virtual_network_by_network_group import *
+from .list_effective_virtual_network_by_network_manager import *
+from .list_network_manager_deployment_status import *
 from .load_balancer import *
 from .load_balancer_backend_address_pool import *
 from .local_network_gateway import *
 from .nat_gateway import *
 from .nat_rule import *
 from .network_experiment_profile import *
+from .network_group import *
 from .network_interface import *
 from .network_interface_tap_configuration import *
+from .network_manager import *
 from .network_profile import *
 from .network_security_group import *
 from .network_virtual_appliance import *
@@ -163,12 +176,14 @@ from .route_filter import *
 from .route_filter_rule import *
 from .route_table import *
 from .rules_engine import *
+from .security_configuration import *
 from .security_partner_provider import *
 from .security_rule import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
 from .subnet import *
 from .traffic_manager_user_metrics_key import *
+from .user_rule import *
 from .virtual_appliance_site import *
 from .virtual_hub import *
 from .virtual_hub_bgp_connection import *
@@ -244,6 +259,7 @@ from . import (
     v20200701,
     v20200801,
     v20201101,
+    v20210201preview,
 )
 
 def _register_module():
@@ -258,7 +274,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:network:ApplicationGateway":
+            if typ == "azure-native:network:AdminRule":
+                return AdminRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:ApplicationGateway":
                 return ApplicationGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
                 return ApplicationGatewayPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
@@ -270,6 +288,8 @@ def _register_module():
                 return BastionHost(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:ConnectionMonitor":
                 return ConnectionMonitor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:ConnectivityConfiguration":
+                return ConnectivityConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:CustomIPPrefix":
                 return CustomIPPrefix(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:DdosCustomPolicy":
@@ -332,10 +352,14 @@ def _register_module():
                 return NatRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:NetworkExperimentProfile":
                 return NetworkExperimentProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:NetworkGroup":
+                return NetworkGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:NetworkInterface":
                 return NetworkInterface(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:NetworkInterfaceTapConfiguration":
                 return NetworkInterfaceTapConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:NetworkManager":
+                return NetworkManager(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:NetworkProfile":
                 return NetworkProfile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:NetworkSecurityGroup":
@@ -380,6 +404,8 @@ def _register_module():
                 return RouteTable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:RulesEngine":
                 return RulesEngine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:SecurityConfiguration":
+                return SecurityConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:SecurityPartnerProvider":
                 return SecurityPartnerProvider(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:SecurityRule":
@@ -392,6 +418,8 @@ def _register_module():
                 return Subnet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:TrafficManagerUserMetricsKey":
                 return TrafficManagerUserMetricsKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:UserRule":
+                return UserRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:VirtualApplianceSite":
                 return VirtualApplianceSite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:VirtualHub":

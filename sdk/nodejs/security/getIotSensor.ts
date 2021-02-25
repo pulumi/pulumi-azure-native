@@ -55,6 +55,10 @@ export interface GetIotSensorResult {
      */
     readonly id: string;
     /**
+     * Is type of sensor is enterprise IoT sensor
+     */
+    readonly isEnterpriseSensor?: boolean;
+    /**
      * Learning mode status of the IoT sensor
      */
     readonly learningMode: boolean;

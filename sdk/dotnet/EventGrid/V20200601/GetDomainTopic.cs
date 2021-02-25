@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
+        /// The system metadata relating to Domain Topic resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string Type;
@@ -73,11 +77,14 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
 
             string? provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

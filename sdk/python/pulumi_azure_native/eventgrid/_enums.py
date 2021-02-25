@@ -7,9 +7,11 @@ from enum import Enum
 __all__ = [
     'AdvancedFilterOperatorType',
     'DeadLetterEndPointType',
+    'DeliveryAttributeMappingType',
     'EndpointType',
     'EventDeliverySchema',
     'EventSubscriptionIdentityType',
+    'IdentityType',
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
@@ -36,6 +38,13 @@ class AdvancedFilterOperatorType(str, Enum):
     STRING_BEGINS_WITH = "StringBeginsWith"
     STRING_ENDS_WITH = "StringEndsWith"
     STRING_CONTAINS = "StringContains"
+    NUMBER_IN_RANGE = "NumberInRange"
+    NUMBER_NOT_IN_RANGE = "NumberNotInRange"
+    STRING_NOT_BEGINS_WITH = "StringNotBeginsWith"
+    STRING_NOT_ENDS_WITH = "StringNotEndsWith"
+    STRING_NOT_CONTAINS = "StringNotContains"
+    IS_NULL_OR_UNDEFINED = "IsNullOrUndefined"
+    IS_NOT_NULL = "IsNotNull"
 
 
 class DeadLetterEndPointType(str, Enum):
@@ -43,6 +52,14 @@ class DeadLetterEndPointType(str, Enum):
     Type of the endpoint for the dead letter destination
     """
     STORAGE_BLOB = "StorageBlob"
+
+
+class DeliveryAttributeMappingType(str, Enum):
+    """
+    Type of the delivery attribute or header name.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
 
 
 class EndpointType(str, Enum):
@@ -73,6 +90,16 @@ class EventSubscriptionIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class InputSchema(str, Enum):

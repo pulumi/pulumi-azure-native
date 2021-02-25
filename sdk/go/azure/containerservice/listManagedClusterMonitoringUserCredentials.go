@@ -8,7 +8,7 @@ import (
 )
 
 // The list of credential result response.
-// API Version: 2020-12-01.
+// API Version: 2021-02-01.
 func ListManagedClusterMonitoringUserCredentials(ctx *pulumi.Context, args *ListManagedClusterMonitoringUserCredentialsArgs, opts ...pulumi.InvokeOption) (*ListManagedClusterMonitoringUserCredentialsResult, error) {
 	var rv ListManagedClusterMonitoringUserCredentialsResult
 	err := ctx.Invoke("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args, &rv, opts...)

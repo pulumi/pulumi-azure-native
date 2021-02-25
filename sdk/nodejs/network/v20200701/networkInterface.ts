@@ -84,6 +84,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly networkSecurityGroup!: pulumi.Output<outputs.network.v20200701.NetworkSecurityGroupResponse | undefined>;
     /**
+     * Type of Network Interface resource.
+     */
+    public readonly nicType!: pulumi.Output<string | undefined>;
+    /**
      * Whether this is a primary network interface on a virtual machine.
      */
     public /*out*/ readonly primary!: pulumi.Output<boolean>;
@@ -91,6 +95,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * A reference to the private endpoint to which the network interface is linked.
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.v20200701.PrivateEndpointResponse>;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    public readonly privateLinkService!: pulumi.Output<outputs.network.v20200701.PrivateLinkServiceResponse | undefined>;
     /**
      * The provisioning state of the network interface resource.
      */
@@ -139,6 +147,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            inputs["nicType"] = args ? args.nicType : undefined;
+            inputs["privateLinkService"] = args ? args.privateLinkService : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["dscpConfiguration"] = undefined /*out*/;
@@ -166,8 +176,10 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["macAddress"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["nicType"] = undefined /*out*/;
             inputs["primary"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["privateLinkService"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -224,6 +236,14 @@ export interface NetworkInterfaceArgs {
      * The reference to the NetworkSecurityGroup resource.
      */
     readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200701.NetworkSecurityGroup>;
+    /**
+     * Type of Network Interface resource.
+     */
+    readonly nicType?: pulumi.Input<string | enums.network.v20200701.NetworkInterfaceNicType>;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    readonly privateLinkService?: pulumi.Input<inputs.network.v20200701.PrivateLinkService>;
     /**
      * The name of the resource group.
      */

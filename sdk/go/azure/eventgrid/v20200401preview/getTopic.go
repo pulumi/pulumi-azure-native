@@ -42,7 +42,7 @@ type LookupTopicResult struct {
 	Location string `pulumi:"location"`
 	// Metric resource id for the topic.
 	MetricResourceId string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the topic.
@@ -54,6 +54,6 @@ type LookupTopicResult struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

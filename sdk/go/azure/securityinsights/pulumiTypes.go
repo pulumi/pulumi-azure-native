@@ -136,11 +136,11 @@ type BookmarkTimelineItemResponse struct {
 	// The bookmark azure resource id.
 	AzureResourceId string `pulumi:"azureResourceId"`
 	// Describes a user that created the bookmark
-	CreatedBy UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
 	// The bookmark display name.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// The bookmark end time.
-	EndTimeUtc string `pulumi:"endTimeUtc"`
+	EndTimeUtc *string `pulumi:"endTimeUtc"`
 	// The bookmark event time.
 	EventTime *string `pulumi:"eventTime"`
 	// The entity query kind type.
@@ -149,9 +149,9 @@ type BookmarkTimelineItemResponse struct {
 	// List of labels relevant to this bookmark
 	Labels []string `pulumi:"labels"`
 	// The notes of the bookmark
-	Notes string `pulumi:"notes"`
+	Notes *string `pulumi:"notes"`
 	// TThe bookmark start time.
-	StartTimeUtc string `pulumi:"startTimeUtc"`
+	StartTimeUtc *string `pulumi:"startTimeUtc"`
 }
 
 // BookmarkTimelineItemResponseInput is an input type that accepts BookmarkTimelineItemResponseArgs and BookmarkTimelineItemResponseOutput values.
@@ -170,11 +170,11 @@ type BookmarkTimelineItemResponseArgs struct {
 	// The bookmark azure resource id.
 	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
 	// Describes a user that created the bookmark
-	CreatedBy UserInfoResponseInput `pulumi:"createdBy"`
+	CreatedBy UserInfoResponsePtrInput `pulumi:"createdBy"`
 	// The bookmark display name.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The bookmark end time.
-	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	EndTimeUtc pulumi.StringPtrInput `pulumi:"endTimeUtc"`
 	// The bookmark event time.
 	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
 	// The entity query kind type.
@@ -183,9 +183,9 @@ type BookmarkTimelineItemResponseArgs struct {
 	// List of labels relevant to this bookmark
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
 	// The notes of the bookmark
-	Notes pulumi.StringInput `pulumi:"notes"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
 	// TThe bookmark start time.
-	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+	StartTimeUtc pulumi.StringPtrInput `pulumi:"startTimeUtc"`
 }
 
 func (BookmarkTimelineItemResponseArgs) ElementType() reflect.Type {
@@ -221,18 +221,18 @@ func (o BookmarkTimelineItemResponseOutput) AzureResourceId() pulumi.StringOutpu
 }
 
 // Describes a user that created the bookmark
-func (o BookmarkTimelineItemResponseOutput) CreatedBy() UserInfoResponseOutput {
-	return o.ApplyT(func(v BookmarkTimelineItemResponse) UserInfoResponse { return v.CreatedBy }).(UserInfoResponseOutput)
+func (o BookmarkTimelineItemResponseOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *UserInfoResponse { return v.CreatedBy }).(UserInfoResponsePtrOutput)
 }
 
 // The bookmark display name.
-func (o BookmarkTimelineItemResponseOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o BookmarkTimelineItemResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The bookmark end time.
-func (o BookmarkTimelineItemResponseOutput) EndTimeUtc() pulumi.StringOutput {
-	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+func (o BookmarkTimelineItemResponseOutput) EndTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.EndTimeUtc }).(pulumi.StringPtrOutput)
 }
 
 // The bookmark event time.
@@ -252,13 +252,13 @@ func (o BookmarkTimelineItemResponseOutput) Labels() pulumi.StringArrayOutput {
 }
 
 // The notes of the bookmark
-func (o BookmarkTimelineItemResponseOutput) Notes() pulumi.StringOutput {
-	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.Notes }).(pulumi.StringOutput)
+func (o BookmarkTimelineItemResponseOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
 // TThe bookmark start time.
-func (o BookmarkTimelineItemResponseOutput) StartTimeUtc() pulumi.StringOutput {
-	return o.ApplyT(func(v BookmarkTimelineItemResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+func (o BookmarkTimelineItemResponseOutput) StartTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkTimelineItemResponse) *string { return v.StartTimeUtc }).(pulumi.StringPtrOutput)
 }
 
 // Information on the client (user or application) that made some action
@@ -2411,6 +2411,8 @@ type SecurityAlertTimelineItemResponse struct {
 	AlertType string `pulumi:"alertType"`
 	// The alert azure resource id.
 	AzureResourceId string `pulumi:"azureResourceId"`
+	// The alert description.
+	Description *string `pulumi:"description"`
 	// The alert name.
 	DisplayName string `pulumi:"displayName"`
 	// The alert end time.
@@ -2419,7 +2421,7 @@ type SecurityAlertTimelineItemResponse struct {
 	// Expected value is 'SecurityAlert'.
 	Kind string `pulumi:"kind"`
 	// The alert product name.
-	ProductName string `pulumi:"productName"`
+	ProductName *string `pulumi:"productName"`
 	// The alert severity.
 	Severity string `pulumi:"severity"`
 	// The alert start time.
@@ -2445,6 +2447,8 @@ type SecurityAlertTimelineItemResponseArgs struct {
 	AlertType pulumi.StringInput `pulumi:"alertType"`
 	// The alert azure resource id.
 	AzureResourceId pulumi.StringInput `pulumi:"azureResourceId"`
+	// The alert description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The alert name.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The alert end time.
@@ -2453,7 +2457,7 @@ type SecurityAlertTimelineItemResponseArgs struct {
 	// Expected value is 'SecurityAlert'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The alert product name.
-	ProductName pulumi.StringInput `pulumi:"productName"`
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
 	// The alert severity.
 	Severity pulumi.StringInput `pulumi:"severity"`
 	// The alert start time.
@@ -2499,6 +2503,11 @@ func (o SecurityAlertTimelineItemResponseOutput) AzureResourceId() pulumi.String
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.AzureResourceId }).(pulumi.StringOutput)
 }
 
+// The alert description.
+func (o SecurityAlertTimelineItemResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The alert name.
 func (o SecurityAlertTimelineItemResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.DisplayName }).(pulumi.StringOutput)
@@ -2516,8 +2525,8 @@ func (o SecurityAlertTimelineItemResponseOutput) Kind() pulumi.StringOutput {
 }
 
 // The alert product name.
-func (o SecurityAlertTimelineItemResponseOutput) ProductName() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.ProductName }).(pulumi.StringOutput)
+func (o SecurityAlertTimelineItemResponseOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
 // The alert severity.

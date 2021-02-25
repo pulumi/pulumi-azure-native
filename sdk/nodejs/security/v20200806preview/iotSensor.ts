@@ -47,6 +47,10 @@ export class IotSensor extends pulumi.CustomResource {
      */
     public /*out*/ readonly dynamicLearning!: pulumi.Output<boolean>;
     /**
+     * Is type of sensor is enterprise IoT sensor
+     */
+    public readonly isEnterpriseSensor!: pulumi.Output<boolean | undefined>;
+    /**
      * Learning mode status of the IoT sensor
      */
     public /*out*/ readonly learningMode!: pulumi.Output<boolean>;
@@ -98,6 +102,7 @@ export class IotSensor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;
+            inputs["isEnterpriseSensor"] = args ? args.isEnterpriseSensor : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
             inputs["zone"] = args ? args.zone : undefined;
@@ -115,6 +120,7 @@ export class IotSensor extends pulumi.CustomResource {
             inputs["connectivityTime"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["dynamicLearning"] = undefined /*out*/;
+            inputs["isEnterpriseSensor"] = undefined /*out*/;
             inputs["learningMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["sensorStatus"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface IotSensorArgs {
      * Name of the IoT sensor
      */
     readonly iotSensorName?: pulumi.Input<string>;
+    /**
+     * Is type of sensor is enterprise IoT sensor
+     */
+    readonly isEnterpriseSensor?: pulumi.Input<boolean>;
     /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */

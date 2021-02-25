@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The extended Info of the Data Box Edge/Gateway device.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDeviceExtendedInformation'. */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
@@ -57,6 +57,10 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly clientSecretStoreUrl?: string;
     /**
+     * Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
+     */
+    readonly deviceSecrets: outputs.databoxedge.latest.DeviceSecretsResponse;
+    /**
      * The public part of the encryption certificate. Client uses this to encrypt any secret.
      */
     readonly encryptionKey?: string;
@@ -68,6 +72,10 @@ export interface GetDeviceExtendedInformationResult {
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
+    /**
+     * Key vault sync status
+     */
+    readonly keyVaultSyncStatus?: string;
     /**
      * The object name.
      */

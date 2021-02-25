@@ -27,7 +27,7 @@ class Addon(pulumi.CustomResource):
                  __opts__=None):
         """
         Role Addon
-        API Version: 2020-09-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,7 +70,7 @@ class Addon(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Addon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Addon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Addon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Addon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Addon"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Addon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Addon, __self__).__init__(
             'azure-native:databoxedge:Addon',

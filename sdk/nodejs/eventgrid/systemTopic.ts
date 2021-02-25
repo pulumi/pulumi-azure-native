@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * EventGrid System Topic.
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**
@@ -36,6 +37,10 @@ export class SystemTopic extends pulumi.CustomResource {
     }
 
     /**
+     * Identity information for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -44,7 +49,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -56,6 +61,10 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    /**
      * Tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -64,7 +73,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly topicType!: pulumi.Output<string | undefined>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -82,6 +91,7 @@ export class SystemTopic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
@@ -91,13 +101,16 @@ export class SystemTopic extends pulumi.CustomResource {
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["topicType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -115,6 +128,10 @@ export class SystemTopic extends pulumi.CustomResource {
  * The set of arguments for constructing a SystemTopic resource.
  */
 export interface SystemTopicArgs {
+    /**
+     * Identity information for the resource.
+     */
+    readonly identity?: pulumi.Input<inputs.eventgrid.IdentityInfo>;
     /**
      * Location of the resource.
      */

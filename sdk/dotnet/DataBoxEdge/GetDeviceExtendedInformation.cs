@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The extended Info of the Data Box Edge/Gateway device.
-        /// API Version: 2020-09-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithVersion());
@@ -60,6 +60,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string? ClientSecretStoreUrl;
         /// <summary>
+        /// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
+        /// </summary>
+        public readonly Outputs.DeviceSecretsResponseResult DeviceSecrets;
+        /// <summary>
         /// The public part of the encryption certificate. Client uses this to encrypt any secret.
         /// </summary>
         public readonly string? EncryptionKey;
@@ -71,6 +75,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Key vault sync status
+        /// </summary>
+        public readonly string? KeyVaultSyncStatus;
         /// <summary>
         /// The object name.
         /// </summary>
@@ -94,11 +102,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string? clientSecretStoreUrl,
 
+            Outputs.DeviceSecretsResponseResult deviceSecrets,
+
             string? encryptionKey,
 
             string? encryptionKeyThumbprint,
 
             string id,
+
+            string? keyVaultSyncStatus,
 
             string name,
 
@@ -110,9 +122,11 @@ namespace Pulumi.AzureNative.DataBoxEdge
             ChannelIntegrityKeyVersion = channelIntegrityKeyVersion;
             ClientSecretStoreId = clientSecretStoreId;
             ClientSecretStoreUrl = clientSecretStoreUrl;
+            DeviceSecrets = deviceSecrets;
             EncryptionKey = encryptionKey;
             EncryptionKeyThumbprint = encryptionKeyThumbprint;
             Id = id;
+            KeyVaultSyncStatus = keyVaultSyncStatus;
             Name = name;
             ResourceKey = resourceKey;
             Type = type;

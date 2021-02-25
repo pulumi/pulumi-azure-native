@@ -12,7 +12,7 @@ import (
 )
 
 // A private endpoint connection
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
@@ -82,6 +82,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210201:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210201:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

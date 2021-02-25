@@ -184,7 +184,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:Workspace" }, { type: "azure-nextgen:synapse/latest:Workspace" }, { type: "azure-native:synapse/v20190601preview:Workspace" }, { type: "azure-nextgen:synapse/v20190601preview:Workspace" }, { type: "azure-native:synapse/v20201201:Workspace" }, { type: "azure-nextgen:synapse/v20201201:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/latest:Workspace" }, { type: "azure-nextgen:synapse/latest:Workspace" }, { type: "azure-native:synapse/v20190601preview:Workspace" }, { type: "azure-nextgen:synapse/v20190601preview:Workspace" }, { type: "azure-native:synapse/v20201201:Workspace" }, { type: "azure-nextgen:synapse/v20201201:Workspace" }, { type: "azure-native:synapse/v20210301:Workspace" }, { type: "azure-nextgen:synapse/v20210301:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }

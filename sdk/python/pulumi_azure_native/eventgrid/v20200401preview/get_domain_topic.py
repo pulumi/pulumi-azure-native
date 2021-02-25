@@ -45,7 +45,7 @@ class GetDomainTopicResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -61,7 +61,7 @@ class GetDomainTopicResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
 

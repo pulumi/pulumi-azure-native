@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The metric setting details for the role
-        /// API Version: 2020-09-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());

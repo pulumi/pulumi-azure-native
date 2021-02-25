@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['SystemTopic']
 
@@ -64,6 +65,7 @@ class SystemTopic(pulumi.CustomResource):
             __props__['metric_resource_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:SystemTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:SystemTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -111,7 +113,7 @@ class SystemTopic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -130,6 +132,14 @@ class SystemTopic(pulumi.CustomResource):
         Source for the system topic.
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to System Topic resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -151,7 +161,7 @@ class SystemTopic(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

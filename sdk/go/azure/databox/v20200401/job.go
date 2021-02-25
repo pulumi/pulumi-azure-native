@@ -71,6 +71,9 @@ func NewJob(ctx *pulumi.Context,
 	if args.TransferType == nil {
 		return nil, errors.New("invalid value for required argument 'TransferType'")
 	}
+	if args.DeliveryType == nil {
+		args.DeliveryType = pulumi.StringPtr("NonScheduled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:databox:Job"),

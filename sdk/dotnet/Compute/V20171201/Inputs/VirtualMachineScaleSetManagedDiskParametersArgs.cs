@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.V20171201.Inputs
     public sealed class VirtualMachineScaleSetManagedDiskParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.Compute.V20171201.StorageAccountTypes>? StorageAccountType { get; set; }

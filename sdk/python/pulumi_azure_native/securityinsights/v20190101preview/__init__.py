@@ -22,12 +22,14 @@ from .get_incident_relation import *
 from .get_product_setting import *
 from .get_threat_intelligence_indicator import *
 from .get_watchlist import *
+from .get_watchlist_item import *
 from .incident import *
 from .incident_comment import *
 from .incident_relation import *
 from .product_setting import *
 from .threat_intelligence_indicator import *
 from .watchlist import *
+from .watchlist_item import *
 from ._inputs import *
 from . import outputs
 
@@ -65,6 +67,8 @@ def _register_module():
                 return ThreatIntelligenceIndicator(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityinsights/v20190101preview:Watchlist":
                 return Watchlist(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityinsights/v20190101preview:WatchlistItem":
+                return WatchlistItem(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

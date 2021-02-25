@@ -106,7 +106,7 @@ export interface GetPartnerRegistrationResult {
      */
     readonly setupUri?: string;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Partner Registration resource.
      */
     readonly systemData: outputs.eventgrid.v20201015preview.SystemDataResponse;
     /**

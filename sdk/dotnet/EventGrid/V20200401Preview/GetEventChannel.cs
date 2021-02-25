@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -87,7 +87,11 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly Outputs.EventChannelSourceResponse? Source;
         /// <summary>
-        /// Type of the resource
+        /// The system metadata relating to Event Channel resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
 
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 
             Outputs.EventChannelSourceResponse? source,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Destination = destination;
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
             PartnerTopicReadinessState = partnerTopicReadinessState;
             ProvisioningState = provisioningState;
             Source = source;
+            SystemData = systemData;
             Type = type;
         }
     }

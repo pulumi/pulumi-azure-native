@@ -18,6 +18,10 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// Entity Tag
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The location of the private endpoint connection
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource properties.
@@ -76,6 +80,10 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// Entity Tag
+	Etag *string `pulumi:"etag"`
+	// The location of the private endpoint connection
+	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Resource properties.
@@ -85,6 +93,10 @@ type privateEndpointConnectionState struct {
 }
 
 type PrivateEndpointConnectionState struct {
+	// Entity Tag
+	Etag pulumi.StringPtrInput
+	// The location of the private endpoint connection
+	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Resource properties.
@@ -100,6 +112,8 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// The name of Cognitive Services account.
 	AccountName string `pulumi:"accountName"`
+	// The location of the private endpoint connection
+	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection associated with the Cognitive Services Account
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
 	// Resource properties.
@@ -112,6 +126,8 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The name of Cognitive Services account.
 	AccountName pulumi.StringInput
+	// The location of the private endpoint connection
+	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection associated with the Cognitive Services Account
 	PrivateEndpointConnectionName pulumi.StringPtrInput
 	// Resource properties.

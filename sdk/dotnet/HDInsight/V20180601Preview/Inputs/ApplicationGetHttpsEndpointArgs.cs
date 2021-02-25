@@ -40,22 +40,10 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         public Input<bool>? DisableGatewayAuth { get; set; }
 
         /// <summary>
-        /// The location of the endpoint.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
         /// The private ip address of the endpoint.
         /// </summary>
         [Input("privateIPAddress")]
         public Input<string>? PrivateIPAddress { get; set; }
-
-        /// <summary>
-        /// The public port to connect to.
-        /// </summary>
-        [Input("publicPort")]
-        public Input<int>? PublicPort { get; set; }
 
         /// <summary>
         /// The subdomain suffix of the application.

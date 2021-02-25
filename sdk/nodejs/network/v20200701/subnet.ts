@@ -115,6 +115,10 @@ export class Subnet extends pulumi.CustomResource {
      * An array of service endpoints.
      */
     public readonly serviceEndpoints!: pulumi.Output<outputs.network.v20200701.ServiceEndpointPropertiesFormatResponse[] | undefined>;
+    /**
+     * Resource type.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -141,13 +145,14 @@ export class Subnet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
-            inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
+            inputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) || "Enabled";
+            inputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["subnetName"] = args ? args.subnetName : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["ipConfigurationProfiles"] = undefined /*out*/;
@@ -178,6 +183,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceAssociationLinks"] = undefined /*out*/;
             inputs["serviceEndpointPolicies"] = undefined /*out*/;
             inputs["serviceEndpoints"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -227,11 +233,11 @@ export interface SubnetArgs {
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    readonly privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    readonly privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.v20200701.VirtualNetworkPrivateEndpointNetworkPolicies>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
+    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.v20200701.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
     /**
      * The name of the resource group.
      */
@@ -252,6 +258,10 @@ export interface SubnetArgs {
      * The name of the subnet.
      */
     readonly subnetName?: pulumi.Input<string>;
+    /**
+     * Resource type.
+     */
+    readonly type?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

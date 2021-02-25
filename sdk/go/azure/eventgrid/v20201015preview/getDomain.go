@@ -53,6 +53,8 @@ type LookupDomainResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the domain.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The system metadata relating to Domain resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.

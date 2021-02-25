@@ -41,7 +41,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] exclusion_tag: Exclusion tag for scaling plan.
         :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingHostPoolReferenceArgs']]]] host_pool_references: List of ScalingHostPoolReference definitions.
-        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for scaling plan.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
@@ -143,7 +143,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter(name="hostPoolType")
     def host_pool_type(self) -> pulumi.Output[Optional[str]]:
         """
-        HostPool type for scaling plan.
+        HostPool type for desktop.
         """
         return pulumi.get(self, "host_pool_type")
 

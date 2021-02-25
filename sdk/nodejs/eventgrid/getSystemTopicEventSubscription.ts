@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
     if (!opts) {
@@ -84,7 +84,7 @@ export interface GetSystemTopicEventSubscriptionResult {
      */
     readonly labels?: string[];
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -96,11 +96,15 @@ export interface GetSystemTopicEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.RetryPolicyResponse;
     /**
+     * The system metadata relating to Event Subscription resource.
+     */
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    /**
      * Name of the topic of the event subscription.
      */
     readonly topic: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

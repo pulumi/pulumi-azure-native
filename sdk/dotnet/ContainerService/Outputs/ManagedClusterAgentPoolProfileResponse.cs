@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
+        /// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        /// </summary>
+        public readonly string? NodePublicIPPrefixID;
+        /// <summary>
         /// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? nodeLabels,
 
+            string? nodePublicIPPrefixID,
+
             ImmutableArray<string> nodeTaints,
 
             string? orchestratorVersion,
@@ -223,6 +229,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             Name = name;
             NodeImageVersion = nodeImageVersion;
             NodeLabels = nodeLabels;
+            NodePublicIPPrefixID = nodePublicIPPrefixID;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGB = osDiskSizeGB;

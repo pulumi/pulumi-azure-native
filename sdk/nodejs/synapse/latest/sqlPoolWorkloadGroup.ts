@@ -127,7 +127,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20210301:SqlPoolWorkloadGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
     }

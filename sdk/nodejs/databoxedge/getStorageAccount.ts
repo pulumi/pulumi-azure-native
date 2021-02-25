@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {

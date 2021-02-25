@@ -88,6 +88,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly macAddress: string;
     /**
+     * Migration phase of Network Interface resource.
+     */
+    readonly migrationPhase?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
@@ -96,6 +100,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponse;
     /**
+     * Type of Network Interface resource.
+     */
+    readonly nicType?: string;
+    /**
      * Whether this is a primary network interface on a virtual machine.
      */
     readonly primary: boolean;
@@ -103,6 +111,10 @@ export interface GetNetworkInterfaceResult {
      * A reference to the private endpoint to which the network interface is linked.
      */
     readonly privateEndpoint: outputs.network.PrivateEndpointResponse;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    readonly privateLinkService?: outputs.network.PrivateLinkServiceResponse;
     /**
      * The provisioning state of the network interface resource.
      */

@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// The system metadata relating to Domain resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
 
             string? publicNetworkAccess,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

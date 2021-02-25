@@ -60,7 +60,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     public readonly versionQueryName!: pulumi.Output<string | undefined>;
     /**
-     * An value that determines where the API Version identifer will be located in a HTTP request.
+     * An value that determines where the API Version identifier will be located in a HTTP request.
      */
     public readonly versioningScheme!: pulumi.Output<string>;
 
@@ -109,7 +109,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiVersionSet" }, { type: "azure-nextgen:apimanagement:ApiVersionSet" }, { type: "azure-native:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiVersionSet" }, { type: "azure-nextgen:apimanagement:ApiVersionSet" }, { type: "azure-native:apimanagement/latest:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/latest:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20201201:ApiVersionSet" }, { type: "azure-nextgen:apimanagement/v20201201:ApiVersionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiVersionSet.__pulumiType, name, inputs, opts);
     }
@@ -148,7 +148,7 @@ export interface ApiVersionSetArgs {
      */
     readonly versionSetId?: pulumi.Input<string>;
     /**
-     * An value that determines where the API Version identifer will be located in a HTTP request.
+     * An value that determines where the API Version identifier will be located in a HTTP request.
      */
     readonly versioningScheme: pulumi.Input<string | enums.apimanagement.v20191201.VersioningScheme>;
 }

@@ -136,7 +136,7 @@ def get_container(container_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str container_name: The container Name

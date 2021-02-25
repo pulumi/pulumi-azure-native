@@ -43,6 +43,8 @@ type Topic struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the topic.
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
+	// The system metadata relating to Topic resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the resource.
@@ -61,6 +63,9 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -193,6 +198,8 @@ type topicState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the topic.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The system metadata relating to Topic resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
@@ -228,6 +235,8 @@ type TopicState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The Sku pricing tier for the topic.
 	Sku ResourceSkuResponsePtrInput
+	// The system metadata relating to Topic resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// Type of the resource.

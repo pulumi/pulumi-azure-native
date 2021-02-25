@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {

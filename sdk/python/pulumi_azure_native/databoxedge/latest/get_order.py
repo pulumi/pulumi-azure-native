@@ -170,7 +170,7 @@ def get_order(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     The order details.
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

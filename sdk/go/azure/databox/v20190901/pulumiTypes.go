@@ -933,7 +933,7 @@ type DataBoxDiskJobDetails struct {
 	// Destination account details.
 	DestinationAccountDetails []interface{} `pulumi:"destinationAccountDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -965,7 +965,7 @@ type DataBoxDiskJobDetailsArgs struct {
 	// Destination account details.
 	DestinationAccountDetails pulumi.ArrayInput `pulumi:"destinationAccountDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -1017,8 +1017,8 @@ func (o DataBoxDiskJobDetailsOutput) DestinationAccountDetails() pulumi.ArrayOut
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxDiskJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -1066,7 +1066,7 @@ type DataBoxDiskJobDetailsResponse struct {
 	// Error details for failure. This is optional.
 	ErrorDetails []JobErrorDetailsResponse `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -1116,7 +1116,7 @@ type DataBoxDiskJobDetailsResponseArgs struct {
 	// Error details for failure. This is optional.
 	ErrorDetails JobErrorDetailsResponseArrayInput `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -1204,8 +1204,8 @@ func (o DataBoxDiskJobDetailsResponseOutput) ErrorDetails() JobErrorDetailsRespo
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxDiskJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -1428,7 +1428,7 @@ type DataBoxHeavyJobDetails struct {
 	// Set Device password for unlocking Databox Heavy
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -1458,7 +1458,7 @@ type DataBoxHeavyJobDetailsArgs struct {
 	// Set Device password for unlocking Databox Heavy
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -1511,8 +1511,8 @@ func (o DataBoxHeavyJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxHeavyJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -1550,7 +1550,7 @@ type DataBoxHeavyJobDetailsResponse struct {
 	// Error details for failure. This is optional.
 	ErrorDetails []JobErrorDetailsResponse `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -1596,7 +1596,7 @@ type DataBoxHeavyJobDetailsResponseArgs struct {
 	// Error details for failure. This is optional.
 	ErrorDetails JobErrorDetailsResponseArrayInput `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxHeavy'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -1680,8 +1680,8 @@ func (o DataBoxHeavyJobDetailsResponseOutput) ErrorDetails() JobErrorDetailsResp
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxHeavyJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -1940,7 +1940,7 @@ type DataBoxJobDetails struct {
 	// Set Device password for unlocking Databox
 	DevicePassword *string `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -1970,7 +1970,7 @@ type DataBoxJobDetailsArgs struct {
 	// Set Device password for unlocking Databox
 	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2023,8 +2023,8 @@ func (o DataBoxJobDetailsOutput) DevicePassword() pulumi.StringPtrOutput {
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxJobDetails) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxJobDetailsOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetails) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -2062,7 +2062,7 @@ type DataBoxJobDetailsResponse struct {
 	// Error details for failure. This is optional.
 	ErrorDetails []JobErrorDetailsResponse `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes *int `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType string `pulumi:"jobDetailsType"`
@@ -2108,7 +2108,7 @@ type DataBoxJobDetailsResponseArgs struct {
 	// Error details for failure. This is optional.
 	ErrorDetails JobErrorDetailsResponseArrayInput `pulumi:"errorDetails"`
 	// The expected size of the data, which needs to be transferred in this job, in terabytes.
-	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	ExpectedDataSizeInTeraBytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTeraBytes"`
 	// Indicates the type of job details.
 	// Expected value is 'DataBox'.
 	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
@@ -2192,8 +2192,8 @@ func (o DataBoxJobDetailsResponseOutput) ErrorDetails() JobErrorDetailsResponseA
 }
 
 // The expected size of the data, which needs to be transferred in this job, in terabytes.
-func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataBoxJobDetailsResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+func (o DataBoxJobDetailsResponseOutput) ExpectedDataSizeInTeraBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsResponse) *int { return v.ExpectedDataSizeInTeraBytes }).(pulumi.IntPtrOutput)
 }
 
 // Indicates the type of job details.
@@ -2442,9 +2442,9 @@ func (o DataboxJobSecretsResponseOutput) PodSecrets() DataBoxSecretResponseArray
 // Dc Access Security code for device.
 type DcAccessSecurityCodeResponse struct {
 	// Dc Access Code for dispatching from DC.
-	ForwardDcAccessCode *string `pulumi:"forwardDcAccessCode"`
+	ForwardDCAccessCode *string `pulumi:"forwardDCAccessCode"`
 	// Dc Access code for dropping off at DC.
-	ReverseDcAccessCode *string `pulumi:"reverseDcAccessCode"`
+	ReverseDCAccessCode *string `pulumi:"reverseDCAccessCode"`
 }
 
 // DcAccessSecurityCodeResponseInput is an input type that accepts DcAccessSecurityCodeResponseArgs and DcAccessSecurityCodeResponseOutput values.
@@ -2461,9 +2461,9 @@ type DcAccessSecurityCodeResponseInput interface {
 // Dc Access Security code for device.
 type DcAccessSecurityCodeResponseArgs struct {
 	// Dc Access Code for dispatching from DC.
-	ForwardDcAccessCode pulumi.StringPtrInput `pulumi:"forwardDcAccessCode"`
+	ForwardDCAccessCode pulumi.StringPtrInput `pulumi:"forwardDCAccessCode"`
 	// Dc Access code for dropping off at DC.
-	ReverseDcAccessCode pulumi.StringPtrInput `pulumi:"reverseDcAccessCode"`
+	ReverseDCAccessCode pulumi.StringPtrInput `pulumi:"reverseDCAccessCode"`
 }
 
 func (DcAccessSecurityCodeResponseArgs) ElementType() reflect.Type {
@@ -2545,13 +2545,13 @@ func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponsePtrOut
 }
 
 // Dc Access Code for dispatching from DC.
-func (o DcAccessSecurityCodeResponseOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeResponseOutput) ForwardDCAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
 // Dc Access code for dropping off at DC.
-func (o DcAccessSecurityCodeResponseOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeResponseOutput) ReverseDCAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDCAccessCode }).(pulumi.StringPtrOutput)
 }
 
 type DcAccessSecurityCodeResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2573,22 +2573,22 @@ func (o DcAccessSecurityCodeResponsePtrOutput) Elem() DcAccessSecurityCodeRespon
 }
 
 // Dc Access Code for dispatching from DC.
-func (o DcAccessSecurityCodeResponsePtrOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
+func (o DcAccessSecurityCodeResponsePtrOutput) ForwardDCAccessCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ForwardDcAccessCode
+		return v.ForwardDCAccessCode
 	}).(pulumi.StringPtrOutput)
 }
 
 // Dc Access code for dropping off at DC.
-func (o DcAccessSecurityCodeResponsePtrOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
+func (o DcAccessSecurityCodeResponsePtrOutput) ReverseDCAccessCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ReverseDcAccessCode
+		return v.ReverseDCAccessCode
 	}).(pulumi.StringPtrOutput)
 }
 

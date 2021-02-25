@@ -12,7 +12,7 @@ import (
 )
 
 // Information about a partner registration.
-// API Version: 2020-04-01-preview.
+// API Version: 2020-10-15-preview.
 type PartnerRegistration struct {
 	pulumi.CustomResourceState
 
@@ -30,7 +30,7 @@ type PartnerRegistration struct {
 	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
 	// Length of this description should not exceed 2048 characters.
 	LongDescription pulumi.StringPtrOutput `pulumi:"longDescription"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
 	PartnerCustomerServiceExtension pulumi.StringPtrOutput `pulumi:"partnerCustomerServiceExtension"`
@@ -52,9 +52,11 @@ type PartnerRegistration struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri pulumi.StringPtrOutput `pulumi:"setupUri"`
+	// The system metadata relating to Partner Registration resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Visibility state of the partner registration.
 	VisibilityState pulumi.StringPtrOutput `pulumi:"visibilityState"`
@@ -121,7 +123,7 @@ type partnerRegistrationState struct {
 	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
 	// Length of this description should not exceed 2048 characters.
 	LongDescription *string `pulumi:"longDescription"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
 	PartnerCustomerServiceExtension *string `pulumi:"partnerCustomerServiceExtension"`
@@ -143,9 +145,11 @@ type partnerRegistrationState struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri *string `pulumi:"setupUri"`
+	// The system metadata relating to Partner Registration resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 	// Visibility state of the partner registration.
 	VisibilityState *string `pulumi:"visibilityState"`
@@ -166,7 +170,7 @@ type PartnerRegistrationState struct {
 	// Long description for the custom scenarios and integration to be displayed in the portal if needed.
 	// Length of this description should not exceed 2048 characters.
 	LongDescription pulumi.StringPtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// The extension of the customer service number of the publisher. Only digits are allowed and number of digits should not exceed 10.
 	PartnerCustomerServiceExtension pulumi.StringPtrInput
@@ -188,9 +192,11 @@ type PartnerRegistrationState struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri pulumi.StringPtrInput
+	// The system metadata relating to Partner Registration resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 	// Visibility state of the partner registration.
 	VisibilityState pulumi.StringPtrInput

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +44,10 @@ export class DomainTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to Domain Topic resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20200601.SystemDataResponse>;
+    /**
      * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -69,10 +74,12 @@ export class DomainTopic extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

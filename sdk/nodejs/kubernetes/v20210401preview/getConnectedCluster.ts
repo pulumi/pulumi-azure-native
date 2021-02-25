@@ -90,6 +90,10 @@ export interface GetConnectedClusterResult {
      */
     readonly offering: string;
     /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    readonly privateLinkScopeResourceId?: string;
+    /**
      * Provisioning state of the connected cluster resource.
      */
     readonly provisioningState?: string;

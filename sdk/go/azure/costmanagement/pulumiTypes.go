@@ -8569,6 +8569,8 @@ type ReportConfigFilter struct {
 	Or []ReportConfigFilter `pulumi:"or"`
 	// Has comparison expression for a tag key
 	TagKey *ReportConfigComparisonExpression `pulumi:"tagKey"`
+	// Has comparison expression for a tag value
+	TagValue *ReportConfigComparisonExpression `pulumi:"tagValue"`
 	// Has comparison expression for a tag
 	Tags *ReportConfigComparisonExpression `pulumi:"tags"`
 }
@@ -8594,6 +8596,8 @@ type ReportConfigFilterArgs struct {
 	Or ReportConfigFilterArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag key
 	TagKey ReportConfigComparisonExpressionPtrInput `pulumi:"tagKey"`
+	// Has comparison expression for a tag value
+	TagValue ReportConfigComparisonExpressionPtrInput `pulumi:"tagValue"`
 	// Has comparison expression for a tag
 	Tags ReportConfigComparisonExpressionPtrInput `pulumi:"tags"`
 }
@@ -8721,6 +8725,11 @@ func (o ReportConfigFilterOutput) TagKey() ReportConfigComparisonExpressionPtrOu
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.TagKey }).(ReportConfigComparisonExpressionPtrOutput)
 }
 
+// Has comparison expression for a tag value
+func (o ReportConfigFilterOutput) TagValue() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.TagValue }).(ReportConfigComparisonExpressionPtrOutput)
+}
+
 // Has comparison expression for a tag
 func (o ReportConfigFilterOutput) Tags() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Tags }).(ReportConfigComparisonExpressionPtrOutput)
@@ -8784,6 +8793,16 @@ func (o ReportConfigFilterPtrOutput) TagKey() ReportConfigComparisonExpressionPt
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
 
+// Has comparison expression for a tag value
+func (o ReportConfigFilterPtrOutput) TagValue() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
+	}).(ReportConfigComparisonExpressionPtrOutput)
+}
+
 // Has comparison expression for a tag
 func (o ReportConfigFilterPtrOutput) Tags() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
@@ -8824,6 +8843,8 @@ type ReportConfigFilterResponse struct {
 	Or []ReportConfigFilterResponse `pulumi:"or"`
 	// Has comparison expression for a tag key
 	TagKey *ReportConfigComparisonExpressionResponse `pulumi:"tagKey"`
+	// Has comparison expression for a tag value
+	TagValue *ReportConfigComparisonExpressionResponse `pulumi:"tagValue"`
 	// Has comparison expression for a tag
 	Tags *ReportConfigComparisonExpressionResponse `pulumi:"tags"`
 }
@@ -8849,6 +8870,8 @@ type ReportConfigFilterResponseArgs struct {
 	Or ReportConfigFilterResponseArrayInput `pulumi:"or"`
 	// Has comparison expression for a tag key
 	TagKey ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tagKey"`
+	// Has comparison expression for a tag value
+	TagValue ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tagValue"`
 	// Has comparison expression for a tag
 	Tags ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tags"`
 }
@@ -8976,6 +8999,11 @@ func (o ReportConfigFilterResponseOutput) TagKey() ReportConfigComparisonExpress
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.TagKey }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
+// Has comparison expression for a tag value
+func (o ReportConfigFilterResponseOutput) TagValue() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.TagValue }).(ReportConfigComparisonExpressionResponsePtrOutput)
+}
+
 // Has comparison expression for a tag
 func (o ReportConfigFilterResponseOutput) Tags() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Tags }).(ReportConfigComparisonExpressionResponsePtrOutput)
@@ -9036,6 +9064,16 @@ func (o ReportConfigFilterResponsePtrOutput) TagKey() ReportConfigComparisonExpr
 			return nil
 		}
 		return v.TagKey
+	}).(ReportConfigComparisonExpressionResponsePtrOutput)
+}
+
+// Has comparison expression for a tag value
+func (o ReportConfigFilterResponsePtrOutput) TagValue() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 

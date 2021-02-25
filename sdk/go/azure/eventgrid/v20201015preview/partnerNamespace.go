@@ -26,7 +26,7 @@ type PartnerNamespace struct {
 	PartnerRegistrationFullyQualifiedId pulumi.StringPtrOutput `pulumi:"partnerRegistrationFullyQualifiedId"`
 	// Provisioning state of the partner namespace.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Namespace resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -92,7 +92,7 @@ type partnerNamespaceState struct {
 	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
 	// Provisioning state of the partner namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Namespace resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -112,7 +112,7 @@ type PartnerNamespaceState struct {
 	PartnerRegistrationFullyQualifiedId pulumi.StringPtrInput
 	// Provisioning state of the partner namespace.
 	ProvisioningState pulumi.StringPtrInput
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Namespace resource.
 	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.
 type Container struct {
@@ -83,6 +83,12 @@ func NewContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Container"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Container"),
 		},
 	})
 	opts = append(opts, aliases)

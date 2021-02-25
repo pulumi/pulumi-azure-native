@@ -26,7 +26,7 @@ class Trigger(pulumi.CustomResource):
                  __opts__=None):
         """
         Trigger details.
-        API Version: 2020-09-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,7 +64,7 @@ class Trigger(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Trigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Trigger"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Trigger"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Trigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azure-native:databoxedge:Trigger',

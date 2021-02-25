@@ -46,6 +46,18 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GatewayCertificateAuthority"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/latest:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GatewayCertificateAuthority"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GatewayCertificateAuthority

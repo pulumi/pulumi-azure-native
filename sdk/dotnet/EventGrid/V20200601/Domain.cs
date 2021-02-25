@@ -77,6 +77,12 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to Domain resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -228,6 +234,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         public DomainArgs()
         {
             InputSchema = "EventGridSchema";
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

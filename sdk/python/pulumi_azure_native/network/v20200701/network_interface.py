@@ -27,6 +27,8 @@ class NetworkInterface(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -46,6 +48,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -75,6 +79,8 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['location'] = location
             __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
+            __props__['nic_type'] = nic_type
+            __props__['private_link_service'] = private_link_service
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -214,6 +220,14 @@ class NetworkInterface(pulumi.CustomResource):
         return pulumi.get(self, "network_security_group")
 
     @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @property
     @pulumi.getter
     def primary(self) -> pulumi.Output[bool]:
         """
@@ -228,6 +242,14 @@ class NetworkInterface(pulumi.CustomResource):
         A reference to the private endpoint to which the network interface is linked.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceResponse']]:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
 
     @property
     @pulumi.getter(name="provisioningState")

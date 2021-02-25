@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Is type of sensor is enterprise IoT sensor
+        /// </summary>
+        public readonly bool? IsEnterpriseSensor;
+        /// <summary>
         /// Learning mode status of the IoT sensor
         /// </summary>
         public readonly bool LearningMode;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
 
             string id,
 
+            bool? isEnterpriseSensor,
+
             bool learningMode,
 
             string name,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
             CreationTime = creationTime;
             DynamicLearning = dynamicLearning;
             Id = id;
+            IsEnterpriseSensor = isEnterpriseSensor;
             LearningMode = learningMode;
             Name = name;
             SensorStatus = sensorStatus;

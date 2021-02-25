@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         public Output<bool> DynamicLearning { get; private set; } = null!;
 
         /// <summary>
+        /// Is type of sensor is enterprise IoT sensor
+        /// </summary>
+        [Output("isEnterpriseSensor")]
+        public Output<bool?> IsEnterpriseSensor { get; private set; } = null!;
+
+        /// <summary>
         /// Learning mode status of the IoT sensor
         /// </summary>
         [Output("learningMode")]
@@ -142,6 +148,12 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         /// </summary>
         [Input("iotSensorName")]
         public Input<string>? IotSensorName { get; set; }
+
+        /// <summary>
+        /// Is type of sensor is enterprise IoT sensor
+        /// </summary>
+        [Input("isEnterpriseSensor")]
+        public Input<bool>? IsEnterpriseSensor { get; set; }
 
         /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)

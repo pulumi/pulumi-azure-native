@@ -85,6 +85,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.eventgrid.v20201015preview.ResourceSkuResponse | undefined>;
     /**
+     * The system metadata relating to Domain resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20201015preview.SystemDataResponse>;
+    /**
      * Tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -114,7 +118,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -122,6 +126,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endpoint"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

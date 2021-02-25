@@ -78,7 +78,7 @@ export interface GetEventSubscriptionResult {
      */
     readonly labels?: string[];
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -90,11 +90,15 @@ export interface GetEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.v20200401preview.RetryPolicyResponse;
     /**
+     * The system metadata relating to Event Subscription resource.
+     */
+    readonly systemData: outputs.eventgrid.v20200401preview.SystemDataResponse;
+    /**
      * Name of the topic of the event subscription.
      */
     readonly topic: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

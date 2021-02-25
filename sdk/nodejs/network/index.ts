@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./adminRule";
 export * from "./applicationGateway";
 export * from "./applicationGatewayPrivateEndpointConnection";
 export * from "./applicationSecurityGroup";
 export * from "./azureFirewall";
 export * from "./bastionHost";
 export * from "./connectionMonitor";
+export * from "./connectivityConfiguration";
 export * from "./customIPPrefix";
 export * from "./ddosCustomPolicy";
 export * from "./ddosProtectionPlan";
@@ -31,6 +33,7 @@ export * from "./firewallPolicyRuleGroup";
 export * from "./flowLog";
 export * from "./frontDoor";
 export * from "./getActiveSessions";
+export * from "./getAdminRule";
 export * from "./getApplicationGateway";
 export * from "./getApplicationGatewayBackendHealthOnDemand";
 export * from "./getApplicationGatewayPrivateEndpointConnection";
@@ -39,6 +42,7 @@ export * from "./getAzureFirewall";
 export * from "./getBastionHost";
 export * from "./getBastionShareableLink";
 export * from "./getConnectionMonitor";
+export * from "./getConnectivityConfiguration";
 export * from "./getCustomIPPrefix";
 export * from "./getDdosCustomPolicy";
 export * from "./getDdosProtectionPlan";
@@ -71,8 +75,10 @@ export * from "./getLocalNetworkGateway";
 export * from "./getNatGateway";
 export * from "./getNatRule";
 export * from "./getNetworkExperimentProfile";
+export * from "./getNetworkGroup";
 export * from "./getNetworkInterface";
 export * from "./getNetworkInterfaceTapConfiguration";
+export * from "./getNetworkManager";
 export * from "./getNetworkProfile";
 export * from "./getNetworkSecurityGroup";
 export * from "./getNetworkVirtualAppliance";
@@ -97,12 +103,14 @@ export * from "./getRouteFilter";
 export * from "./getRouteFilterRule";
 export * from "./getRouteTable";
 export * from "./getRulesEngine";
+export * from "./getSecurityConfiguration";
 export * from "./getSecurityPartnerProvider";
 export * from "./getSecurityRule";
 export * from "./getServiceEndpointPolicy";
 export * from "./getServiceEndpointPolicyDefinition";
 export * from "./getSubnet";
 export * from "./getTrafficManagerUserMetricsKey";
+export * from "./getUserRule";
 export * from "./getVirtualApplianceSite";
 export * from "./getVirtualHub";
 export * from "./getVirtualHubBgpConnection";
@@ -134,14 +142,19 @@ export * from "./inboundNatRule";
 export * from "./interfaceEndpoint";
 export * from "./ipAllocation";
 export * from "./ipGroup";
+export * from "./listEffectiveVirtualNetworkByNetworkGroup";
+export * from "./listEffectiveVirtualNetworkByNetworkManager";
+export * from "./listNetworkManagerDeploymentStatus";
 export * from "./loadBalancer";
 export * from "./loadBalancerBackendAddressPool";
 export * from "./localNetworkGateway";
 export * from "./natGateway";
 export * from "./natRule";
 export * from "./networkExperimentProfile";
+export * from "./networkGroup";
 export * from "./networkInterface";
 export * from "./networkInterfaceTapConfiguration";
+export * from "./networkManager";
 export * from "./networkProfile";
 export * from "./networkSecurityGroup";
 export * from "./networkVirtualAppliance";
@@ -164,12 +177,14 @@ export * from "./routeFilter";
 export * from "./routeFilterRule";
 export * from "./routeTable";
 export * from "./rulesEngine";
+export * from "./securityConfiguration";
 export * from "./securityPartnerProvider";
 export * from "./securityRule";
 export * from "./serviceEndpointPolicy";
 export * from "./serviceEndpointPolicyDefinition";
 export * from "./subnet";
 export * from "./trafficManagerUserMetricsKey";
+export * from "./userRule";
 export * from "./virtualApplianceSite";
 export * from "./virtualHub";
 export * from "./virtualHubBgpConnection";
@@ -245,6 +260,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
 import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
+import * as v20210201preview from "./v20210201preview";
 
 export {
     latest,
@@ -297,15 +313,18 @@ export {
     v20200701,
     v20200801,
     v20201101,
+    v20210201preview,
 };
 
 // Import resources to register:
+import { AdminRule } from "./adminRule";
 import { ApplicationGateway } from "./applicationGateway";
 import { ApplicationGatewayPrivateEndpointConnection } from "./applicationGatewayPrivateEndpointConnection";
 import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
 import { AzureFirewall } from "./azureFirewall";
 import { BastionHost } from "./bastionHost";
 import { ConnectionMonitor } from "./connectionMonitor";
+import { ConnectivityConfiguration } from "./connectivityConfiguration";
 import { CustomIPPrefix } from "./customIPPrefix";
 import { DdosCustomPolicy } from "./ddosCustomPolicy";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
@@ -337,8 +356,10 @@ import { LocalNetworkGateway } from "./localNetworkGateway";
 import { NatGateway } from "./natGateway";
 import { NatRule } from "./natRule";
 import { NetworkExperimentProfile } from "./networkExperimentProfile";
+import { NetworkGroup } from "./networkGroup";
 import { NetworkInterface } from "./networkInterface";
 import { NetworkInterfaceTapConfiguration } from "./networkInterfaceTapConfiguration";
+import { NetworkManager } from "./networkManager";
 import { NetworkProfile } from "./networkProfile";
 import { NetworkSecurityGroup } from "./networkSecurityGroup";
 import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
@@ -361,12 +382,14 @@ import { RouteFilter } from "./routeFilter";
 import { RouteFilterRule } from "./routeFilterRule";
 import { RouteTable } from "./routeTable";
 import { RulesEngine } from "./rulesEngine";
+import { SecurityConfiguration } from "./securityConfiguration";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
 import { SecurityRule } from "./securityRule";
 import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
 import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
 import { Subnet } from "./subnet";
 import { TrafficManagerUserMetricsKey } from "./trafficManagerUserMetricsKey";
+import { UserRule } from "./userRule";
 import { VirtualApplianceSite } from "./virtualApplianceSite";
 import { VirtualHub } from "./virtualHub";
 import { VirtualHubBgpConnection } from "./virtualHubBgpConnection";
@@ -392,6 +415,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:network:AdminRule":
+                return new AdminRule(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -404,6 +429,8 @@ const _module = {
                 return new BastionHost(name, <any>undefined, { urn })
             case "azure-native:network:ConnectionMonitor":
                 return new ConnectionMonitor(name, <any>undefined, { urn })
+            case "azure-native:network:ConnectivityConfiguration":
+                return new ConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:CustomIPPrefix":
                 return new CustomIPPrefix(name, <any>undefined, { urn })
             case "azure-native:network:DdosCustomPolicy":
@@ -466,10 +493,14 @@ const _module = {
                 return new NatRule(name, <any>undefined, { urn })
             case "azure-native:network:NetworkExperimentProfile":
                 return new NetworkExperimentProfile(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkGroup":
+                return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
             case "azure-native:network:NetworkInterfaceTapConfiguration":
                 return new NetworkInterfaceTapConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkManager":
+                return new NetworkManager(name, <any>undefined, { urn })
             case "azure-native:network:NetworkProfile":
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "azure-native:network:NetworkSecurityGroup":
@@ -514,6 +545,8 @@ const _module = {
                 return new RouteTable(name, <any>undefined, { urn })
             case "azure-native:network:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
+            case "azure-native:network:SecurityConfiguration":
+                return new SecurityConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:SecurityPartnerProvider":
                 return new SecurityPartnerProvider(name, <any>undefined, { urn })
             case "azure-native:network:SecurityRule":
@@ -526,6 +559,8 @@ const _module = {
                 return new Subnet(name, <any>undefined, { urn })
             case "azure-native:network:TrafficManagerUserMetricsKey":
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
+            case "azure-native:network:UserRule":
+                return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network:VirtualApplianceSite":
                 return new VirtualApplianceSite(name, <any>undefined, { urn })
             case "azure-native:network:VirtualHub":

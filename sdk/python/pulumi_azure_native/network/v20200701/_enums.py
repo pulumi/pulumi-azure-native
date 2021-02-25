@@ -71,6 +71,7 @@ __all__ = [
     'LoadDistribution',
     'ManagedRuleEnabledState',
     'NatGatewaySkuName',
+    'NetworkInterfaceNicType',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
     'OwaspCrsExclusionEntrySelectorMatchOperator',
@@ -79,6 +80,7 @@ __all__ = [
     'PreferredIPVersion',
     'ProbeProtocol',
     'ProtocolType',
+    'PublicIPAddressMigrationPhase',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
     'PublicIPPrefixSkuName',
@@ -99,6 +101,8 @@ __all__ = [
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
     'VirtualNetworkPeeringState',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
     'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
@@ -731,6 +735,14 @@ class NatGatewaySkuName(str, Enum):
     STANDARD = "Standard"
 
 
+class NetworkInterfaceNicType(str, Enum):
+    """
+    Type of Network Interface resource.
+    """
+    STANDARD = "Standard"
+    ELASTIC = "Elastic"
+
+
 class OutputType(str, Enum):
     """
     Connection monitor output destination type. Currently, only "Workspace" is supported.
@@ -812,6 +824,17 @@ class ProtocolType(str, Enum):
     AH = "Ah"
     VXLAN = "Vxlan"
     ALL = "All"
+
+
+class PublicIPAddressMigrationPhase(str, Enum):
+    """
+    Migration phase of Public IP Address.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
 
 
 class PublicIPAddressSkuName(str, Enum):
@@ -1018,6 +1041,22 @@ class VirtualNetworkPeeringState(str, Enum):
     INITIATED = "Initiated"
     CONNECTED = "Connected"
     DISCONNECTED = "Disconnected"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class VpnAuthenticationType(str, Enum):

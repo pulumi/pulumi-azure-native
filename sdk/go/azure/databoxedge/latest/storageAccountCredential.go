@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account credential.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccountCredential'.
 type StorageAccountCredential struct {
@@ -106,6 +106,12 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:StorageAccountCredential"),
 		},
 	})
 	opts = append(opts, aliases)

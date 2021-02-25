@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a partner registration.
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**
@@ -61,7 +61,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
      */
     public readonly longDescription!: pulumi.Output<string | undefined>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -101,11 +101,15 @@ export class PartnerRegistration extends pulumi.CustomResource {
      */
     public readonly setupUri!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to Partner Registration resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    /**
      * Tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -145,6 +149,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
             inputs["visibilityState"] = args ? args.visibilityState : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authorizedAzureSubscriptionIds"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
             inputs["partnerResourceTypeName"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["setupUri"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["visibilityState"] = undefined /*out*/;

@@ -66,8 +66,12 @@ class AzureFunctionEventSubscriptionDestinationArgs:
         :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'AzureFunction')
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
         if resource_id is not None:
@@ -2001,8 +2005,12 @@ class WebHookEventSubscriptionDestinationArgs:
             pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 

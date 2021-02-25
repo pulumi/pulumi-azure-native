@@ -64,7 +64,7 @@ type LookupPartnerRegistrationResult struct {
 	// URI of the partner website that can be used by Azure customers to setup Event Grid
 	// integration on an event source.
 	SetupUri *string `pulumi:"setupUri"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Partner Registration resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`

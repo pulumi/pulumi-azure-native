@@ -103,10 +103,6 @@ export interface GetHostPoolResult {
      */
     readonly ssoClientSecretKeyVaultPath?: string;
     /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    readonly ssoContext?: string;
-    /**
      * The type of single sign on Secret Type.
      */
     readonly ssoSecretType?: string;

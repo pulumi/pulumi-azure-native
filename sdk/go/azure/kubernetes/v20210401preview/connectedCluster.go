@@ -39,6 +39,8 @@ type ConnectedCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Connected cluster offering
 	Offering pulumi.StringOutput `pulumi:"offering"`
+	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	PrivateLinkScopeResourceId pulumi.StringPtrOutput `pulumi:"privateLinkScopeResourceId"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource
@@ -142,6 +144,8 @@ type connectedClusterState struct {
 	Name *string `pulumi:"name"`
 	// Connected cluster offering
 	Offering *string `pulumi:"offering"`
+	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource
@@ -181,6 +185,8 @@ type ConnectedClusterState struct {
 	Name pulumi.StringPtrInput
 	// Connected cluster offering
 	Offering pulumi.StringPtrInput
+	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	PrivateLinkScopeResourceId pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Metadata pertaining to creation and last modification of the resource
@@ -212,6 +218,8 @@ type connectedClusterArgs struct {
 	Infrastructure *string `pulumi:"infrastructure"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
@@ -234,6 +242,8 @@ type ConnectedClusterArgs struct {
 	Infrastructure pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	PrivateLinkScopeResourceId pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

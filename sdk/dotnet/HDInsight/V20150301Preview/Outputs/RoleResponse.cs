@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataDisksGroupsResponse> DataDisksGroups;
         /// <summary>
+        /// Indicates whether encrypt the data disks.
+        /// </summary>
+        public readonly bool? EncryptDataDisks;
+        /// <summary>
         /// The hardware profile.
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
@@ -46,6 +50,10 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly int? TargetInstanceCount;
         /// <summary>
+        /// The name of the virtual machine group.
+        /// </summary>
+        public readonly string? VMGroupName;
+        /// <summary>
         /// The virtual network profile.
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
@@ -55,6 +63,8 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
             Outputs.AutoscaleResponse? autoscaleConfiguration,
 
             ImmutableArray<Outputs.DataDisksGroupsResponse> dataDisksGroups,
+
+            bool? encryptDataDisks,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
 
@@ -68,16 +78,20 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 
             int? targetInstanceCount,
 
+            string? vMGroupName,
+
             Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile)
         {
             AutoscaleConfiguration = autoscaleConfiguration;
             DataDisksGroups = dataDisksGroups;
+            EncryptDataDisks = encryptDataDisks;
             HardwareProfile = hardwareProfile;
             MinInstanceCount = minInstanceCount;
             Name = name;
             OsProfile = osProfile;
             ScriptActions = scriptActions;
             TargetInstanceCount = targetInstanceCount;
+            VMGroupName = vMGroupName;
             VirtualNetworkProfile = virtualNetworkProfile;
         }
     }

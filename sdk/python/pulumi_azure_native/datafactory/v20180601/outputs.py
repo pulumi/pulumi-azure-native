@@ -57240,17 +57240,17 @@ class WebActivityAuthenticationResponse(dict):
                  type: str,
                  password: Optional[Any] = None,
                  pfx: Optional[Any] = None,
-                 resource: Optional[str] = None,
+                 resource: Optional[Any] = None,
                  user_tenant: Optional[Any] = None,
-                 username: Optional[str] = None):
+                 username: Optional[Any] = None):
         """
         Web activity authentication properties.
         :param str type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
-        :param str resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
+        :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
-        :param str username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", type)
         if password is not None:
@@ -57290,9 +57290,9 @@ class WebActivityAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional[str]:
+    def resource(self) -> Optional[Any]:
         """
-        Resource for which Azure Auth token will be requested when using MSI Authentication.
+        Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "resource")
 
@@ -57306,9 +57306,9 @@ class WebActivityAuthenticationResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> Optional[Any]:
         """
-        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 

@@ -12,7 +12,7 @@ import (
 )
 
 // Role Addon
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type Addon struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +63,12 @@ func NewAddon(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Addon"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Addon"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Addon"),
 		},
 	})
 	opts = append(opts, aliases)

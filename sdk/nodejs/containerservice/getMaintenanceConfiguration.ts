@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * maintenance configuration.
- * API Version: 2020-12-01.
+ * API Version: 2021-02-01.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
     if (!opts) {

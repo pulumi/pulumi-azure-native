@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 {
     /// <summary>
     /// maintenance configuration.
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2021-02-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.")]
     [AzureNativeResourceType("azure-native:containerservice/latest:MaintenanceConfiguration")]
@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

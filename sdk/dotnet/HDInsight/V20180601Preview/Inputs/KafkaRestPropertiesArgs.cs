@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Inputs
         [Input("clientGroupInfo")]
         public Input<Inputs.ClientGroupInfoArgs>? ClientGroupInfo { get; set; }
 
+        [Input("configurationOverride")]
+        private InputMap<string>? _configurationOverride;
+
+        /// <summary>
+        /// The configurations that need to be overriden.
+        /// </summary>
+        public InputMap<string> ConfigurationOverride
+        {
+            get => _configurationOverride ?? (_configurationOverride = new InputMap<string>());
+            set => _configurationOverride = value;
+        }
+
         public KafkaRestPropertiesArgs()
         {
         }

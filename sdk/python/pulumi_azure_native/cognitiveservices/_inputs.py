@@ -32,6 +32,8 @@ class CognitiveServicesAccountApiPropertiesArgs:
                  aad_client_id: Optional[pulumi.Input[str]] = None,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
                  event_hub_connection_string: Optional[pulumi.Input[str]] = None,
+                 qna_azure_search_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 qna_azure_search_endpoint_key: Optional[pulumi.Input[str]] = None,
                  qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
                  statistics_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_connection_string: Optional[pulumi.Input[str]] = None,
@@ -42,6 +44,8 @@ class CognitiveServicesAccountApiPropertiesArgs:
         :param pulumi.Input[str] aad_client_id: (Metrics Advisor Only) The Azure AD Client Id (Application Id).
         :param pulumi.Input[str] aad_tenant_id: (Metrics Advisor Only) The Azure AD Tenant Id.
         :param pulumi.Input[str] event_hub_connection_string: (Personalization Only) The flag to enable statistics of Bing Search.
+        :param pulumi.Input[str] qna_azure_search_endpoint_id: (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        :param pulumi.Input[str] qna_azure_search_endpoint_key: (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
         :param pulumi.Input[str] qna_runtime_endpoint: (QnAMaker Only) The runtime endpoint of QnAMaker.
         :param pulumi.Input[bool] statistics_enabled: (Bing Search Only) The flag to enable statistics of Bing Search.
         :param pulumi.Input[str] storage_account_connection_string: (Personalization Only) The storage account connection string.
@@ -54,6 +58,10 @@ class CognitiveServicesAccountApiPropertiesArgs:
             pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
         if event_hub_connection_string is not None:
             pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
+        if qna_azure_search_endpoint_id is not None:
+            pulumi.set(__self__, "qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
+        if qna_azure_search_endpoint_key is not None:
+            pulumi.set(__self__, "qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
         if qna_runtime_endpoint is not None:
             pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
         if statistics_enabled is not None:
@@ -100,6 +108,30 @@ class CognitiveServicesAccountApiPropertiesArgs:
     @event_hub_connection_string.setter
     def event_hub_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_hub_connection_string", value)
+
+    @property
+    @pulumi.getter(name="qnaAzureSearchEndpointId")
+    def qna_azure_search_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        """
+        return pulumi.get(self, "qna_azure_search_endpoint_id")
+
+    @qna_azure_search_endpoint_id.setter
+    def qna_azure_search_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qna_azure_search_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="qnaAzureSearchEndpointKey")
+    def qna_azure_search_endpoint_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        """
+        return pulumi.get(self, "qna_azure_search_endpoint_key")
+
+    @qna_azure_search_endpoint_key.setter
+    def qna_azure_search_endpoint_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qna_azure_search_endpoint_key", value)
 
     @property
     @pulumi.getter(name="qnaRuntimeEndpoint")
@@ -502,13 +534,29 @@ class NetworkRuleSetArgs:
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The Private Endpoint Connection resource.
+        :param pulumi.Input[str] location: The location of the private endpoint connection
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Resource properties.
         """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the private endpoint connection
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -565,33 +613,33 @@ class PrivateEndpointConnectionPropertiesArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter

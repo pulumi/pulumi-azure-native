@@ -29,6 +29,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200601.Inputs
 
         public RetryPolicyArgs()
         {
+            EventTimeToLiveInMinutes = 1440;
+            MaxDeliveryAttempts = 30;
         }
     }
 }

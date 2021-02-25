@@ -1033,6 +1033,29 @@ export const NatGatewaySkuName = {
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
 
+export const NetworkInterfaceMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Network Interface resource.
+ */
+export type NetworkInterfaceMigrationPhase = (typeof NetworkInterfaceMigrationPhase)[keyof typeof NetworkInterfaceMigrationPhase];
+
+export const NetworkInterfaceNicType = {
+    Standard: "Standard",
+    Elastic: "Elastic",
+} as const;
+
+/**
+ * Type of Network Interface resource.
+ */
+export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
+
 export const Operator = {
     Any: "Any",
     IPMatch: "IPMatch",
@@ -1243,6 +1266,19 @@ export const PublicIPPrefixSkuTier = {
  * Tier of a public IP prefix SKU.
  */
 export type PublicIPPrefixSkuTier = (typeof PublicIPPrefixSkuTier)[keyof typeof PublicIPPrefixSkuTier];
+
+export const PublicIpAddressMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Public IP Address.
+ */
+export type PublicIpAddressMigrationPhase = (typeof PublicIpAddressMigrationPhase)[keyof typeof PublicIpAddressMigrationPhase];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -1592,6 +1628,26 @@ export const VirtualNetworkPeeringState = {
  * The status of the virtual network peering.
  */
 export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
+
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
 
 export const VpnAuthenticationType = {
     Certificate: "Certificate",

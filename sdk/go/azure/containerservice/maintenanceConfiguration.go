@@ -12,7 +12,7 @@ import (
 )
 
 // maintenance configuration.
-// API Version: 2020-12-01.
+// API Version: 2021-02-01.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +53,12 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210201:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

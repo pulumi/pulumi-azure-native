@@ -32,9 +32,13 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-local_generate::
+local_generate_code:: clean
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
+	echo "Finished generating."
+
+local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go ${VERSION}
-	echo "Finished generating schema."
+	echo "Finished generating."
 
 generate_schema::
 	echo "Generating Pulumi schema..."

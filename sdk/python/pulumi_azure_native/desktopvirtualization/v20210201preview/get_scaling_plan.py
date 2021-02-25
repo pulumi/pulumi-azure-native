@@ -94,7 +94,7 @@ class GetScalingPlanResult:
     @pulumi.getter(name="hostPoolType")
     def host_pool_type(self) -> Optional[str]:
         """
-        HostPool type for scaling plan.
+        HostPool type for desktop.
         """
         return pulumi.get(self, "host_pool_type")
 

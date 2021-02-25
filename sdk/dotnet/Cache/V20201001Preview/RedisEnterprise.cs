@@ -116,6 +116,8 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:cache:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-native:cache/latest:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210201preview:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:RedisEnterprise"},
                 },

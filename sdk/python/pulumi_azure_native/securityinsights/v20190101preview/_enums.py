@@ -57,6 +57,8 @@ class DataConnectorKind(str, Enum):
     AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
     MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
     DYNAMICS365 = "Dynamics365"
+    MICROSOFT_THREAT_PROTECTION = "MicrosoftThreatProtection"
+    MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
 
 
 class EntityTimelineKind(str, Enum):

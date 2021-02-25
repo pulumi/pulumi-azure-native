@@ -40,6 +40,8 @@ type Domain struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the domain.
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
+	// The system metadata relating to Domain resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the resource.
@@ -58,6 +60,9 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -157,6 +162,8 @@ type domainState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the domain.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The system metadata relating to Domain resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
@@ -189,6 +196,8 @@ type DomainState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The Sku pricing tier for the domain.
 	Sku ResourceSkuResponsePtrInput
+	// The system metadata relating to Domain resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// Type of the resource.

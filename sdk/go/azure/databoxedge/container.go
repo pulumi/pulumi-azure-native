@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type Container struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +81,12 @@ func NewContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Container"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Container"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Container"),
 		},
 	})
 	opts = append(opts, aliases)

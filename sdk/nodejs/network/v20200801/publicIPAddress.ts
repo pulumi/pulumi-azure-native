@@ -68,13 +68,25 @@ export class PublicIPAddress extends pulumi.CustomResource {
      */
     public readonly ipTags!: pulumi.Output<outputs.network.v20200801.IpTagResponse[] | undefined>;
     /**
+     * The source Public IP Address (IPv6) that links to this address (IPv4).
+     */
+    public readonly linkedPublicIPAddress!: pulumi.Output<outputs.network.v20200801.PublicIPAddressResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Migration phase of Public IP Address.
+     */
+    public readonly migrationPhase!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The NatGateway for the Public IP address.
+     */
+    public readonly natGateway!: pulumi.Output<outputs.network.v20200801.NatGatewayResponse | undefined>;
     /**
      * The provisioning state of the public IP address resource.
      */
@@ -95,6 +107,10 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * The resource GUID property of the public IP address resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * The service public IP address of the public IP address resource.
+     */
+    public readonly servicePublicIPAddress!: pulumi.Output<outputs.network.v20200801.PublicIPAddressResponse | undefined>;
     /**
      * The public IP address SKU.
      */
@@ -133,12 +149,16 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
+            inputs["linkedPublicIPAddress"] = args ? args.linkedPublicIPAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["migrationPhase"] = args ? args.migrationPhase : undefined;
+            inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
             inputs["publicIPPrefix"] = args ? args.publicIPPrefix : undefined;
             inputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["servicePublicIPAddress"] = args ? args.servicePublicIPAddress : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -157,13 +177,17 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["ipConfiguration"] = undefined /*out*/;
             inputs["ipTags"] = undefined /*out*/;
+            inputs["linkedPublicIPAddress"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["migrationPhase"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["natGateway"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddressVersion"] = undefined /*out*/;
             inputs["publicIPAllocationMethod"] = undefined /*out*/;
             inputs["publicIPPrefix"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
+            inputs["servicePublicIPAddress"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -211,9 +235,21 @@ export interface PublicIPAddressArgs {
      */
     readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20200801.IpTag>[]>;
     /**
+     * The source Public IP Address (IPv6) that links to this address (IPv4).
+     */
+    readonly linkedPublicIPAddress?: pulumi.Input<inputs.network.v20200801.PublicIPAddress>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Migration phase of Public IP Address.
+     */
+    readonly migrationPhase?: pulumi.Input<string | enums.network.v20200801.PublicIpAddressMigrationPhase>;
+    /**
+     * The NatGateway for the Public IP address.
+     */
+    readonly natGateway?: pulumi.Input<inputs.network.v20200801.NatGateway>;
     /**
      * The public IP address version.
      */
@@ -234,6 +270,10 @@ export interface PublicIPAddressArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The service public IP address of the public IP address resource.
+     */
+    readonly servicePublicIPAddress?: pulumi.Input<inputs.network.v20200801.PublicIPAddress>;
     /**
      * The public IP address SKU.
      */

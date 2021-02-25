@@ -59,6 +59,8 @@ class Action(pulumi.CustomResource):
 
             __props__['action_id'] = action_id
             __props__['etag'] = etag
+            if logic_app_resource_id is None and not opts.urn:
+                raise TypeError("Missing required property 'logic_app_resource_id'")
             __props__['logic_app_resource_id'] = logic_app_resource_id
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
@@ -69,6 +71,8 @@ class Action(pulumi.CustomResource):
             if rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_id'")
             __props__['rule_id'] = rule_id
+            if trigger_uri is None and not opts.urn:
+                raise TypeError("Missing required property 'trigger_uri'")
             __props__['trigger_uri'] = trigger_uri
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -110,7 +114,7 @@ class Action(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> pulumi.Output[Optional[str]]:
+    def logic_app_resource_id(self) -> pulumi.Output[str]:
         """
         Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         """

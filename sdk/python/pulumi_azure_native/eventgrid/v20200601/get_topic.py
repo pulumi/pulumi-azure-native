@@ -20,7 +20,7 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -54,6 +54,9 @@ class GetTopicResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -148,6 +151,14 @@ class GetTopicResult:
         return pulumi.get(self, "public_network_access")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Topic resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -181,6 +192,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -216,5 +228,6 @@ def get_topic(resource_group_name: Optional[str] = None,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

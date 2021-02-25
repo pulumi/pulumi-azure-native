@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The list of credential result response.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterAdminCredentials'. */
 export function listManagedClusterAdminCredentials(args: ListManagedClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAdminCredentialsResult> {

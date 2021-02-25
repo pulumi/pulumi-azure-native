@@ -35,15 +35,17 @@ type EventSubscription struct {
 	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
 	// List of user defined labels.
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the event subscription.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy RetryPolicyResponsePtrOutput `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic pulumi.StringOutput `pulumi:"topic"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -56,6 +58,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.EventDeliverySchema == nil {
+		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -180,15 +185,17 @@ type eventSubscriptionState struct {
 	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
 	// List of user defined labels.
 	Labels []string `pulumi:"labels"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// Provisioning state of the event subscription.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic *string `pulumi:"topic"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -213,15 +220,17 @@ type EventSubscriptionState struct {
 	Filter EventSubscriptionFilterResponsePtrInput
 	// List of user defined labels.
 	Labels pulumi.StringArrayInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// Provisioning state of the event subscription.
 	ProvisioningState pulumi.StringPtrInput
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy RetryPolicyResponsePtrInput
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponsePtrInput
 	// Name of the topic of the event subscription.
 	Topic pulumi.StringPtrInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

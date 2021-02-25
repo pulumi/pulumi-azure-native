@@ -51,7 +51,7 @@ export interface GetPartnerNamespaceResult {
      */
     readonly location: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -64,11 +64,15 @@ export interface GetPartnerNamespaceResult {
      */
     readonly provisioningState: string;
     /**
+     * The system metadata relating to Partner Namespace resource.
+     */
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

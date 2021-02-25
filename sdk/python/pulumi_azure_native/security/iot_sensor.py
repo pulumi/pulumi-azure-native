@@ -16,6 +16,7 @@ class IotSensor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  iot_sensor_name: Optional[pulumi.Input[str]] = None,
+                 is_enterprise_sensor: Optional[pulumi.Input[bool]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  ti_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class IotSensor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iot_sensor_name: Name of the IoT sensor
+        :param pulumi.Input[bool] is_enterprise_sensor: Is type of sensor is enterprise IoT sensor
         :param pulumi.Input[str] scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
         :param pulumi.Input[bool] ti_automatic_updates: TI Automatic mode status of the IoT sensor
         :param pulumi.Input[str] zone: Zone of the IoT sensor
@@ -51,6 +53,7 @@ class IotSensor(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['iot_sensor_name'] = iot_sensor_name
+            __props__['is_enterprise_sensor'] = is_enterprise_sensor
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
@@ -115,6 +118,14 @@ class IotSensor(pulumi.CustomResource):
         Dynamic mode status of the IoT sensor
         """
         return pulumi.get(self, "dynamic_learning")
+
+    @property
+    @pulumi.getter(name="isEnterpriseSensor")
+    def is_enterprise_sensor(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is type of sensor is enterprise IoT sensor
+        """
+        return pulumi.get(self, "is_enterprise_sensor")
 
     @property
     @pulumi.getter(name="learningMode")

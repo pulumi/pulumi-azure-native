@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Outputs
     public sealed class EncryptionPropertiesResponse
     {
         /// <summary>
+        /// User identity used for CMK.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponseIdentity? Identity;
+        /// <summary>
         /// Encryption Key Source
         /// </summary>
         public readonly string? KeySource;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview.Outputs
 
         [OutputConstructor]
         private EncryptionPropertiesResponse(
+            Outputs.EncryptionPropertiesResponseIdentity? identity,
+
             string? keySource,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
         {
+            Identity = identity;
             KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;
         }

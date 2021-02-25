@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.
  */
@@ -116,7 +116,7 @@ export class Container extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-nextgen:databoxedge:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901:Container" }, { type: "azure-nextgen:databoxedge/v20200901:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-nextgen:databoxedge:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-nextgen:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-nextgen:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901:Container" }, { type: "azure-nextgen:databoxedge/v20200901:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-nextgen:databoxedge/v20200901preview:Container" }, { type: "azure-native:databoxedge/v20201201:Container" }, { type: "azure-nextgen:databoxedge/v20201201:Container" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Container.__pulumiType, name, inputs, opts);
     }

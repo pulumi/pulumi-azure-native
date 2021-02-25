@@ -24,6 +24,8 @@ export type EncryptionKeySourceType = (typeof EncryptionKeySourceType)[keyof typ
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     None: "None",
 } as const;
 

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
         /// <summary>
         /// The location of the endpoint.
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The private ip address of the endpoint.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
         /// <summary>
         /// The public port to connect to.
         /// </summary>
-        public readonly int? PublicPort;
+        public readonly int PublicPort;
         /// <summary>
         /// The subdomain suffix of the application.
         /// </summary>
@@ -50,11 +50,11 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 
             bool? disableGatewayAuth,
 
-            string? location,
+            string location,
 
             string? privateIPAddress,
 
-            int? publicPort,
+            int publicPort,
 
             string? subDomainSuffix)
         {

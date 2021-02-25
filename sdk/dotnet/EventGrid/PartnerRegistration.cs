@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Information about a partner registration.
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2020-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerRegistration")]
     public partial class PartnerRegistration : Pulumi.CustomResource
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> LongDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -109,13 +109,19 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> SetupUri { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to Partner Registration resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

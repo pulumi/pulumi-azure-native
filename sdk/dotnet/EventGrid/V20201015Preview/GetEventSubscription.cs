@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// </summary>
         public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Event Subscription resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

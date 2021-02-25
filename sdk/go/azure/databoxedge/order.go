@@ -12,7 +12,7 @@ import (
 )
 
 // The order details.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type Order struct {
 	pulumi.CustomResourceState
 
@@ -96,6 +96,12 @@ func NewOrder(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Order"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Order"),
 		},
 	})
 	opts = append(opts, aliases)

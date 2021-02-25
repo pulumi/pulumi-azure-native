@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +27,7 @@ type User struct {
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Type of the user.
-	UserType pulumi.StringPtrOutput `pulumi:"userType"`
+	UserType pulumi.StringOutput `pulumi:"userType"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -42,6 +42,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UserType == nil {
+		return nil, errors.New("invalid value for required argument 'UserType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -85,6 +88,12 @@ func NewUser(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:User"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:User"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:User"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -153,7 +162,7 @@ type userArgs struct {
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Type of the user.
-	UserType *string `pulumi:"userType"`
+	UserType string `pulumi:"userType"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -167,7 +176,7 @@ type UserArgs struct {
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Type of the user.
-	UserType pulumi.StringPtrInput
+	UserType pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

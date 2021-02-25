@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
@@ -105,6 +105,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

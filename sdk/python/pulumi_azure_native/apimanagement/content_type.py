@@ -60,7 +60,7 @@ class ContentType(pulumi.CustomResource):
             __props__['schema'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/latest:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ContentType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/latest:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ContentType"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ContentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentType, __self__).__init__(
             'azure-native:apimanagement:ContentType',

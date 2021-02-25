@@ -146,7 +146,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Whether requests from Public Network are allowed
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
@@ -211,6 +211,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["locations"] = args ? args.locations : undefined;
             inputs["networkAclBypass"] = args ? args.networkAclBypass : undefined;
             inputs["networkAclBypassResourceIds"] = args ? args.networkAclBypassResourceIds : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
@@ -219,7 +220,6 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["readLocations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["writeLocations"] = undefined /*out*/;
@@ -363,6 +363,10 @@ export interface DatabaseAccountArgs {
      * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
      */
     readonly networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether requests from Public Network are allowed
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.documentdb.v20210115.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

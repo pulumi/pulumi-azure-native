@@ -63,6 +63,7 @@ import * as edgeorder from "./edgeorder";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as extendedlocation from "./extendedlocation";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hdinsight from "./hdinsight";
@@ -111,6 +112,7 @@ import * as saas from "./saas";
 import * as scheduler from "./scheduler";
 import * as search from "./search";
 import * as security from "./security";
+import * as securityandcompliance from "./securityandcompliance";
 import * as securityinsights from "./securityinsights";
 import * as serialconsole from "./serialconsole";
 import * as servicebus from "./servicebus";
@@ -197,6 +199,7 @@ export {
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
+    extendedlocation,
     guestconfiguration,
     hanaonazure,
     hdinsight,
@@ -245,6 +248,7 @@ export {
     scheduler,
     search,
     security,
+    securityandcompliance,
     securityinsights,
     serialconsole,
     servicebus,

@@ -23,7 +23,7 @@ type ScalingPlan struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences ScalingHostPoolReferenceResponseArrayOutput `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType pulumi.StringPtrOutput `pulumi:"hostPoolType"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -100,7 +100,7 @@ type scalingPlanState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences []ScalingHostPoolReferenceResponse `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType *string `pulumi:"hostPoolType"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -125,7 +125,7 @@ type ScalingPlanState struct {
 	FriendlyName pulumi.StringPtrInput
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences ScalingHostPoolReferenceResponseArrayInput
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type scalingPlanArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences []ScalingHostPoolReference `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType *string `pulumi:"hostPoolType"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -180,7 +180,7 @@ type ScalingPlanArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences ScalingHostPoolReferenceArrayInput
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

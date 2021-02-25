@@ -16,7 +16,7 @@ type PrivateEndpointConnection struct {
 
 	// GroupIds from the private link service resource.
 	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
@@ -24,7 +24,7 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState ConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -95,7 +95,7 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 type privateEndpointConnectionState struct {
 	// GroupIds from the private link service resource.
 	GroupIds []string `pulumi:"groupIds"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -103,14 +103,14 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
 	// GroupIds from the private link service resource.
 	GroupIds pulumi.StringArrayInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint PrivateEndpointResponsePtrInput
@@ -118,7 +118,7 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState ConnectionStateResponsePtrInput
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState pulumi.StringPtrInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

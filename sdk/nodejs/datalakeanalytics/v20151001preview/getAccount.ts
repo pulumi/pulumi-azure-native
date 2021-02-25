@@ -72,7 +72,7 @@ export interface GetAccountResult {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps: string;
+    readonly firewallAllowAzureIps?: string;
     /**
      * The list of firewall rules associated with this account.
      */
@@ -80,13 +80,13 @@ export interface GetAccountResult {
     /**
      * The current state of the IP address firewall for this account.
      */
-    readonly firewallState: string;
+    readonly firewallState?: string;
     /**
      * The list of hiveMetastores associated with this account.
      */
     readonly hiveMetastores: outputs.datalakeanalytics.v20151001preview.HiveMetastoreResponse[];
     /**
-     * The resource identifer.
+     * The resource identifier.
      */
     readonly id: string;
     /**
@@ -104,7 +104,7 @@ export interface GetAccountResult {
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
-    readonly maxDegreeOfParallelismPerJob: number;
+    readonly maxDegreeOfParallelismPerJob?: number;
     /**
      * The maximum supported jobs running under the account at the same time.
      */
@@ -120,11 +120,15 @@ export interface GetAccountResult {
     /**
      * The commitment tier for the next month.
      */
-    readonly newTier: string;
+    readonly newTier?: string;
     /**
      * The provisioning status of the Data Lake Analytics account.
      */
     readonly provisioningState: string;
+    /**
+     * The list of Data Lake Store accounts associated with this account.
+     */
+    readonly publicDataLakeStoreAccounts?: outputs.datalakeanalytics.v20151001preview.DataLakeStoreAccountInformationResponse[];
     /**
      * The number of days that job metadata is retained.
      */

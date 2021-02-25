@@ -6644,6 +6644,8 @@ type ManagedClusterAgentPoolProfile struct {
 	Name string `pulumi:"name"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -6717,6 +6719,8 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID pulumi.StringPtrInput `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -6871,6 +6875,11 @@ func (o ManagedClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutpu
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
+// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+func (o ManagedClusterAgentPoolProfileOutput) NodePublicIPPrefixID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.NodePublicIPPrefixID }).(pulumi.StringPtrOutput)
+}
+
 // Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o ManagedClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
@@ -6998,6 +7007,8 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	NodeImageVersion string `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -7077,6 +7088,8 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	NodeImageVersion pulumi.StringInput `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID pulumi.StringPtrInput `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -7238,6 +7251,11 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) NodeImageVersion() pulumi.
 // Agent pool node labels to be persisted across all nodes in agent pool.
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+func (o ManagedClusterAgentPoolProfileResponseOutput) NodePublicIPPrefixID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.NodePublicIPPrefixID }).(pulumi.StringPtrOutput)
 }
 
 // Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -9709,6 +9727,8 @@ func (o ManagedClusterPodIdentityExceptionResponseArrayOutput) Index(i pulumi.In
 }
 
 type ManagedClusterPodIdentityProfile struct {
+	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+	AllowNetworkPluginKubenet *bool `pulumi:"allowNetworkPluginKubenet"`
 	// Whether the pod identity addon is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// User assigned pod identity settings.
@@ -9729,6 +9749,8 @@ type ManagedClusterPodIdentityProfileInput interface {
 }
 
 type ManagedClusterPodIdentityProfileArgs struct {
+	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+	AllowNetworkPluginKubenet pulumi.BoolPtrInput `pulumi:"allowNetworkPluginKubenet"`
 	// Whether the pod identity addon is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// User assigned pod identity settings.
@@ -9814,6 +9836,11 @@ func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfi
 	}).(ManagedClusterPodIdentityProfilePtrOutput)
 }
 
+// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+func (o ManagedClusterPodIdentityProfileOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *bool { return v.AllowNetworkPluginKubenet }).(pulumi.BoolPtrOutput)
+}
+
 // Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfileOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -9849,6 +9876,16 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) Elem() ManagedClusterPodIdent
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) ManagedClusterPodIdentityProfile { return *v }).(ManagedClusterPodIdentityProfileOutput)
 }
 
+// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+func (o ManagedClusterPodIdentityProfilePtrOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowNetworkPluginKubenet
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfilePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) *bool {
@@ -9880,6 +9917,8 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) UserAssignedIdentityException
 }
 
 type ManagedClusterPodIdentityProfileResponse struct {
+	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+	AllowNetworkPluginKubenet *bool `pulumi:"allowNetworkPluginKubenet"`
 	// Whether the pod identity addon is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// User assigned pod identity settings.
@@ -9900,6 +9939,8 @@ type ManagedClusterPodIdentityProfileResponseInput interface {
 }
 
 type ManagedClusterPodIdentityProfileResponseArgs struct {
+	// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+	AllowNetworkPluginKubenet pulumi.BoolPtrInput `pulumi:"allowNetworkPluginKubenet"`
 	// Whether the pod identity addon is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// User assigned pod identity settings.
@@ -9985,6 +10026,11 @@ func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdent
 	}).(ManagedClusterPodIdentityProfileResponsePtrOutput)
 }
 
+// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+func (o ManagedClusterPodIdentityProfileResponseOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *bool { return v.AllowNetworkPluginKubenet }).(pulumi.BoolPtrOutput)
+}
+
 // Whether the pod identity addon is enabled.
 func (o ManagedClusterPodIdentityProfileResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -10020,6 +10066,16 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) ToManagedClusterPodId
 
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Elem() ManagedClusterPodIdentityProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) ManagedClusterPodIdentityProfileResponse { return *v }).(ManagedClusterPodIdentityProfileResponseOutput)
+}
+
+// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+func (o ManagedClusterPodIdentityProfileResponsePtrOutput) AllowNetworkPluginKubenet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowNetworkPluginKubenet
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether the pod identity addon is enabled.

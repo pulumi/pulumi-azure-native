@@ -8,7 +8,7 @@ import (
 )
 
 // Full endpoint url of an event subscription
-// API Version: 2020-04-01-preview.
+// API Version: 2020-10-15-preview.
 func GetSystemTopicEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetSystemTopicEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetSystemTopicEventSubscriptionFullUrlResult, error) {
 	var rv GetSystemTopicEventSubscriptionFullUrlResult
 	err := ctx.Invoke("azure-native:eventgrid:getSystemTopicEventSubscriptionFullUrl", args, &rv, opts...)

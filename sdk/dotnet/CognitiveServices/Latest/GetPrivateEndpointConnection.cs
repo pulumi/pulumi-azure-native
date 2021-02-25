@@ -51,9 +51,17 @@ namespace Pulumi.AzureNative.CognitiveServices.Latest
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Entity Tag
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The location of the private endpoint connection
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -69,7 +77,11 @@ namespace Pulumi.AzureNative.CognitiveServices.Latest
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string etag,
+
             string id,
+
+            string? location,
 
             string name,
 
@@ -77,7 +89,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Latest
 
             string type)
         {
+            Etag = etag;
             Id = id;
+            Location = location;
             Name = name;
             Properties = properties;
             Type = type;

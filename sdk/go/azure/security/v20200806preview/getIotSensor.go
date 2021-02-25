@@ -34,6 +34,8 @@ type LookupIotSensorResult struct {
 	DynamicLearning bool `pulumi:"dynamicLearning"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// Is type of sensor is enterprise IoT sensor
+	IsEnterpriseSensor *bool `pulumi:"isEnterpriseSensor"`
 	// Learning mode status of the IoT sensor
 	LearningMode bool `pulumi:"learningMode"`
 	// Resource name

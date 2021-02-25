@@ -47,6 +47,7 @@ __all__ = [
     'StringEndsWithAdvancedFilterResponse',
     'StringInAdvancedFilterResponse',
     'StringNotInAdvancedFilterResponse',
+    'SystemDataResponse',
     'UserIdentityPropertiesResponse',
     'WebHookEventSubscriptionDestinationResponse',
 ]
@@ -70,8 +71,12 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
         :param str resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'AzureFunction')
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
         if resource_id is not None:
@@ -1190,8 +1195,8 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         :param str id: Fully qualified identifier of the resource.
-        :param str name: Name of the resource
-        :param str type: Type of the resource
+        :param str name: Name of the resource.
+        :param str type: Type of the resource.
         :param Sequence[str] group_ids: GroupIds from the private link service resource.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The Private Endpoint resource for this Connection.
         :param 'ConnectionStateResponseArgs' private_link_service_connection_state: Details about the state of the connection.
@@ -1221,7 +1226,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -1229,7 +1234,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -1795,6 +1800,92 @@ class StringNotInAdvancedFilterResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
     """
     The information about the user identity.
@@ -1864,8 +1955,12 @@ class WebHookEventSubscriptionDestinationResponse(dict):
             pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 

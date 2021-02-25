@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
             set => _addressPrefixes = value;
         }
 
+        [Input("applicationGatewayIpConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
+
+        /// <summary>
+        /// Application gateway IP configurations of virtual network resource.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
+        {
+            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _applicationGatewayIpConfigurations = value;
+        }
+
         [Input("delegations")]
         private InputList<Inputs.DelegationArgs>? _delegations;
 
@@ -85,13 +97,13 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
         /// Enable or Disable apply network policies on private end point in the subnet.
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
-        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkPrivateEndpointNetworkPolicies>? PrivateEndpointNetworkPolicies { get; set; }
 
         /// <summary>
         /// Enable or Disable apply network policies on private link service in the subnet.
         /// </summary>
         [Input("privateLinkServiceNetworkPolicies")]
-        public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkPrivateLinkServiceNetworkPolicies>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
         /// The reference to the RouteTable resource.
@@ -123,8 +135,16 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
             set => _serviceEndpoints = value;
         }
 
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public SubnetArgs()
         {
+            PrivateEndpointNetworkPolicies = "Enabled";
+            PrivateLinkServiceNetworkPolicies = "Enabled";
         }
     }
 }

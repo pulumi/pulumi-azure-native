@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         /// </summary>
         public readonly string Offering;
         /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        public readonly string? PrivateLinkScopeResourceId;
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         public readonly string? ProvisioningState;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
 
             string offering,
 
+            string? privateLinkScopeResourceId,
+
             string? provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
             ManagedIdentityCertificateExpirationTime = managedIdentityCertificateExpirationTime;
             Name = name;
             Offering = offering;
+            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

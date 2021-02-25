@@ -49,7 +49,7 @@ export class EventChannel extends pulumi.CustomResource {
      */
     public readonly filter!: pulumi.Output<outputs.eventgrid.v20200401preview.EventChannelFilterResponse | undefined>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -70,7 +70,11 @@ export class EventChannel extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.eventgrid.v20200401preview.EventChannelSourceResponse | undefined>;
     /**
-     * Type of the resource
+     * The system metadata relating to Event Channel resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20200401preview.SystemDataResponse>;
+    /**
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -102,6 +106,7 @@ export class EventChannel extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["partnerTopicReadinessState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["destination"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class EventChannel extends pulumi.CustomResource {
             inputs["partnerTopicReadinessState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

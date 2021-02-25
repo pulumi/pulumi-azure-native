@@ -598,6 +598,8 @@ class NotificationPreferenceArgs:
         :param pulumi.Input[bool] send_notification: Notification is required or not.
         :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
+        if send_notification is None:
+            send_notification = True
         pulumi.set(__self__, "send_notification", send_notification)
         pulumi.set(__self__, "stage_name", stage_name)
 
@@ -675,6 +677,8 @@ class ShippingAddressArgs:
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "postal_code", postal_code)
         pulumi.set(__self__, "street_address1", street_address1)
+        if address_type is None:
+            address_type = 'None'
         if address_type is not None:
             pulumi.set(__self__, "address_type", address_type)
         if city is not None:

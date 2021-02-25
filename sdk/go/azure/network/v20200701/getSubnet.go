@@ -72,4 +72,6 @@ type LookupSubnetResult struct {
 	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }

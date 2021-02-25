@@ -216,7 +216,7 @@ class ApiVersionSetContractResponse(dict):
         :param str id: Resource ID.
         :param str name: Resource name.
         :param str type: Resource type for API Management resource.
-        :param str versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
+        :param str versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         :param str description: Description of API Version Set.
         :param str version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param str version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
@@ -269,7 +269,7 @@ class ApiVersionSetContractResponse(dict):
     @pulumi.getter(name="versioningScheme")
     def versioning_scheme(self) -> str:
         """
-        An value that determines where the API Version identifer will be located in a HTTP request.
+        An value that determines where the API Version identifier will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
 

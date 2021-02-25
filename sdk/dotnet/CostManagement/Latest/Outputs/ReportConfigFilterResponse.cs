@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.CostManagement.Latest.Outputs
         /// </summary>
         public readonly Outputs.ReportConfigComparisonExpressionResponse? TagKey;
         /// <summary>
+        /// Has comparison expression for a tag value
+        /// </summary>
+        public readonly Outputs.ReportConfigComparisonExpressionResponse? TagValue;
+        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
         public readonly Outputs.ReportConfigComparisonExpressionResponse? Tags;
@@ -44,12 +48,15 @@ namespace Pulumi.AzureNative.CostManagement.Latest.Outputs
 
             Outputs.ReportConfigComparisonExpressionResponse? tagKey,
 
+            Outputs.ReportConfigComparisonExpressionResponse? tagValue,
+
             Outputs.ReportConfigComparisonExpressionResponse? tags)
         {
             And = and;
             Dimensions = dimensions;
             Or = or;
             TagKey = tagKey;
+            TagValue = tagValue;
             Tags = tags;
         }
     }

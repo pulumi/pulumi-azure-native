@@ -81,6 +81,10 @@ export interface GetEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.latest.RetryPolicyResponse;
     /**
+     * The system metadata relating to Event Subscription resource.
+     */
+    readonly systemData: outputs.eventgrid.latest.SystemDataResponse;
+    /**
      * Name of the topic of the event subscription.
      */
     readonly topic: string;

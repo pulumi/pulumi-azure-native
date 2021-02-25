@@ -123,18 +123,14 @@ class ApplicationGetHttpsEndpointArgs:
                  access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  disable_gateway_auth: Optional[pulumi.Input[bool]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
-                 public_port: Optional[pulumi.Input[int]] = None,
                  sub_domain_suffix: Optional[pulumi.Input[str]] = None):
         """
         Gets the application HTTP endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_modes: The list of access modes for the application.
         :param pulumi.Input[int] destination_port: The destination port to connect to.
         :param pulumi.Input[bool] disable_gateway_auth: The value indicates whether to disable GatewayAuth.
-        :param pulumi.Input[str] location: The location of the endpoint.
         :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
-        :param pulumi.Input[int] public_port: The public port to connect to.
         :param pulumi.Input[str] sub_domain_suffix: The subdomain suffix of the application.
         """
         if access_modes is not None:
@@ -143,12 +139,8 @@ class ApplicationGetHttpsEndpointArgs:
             pulumi.set(__self__, "destination_port", destination_port)
         if disable_gateway_auth is not None:
             pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
         if sub_domain_suffix is not None:
             pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
 
@@ -189,18 +181,6 @@ class ApplicationGetHttpsEndpointArgs:
         pulumi.set(self, "disable_gateway_auth", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the endpoint.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
     @pulumi.getter(name="privateIPAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
@@ -211,18 +191,6 @@ class ApplicationGetHttpsEndpointArgs:
     @private_ip_address.setter
     def private_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_address", value)
-
-    @property
-    @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The public port to connect to.
-        """
-        return pulumi.get(self, "public_port")
-
-    @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "public_port", value)
 
     @property
     @pulumi.getter(name="subDomainSuffix")
@@ -669,6 +637,8 @@ class ClusterCreatePropertiesArgs:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -974,6 +944,8 @@ class ComputeIsolationPropertiesArgs:
         :param pulumi.Input[bool] enable_compute_isolation: The flag indicates whether enable compute isolation or not.
         :param pulumi.Input[str] host_sku: The host sku.
         """
+        if enable_compute_isolation is None:
+            enable_compute_isolation = False
         if enable_compute_isolation is not None:
             pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
         if host_sku is not None:
@@ -1251,13 +1223,17 @@ class HardwareProfileArgs:
 @pulumi.input_type
 class KafkaRestPropertiesArgs:
     def __init__(__self__, *,
-                 client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None):
+                 client_group_info: Optional[pulumi.Input['ClientGroupInfoArgs']] = None,
+                 configuration_override: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
         :param pulumi.Input['ClientGroupInfoArgs'] client_group_info: The information of AAD security group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_override: The configurations that need to be overriden.
         """
         if client_group_info is not None:
             pulumi.set(__self__, "client_group_info", client_group_info)
+        if configuration_override is not None:
+            pulumi.set(__self__, "configuration_override", configuration_override)
 
     @property
     @pulumi.getter(name="clientGroupInfo")
@@ -1270,6 +1246,18 @@ class KafkaRestPropertiesArgs:
     @client_group_info.setter
     def client_group_info(self, value: Optional[pulumi.Input['ClientGroupInfoArgs']]):
         pulumi.set(self, "client_group_info", value)
+
+    @property
+    @pulumi.getter(name="configurationOverride")
+    def configuration_override(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The configurations that need to be overriden.
+        """
+        return pulumi.get(self, "configuration_override")
+
+    @configuration_override.setter
+    def configuration_override(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration_override", value)
 
 
 @pulumi.input_type
@@ -1424,6 +1412,8 @@ class RoleArgs:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if data_disks_groups is not None:
             pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is None:
+            encrypt_data_disks = False
         if encrypt_data_disks is not None:
             pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
         if hardware_profile is not None:

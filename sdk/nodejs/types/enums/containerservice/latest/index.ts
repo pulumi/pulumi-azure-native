@@ -239,6 +239,7 @@ export type Expander = (typeof Expander)[keyof typeof Expander];
 
 export const KubeletDiskType = {
     OS: "OS",
+    Temporary: "Temporary",
 } as const;
 
 /**

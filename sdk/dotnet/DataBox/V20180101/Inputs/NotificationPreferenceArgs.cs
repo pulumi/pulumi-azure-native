@@ -29,6 +29,7 @@ namespace Pulumi.AzureNative.DataBox.V20180101.Inputs
 
         public NotificationPreferenceArgs()
         {
+            SendNotification = true;
         }
     }
 }

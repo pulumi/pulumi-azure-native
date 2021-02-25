@@ -70,7 +70,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    public readonly firewallAllowAzureIps!: pulumi.Output<string | undefined>;
     /**
      * The list of firewall rules associated with this account.
      */
@@ -78,7 +78,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of the IP address firewall for this account.
      */
-    public readonly firewallState!: pulumi.Output<string>;
+    public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
      * The list of hiveMetastores associated with this account.
      */
@@ -98,7 +98,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The maximum supported degree of parallelism per job for this account.
      */
-    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number>;
+    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number | undefined>;
     /**
      * The maximum supported jobs running under the account at the same time.
      */
@@ -114,11 +114,15 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier for the next month.
      */
-    public readonly newTier!: pulumi.Output<string>;
+    public readonly newTier!: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the Data Lake Analytics account.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The list of Data Lake Store accounts associated with this account.
+     */
+    public /*out*/ readonly publicDataLakeStoreAccounts!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeStoreAccountInformationResponse[] | undefined>;
     /**
      * The number of days that job metadata is retained.
      */
@@ -198,6 +202,7 @@ export class Account extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
             inputs["systemMaxJobCount"] = undefined /*out*/;
@@ -225,6 +230,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["newTier"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
             inputs["queryStoreRetention"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageAccounts"] = undefined /*out*/;

@@ -42,6 +42,8 @@ namespace Pulumi.AzureNative.EventGrid.Latest.Inputs
 
         public AzureFunctionEventSubscriptionDestinationArgs()
         {
+            MaxEventsPerBatch = 1;
+            PreferredBatchSizeInKilobytes = 64;
         }
     }
 }

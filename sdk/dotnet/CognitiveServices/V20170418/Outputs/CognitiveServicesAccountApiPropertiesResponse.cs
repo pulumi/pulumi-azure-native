@@ -26,6 +26,14 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Outputs
         /// </summary>
         public readonly string? EventHubConnectionString;
         /// <summary>
+        /// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        /// </summary>
+        public readonly string? QnaAzureSearchEndpointId;
+        /// <summary>
+        /// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        /// </summary>
+        public readonly string? QnaAzureSearchEndpointKey;
+        /// <summary>
         /// (QnAMaker Only) The runtime endpoint of QnAMaker.
         /// </summary>
         public readonly string? QnaRuntimeEndpoint;
@@ -54,6 +62,10 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Outputs
 
             string? eventHubConnectionString,
 
+            string? qnaAzureSearchEndpointId,
+
+            string? qnaAzureSearchEndpointKey,
+
             string? qnaRuntimeEndpoint,
 
             bool? statisticsEnabled,
@@ -67,6 +79,8 @@ namespace Pulumi.AzureNative.CognitiveServices.V20170418.Outputs
             AadClientId = aadClientId;
             AadTenantId = aadTenantId;
             EventHubConnectionString = eventHubConnectionString;
+            QnaAzureSearchEndpointId = qnaAzureSearchEndpointId;
+            QnaAzureSearchEndpointKey = qnaAzureSearchEndpointKey;
             QnaRuntimeEndpoint = qnaRuntimeEndpoint;
             StatisticsEnabled = statisticsEnabled;
             StorageAccountConnectionString = storageAccountConnectionString;

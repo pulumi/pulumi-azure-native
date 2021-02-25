@@ -79,6 +79,10 @@ export interface GetPublicIPPrefixResult {
      */
     readonly name: string;
     /**
+     * NatGateway of Public IP Prefix.
+     */
+    readonly natGateway?: outputs.network.v20200801.NatGatewayResponse;
+    /**
      * The Length of the Public IP Prefix.
      */
     readonly prefixLength?: number;

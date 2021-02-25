@@ -70,7 +70,7 @@ export class EventChannel extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.eventgrid.v20201015preview.EventChannelSourceResponse | undefined>;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Event Channel resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20201015preview.SystemDataResponse>;
     /**

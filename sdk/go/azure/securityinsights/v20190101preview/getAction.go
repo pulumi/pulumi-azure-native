@@ -37,7 +37,7 @@ type LookupActionResult struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// Azure resource type

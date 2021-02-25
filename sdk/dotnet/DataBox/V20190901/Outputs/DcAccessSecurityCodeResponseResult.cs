@@ -16,20 +16,20 @@ namespace Pulumi.AzureNative.DataBox.V20190901.Outputs
         /// <summary>
         /// Dc Access Code for dispatching from DC.
         /// </summary>
-        public readonly string? ForwardDcAccessCode;
+        public readonly string? ForwardDCAccessCode;
         /// <summary>
         /// Dc Access code for dropping off at DC.
         /// </summary>
-        public readonly string? ReverseDcAccessCode;
+        public readonly string? ReverseDCAccessCode;
 
         [OutputConstructor]
         private DcAccessSecurityCodeResponseResult(
-            string? forwardDcAccessCode,
+            string? forwardDCAccessCode,
 
-            string? reverseDcAccessCode)
+            string? reverseDCAccessCode)
         {
-            ForwardDcAccessCode = forwardDcAccessCode;
-            ReverseDcAccessCode = reverseDcAccessCode;
+            ForwardDCAccessCode = forwardDCAccessCode;
+            ReverseDCAccessCode = reverseDCAccessCode;
         }
     }
 }

@@ -72,8 +72,8 @@ func (e GeoRedundantBackup) ToStringPtrOutputWithContext(ctx context.Context) pu
 type ServerVersion pulumi.String
 
 const (
-	ServerVersion_5_6 = ServerVersion("5.6")
-	ServerVersion_5_7 = ServerVersion("5.7")
+	ServerVersion_10_2 = ServerVersion("10.2")
+	ServerVersion_10_3 = ServerVersion("10.3")
 )
 
 func (ServerVersion) ElementType() reflect.Type {

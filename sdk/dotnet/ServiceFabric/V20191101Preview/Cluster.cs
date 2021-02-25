@@ -252,6 +252,8 @@ namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
