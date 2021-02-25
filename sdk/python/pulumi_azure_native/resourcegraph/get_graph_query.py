@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetGraphQueryResult',
@@ -20,7 +19,7 @@ class GetGraphQueryResult:
     """
     Graph Query entity definition.
     """
-    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, query=None, result_kind=None, system_data=None, tags=None, time_modified=None, type=None):
+    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, query=None, result_kind=None, tags=None, time_modified=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -42,9 +41,6 @@ class GetGraphQueryResult:
         if result_kind and not isinstance(result_kind, str):
             raise TypeError("Expected argument 'result_kind' to be a str")
         pulumi.set(__self__, "result_kind", result_kind)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -67,7 +63,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        This will be used to handle Optimistic Concurrency.
+        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
         return pulumi.get(self, "etag")
 
@@ -81,7 +77,7 @@ class GetGraphQueryResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         The location of the resource
         """
@@ -110,14 +106,6 @@ class GetGraphQueryResult:
         Enum indicating a type of graph query.
         """
         return pulumi.get(self, "result_kind")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -157,7 +145,6 @@ class AwaitableGetGraphQueryResult(GetGraphQueryResult):
             name=self.name,
             query=self.query,
             result_kind=self.result_kind,
-            system_data=self.system_data,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type)
@@ -168,7 +155,7 @@ def get_graph_query(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQueryResult:
     """
     Graph Query entity definition.
-    API Version: 2020-04-01-preview.
+    API Version: 2018-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -191,7 +178,6 @@ def get_graph_query(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         query=__ret__.query,
         result_kind=__ret__.result_kind,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type)

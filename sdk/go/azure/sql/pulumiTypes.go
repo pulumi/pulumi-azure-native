@@ -210,6 +210,312 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Inde
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
 }
 
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettings struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity *float64 `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity *float64 `pulumi:"minCapacity"`
+}
+
+// ElasticPoolPerDatabaseSettingsInput is an input type that accepts ElasticPoolPerDatabaseSettingsArgs and ElasticPoolPerDatabaseSettingsOutput values.
+// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsInput` via:
+//
+//          ElasticPoolPerDatabaseSettingsArgs{...}
+type ElasticPoolPerDatabaseSettingsInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput
+	ToElasticPoolPerDatabaseSettingsOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsOutput
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsArgs struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
+}
+
+func (ElasticPoolPerDatabaseSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettings)(nil)).Elem()
+}
+
+func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput {
+	return i.ToElasticPoolPerDatabaseSettingsOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsOutput)
+}
+
+func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
+	return i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsOutput).ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx)
+}
+
+// ElasticPoolPerDatabaseSettingsPtrInput is an input type that accepts ElasticPoolPerDatabaseSettingsArgs, ElasticPoolPerDatabaseSettingsPtr and ElasticPoolPerDatabaseSettingsPtrOutput values.
+// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsPtrInput` via:
+//
+//          ElasticPoolPerDatabaseSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ElasticPoolPerDatabaseSettingsPtrInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput
+	ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsPtrOutput
+}
+
+type elasticPoolPerDatabaseSettingsPtrType ElasticPoolPerDatabaseSettingsArgs
+
+func ElasticPoolPerDatabaseSettingsPtr(v *ElasticPoolPerDatabaseSettingsArgs) ElasticPoolPerDatabaseSettingsPtrInput {
+	return (*elasticPoolPerDatabaseSettingsPtrType)(v)
+}
+
+func (*elasticPoolPerDatabaseSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPoolPerDatabaseSettings)(nil)).Elem()
+}
+
+func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
+	return i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsPtrOutput)
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettings)(nil)).Elem()
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
+	return o.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
+		return &v
+	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
+}
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type ElasticPoolPerDatabaseSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolPerDatabaseSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPoolPerDatabaseSettings)(nil)).Elem()
+}
+
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
+}
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsResponse struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity *float64 `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity *float64 `pulumi:"minCapacity"`
+}
+
+// ElasticPoolPerDatabaseSettingsResponseInput is an input type that accepts ElasticPoolPerDatabaseSettingsResponseArgs and ElasticPoolPerDatabaseSettingsResponseOutput values.
+// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsResponseInput` via:
+//
+//          ElasticPoolPerDatabaseSettingsResponseArgs{...}
+type ElasticPoolPerDatabaseSettingsResponseInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsResponseOutput() ElasticPoolPerDatabaseSettingsResponseOutput
+	ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsResponseOutput
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsResponseArgs struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
+}
+
+func (ElasticPoolPerDatabaseSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
+}
+
+func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponseOutput() ElasticPoolPerDatabaseSettingsResponseOutput {
+	return i.ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponseOutput)
+}
+
+func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return i.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolPerDatabaseSettingsResponseArgs) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponseOutput).ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ElasticPoolPerDatabaseSettingsResponsePtrInput is an input type that accepts ElasticPoolPerDatabaseSettingsResponseArgs, ElasticPoolPerDatabaseSettingsResponsePtr and ElasticPoolPerDatabaseSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsResponsePtrInput` via:
+//
+//          ElasticPoolPerDatabaseSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ElasticPoolPerDatabaseSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput
+	ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput
+}
+
+type elasticPoolPerDatabaseSettingsResponsePtrType ElasticPoolPerDatabaseSettingsResponseArgs
+
+func ElasticPoolPerDatabaseSettingsResponsePtr(v *ElasticPoolPerDatabaseSettingsResponseArgs) ElasticPoolPerDatabaseSettingsResponsePtrInput {
+	return (*elasticPoolPerDatabaseSettingsResponsePtrType)(v)
+}
+
+func (*elasticPoolPerDatabaseSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
+}
+
+func (i *elasticPoolPerDatabaseSettingsResponsePtrType) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return i.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *elasticPoolPerDatabaseSettingsResponsePtrType) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolPerDatabaseSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponseOutput() ElasticPoolPerDatabaseSettingsResponseOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponseOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return o.ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
+		return &v
+	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
+}
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsResponseOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type ElasticPoolPerDatabaseSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolPerDatabaseSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ElasticPoolPerDatabaseSettingsResponse)(nil)).Elem()
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutput() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) Elem() ElasticPoolPerDatabaseSettingsResponseOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse { return *v }).(ElasticPoolPerDatabaseSettingsResponseOutput)
+}
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 // Read-only endpoint of the failover group instance.
 type FailoverGroupReadOnlyEndpoint struct {
 	// Failover policy of the read-only endpoint for the failover group.
@@ -4385,133 +4691,6 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The impact of an operation, both in absolute and relative terms.
-type OperationImpactResponse struct {
-	// The absolute impact to dimension.
-	ChangeValueAbsolute float64 `pulumi:"changeValueAbsolute"`
-	// The relative impact to dimension (null if not applicable)
-	ChangeValueRelative float64 `pulumi:"changeValueRelative"`
-	// The name of the impact dimension.
-	Name string `pulumi:"name"`
-	// The unit in which estimated impact to dimension is measured.
-	Unit string `pulumi:"unit"`
-}
-
-// OperationImpactResponseInput is an input type that accepts OperationImpactResponseArgs and OperationImpactResponseOutput values.
-// You can construct a concrete instance of `OperationImpactResponseInput` via:
-//
-//          OperationImpactResponseArgs{...}
-type OperationImpactResponseInput interface {
-	pulumi.Input
-
-	ToOperationImpactResponseOutput() OperationImpactResponseOutput
-	ToOperationImpactResponseOutputWithContext(context.Context) OperationImpactResponseOutput
-}
-
-// The impact of an operation, both in absolute and relative terms.
-type OperationImpactResponseArgs struct {
-	// The absolute impact to dimension.
-	ChangeValueAbsolute pulumi.Float64Input `pulumi:"changeValueAbsolute"`
-	// The relative impact to dimension (null if not applicable)
-	ChangeValueRelative pulumi.Float64Input `pulumi:"changeValueRelative"`
-	// The name of the impact dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The unit in which estimated impact to dimension is measured.
-	Unit pulumi.StringInput `pulumi:"unit"`
-}
-
-func (OperationImpactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationImpactResponse)(nil)).Elem()
-}
-
-func (i OperationImpactResponseArgs) ToOperationImpactResponseOutput() OperationImpactResponseOutput {
-	return i.ToOperationImpactResponseOutputWithContext(context.Background())
-}
-
-func (i OperationImpactResponseArgs) ToOperationImpactResponseOutputWithContext(ctx context.Context) OperationImpactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactResponseOutput)
-}
-
-// OperationImpactResponseArrayInput is an input type that accepts OperationImpactResponseArray and OperationImpactResponseArrayOutput values.
-// You can construct a concrete instance of `OperationImpactResponseArrayInput` via:
-//
-//          OperationImpactResponseArray{ OperationImpactResponseArgs{...} }
-type OperationImpactResponseArrayInput interface {
-	pulumi.Input
-
-	ToOperationImpactResponseArrayOutput() OperationImpactResponseArrayOutput
-	ToOperationImpactResponseArrayOutputWithContext(context.Context) OperationImpactResponseArrayOutput
-}
-
-type OperationImpactResponseArray []OperationImpactResponseInput
-
-func (OperationImpactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OperationImpactResponse)(nil)).Elem()
-}
-
-func (i OperationImpactResponseArray) ToOperationImpactResponseArrayOutput() OperationImpactResponseArrayOutput {
-	return i.ToOperationImpactResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OperationImpactResponseArray) ToOperationImpactResponseArrayOutputWithContext(ctx context.Context) OperationImpactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactResponseArrayOutput)
-}
-
-// The impact of an operation, both in absolute and relative terms.
-type OperationImpactResponseOutput struct{ *pulumi.OutputState }
-
-func (OperationImpactResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationImpactResponse)(nil)).Elem()
-}
-
-func (o OperationImpactResponseOutput) ToOperationImpactResponseOutput() OperationImpactResponseOutput {
-	return o
-}
-
-func (o OperationImpactResponseOutput) ToOperationImpactResponseOutputWithContext(ctx context.Context) OperationImpactResponseOutput {
-	return o
-}
-
-// The absolute impact to dimension.
-func (o OperationImpactResponseOutput) ChangeValueAbsolute() pulumi.Float64Output {
-	return o.ApplyT(func(v OperationImpactResponse) float64 { return v.ChangeValueAbsolute }).(pulumi.Float64Output)
-}
-
-// The relative impact to dimension (null if not applicable)
-func (o OperationImpactResponseOutput) ChangeValueRelative() pulumi.Float64Output {
-	return o.ApplyT(func(v OperationImpactResponse) float64 { return v.ChangeValueRelative }).(pulumi.Float64Output)
-}
-
-// The name of the impact dimension.
-func (o OperationImpactResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v OperationImpactResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The unit in which estimated impact to dimension is measured.
-func (o OperationImpactResponseOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v OperationImpactResponse) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-type OperationImpactResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (OperationImpactResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OperationImpactResponse)(nil)).Elem()
-}
-
-func (o OperationImpactResponseArrayOutput) ToOperationImpactResponseArrayOutput() OperationImpactResponseArrayOutput {
-	return o
-}
-
-func (o OperationImpactResponseArrayOutput) ToOperationImpactResponseArrayOutputWithContext(ctx context.Context) OperationImpactResponseArrayOutput {
-	return o
-}
-
-func (o OperationImpactResponseArrayOutput) Index(i pulumi.IntInput) OperationImpactResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OperationImpactResponse {
-		return vs[0].([]OperationImpactResponse)[vs[1].(int)]
-	}).(OperationImpactResponseOutput)
-}
-
 // Partner server information for the failover group.
 type PartnerInfo struct {
 	// Resource identifier of the partner server.
@@ -4937,6 +5116,83 @@ func (o PartnerRegionInfoResponseArrayOutput) Index(i pulumi.IntInput) PartnerRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerRegionInfoResponse {
 		return vs[0].([]PartnerRegionInfoResponse)[vs[1].(int)]
 	}).(PartnerRegionInfoResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesResponse struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesResponseInput` via:
+//
+//          PrivateEndpointConnectionPropertiesResponseArgs{...}
+type PrivateEndpointConnectionPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput
+	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesResponseArgs struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
+	return i.ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutput() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponseOutput {
+	return o
+}
+
+// Private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointPropertyResponsePtrOutput)
+}
+
+// Connection state of the private endpoint connection.
+func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+}
+
+// State of the private endpoint connection.
+func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointProperty struct {
@@ -5524,232 +5780,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a database recommended index.
-type RecommendedIndexResponse struct {
-	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-	Action string `pulumi:"action"`
-	// Columns over which to build index
-	Columns []string `pulumi:"columns"`
-	// The UTC datetime showing when this resource was created (ISO8601 format).
-	Created string `pulumi:"created"`
-	// The estimated impact of doing recommended index action.
-	EstimatedImpact []OperationImpactResponse `pulumi:"estimatedImpact"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The list of column names to be included in the index
-	IncludedColumns []string `pulumi:"includedColumns"`
-	// The full build index script
-	IndexScript string `pulumi:"indexScript"`
-	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-	IndexType string `pulumi:"indexType"`
-	// The UTC datetime of when was this resource last changed (ISO8601 format).
-	LastModified string `pulumi:"lastModified"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The values reported after index action is complete.
-	ReportedImpact []OperationImpactResponse `pulumi:"reportedImpact"`
-	// The schema where table to build index over resides
-	Schema string `pulumi:"schema"`
-	// The current recommendation state.
-	State string `pulumi:"state"`
-	// The table on which to build index.
-	Table string `pulumi:"table"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RecommendedIndexResponseInput is an input type that accepts RecommendedIndexResponseArgs and RecommendedIndexResponseOutput values.
-// You can construct a concrete instance of `RecommendedIndexResponseInput` via:
-//
-//          RecommendedIndexResponseArgs{...}
-type RecommendedIndexResponseInput interface {
-	pulumi.Input
-
-	ToRecommendedIndexResponseOutput() RecommendedIndexResponseOutput
-	ToRecommendedIndexResponseOutputWithContext(context.Context) RecommendedIndexResponseOutput
-}
-
-// Represents a database recommended index.
-type RecommendedIndexResponseArgs struct {
-	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Columns over which to build index
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// The UTC datetime showing when this resource was created (ISO8601 format).
-	Created pulumi.StringInput `pulumi:"created"`
-	// The estimated impact of doing recommended index action.
-	EstimatedImpact OperationImpactResponseArrayInput `pulumi:"estimatedImpact"`
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The list of column names to be included in the index
-	IncludedColumns pulumi.StringArrayInput `pulumi:"includedColumns"`
-	// The full build index script
-	IndexScript pulumi.StringInput `pulumi:"indexScript"`
-	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-	IndexType pulumi.StringInput `pulumi:"indexType"`
-	// The UTC datetime of when was this resource last changed (ISO8601 format).
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The values reported after index action is complete.
-	ReportedImpact OperationImpactResponseArrayInput `pulumi:"reportedImpact"`
-	// The schema where table to build index over resides
-	Schema pulumi.StringInput `pulumi:"schema"`
-	// The current recommendation state.
-	State pulumi.StringInput `pulumi:"state"`
-	// The table on which to build index.
-	Table pulumi.StringInput `pulumi:"table"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RecommendedIndexResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (i RecommendedIndexResponseArgs) ToRecommendedIndexResponseOutput() RecommendedIndexResponseOutput {
-	return i.ToRecommendedIndexResponseOutputWithContext(context.Background())
-}
-
-func (i RecommendedIndexResponseArgs) ToRecommendedIndexResponseOutputWithContext(ctx context.Context) RecommendedIndexResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexResponseOutput)
-}
-
-// RecommendedIndexResponseArrayInput is an input type that accepts RecommendedIndexResponseArray and RecommendedIndexResponseArrayOutput values.
-// You can construct a concrete instance of `RecommendedIndexResponseArrayInput` via:
-//
-//          RecommendedIndexResponseArray{ RecommendedIndexResponseArgs{...} }
-type RecommendedIndexResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecommendedIndexResponseArrayOutput() RecommendedIndexResponseArrayOutput
-	ToRecommendedIndexResponseArrayOutputWithContext(context.Context) RecommendedIndexResponseArrayOutput
-}
-
-type RecommendedIndexResponseArray []RecommendedIndexResponseInput
-
-func (RecommendedIndexResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (i RecommendedIndexResponseArray) ToRecommendedIndexResponseArrayOutput() RecommendedIndexResponseArrayOutput {
-	return i.ToRecommendedIndexResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecommendedIndexResponseArray) ToRecommendedIndexResponseArrayOutputWithContext(ctx context.Context) RecommendedIndexResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexResponseArrayOutput)
-}
-
-// Represents a database recommended index.
-type RecommendedIndexResponseOutput struct{ *pulumi.OutputState }
-
-func (RecommendedIndexResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (o RecommendedIndexResponseOutput) ToRecommendedIndexResponseOutput() RecommendedIndexResponseOutput {
-	return o
-}
-
-func (o RecommendedIndexResponseOutput) ToRecommendedIndexResponseOutputWithContext(ctx context.Context) RecommendedIndexResponseOutput {
-	return o
-}
-
-// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-func (o RecommendedIndexResponseOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// Columns over which to build index
-func (o RecommendedIndexResponseOutput) Columns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
-}
-
-// The UTC datetime showing when this resource was created (ISO8601 format).
-func (o RecommendedIndexResponseOutput) Created() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Created }).(pulumi.StringOutput)
-}
-
-// The estimated impact of doing recommended index action.
-func (o RecommendedIndexResponseOutput) EstimatedImpact() OperationImpactResponseArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) []OperationImpactResponse { return v.EstimatedImpact }).(OperationImpactResponseArrayOutput)
-}
-
-// Resource ID.
-func (o RecommendedIndexResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The list of column names to be included in the index
-func (o RecommendedIndexResponseOutput) IncludedColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) []string { return v.IncludedColumns }).(pulumi.StringArrayOutput)
-}
-
-// The full build index script
-func (o RecommendedIndexResponseOutput) IndexScript() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.IndexScript }).(pulumi.StringOutput)
-}
-
-// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-func (o RecommendedIndexResponseOutput) IndexType() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.IndexType }).(pulumi.StringOutput)
-}
-
-// The UTC datetime of when was this resource last changed (ISO8601 format).
-func (o RecommendedIndexResponseOutput) LastModified() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.LastModified }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o RecommendedIndexResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The values reported after index action is complete.
-func (o RecommendedIndexResponseOutput) ReportedImpact() OperationImpactResponseArrayOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) []OperationImpactResponse { return v.ReportedImpact }).(OperationImpactResponseArrayOutput)
-}
-
-// The schema where table to build index over resides
-func (o RecommendedIndexResponseOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Schema }).(pulumi.StringOutput)
-}
-
-// The current recommendation state.
-func (o RecommendedIndexResponseOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.State }).(pulumi.StringOutput)
-}
-
-// The table on which to build index.
-func (o RecommendedIndexResponseOutput) Table() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Table }).(pulumi.StringOutput)
-}
-
-// Resource type.
-func (o RecommendedIndexResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RecommendedIndexResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type RecommendedIndexResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (RecommendedIndexResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (o RecommendedIndexResponseArrayOutput) ToRecommendedIndexResponseArrayOutput() RecommendedIndexResponseArrayOutput {
-	return o
-}
-
-func (o RecommendedIndexResponseArrayOutput) ToRecommendedIndexResponseArrayOutputWithContext(ctx context.Context) RecommendedIndexResponseArrayOutput {
-	return o
-}
-
-func (o RecommendedIndexResponseArrayOutput) Index(i pulumi.IntInput) RecommendedIndexResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedIndexResponse {
-		return vs[0].([]RecommendedIndexResponse)[vs[1].(int)]
-	}).(RecommendedIndexResponseOutput)
-}
-
 // Azure Active Directory identity configuration for a resource.
 type ResourceIdentity struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -6256,303 +6286,115 @@ func (o ServerInfoResponseArrayOutput) Index(i pulumi.IntInput) ServerInfoRespon
 	}).(ServerInfoResponseOutput)
 }
 
-// Represents a Service Tier Advisor.
-type ServiceTierAdvisorResponse struct {
-	// The activeTimeRatio for service tier advisor.
-	ActiveTimeRatio float64 `pulumi:"activeTimeRatio"`
-	// Gets or sets avgDtu for service tier advisor.
-	AvgDtu float64 `pulumi:"avgDtu"`
-	// Gets or sets confidence for service tier advisor.
-	Confidence float64 `pulumi:"confidence"`
-	// Gets or sets currentServiceLevelObjective for service tier advisor.
-	CurrentServiceLevelObjective string `pulumi:"currentServiceLevelObjective"`
-	// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
-	CurrentServiceLevelObjectiveId string `pulumi:"currentServiceLevelObjectiveId"`
-	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
-	DatabaseSizeBasedRecommendationServiceLevelObjective string `pulumi:"databaseSizeBasedRecommendationServiceLevelObjective"`
-	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	DatabaseSizeBasedRecommendationServiceLevelObjectiveId string `pulumi:"databaseSizeBasedRecommendationServiceLevelObjectiveId"`
-	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
-	DisasterPlanBasedRecommendationServiceLevelObjective string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
-	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	DisasterPlanBasedRecommendationServiceLevelObjectiveId string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionResponse struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Gets or sets maxDtu for service tier advisor.
-	MaxDtu float64 `pulumi:"maxDtu"`
-	// Gets or sets maxSizeInGB for service tier advisor.
-	MaxSizeInGB float64 `pulumi:"maxSizeInGB"`
-	// Gets or sets minDtu for service tier advisor.
-	MinDtu float64 `pulumi:"minDtu"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The observation period start (ISO8601 format).
-	ObservationPeriodEnd string `pulumi:"observationPeriodEnd"`
-	// The observation period start (ISO8601 format).
-	ObservationPeriodStart string `pulumi:"observationPeriodStart"`
-	// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
-	OverallRecommendationServiceLevelObjective string `pulumi:"overallRecommendationServiceLevelObjective"`
-	// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-	OverallRecommendationServiceLevelObjectiveId string `pulumi:"overallRecommendationServiceLevelObjectiveId"`
-	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
-	ServiceLevelObjectiveUsageMetrics []SloUsageMetricResponse `pulumi:"serviceLevelObjectiveUsageMetrics"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
-	UsageBasedRecommendationServiceLevelObjective string `pulumi:"usageBasedRecommendationServiceLevelObjective"`
-	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	UsageBasedRecommendationServiceLevelObjectiveId string `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
+	// Private endpoint connection properties
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 }
 
-// ServiceTierAdvisorResponseInput is an input type that accepts ServiceTierAdvisorResponseArgs and ServiceTierAdvisorResponseOutput values.
-// You can construct a concrete instance of `ServiceTierAdvisorResponseInput` via:
+// ServerPrivateEndpointConnectionResponseInput is an input type that accepts ServerPrivateEndpointConnectionResponseArgs and ServerPrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `ServerPrivateEndpointConnectionResponseInput` via:
 //
-//          ServiceTierAdvisorResponseArgs{...}
-type ServiceTierAdvisorResponseInput interface {
+//          ServerPrivateEndpointConnectionResponseArgs{...}
+type ServerPrivateEndpointConnectionResponseInput interface {
 	pulumi.Input
 
-	ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput
-	ToServiceTierAdvisorResponseOutputWithContext(context.Context) ServiceTierAdvisorResponseOutput
+	ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput
+	ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseOutput
 }
 
-// Represents a Service Tier Advisor.
-type ServiceTierAdvisorResponseArgs struct {
-	// The activeTimeRatio for service tier advisor.
-	ActiveTimeRatio pulumi.Float64Input `pulumi:"activeTimeRatio"`
-	// Gets or sets avgDtu for service tier advisor.
-	AvgDtu pulumi.Float64Input `pulumi:"avgDtu"`
-	// Gets or sets confidence for service tier advisor.
-	Confidence pulumi.Float64Input `pulumi:"confidence"`
-	// Gets or sets currentServiceLevelObjective for service tier advisor.
-	CurrentServiceLevelObjective pulumi.StringInput `pulumi:"currentServiceLevelObjective"`
-	// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
-	CurrentServiceLevelObjectiveId pulumi.StringInput `pulumi:"currentServiceLevelObjectiveId"`
-	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
-	DatabaseSizeBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"databaseSizeBasedRecommendationServiceLevelObjective"`
-	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	DatabaseSizeBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"databaseSizeBasedRecommendationServiceLevelObjectiveId"`
-	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
-	DisasterPlanBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
-	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	DisasterPlanBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionResponseArgs struct {
 	// Resource ID.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Gets or sets maxDtu for service tier advisor.
-	MaxDtu pulumi.Float64Input `pulumi:"maxDtu"`
-	// Gets or sets maxSizeInGB for service tier advisor.
-	MaxSizeInGB pulumi.Float64Input `pulumi:"maxSizeInGB"`
-	// Gets or sets minDtu for service tier advisor.
-	MinDtu pulumi.Float64Input `pulumi:"minDtu"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The observation period start (ISO8601 format).
-	ObservationPeriodEnd pulumi.StringInput `pulumi:"observationPeriodEnd"`
-	// The observation period start (ISO8601 format).
-	ObservationPeriodStart pulumi.StringInput `pulumi:"observationPeriodStart"`
-	// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
-	OverallRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"overallRecommendationServiceLevelObjective"`
-	// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-	OverallRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"overallRecommendationServiceLevelObjectiveId"`
-	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
-	ServiceLevelObjectiveUsageMetrics SloUsageMetricResponseArrayInput `pulumi:"serviceLevelObjectiveUsageMetrics"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
-	UsageBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjective"`
-	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-	UsageBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
+	// Private endpoint connection properties
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 }
 
-func (ServiceTierAdvisorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTierAdvisorResponse)(nil)).Elem()
+func (ServerPrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPrivateEndpointConnectionResponse)(nil)).Elem()
 }
 
-func (i ServiceTierAdvisorResponseArgs) ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput {
-	return i.ToServiceTierAdvisorResponseOutputWithContext(context.Background())
+func (i ServerPrivateEndpointConnectionResponseArgs) ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput {
+	return i.ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Background())
 }
 
-func (i ServiceTierAdvisorResponseArgs) ToServiceTierAdvisorResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorResponseOutput)
+func (i ServerPrivateEndpointConnectionResponseArgs) ToServerPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseOutput)
 }
 
-// ServiceTierAdvisorResponseArrayInput is an input type that accepts ServiceTierAdvisorResponseArray and ServiceTierAdvisorResponseArrayOutput values.
-// You can construct a concrete instance of `ServiceTierAdvisorResponseArrayInput` via:
+// ServerPrivateEndpointConnectionResponseArrayInput is an input type that accepts ServerPrivateEndpointConnectionResponseArray and ServerPrivateEndpointConnectionResponseArrayOutput values.
+// You can construct a concrete instance of `ServerPrivateEndpointConnectionResponseArrayInput` via:
 //
-//          ServiceTierAdvisorResponseArray{ ServiceTierAdvisorResponseArgs{...} }
-type ServiceTierAdvisorResponseArrayInput interface {
+//          ServerPrivateEndpointConnectionResponseArray{ ServerPrivateEndpointConnectionResponseArgs{...} }
+type ServerPrivateEndpointConnectionResponseArrayInput interface {
 	pulumi.Input
 
-	ToServiceTierAdvisorResponseArrayOutput() ServiceTierAdvisorResponseArrayOutput
-	ToServiceTierAdvisorResponseArrayOutputWithContext(context.Context) ServiceTierAdvisorResponseArrayOutput
+	ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput
+	ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseArrayOutput
 }
 
-type ServiceTierAdvisorResponseArray []ServiceTierAdvisorResponseInput
+type ServerPrivateEndpointConnectionResponseArray []ServerPrivateEndpointConnectionResponseInput
 
-func (ServiceTierAdvisorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTierAdvisorResponse)(nil)).Elem()
+func (ServerPrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionResponse)(nil)).Elem()
 }
 
-func (i ServiceTierAdvisorResponseArray) ToServiceTierAdvisorResponseArrayOutput() ServiceTierAdvisorResponseArrayOutput {
-	return i.ToServiceTierAdvisorResponseArrayOutputWithContext(context.Background())
+func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput {
+	return i.ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceTierAdvisorResponseArray) ToServiceTierAdvisorResponseArrayOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorResponseArrayOutput)
+func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Represents a Service Tier Advisor.
-type ServiceTierAdvisorResponseOutput struct{ *pulumi.OutputState }
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
-func (ServiceTierAdvisorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTierAdvisorResponse)(nil)).Elem()
+func (ServerPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPrivateEndpointConnectionResponse)(nil)).Elem()
 }
 
-func (o ServiceTierAdvisorResponseOutput) ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput {
+func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutput() ServerPrivateEndpointConnectionResponseOutput {
 	return o
 }
 
-func (o ServiceTierAdvisorResponseOutput) ToServiceTierAdvisorResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseOutput {
+func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseOutput {
 	return o
-}
-
-// The activeTimeRatio for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) ActiveTimeRatio() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.ActiveTimeRatio }).(pulumi.Float64Output)
-}
-
-// Gets or sets avgDtu for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) AvgDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.AvgDtu }).(pulumi.Float64Output)
-}
-
-// Gets or sets confidence for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) Confidence() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.Confidence }).(pulumi.Float64Output)
-}
-
-// Gets or sets currentServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) CurrentServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.CurrentServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) CurrentServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.CurrentServiceLevelObjectiveId }).(pulumi.StringOutput)
-}
-
-// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
-		return v.DatabaseSizeBasedRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
-		return v.DatabaseSizeBasedRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
-		return v.DisasterPlanBasedRecommendationServiceLevelObjective
-	}).(pulumi.StringOutput)
-}
-
-// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string {
-		return v.DisasterPlanBasedRecommendationServiceLevelObjectiveId
-	}).(pulumi.StringOutput)
 }
 
 // Resource ID.
-func (o ServiceTierAdvisorResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Gets or sets maxDtu for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) MaxDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MaxDtu }).(pulumi.Float64Output)
+// Private endpoint connection properties
+func (o ServerPrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Gets or sets maxSizeInGB for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) MaxSizeInGB() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MaxSizeInGB }).(pulumi.Float64Output)
+type ServerPrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerPrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionResponse)(nil)).Elem()
 }
 
-// Gets or sets minDtu for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) MinDtu() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) float64 { return v.MinDtu }).(pulumi.Float64Output)
-}
-
-// Resource name.
-func (o ServiceTierAdvisorResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The observation period start (ISO8601 format).
-func (o ServiceTierAdvisorResponseOutput) ObservationPeriodEnd() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.ObservationPeriodEnd }).(pulumi.StringOutput)
-}
-
-// The observation period start (ISO8601 format).
-func (o ServiceTierAdvisorResponseOutput) ObservationPeriodStart() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.ObservationPeriodStart }).(pulumi.StringOutput)
-}
-
-// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) OverallRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.OverallRecommendationServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) OverallRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.OverallRecommendationServiceLevelObjectiveId }).(pulumi.StringOutput)
-}
-
-// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) ServiceLevelObjectiveUsageMetrics() SloUsageMetricResponseArrayOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) []SloUsageMetricResponse {
-		return v.ServiceLevelObjectiveUsageMetrics
-	}).(SloUsageMetricResponseArrayOutput)
-}
-
-// Resource type.
-func (o ServiceTierAdvisorResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) UsageBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.UsageBasedRecommendationServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-func (o ServiceTierAdvisorResponseOutput) UsageBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTierAdvisorResponse) string { return v.UsageBasedRecommendationServiceLevelObjectiveId }).(pulumi.StringOutput)
-}
-
-type ServiceTierAdvisorResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceTierAdvisorResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTierAdvisorResponse)(nil)).Elem()
-}
-
-func (o ServiceTierAdvisorResponseArrayOutput) ToServiceTierAdvisorResponseArrayOutput() ServiceTierAdvisorResponseArrayOutput {
+func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutput() ServerPrivateEndpointConnectionResponseArrayOutput {
 	return o
 }
 
-func (o ServiceTierAdvisorResponseArrayOutput) ToServiceTierAdvisorResponseArrayOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseArrayOutput {
+func (o ServerPrivateEndpointConnectionResponseArrayOutput) ToServerPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionResponseArrayOutput {
 	return o
 }
 
-func (o ServiceTierAdvisorResponseArrayOutput) Index(i pulumi.IntInput) ServiceTierAdvisorResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTierAdvisorResponse {
-		return vs[0].([]ServiceTierAdvisorResponse)[vs[1].(int)]
-	}).(ServiceTierAdvisorResponseOutput)
+func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) ServerPrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPrivateEndpointConnectionResponse {
+		return vs[0].([]ServerPrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(ServerPrivateEndpointConnectionResponseOutput)
 }
 
 // An ARM Resource SKU.
@@ -6973,124 +6815,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
-}
-
-// A Slo Usage Metric.
-type SloUsageMetricResponse struct {
-	// Gets or sets inRangeTimeRatio for SLO usage metric.
-	InRangeTimeRatio float64 `pulumi:"inRangeTimeRatio"`
-	// The serviceLevelObjective for SLO usage metric.
-	ServiceLevelObjective string `pulumi:"serviceLevelObjective"`
-	// The serviceLevelObjectiveId for SLO usage metric.
-	ServiceLevelObjectiveId string `pulumi:"serviceLevelObjectiveId"`
-}
-
-// SloUsageMetricResponseInput is an input type that accepts SloUsageMetricResponseArgs and SloUsageMetricResponseOutput values.
-// You can construct a concrete instance of `SloUsageMetricResponseInput` via:
-//
-//          SloUsageMetricResponseArgs{...}
-type SloUsageMetricResponseInput interface {
-	pulumi.Input
-
-	ToSloUsageMetricResponseOutput() SloUsageMetricResponseOutput
-	ToSloUsageMetricResponseOutputWithContext(context.Context) SloUsageMetricResponseOutput
-}
-
-// A Slo Usage Metric.
-type SloUsageMetricResponseArgs struct {
-	// Gets or sets inRangeTimeRatio for SLO usage metric.
-	InRangeTimeRatio pulumi.Float64Input `pulumi:"inRangeTimeRatio"`
-	// The serviceLevelObjective for SLO usage metric.
-	ServiceLevelObjective pulumi.StringInput `pulumi:"serviceLevelObjective"`
-	// The serviceLevelObjectiveId for SLO usage metric.
-	ServiceLevelObjectiveId pulumi.StringInput `pulumi:"serviceLevelObjectiveId"`
-}
-
-func (SloUsageMetricResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (i SloUsageMetricResponseArgs) ToSloUsageMetricResponseOutput() SloUsageMetricResponseOutput {
-	return i.ToSloUsageMetricResponseOutputWithContext(context.Background())
-}
-
-func (i SloUsageMetricResponseArgs) ToSloUsageMetricResponseOutputWithContext(ctx context.Context) SloUsageMetricResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricResponseOutput)
-}
-
-// SloUsageMetricResponseArrayInput is an input type that accepts SloUsageMetricResponseArray and SloUsageMetricResponseArrayOutput values.
-// You can construct a concrete instance of `SloUsageMetricResponseArrayInput` via:
-//
-//          SloUsageMetricResponseArray{ SloUsageMetricResponseArgs{...} }
-type SloUsageMetricResponseArrayInput interface {
-	pulumi.Input
-
-	ToSloUsageMetricResponseArrayOutput() SloUsageMetricResponseArrayOutput
-	ToSloUsageMetricResponseArrayOutputWithContext(context.Context) SloUsageMetricResponseArrayOutput
-}
-
-type SloUsageMetricResponseArray []SloUsageMetricResponseInput
-
-func (SloUsageMetricResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (i SloUsageMetricResponseArray) ToSloUsageMetricResponseArrayOutput() SloUsageMetricResponseArrayOutput {
-	return i.ToSloUsageMetricResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SloUsageMetricResponseArray) ToSloUsageMetricResponseArrayOutputWithContext(ctx context.Context) SloUsageMetricResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricResponseArrayOutput)
-}
-
-// A Slo Usage Metric.
-type SloUsageMetricResponseOutput struct{ *pulumi.OutputState }
-
-func (SloUsageMetricResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (o SloUsageMetricResponseOutput) ToSloUsageMetricResponseOutput() SloUsageMetricResponseOutput {
-	return o
-}
-
-func (o SloUsageMetricResponseOutput) ToSloUsageMetricResponseOutputWithContext(ctx context.Context) SloUsageMetricResponseOutput {
-	return o
-}
-
-// Gets or sets inRangeTimeRatio for SLO usage metric.
-func (o SloUsageMetricResponseOutput) InRangeTimeRatio() pulumi.Float64Output {
-	return o.ApplyT(func(v SloUsageMetricResponse) float64 { return v.InRangeTimeRatio }).(pulumi.Float64Output)
-}
-
-// The serviceLevelObjective for SLO usage metric.
-func (o SloUsageMetricResponseOutput) ServiceLevelObjective() pulumi.StringOutput {
-	return o.ApplyT(func(v SloUsageMetricResponse) string { return v.ServiceLevelObjective }).(pulumi.StringOutput)
-}
-
-// The serviceLevelObjectiveId for SLO usage metric.
-func (o SloUsageMetricResponseOutput) ServiceLevelObjectiveId() pulumi.StringOutput {
-	return o.ApplyT(func(v SloUsageMetricResponse) string { return v.ServiceLevelObjectiveId }).(pulumi.StringOutput)
-}
-
-type SloUsageMetricResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (SloUsageMetricResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (o SloUsageMetricResponseArrayOutput) ToSloUsageMetricResponseArrayOutput() SloUsageMetricResponseArrayOutput {
-	return o
-}
-
-func (o SloUsageMetricResponseArrayOutput) ToSloUsageMetricResponseArrayOutputWithContext(ctx context.Context) SloUsageMetricResponseArrayOutput {
-	return o
-}
-
-func (o SloUsageMetricResponseArrayOutput) Index(i pulumi.IntInput) SloUsageMetricResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SloUsageMetricResponse {
-		return vs[0].([]SloUsageMetricResponse)[vs[1].(int)]
-	}).(SloUsageMetricResponseOutput)
 }
 
 // Properties of sync group schema.
@@ -7853,142 +7577,6 @@ func (o SyncGroupSchemaTableResponseArrayOutput) Index(i pulumi.IntInput) SyncGr
 	}).(SyncGroupSchemaTableResponseOutput)
 }
 
-// Represents a database transparent data encryption configuration.
-type TransparentDataEncryptionResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// TransparentDataEncryptionResponseInput is an input type that accepts TransparentDataEncryptionResponseArgs and TransparentDataEncryptionResponseOutput values.
-// You can construct a concrete instance of `TransparentDataEncryptionResponseInput` via:
-//
-//          TransparentDataEncryptionResponseArgs{...}
-type TransparentDataEncryptionResponseInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionResponseOutput() TransparentDataEncryptionResponseOutput
-	ToTransparentDataEncryptionResponseOutputWithContext(context.Context) TransparentDataEncryptionResponseOutput
-}
-
-// Represents a database transparent data encryption configuration.
-type TransparentDataEncryptionResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TransparentDataEncryptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (i TransparentDataEncryptionResponseArgs) ToTransparentDataEncryptionResponseOutput() TransparentDataEncryptionResponseOutput {
-	return i.ToTransparentDataEncryptionResponseOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionResponseArgs) ToTransparentDataEncryptionResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionResponseOutput)
-}
-
-// TransparentDataEncryptionResponseArrayInput is an input type that accepts TransparentDataEncryptionResponseArray and TransparentDataEncryptionResponseArrayOutput values.
-// You can construct a concrete instance of `TransparentDataEncryptionResponseArrayInput` via:
-//
-//          TransparentDataEncryptionResponseArray{ TransparentDataEncryptionResponseArgs{...} }
-type TransparentDataEncryptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionResponseArrayOutput() TransparentDataEncryptionResponseArrayOutput
-	ToTransparentDataEncryptionResponseArrayOutputWithContext(context.Context) TransparentDataEncryptionResponseArrayOutput
-}
-
-type TransparentDataEncryptionResponseArray []TransparentDataEncryptionResponseInput
-
-func (TransparentDataEncryptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (i TransparentDataEncryptionResponseArray) ToTransparentDataEncryptionResponseArrayOutput() TransparentDataEncryptionResponseArrayOutput {
-	return i.ToTransparentDataEncryptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionResponseArray) ToTransparentDataEncryptionResponseArrayOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionResponseArrayOutput)
-}
-
-// Represents a database transparent data encryption configuration.
-type TransparentDataEncryptionResponseOutput struct{ *pulumi.OutputState }
-
-func (TransparentDataEncryptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (o TransparentDataEncryptionResponseOutput) ToTransparentDataEncryptionResponseOutput() TransparentDataEncryptionResponseOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionResponseOutput) ToTransparentDataEncryptionResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseOutput {
-	return o
-}
-
-// Resource ID.
-func (o TransparentDataEncryptionResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o TransparentDataEncryptionResponseOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o TransparentDataEncryptionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The status of the database transparent data encryption.
-func (o TransparentDataEncryptionResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o TransparentDataEncryptionResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TransparentDataEncryptionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type TransparentDataEncryptionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (TransparentDataEncryptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (o TransparentDataEncryptionResponseArrayOutput) ToTransparentDataEncryptionResponseArrayOutput() TransparentDataEncryptionResponseArrayOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionResponseArrayOutput) ToTransparentDataEncryptionResponseArrayOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseArrayOutput {
-	return o
-}
-
-func (o TransparentDataEncryptionResponseArrayOutput) Index(i pulumi.IntInput) TransparentDataEncryptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransparentDataEncryptionResponse {
-		return vs[0].([]TransparentDataEncryptionResponse)[vs[1].(int)]
-	}).(TransparentDataEncryptionResponseOutput)
-}
-
 // Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansProperties struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
@@ -8344,6 +7932,10 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointResponseOutput{})
@@ -8395,8 +7987,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(OperationImpactResponseOutput{})
-	pulumi.RegisterOutputType(OperationImpactResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerInfoOutput{})
 	pulumi.RegisterOutputType(PartnerInfoArrayOutput{})
 	pulumi.RegisterOutputType(PartnerInfoResponseOutput{})
@@ -8405,6 +7995,7 @@ func init() {
 	pulumi.RegisterOutputType(PartnerRegionInfoArrayOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoResponseOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
@@ -8413,8 +8004,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(RecommendedIndexResponseOutput{})
-	pulumi.RegisterOutputType(RecommendedIndexResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
@@ -8423,14 +8012,12 @@ func init() {
 	pulumi.RegisterOutputType(ServerInfoArrayOutput{})
 	pulumi.RegisterOutputType(ServerInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServerInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServiceTierAdvisorResponseOutput{})
-	pulumi.RegisterOutputType(ServiceTierAdvisorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SloUsageMetricResponseOutput{})
-	pulumi.RegisterOutputType(SloUsageMetricResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaPtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaResponseOutput{})
@@ -8443,8 +8030,6 @@ func init() {
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseArrayOutput{})
-	pulumi.RegisterOutputType(TransparentDataEncryptionResponseOutput{})
-	pulumi.RegisterOutputType(TransparentDataEncryptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput{})

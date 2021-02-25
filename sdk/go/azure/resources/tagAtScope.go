@@ -12,7 +12,7 @@ import (
 )
 
 // Wrapper resource for tags API requests and responses.
-// API Version: 2020-10-01.
+// API Version: 2019-10-01.
 type TagAtScope struct {
 	pulumi.CustomResourceState
 

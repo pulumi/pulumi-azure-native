@@ -8,9 +8,11 @@ import * as utilities from "../utilities";
 export * from "./addon";
 export * from "./authorization";
 export * from "./cluster";
+export * from "./datastore";
 export * from "./getAddon";
 export * from "./getAuthorization";
 export * from "./getCluster";
+export * from "./getDatastore";
 export * from "./getGlobalReachConnection";
 export * from "./getHcxEnterpriseSite";
 export * from "./getPrivateCloud";
@@ -51,6 +53,7 @@ export {
 import { Addon } from "./addon";
 import { Authorization } from "./authorization";
 import { Cluster } from "./cluster";
+import { Datastore } from "./datastore";
 import { GlobalReachConnection } from "./globalReachConnection";
 import { HcxEnterpriseSite } from "./hcxEnterpriseSite";
 import { PrivateCloud } from "./privateCloud";
@@ -71,6 +74,8 @@ const _module = {
                 return new Authorization(name, <any>undefined, { urn })
             case "azure-native:avs:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "azure-native:avs:Datastore":
+                return new Datastore(name, <any>undefined, { urn })
             case "azure-native:avs:GlobalReachConnection":
                 return new GlobalReachConnection(name, <any>undefined, { urn })
             case "azure-native:avs:HcxEnterpriseSite":

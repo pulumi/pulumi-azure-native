@@ -37,6 +37,15 @@ func NewRoleManagementPolicyAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:authorization:RoleManagementPolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization:RoleManagementPolicyAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RoleManagementPolicyAssignment
 	err := ctx.RegisterResource("azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment", name, args, &resource, opts...)
 	if err != nil {

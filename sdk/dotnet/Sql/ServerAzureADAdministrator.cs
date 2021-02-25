@@ -10,20 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
-    /// An server Active Directory Administrator.
-    /// API Version: 2014-04-01.
+    /// Azure Active Directory administrator.
+    /// API Version: 2020-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         [Output("administratorType")]
         public Output<string> AdministratorType { get; private set; } = null!;
 
         /// <summary>
-        /// The server administrator login value.
+        /// Azure Active Directory only Authentication enabled.
+        /// </summary>
+        [Output("azureADOnlyAuthentication")]
+        public Output<bool> AzureADOnlyAuthentication { get; private set; } = null!;
+
+        /// <summary>
+        /// Login name of the server administrator.
         /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
@@ -35,16 +41,16 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         [Output("sid")]
         public Output<string> Sid { get; private set; } = null!;
 
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
         [Output("tenantId")]
-        public Output<string> TenantId { get; private set; } = null!;
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -113,19 +119,19 @@ namespace Pulumi.AzureNative.Sql
     public sealed class ServerAzureADAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the server administrator resource.
+        /// The name of server active directory administrator.
         /// </summary>
         [Input("administratorName")]
         public Input<string>? AdministratorName { get; set; }
 
         /// <summary>
-        /// The type of administrator.
+        /// Type of the sever administrator.
         /// </summary>
         [Input("administratorType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Sql.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
-        /// The server administrator login value.
+        /// Login name of the server administrator.
         /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
@@ -143,16 +149,16 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The server administrator Sid (Secure ID).
+        /// SID (object ID) of the server administrator.
         /// </summary>
         [Input("sid", required: true)]
         public Input<string> Sid { get; set; } = null!;
 
         /// <summary>
-        /// The server Active Directory Administrator tenant id.
+        /// Tenant ID of the administrator.
         /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public ServerAzureADAdministratorArgs()
         {

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2020-03-30.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthcareapis:PrivateEndpointConnection'.
  */
@@ -56,10 +56,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * System metadata for this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.latest.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -93,14 +89,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

@@ -48,6 +48,15 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:maintenance:ConfigurationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:maintenance:ConfigurationAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationAssignment
 	err := ctx.RegisterResource("azure-native:maintenance/v20210401preview:ConfigurationAssignment", name, args, &resource, opts...)
 	if err != nil {

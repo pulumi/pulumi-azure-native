@@ -8,7 +8,7 @@ import (
 )
 
 // Site REST Resource.
-// Latest API Version: 2020-07-07.
+// Latest API Version: 2020-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'.
 func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...pulumi.InvokeOption) (*LookupHyperVSiteResult, error) {

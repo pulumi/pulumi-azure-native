@@ -86,6 +86,11 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights:QueryPack"},
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:QueryPack"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

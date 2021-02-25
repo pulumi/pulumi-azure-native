@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:policyinsights/latest:AttestationAtResource":
+		r, err = NewAttestationAtResource(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:policyinsights/latest:AttestationAtResourceGroup":
+		r, err = NewAttestationAtResourceGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:policyinsights/latest:AttestationAtSubscription":
+		r, err = NewAttestationAtSubscription(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:policyinsights/latest:RemediationAtManagementGroup":
 		r, err = NewRemediationAtManagementGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:policyinsights/latest:RemediationAtResource":

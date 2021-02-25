@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a server.
- * API Version: 2014-04-01.
+ * An Azure SQL Database server.
+ * API Version: 2020-08-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
@@ -35,25 +35,17 @@ export interface GetServerArgs {
 }
 
 /**
- * Represents a server.
+ * An Azure SQL Database server.
  */
 export interface GetServerResult {
     /**
-     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     * Administrator username for the server. Once created it cannot be changed.
      */
     readonly administratorLogin?: string;
     /**
      * The administrator login password (required for server creation).
      */
     readonly administratorLoginPassword?: string;
-    /**
-     * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-     */
-    readonly externalAdministratorLogin: string;
-    /**
-     * The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-     */
-    readonly externalAdministratorSid: string;
     /**
      * The fully qualified domain name of the server.
      */
@@ -63,7 +55,11 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * Kind of sql server.  This is metadata used for the Azure portal experience.
+     * The Azure Active Directory identity of the server.
+     */
+    readonly identity?: outputs.sql.ResourceIdentityResponse;
+    /**
+     * Kind of sql server. This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
     /**
@@ -71,9 +67,21 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
+     * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+     */
+    readonly minimalTlsVersion?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections on a server
+     */
+    readonly privateEndpointConnections: outputs.sql.ServerPrivateEndpointConnectionResponse[];
+    /**
+     * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The state of the server.
      */
@@ -90,4 +98,8 @@ export interface GetServerResult {
      * The version of the server.
      */
     readonly version?: string;
+    /**
+     * Whether or not existing server has a workspace created and if it allows connection from workspace
+     */
+    readonly workspaceFeature: string;
 }

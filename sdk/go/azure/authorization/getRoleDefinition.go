@@ -8,7 +8,7 @@ import (
 )
 
 // Role definition.
-// API Version: 2015-07-01.
+// API Version: 2018-01-01-preview.
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
 	err := ctx.Invoke("azure-native:authorization:getRoleDefinition", args, &rv, opts...)

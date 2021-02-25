@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2019-05-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Resource'.
 type Resource struct {

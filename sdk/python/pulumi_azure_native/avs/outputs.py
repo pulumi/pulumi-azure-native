@@ -11,9 +11,11 @@ from ._enums import *
 
 __all__ = [
     'CircuitResponse',
+    'DiskPoolVolumeResponse',
     'EndpointsResponse',
     'IdentitySourceResponse',
     'ManagementClusterResponse',
+    'NetAppVolumeResponse',
     'SkuResponse',
     'WorkloadNetworkSegmentPortVifResponse',
     'WorkloadNetworkSegmentSubnetResponse',
@@ -72,6 +74,44 @@ class CircuitResponse(dict):
         CIDR of secondary subnet
         """
         return pulumi.get(self, "secondary_subnet")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiskPoolVolumeResponse(dict):
+    """
+    An iSCSI volume from Microsoft.StoragePool provider
+    """
+    def __init__(__self__, *,
+                 endpoints: Optional[Sequence[str]] = None,
+                 lun_name: Optional[str] = None):
+        """
+        An iSCSI volume from Microsoft.StoragePool provider
+        :param Sequence[str] endpoints: iSCSI provider target IP address list
+        :param str lun_name: Name of the LUN to be used
+        """
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if lun_name is not None:
+            pulumi.set(__self__, "lun_name", lun_name)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[Sequence[str]]:
+        """
+        iSCSI provider target IP address list
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="lunName")
+    def lun_name(self) -> Optional[str]:
+        """
+        Name of the LUN to be used
+        """
+        return pulumi.get(self, "lun_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -311,6 +351,44 @@ class ManagementClusterResponse(dict):
         The state of the cluster provisioning
         """
         return pulumi.get(self, "provisioning_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetAppVolumeResponse(dict):
+    """
+    An Azure NetApp Files volume from Microsoft.NetApp provider
+    """
+    def __init__(__self__, *,
+                 nfs_file_path: Optional[str] = None,
+                 nfs_provider_ip: Optional[str] = None):
+        """
+        An Azure NetApp Files volume from Microsoft.NetApp provider
+        :param str nfs_file_path: File path through which the NFS volume is exposed by the provider
+        :param str nfs_provider_ip: IP address of the NFS provider
+        """
+        if nfs_file_path is not None:
+            pulumi.set(__self__, "nfs_file_path", nfs_file_path)
+        if nfs_provider_ip is not None:
+            pulumi.set(__self__, "nfs_provider_ip", nfs_provider_ip)
+
+    @property
+    @pulumi.getter(name="nfsFilePath")
+    def nfs_file_path(self) -> Optional[str]:
+        """
+        File path through which the NFS volume is exposed by the provider
+        """
+        return pulumi.get(self, "nfs_file_path")
+
+    @property
+    @pulumi.getter(name="nfsProviderIp")
+    def nfs_provider_ip(self) -> Optional[str]:
+        """
+        IP address of the NFS provider
+        """
+        return pulumi.get(self, "nfs_provider_ip")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -2,8 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as insights from "@pulumi/azure-native/insights";
 import * as resources from "@pulumi/azure-native/resources";
-import * as sql from "@pulumi/azure-native/sql/v20200801preview";
-import * as sqltde from "@pulumi/azure-native/sql";
+import * as sql from "@pulumi/azure-native/sql";
 import * as storage from "@pulumi/azure-native/storage";
 import * as web from "@pulumi/azure-native/web";
 
@@ -39,9 +38,6 @@ const blob = new storage.Blob("wwwroot", {
     type: "Block",
     source: new pulumi.asset.FileArchive("wwwroot"),
 });
-
-// TODO: invokes are not supported yet
-// const codeBlobUrl = azure.storage.signedBlobReadUrl(blob, storageAccount);
 
 const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
@@ -84,11 +80,11 @@ new sql.DatabaseSecurityAlertPolicy("dsal", {
     state: "Enabled",
 });
 
-new sqltde.TransparentDataEncryption("current", {
+new sql.TransparentDataEncryption("current", {
     resourceGroupName: resourceGroup.name,
     serverName: sqlServer.name,
     databaseName: database.name,
-    status: sqltde.TransparentDataEncryptionStatus.Enabled,
+    status: sql.TransparentDataEncryptionStatus.Enabled,
 });
 
 const app = new web.WebApp("as", {

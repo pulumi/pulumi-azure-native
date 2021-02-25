@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Represents a server firewall rule.
- * API Version: 2014-04-01.
+ * A server firewall rule.
+ * API Version: 2020-08-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     if (!opts) {
@@ -40,33 +40,25 @@ export interface GetFirewallRuleArgs {
 }
 
 /**
- * Represents a server firewall rule.
+ * A server firewall rule.
  */
 export interface GetFirewallRuleResult {
     /**
-     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    readonly endIpAddress: string;
+    readonly endIpAddress?: string;
     /**
      * Resource ID.
      */
     readonly id: string;
     /**
-     * Kind of server that contains this firewall rule.
-     */
-    readonly kind: string;
-    /**
-     * Location of the server that contains this firewall rule.
-     */
-    readonly location: string;
-    /**
      * Resource name.
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    readonly startIpAddress: string;
+    readonly startIpAddress?: string;
     /**
      * Resource type.
      */

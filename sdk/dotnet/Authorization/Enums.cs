@@ -71,6 +71,39 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The type of rule
+    /// </summary>
+    [EnumType]
+    public readonly struct ApprovalMode : IEquatable<ApprovalMode>
+    {
+        private readonly string _value;
+
+        private ApprovalMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApprovalMode SingleStage { get; } = new ApprovalMode("SingleStage");
+        public static ApprovalMode Serial { get; } = new ApprovalMode("Serial");
+        public static ApprovalMode Parallel { get; } = new ApprovalMode("Parallel");
+        public static ApprovalMode NoApproval { get; } = new ApprovalMode("NoApproval");
+
+        public static bool operator ==(ApprovalMode left, ApprovalMode right) => left.Equals(right);
+        public static bool operator !=(ApprovalMode left, ApprovalMode right) => !left.Equals(right);
+
+        public static explicit operator string(ApprovalMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApprovalMode other && Equals(other);
+        public bool Equals(ApprovalMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This specifies the behavior for the autoReview feature when an access review completes.
     /// </summary>
     [EnumType]
@@ -209,6 +242,68 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The type of notification.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationDeliveryMechanism : IEquatable<NotificationDeliveryMechanism>
+    {
+        private readonly string _value;
+
+        private NotificationDeliveryMechanism(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationDeliveryMechanism Email { get; } = new NotificationDeliveryMechanism("Email");
+
+        public static bool operator ==(NotificationDeliveryMechanism left, NotificationDeliveryMechanism right) => left.Equals(right);
+        public static bool operator !=(NotificationDeliveryMechanism left, NotificationDeliveryMechanism right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationDeliveryMechanism value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationDeliveryMechanism other && Equals(other);
+        public bool Equals(NotificationDeliveryMechanism other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The notification level.
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationLevel : IEquatable<NotificationLevel>
+    {
+        private readonly string _value;
+
+        private NotificationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationLevel NONE { get; } = new NotificationLevel("NONE");
+        public static NotificationLevel CRITICAL { get; } = new NotificationLevel("CRITICAL");
+        public static NotificationLevel ALL { get; } = new NotificationLevel("ALL");
+
+        public static bool operator ==(NotificationLevel left, NotificationLevel right) => left.Equals(right);
+        public static bool operator !=(NotificationLevel left, NotificationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationLevel other && Equals(other);
+        public bool Equals(NotificationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The data type of the parameter.
     /// </summary>
     [EnumType]
@@ -278,6 +373,77 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The principal type of the assigned principal ID.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalType : IEquatable<PrincipalType>
+    {
+        private readonly string _value;
+
+        private PrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalType User { get; } = new PrincipalType("User");
+        public static PrincipalType Group { get; } = new PrincipalType("Group");
+        public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
+        public static PrincipalType Unknown { get; } = new PrincipalType("Unknown");
+        public static PrincipalType DirectoryRoleTemplate { get; } = new PrincipalType("DirectoryRoleTemplate");
+        public static PrincipalType ForeignGroup { get; } = new PrincipalType("ForeignGroup");
+        public static PrincipalType Application { get; } = new PrincipalType("Application");
+        public static PrincipalType MSI { get; } = new PrincipalType("MSI");
+        public static PrincipalType DirectoryObjectOrGroup { get; } = new PrincipalType("DirectoryObjectOrGroup");
+        public static PrincipalType Everyone { get; } = new PrincipalType("Everyone");
+
+        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
+        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
+        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The recipient type.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecipientType : IEquatable<RecipientType>
+    {
+        private readonly string _value;
+
+        private RecipientType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecipientType Requestor { get; } = new RecipientType("Requestor");
+        public static RecipientType Approver { get; } = new RecipientType("Approver");
+        public static RecipientType Admin { get; } = new RecipientType("Admin");
+
+        public static bool operator ==(RecipientType left, RecipientType right) => left.Equals(right);
+        public static bool operator !=(RecipientType left, RecipientType right) => !left.Equals(right);
+
+        public static explicit operator string(RecipientType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecipientType other && Equals(other);
+        public bool Equals(RecipientType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type. This is the only required field when adding a system assigned identity to a resource.
     /// </summary>
     [EnumType]
@@ -307,6 +473,40 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of rule
+    /// </summary>
+    [EnumType]
+    public readonly struct RoleManagementPolicyRuleType : IEquatable<RoleManagementPolicyRuleType>
+    {
+        private readonly string _value;
+
+        private RoleManagementPolicyRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoleManagementPolicyRuleType RoleManagementPolicyApprovalRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyApprovalRule");
+        public static RoleManagementPolicyRuleType RoleManagementPolicyAuthenticationContextRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyAuthenticationContextRule");
+        public static RoleManagementPolicyRuleType RoleManagementPolicyEnablementRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyEnablementRule");
+        public static RoleManagementPolicyRuleType RoleManagementPolicyExpirationRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyExpirationRule");
+        public static RoleManagementPolicyRuleType RoleManagementPolicyNotificationRule { get; } = new RoleManagementPolicyRuleType("RoleManagementPolicyNotificationRule");
+
+        public static bool operator ==(RoleManagementPolicyRuleType left, RoleManagementPolicyRuleType right) => left.Equals(right);
+        public static bool operator !=(RoleManagementPolicyRuleType left, RoleManagementPolicyRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(RoleManagementPolicyRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoleManagementPolicyRuleType other && Equals(other);
+        public bool Equals(RoleManagementPolicyRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

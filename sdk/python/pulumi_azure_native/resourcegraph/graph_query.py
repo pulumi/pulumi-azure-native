@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = ['GraphQuery']
 
@@ -18,6 +17,7 @@ class GraphQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -27,12 +27,13 @@ class GraphQuery(pulumi.CustomResource):
                  __opts__=None):
         """
         Graph Query entity definition.
-        API Version: 2020-04-01-preview.
+        API Version: 2018-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.
-        :param pulumi.Input[str] etag: This will be used to handle Optimistic Concurrency.
+        :param pulumi.Input[str] etag: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+        :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the Graph Query resource.
@@ -57,6 +58,7 @@ class GraphQuery(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['etag'] = etag
+            __props__['location'] = location
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
@@ -65,10 +67,8 @@ class GraphQuery(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags
-            __props__['location'] = None
             __props__['name'] = None
             __props__['result_kind'] = None
-            __props__['system_data'] = None
             __props__['time_modified'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph/v20180901preview:GraphQuery"), pulumi.Alias(type_="azure-nextgen:resourcegraph/v20180901preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-nextgen:resourcegraph/v20200401preview:GraphQuery")])
@@ -109,13 +109,13 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        This will be used to handle Optimistic Concurrency.
+        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource
         """
@@ -144,14 +144,6 @@ class GraphQuery(pulumi.CustomResource):
         Enum indicating a type of graph query.
         """
         return pulumi.get(self, "result_kind")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

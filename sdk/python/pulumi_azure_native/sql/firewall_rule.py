@@ -17,6 +17,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  start_ip_address: Optional[pulumi.Input[str]] = None,
@@ -24,16 +25,17 @@ class FirewallRule(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Represents a server firewall rule.
-        API Version: 2014-04-01.
+        A server firewall rule.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
         :param pulumi.Input[str] firewall_rule_name: The name of the firewall rule.
+        :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,22 +54,16 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if end_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'end_ip_address'")
             __props__['end_ip_address'] = end_ip_address
             __props__['firewall_rule_name'] = firewall_rule_name
+            __props__['name'] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if start_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'start_ip_address'")
             __props__['start_ip_address'] = start_ip_address
-            __props__['kind'] = None
-            __props__['location'] = None
-            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/latest:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/latest:FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20140401:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20150501preview:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20200202preview:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20200801preview:FirewallRule"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -97,31 +93,15 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Output[str]:
+    def end_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
         """
         return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter
-    def kind(self) -> pulumi.Output[str]:
-        """
-        Kind of server that contains this firewall rule.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Location of the server that contains this firewall rule.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource name.
         """
@@ -129,9 +109,9 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Output[str]:
+    def start_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         """
         return pulumi.get(self, "start_ip_address")
 

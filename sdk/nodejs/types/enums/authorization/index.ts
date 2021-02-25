@@ -67,6 +67,18 @@ export const AccessReviewRecurrenceRangeType = {
  */
 export type AccessReviewRecurrenceRangeType = (typeof AccessReviewRecurrenceRangeType)[keyof typeof AccessReviewRecurrenceRangeType];
 
+export const ApprovalMode = {
+    SingleStage: "SingleStage",
+    Serial: "Serial",
+    Parallel: "Parallel",
+    NoApproval: "NoApproval",
+} as const;
+
+/**
+ * The type of rule
+ */
+export type ApprovalMode = (typeof ApprovalMode)[keyof typeof ApprovalMode];
+
 export const DefaultDecisionType = {
     Approve: "Approve",
     Deny: "Deny",
@@ -121,6 +133,26 @@ export const LockLevel = {
  */
 export type LockLevel = (typeof LockLevel)[keyof typeof LockLevel];
 
+export const NotificationDeliveryMechanism = {
+    Email: "Email",
+} as const;
+
+/**
+ * The type of notification.
+ */
+export type NotificationDeliveryMechanism = (typeof NotificationDeliveryMechanism)[keyof typeof NotificationDeliveryMechanism];
+
+export const NotificationLevel = {
+    NONE: "NONE",
+    CRITICAL: "CRITICAL",
+    ALL: "ALL",
+} as const;
+
+/**
+ * The notification level.
+ */
+export type NotificationLevel = (typeof NotificationLevel)[keyof typeof NotificationLevel];
+
 export const ParameterType = {
     String: "String",
     Array: "Array",
@@ -148,6 +180,35 @@ export const PolicyType = {
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
+export const PrincipalType = {
+    User: "User",
+    Group: "Group",
+    ServicePrincipal: "ServicePrincipal",
+    Unknown: "Unknown",
+    DirectoryRoleTemplate: "DirectoryRoleTemplate",
+    ForeignGroup: "ForeignGroup",
+    Application: "Application",
+    MSI: "MSI",
+    DirectoryObjectOrGroup: "DirectoryObjectOrGroup",
+    Everyone: "Everyone",
+} as const;
+
+/**
+ * The principal type of the assigned principal ID.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+export const RecipientType = {
+    Requestor: "Requestor",
+    Approver: "Approver",
+    Admin: "Admin",
+} as const;
+
+/**
+ * The recipient type.
+ */
+export type RecipientType = (typeof RecipientType)[keyof typeof RecipientType];
+
 export const ResourceIdentityType = {
     /**
      * Indicates that a system assigned identity is associated with the resource.
@@ -163,3 +224,16 @@ export const ResourceIdentityType = {
  * The identity type. This is the only required field when adding a system assigned identity to a resource.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const RoleManagementPolicyRuleType = {
+    RoleManagementPolicyApprovalRule: "RoleManagementPolicyApprovalRule",
+    RoleManagementPolicyAuthenticationContextRule: "RoleManagementPolicyAuthenticationContextRule",
+    RoleManagementPolicyEnablementRule: "RoleManagementPolicyEnablementRule",
+    RoleManagementPolicyExpirationRule: "RoleManagementPolicyExpirationRule",
+    RoleManagementPolicyNotificationRule: "RoleManagementPolicyNotificationRule",
+} as const;
+
+/**
+ * The type of rule
+ */
+export type RoleManagementPolicyRuleType = (typeof RoleManagementPolicyRuleType)[keyof typeof RoleManagementPolicyRuleType];

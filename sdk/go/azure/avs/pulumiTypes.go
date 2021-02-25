@@ -201,6 +201,312 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolume struct {
+	// iSCSI provider target IP address list
+	Endpoints []string `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName *string `pulumi:"lunName"`
+}
+
+// DiskPoolVolumeInput is an input type that accepts DiskPoolVolumeArgs and DiskPoolVolumeOutput values.
+// You can construct a concrete instance of `DiskPoolVolumeInput` via:
+//
+//          DiskPoolVolumeArgs{...}
+type DiskPoolVolumeInput interface {
+	pulumi.Input
+
+	ToDiskPoolVolumeOutput() DiskPoolVolumeOutput
+	ToDiskPoolVolumeOutputWithContext(context.Context) DiskPoolVolumeOutput
+}
+
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolumeArgs struct {
+	// iSCSI provider target IP address list
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName pulumi.StringPtrInput `pulumi:"lunName"`
+}
+
+func (DiskPoolVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskPoolVolume)(nil)).Elem()
+}
+
+func (i DiskPoolVolumeArgs) ToDiskPoolVolumeOutput() DiskPoolVolumeOutput {
+	return i.ToDiskPoolVolumeOutputWithContext(context.Background())
+}
+
+func (i DiskPoolVolumeArgs) ToDiskPoolVolumeOutputWithContext(ctx context.Context) DiskPoolVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeOutput)
+}
+
+func (i DiskPoolVolumeArgs) ToDiskPoolVolumePtrOutput() DiskPoolVolumePtrOutput {
+	return i.ToDiskPoolVolumePtrOutputWithContext(context.Background())
+}
+
+func (i DiskPoolVolumeArgs) ToDiskPoolVolumePtrOutputWithContext(ctx context.Context) DiskPoolVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeOutput).ToDiskPoolVolumePtrOutputWithContext(ctx)
+}
+
+// DiskPoolVolumePtrInput is an input type that accepts DiskPoolVolumeArgs, DiskPoolVolumePtr and DiskPoolVolumePtrOutput values.
+// You can construct a concrete instance of `DiskPoolVolumePtrInput` via:
+//
+//          DiskPoolVolumeArgs{...}
+//
+//  or:
+//
+//          nil
+type DiskPoolVolumePtrInput interface {
+	pulumi.Input
+
+	ToDiskPoolVolumePtrOutput() DiskPoolVolumePtrOutput
+	ToDiskPoolVolumePtrOutputWithContext(context.Context) DiskPoolVolumePtrOutput
+}
+
+type diskPoolVolumePtrType DiskPoolVolumeArgs
+
+func DiskPoolVolumePtr(v *DiskPoolVolumeArgs) DiskPoolVolumePtrInput {
+	return (*diskPoolVolumePtrType)(v)
+}
+
+func (*diskPoolVolumePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskPoolVolume)(nil)).Elem()
+}
+
+func (i *diskPoolVolumePtrType) ToDiskPoolVolumePtrOutput() DiskPoolVolumePtrOutput {
+	return i.ToDiskPoolVolumePtrOutputWithContext(context.Background())
+}
+
+func (i *diskPoolVolumePtrType) ToDiskPoolVolumePtrOutputWithContext(ctx context.Context) DiskPoolVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumePtrOutput)
+}
+
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolumeOutput struct{ *pulumi.OutputState }
+
+func (DiskPoolVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskPoolVolume)(nil)).Elem()
+}
+
+func (o DiskPoolVolumeOutput) ToDiskPoolVolumeOutput() DiskPoolVolumeOutput {
+	return o
+}
+
+func (o DiskPoolVolumeOutput) ToDiskPoolVolumeOutputWithContext(ctx context.Context) DiskPoolVolumeOutput {
+	return o
+}
+
+func (o DiskPoolVolumeOutput) ToDiskPoolVolumePtrOutput() DiskPoolVolumePtrOutput {
+	return o.ToDiskPoolVolumePtrOutputWithContext(context.Background())
+}
+
+func (o DiskPoolVolumeOutput) ToDiskPoolVolumePtrOutputWithContext(ctx context.Context) DiskPoolVolumePtrOutput {
+	return o.ApplyT(func(v DiskPoolVolume) *DiskPoolVolume {
+		return &v
+	}).(DiskPoolVolumePtrOutput)
+}
+
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiskPoolVolume) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
+func (o DiskPoolVolumeOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolume) *string { return v.LunName }).(pulumi.StringPtrOutput)
+}
+
+type DiskPoolVolumePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskPoolVolumePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskPoolVolume)(nil)).Elem()
+}
+
+func (o DiskPoolVolumePtrOutput) ToDiskPoolVolumePtrOutput() DiskPoolVolumePtrOutput {
+	return o
+}
+
+func (o DiskPoolVolumePtrOutput) ToDiskPoolVolumePtrOutputWithContext(ctx context.Context) DiskPoolVolumePtrOutput {
+	return o
+}
+
+func (o DiskPoolVolumePtrOutput) Elem() DiskPoolVolumeOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) DiskPoolVolume { return *v }).(DiskPoolVolumeOutput)
+}
+
+// iSCSI provider target IP address list
+func (o DiskPoolVolumePtrOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
+func (o DiskPoolVolumePtrOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LunName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolumeResponse struct {
+	// iSCSI provider target IP address list
+	Endpoints []string `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName *string `pulumi:"lunName"`
+}
+
+// DiskPoolVolumeResponseInput is an input type that accepts DiskPoolVolumeResponseArgs and DiskPoolVolumeResponseOutput values.
+// You can construct a concrete instance of `DiskPoolVolumeResponseInput` via:
+//
+//          DiskPoolVolumeResponseArgs{...}
+type DiskPoolVolumeResponseInput interface {
+	pulumi.Input
+
+	ToDiskPoolVolumeResponseOutput() DiskPoolVolumeResponseOutput
+	ToDiskPoolVolumeResponseOutputWithContext(context.Context) DiskPoolVolumeResponseOutput
+}
+
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolumeResponseArgs struct {
+	// iSCSI provider target IP address list
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	// Name of the LUN to be used
+	LunName pulumi.StringPtrInput `pulumi:"lunName"`
+}
+
+func (DiskPoolVolumeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskPoolVolumeResponse)(nil)).Elem()
+}
+
+func (i DiskPoolVolumeResponseArgs) ToDiskPoolVolumeResponseOutput() DiskPoolVolumeResponseOutput {
+	return i.ToDiskPoolVolumeResponseOutputWithContext(context.Background())
+}
+
+func (i DiskPoolVolumeResponseArgs) ToDiskPoolVolumeResponseOutputWithContext(ctx context.Context) DiskPoolVolumeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeResponseOutput)
+}
+
+func (i DiskPoolVolumeResponseArgs) ToDiskPoolVolumeResponsePtrOutput() DiskPoolVolumeResponsePtrOutput {
+	return i.ToDiskPoolVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DiskPoolVolumeResponseArgs) ToDiskPoolVolumeResponsePtrOutputWithContext(ctx context.Context) DiskPoolVolumeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeResponseOutput).ToDiskPoolVolumeResponsePtrOutputWithContext(ctx)
+}
+
+// DiskPoolVolumeResponsePtrInput is an input type that accepts DiskPoolVolumeResponseArgs, DiskPoolVolumeResponsePtr and DiskPoolVolumeResponsePtrOutput values.
+// You can construct a concrete instance of `DiskPoolVolumeResponsePtrInput` via:
+//
+//          DiskPoolVolumeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DiskPoolVolumeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDiskPoolVolumeResponsePtrOutput() DiskPoolVolumeResponsePtrOutput
+	ToDiskPoolVolumeResponsePtrOutputWithContext(context.Context) DiskPoolVolumeResponsePtrOutput
+}
+
+type diskPoolVolumeResponsePtrType DiskPoolVolumeResponseArgs
+
+func DiskPoolVolumeResponsePtr(v *DiskPoolVolumeResponseArgs) DiskPoolVolumeResponsePtrInput {
+	return (*diskPoolVolumeResponsePtrType)(v)
+}
+
+func (*diskPoolVolumeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskPoolVolumeResponse)(nil)).Elem()
+}
+
+func (i *diskPoolVolumeResponsePtrType) ToDiskPoolVolumeResponsePtrOutput() DiskPoolVolumeResponsePtrOutput {
+	return i.ToDiskPoolVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *diskPoolVolumeResponsePtrType) ToDiskPoolVolumeResponsePtrOutputWithContext(ctx context.Context) DiskPoolVolumeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolVolumeResponsePtrOutput)
+}
+
+// An iSCSI volume from Microsoft.StoragePool provider
+type DiskPoolVolumeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskPoolVolumeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskPoolVolumeResponse)(nil)).Elem()
+}
+
+func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponseOutput() DiskPoolVolumeResponseOutput {
+	return o
+}
+
+func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponseOutputWithContext(ctx context.Context) DiskPoolVolumeResponseOutput {
+	return o
+}
+
+func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponsePtrOutput() DiskPoolVolumeResponsePtrOutput {
+	return o.ToDiskPoolVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DiskPoolVolumeResponseOutput) ToDiskPoolVolumeResponsePtrOutputWithContext(ctx context.Context) DiskPoolVolumeResponsePtrOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) *DiskPoolVolumeResponse {
+		return &v
+	}).(DiskPoolVolumeResponsePtrOutput)
+}
+
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeResponseOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
+func (o DiskPoolVolumeResponseOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskPoolVolumeResponse) *string { return v.LunName }).(pulumi.StringPtrOutput)
+}
+
+type DiskPoolVolumeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskPoolVolumeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskPoolVolumeResponse)(nil)).Elem()
+}
+
+func (o DiskPoolVolumeResponsePtrOutput) ToDiskPoolVolumeResponsePtrOutput() DiskPoolVolumeResponsePtrOutput {
+	return o
+}
+
+func (o DiskPoolVolumeResponsePtrOutput) ToDiskPoolVolumeResponsePtrOutputWithContext(ctx context.Context) DiskPoolVolumeResponsePtrOutput {
+	return o
+}
+
+func (o DiskPoolVolumeResponsePtrOutput) Elem() DiskPoolVolumeResponseOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) DiskPoolVolumeResponse { return *v }).(DiskPoolVolumeResponseOutput)
+}
+
+// iSCSI provider target IP address list
+func (o DiskPoolVolumeResponsePtrOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the LUN to be used
+func (o DiskPoolVolumeResponsePtrOutput) LunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskPoolVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LunName
+	}).(pulumi.StringPtrOutput)
+}
+
 // Endpoint addresses
 type EndpointsResponse struct {
 	// Endpoint for the HCX Cloud Manager
@@ -1060,6 +1366,312 @@ func (o ManagementClusterResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolume struct {
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath *string `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp *string `pulumi:"nfsProviderIp"`
+}
+
+// NetAppVolumeInput is an input type that accepts NetAppVolumeArgs and NetAppVolumeOutput values.
+// You can construct a concrete instance of `NetAppVolumeInput` via:
+//
+//          NetAppVolumeArgs{...}
+type NetAppVolumeInput interface {
+	pulumi.Input
+
+	ToNetAppVolumeOutput() NetAppVolumeOutput
+	ToNetAppVolumeOutputWithContext(context.Context) NetAppVolumeOutput
+}
+
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolumeArgs struct {
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp pulumi.StringPtrInput `pulumi:"nfsProviderIp"`
+}
+
+func (NetAppVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetAppVolume)(nil)).Elem()
+}
+
+func (i NetAppVolumeArgs) ToNetAppVolumeOutput() NetAppVolumeOutput {
+	return i.ToNetAppVolumeOutputWithContext(context.Background())
+}
+
+func (i NetAppVolumeArgs) ToNetAppVolumeOutputWithContext(ctx context.Context) NetAppVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeOutput)
+}
+
+func (i NetAppVolumeArgs) ToNetAppVolumePtrOutput() NetAppVolumePtrOutput {
+	return i.ToNetAppVolumePtrOutputWithContext(context.Background())
+}
+
+func (i NetAppVolumeArgs) ToNetAppVolumePtrOutputWithContext(ctx context.Context) NetAppVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeOutput).ToNetAppVolumePtrOutputWithContext(ctx)
+}
+
+// NetAppVolumePtrInput is an input type that accepts NetAppVolumeArgs, NetAppVolumePtr and NetAppVolumePtrOutput values.
+// You can construct a concrete instance of `NetAppVolumePtrInput` via:
+//
+//          NetAppVolumeArgs{...}
+//
+//  or:
+//
+//          nil
+type NetAppVolumePtrInput interface {
+	pulumi.Input
+
+	ToNetAppVolumePtrOutput() NetAppVolumePtrOutput
+	ToNetAppVolumePtrOutputWithContext(context.Context) NetAppVolumePtrOutput
+}
+
+type netAppVolumePtrType NetAppVolumeArgs
+
+func NetAppVolumePtr(v *NetAppVolumeArgs) NetAppVolumePtrInput {
+	return (*netAppVolumePtrType)(v)
+}
+
+func (*netAppVolumePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetAppVolume)(nil)).Elem()
+}
+
+func (i *netAppVolumePtrType) ToNetAppVolumePtrOutput() NetAppVolumePtrOutput {
+	return i.ToNetAppVolumePtrOutputWithContext(context.Background())
+}
+
+func (i *netAppVolumePtrType) ToNetAppVolumePtrOutputWithContext(ctx context.Context) NetAppVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumePtrOutput)
+}
+
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolumeOutput struct{ *pulumi.OutputState }
+
+func (NetAppVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetAppVolume)(nil)).Elem()
+}
+
+func (o NetAppVolumeOutput) ToNetAppVolumeOutput() NetAppVolumeOutput {
+	return o
+}
+
+func (o NetAppVolumeOutput) ToNetAppVolumeOutputWithContext(ctx context.Context) NetAppVolumeOutput {
+	return o
+}
+
+func (o NetAppVolumeOutput) ToNetAppVolumePtrOutput() NetAppVolumePtrOutput {
+	return o.ToNetAppVolumePtrOutputWithContext(context.Background())
+}
+
+func (o NetAppVolumeOutput) ToNetAppVolumePtrOutputWithContext(ctx context.Context) NetAppVolumePtrOutput {
+	return o.ApplyT(func(v NetAppVolume) *NetAppVolume {
+		return &v
+	}).(NetAppVolumePtrOutput)
+}
+
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolume) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
+}
+
+type NetAppVolumePtrOutput struct{ *pulumi.OutputState }
+
+func (NetAppVolumePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetAppVolume)(nil)).Elem()
+}
+
+func (o NetAppVolumePtrOutput) ToNetAppVolumePtrOutput() NetAppVolumePtrOutput {
+	return o
+}
+
+func (o NetAppVolumePtrOutput) ToNetAppVolumePtrOutputWithContext(ctx context.Context) NetAppVolumePtrOutput {
+	return o
+}
+
+func (o NetAppVolumePtrOutput) Elem() NetAppVolumeOutput {
+	return o.ApplyT(func(v *NetAppVolume) NetAppVolume { return *v }).(NetAppVolumeOutput)
+}
+
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsProviderIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolumeResponse struct {
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath *string `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp *string `pulumi:"nfsProviderIp"`
+}
+
+// NetAppVolumeResponseInput is an input type that accepts NetAppVolumeResponseArgs and NetAppVolumeResponseOutput values.
+// You can construct a concrete instance of `NetAppVolumeResponseInput` via:
+//
+//          NetAppVolumeResponseArgs{...}
+type NetAppVolumeResponseInput interface {
+	pulumi.Input
+
+	ToNetAppVolumeResponseOutput() NetAppVolumeResponseOutput
+	ToNetAppVolumeResponseOutputWithContext(context.Context) NetAppVolumeResponseOutput
+}
+
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolumeResponseArgs struct {
+	// File path through which the NFS volume is exposed by the provider
+	NfsFilePath pulumi.StringPtrInput `pulumi:"nfsFilePath"`
+	// IP address of the NFS provider
+	NfsProviderIp pulumi.StringPtrInput `pulumi:"nfsProviderIp"`
+}
+
+func (NetAppVolumeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetAppVolumeResponse)(nil)).Elem()
+}
+
+func (i NetAppVolumeResponseArgs) ToNetAppVolumeResponseOutput() NetAppVolumeResponseOutput {
+	return i.ToNetAppVolumeResponseOutputWithContext(context.Background())
+}
+
+func (i NetAppVolumeResponseArgs) ToNetAppVolumeResponseOutputWithContext(ctx context.Context) NetAppVolumeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeResponseOutput)
+}
+
+func (i NetAppVolumeResponseArgs) ToNetAppVolumeResponsePtrOutput() NetAppVolumeResponsePtrOutput {
+	return i.ToNetAppVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetAppVolumeResponseArgs) ToNetAppVolumeResponsePtrOutputWithContext(ctx context.Context) NetAppVolumeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeResponseOutput).ToNetAppVolumeResponsePtrOutputWithContext(ctx)
+}
+
+// NetAppVolumeResponsePtrInput is an input type that accepts NetAppVolumeResponseArgs, NetAppVolumeResponsePtr and NetAppVolumeResponsePtrOutput values.
+// You can construct a concrete instance of `NetAppVolumeResponsePtrInput` via:
+//
+//          NetAppVolumeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetAppVolumeResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetAppVolumeResponsePtrOutput() NetAppVolumeResponsePtrOutput
+	ToNetAppVolumeResponsePtrOutputWithContext(context.Context) NetAppVolumeResponsePtrOutput
+}
+
+type netAppVolumeResponsePtrType NetAppVolumeResponseArgs
+
+func NetAppVolumeResponsePtr(v *NetAppVolumeResponseArgs) NetAppVolumeResponsePtrInput {
+	return (*netAppVolumeResponsePtrType)(v)
+}
+
+func (*netAppVolumeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetAppVolumeResponse)(nil)).Elem()
+}
+
+func (i *netAppVolumeResponsePtrType) ToNetAppVolumeResponsePtrOutput() NetAppVolumeResponsePtrOutput {
+	return i.ToNetAppVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *netAppVolumeResponsePtrType) ToNetAppVolumeResponsePtrOutputWithContext(ctx context.Context) NetAppVolumeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetAppVolumeResponsePtrOutput)
+}
+
+// An Azure NetApp Files volume from Microsoft.NetApp provider
+type NetAppVolumeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetAppVolumeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetAppVolumeResponse)(nil)).Elem()
+}
+
+func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponseOutput() NetAppVolumeResponseOutput {
+	return o
+}
+
+func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponseOutputWithContext(ctx context.Context) NetAppVolumeResponseOutput {
+	return o
+}
+
+func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponsePtrOutput() NetAppVolumeResponsePtrOutput {
+	return o.ToNetAppVolumeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetAppVolumeResponseOutput) ToNetAppVolumeResponsePtrOutputWithContext(ctx context.Context) NetAppVolumeResponsePtrOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) *NetAppVolumeResponse {
+		return &v
+	}).(NetAppVolumeResponsePtrOutput)
+}
+
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeResponseOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsFilePath }).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeResponseOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetAppVolumeResponse) *string { return v.NfsProviderIp }).(pulumi.StringPtrOutput)
+}
+
+type NetAppVolumeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetAppVolumeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetAppVolumeResponse)(nil)).Elem()
+}
+
+func (o NetAppVolumeResponsePtrOutput) ToNetAppVolumeResponsePtrOutput() NetAppVolumeResponsePtrOutput {
+	return o
+}
+
+func (o NetAppVolumeResponsePtrOutput) ToNetAppVolumeResponsePtrOutputWithContext(ctx context.Context) NetAppVolumeResponsePtrOutput {
+	return o
+}
+
+func (o NetAppVolumeResponsePtrOutput) Elem() NetAppVolumeResponseOutput {
+	return o.ApplyT(func(v *NetAppVolumeResponse) NetAppVolumeResponse { return *v }).(NetAppVolumeResponseOutput)
+}
+
+// File path through which the NFS volume is exposed by the provider
+func (o NetAppVolumeResponsePtrOutput) NfsFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP address of the NFS provider
+func (o NetAppVolumeResponsePtrOutput) NfsProviderIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetAppVolumeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NfsProviderIp
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource model definition representing SKU
 type Sku struct {
 	// The name of the SKU.
@@ -1737,6 +2349,10 @@ func (o WorkloadNetworkSegmentSubnetResponsePtrOutput) GatewayAddress() pulumi.S
 func init() {
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiskPoolVolumeOutput{})
+	pulumi.RegisterOutputType(DiskPoolVolumePtrOutput{})
+	pulumi.RegisterOutputType(DiskPoolVolumeResponseOutput{})
+	pulumi.RegisterOutputType(DiskPoolVolumeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceOutput{})
@@ -1747,6 +2363,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagementClusterPtrOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponseOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetAppVolumeOutput{})
+	pulumi.RegisterOutputType(NetAppVolumePtrOutput{})
+	pulumi.RegisterOutputType(NetAppVolumeResponseOutput{})
+	pulumi.RegisterOutputType(NetAppVolumeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

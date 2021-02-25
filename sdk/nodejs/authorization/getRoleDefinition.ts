@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * API Version: 2015-07-01.
+ * API Version: 2018-01-01-preview.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     if (!opts) {

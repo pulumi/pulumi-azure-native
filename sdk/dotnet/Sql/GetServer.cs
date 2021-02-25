@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.Sql
     public static class GetServer
     {
         /// <summary>
-        /// Represents a server.
-        /// API Version: 2014-04-01.
+        /// An Azure SQL Database server.
+        /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithVersion());
@@ -44,21 +44,13 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerResult
     {
         /// <summary>
-        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// Administrator username for the server. Once created it cannot be changed.
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
         /// The administrator login password (required for server creation).
         /// </summary>
         public readonly string? AdministratorLoginPassword;
-        /// <summary>
-        /// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-        /// </summary>
-        public readonly string ExternalAdministratorLogin;
-        /// <summary>
-        /// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-        /// </summary>
-        public readonly string ExternalAdministratorSid;
         /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
@@ -68,7 +60,11 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Kind of sql server.  This is metadata used for the Azure portal experience.
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
         /// <summary>
@@ -76,9 +72,21 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        /// </summary>
+        public readonly string? MinimalTlsVersion;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections on a server
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The state of the server.
         /// </summary>
@@ -95,6 +103,10 @@ namespace Pulumi.AzureNative.Sql
         /// The version of the server.
         /// </summary>
         public readonly string? Version;
+        /// <summary>
+        /// Whether or not existing server has a workspace created and if it allows connection from workspace
+        /// </summary>
+        public readonly string WorkspaceFeature;
 
         [OutputConstructor]
         private GetServerResult(
@@ -102,19 +114,23 @@ namespace Pulumi.AzureNative.Sql
 
             string? administratorLoginPassword,
 
-            string externalAdministratorLogin,
-
-            string externalAdministratorSid,
-
             string fullyQualifiedDomainName,
 
             string id,
+
+            Outputs.ResourceIdentityResponse? identity,
 
             string kind,
 
             string location,
 
+            string? minimalTlsVersion,
+
             string name,
+
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string? publicNetworkAccess,
 
             string state,
 
@@ -122,21 +138,26 @@ namespace Pulumi.AzureNative.Sql
 
             string type,
 
-            string? version)
+            string? version,
+
+            string workspaceFeature)
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
-            ExternalAdministratorLogin = externalAdministratorLogin;
-            ExternalAdministratorSid = externalAdministratorSid;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
+            Identity = identity;
             Kind = kind;
             Location = location;
+            MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             State = state;
             Tags = tags;
             Type = type;
             Version = version;
+            WorkspaceFeature = workspaceFeature;
         }
     }
 }

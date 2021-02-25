@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Site REST Resource.
-        /// API Version: 2020-07-07.
+        /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteArgs(), options.WithVersion());

@@ -67,6 +67,36 @@ func (e AccessReviewRecurrenceRangeType) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of rule
+type ApprovalMode pulumi.String
+
+const (
+	ApprovalModeSingleStage = ApprovalMode("SingleStage")
+	ApprovalModeSerial      = ApprovalMode("Serial")
+	ApprovalModeParallel    = ApprovalMode("Parallel")
+	ApprovalModeNoApproval  = ApprovalMode("NoApproval")
+)
+
+func (ApprovalMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ApprovalMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApprovalMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApprovalMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // This specifies the behavior for the autoReview feature when an access review completes.
 type DefaultDecisionType pulumi.String
 
@@ -185,6 +215,62 @@ func (e LockLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of notification.
+type NotificationDeliveryMechanism pulumi.String
+
+const (
+	NotificationDeliveryMechanismEmail = NotificationDeliveryMechanism("Email")
+)
+
+func (NotificationDeliveryMechanism) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NotificationDeliveryMechanism) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationDeliveryMechanism) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationDeliveryMechanism) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationDeliveryMechanism) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The notification level.
+type NotificationLevel pulumi.String
+
+const (
+	NotificationLevelNONE     = NotificationLevel("NONE")
+	NotificationLevelCRITICAL = NotificationLevel("CRITICAL")
+	NotificationLevelALL      = NotificationLevel("ALL")
+)
+
+func (NotificationLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NotificationLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotificationLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotificationLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The data type of the parameter.
 type ParameterType pulumi.String
 
@@ -248,6 +334,71 @@ func (e PolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The principal type of the assigned principal ID.
+type PrincipalType pulumi.String
+
+const (
+	PrincipalTypeUser                   = PrincipalType("User")
+	PrincipalTypeGroup                  = PrincipalType("Group")
+	PrincipalTypeServicePrincipal       = PrincipalType("ServicePrincipal")
+	PrincipalTypeUnknown                = PrincipalType("Unknown")
+	PrincipalTypeDirectoryRoleTemplate  = PrincipalType("DirectoryRoleTemplate")
+	PrincipalTypeForeignGroup           = PrincipalType("ForeignGroup")
+	PrincipalTypeApplication            = PrincipalType("Application")
+	PrincipalTypeMSI                    = PrincipalType("MSI")
+	PrincipalTypeDirectoryObjectOrGroup = PrincipalType("DirectoryObjectOrGroup")
+	PrincipalTypeEveryone               = PrincipalType("Everyone")
+)
+
+func (PrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The recipient type.
+type RecipientType pulumi.String
+
+const (
+	RecipientTypeRequestor = RecipientType("Requestor")
+	RecipientTypeApprover  = RecipientType("Approver")
+	RecipientTypeAdmin     = RecipientType("Admin")
+)
+
+func (RecipientType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RecipientType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecipientType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecipientType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecipientType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
 type ResourceIdentityType pulumi.String
 
@@ -275,5 +426,36 @@ func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of rule
+type RoleManagementPolicyRuleType pulumi.String
+
+const (
+	RoleManagementPolicyRuleTypeRoleManagementPolicyApprovalRule              = RoleManagementPolicyRuleType("RoleManagementPolicyApprovalRule")
+	RoleManagementPolicyRuleTypeRoleManagementPolicyAuthenticationContextRule = RoleManagementPolicyRuleType("RoleManagementPolicyAuthenticationContextRule")
+	RoleManagementPolicyRuleTypeRoleManagementPolicyEnablementRule            = RoleManagementPolicyRuleType("RoleManagementPolicyEnablementRule")
+	RoleManagementPolicyRuleTypeRoleManagementPolicyExpirationRule            = RoleManagementPolicyRuleType("RoleManagementPolicyExpirationRule")
+	RoleManagementPolicyRuleTypeRoleManagementPolicyNotificationRule          = RoleManagementPolicyRuleType("RoleManagementPolicyNotificationRule")
+)
+
+func (RoleManagementPolicyRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RoleManagementPolicyRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoleManagementPolicyRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoleManagementPolicyRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RoleManagementPolicyRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

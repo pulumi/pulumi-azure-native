@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Represents a server firewall rule.
- * API Version: 2014-04-01.
+ * A server firewall rule.
+ * API Version: 2020-08-01-preview.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -36,25 +36,17 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    public readonly endIpAddress!: pulumi.Output<string>;
-    /**
-     * Kind of server that contains this firewall rule.
-     */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
-    /**
-     * Location of the server that contains this firewall rule.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public readonly endIpAddress!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    public readonly startIpAddress!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -71,31 +63,21 @@ export class FirewallRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endIpAddress'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startIpAddress'");
-            }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
             inputs["firewallRuleName"] = args ? args.firewallRuleName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endIpAddress"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["startIpAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -114,13 +96,17 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleArgs {
     /**
-     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    readonly endIpAddress?: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
     readonly firewallRuleName?: pulumi.Input<string>;
+    /**
+     * Resource name.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -130,7 +116,7 @@ export interface FirewallRuleArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    readonly startIpAddress?: pulumi.Input<string>;
 }

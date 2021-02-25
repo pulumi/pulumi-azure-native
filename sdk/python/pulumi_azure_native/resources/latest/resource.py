@@ -40,7 +40,7 @@ class Resource(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource information.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -27,18 +27,18 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        An server Active Directory Administrator.
-        API Version: 2014-04-01.
+        Azure Active Directory administrator.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_name: Name of the server administrator resource.
-        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: The type of administrator.
-        :param pulumi.Input[str] login: The server administrator login value.
+        :param pulumi.Input[str] administrator_name: The name of server active directory administrator.
+        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: Type of the sever administrator.
+        :param pulumi.Input[str] login: Login name of the server administrator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
-        :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
+        :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,9 +73,8 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             if sid is None and not opts.urn:
                 raise TypeError("Missing required property 'sid'")
             __props__['sid'] = sid
-            if tenant_id is None and not opts.urn:
-                raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
+            __props__['azure_ad_only_authentication'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/latest:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/latest:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerAzureADAdministrator"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator")])
@@ -108,15 +107,23 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
     @pulumi.getter(name="administratorType")
     def administrator_type(self) -> pulumi.Output[str]:
         """
-        The type of administrator.
+        Type of the sever administrator.
         """
         return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> pulumi.Output[bool]:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
 
     @property
     @pulumi.getter
     def login(self) -> pulumi.Output[str]:
         """
-        The server administrator login value.
+        Login name of the server administrator.
         """
         return pulumi.get(self, "login")
 
@@ -132,15 +139,15 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
     @pulumi.getter
     def sid(self) -> pulumi.Output[str]:
         """
-        The server administrator Sid (Secure ID).
+        SID (object ID) of the server administrator.
         """
         return pulumi.get(self, "sid")
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[str]:
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The server Active Directory Administrator tenant id.
+        Tenant ID of the administrator.
         """
         return pulumi.get(self, "tenant_id")
 

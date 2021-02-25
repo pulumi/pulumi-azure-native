@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
-    /// Latest API Version: 2020-06-01.
+    /// Latest API Version: 2019-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:View'.")]
     [AzureNativeResourceType("azure-native:costmanagement/latest:View")]
@@ -36,10 +36,22 @@ namespace Pulumi.AzureNative.CostManagement.Latest
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
+        /// Selected currency.
+        /// </summary>
+        [Output("currency")]
+        public Output<string> Currency { get; private set; } = null!;
+
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Output("dataset")]
-        public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
+        [Output("dataSet")]
+        public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
+
+        /// <summary>
+        /// Selected date range for viewing cost in.
+        /// </summary>
+        [Output("dateRange")]
+        public Output<string> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -52,6 +64,12 @@ namespace Pulumi.AzureNative.CostManagement.Latest
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// Include monetary commitment
+        /// </summary>
+        [Output("includeMonetaryCommitment")]
+        public Output<bool> IncludeMonetaryCommitment { get; private set; } = null!;
 
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
@@ -178,8 +196,8 @@ namespace Pulumi.AzureNative.CostManagement.Latest
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Input("dataset")]
-        public Input<Inputs.ReportConfigDatasetArgs>? Dataset { get; set; }
+        [Input("dataSet")]
+        public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
 
         /// <summary>
         /// User input name of the view. Required.

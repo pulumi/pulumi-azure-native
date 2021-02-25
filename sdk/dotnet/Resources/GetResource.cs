@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Resource information.
-        /// API Version: 2020-10-01.
+        /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("azure-native:resources:getResource", args ?? new GetResourceArgs(), options.WithVersion());

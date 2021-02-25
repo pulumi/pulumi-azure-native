@@ -45,6 +45,15 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:insights:ManagementGroupDiagnosticSetting"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights:ManagementGroupDiagnosticSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementGroupDiagnosticSetting
 	err := ctx.RegisterResource("azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

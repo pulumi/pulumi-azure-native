@@ -74,7 +74,7 @@ class MediaGraph(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20200201preview:MediaGraph"), pulumi.Alias(type_="azure-nextgen:media/v20200201preview:MediaGraph")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:MediaGraph"), pulumi.Alias(type_="azure-nextgen:media:MediaGraph"), pulumi.Alias(type_="azure-native:media/v20200201preview:MediaGraph"), pulumi.Alias(type_="azure-nextgen:media/v20200201preview:MediaGraph")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MediaGraph, __self__).__init__(
             'azure-native:media/v20190901preview:MediaGraph',

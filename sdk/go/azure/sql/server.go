@@ -11,27 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a server.
-// API Version: 2014-04-01.
+// An Azure SQL Database server.
+// API Version: 2020-08-01-preview.
 type Server struct {
 	pulumi.CustomResourceState
 
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin pulumi.StringOutput `pulumi:"externalAdministratorLogin"`
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid pulumi.StringOutput `pulumi:"externalAdministratorSid"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
-	// Kind of sql server.  This is metadata used for the Azure portal experience.
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The state of the server.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Resource tags.
@@ -40,6 +44,8 @@ type Server struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the server.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
+	// Whether or not existing server has a workspace created and if it allows connection from workspace
+	WorkspaceFeature pulumi.StringOutput `pulumi:"workspaceFeature"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -113,22 +119,26 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin *string `pulumi:"externalAdministratorLogin"`
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid *string `pulumi:"externalAdministratorSid"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
-	// Kind of sql server.  This is metadata used for the Azure portal experience.
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The state of the server.
 	State *string `pulumi:"state"`
 	// Resource tags.
@@ -137,25 +147,31 @@ type serverState struct {
 	Type *string `pulumi:"type"`
 	// The version of the server.
 	Version *string `pulumi:"version"`
+	// Whether or not existing server has a workspace created and if it allows connection from workspace
+	WorkspaceFeature *string `pulumi:"workspaceFeature"`
 }
 
 type ServerState struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrInput
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin pulumi.StringPtrInput
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid pulumi.StringPtrInput
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
-	// Kind of sql server.  This is metadata used for the Azure portal experience.
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityResponsePtrInput
+	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The state of the server.
 	State pulumi.StringPtrInput
 	// Resource tags.
@@ -164,6 +180,8 @@ type ServerState struct {
 	Type pulumi.StringPtrInput
 	// The version of the server.
 	Version pulumi.StringPtrInput
+	// Whether or not existing server has a workspace created and if it allows connection from workspace
+	WorkspaceFeature pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -171,12 +189,18 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -189,12 +213,18 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrInput
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion pulumi.StringPtrInput
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

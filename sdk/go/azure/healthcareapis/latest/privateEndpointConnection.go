@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2021-01-11.
+// Latest API Version: 2020-03-30.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:healthcareapis:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
@@ -26,8 +26,6 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// System metadata for this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -99,8 +97,6 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// System metadata for this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -114,8 +110,6 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
-	// System metadata for this resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

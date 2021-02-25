@@ -5,7 +5,6 @@
 # Export this package's modules as members:
 from .get_graph_query import *
 from .graph_query import *
-from . import outputs
 
 # Make subpackages available:
 from . import (

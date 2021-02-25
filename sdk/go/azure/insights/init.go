@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewGuestDiagnosticsSettingsAssociation(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:LogProfile":
 		r, err = NewLogProfile(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:insights:ManagementGroupDiagnosticSetting":
+		r, err = NewManagementGroupDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:MetricAlert":
 		r, err = NewMetricAlert(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:MyWorkbook":

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// API Version: 2020-10-01.
+        /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());

@@ -18,18 +18,32 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
+        /// Allowed Data actions.
+        /// </summary>
+        public readonly ImmutableArray<string> DataActions;
+        /// <summary>
         /// Denied actions.
         /// </summary>
         public readonly ImmutableArray<string> NotActions;
+        /// <summary>
+        /// Denied Data actions.
+        /// </summary>
+        public readonly ImmutableArray<string> NotDataActions;
 
         [OutputConstructor]
         private PermissionResponse(
             ImmutableArray<string> actions,
 
-            ImmutableArray<string> notActions)
+            ImmutableArray<string> dataActions,
+
+            ImmutableArray<string> notActions,
+
+            ImmutableArray<string> notDataActions)
         {
             Actions = actions;
+            DataActions = dataActions;
             NotActions = notActions;
+            NotDataActions = notDataActions;
         }
     }
 }

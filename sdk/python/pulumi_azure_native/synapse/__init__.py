@@ -14,6 +14,7 @@ from .get_ip_firewall_rule import *
 from .get_key import *
 from .get_private_endpoint_connection import *
 from .get_private_link_hub import *
+from .get_sql_database import *
 from .get_sql_pool import *
 from .get_sql_pool_sensitivity_label import *
 from .get_sql_pool_transparent_data_encryption import *
@@ -31,6 +32,7 @@ from .key import *
 from .list_integration_runtime_auth_key import *
 from .private_endpoint_connection import *
 from .private_link_hub import *
+from .sql_database import *
 from .sql_pool import *
 from .sql_pool_sensitivity_label import *
 from .sql_pool_transparent_data_encryption import *
@@ -77,6 +79,8 @@ def _register_module():
                 return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:PrivateLinkHub":
                 return PrivateLinkHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse:SqlDatabase":
+                return SqlDatabase(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:SqlPool":
                 return SqlPool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:SqlPoolSensitivityLabel":

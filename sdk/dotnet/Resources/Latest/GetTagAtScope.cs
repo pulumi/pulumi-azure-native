@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Resources.Latest
     {
         /// <summary>
         /// Wrapper resource for tags API requests and responses.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2019-10-01.
         /// </summary>
         public static Task<GetTagAtScopeResult> InvokeAsync(GetTagAtScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagAtScopeResult>("azure-native:resources/latest:getTagAtScope", args ?? new GetTagAtScopeArgs(), options.WithVersion());

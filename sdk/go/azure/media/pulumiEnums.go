@@ -948,6 +948,36 @@ func (e ManagedIdentityType) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+type MediaGraphRtspTransport pulumi.String
+
+const (
+	// HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
+	MediaGraphRtspTransportHttp = MediaGraphRtspTransport("Http")
+	// TCP transport. This should be used when HTTP tunneling is not desired.
+	MediaGraphRtspTransportTcp = MediaGraphRtspTransport("Tcp")
+)
+
+func (MediaGraphRtspTransport) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MediaGraphRtspTransport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MediaGraphRtspTransport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MediaGraphRtspTransport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MediaGraphRtspTransport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 type OnErrorType pulumi.String
 

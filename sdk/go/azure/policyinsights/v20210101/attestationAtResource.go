@@ -54,6 +54,21 @@ func NewAttestationAtResource(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:policyinsights:AttestationAtResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights:AttestationAtResource"),
+		},
+		{
+			Type: pulumi.String("azure-native:policyinsights/latest:AttestationAtResource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:policyinsights/latest:AttestationAtResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AttestationAtResource
 	err := ctx.RegisterResource("azure-native:policyinsights/v20210101:AttestationAtResource", name, args, &resource, opts...)
 	if err != nil {

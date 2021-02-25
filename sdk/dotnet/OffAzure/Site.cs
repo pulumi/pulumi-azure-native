@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
-    /// API Version: 2020-07-07.
+    /// API Version: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:Site")]
     public partial class Site : Pulumi.CustomResource

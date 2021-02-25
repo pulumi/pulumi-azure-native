@@ -27,7 +27,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-01-11.
+        API Version: 2020-03-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +66,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
-            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:healthcareapis/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:healthcareapis/v20200330:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:healthcareapis/v20210111:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -125,14 +124,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        System metadata for this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -43,6 +43,15 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:powerplatform:EnterprisePolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:powerplatform:EnterprisePolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EnterprisePolicy
 	err := ctx.RegisterResource("azure-native:powerplatform/v20201030preview:EnterprisePolicy", name, args, &resource, opts...)
 	if err != nil {

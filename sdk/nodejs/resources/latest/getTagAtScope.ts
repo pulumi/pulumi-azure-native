@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2019-10-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'. */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {

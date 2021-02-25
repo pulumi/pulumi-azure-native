@@ -4,8 +4,13 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .configuration_assignment import *
+from .configuration_assignment_parent import *
+from .get_configuration_assignment import *
+from .get_configuration_assignment_parent import *
 from .get_maintenance_configuration import *
 from .maintenance_configuration import *
+from . import outputs
 
 # Make subpackages available:
 from . import (
@@ -28,7 +33,11 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:maintenance:MaintenanceConfiguration":
+            if typ == "azure-native:maintenance:ConfigurationAssignment":
+                return ConfigurationAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:maintenance:ConfigurationAssignmentParent":
+                return ConfigurationAssignmentParent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:maintenance:MaintenanceConfiguration":
                 return MaintenanceConfiguration(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")

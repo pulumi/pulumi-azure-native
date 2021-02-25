@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:operationalinsights:MachineGroup":
 		r, err = NewMachineGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:operationalinsights:Query":
+		r, err = NewQuery(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:operationalinsights:QueryPack":
+		r, err = NewQueryPack(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:operationalinsights:SavedSearch":
 		r, err = NewSavedSearch(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:operationalinsights:StorageInsightConfig":

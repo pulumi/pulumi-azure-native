@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a server.
-// API Version: 2014-04-01.
+// An Azure SQL Database server.
+// API Version: 2020-08-01-preview.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:sql:getServer", args, &rv, opts...)
@@ -25,26 +25,30 @@ type LookupServerArgs struct {
 	ServerName string `pulumi:"serverName"`
 }
 
-// Represents a server.
+// An Azure SQL Database server.
 type LookupServerResult struct {
-	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-	ExternalAdministratorLogin string `pulumi:"externalAdministratorLogin"`
-	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-	ExternalAdministratorSid string `pulumi:"externalAdministratorSid"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Kind of sql server.  This is metadata used for the Azure portal experience.
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The state of the server.
 	State string `pulumi:"state"`
 	// Resource tags.
@@ -53,4 +57,6 @@ type LookupServerResult struct {
 	Type string `pulumi:"type"`
 	// The version of the server.
 	Version *string `pulumi:"version"`
+	// Whether or not existing server has a workspace created and if it allows connection from workspace
+	WorkspaceFeature string `pulumi:"workspaceFeature"`
 }

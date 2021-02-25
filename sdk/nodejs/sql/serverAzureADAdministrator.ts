@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An server Active Directory Administrator.
- * API Version: 2014-04-01.
+ * Azure Active Directory administrator.
+ * API Version: 2020-08-01-preview.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -37,11 +37,15 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     }
 
     /**
-     * The type of administrator.
+     * Type of the sever administrator.
      */
     public readonly administratorType!: pulumi.Output<string>;
     /**
-     * The server administrator login value.
+     * Azure Active Directory only Authentication enabled.
+     */
+    public /*out*/ readonly azureADOnlyAuthentication!: pulumi.Output<boolean>;
+    /**
+     * Login name of the server administrator.
      */
     public readonly login!: pulumi.Output<string>;
     /**
@@ -49,13 +53,13 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The server administrator Sid (Secure ID).
+     * SID (object ID) of the server administrator.
      */
     public readonly sid!: pulumi.Output<string>;
     /**
-     * The server Active Directory Administrator tenant id.
+     * Tenant ID of the administrator.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -87,9 +91,6 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             if ((!args || args.sid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tenantId'");
-            }
             inputs["administratorName"] = args ? args.administratorName : undefined;
             inputs["administratorType"] = args ? args.administratorType : undefined;
             inputs["login"] = args ? args.login : undefined;
@@ -97,10 +98,12 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sid"] = args ? args.sid : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorType"] = undefined /*out*/;
+            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
             inputs["login"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["sid"] = undefined /*out*/;
@@ -121,15 +124,15 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
  */
 export interface ServerAzureADAdministratorArgs {
     /**
-     * Name of the server administrator resource.
+     * The name of server active directory administrator.
      */
     readonly administratorName?: pulumi.Input<string>;
     /**
-     * The type of administrator.
+     * Type of the sever administrator.
      */
     readonly administratorType: pulumi.Input<string | enums.sql.AdministratorType>;
     /**
-     * The server administrator login value.
+     * Login name of the server administrator.
      */
     readonly login: pulumi.Input<string>;
     /**
@@ -141,11 +144,11 @@ export interface ServerAzureADAdministratorArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * The server administrator Sid (Secure ID).
+     * SID (object ID) of the server administrator.
      */
     readonly sid: pulumi.Input<string>;
     /**
-     * The server Active Directory Administrator tenant id.
+     * Tenant ID of the administrator.
      */
-    readonly tenantId: pulumi.Input<string>;
+    readonly tenantId?: pulumi.Input<string>;
 }

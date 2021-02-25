@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * States and configurations of Cost Analysis.
- * API Version: 2020-06-01.
+ * API Version: 2019-11-01.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
     if (!opts) {
@@ -46,9 +46,17 @@ export interface GetViewResult {
      */
     readonly createdOn: string;
     /**
+     * Selected currency.
+     */
+    readonly currency: string;
+    /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.ReportConfigDatasetResponse;
+    readonly dataSet?: outputs.costmanagement.ReportConfigDatasetResponse;
+    /**
+     * Selected date range for viewing cost in.
+     */
+    readonly dateRange: string;
     /**
      * User input name of the view. Required.
      */
@@ -61,6 +69,10 @@ export interface GetViewResult {
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * Include monetary commitment
+     */
+    readonly includeMonetaryCommitment: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

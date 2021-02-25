@@ -12,24 +12,22 @@ import (
 )
 
 // Graph Query entity definition.
-// API Version: 2020-04-01-preview.
+// API Version: 2018-09-01-preview.
 type GraphQuery struct {
 	pulumi.CustomResourceState
 
 	// The description of a graph query.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency.
+	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The location of the resource
-	Location pulumi.StringOutput `pulumi:"location"`
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// KQL query that will be graph.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// Enum indicating a type of graph query.
 	ResultKind pulumi.StringOutput `pulumi:"resultKind"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this graph query definition.
@@ -90,7 +88,7 @@ func GetGraphQuery(ctx *pulumi.Context,
 type graphQueryState struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency.
+	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
 	Etag *string `pulumi:"etag"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
@@ -100,8 +98,6 @@ type graphQueryState struct {
 	Query *string `pulumi:"query"`
 	// Enum indicating a type of graph query.
 	ResultKind *string `pulumi:"resultKind"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this graph query definition.
@@ -113,7 +109,7 @@ type graphQueryState struct {
 type GraphQueryState struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
-	// This will be used to handle Optimistic Concurrency.
+	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
 	Etag pulumi.StringPtrInput
 	// The location of the resource
 	Location pulumi.StringPtrInput
@@ -123,8 +119,6 @@ type GraphQueryState struct {
 	Query pulumi.StringPtrInput
 	// Enum indicating a type of graph query.
 	ResultKind pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Date and time in UTC of the last modification that was made to this graph query definition.
@@ -140,8 +134,10 @@ func (GraphQueryState) ElementType() reflect.Type {
 type graphQueryArgs struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency.
+	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
 	Etag *string `pulumi:"etag"`
+	// The location of the resource
+	Location *string `pulumi:"location"`
 	// KQL query that will be graph.
 	Query string `pulumi:"query"`
 	// The name of the resource group.
@@ -156,8 +152,10 @@ type graphQueryArgs struct {
 type GraphQueryArgs struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
-	// This will be used to handle Optimistic Concurrency.
+	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
 	Etag pulumi.StringPtrInput
+	// The location of the resource
+	Location pulumi.StringPtrInput
 	// KQL query that will be graph.
 	Query pulumi.StringInput
 	// The name of the resource group.

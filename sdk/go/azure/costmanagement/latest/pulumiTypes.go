@@ -5980,13 +5980,13 @@ type ReportConfigFilter struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []ReportConfigFilter `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension *ReportConfigComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilter `pulumi:"not"`
+	Dimensions *ReportConfigComparisonExpression `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []ReportConfigFilter `pulumi:"or"`
+	// Has comparison expression for a tag key
+	TagKey *ReportConfigComparisonExpression `pulumi:"tagKey"`
 	// Has comparison expression for a tag
-	Tag *ReportConfigComparisonExpression `pulumi:"tag"`
+	Tags *ReportConfigComparisonExpression `pulumi:"tags"`
 }
 
 // ReportConfigFilterInput is an input type that accepts ReportConfigFilterArgs and ReportConfigFilterOutput values.
@@ -6005,13 +6005,13 @@ type ReportConfigFilterArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And ReportConfigFilterArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension ReportConfigComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterPtrInput `pulumi:"not"`
+	Dimensions ReportConfigComparisonExpressionPtrInput `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or ReportConfigFilterArrayInput `pulumi:"or"`
+	// Has comparison expression for a tag key
+	TagKey ReportConfigComparisonExpressionPtrInput `pulumi:"tagKey"`
 	// Has comparison expression for a tag
-	Tag ReportConfigComparisonExpressionPtrInput `pulumi:"tag"`
+	Tags ReportConfigComparisonExpressionPtrInput `pulumi:"tags"`
 }
 
 func (ReportConfigFilterArgs) ElementType() reflect.Type {
@@ -6123,13 +6123,8 @@ func (o ReportConfigFilterOutput) And() ReportConfigFilterArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o ReportConfigFilterOutput) Dimension() ReportConfigComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Dimension }).(ReportConfigComparisonExpressionPtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o ReportConfigFilterOutput) Not() ReportConfigFilterPtrOutput {
-	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigFilter { return v.Not }).(ReportConfigFilterPtrOutput)
+func (o ReportConfigFilterOutput) Dimensions() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Dimensions }).(ReportConfigComparisonExpressionPtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -6137,9 +6132,14 @@ func (o ReportConfigFilterOutput) Or() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilter) []ReportConfigFilter { return v.Or }).(ReportConfigFilterArrayOutput)
 }
 
+// Has comparison expression for a tag key
+func (o ReportConfigFilterOutput) TagKey() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.TagKey }).(ReportConfigComparisonExpressionPtrOutput)
+}
+
 // Has comparison expression for a tag
-func (o ReportConfigFilterOutput) Tag() ReportConfigComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Tag }).(ReportConfigComparisonExpressionPtrOutput)
+func (o ReportConfigFilterOutput) Tags() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Tags }).(ReportConfigComparisonExpressionPtrOutput)
 }
 
 type ReportConfigFilterPtrOutput struct{ *pulumi.OutputState }
@@ -6171,23 +6171,13 @@ func (o ReportConfigFilterPtrOutput) And() ReportConfigFilterArrayOutput {
 }
 
 // Has comparison expression for a dimension
-func (o ReportConfigFilterPtrOutput) Dimension() ReportConfigComparisonExpressionPtrOutput {
+func (o ReportConfigFilterPtrOutput) Dimensions() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
 		if v == nil {
 			return nil
 		}
-		return v.Dimension
+		return v.Dimensions
 	}).(ReportConfigComparisonExpressionPtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o ReportConfigFilterPtrOutput) Not() ReportConfigFilterPtrOutput {
-	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigFilter {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(ReportConfigFilterPtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -6200,13 +6190,23 @@ func (o ReportConfigFilterPtrOutput) Or() ReportConfigFilterArrayOutput {
 	}).(ReportConfigFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
-func (o ReportConfigFilterPtrOutput) Tag() ReportConfigComparisonExpressionPtrOutput {
+// Has comparison expression for a tag key
+func (o ReportConfigFilterPtrOutput) TagKey() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
 		if v == nil {
 			return nil
 		}
-		return v.Tag
+		return v.TagKey
+	}).(ReportConfigComparisonExpressionPtrOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportConfigFilterPtrOutput) Tags() ReportConfigComparisonExpressionPtrOutput {
+	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
 
@@ -6235,13 +6235,13 @@ type ReportConfigFilterResponse struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And []ReportConfigFilterResponse `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension *ReportConfigComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilterResponse `pulumi:"not"`
+	Dimensions *ReportConfigComparisonExpressionResponse `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or []ReportConfigFilterResponse `pulumi:"or"`
+	// Has comparison expression for a tag key
+	TagKey *ReportConfigComparisonExpressionResponse `pulumi:"tagKey"`
 	// Has comparison expression for a tag
-	Tag *ReportConfigComparisonExpressionResponse `pulumi:"tag"`
+	Tags *ReportConfigComparisonExpressionResponse `pulumi:"tags"`
 }
 
 // ReportConfigFilterResponseInput is an input type that accepts ReportConfigFilterResponseArgs and ReportConfigFilterResponseOutput values.
@@ -6260,13 +6260,13 @@ type ReportConfigFilterResponseArgs struct {
 	// The logical "AND" expression. Must have at least 2 items.
 	And ReportConfigFilterResponseArrayInput `pulumi:"and"`
 	// Has comparison expression for a dimension
-	Dimension ReportConfigComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterResponsePtrInput `pulumi:"not"`
+	Dimensions ReportConfigComparisonExpressionResponsePtrInput `pulumi:"dimensions"`
 	// The logical "OR" expression. Must have at least 2 items.
 	Or ReportConfigFilterResponseArrayInput `pulumi:"or"`
+	// Has comparison expression for a tag key
+	TagKey ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tagKey"`
 	// Has comparison expression for a tag
-	Tag ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tag"`
+	Tags ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tags"`
 }
 
 func (ReportConfigFilterResponseArgs) ElementType() reflect.Type {
@@ -6378,13 +6378,8 @@ func (o ReportConfigFilterResponseOutput) And() ReportConfigFilterResponseArrayO
 }
 
 // Has comparison expression for a dimension
-func (o ReportConfigFilterResponseOutput) Dimension() ReportConfigComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Dimension }).(ReportConfigComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o ReportConfigFilterResponseOutput) Not() ReportConfigFilterResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigFilterResponse { return v.Not }).(ReportConfigFilterResponsePtrOutput)
+func (o ReportConfigFilterResponseOutput) Dimensions() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Dimensions }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -6392,9 +6387,14 @@ func (o ReportConfigFilterResponseOutput) Or() ReportConfigFilterResponseArrayOu
 	return o.ApplyT(func(v ReportConfigFilterResponse) []ReportConfigFilterResponse { return v.Or }).(ReportConfigFilterResponseArrayOutput)
 }
 
+// Has comparison expression for a tag key
+func (o ReportConfigFilterResponseOutput) TagKey() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.TagKey }).(ReportConfigComparisonExpressionResponsePtrOutput)
+}
+
 // Has comparison expression for a tag
-func (o ReportConfigFilterResponseOutput) Tag() ReportConfigComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Tag }).(ReportConfigComparisonExpressionResponsePtrOutput)
+func (o ReportConfigFilterResponseOutput) Tags() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Tags }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
 type ReportConfigFilterResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6426,23 +6426,13 @@ func (o ReportConfigFilterResponsePtrOutput) And() ReportConfigFilterResponseArr
 }
 
 // Has comparison expression for a dimension
-func (o ReportConfigFilterResponsePtrOutput) Dimension() ReportConfigComparisonExpressionResponsePtrOutput {
+func (o ReportConfigFilterResponsePtrOutput) Dimensions() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Dimension
+		return v.Dimensions
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
-}
-
-// The logical "NOT" expression.
-func (o ReportConfigFilterResponsePtrOutput) Not() ReportConfigFilterResponsePtrOutput {
-	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigFilterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Not
-	}).(ReportConfigFilterResponsePtrOutput)
 }
 
 // The logical "OR" expression. Must have at least 2 items.
@@ -6455,13 +6445,23 @@ func (o ReportConfigFilterResponsePtrOutput) Or() ReportConfigFilterResponseArra
 	}).(ReportConfigFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
-func (o ReportConfigFilterResponsePtrOutput) Tag() ReportConfigComparisonExpressionResponsePtrOutput {
+// Has comparison expression for a tag key
+func (o ReportConfigFilterResponsePtrOutput) TagKey() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Tag
+		return v.TagKey
+	}).(ReportConfigComparisonExpressionResponsePtrOutput)
+}
+
+// Has comparison expression for a tag
+func (o ReportConfigFilterResponsePtrOutput) Tags() ReportConfigComparisonExpressionResponsePtrOutput {
+	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 

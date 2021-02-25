@@ -173,7 +173,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
     Resource information.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2019-05-01.
 
 
     :param str parent_resource_path: The parent resource identity.

@@ -18,6 +18,7 @@ export * from "./getContentKeyPolicyPropertiesWithSecrets";
 export * from "./getJob";
 export * from "./getLiveEvent";
 export * from "./getLiveOutput";
+export * from "./getMediaGraph";
 export * from "./getMediaService";
 export * from "./getPrivateEndpointConnection";
 export * from "./getStreamingEndpoint";
@@ -33,6 +34,7 @@ export * from "./listStreamingLocatorContentKeys";
 export * from "./listStreamingLocatorPaths";
 export * from "./liveEvent";
 export * from "./liveOutput";
+export * from "./mediaGraph";
 export * from "./mediaService";
 export * from "./privateEndpointConnection";
 export * from "./streamingEndpoint";
@@ -74,6 +76,7 @@ import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { Job } from "./job";
 import { LiveEvent } from "./liveEvent";
 import { LiveOutput } from "./liveOutput";
+import { MediaGraph } from "./mediaGraph";
 import { MediaService } from "./mediaService";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { StreamingEndpoint } from "./streamingEndpoint";
@@ -99,6 +102,8 @@ const _module = {
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
+            case "azure-native:media:MediaGraph":
+                return new MediaGraph(name, <any>undefined, { urn })
             case "azure-native:media:MediaService":
                 return new MediaService(name, <any>undefined, { urn })
             case "azure-native:media:PrivateEndpointConnection":

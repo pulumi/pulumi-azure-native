@@ -110,6 +110,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-native:policyinsights:AttestationAtResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights:AttestationAtResource"},
+                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:AttestationAtResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:AttestationAtResource"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
