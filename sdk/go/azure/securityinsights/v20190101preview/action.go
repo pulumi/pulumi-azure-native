@@ -18,7 +18,7 @@ type Action struct {
 	// Etag of the action.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId pulumi.StringPtrOutput `pulumi:"logicAppResourceId"`
+	LogicAppResourceId pulumi.StringOutput `pulumi:"logicAppResourceId"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure resource type
@@ -34,6 +34,9 @@ func NewAction(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LogicAppResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppResourceId'")
+	}
 	if args.OperationalInsightsResourceProvider == nil {
 		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
@@ -42,6 +45,9 @@ func NewAction(ctx *pulumi.Context,
 	}
 	if args.RuleId == nil {
 		return nil, errors.New("invalid value for required argument 'RuleId'")
+	}
+	if args.TriggerUri == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerUri'")
 	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
@@ -103,7 +109,7 @@ type actionArgs struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -111,7 +117,7 @@ type actionArgs struct {
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
 	// Logic App Callback URL for this specific workflow.
-	TriggerUri *string `pulumi:"triggerUri"`
+	TriggerUri string `pulumi:"triggerUri"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -123,7 +129,7 @@ type ActionArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-	LogicAppResourceId pulumi.StringPtrInput
+	LogicAppResourceId pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -131,7 +137,7 @@ type ActionArgs struct {
 	// Alert rule ID
 	RuleId pulumi.StringInput
 	// Logic App Callback URL for this specific workflow.
-	TriggerUri pulumi.StringPtrInput
+	TriggerUri pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

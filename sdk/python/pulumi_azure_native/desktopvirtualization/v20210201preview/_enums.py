@@ -38,10 +38,11 @@ class CommandLineSetting(str, Enum):
 
 class HostPoolType(str, Enum):
     """
-    HostPool type for scaling plan.
+    HostPool type for desktop.
     """
     PERSONAL = "Personal"
     POOLED = "Pooled"
+    BYO_DESKTOP = "BYODesktop"
 
 
 class LoadBalancerType(str, Enum):

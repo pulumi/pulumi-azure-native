@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<string>? EventHubConnectionString { get; set; }
 
         /// <summary>
+        /// (QnAMaker Only) The Azure Search endpoint id of QnAMaker.
+        /// </summary>
+        [Input("qnaAzureSearchEndpointId")]
+        public Input<string>? QnaAzureSearchEndpointId { get; set; }
+
+        /// <summary>
+        /// (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
+        /// </summary>
+        [Input("qnaAzureSearchEndpointKey")]
+        public Input<string>? QnaAzureSearchEndpointKey { get; set; }
+
+        /// <summary>
         /// (QnAMaker Only) The runtime endpoint of QnAMaker.
         /// </summary>
         [Input("qnaRuntimeEndpoint")]

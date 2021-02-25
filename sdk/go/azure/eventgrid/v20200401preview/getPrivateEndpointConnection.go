@@ -32,7 +32,7 @@ type LookupPrivateEndpointConnectionResult struct {
 	GroupIds []string `pulumi:"groupIds"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The Private Endpoint resource for this Connection.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -40,6 +40,6 @@ type LookupPrivateEndpointConnectionResult struct {
 	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the Private Endpoint Connection.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

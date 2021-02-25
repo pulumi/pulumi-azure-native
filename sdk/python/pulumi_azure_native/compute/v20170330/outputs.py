@@ -3107,7 +3107,7 @@ class VirtualMachineScaleSetManagedDiskParametersResponse(dict):
                  storage_account_type: Optional[str] = None):
         """
         Describes the parameters of a ScaleSet managed disk.
-        :param str storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        :param str storage_account_type: Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
         """
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
@@ -3116,7 +3116,7 @@ class VirtualMachineScaleSetManagedDiskParametersResponse(dict):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[str]:
         """
-        Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
         """
         return pulumi.get(self, "storage_account_type")
 

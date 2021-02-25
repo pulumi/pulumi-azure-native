@@ -76,6 +76,8 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
             __props__['dead_letter_with_resource_identity'] = dead_letter_with_resource_identity
             __props__['delivery_with_resource_identity'] = delivery_with_resource_identity
             __props__['destination'] = destination
+            if event_delivery_schema is None:
+                event_delivery_schema = 'EventGridSchema'
             __props__['event_delivery_schema'] = event_delivery_schema
             __props__['event_subscription_name'] = event_subscription_name
             __props__['expiration_time_utc'] = expiration_time_utc
@@ -215,7 +217,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        The system metadata relating to Event Subscription resource.
         """
         return pulumi.get(self, "system_data")
 

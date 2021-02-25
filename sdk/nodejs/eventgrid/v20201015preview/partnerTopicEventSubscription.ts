@@ -84,7 +84,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
      */
     public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.v20201015preview.RetryPolicyResponse | undefined>;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Event Subscription resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20201015preview.SystemDataResponse>;
     /**
@@ -117,7 +117,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             inputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
             inputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
             inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) || "EventGridSchema";
             inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["filter"] = args ? args.filter : undefined;

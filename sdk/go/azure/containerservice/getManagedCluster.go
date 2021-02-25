@@ -8,7 +8,7 @@ import (
 )
 
 // Managed cluster.
-// API Version: 2020-12-01.
+// API Version: 2021-02-01.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice:getManagedCluster", args, &rv, opts...)
@@ -39,6 +39,8 @@ type LookupManagedClusterResult struct {
 	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// Profile of auto upgrade configuration.
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
+	// FQDN for the master pool which used by proxy config.
+	AzurePortalFQDN string `pulumi:"azurePortalFQDN"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -49,6 +51,8 @@ type LookupManagedClusterResult struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
+	// FQDN subdomain specified when creating private cluster with custom private dns zone.
+	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the managed cluster, if configured.

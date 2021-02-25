@@ -89,7 +89,7 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption" }, { type: "azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption" }, { type: "azure-nextgen:synapse/v20210301:SqlPoolTransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolTransparentDataEncryption.__pulumiType, name, inputs, opts);
     }

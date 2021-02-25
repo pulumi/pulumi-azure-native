@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +82,12 @@ func NewStorageAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:StorageAccount"),
 		},
 	})
 	opts = append(opts, aliases)

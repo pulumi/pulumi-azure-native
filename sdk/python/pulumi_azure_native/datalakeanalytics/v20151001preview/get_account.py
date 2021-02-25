@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -87,6 +87,9 @@ class GetAccountResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_data_lake_store_accounts and not isinstance(public_data_lake_store_accounts, list):
+            raise TypeError("Expected argument 'public_data_lake_store_accounts' to be a list")
+        pulumi.set(__self__, "public_data_lake_store_accounts", public_data_lake_store_accounts)
         if query_store_retention and not isinstance(query_store_retention, int):
             raise TypeError("Expected argument 'query_store_retention' to be a int")
         pulumi.set(__self__, "query_store_retention", query_store_retention)
@@ -178,7 +181,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> str:
+    def firewall_allow_azure_ips(self) -> Optional[str]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
@@ -194,7 +197,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> str:
+    def firewall_state(self) -> Optional[str]:
         """
         The current state of the IP address firewall for this account.
         """
@@ -212,7 +215,7 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The resource identifer.
+        The resource identifier.
         """
         return pulumi.get(self, "id")
 
@@ -242,7 +245,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> int:
+    def max_degree_of_parallelism_per_job(self) -> Optional[int]:
         """
         The maximum supported degree of parallelism per job for this account.
         """
@@ -274,7 +277,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> str:
+    def new_tier(self) -> Optional[str]:
         """
         The commitment tier for the next month.
         """
@@ -287,6 +290,14 @@ class GetAccountResult:
         The provisioning status of the Data Lake Analytics account.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicDataLakeStoreAccounts")
+    def public_data_lake_store_accounts(self) -> Optional[Sequence['outputs.DataLakeStoreAccountInformationResponse']]:
+        """
+        The list of Data Lake Store accounts associated with this account.
+        """
+        return pulumi.get(self, "public_data_lake_store_accounts")
 
     @property
     @pulumi.getter(name="queryStoreRetention")
@@ -381,6 +392,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             name=self.name,
             new_tier=self.new_tier,
             provisioning_state=self.provisioning_state,
+            public_data_lake_store_accounts=self.public_data_lake_store_accounts,
             query_store_retention=self.query_store_retention,
             state=self.state,
             storage_accounts=self.storage_accounts,
@@ -433,6 +445,7 @@ def get_account(account_name: Optional[str] = None,
         name=__ret__.name,
         new_tier=__ret__.new_tier,
         provisioning_state=__ret__.provisioning_state,
+        public_data_lake_store_accounts=__ret__.public_data_lake_store_accounts,
         query_store_retention=__ret__.query_store_retention,
         state=__ret__.state,
         storage_accounts=__ret__.storage_accounts,

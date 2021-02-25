@@ -20,7 +20,7 @@ class GetEventChannelResult:
     """
     Event Channel.
     """
-    def __init__(__self__, destination=None, expiration_time_if_not_activated_utc=None, filter=None, id=None, name=None, partner_topic_friendly_description=None, partner_topic_readiness_state=None, provisioning_state=None, source=None, type=None):
+    def __init__(__self__, destination=None, expiration_time_if_not_activated_utc=None, filter=None, id=None, name=None, partner_topic_friendly_description=None, partner_topic_readiness_state=None, provisioning_state=None, source=None, system_data=None, type=None):
         if destination and not isinstance(destination, dict):
             raise TypeError("Expected argument 'destination' to be a dict")
         pulumi.set(__self__, "destination", destination)
@@ -48,6 +48,9 @@ class GetEventChannelResult:
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -89,7 +92,7 @@ class GetEventChannelResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -127,10 +130,18 @@ class GetEventChannelResult:
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Event Channel resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -150,6 +161,7 @@ class AwaitableGetEventChannelResult(GetEventChannelResult):
             partner_topic_readiness_state=self.partner_topic_readiness_state,
             provisioning_state=self.provisioning_state,
             source=self.source,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -159,7 +171,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventChannelResult:
     """
     Event Channel.
-    API Version: 2020-04-01-preview.
+    API Version: 2020-10-15-preview.
 
 
     :param str event_channel_name: Name of the event channel.
@@ -186,4 +198,5 @@ def get_event_channel(event_channel_name: Optional[str] = None,
         partner_topic_readiness_state=__ret__.partner_topic_readiness_state,
         provisioning_state=__ret__.provisioning_state,
         source=__ret__.source,
+        system_data=__ret__.system_data,
         type=__ret__.type)

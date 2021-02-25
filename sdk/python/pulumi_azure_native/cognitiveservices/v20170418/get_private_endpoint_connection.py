@@ -20,10 +20,16 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, type=None):
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,11 +42,27 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> str:
+        """
+        Entity Tag
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the private endpoint connection
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -73,7 +95,9 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            etag=self.etag,
             id=self.id,
+            location=self.location,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -102,7 +126,9 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cognitiveservices/v20170418:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        etag=__ret__.etag,
         id=__ret__.id,
+        location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

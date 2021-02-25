@@ -117,37 +117,51 @@ class ApplicationGetHttpsEndpointResponse(dict):
     Gets the application HTTP endpoints.
     """
     def __init__(__self__, *,
+                 location: str,
+                 public_port: int,
                  access_modes: Optional[Sequence[str]] = None,
                  destination_port: Optional[int] = None,
                  disable_gateway_auth: Optional[bool] = None,
-                 location: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
-                 public_port: Optional[int] = None,
                  sub_domain_suffix: Optional[str] = None):
         """
         Gets the application HTTP endpoints.
+        :param str location: The location of the endpoint.
+        :param int public_port: The public port to connect to.
         :param Sequence[str] access_modes: The list of access modes for the application.
         :param int destination_port: The destination port to connect to.
         :param bool disable_gateway_auth: The value indicates whether to disable GatewayAuth.
-        :param str location: The location of the endpoint.
         :param str private_ip_address: The private ip address of the endpoint.
-        :param int public_port: The public port to connect to.
         :param str sub_domain_suffix: The subdomain suffix of the application.
         """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "public_port", public_port)
         if access_modes is not None:
             pulumi.set(__self__, "access_modes", access_modes)
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
         if disable_gateway_auth is not None:
             pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
         if sub_domain_suffix is not None:
             pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the endpoint.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="publicPort")
+    def public_port(self) -> int:
+        """
+        The public port to connect to.
+        """
+        return pulumi.get(self, "public_port")
 
     @property
     @pulumi.getter(name="accessModes")
@@ -174,28 +188,12 @@ class ApplicationGetHttpsEndpointResponse(dict):
         return pulumi.get(self, "disable_gateway_auth")
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The location of the endpoint.
-        """
-        return pulumi.get(self, "location")
-
-    @property
     @pulumi.getter(name="privateIPAddress")
     def private_ip_address(self) -> Optional[str]:
         """
         The private ip address of the endpoint.
         """
         return pulumi.get(self, "private_ip_address")
-
-    @property
-    @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[int]:
-        """
-        The public port to connect to.
-        """
-        return pulumi.get(self, "public_port")
 
     @property
     @pulumi.getter(name="subDomainSuffix")
@@ -1047,6 +1045,8 @@ class ComputeIsolationPropertiesResponse(dict):
         :param bool enable_compute_isolation: The flag indicates whether enable compute isolation or not.
         :param str host_sku: The host sku.
         """
+        if enable_compute_isolation is None:
+            enable_compute_isolation = False
         if enable_compute_isolation is not None:
             pulumi.set(__self__, "enable_compute_isolation", enable_compute_isolation)
         if host_sku is not None:
@@ -1444,13 +1444,17 @@ class KafkaRestPropertiesResponse(dict):
     The kafka rest proxy configuration which contains AAD security group information.
     """
     def __init__(__self__, *,
-                 client_group_info: Optional['outputs.ClientGroupInfoResponse'] = None):
+                 client_group_info: Optional['outputs.ClientGroupInfoResponse'] = None,
+                 configuration_override: Optional[Mapping[str, str]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
         :param 'ClientGroupInfoResponseArgs' client_group_info: The information of AAD security group.
+        :param Mapping[str, str] configuration_override: The configurations that need to be overriden.
         """
         if client_group_info is not None:
             pulumi.set(__self__, "client_group_info", client_group_info)
+        if configuration_override is not None:
+            pulumi.set(__self__, "configuration_override", configuration_override)
 
     @property
     @pulumi.getter(name="clientGroupInfo")
@@ -1459,6 +1463,14 @@ class KafkaRestPropertiesResponse(dict):
         The information of AAD security group.
         """
         return pulumi.get(self, "client_group_info")
+
+    @property
+    @pulumi.getter(name="configurationOverride")
+    def configuration_override(self) -> Optional[Mapping[str, str]]:
+        """
+        The configurations that need to be overriden.
+        """
+        return pulumi.get(self, "configuration_override")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1639,6 +1651,8 @@ class RoleResponse(dict):
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if data_disks_groups is not None:
             pulumi.set(__self__, "data_disks_groups", data_disks_groups)
+        if encrypt_data_disks is None:
+            encrypt_data_disks = False
         if encrypt_data_disks is not None:
             pulumi.set(__self__, "encrypt_data_disks", encrypt_data_disks)
         if hardware_profile is not None:

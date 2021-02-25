@@ -57,7 +57,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Partner Namespace resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20201015preview.SystemDataResponse>;
     /**

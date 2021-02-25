@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

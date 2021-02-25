@@ -32,15 +32,17 @@ type LookupPartnerNamespaceResult struct {
 	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
 	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
 	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
 	// Provisioning state of the partner namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The system metadata relating to Partner Namespace resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

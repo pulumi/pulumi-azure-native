@@ -27,7 +27,7 @@ class Container(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        API Version: 2020-09-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class Container(pulumi.CustomResource):
             __props__['refresh_details'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Container")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Container")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Container, __self__).__init__(
             'azure-native:databoxedge:Container',

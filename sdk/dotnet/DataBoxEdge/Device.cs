@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Device")]
     public partial class Device : Pulumi.CustomResource
@@ -205,6 +205,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -96,7 +96,7 @@ export class ContentType extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-nextgen:apimanagement:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-nextgen:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-nextgen:apimanagement/v20200601preview:ContentType" }, { type: "azure-native:apimanagement/v20201201:ContentType" }, { type: "azure-nextgen:apimanagement/v20201201:ContentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentType.__pulumiType, name, inputs, opts);
     }

@@ -120,6 +120,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:User"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:User"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

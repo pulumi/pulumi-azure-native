@@ -56,6 +56,10 @@ export interface GetDomainTopicResult {
      */
     readonly provisioningState?: string;
     /**
+     * The system metadata relating to Domain Topic resource.
+     */
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    /**
      * Type of the resource.
      */
     readonly type: string;

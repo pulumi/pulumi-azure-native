@@ -12,25 +12,29 @@ import (
 )
 
 // EventGrid System Topic.
-// API Version: 2020-04-01-preview.
+// API Version: 2020-10-15-preview.
 type SystemTopic struct {
 	pulumi.CustomResourceState
 
+	// Identity information for the resource.
+	Identity IdentityInfoResponsePtrOutput `pulumi:"identity"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the system topic.
 	MetricResourceId pulumi.StringOutput `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the system topic.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// TopicType for the system topic.
 	TopicType pulumi.StringPtrOutput `pulumi:"topicType"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -81,40 +85,48 @@ func GetSystemTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SystemTopic resources.
 type systemTopicState struct {
+	// Identity information for the resource.
+	Identity *IdentityInfoResponse `pulumi:"identity"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Metric resource id for the system topic.
 	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// Provisioning state of the system topic.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// TopicType for the system topic.
 	TopicType *string `pulumi:"topicType"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type SystemTopicState struct {
+	// Identity information for the resource.
+	Identity IdentityInfoResponsePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Metric resource id for the system topic.
 	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// Provisioning state of the system topic.
 	ProvisioningState pulumi.StringPtrInput
 	// Source for the system topic.
 	Source pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// TopicType for the system topic.
 	TopicType pulumi.StringPtrInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 
@@ -123,6 +135,8 @@ func (SystemTopicState) ElementType() reflect.Type {
 }
 
 type systemTopicArgs struct {
+	// Identity information for the resource.
+	Identity *IdentityInfo `pulumi:"identity"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
@@ -139,6 +153,8 @@ type systemTopicArgs struct {
 
 // The set of arguments for constructing a SystemTopic resource.
 type SystemTopicArgs struct {
+	// Identity information for the resource.
+	Identity IdentityInfoPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,7 +44,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -56,11 +57,15 @@ export class PartnerNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The system metadata relating to Partner Namespace resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20200401preview.SystemDataResponse>;
+    /**
      * Tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -86,6 +91,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endpoint"] = undefined /*out*/;
@@ -93,6 +99,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

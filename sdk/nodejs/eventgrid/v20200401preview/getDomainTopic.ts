@@ -47,7 +47,7 @@ export interface GetDomainTopicResult {
      */
     readonly id: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -55,7 +55,7 @@ export interface GetDomainTopicResult {
      */
     readonly provisioningState?: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

@@ -88,6 +88,12 @@ namespace Pulumi.AzureNative.Network.V20200701
         public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Type of Network Interface resource.
+        /// </summary>
+        [Output("nicType")]
+        public Output<string?> NicType { get; private set; } = null!;
+
+        /// <summary>
         /// Whether this is a primary network interface on a virtual machine.
         /// </summary>
         [Output("primary")]
@@ -98,6 +104,12 @@ namespace Pulumi.AzureNative.Network.V20200701
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Privatelinkservice of the network interface resource.
+        /// </summary>
+        [Output("privateLinkService")]
+        public Output<Outputs.PrivateLinkServiceResponse?> PrivateLinkService { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the network interface resource.
@@ -314,6 +326,18 @@ namespace Pulumi.AzureNative.Network.V20200701
         /// </summary>
         [Input("networkSecurityGroup")]
         public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// Type of Network Interface resource.
+        /// </summary>
+        [Input("nicType")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200701.NetworkInterfaceNicType>? NicType { get; set; }
+
+        /// <summary>
+        /// Privatelinkservice of the network interface resource.
+        /// </summary>
+        [Input("privateLinkService")]
+        public Input<Inputs.PrivateLinkServiceArgs>? PrivateLinkService { get; set; }
 
         /// <summary>
         /// The name of the resource group.

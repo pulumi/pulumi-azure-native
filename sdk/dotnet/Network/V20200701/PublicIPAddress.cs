@@ -64,16 +64,34 @@ namespace Pulumi.AzureNative.Network.V20200701
         public Output<ImmutableArray<Outputs.IpTagResponse>> IpTags { get; private set; } = null!;
 
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        [Output("linkedPublicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponse?> LinkedPublicIPAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Output("migrationPhase")]
+        public Output<string?> MigrationPhase { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Output("natGateway")]
+        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the public IP address resource.
@@ -298,10 +316,28 @@ namespace Pulumi.AzureNative.Network.V20200701
         }
 
         /// <summary>
+        /// The linked public IP address of the public IP address resource.
+        /// </summary>
+        [Input("linkedPublicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? LinkedPublicIPAddress { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Migration phase of Public IP Address.
+        /// </summary>
+        [Input("migrationPhase")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200701.PublicIPAddressMigrationPhase>? MigrationPhase { get; set; }
+
+        /// <summary>
+        /// The NatGateway for the Public IP address.
+        /// </summary>
+        [Input("natGateway")]
+        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The public IP address version.

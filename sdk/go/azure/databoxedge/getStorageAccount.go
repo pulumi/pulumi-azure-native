@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
 	err := ctx.Invoke("azure-native:databoxedge:getStorageAccount", args, &rv, opts...)

@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.EventGrid.Latest
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to Domain Topic resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Type of the resource.
         /// </summary>
         [Output("type")]

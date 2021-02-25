@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// Represents a share on the  Data Box Edge/Gateway device.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:databoxedge/latest:getShare", args ?? new GetShareArgs(), options.WithVersion());

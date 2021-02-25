@@ -19,6 +19,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly string EndpointType;
         /// <summary>
+        /// Storage queue message time to live in seconds.
+        /// </summary>
+        public readonly double? QueueMessageTimeToLiveInSeconds;
+        /// <summary>
         /// The name of the Storage queue under a storage account that is the destination of an event subscription.
         /// </summary>
         public readonly string? QueueName;
@@ -31,11 +35,14 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         private StorageQueueEventSubscriptionDestinationResponse(
             string endpointType,
 
+            double? queueMessageTimeToLiveInSeconds,
+
             string? queueName,
 
             string? resourceId)
         {
             EndpointType = endpointType;
+            QueueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
             QueueName = queueName;
             ResourceId = resourceId;
         }

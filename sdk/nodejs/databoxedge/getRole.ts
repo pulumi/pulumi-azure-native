@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     if (!opts) {

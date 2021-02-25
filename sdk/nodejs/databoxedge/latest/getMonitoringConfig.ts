@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric setting details for the role
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getMonitoringConfig'. */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {

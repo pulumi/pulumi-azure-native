@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The metric setting details for the role
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MonitoringConfig")]
     public partial class MonitoringConfig : Pulumi.CustomResource
@@ -65,6 +65,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:MonitoringConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

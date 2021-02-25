@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string InternalId;
         /// <summary>
+        /// If the resource is migrated from an existing key.
+        /// </summary>
+        public readonly bool IsMigrated;
+        /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkAcls;
@@ -57,6 +61,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Sku change info of account.
+        /// </summary>
+        public readonly Outputs.CognitiveServicesAccountSkuChangeInfoResponse SkuChangeInfo;
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
@@ -78,6 +86,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             string internalId,
 
+            bool isMigrated,
+
             Outputs.NetworkRuleSetResponse? networkAcls,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -85,6 +95,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             string provisioningState,
 
             string? publicNetworkAccess,
+
+            Outputs.CognitiveServicesAccountSkuChangeInfoResponse skuChangeInfo,
 
             ImmutableArray<Outputs.UserOwnedStorageResponse> userOwnedStorage)
         {
@@ -95,10 +107,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             Encryption = encryption;
             Endpoint = endpoint;
             InternalId = internalId;
+            IsMigrated = isMigrated;
             NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            SkuChangeInfo = skuChangeInfo;
             UserOwnedStorage = userOwnedStorage;
         }
     }

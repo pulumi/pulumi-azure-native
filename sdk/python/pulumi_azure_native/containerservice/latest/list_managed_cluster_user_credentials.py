@@ -50,7 +50,7 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagedClusterUserCredentialsResult:
     """
     The list of credential result response.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2021-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

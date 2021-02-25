@@ -84,6 +84,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly offering!: pulumi.Output<string>;
     /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning state of the connected cluster resource.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
@@ -134,6 +138,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["infrastructure"] = args ? args.infrastructure : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -161,6 +166,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["managedIdentityCertificateExpirationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["offering"] = undefined /*out*/;
+            inputs["privateLinkScopeResourceId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -205,6 +211,10 @@ export interface ConnectedClusterArgs {
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The resource id of the private link scope this connected cluster is assigned to, if any.
+     */
+    readonly privateLinkScopeResourceId?: pulumi.Input<string>;
     /**
      * Provisioning state of the connected cluster resource.
      */

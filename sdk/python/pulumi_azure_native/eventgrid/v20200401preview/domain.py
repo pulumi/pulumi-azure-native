@@ -76,6 +76,8 @@ class Domain(pulumi.CustomResource):
             __props__['input_schema_mapping'] = input_schema_mapping
             __props__['location'] = location
             __props__['private_endpoint_connections'] = private_endpoint_connections
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -173,7 +175,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -222,7 +224,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

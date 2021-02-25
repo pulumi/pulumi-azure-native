@@ -45,6 +45,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
+     * Application gateway IP configurations of virtual network resource.
+     */
+    public readonly applicationGatewayIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    /**
      * An array of references to the delegations on the subnet.
      */
     public readonly delegations!: pulumi.Output<outputs.network.DelegationResponse[] | undefined>;
@@ -116,6 +120,10 @@ export class Subnet extends pulumi.CustomResource {
      * An array of service endpoints.
      */
     public readonly serviceEndpoints!: pulumi.Output<outputs.network.ServiceEndpointPropertiesFormatResponse[] | undefined>;
+    /**
+     * Resource type.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -136,19 +144,21 @@ export class Subnet extends pulumi.CustomResource {
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
+            inputs["applicationGatewayIpConfigurations"] = args ? args.applicationGatewayIpConfigurations : undefined;
             inputs["delegations"] = args ? args.delegations : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
-            inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
+            inputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) || "Enabled";
+            inputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["subnetName"] = args ? args.subnetName : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["ipConfigurationProfiles"] = undefined /*out*/;
@@ -161,6 +171,7 @@ export class Subnet extends pulumi.CustomResource {
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
             inputs["addressPrefixes"] = undefined /*out*/;
+            inputs["applicationGatewayIpConfigurations"] = undefined /*out*/;
             inputs["delegations"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ipAllocations"] = undefined /*out*/;
@@ -179,6 +190,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceAssociationLinks"] = undefined /*out*/;
             inputs["serviceEndpointPolicies"] = undefined /*out*/;
             inputs["serviceEndpoints"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -201,6 +213,10 @@ export interface SubnetArgs {
      * List of address prefixes for the subnet.
      */
     readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Application gateway IP configurations of virtual network resource.
+     */
+    readonly applicationGatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayIPConfiguration>[]>;
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -228,11 +244,11 @@ export interface SubnetArgs {
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    readonly privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    readonly privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
+    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
     /**
      * The name of the resource group.
      */
@@ -253,6 +269,10 @@ export interface SubnetArgs {
      * The name of the subnet.
      */
     readonly subnetName?: pulumi.Input<string>;
+    /**
+     * Resource type.
+     */
+    readonly type?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

@@ -76,6 +76,9 @@ export class Action extends pulumi.CustomResource {
             if ((!args || args.ruleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleId'");
             }
+            if ((!args || args.triggerUri === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'triggerUri'");
+            }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -132,7 +135,7 @@ export interface ActionArgs {
     /**
      * Logic App Callback URL for this specific workflow.
      */
-    readonly triggerUri?: pulumi.Input<string>;
+    readonly triggerUri: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

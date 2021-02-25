@@ -20,7 +20,7 @@ class GetEventSubscriptionResult:
     """
     Event Subscription
     """
-    def __init__(__self__, dead_letter_destination=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, topic=None, type=None):
+    def __init__(__self__, dead_letter_destination=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
             raise TypeError("Expected argument 'dead_letter_destination' to be a dict")
         pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
@@ -51,6 +51,9 @@ class GetEventSubscriptionResult:
         if retry_policy and not isinstance(retry_policy, dict):
             raise TypeError("Expected argument 'retry_policy' to be a dict")
         pulumi.set(__self__, "retry_policy", retry_policy)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if topic and not isinstance(topic, str):
             raise TypeError("Expected argument 'topic' to be a str")
         pulumi.set(__self__, "topic", topic)
@@ -139,6 +142,14 @@ class GetEventSubscriptionResult:
         return pulumi.get(self, "retry_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Event Subscription resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def topic(self) -> str:
         """
@@ -171,6 +182,7 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             retry_policy=self.retry_policy,
+            system_data=self.system_data,
             topic=self.topic,
             type=self.type)
 
@@ -205,5 +217,6 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         retry_policy=__ret__.retry_policy,
+        system_data=__ret__.system_data,
         topic=__ret__.topic,
         type=__ret__.type)

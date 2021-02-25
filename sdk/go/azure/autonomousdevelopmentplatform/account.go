@@ -49,6 +49,12 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account"),
 		},
+		{
+			Type: pulumi.String("azure-native:autonomousdevelopmentplatform/v20210201preview:Account"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform/v20210201preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

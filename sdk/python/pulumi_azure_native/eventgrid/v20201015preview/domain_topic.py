@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = ['DomainTopic']
 
@@ -56,6 +57,7 @@ class DomainTopic(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/latest:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/latest:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:DomainTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:DomainTopic"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200601:DomainTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -98,6 +100,14 @@ class DomainTopic(pulumi.CustomResource):
         Provisioning state of the domain topic.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to Domain Topic resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

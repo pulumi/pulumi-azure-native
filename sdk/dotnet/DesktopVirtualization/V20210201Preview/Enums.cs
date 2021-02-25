@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
     }
 
     /// <summary>
-    /// HostPool type for scaling plan.
+    /// HostPool type for desktop.
     /// </summary>
     [EnumType]
     public readonly struct HostPoolType : IEquatable<HostPoolType>
@@ -83,8 +83,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
+        /// </summary>
         public static HostPoolType Personal { get; } = new HostPoolType("Personal");
+        /// <summary>
+        /// Users get a new (random) SessionHost every time it connects to the HostPool.
+        /// </summary>
         public static HostPoolType Pooled { get; } = new HostPoolType("Pooled");
+        /// <summary>
+        /// Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct.
+        /// </summary>
+        public static HostPoolType BYODesktop { get; } = new HostPoolType("BYODesktop");
 
         public static bool operator ==(HostPoolType left, HostPoolType right) => left.Equals(right);
         public static bool operator !=(HostPoolType left, HostPoolType right) => !left.Equals(right);

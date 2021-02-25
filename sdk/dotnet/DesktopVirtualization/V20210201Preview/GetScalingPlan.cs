@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> HostPoolReferences;
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         public readonly string? HostPoolType;
         /// <summary>

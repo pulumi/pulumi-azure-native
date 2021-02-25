@@ -70,7 +70,7 @@ export interface GetTopicResult {
      */
     readonly metricResourceId: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     readonly privateEndpointConnections?: outputs.eventgrid.v20200401preview.PrivateEndpointConnectionResponse[];
@@ -92,7 +92,7 @@ export interface GetTopicResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

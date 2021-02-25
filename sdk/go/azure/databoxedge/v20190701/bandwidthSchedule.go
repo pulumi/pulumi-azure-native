@@ -97,6 +97,12 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:BandwidthSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:BandwidthSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSchedule

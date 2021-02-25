@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Share")]
     public partial class Share : Pulumi.CustomResource
@@ -133,6 +133,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Share"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Share"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

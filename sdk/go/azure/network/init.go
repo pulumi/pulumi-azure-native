@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:network:AdminRule":
+		r, err = NewAdminRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:ApplicationGateway":
 		r, err = NewApplicationGateway(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -33,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBastionHost(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:ConnectionMonitor":
 		r, err = NewConnectionMonitor(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:ConnectivityConfiguration":
+		r, err = NewConnectivityConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:CustomIPPrefix":
 		r, err = NewCustomIPPrefix(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:DdosCustomPolicy":
@@ -95,10 +99,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewNatRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:NetworkExperimentProfile":
 		r, err = NewNetworkExperimentProfile(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:NetworkGroup":
+		r, err = NewNetworkGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:NetworkInterface":
 		r, err = NewNetworkInterface(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:NetworkInterfaceTapConfiguration":
 		r, err = NewNetworkInterfaceTapConfiguration(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:NetworkManager":
+		r, err = NewNetworkManager(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:NetworkProfile":
 		r, err = NewNetworkProfile(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:NetworkSecurityGroup":
@@ -143,6 +151,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:RulesEngine":
 		r, err = NewRulesEngine(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:SecurityConfiguration":
+		r, err = NewSecurityConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:SecurityPartnerProvider":
 		r, err = NewSecurityPartnerProvider(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:SecurityRule":
@@ -155,6 +165,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:TrafficManagerUserMetricsKey":
 		r, err = NewTrafficManagerUserMetricsKey(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network:UserRule":
+		r, err = NewUserRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:VirtualApplianceSite":
 		r, err = NewVirtualApplianceSite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:VirtualHub":

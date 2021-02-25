@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// <summary>
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
-        public readonly string FirewallAllowAzureIps;
+        public readonly string? FirewallAllowAzureIps;
         /// <summary>
         /// The list of firewall rules associated with this account.
         /// </summary>
@@ -85,13 +85,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// <summary>
         /// The current state of the IP address firewall for this account.
         /// </summary>
-        public readonly string FirewallState;
+        public readonly string? FirewallState;
         /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         public readonly ImmutableArray<Outputs.HiveMetastoreResponse> HiveMetastores;
         /// <summary>
-        /// The resource identifer.
+        /// The resource identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// <summary>
         /// The maximum supported degree of parallelism per job for this account.
         /// </summary>
-        public readonly int MaxDegreeOfParallelismPerJob;
+        public readonly int? MaxDegreeOfParallelismPerJob;
         /// <summary>
         /// The maximum supported jobs running under the account at the same time.
         /// </summary>
@@ -125,11 +125,15 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// <summary>
         /// The commitment tier for the next month.
         /// </summary>
-        public readonly string NewTier;
+        public readonly string? NewTier;
         /// <summary>
         /// The provisioning status of the Data Lake Analytics account.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The list of Data Lake Store accounts associated with this account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> PublicDataLakeStoreAccounts;
         /// <summary>
         /// The number of days that job metadata is retained.
         /// </summary>
@@ -181,11 +185,11 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string endpoint,
 
-            string firewallAllowAzureIps,
+            string? firewallAllowAzureIps,
 
             ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
 
-            string firewallState,
+            string? firewallState,
 
             ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
 
@@ -197,7 +201,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             int? maxDegreeOfParallelism,
 
-            int maxDegreeOfParallelismPerJob,
+            int? maxDegreeOfParallelismPerJob,
 
             int? maxJobCount,
 
@@ -205,9 +209,11 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string name,
 
-            string newTier,
+            string? newTier,
 
             string provisioningState,
+
+            ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse> publicDataLakeStoreAccounts,
 
             int? queryStoreRetention,
 
@@ -247,6 +253,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             Name = name;
             NewTier = newTier;
             ProvisioningState = provisioningState;
+            PublicDataLakeStoreAccounts = publicDataLakeStoreAccounts;
             QueryStoreRetention = queryStoreRetention;
             State = state;
             StorageAccounts = storageAccounts;

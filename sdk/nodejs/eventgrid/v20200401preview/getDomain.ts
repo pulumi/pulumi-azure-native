@@ -70,7 +70,7 @@ export interface GetDomainResult {
      */
     readonly metricResourceId: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -95,7 +95,7 @@ export interface GetDomainResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

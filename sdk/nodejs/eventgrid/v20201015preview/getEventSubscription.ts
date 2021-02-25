@@ -90,7 +90,7 @@ export interface GetEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.v20201015preview.RetryPolicyResponse;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Event Subscription resource.
      */
     readonly systemData: outputs.eventgrid.v20201015preview.SystemDataResponse;
     /**

@@ -72,6 +72,10 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * NatGateway of Public IP Prefix.
+     */
+    public readonly natGateway!: pulumi.Output<outputs.network.latest.NatGatewayResponse | undefined>;
+    /**
      * The Length of the Public IP Prefix.
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
@@ -129,6 +133,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIpPrefixName"] = args ? args.publicIpPrefixName : undefined;
@@ -153,6 +158,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["natGateway"] = undefined /*out*/;
             inputs["prefixLength"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddressVersion"] = undefined /*out*/;
@@ -196,6 +202,10 @@ export interface PublicIPPrefixArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * NatGateway of Public IP Prefix.
+     */
+    readonly natGateway?: pulumi.Input<inputs.network.latest.NatGateway>;
     /**
      * The Length of the Public IP Prefix.
      */

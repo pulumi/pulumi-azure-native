@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Container'.")]
     [AzureNativeResourceType("azure-native:databoxedge/latest:Container")]
@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Container"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

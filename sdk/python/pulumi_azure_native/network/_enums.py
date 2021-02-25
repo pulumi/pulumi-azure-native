@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Access',
     'ActionType',
+    'AddressPrefixType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
@@ -32,11 +33,13 @@ __all__ = [
     'ConnectionMonitorEndpointFilterItemType',
     'ConnectionMonitorEndpointFilterType',
     'ConnectionMonitorTestConfigurationProtocol',
+    'ConnectivityTopology',
     'CoverageLevel',
     'CustomRuleEnabledState',
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
     'DdosSettingsProtectionCoverage',
+    'DeploymentType',
     'DestinationPortBehavior',
     'DhGroup',
     'DynamicCompressionEnabled',
@@ -76,6 +79,7 @@ __all__ = [
     'FrontDoorQuery',
     'FrontDoorRedirectProtocol',
     'FrontDoorRedirectType',
+    'GroupConnectivity',
     'HTTPConfigurationMethod',
     'HeaderActionType',
     'HealthProbeEnabled',
@@ -95,8 +99,11 @@ __all__ = [
     'ManagedRuleExclusionSelectorMatchOperator',
     'ManagedRuleSetActionType',
     'MatchProcessingBehavior',
+    'MemberType',
     'MonitorProtocol',
     'NatGatewaySkuName',
+    'NetworkInterfaceMigrationPhase',
+    'NetworkInterfaceNicType',
     'Operator',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
@@ -115,6 +122,7 @@ __all__ = [
     'PublicIPAddressSkuTier',
     'PublicIPPrefixSkuName',
     'PublicIPPrefixSkuTier',
+    'PublicIpAddressMigrationPhase',
     'ResourceIdentityType',
     'RouteFilterRuleType',
     'RouteNextHopType',
@@ -122,10 +130,15 @@ __all__ = [
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
+    'ScopeAccesses',
+    'SecurityConfigurationRuleAccess',
+    'SecurityConfigurationRuleDirection',
+    'SecurityConfigurationRuleProtocol',
     'SecurityProviderName',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
+    'SecurityType',
     'ServiceProviderProvisioningState',
     'SessionAffinityEnabledState',
     'SkuName',
@@ -142,6 +155,8 @@ __all__ = [
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
     'VirtualNetworkPeeringState',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
     'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
@@ -177,6 +192,14 @@ class ActionType(str, Enum):
     BLOCK = "Block"
     LOG = "Log"
     REDIRECT = "Redirect"
+
+
+class AddressPrefixType(str, Enum):
+    """
+    Address prefix type.
+    """
+    IP_PREFIX = "IPPrefix"
+    SERVICE_TAG = "ServiceTag"
 
 
 class ApplicationGatewayCookieBasedAffinity(str, Enum):
@@ -423,6 +446,14 @@ class ConnectionMonitorTestConfigurationProtocol(str, Enum):
     ICMP = "Icmp"
 
 
+class ConnectivityTopology(str, Enum):
+    """
+    Connectivity topology type.
+    """
+    HUB_AND_SPOKE_TOPOLOGY = "HubAndSpokeTopology"
+    MESH_TOPOLOGY = "MeshTopology"
+
+
 class CoverageLevel(str, Enum):
     """
     Test coverage for the endpoint.
@@ -468,6 +499,16 @@ class DdosSettingsProtectionCoverage(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+
+
+class DeploymentType(str, Enum):
+    """
+    Configuration Deployment Type.
+    """
+    ADMIN_POLICY = "AdminPolicy"
+    USER_POLICY = "UserPolicy"
+    ROUTING = "Routing"
+    CONNECTIVITY = "Connectivity"
 
 
 class DestinationPortBehavior(str, Enum):
@@ -811,6 +852,14 @@ class FrontDoorRedirectType(str, Enum):
     PERMANENT_REDIRECT = "PermanentRedirect"
 
 
+class GroupConnectivity(str, Enum):
+    """
+    Group connectivity type.
+    """
+    NONE = "None"
+    DIRECTLY_CONNECTED = "DirectlyConnected"
+
+
 class HTTPConfigurationMethod(str, Enum):
     """
     The HTTP method to use.
@@ -992,6 +1041,14 @@ class MatchProcessingBehavior(str, Enum):
     STOP = "Stop"
 
 
+class MemberType(str, Enum):
+    """
+    Group member type.
+    """
+    VIRTUAL_NETWORK = "VirtualNetwork"
+    SUBNET = "Subnet"
+
+
 class MonitorProtocol(str, Enum):
     """
     The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
@@ -1006,6 +1063,25 @@ class NatGatewaySkuName(str, Enum):
     Name of Nat Gateway SKU.
     """
     STANDARD = "Standard"
+
+
+class NetworkInterfaceMigrationPhase(str, Enum):
+    """
+    Migration phase of Network Interface resource.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
+
+
+class NetworkInterfaceNicType(str, Enum):
+    """
+    Type of Network Interface resource.
+    """
+    STANDARD = "Standard"
+    ELASTIC = "Elastic"
 
 
 class Operator(str, Enum):
@@ -1183,6 +1259,17 @@ class PublicIPPrefixSkuTier(str, Enum):
     GLOBAL_ = "Global"
 
 
+class PublicIpAddressMigrationPhase(str, Enum):
+    """
+    Migration phase of Public IP Address.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -1262,6 +1349,41 @@ class RulesEngineOperator(str, Enum):
     ENDS_WITH = "EndsWith"
 
 
+class ScopeAccesses(str, Enum):
+    SECURITY = "Security"
+    ROUTING = "Routing"
+    CONNECTIVITY = "Connectivity"
+
+
+class SecurityConfigurationRuleAccess(str, Enum):
+    """
+    Indicates the access allowed for this particular rule
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+    ALWAYS_ALLOW = "AlwaysAllow"
+
+
+class SecurityConfigurationRuleDirection(str, Enum):
+    """
+    Indicates if the traffic matched against the rule in inbound or outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityConfigurationRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ANY = "Any"
+    AH = "Ah"
+
+
 class SecurityProviderName(str, Enum):
     """
     The security provider name.
@@ -1297,6 +1419,14 @@ class SecurityRuleProtocol(str, Enum):
     ESP = "Esp"
     ASTERISK = "*"
     AH = "Ah"
+
+
+class SecurityType(str, Enum):
+    """
+    Security Type.
+    """
+    ADMIN_POLICY = "AdminPolicy"
+    USER_POLICY = "UserPolicy"
 
 
 class ServiceProviderProvisioningState(str, Enum):
@@ -1476,6 +1606,22 @@ class VirtualNetworkPeeringState(str, Enum):
     INITIATED = "Initiated"
     CONNECTED = "Connected"
     DISCONNECTED = "Disconnected"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class VpnAuthenticationType(str, Enum):

@@ -30,10 +30,10 @@ type LookupDomainTopicArgs struct {
 type LookupDomainTopicResult struct {
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the domain topic.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

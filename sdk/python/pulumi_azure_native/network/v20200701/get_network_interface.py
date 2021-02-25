@@ -20,7 +20,7 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, private_endpoint=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
+    def __init__(__self__, dns_settings=None, dscp_configuration=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, extended_location=None, hosted_workloads=None, id=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, nic_type=None, primary=None, private_endpoint=None, private_link_service=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -60,12 +60,18 @@ class GetNetworkInterfaceResult:
         if network_security_group and not isinstance(network_security_group, dict):
             raise TypeError("Expected argument 'network_security_group' to be a dict")
         pulumi.set(__self__, "network_security_group", network_security_group)
+        if nic_type and not isinstance(nic_type, str):
+            raise TypeError("Expected argument 'nic_type' to be a str")
+        pulumi.set(__self__, "nic_type", nic_type)
         if primary and not isinstance(primary, bool):
             raise TypeError("Expected argument 'primary' to be a bool")
         pulumi.set(__self__, "primary", primary)
         if private_endpoint and not isinstance(private_endpoint, dict):
             raise TypeError("Expected argument 'private_endpoint' to be a dict")
         pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service and not isinstance(private_link_service, dict):
+            raise TypeError("Expected argument 'private_link_service' to be a dict")
+        pulumi.set(__self__, "private_link_service", private_link_service)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -190,6 +196,14 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "network_security_group")
 
     @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> Optional[str]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @property
     @pulumi.getter
     def primary(self) -> bool:
         """
@@ -204,6 +218,14 @@ class GetNetworkInterfaceResult:
         A reference to the private endpoint to which the network interface is linked.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> Optional['outputs.PrivateLinkServiceResponse']:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -273,8 +295,10 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             mac_address=self.mac_address,
             name=self.name,
             network_security_group=self.network_security_group,
+            nic_type=self.nic_type,
             primary=self.primary,
             private_endpoint=self.private_endpoint,
+            private_link_service=self.private_link_service,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
             tags=self.tags,
@@ -319,8 +343,10 @@ def get_network_interface(expand: Optional[str] = None,
         mac_address=__ret__.mac_address,
         name=__ret__.name,
         network_security_group=__ret__.network_security_group,
+        nic_type=__ret__.nic_type,
         primary=__ret__.primary,
         private_endpoint=__ret__.private_endpoint,
+        private_link_service=__ret__.private_link_service,
         provisioning_state=__ret__.provisioning_state,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,

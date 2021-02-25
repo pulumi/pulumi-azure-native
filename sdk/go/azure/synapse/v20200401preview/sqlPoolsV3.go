@@ -77,6 +77,12 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolsV3"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolsV3"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPoolsV3"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolsV3

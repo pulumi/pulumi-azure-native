@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetPartnerNamespaceResult',
@@ -19,7 +20,7 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, endpoint=None, id=None, location=None, name=None, partner_registration_fully_qualified_id=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, location=None, name=None, partner_registration_fully_qualified_id=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -38,6 +39,9 @@ class GetPartnerNamespaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -73,7 +77,7 @@ class GetPartnerNamespaceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -95,6 +99,14 @@ class GetPartnerNamespaceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Partner Namespace resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -106,7 +118,7 @@ class GetPartnerNamespaceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 
@@ -123,6 +135,7 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -153,5 +166,6 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
         name=__ret__.name,
         partner_registration_fully_qualified_id=__ret__.partner_registration_fully_qualified_id,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The order details.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : Pulumi.CustomResource
@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

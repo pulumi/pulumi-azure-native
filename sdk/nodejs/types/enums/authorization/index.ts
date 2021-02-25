@@ -22,6 +22,7 @@ import * as v20200401preview from "./v20200401preview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     latest,
@@ -44,6 +45,7 @@ export {
     v20200701preview,
     v20200901,
     v20201001preview,
+    v20210301preview,
 };
 
 export const AccessReviewRecurrencePatternType = {

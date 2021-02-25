@@ -9,6 +9,7 @@ import * as v20190801 from "./v20190801";
 import * as v20200501preview from "./v20200501preview";
 import * as v20200901 from "./v20200901";
 import * as v20200901preview from "./v20200901preview";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -18,6 +19,7 @@ export {
     v20200501preview,
     v20200901,
     v20200901preview,
+    v20201201,
 };
 
 export const AccountType = {

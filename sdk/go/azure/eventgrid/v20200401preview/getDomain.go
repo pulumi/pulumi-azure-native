@@ -42,7 +42,7 @@ type LookupDomainResult struct {
 	Location string `pulumi:"location"`
 	// Metric resource id for the domain.
 	MetricResourceId string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// List of private endpoint connections.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
@@ -55,6 +55,6 @@ type LookupDomainResult struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -55,6 +55,8 @@ type Subnet struct {
 	ServiceEndpointPolicies ServiceEndpointPolicyResponseArrayOutput `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatResponseArrayOutput `pulumi:"serviceEndpoints"`
+	// Resource type.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -69,6 +71,12 @@ func NewSubnet(ctx *pulumi.Context,
 	}
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
+	}
+	if args.PrivateEndpointNetworkPolicies == nil {
+		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
+	}
+	if args.PrivateLinkServiceNetworkPolicies == nil {
+		args.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -351,6 +359,8 @@ type subnetState struct {
 	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type SubnetState struct {
@@ -394,6 +404,8 @@ type SubnetState struct {
 	ServiceEndpointPolicies ServiceEndpointPolicyResponseArrayInput
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatResponseArrayInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (SubnetState) ElementType() reflect.Type {
@@ -431,6 +443,8 @@ type subnetArgs struct {
 	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
 	// The name of the subnet.
 	SubnetName *string `pulumi:"subnetName"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -467,6 +481,8 @@ type SubnetArgs struct {
 	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
 	// The name of the subnet.
 	SubnetName pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

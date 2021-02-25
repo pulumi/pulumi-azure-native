@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// The order details.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Order'.")]
     [AzureNativeResourceType("azure-native:databoxedge/latest:Order")]
@@ -116,6 +116,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

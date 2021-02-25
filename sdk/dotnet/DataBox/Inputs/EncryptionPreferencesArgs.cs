@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.DataBox.Inputs
 
         public EncryptionPreferencesArgs()
         {
+            DoubleEncryption = "Disabled";
         }
     }
 }

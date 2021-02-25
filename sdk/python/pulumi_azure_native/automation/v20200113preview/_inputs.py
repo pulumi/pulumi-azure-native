@@ -18,6 +18,7 @@ __all__ = [
     'ContentSourceArgs',
     'DscConfigurationAssociationPropertyArgs',
     'EncryptionPropertiesArgs',
+    'EncryptionPropertiesIdentityArgs',
     'FieldDefinitionArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -342,17 +343,33 @@ class DscConfigurationAssociationPropertyArgs:
 @pulumi.input_type
 class EncryptionPropertiesArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']] = None,
                  key_source: Optional[pulumi.Input['EncryptionKeySourceType']] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
         The encryption settings for automation account
+        :param pulumi.Input['EncryptionPropertiesIdentityArgs'] identity: User identity used for CMK.
         :param pulumi.Input['EncryptionKeySourceType'] key_source: Encryption Key Source
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]:
+        """
+        User identity used for CMK.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keySource")
@@ -377,6 +394,30 @@ class EncryptionPropertiesArgs:
     @key_vault_properties.setter
     def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
+
+
+@pulumi.input_type
+class EncryptionPropertiesIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[Any] = None):
+        """
+        User identity used for CMK.
+        :param Any user_assigned_identity: The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[Any]:
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[Any]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -437,13 +478,17 @@ class FieldDefinitionArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -456,6 +501,18 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

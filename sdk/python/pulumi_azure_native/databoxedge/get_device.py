@@ -348,7 +348,7 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     The Data Box Edge/Gateway device.
-    API Version: 2020-09-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

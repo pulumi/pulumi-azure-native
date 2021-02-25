@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a partner registration.
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-10-15-preview.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
     if (!opts) {
@@ -67,7 +67,7 @@ export interface GetPartnerRegistrationResult {
      */
     readonly longDescription?: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -107,11 +107,15 @@ export interface GetPartnerRegistrationResult {
      */
     readonly setupUri?: string;
     /**
+     * The system metadata relating to Partner Registration resource.
+     */
+    readonly systemData: outputs.eventgrid.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
     /**

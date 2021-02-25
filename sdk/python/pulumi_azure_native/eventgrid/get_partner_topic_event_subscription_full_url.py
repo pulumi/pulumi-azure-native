@@ -48,7 +48,7 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerTopicEventSubscriptionFullUrlResult:
     """
     Full endpoint url of an event subscription
-    API Version: 2020-04-01-preview.
+    API Version: 2020-10-15-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

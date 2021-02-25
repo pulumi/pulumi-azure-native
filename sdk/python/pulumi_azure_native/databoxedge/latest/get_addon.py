@@ -100,7 +100,7 @@ def get_addon(addon_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
     Role Addon
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str addon_name: The addon name.

@@ -95,6 +95,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly networkSecurityGroup?: outputs.network.v20200701.NetworkSecurityGroupResponse;
     /**
+     * Type of Network Interface resource.
+     */
+    readonly nicType?: string;
+    /**
      * Whether this is a primary network interface on a virtual machine.
      */
     readonly primary: boolean;
@@ -102,6 +106,10 @@ export interface GetNetworkInterfaceResult {
      * A reference to the private endpoint to which the network interface is linked.
      */
     readonly privateEndpoint: outputs.network.v20200701.PrivateEndpointResponse;
+    /**
+     * Privatelinkservice of the network interface resource.
+     */
+    readonly privateLinkService?: outputs.network.v20200701.PrivateLinkServiceResponse;
     /**
      * The provisioning state of the network interface resource.
      */

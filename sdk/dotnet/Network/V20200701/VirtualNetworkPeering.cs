@@ -76,6 +76,18 @@ namespace Pulumi.AzureNative.Network.V20200701
         public Output<Outputs.SubResourceResponse?> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
+        /// The resourceGuid property of the Virtual Network peering resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
         [Output("useRemoteGateways")]
@@ -254,6 +266,12 @@ namespace Pulumi.AzureNative.Network.V20200701
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

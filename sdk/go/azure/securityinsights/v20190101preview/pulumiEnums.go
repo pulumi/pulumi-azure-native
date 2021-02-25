@@ -93,6 +93,8 @@ const (
 	DataConnectorKindAzureAdvancedThreatProtection             = DataConnectorKind("AzureAdvancedThreatProtection")
 	DataConnectorKindMicrosoftDefenderAdvancedThreatProtection = DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection")
 	DataConnectorKindDynamics365                               = DataConnectorKind("Dynamics365")
+	DataConnectorKindMicrosoftThreatProtection                 = DataConnectorKind("MicrosoftThreatProtection")
+	DataConnectorKindMicrosoftThreatIntelligence               = DataConnectorKind("MicrosoftThreatIntelligence")
 )
 
 func (DataConnectorKind) ElementType() reflect.Type {

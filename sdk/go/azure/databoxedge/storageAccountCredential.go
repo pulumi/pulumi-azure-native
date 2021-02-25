@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account credential.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +104,12 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:StorageAccountCredential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:StorageAccountCredential"),
 		},
 	})
 	opts = append(opts, aliases)

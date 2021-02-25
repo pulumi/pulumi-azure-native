@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 {
     /// <summary>
     /// Agent Pool.
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2021-02-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.")]
     [AzureNativeResourceType("azure-native:containerservice/latest:AgentPool")]
@@ -106,6 +106,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         [Output("nodeLabels")]
         public Output<ImmutableDictionary<string, string>?> NodeLabels { get; private set; } = null!;
+
+        /// <summary>
+        /// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        /// </summary>
+        [Output("nodePublicIPPrefixID")]
+        public Output<string?> NodePublicIPPrefixID { get; private set; } = null!;
 
         /// <summary>
         /// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -266,6 +272,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201101:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -384,6 +392,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
             get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
             set => _nodeLabels = value;
         }
+
+        /// <summary>
+        /// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        /// </summary>
+        [Input("nodePublicIPPrefixID")]
+        public Input<string>? NodePublicIPPrefixID { get; set; }
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;

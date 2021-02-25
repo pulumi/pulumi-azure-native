@@ -31,6 +31,8 @@ type PublicIPPrefix struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// NatGateway of Public IP Prefix.
+	NatGateway NatGatewayResponsePtrOutput `pulumi:"natGateway"`
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The provisioning state of the public IP prefix resource.
@@ -222,6 +224,8 @@ type publicIPPrefixState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// NatGateway of Public IP Prefix.
+	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The provisioning state of the public IP prefix resource.
@@ -259,6 +263,8 @@ type PublicIPPrefixState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// NatGateway of Public IP Prefix.
+	NatGateway NatGatewayResponsePtrInput
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrInput
 	// The provisioning state of the public IP prefix resource.
@@ -294,6 +300,8 @@ type publicIPPrefixArgs struct {
 	IpTags []IpTag `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// NatGateway of Public IP Prefix.
+	NatGateway *NatGatewayType `pulumi:"natGateway"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The public IP address version.
@@ -322,6 +330,8 @@ type PublicIPPrefixArgs struct {
 	IpTags IpTagArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// NatGateway of Public IP Prefix.
+	NatGateway NatGatewayTypePtrInput
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrInput
 	// The public IP address version.

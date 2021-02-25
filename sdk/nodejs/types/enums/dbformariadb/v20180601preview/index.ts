@@ -25,8 +25,8 @@ export const GeoRedundantBackup = {
 export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
 
 export const ServerVersion = {
-    ServerVersion_5_6: "5.6",
-    ServerVersion_5_7: "5.7",
+    ServerVersion_10_2: "10.2",
+    ServerVersion_10_3: "10.3",
 } as const;
 
 /**

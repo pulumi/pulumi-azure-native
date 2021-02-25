@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetDomainTopicResult',
@@ -19,7 +20,7 @@ class GetDomainTopicResult:
     """
     Domain Topic.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -29,6 +30,9 @@ class GetDomainTopicResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -58,6 +62,14 @@ class GetDomainTopicResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to Domain Topic resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -75,6 +87,7 @@ class AwaitableGetDomainTopicResult(GetDomainTopicResult):
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -105,4 +118,5 @@ def get_domain_topic(domain_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)

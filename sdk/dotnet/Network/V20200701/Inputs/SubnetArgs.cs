@@ -85,13 +85,13 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
         /// Enable or Disable apply network policies on private end point in the subnet.
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
-        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200701.VirtualNetworkPrivateEndpointNetworkPolicies>? PrivateEndpointNetworkPolicies { get; set; }
 
         /// <summary>
         /// Enable or Disable apply network policies on private link service in the subnet.
         /// </summary>
         [Input("privateLinkServiceNetworkPolicies")]
-        public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20200701.VirtualNetworkPrivateLinkServiceNetworkPolicies>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
         /// The reference to the RouteTable resource.
@@ -123,8 +123,16 @@ namespace Pulumi.AzureNative.Network.V20200701.Inputs
             set => _serviceEndpoints = value;
         }
 
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public SubnetArgs()
         {
+            PrivateEndpointNetworkPolicies = "Enabled";
+            PrivateLinkServiceNetworkPolicies = "Enabled";
         }
     }
 }

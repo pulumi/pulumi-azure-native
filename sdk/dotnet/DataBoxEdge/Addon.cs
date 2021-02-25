@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Role Addon
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Addon")]
     public partial class Addon : Pulumi.CustomResource
@@ -71,6 +71,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Addon"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

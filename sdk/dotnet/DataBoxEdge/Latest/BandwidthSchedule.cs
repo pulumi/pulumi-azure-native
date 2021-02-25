@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
 {
     /// <summary>
     /// The bandwidth schedule details.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.")]
     [AzureNativeResourceType("azure-native:databoxedge/latest:BandwidthSchedule")]
@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

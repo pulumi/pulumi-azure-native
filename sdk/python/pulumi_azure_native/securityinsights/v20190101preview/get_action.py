@@ -57,7 +57,7 @@ class GetActionResult:
 
     @property
     @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> Optional[str]:
+    def logic_app_resource_id(self) -> str:
         """
         Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         """

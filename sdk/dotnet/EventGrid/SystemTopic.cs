@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid System Topic.
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2020-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopic")]
     public partial class SystemTopic : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityInfoResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -29,7 +35,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,6 +53,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -59,7 +71,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> TopicType { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -116,6 +128,12 @@ namespace Pulumi.AzureNative.EventGrid
 
     public sealed class SystemTopicArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identity information for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityInfoArgs>? Identity { get; set; }
+
         /// <summary>
         /// Location of the resource.
         /// </summary>

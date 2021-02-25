@@ -8,7 +8,7 @@ import (
 )
 
 // The order details.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getOrder'.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {

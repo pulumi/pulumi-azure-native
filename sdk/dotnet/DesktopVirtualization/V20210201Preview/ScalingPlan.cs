@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Output<ImmutableArray<Outputs.ScalingHostPoolReferenceResponse>> HostPoolReferences { get; private set; } = null!;
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Output("hostPoolType")]
         public Output<string?> HostPoolType { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         }
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType")]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.HostPoolType>? HostPoolType { get; set; }

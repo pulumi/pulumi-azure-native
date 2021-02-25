@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-        /// API Version: 2020-09-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());

@@ -70,8 +70,10 @@ func (e EncryptionKeySourceType) ToStringPtrOutputWithContext(ctx context.Contex
 type ResourceIdentityType pulumi.String
 
 const (
-	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
-	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {

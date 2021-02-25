@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
         [Output("firewallAllowAzureIps")]
-        public Output<string> FirewallAllowAzureIps { get; private set; } = null!;
+        public Output<string?> FirewallAllowAzureIps { get; private set; } = null!;
 
         /// <summary>
         /// The list of firewall rules associated with this account.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The current state of the IP address firewall for this account.
         /// </summary>
         [Output("firewallState")]
-        public Output<string> FirewallState { get; private set; } = null!;
+        public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
         /// The list of hiveMetastores associated with this account.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The maximum supported degree of parallelism per job for this account.
         /// </summary>
         [Output("maxDegreeOfParallelismPerJob")]
-        public Output<int> MaxDegreeOfParallelismPerJob { get; private set; } = null!;
+        public Output<int?> MaxDegreeOfParallelismPerJob { get; private set; } = null!;
 
         /// <summary>
         /// The maximum supported jobs running under the account at the same time.
@@ -133,13 +133,19 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The commitment tier for the next month.
         /// </summary>
         [Output("newTier")]
-        public Output<string> NewTier { get; private set; } = null!;
+        public Output<string?> NewTier { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning status of the Data Lake Analytics account.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Data Lake Store accounts associated with this account.
+        /// </summary>
+        [Output("publicDataLakeStoreAccounts")]
+        public Output<ImmutableArray<Outputs.DataLakeStoreAccountInformationResponse>> PublicDataLakeStoreAccounts { get; private set; } = null!;
 
         /// <summary>
         /// The number of days that job metadata is retained.

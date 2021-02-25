@@ -16065,7 +16065,7 @@ func (o VirtualMachineScaleSetIdentityResponsePtrOutput) Type() pulumi.StringPtr
 
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParameters struct {
-	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -16082,7 +16082,7 @@ type VirtualMachineScaleSetManagedDiskParametersInput interface {
 
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersArgs struct {
-	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -16164,7 +16164,7 @@ func (o VirtualMachineScaleSetManagedDiskParametersOutput) ToVirtualMachineScale
 	}).(VirtualMachineScaleSetManagedDiskParametersPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 func (o VirtualMachineScaleSetManagedDiskParametersOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetManagedDiskParameters) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -16189,7 +16189,7 @@ func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) Elem() VirtualMach
 	}).(VirtualMachineScaleSetManagedDiskParametersOutput)
 }
 
-// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetManagedDiskParameters) *string {
 		if v == nil {
@@ -16201,7 +16201,7 @@ func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) StorageAccountType
 
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersResponse struct {
-	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -16218,7 +16218,7 @@ type VirtualMachineScaleSetManagedDiskParametersResponseInput interface {
 
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersResponseArgs struct {
-	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -16300,7 +16300,7 @@ func (o VirtualMachineScaleSetManagedDiskParametersResponseOutput) ToVirtualMach
 	}).(VirtualMachineScaleSetManagedDiskParametersResponsePtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 func (o VirtualMachineScaleSetManagedDiskParametersResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetManagedDiskParametersResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -16325,7 +16325,7 @@ func (o VirtualMachineScaleSetManagedDiskParametersResponsePtrOutput) Elem() Vir
 	}).(VirtualMachineScaleSetManagedDiskParametersResponseOutput)
 }
 
-// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
 func (o VirtualMachineScaleSetManagedDiskParametersResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetManagedDiskParametersResponse) *string {
 		if v == nil {

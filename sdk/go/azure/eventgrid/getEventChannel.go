@@ -8,7 +8,7 @@ import (
 )
 
 // Event Channel.
-// API Version: 2020-04-01-preview.
+// API Version: 2020-10-15-preview.
 func LookupEventChannel(ctx *pulumi.Context, args *LookupEventChannelArgs, opts ...pulumi.InvokeOption) (*LookupEventChannelResult, error) {
 	var rv LookupEventChannelResult
 	err := ctx.Invoke("azure-native:eventgrid:getEventChannel", args, &rv, opts...)
@@ -38,7 +38,7 @@ type LookupEventChannelResult struct {
 	Filter *EventChannelFilterResponse `pulumi:"filter"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
 	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
@@ -49,6 +49,8 @@ type LookupEventChannelResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source *EventChannelSourceResponse `pulumi:"source"`
-	// Type of the resource
+	// The system metadata relating to Event Channel resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

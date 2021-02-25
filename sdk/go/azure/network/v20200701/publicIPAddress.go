@@ -31,10 +31,16 @@ type PublicIPAddress struct {
 	IpConfiguration IPConfigurationResponseOutput `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags IpTagResponseArrayOutput `pulumi:"ipTags"`
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress PublicIPAddressResponsePtrOutput `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Migration phase of Public IP Address.
+	MigrationPhase pulumi.StringPtrOutput `pulumi:"migrationPhase"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The NatGateway for the Public IP address.
+	NatGateway NatGatewayResponsePtrOutput `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The public IP address version.
@@ -322,10 +328,16 @@ type publicIPAddressState struct {
 	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTagResponse `pulumi:"ipTags"`
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Migration phase of Public IP Address.
+	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// The NatGateway for the Public IP address.
+	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version.
@@ -363,10 +375,16 @@ type PublicIPAddressState struct {
 	IpConfiguration IPConfigurationResponsePtrInput
 	// The list of tags associated with the public IP address.
 	IpTags IpTagResponseArrayInput
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress PublicIPAddressResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Migration phase of Public IP Address.
+	MigrationPhase pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// The NatGateway for the Public IP address.
+	NatGateway NatGatewayResponsePtrInput
 	// The provisioning state of the public IP address resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version.
@@ -406,8 +424,14 @@ type publicIPAddressArgs struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTag `pulumi:"ipTags"`
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress *PublicIPAddressType `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Migration phase of Public IP Address.
+	MigrationPhase *string `pulumi:"migrationPhase"`
+	// The NatGateway for the Public IP address.
+	NatGateway *NatGatewayType `pulumi:"natGateway"`
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The public IP address allocation method.
@@ -442,8 +466,14 @@ type PublicIPAddressArgs struct {
 	IpAddress pulumi.StringPtrInput
 	// The list of tags associated with the public IP address.
 	IpTags IpTagArrayInput
+	// The linked public IP address of the public IP address resource.
+	LinkedPublicIPAddress PublicIPAddressTypePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Migration phase of Public IP Address.
+	MigrationPhase pulumi.StringPtrInput
+	// The NatGateway for the Public IP address.
+	NatGateway NatGatewayTypePtrInput
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The public IP address allocation method.

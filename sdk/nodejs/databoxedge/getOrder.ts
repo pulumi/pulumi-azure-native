@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
     if (!opts) {

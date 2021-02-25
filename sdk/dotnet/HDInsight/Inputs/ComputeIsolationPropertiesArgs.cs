@@ -29,6 +29,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
 
         public ComputeIsolationPropertiesArgs()
         {
+            EnableComputeIsolation = false;
         }
     }
 }

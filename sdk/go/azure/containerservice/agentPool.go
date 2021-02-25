@@ -12,7 +12,7 @@ import (
 )
 
 // Agent Pool.
-// API Version: 2020-12-01.
+// API Version: 2021-02-01.
 type AgentPool struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +46,8 @@ type AgentPool struct {
 	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID pulumi.StringPtrOutput `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -192,6 +194,12 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20201201:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210201:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210201:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
@@ -246,6 +254,8 @@ type agentPoolState struct {
 	NodeImageVersion *string `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -313,6 +323,8 @@ type AgentPoolState struct {
 	NodeImageVersion pulumi.StringPtrInput
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID pulumi.StringPtrInput
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayInput
 	// Version of orchestrator specified when creating the managed cluster.
@@ -382,6 +394,8 @@ type agentPoolArgs struct {
 	Mode *string `pulumi:"mode"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID *string `pulumi:"nodePublicIPPrefixID"`
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of orchestrator specified when creating the managed cluster.
@@ -448,6 +462,8 @@ type AgentPoolArgs struct {
 	Mode pulumi.StringPtrInput
 	// Agent pool node labels to be persisted across all nodes in agent pool.
 	NodeLabels pulumi.StringMapInput
+	// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+	NodePublicIPPrefixID pulumi.StringPtrInput
 	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 	NodeTaints pulumi.StringArrayInput
 	// Version of orchestrator specified when creating the managed cluster.

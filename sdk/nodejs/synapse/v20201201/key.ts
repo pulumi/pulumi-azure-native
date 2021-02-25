@@ -84,7 +84,7 @@ export class Key extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:Key" }, { type: "azure-nextgen:synapse:Key" }, { type: "azure-native:synapse/latest:Key" }, { type: "azure-nextgen:synapse/latest:Key" }, { type: "azure-native:synapse/v20190601preview:Key" }, { type: "azure-nextgen:synapse/v20190601preview:Key" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:Key" }, { type: "azure-nextgen:synapse:Key" }, { type: "azure-native:synapse/latest:Key" }, { type: "azure-nextgen:synapse/latest:Key" }, { type: "azure-native:synapse/v20190601preview:Key" }, { type: "azure-nextgen:synapse/v20190601preview:Key" }, { type: "azure-native:synapse/v20210301:Key" }, { type: "azure-nextgen:synapse/v20210301:Key" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Key.__pulumiType, name, inputs, opts);
     }

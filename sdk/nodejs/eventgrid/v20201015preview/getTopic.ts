@@ -96,6 +96,10 @@ export interface GetTopicResult {
      */
     readonly sku?: outputs.eventgrid.v20201015preview.ResourceSkuResponse;
     /**
+     * The system metadata relating to Topic resource.
+     */
+    readonly systemData: outputs.eventgrid.v20201015preview.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};

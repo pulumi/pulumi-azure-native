@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// </summary>
         public readonly string? SetupUri;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Partner Registration resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

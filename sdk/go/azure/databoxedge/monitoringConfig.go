@@ -12,7 +12,7 @@ import (
 )
 
 // The metric setting details for the role
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 type MonitoringConfig struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +61,12 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:MonitoringConfig"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:MonitoringConfig"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -85,6 +85,12 @@ func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"),
 		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessReviewScheduleDefinitionById

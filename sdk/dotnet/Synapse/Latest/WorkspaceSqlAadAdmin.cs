@@ -84,6 +84,8 @@ namespace Pulumi.AzureNative.Synapse.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

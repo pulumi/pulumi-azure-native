@@ -99,7 +99,7 @@ def get_role(device_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleResult:
     """
     Compute role.
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

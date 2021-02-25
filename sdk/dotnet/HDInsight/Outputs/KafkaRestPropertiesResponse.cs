@@ -17,11 +17,19 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
         /// The information of AAD security group.
         /// </summary>
         public readonly Outputs.ClientGroupInfoResponse? ClientGroupInfo;
+        /// <summary>
+        /// The configurations that need to be overriden.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ConfigurationOverride;
 
         [OutputConstructor]
-        private KafkaRestPropertiesResponse(Outputs.ClientGroupInfoResponse? clientGroupInfo)
+        private KafkaRestPropertiesResponse(
+            Outputs.ClientGroupInfoResponse? clientGroupInfo,
+
+            ImmutableDictionary<string, string>? configurationOverride)
         {
             ClientGroupInfo = clientGroupInfo;
+            ConfigurationOverride = configurationOverride;
         }
     }
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // The order details.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Order'.
 type Order struct {
@@ -98,6 +98,12 @@ func NewOrder(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
+		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Order"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Order"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -131,4 +131,8 @@ export interface GetSubnetResult {
      * An array of service endpoints.
      */
     readonly serviceEndpoints?: outputs.network.v20200701.ServiceEndpointPropertiesFormatResponse[];
+    /**
+     * Resource type.
+     */
+    readonly type?: string;
 }

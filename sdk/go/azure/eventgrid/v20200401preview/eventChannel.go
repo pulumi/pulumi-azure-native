@@ -22,7 +22,7 @@ type EventChannel struct {
 	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrOutput `pulumi:"expirationTimeIfNotActivatedUtc"`
 	// Information about the filter for the event channel.
 	Filter EventChannelFilterResponsePtrOutput `pulumi:"filter"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
 	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
@@ -33,7 +33,9 @@ type EventChannel struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source EventChannelSourceResponsePtrOutput `pulumi:"source"`
-	// Type of the resource
+	// The system metadata relating to Event Channel resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -94,7 +96,7 @@ type eventChannelState struct {
 	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
 	// Information about the filter for the event channel.
 	Filter *EventChannelFilterResponse `pulumi:"filter"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
 	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
@@ -105,7 +107,9 @@ type eventChannelState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source *EventChannelSourceResponse `pulumi:"source"`
-	// Type of the resource
+	// The system metadata relating to Event Channel resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -117,7 +121,7 @@ type EventChannelState struct {
 	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrInput
 	// Information about the filter for the event channel.
 	Filter EventChannelFilterResponsePtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
 	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
@@ -128,7 +132,9 @@ type EventChannelState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source EventChannelSourceResponsePtrInput
-	// Type of the resource
+	// The system metadata relating to Event Channel resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

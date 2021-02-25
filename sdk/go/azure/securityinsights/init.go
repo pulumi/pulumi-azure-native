@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewThreatIntelligenceIndicator(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityinsights:Watchlist":
 		r, err = NewWatchlist(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:securityinsights:WatchlistItem":
+		r, err = NewWatchlistItem(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

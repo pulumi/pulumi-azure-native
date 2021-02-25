@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public Output<Outputs.RetryPolicyResponse?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Event Subscription resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -239,6 +239,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 
         public SystemTopicEventSubscriptionArgs()
         {
+            EventDeliverySchema = "EventGridSchema";
         }
     }
 }

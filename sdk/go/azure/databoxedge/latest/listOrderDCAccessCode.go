@@ -8,7 +8,7 @@ import (
 )
 
 // DC Access code in the case of Self Managed Shipping.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.
 func ListOrderDCAccessCode(ctx *pulumi.Context, args *ListOrderDCAccessCodeArgs, opts ...pulumi.InvokeOption) (*ListOrderDCAccessCodeResult, error) {

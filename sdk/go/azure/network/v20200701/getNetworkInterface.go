@@ -54,10 +54,14 @@ type LookupNetworkInterfaceResult struct {
 	Name string `pulumi:"name"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// Type of Network Interface resource.
+	NicType *string `pulumi:"nicType"`
 	// Whether this is a primary network interface on a virtual machine.
 	Primary bool `pulumi:"primary"`
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Privatelinkservice of the network interface resource.
+	PrivateLinkService *PrivateLinkServiceResponse `pulumi:"privateLinkService"`
 	// The provisioning state of the network interface resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.

@@ -68,6 +68,34 @@ func (e ActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Address prefix type.
+type AddressPrefixType pulumi.String
+
+const (
+	AddressPrefixTypeIPPrefix   = AddressPrefixType("IPPrefix")
+	AddressPrefixTypeServiceTag = AddressPrefixType("ServiceTag")
+)
+
+func (AddressPrefixType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AddressPrefixType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddressPrefixType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AddressPrefixType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AddressPrefixType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Cookie based affinity.
 type ApplicationGatewayCookieBasedAffinity pulumi.String
 
@@ -812,6 +840,34 @@ func (e ConnectionMonitorTestConfigurationProtocol) ToStringPtrOutputWithContext
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Connectivity topology type.
+type ConnectivityTopology pulumi.String
+
+const (
+	ConnectivityTopologyHubAndSpokeTopology = ConnectivityTopology("HubAndSpokeTopology")
+	ConnectivityTopologyMeshTopology        = ConnectivityTopology("MeshTopology")
+)
+
+func (ConnectivityTopology) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ConnectivityTopology) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectivityTopology) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectivityTopology) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectivityTopology) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Test coverage for the endpoint.
 type CoverageLevel pulumi.String
 
@@ -956,6 +1012,36 @@ func (e DdosSettingsProtectionCoverage) ToStringPtrOutput() pulumi.StringPtrOutp
 }
 
 func (e DdosSettingsProtectionCoverage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Configuration Deployment Type.
+type DeploymentType pulumi.String
+
+const (
+	DeploymentTypeAdminPolicy  = DeploymentType("AdminPolicy")
+	DeploymentTypeUserPolicy   = DeploymentType("UserPolicy")
+	DeploymentTypeRouting      = DeploymentType("Routing")
+	DeploymentTypeConnectivity = DeploymentType("Connectivity")
+)
+
+func (DeploymentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DeploymentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -2080,6 +2166,34 @@ func (e FrontDoorRedirectType) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Group connectivity type.
+type GroupConnectivity pulumi.String
+
+const (
+	GroupConnectivityNone              = GroupConnectivity("None")
+	GroupConnectivityDirectlyConnected = GroupConnectivity("DirectlyConnected")
+)
+
+func (GroupConnectivity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e GroupConnectivity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GroupConnectivity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GroupConnectivity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GroupConnectivity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The HTTP method to use.
 type HTTPConfigurationMethod pulumi.String
 
@@ -2641,6 +2755,34 @@ func (e MatchProcessingBehavior) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Group member type.
+type MemberType pulumi.String
+
+const (
+	MemberTypeVirtualNetwork = MemberType("VirtualNetwork")
+	MemberTypeSubnet         = MemberType("Subnet")
+)
+
+func (MemberType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MemberType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemberType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemberType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 type MonitorProtocol pulumi.String
 
@@ -2694,6 +2836,65 @@ func (e NatGatewaySkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e NatGatewaySkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Migration phase of Network Interface resource.
+type NetworkInterfaceMigrationPhase pulumi.String
+
+const (
+	NetworkInterfaceMigrationPhaseNone      = NetworkInterfaceMigrationPhase("None")
+	NetworkInterfaceMigrationPhasePrepare   = NetworkInterfaceMigrationPhase("Prepare")
+	NetworkInterfaceMigrationPhaseCommit    = NetworkInterfaceMigrationPhase("Commit")
+	NetworkInterfaceMigrationPhaseAbort     = NetworkInterfaceMigrationPhase("Abort")
+	NetworkInterfaceMigrationPhaseCommitted = NetworkInterfaceMigrationPhase("Committed")
+)
+
+func (NetworkInterfaceMigrationPhase) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Type of Network Interface resource.
+type NetworkInterfaceNicType pulumi.String
+
+const (
+	NetworkInterfaceNicTypeStandard = NetworkInterfaceNicType("Standard")
+	NetworkInterfaceNicTypeElastic  = NetworkInterfaceNicType("Elastic")
+)
+
+func (NetworkInterfaceNicType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkInterfaceNicType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceNicType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceNicType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfaceNicType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -3232,6 +3433,37 @@ func (e PublicIPPrefixSkuTier) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Migration phase of Public IP Address.
+type PublicIpAddressMigrationPhase pulumi.String
+
+const (
+	PublicIpAddressMigrationPhaseNone      = PublicIpAddressMigrationPhase("None")
+	PublicIpAddressMigrationPhasePrepare   = PublicIpAddressMigrationPhase("Prepare")
+	PublicIpAddressMigrationPhaseCommit    = PublicIpAddressMigrationPhase("Commit")
+	PublicIpAddressMigrationPhaseAbort     = PublicIpAddressMigrationPhase("Abort")
+	PublicIpAddressMigrationPhaseCommitted = PublicIpAddressMigrationPhase("Committed")
+)
+
+func (PublicIpAddressMigrationPhase) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 type ResourceIdentityType pulumi.String
 
@@ -3451,6 +3683,123 @@ func (e RulesEngineOperator) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ScopeAccesses pulumi.String
+
+const (
+	ScopeAccessesSecurity     = ScopeAccesses("Security")
+	ScopeAccessesRouting      = ScopeAccesses("Routing")
+	ScopeAccessesConnectivity = ScopeAccesses("Connectivity")
+)
+
+func (ScopeAccesses) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ScopeAccesses) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeAccesses) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeAccesses) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScopeAccesses) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates the access allowed for this particular rule
+type SecurityConfigurationRuleAccess pulumi.String
+
+const (
+	SecurityConfigurationRuleAccessAllow       = SecurityConfigurationRuleAccess("Allow")
+	SecurityConfigurationRuleAccessDeny        = SecurityConfigurationRuleAccess("Deny")
+	SecurityConfigurationRuleAccessAlwaysAllow = SecurityConfigurationRuleAccess("AlwaysAllow")
+)
+
+func (SecurityConfigurationRuleAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+type SecurityConfigurationRuleDirection pulumi.String
+
+const (
+	SecurityConfigurationRuleDirectionInbound  = SecurityConfigurationRuleDirection("Inbound")
+	SecurityConfigurationRuleDirectionOutbound = SecurityConfigurationRuleDirection("Outbound")
+)
+
+func (SecurityConfigurationRuleDirection) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Network protocol this rule applies to.
+type SecurityConfigurationRuleProtocol pulumi.String
+
+const (
+	SecurityConfigurationRuleProtocolTcp  = SecurityConfigurationRuleProtocol("Tcp")
+	SecurityConfigurationRuleProtocolUdp  = SecurityConfigurationRuleProtocol("Udp")
+	SecurityConfigurationRuleProtocolIcmp = SecurityConfigurationRuleProtocol("Icmp")
+	SecurityConfigurationRuleProtocolEsp  = SecurityConfigurationRuleProtocol("Esp")
+	SecurityConfigurationRuleProtocolAny  = SecurityConfigurationRuleProtocol("Any")
+	SecurityConfigurationRuleProtocolAh   = SecurityConfigurationRuleProtocol("Ah")
+)
+
+func (SecurityConfigurationRuleProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityConfigurationRuleProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The security provider name.
 type SecurityProviderName pulumi.String
 
@@ -3565,6 +3914,34 @@ func (e SecurityRuleProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SecurityRuleProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Security Type.
+type SecurityType pulumi.String
+
+const (
+	SecurityTypeAdminPolicy = SecurityType("AdminPolicy")
+	SecurityTypeUserPolicy  = SecurityType("UserPolicy")
+)
+
+func (SecurityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SecurityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -4064,6 +4441,62 @@ func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutput() pulumi.StringPtrOutp
 }
 
 func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Enable or Disable apply network policies on private end point in the subnet.
+type VirtualNetworkPrivateEndpointNetworkPolicies pulumi.String
+
+const (
+	VirtualNetworkPrivateEndpointNetworkPoliciesEnabled  = VirtualNetworkPrivateEndpointNetworkPolicies("Enabled")
+	VirtualNetworkPrivateEndpointNetworkPoliciesDisabled = VirtualNetworkPrivateEndpointNetworkPolicies("Disabled")
+)
+
+func (VirtualNetworkPrivateEndpointNetworkPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Enable or Disable apply network policies on private link service in the subnet.
+type VirtualNetworkPrivateLinkServiceNetworkPolicies pulumi.String
+
+const (
+	VirtualNetworkPrivateLinkServiceNetworkPoliciesEnabled  = VirtualNetworkPrivateLinkServiceNetworkPolicies("Enabled")
+	VirtualNetworkPrivateLinkServiceNetworkPoliciesDisabled = VirtualNetworkPrivateLinkServiceNetworkPolicies("Disabled")
+)
+
+func (VirtualNetworkPrivateLinkServiceNetworkPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

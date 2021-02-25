@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// A collection of DeliveryAttributeMapping
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponseResult, Outputs.StaticDeliveryAttributeMappingResponseResult>> Value;
+        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> Value;
 
         [OutputConstructor]
-        private GetEventSubscriptionDeliveryAttributesResult(ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponseResult, Outputs.StaticDeliveryAttributeMappingResponseResult>> value)
+        private GetEventSubscriptionDeliveryAttributesResult(ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> value)
         {
             Value = value;
         }

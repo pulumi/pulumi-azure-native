@@ -1085,6 +1085,7 @@ class ReportConfigFilterResponse(dict):
                  dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  tag_key: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
+                 tag_value: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
@@ -1092,6 +1093,7 @@ class ReportConfigFilterResponse(dict):
         :param 'ReportConfigComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
         :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' tag_key: Has comparison expression for a tag key
+        :param 'ReportConfigComparisonExpressionResponseArgs' tag_value: Has comparison expression for a tag value
         :param 'ReportConfigComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -1102,6 +1104,8 @@ class ReportConfigFilterResponse(dict):
             pulumi.set(__self__, "or_", or_)
         if tag_key is not None:
             pulumi.set(__self__, "tag_key", tag_key)
+        if tag_value is not None:
+            pulumi.set(__self__, "tag_value", tag_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -1136,6 +1140,14 @@ class ReportConfigFilterResponse(dict):
         Has comparison expression for a tag key
         """
         return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> Optional['outputs.ReportConfigComparisonExpressionResponse']:
+        """
+        Has comparison expression for a tag value
+        """
+        return pulumi.get(self, "tag_value")
 
     @property
     @pulumi.getter

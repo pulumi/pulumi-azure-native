@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public Output<string?> SetupUri { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Partner Registration resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

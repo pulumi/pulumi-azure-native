@@ -1619,6 +1619,8 @@ func (o PermissionsResponseOutput) Storage() pulumi.StringArrayOutput {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponse struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag *string `pulumi:"etag"`
 	// Id of private endpoint connection.
 	Id *string `pulumi:"id"`
 	// Properties of the private endpoint object.
@@ -1642,6 +1644,8 @@ type PrivateEndpointConnectionItemResponseInput interface {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseArgs struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
 	// Id of private endpoint connection.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Properties of the private endpoint object.
@@ -1702,6 +1706,11 @@ func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnection
 
 func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnectionItemResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionItemResponseOutput {
 	return o
+}
+
+// Modified whenever there is a change in the state of private endpoint connection.
+func (o PrivateEndpointConnectionItemResponseOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // Id of private endpoint connection.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-02-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.
  */
@@ -99,6 +99,10 @@ export class AgentPool extends pulumi.CustomResource {
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
     public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     */
+    public readonly nodePublicIPPrefixID!: pulumi.Output<string | undefined>;
     /**
      * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
@@ -201,6 +205,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["minCount"] = args ? args.minCount : undefined;
             inputs["mode"] = args ? args.mode : undefined;
             inputs["nodeLabels"] = args ? args.nodeLabels : undefined;
+            inputs["nodePublicIPPrefixID"] = args ? args.nodePublicIPPrefixID : undefined;
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
@@ -238,6 +243,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["nodeImageVersion"] = undefined /*out*/;
             inputs["nodeLabels"] = undefined /*out*/;
+            inputs["nodePublicIPPrefixID"] = undefined /*out*/;
             inputs["nodeTaints"] = undefined /*out*/;
             inputs["orchestratorVersion"] = undefined /*out*/;
             inputs["osDiskSizeGB"] = undefined /*out*/;
@@ -259,7 +265,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:AgentPool" }, { type: "azure-nextgen:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:AgentPool" }, { type: "azure-nextgen:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }, { type: "azure-native:containerservice/v20210201:AgentPool" }, { type: "azure-nextgen:containerservice/v20210201:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, inputs, opts);
     }
@@ -325,6 +331,10 @@ export interface AgentPoolArgs {
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
     readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     */
+    readonly nodePublicIPPrefixID?: pulumi.Input<string>;
     /**
      * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */

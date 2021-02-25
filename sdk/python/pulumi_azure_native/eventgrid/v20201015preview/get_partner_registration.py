@@ -211,7 +211,7 @@ class GetPartnerRegistrationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        The system metadata relating to Partner Registration resource.
         """
         return pulumi.get(self, "system_data")
 

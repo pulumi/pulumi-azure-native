@@ -15,6 +15,7 @@ from .get_cluster import *
 from .get_managed_cluster import *
 from .get_node_type import *
 from .get_service import *
+from .list_list_upgradable_version_post import *
 from .managed_cluster import *
 from .node_type import *
 from .service import *
@@ -33,6 +34,7 @@ from . import (
     v20191101preview,
     v20200101preview,
     v20200301,
+    v20201201preview,
 )
 
 def _register_module():

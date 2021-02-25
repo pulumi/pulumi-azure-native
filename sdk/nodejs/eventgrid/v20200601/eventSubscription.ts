@@ -72,6 +72,10 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.v20200601.RetryPolicyResponse | undefined>;
     /**
+     * The system metadata relating to Event Subscription resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20200601.SystemDataResponse>;
+    /**
      * Name of the topic of the event subscription.
      */
     public /*out*/ readonly topic!: pulumi.Output<string>;
@@ -96,7 +100,7 @@ export class EventSubscription extends pulumi.CustomResource {
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
             inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) || "EventGridSchema";
             inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["filter"] = args ? args.filter : undefined;
@@ -105,6 +109,7 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -117,6 +122,7 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["retryPolicy"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

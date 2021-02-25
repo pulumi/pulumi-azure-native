@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Managed cluster.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.ManagedClusterAutoUpgradeProfileResponse? AutoUpgradeProfile;
         /// <summary>
+        /// FQDN for the master pool which used by proxy config.
+        /// </summary>
+        public readonly string AzurePortalFQDN;
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         public readonly string? DiskEncryptionSetID;
@@ -87,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// FQDN for the master pool.
         /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// FQDN subdomain specified when creating private cluster with custom private dns zone.
+        /// </summary>
+        public readonly string? FqdnSubdomain;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -178,6 +186,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             Outputs.ManagedClusterAutoUpgradeProfileResponse? autoUpgradeProfile,
 
+            string azurePortalFQDN,
+
             string? diskEncryptionSetID,
 
             string? dnsPrefix,
@@ -187,6 +197,8 @@ namespace Pulumi.AzureNative.ContainerService
             bool? enableRBAC,
 
             string fqdn,
+
+            string? fqdnSubdomain,
 
             string id,
 
@@ -232,11 +244,13 @@ namespace Pulumi.AzureNative.ContainerService
             ApiServerAccessProfile = apiServerAccessProfile;
             AutoScalerProfile = autoScalerProfile;
             AutoUpgradeProfile = autoUpgradeProfile;
+            AzurePortalFQDN = azurePortalFQDN;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;
             EnableRBAC = enableRBAC;
             Fqdn = fqdn;
+            FqdnSubdomain = fqdnSubdomain;
             Id = id;
             Identity = identity;
             IdentityProfile = identityProfile;

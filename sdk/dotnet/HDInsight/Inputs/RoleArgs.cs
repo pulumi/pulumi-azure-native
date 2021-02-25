@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
 
         public RoleArgs()
         {
+            EncryptDataDisks = false;
         }
     }
 }

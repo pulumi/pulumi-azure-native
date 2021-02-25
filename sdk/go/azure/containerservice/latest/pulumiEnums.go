@@ -359,7 +359,8 @@ func (e Expander) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type KubeletDiskType pulumi.String
 
 const (
-	KubeletDiskTypeOS = KubeletDiskType("OS")
+	KubeletDiskTypeOS        = KubeletDiskType("OS")
+	KubeletDiskTypeTemporary = KubeletDiskType("Temporary")
 )
 
 func (KubeletDiskType) ElementType() reflect.Type {

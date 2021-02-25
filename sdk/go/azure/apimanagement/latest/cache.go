@@ -83,6 +83,12 @@ func NewCache(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Cache"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:Cache"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Cache"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cache

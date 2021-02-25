@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
@@ -109,6 +109,10 @@ export interface GetAgentPoolResult {
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
     readonly nodeLabels?: {[key: string]: string};
+    /**
+     * Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+     */
+    readonly nodePublicIPPrefixID?: string;
     /**
      * Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */

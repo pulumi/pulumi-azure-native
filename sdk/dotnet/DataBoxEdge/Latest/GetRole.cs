@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// Compute role.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge/latest:getRole", args ?? new GetRoleArgs(), options.WithVersion());

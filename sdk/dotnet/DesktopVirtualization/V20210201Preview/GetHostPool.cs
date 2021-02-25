@@ -107,10 +107,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         public readonly string? SsoClientSecretKeyVaultPath;
         /// <summary>
-        /// Path to keyvault containing ssoContext secret.
-        /// </summary>
-        public readonly string? SsoContext;
-        /// <summary>
         /// The type of single sign on Secret Type.
         /// </summary>
         public readonly string? SsoSecretType;
@@ -173,8 +169,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 
             string? ssoClientSecretKeyVaultPath,
 
-            string? ssoContext,
-
             string? ssoSecretType,
 
             string? ssoadfsAuthority,
@@ -205,7 +199,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
             Ring = ring;
             SsoClientId = ssoClientId;
             SsoClientSecretKeyVaultPath = ssoClientSecretKeyVaultPath;
-            SsoContext = ssoContext;
             SsoSecretType = ssoSecretType;
             SsoadfsAuthority = ssoadfsAuthority;
             StartVMOnConnect = startVMOnConnect;

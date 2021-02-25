@@ -41,6 +41,7 @@ namespace Pulumi.AzureNative.DataBox.Latest.Inputs
 
         public KeyEncryptionKeyArgs()
         {
+            KekType = "MicrosoftManaged";
         }
     }
 }

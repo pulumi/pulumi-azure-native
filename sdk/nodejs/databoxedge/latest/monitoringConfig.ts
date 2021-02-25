@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric setting details for the role
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:MonitoringConfig'.
  */
@@ -91,7 +91,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-nextgen:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-native:databoxedge/v20201201:MonitoringConfig" }, { type: "azure-nextgen:databoxedge/v20201201:MonitoringConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoringConfig.__pulumiType, name, inputs, opts);
     }

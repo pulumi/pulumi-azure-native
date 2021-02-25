@@ -36,6 +36,7 @@ class AgentPool(pulumi.CustomResource):
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -58,7 +59,7 @@ class AgentPool(pulumi.CustomResource):
                  __opts__=None):
         """
         Agent Pool.
-        Latest API Version: 2020-12-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,6 +77,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
         :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: AgentPoolMode represents mode of an agent pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
@@ -126,6 +128,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['min_count'] = min_count
             __props__['mode'] = mode
             __props__['node_labels'] = node_labels
+            __props__['node_public_ip_prefix_id'] = node_public_ip_prefix_id
             __props__['node_taints'] = node_taints
             __props__['orchestrator_version'] = orchestrator_version
             __props__['os_disk_size_gb'] = os_disk_size_gb
@@ -151,7 +154,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_image_version'] = None
             __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210201:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:containerservice/latest:AgentPool',
@@ -296,6 +299,14 @@ class AgentPool(pulumi.CustomResource):
         Agent pool node labels to be persisted across all nodes in agent pool.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIPPrefixID")
+    def node_public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="nodeTaints")

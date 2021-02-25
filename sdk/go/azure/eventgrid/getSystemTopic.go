@@ -8,7 +8,7 @@ import (
 )
 
 // EventGrid System Topic.
-// API Version: 2020-04-01-preview.
+// API Version: 2020-10-15-preview.
 func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
 	var rv LookupSystemTopicResult
 	err := ctx.Invoke("azure-native:eventgrid:getSystemTopic", args, &rv, opts...)
@@ -29,20 +29,24 @@ type LookupSystemTopicArgs struct {
 type LookupSystemTopicResult struct {
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
+	// Identity information for the resource.
+	Identity *IdentityInfoResponse `pulumi:"identity"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Metric resource id for the system topic.
 	MetricResourceId string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the system topic.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// TopicType for the system topic.
 	TopicType *string `pulumi:"topicType"`
-	// Type of the resource
+	// Type of the resource.
 	Type string `pulumi:"type"`
 }

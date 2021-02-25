@@ -39,7 +39,7 @@ class Share(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class Share(pulumi.CustomResource):
             __props__['share_mappings'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
             'azure-native:databoxedge/latest:Share',

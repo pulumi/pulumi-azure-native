@@ -1947,6 +1947,65 @@ func (e NatGatewaySkuName) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Migration phase of Network Interface resource.
+type NetworkInterfaceMigrationPhase pulumi.String
+
+const (
+	NetworkInterfaceMigrationPhaseNone      = NetworkInterfaceMigrationPhase("None")
+	NetworkInterfaceMigrationPhasePrepare   = NetworkInterfaceMigrationPhase("Prepare")
+	NetworkInterfaceMigrationPhaseCommit    = NetworkInterfaceMigrationPhase("Commit")
+	NetworkInterfaceMigrationPhaseAbort     = NetworkInterfaceMigrationPhase("Abort")
+	NetworkInterfaceMigrationPhaseCommitted = NetworkInterfaceMigrationPhase("Committed")
+)
+
+func (NetworkInterfaceMigrationPhase) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfaceMigrationPhase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Type of Network Interface resource.
+type NetworkInterfaceNicType pulumi.String
+
+const (
+	NetworkInterfaceNicTypeStandard = NetworkInterfaceNicType("Standard")
+	NetworkInterfaceNicTypeElastic  = NetworkInterfaceNicType("Elastic")
+)
+
+func (NetworkInterfaceNicType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkInterfaceNicType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceNicType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfaceNicType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfaceNicType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Connection monitor output destination type. Currently, only "Workspace" is supported.
 type OutputType pulumi.String
 
@@ -2298,6 +2357,37 @@ func (e PublicIPPrefixSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PublicIPPrefixSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Migration phase of Public IP Address.
+type PublicIpAddressMigrationPhase pulumi.String
+
+const (
+	PublicIpAddressMigrationPhaseNone      = PublicIpAddressMigrationPhase("None")
+	PublicIpAddressMigrationPhasePrepare   = PublicIpAddressMigrationPhase("Prepare")
+	PublicIpAddressMigrationPhaseCommit    = PublicIpAddressMigrationPhase("Commit")
+	PublicIpAddressMigrationPhaseAbort     = PublicIpAddressMigrationPhase("Abort")
+	PublicIpAddressMigrationPhaseCommitted = PublicIpAddressMigrationPhase("Committed")
+)
+
+func (PublicIpAddressMigrationPhase) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PublicIpAddressMigrationPhase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -2793,6 +2883,62 @@ func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutput() pulumi.StringPtrOutp
 }
 
 func (e VirtualNetworkPeeringStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Enable or Disable apply network policies on private end point in the subnet.
+type VirtualNetworkPrivateEndpointNetworkPolicies pulumi.String
+
+const (
+	VirtualNetworkPrivateEndpointNetworkPoliciesEnabled  = VirtualNetworkPrivateEndpointNetworkPolicies("Enabled")
+	VirtualNetworkPrivateEndpointNetworkPoliciesDisabled = VirtualNetworkPrivateEndpointNetworkPolicies("Disabled")
+)
+
+func (VirtualNetworkPrivateEndpointNetworkPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VirtualNetworkPrivateEndpointNetworkPolicies) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Enable or Disable apply network policies on private link service in the subnet.
+type VirtualNetworkPrivateLinkServiceNetworkPolicies pulumi.String
+
+const (
+	VirtualNetworkPrivateLinkServiceNetworkPoliciesEnabled  = VirtualNetworkPrivateLinkServiceNetworkPolicies("Enabled")
+	VirtualNetworkPrivateLinkServiceNetworkPoliciesDisabled = VirtualNetworkPrivateLinkServiceNetworkPolicies("Disabled")
+)
+
+func (VirtualNetworkPrivateLinkServiceNetworkPolicies) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VirtualNetworkPrivateLinkServiceNetworkPolicies) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

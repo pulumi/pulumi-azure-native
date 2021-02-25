@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     if (!opts) {

@@ -69,6 +69,12 @@ func NewDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20201001preview:Database"),
 		},
+		{
+			Type: pulumi.String("azure-native:cache/v20210201preview:Database"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:cache/v20210201preview:Database"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Database

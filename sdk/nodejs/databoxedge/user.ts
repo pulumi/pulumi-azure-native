@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -59,7 +59,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Type of the user.
      */
-    public readonly userType!: pulumi.Output<string | undefined>;
+    public readonly userType!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -77,6 +77,9 @@ export class User extends pulumi.CustomResource {
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.userType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'userType'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
@@ -97,7 +100,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:User" }, { type: "azure-nextgen:databoxedge/latest:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-nextgen:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-nextgen:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-nextgen:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-nextgen:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-nextgen:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-nextgen:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-nextgen:databoxedge/v20201201:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, inputs, opts);
     }
@@ -126,5 +129,5 @@ export interface UserArgs {
     /**
      * Type of the user.
      */
-    readonly userType?: pulumi.Input<string | enums.databoxedge.UserType>;
+    readonly userType: pulumi.Input<string | enums.databoxedge.UserType>;
 }

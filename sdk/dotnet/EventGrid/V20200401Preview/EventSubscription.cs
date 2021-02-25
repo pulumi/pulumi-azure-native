@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -86,13 +86,19 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         public Output<Outputs.RetryPolicyResponse?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to Event Subscription resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
         [Output("topic")]
         public Output<string> Topic { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -249,6 +255,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 
         public EventSubscriptionArgs()
         {
+            EventDeliverySchema = "EventGridSchema";
         }
     }
 }

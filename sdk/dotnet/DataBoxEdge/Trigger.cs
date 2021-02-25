@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Trigger details.
-    /// API Version: 2020-09-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Trigger")]
     public partial class Trigger : Pulumi.CustomResource
@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Trigger"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

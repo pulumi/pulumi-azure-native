@@ -50,7 +50,7 @@ export interface GetSystemTopicResult {
      */
     readonly metricResourceId: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -62,6 +62,10 @@ export interface GetSystemTopicResult {
      */
     readonly source?: string;
     /**
+     * The system metadata relating to System Topic resource.
+     */
+    readonly systemData: outputs.eventgrid.v20200401preview.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};
@@ -70,7 +74,7 @@ export interface GetSystemTopicResult {
      */
     readonly topicType?: string;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
 }

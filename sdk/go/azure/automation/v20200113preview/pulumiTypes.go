@@ -1957,6 +1957,8 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.Stri
 
 // The encryption settings for automation account
 type EncryptionProperties struct {
+	// User identity used for CMK.
+	Identity *EncryptionPropertiesIdentity `pulumi:"identity"`
 	// Encryption Key Source
 	KeySource *string `pulumi:"keySource"`
 	// Key vault properties.
@@ -1976,6 +1978,8 @@ type EncryptionPropertiesInput interface {
 
 // The encryption settings for automation account
 type EncryptionPropertiesArgs struct {
+	// User identity used for CMK.
+	Identity EncryptionPropertiesIdentityPtrInput `pulumi:"identity"`
 	// Encryption Key Source
 	KeySource *EncryptionKeySourceType `pulumi:"keySource"`
 	// Key vault properties.
@@ -2060,6 +2064,11 @@ func (o EncryptionPropertiesOutput) ToEncryptionPropertiesPtrOutputWithContext(c
 	}).(EncryptionPropertiesPtrOutput)
 }
 
+// User identity used for CMK.
+func (o EncryptionPropertiesOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionProperties) *EncryptionPropertiesIdentity { return v.Identity }).(EncryptionPropertiesIdentityPtrOutput)
+}
+
 // Encryption Key Source
 func (o EncryptionPropertiesOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionProperties) *string { return v.KeySource }).(pulumi.StringPtrOutput)
@@ -2088,6 +2097,16 @@ func (o EncryptionPropertiesPtrOutput) Elem() EncryptionPropertiesOutput {
 	return o.ApplyT(func(v *EncryptionProperties) EncryptionProperties { return *v }).(EncryptionPropertiesOutput)
 }
 
+// User identity used for CMK.
+func (o EncryptionPropertiesPtrOutput) Identity() EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyT(func(v *EncryptionProperties) *EncryptionPropertiesIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionPropertiesIdentityPtrOutput)
+}
+
 // Encryption Key Source
 func (o EncryptionPropertiesPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionProperties) *string {
@@ -2108,8 +2127,144 @@ func (o EncryptionPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPt
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
+// User identity used for CMK.
+type EncryptionPropertiesIdentity struct {
+	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentity interface{} `pulumi:"userAssignedIdentity"`
+}
+
+// EncryptionPropertiesIdentityInput is an input type that accepts EncryptionPropertiesIdentityArgs and EncryptionPropertiesIdentityOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesIdentityInput` via:
+//
+//          EncryptionPropertiesIdentityArgs{...}
+type EncryptionPropertiesIdentityInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput
+	ToEncryptionPropertiesIdentityOutputWithContext(context.Context) EncryptionPropertiesIdentityOutput
+}
+
+// User identity used for CMK.
+type EncryptionPropertiesIdentityArgs struct {
+	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentity pulumi.Input `pulumi:"userAssignedIdentity"`
+}
+
+func (EncryptionPropertiesIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput {
+	return i.ToEncryptionPropertiesIdentityOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityOutput)
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return i.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesIdentityArgs) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityOutput).ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesIdentityPtrInput is an input type that accepts EncryptionPropertiesIdentityArgs, EncryptionPropertiesIdentityPtr and EncryptionPropertiesIdentityPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesIdentityPtrInput` via:
+//
+//          EncryptionPropertiesIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput
+	ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Context) EncryptionPropertiesIdentityPtrOutput
+}
+
+type encryptionPropertiesIdentityPtrType EncryptionPropertiesIdentityArgs
+
+func EncryptionPropertiesIdentityPtr(v *EncryptionPropertiesIdentityArgs) EncryptionPropertiesIdentityPtrInput {
+	return (*encryptionPropertiesIdentityPtrType)(v)
+}
+
+func (*encryptionPropertiesIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesIdentityPtrType) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return i.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesIdentityPtrType) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesIdentityPtrOutput)
+}
+
+// User identity used for CMK.
+type EncryptionPropertiesIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityOutput() EncryptionPropertiesIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return o.ToEncryptionPropertiesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesIdentityOutput) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesIdentity) *EncryptionPropertiesIdentity {
+		return &v
+	}).(EncryptionPropertiesIdentityPtrOutput)
+}
+
+// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o EncryptionPropertiesIdentityOutput) UserAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v EncryptionPropertiesIdentity) interface{} { return v.UserAssignedIdentity }).(pulumi.AnyOutput)
+}
+
+type EncryptionPropertiesIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) ToEncryptionPropertiesIdentityPtrOutput() EncryptionPropertiesIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) ToEncryptionPropertiesIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesIdentityPtrOutput) Elem() EncryptionPropertiesIdentityOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesIdentity) EncryptionPropertiesIdentity { return *v }).(EncryptionPropertiesIdentityOutput)
+}
+
+// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o EncryptionPropertiesIdentityPtrOutput) UserAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesIdentity) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.AnyOutput)
+}
+
 // The encryption settings for automation account
 type EncryptionPropertiesResponse struct {
+	// User identity used for CMK.
+	Identity *EncryptionPropertiesResponseIdentity `pulumi:"identity"`
 	// Encryption Key Source
 	KeySource *string `pulumi:"keySource"`
 	// Key vault properties.
@@ -2129,6 +2284,8 @@ type EncryptionPropertiesResponseInput interface {
 
 // The encryption settings for automation account
 type EncryptionPropertiesResponseArgs struct {
+	// User identity used for CMK.
+	Identity EncryptionPropertiesResponseIdentityPtrInput `pulumi:"identity"`
 	// Encryption Key Source
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// Key vault properties.
@@ -2213,6 +2370,11 @@ func (o EncryptionPropertiesResponseOutput) ToEncryptionPropertiesResponsePtrOut
 	}).(EncryptionPropertiesResponsePtrOutput)
 }
 
+// User identity used for CMK.
+func (o EncryptionPropertiesResponseOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity { return v.Identity }).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
 // Encryption Key Source
 func (o EncryptionPropertiesResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
@@ -2241,6 +2403,16 @@ func (o EncryptionPropertiesResponsePtrOutput) Elem() EncryptionPropertiesRespon
 	return o.ApplyT(func(v *EncryptionPropertiesResponse) EncryptionPropertiesResponse { return *v }).(EncryptionPropertiesResponseOutput)
 }
 
+// User identity used for CMK.
+func (o EncryptionPropertiesResponsePtrOutput) Identity() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponse) *EncryptionPropertiesResponseIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
 // Encryption Key Source
 func (o EncryptionPropertiesResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesResponse) *string {
@@ -2259,6 +2431,140 @@ func (o EncryptionPropertiesResponsePtrOutput) KeyVaultProperties() KeyVaultProp
 		}
 		return v.KeyVaultProperties
 	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// User identity used for CMK.
+type EncryptionPropertiesResponseIdentity struct {
+	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentity interface{} `pulumi:"userAssignedIdentity"`
+}
+
+// EncryptionPropertiesResponseIdentityInput is an input type that accepts EncryptionPropertiesResponseIdentityArgs and EncryptionPropertiesResponseIdentityOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesResponseIdentityInput` via:
+//
+//          EncryptionPropertiesResponseIdentityArgs{...}
+type EncryptionPropertiesResponseIdentityInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesResponseIdentityOutput() EncryptionPropertiesResponseIdentityOutput
+	ToEncryptionPropertiesResponseIdentityOutputWithContext(context.Context) EncryptionPropertiesResponseIdentityOutput
+}
+
+// User identity used for CMK.
+type EncryptionPropertiesResponseIdentityArgs struct {
+	// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentity pulumi.Input `pulumi:"userAssignedIdentity"`
+}
+
+func (EncryptionPropertiesResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesResponseIdentityArgs) ToEncryptionPropertiesResponseIdentityOutput() EncryptionPropertiesResponseIdentityOutput {
+	return i.ToEncryptionPropertiesResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesResponseIdentityArgs) ToEncryptionPropertiesResponseIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesResponseIdentityOutput)
+}
+
+func (i EncryptionPropertiesResponseIdentityArgs) ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput {
+	return i.ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesResponseIdentityArgs) ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesResponseIdentityOutput).ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesResponseIdentityPtrInput is an input type that accepts EncryptionPropertiesResponseIdentityArgs, EncryptionPropertiesResponseIdentityPtr and EncryptionPropertiesResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesResponseIdentityPtrInput` via:
+//
+//          EncryptionPropertiesResponseIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput
+	ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(context.Context) EncryptionPropertiesResponseIdentityPtrOutput
+}
+
+type encryptionPropertiesResponseIdentityPtrType EncryptionPropertiesResponseIdentityArgs
+
+func EncryptionPropertiesResponseIdentityPtr(v *EncryptionPropertiesResponseIdentityArgs) EncryptionPropertiesResponseIdentityPtrInput {
+	return (*encryptionPropertiesResponseIdentityPtrType)(v)
+}
+
+func (*encryptionPropertiesResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesResponseIdentityPtrType) ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput {
+	return i.ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesResponseIdentityPtrType) ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
+// User identity used for CMK.
+type EncryptionPropertiesResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityOutput() EncryptionPropertiesResponseIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesResponseIdentityOutput) ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponseIdentity) *EncryptionPropertiesResponseIdentity {
+		return &v
+	}).(EncryptionPropertiesResponseIdentityPtrOutput)
+}
+
+// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o EncryptionPropertiesResponseIdentityOutput) UserAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v EncryptionPropertiesResponseIdentity) interface{} { return v.UserAssignedIdentity }).(pulumi.AnyOutput)
+}
+
+type EncryptionPropertiesResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesResponseIdentity)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) ToEncryptionPropertiesResponseIdentityPtrOutput() EncryptionPropertiesResponseIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) ToEncryptionPropertiesResponseIdentityPtrOutputWithContext(ctx context.Context) EncryptionPropertiesResponseIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesResponseIdentityPtrOutput) Elem() EncryptionPropertiesResponseIdentityOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) EncryptionPropertiesResponseIdentity { return *v }).(EncryptionPropertiesResponseIdentityOutput)
+}
+
+// The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o EncryptionPropertiesResponseIdentityPtrOutput) UserAssignedIdentity() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesResponseIdentity) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.AnyOutput)
 }
 
 // Definition of the connection fields.
@@ -2501,6 +2807,8 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2518,6 +2826,8 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type *ResourceIdentityType `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2603,6 +2913,11 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -2631,6 +2946,16 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *Identity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -2639,6 +2964,8 @@ type IdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type.
 	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -2660,6 +2987,8 @@ type IdentityResponseArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2755,6 +3084,13 @@ func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponsePtrOutput) ElementType() reflect.Type {
@@ -2801,6 +3137,122 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type IdentityResponseUserAssignedIdentities struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// IdentityResponseUserAssignedIdentitiesInput is an input type that accepts IdentityResponseUserAssignedIdentitiesArgs and IdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesInput` via:
+//
+//          IdentityResponseUserAssignedIdentitiesArgs{...}
+type IdentityResponseUserAssignedIdentitiesInput interface {
+	pulumi.Input
+
+	ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesOutput
+}
+
+type IdentityResponseUserAssignedIdentitiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (IdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// IdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts IdentityResponseUserAssignedIdentitiesMap and IdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesMapInput` via:
+//
+//          IdentityResponseUserAssignedIdentitiesMap{ "key": IdentityResponseUserAssignedIdentitiesArgs{...} }
+type IdentityResponseUserAssignedIdentitiesMapInput interface {
+	pulumi.Input
+
+	ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesMapOutput
+}
+
+type IdentityResponseUserAssignedIdentitiesMap map[string]IdentityResponseUserAssignedIdentitiesInput
+
+func (IdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesMapOutput)
+}
+
+type IdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type IdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o
+}
+
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Automation key which is used to register a DSC Node
@@ -5231,8 +5683,12 @@ func init() {
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponseIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionMapOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseOutput{})
@@ -5241,6 +5697,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(KeyResponseOutput{})
 	pulumi.RegisterOutputType(KeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})

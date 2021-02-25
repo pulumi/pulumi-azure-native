@@ -12,9 +12,11 @@ export * from "./getDataPool";
 
 // Export sub-modules:
 import * as v20200701preview from "./v20200701preview";
+import * as v20210201preview from "./v20210201preview";
 
 export {
     v20200701preview,
+    v20210201preview,
 };
 
 // Import resources to register:

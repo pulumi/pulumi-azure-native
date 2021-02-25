@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Trigger" }, { type: "azure-nextgen:databoxedge/latest:Trigger" }, { type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-nextgen:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190701:Trigger" }, { type: "azure-nextgen:databoxedge/v20190701:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-nextgen:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901preview:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/latest:Trigger" }, { type: "azure-nextgen:databoxedge/latest:Trigger" }, { type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-nextgen:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190701:Trigger" }, { type: "azure-nextgen:databoxedge/v20190701:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-nextgen:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-nextgen:databoxedge/v20200901preview:Trigger" }, { type: "azure-native:databoxedge/v20201201:Trigger" }, { type: "azure-nextgen:databoxedge/v20201201:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, inputs, opts);
     }

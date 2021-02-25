@@ -49,6 +49,8 @@ type LookupEventSubscriptionResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
 	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	// The system metadata relating to Event Subscription resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Name of the topic of the event subscription.
 	Topic string `pulumi:"topic"`
 	// Type of the resource.

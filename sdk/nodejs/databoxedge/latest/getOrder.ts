@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The order details.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getOrder'. */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {

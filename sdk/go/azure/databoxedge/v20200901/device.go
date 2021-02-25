@@ -120,6 +120,12 @@ func NewDevice(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Device"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20201201:Device"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Device"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Device

@@ -37,6 +37,7 @@ from .get_api_issue import *
 from .get_api_issue_attachment import *
 from .get_api_issue_comment import *
 from .get_api_management_service import *
+from .get_api_management_service_domain_ownership_identifier import *
 from .get_api_management_service_sso_token import *
 from .get_api_operation import *
 from .get_api_operation_policy import *
@@ -115,6 +116,7 @@ from . import (
     v20191201,
     v20191201preview,
     v20200601preview,
+    v20201201,
 )
 
 def _register_module():

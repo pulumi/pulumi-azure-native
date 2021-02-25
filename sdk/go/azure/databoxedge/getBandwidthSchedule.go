@@ -8,7 +8,7 @@ import (
 )
 
 // The bandwidth schedule details.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupBandwidthSchedule(ctx *pulumi.Context, args *LookupBandwidthScheduleArgs, opts ...pulumi.InvokeOption) (*LookupBandwidthScheduleResult, error) {
 	var rv LookupBandwidthScheduleResult
 	err := ctx.Invoke("azure-native:databoxedge:getBandwidthSchedule", args, &rv, opts...)

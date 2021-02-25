@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
         /// An array of service endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private SubnetResponse(
@@ -140,7 +144,9 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
 
             ImmutableArray<Outputs.ServiceEndpointPolicyResponse> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
+
+            string? type)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.Network.V20200701.Outputs
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
+            Type = type;
         }
     }
 }

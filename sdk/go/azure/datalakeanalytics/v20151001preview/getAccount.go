@@ -43,14 +43,14 @@ type LookupAccountResult struct {
 	// The full CName endpoint for this account.
 	Endpoint string `pulumi:"endpoint"`
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
+	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this account.
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
-	FirewallState string `pulumi:"firewallState"`
+	FirewallState *string `pulumi:"firewallState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
-	// The resource identifer.
+	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The account last modified time.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
@@ -59,7 +59,7 @@ type LookupAccountResult struct {
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
+	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount *int `pulumi:"maxJobCount"`
 	// The minimum supported priority per job for this account.
@@ -67,9 +67,11 @@ type LookupAccountResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The commitment tier for the next month.
-	NewTier string `pulumi:"newTier"`
+	NewTier *string `pulumi:"newTier"`
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The list of Data Lake Store accounts associated with this account.
+	PublicDataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"publicDataLakeStoreAccounts"`
 	// The number of days that job metadata is retained.
 	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
 	// The state of the Data Lake Analytics account.

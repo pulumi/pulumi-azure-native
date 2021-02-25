@@ -71,6 +71,8 @@ __all__ = [
     'LoadDistribution',
     'ManagedRuleEnabledState',
     'NatGatewaySkuName',
+    'NetworkInterfaceMigrationPhase',
+    'NetworkInterfaceNicType',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
     'OwaspCrsExclusionEntrySelectorMatchOperator',
@@ -83,6 +85,7 @@ __all__ = [
     'PublicIPAddressSkuTier',
     'PublicIPPrefixSkuName',
     'PublicIPPrefixSkuTier',
+    'PublicIpAddressMigrationPhase',
     'ResourceIdentityType',
     'RouteFilterRuleType',
     'RouteNextHopType',
@@ -99,6 +102,8 @@ __all__ = [
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
     'VirtualNetworkPeeringState',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
     'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
@@ -734,6 +739,25 @@ class NatGatewaySkuName(str, Enum):
     STANDARD = "Standard"
 
 
+class NetworkInterfaceMigrationPhase(str, Enum):
+    """
+    Migration phase of Network Interface resource.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
+
+
+class NetworkInterfaceNicType(str, Enum):
+    """
+    Type of Network Interface resource.
+    """
+    STANDARD = "Standard"
+    ELASTIC = "Elastic"
+
+
 class OutputType(str, Enum):
     """
     Connection monitor output destination type. Currently, only "Workspace" is supported.
@@ -846,6 +870,17 @@ class PublicIPPrefixSkuTier(str, Enum):
     """
     REGIONAL = "Regional"
     GLOBAL_ = "Global"
+
+
+class PublicIpAddressMigrationPhase(str, Enum):
+    """
+    Migration phase of Public IP Address.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
 
 
 class ResourceIdentityType(str, Enum):
@@ -1021,6 +1056,22 @@ class VirtualNetworkPeeringState(str, Enum):
     INITIATED = "Initiated"
     CONNECTED = "Connected"
     DISCONNECTED = "Disconnected"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class VpnAuthenticationType(str, Enum):

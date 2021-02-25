@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Partner Namespace resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

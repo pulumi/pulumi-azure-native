@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,7 +44,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -55,6 +56,10 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to System Topic resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.v20200401preview.SystemDataResponse>;
+    /**
      * Tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -63,7 +68,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly topicType!: pulumi.Output<string | undefined>;
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -90,6 +95,7 @@ export class SystemTopic extends pulumi.CustomResource {
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
@@ -97,6 +103,7 @@ export class SystemTopic extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["topicType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

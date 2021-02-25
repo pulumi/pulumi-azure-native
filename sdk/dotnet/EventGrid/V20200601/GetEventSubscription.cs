@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         /// </summary>
         public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
+        /// The system metadata relating to Event Subscription resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
         public readonly string Topic;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
 
             Outputs.RetryPolicyResponse? retryPolicy,
 
+            Outputs.SystemDataResponse systemData,
+
             string topic,
 
             string type)
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
             Name = name;
             ProvisioningState = provisioningState;
             RetryPolicy = retryPolicy;
+            SystemData = systemData;
             Topic = topic;
             Type = type;
         }

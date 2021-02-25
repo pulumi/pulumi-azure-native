@@ -1248,9 +1248,20 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		return nil, nil
 	}
 
+	// TODO: Remove this switch if https://github.com/Azure/azure-rest-api-specs/issues/13167 is fixed
+	var defaultValue interface{}
+	switch typeSpec.Type {
+	case "object":
+		if schema.Default != nil {
+			fmt.Printf("Default value '%v' can't be specified for an object property %q\n", schema.Default, name)
+		}
+	default:
+		defaultValue = schema.Default
+	}
+
 	propertySpec := pschema.PropertySpec{
 		Description: description,
-		Default:     schema.Default,
+		Default:     defaultValue,
 		TypeSpec:    *typeSpec,
 	}
 

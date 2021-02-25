@@ -52,7 +52,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly hostPoolReferences!: pulumi.Output<outputs.desktopvirtualization.v20210201preview.ScalingHostPoolReferenceResponse[] | undefined>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     public readonly hostPoolType!: pulumi.Output<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface ScalingPlanArgs {
      */
     readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210201preview.ScalingHostPoolReference>[]>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20210201preview.HostPoolType>;
     /**

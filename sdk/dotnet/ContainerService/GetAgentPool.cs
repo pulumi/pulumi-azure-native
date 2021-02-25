@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Agent Pool.
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
@@ -113,6 +113,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Agent pool node labels to be persisted across all nodes in agent pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
+        /// <summary>
+        /// Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        /// </summary>
+        public readonly string? NodePublicIPPrefixID;
         /// <summary>
         /// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         /// </summary>
@@ -216,6 +220,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             ImmutableDictionary<string, string>? nodeLabels,
 
+            string? nodePublicIPPrefixID,
+
             ImmutableArray<string> nodeTaints,
 
             string? orchestratorVersion,
@@ -266,6 +272,7 @@ namespace Pulumi.AzureNative.ContainerService
             Name = name;
             NodeImageVersion = nodeImageVersion;
             NodeLabels = nodeLabels;
+            NodePublicIPPrefixID = nodePublicIPPrefixID;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGB = osDiskSizeGB;

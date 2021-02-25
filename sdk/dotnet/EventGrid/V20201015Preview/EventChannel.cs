@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public Output<Outputs.EventChannelSourceResponse?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to Event Channel resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

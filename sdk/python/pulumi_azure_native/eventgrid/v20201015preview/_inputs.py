@@ -80,8 +80,12 @@ class AzureFunctionEventSubscriptionDestinationArgs:
         pulumi.set(__self__, "endpoint_type", 'AzureFunction')
         if delivery_attribute_mappings is not None:
             pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
         if resource_id is not None:
@@ -1807,8 +1811,12 @@ class RetryPolicyArgs:
         :param pulumi.Input[int] event_time_to_live_in_minutes: Time To Live (in minutes) for events.
         :param pulumi.Input[int] max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
+        if event_time_to_live_in_minutes is None:
+            event_time_to_live_in_minutes = 1440
         if event_time_to_live_in_minutes is not None:
             pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
+        if max_delivery_attempts is None:
+            max_delivery_attempts = 30
         if max_delivery_attempts is not None:
             pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
 
@@ -2680,8 +2688,12 @@ class WebHookEventSubscriptionDestinationArgs:
             pulumi.set(__self__, "delivery_attribute_mappings", delivery_attribute_mappings)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if max_events_per_batch is None:
+            max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is None:
+            preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
             pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 

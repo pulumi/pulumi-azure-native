@@ -106,12 +106,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Output<string?> SsoClientSecretKeyVaultPath { get; private set; } = null!;
 
         /// <summary>
-        /// Path to keyvault containing ssoContext secret.
-        /// </summary>
-        [Output("ssoContext")]
-        public Output<string?> SsoContext { get; private set; } = null!;
-
-        /// <summary>
         /// The type of single sign on Secret Type.
         /// </summary>
         [Output("ssoSecretType")]
@@ -308,12 +302,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         [Input("ssoClientSecretKeyVaultPath")]
         public Input<string>? SsoClientSecretKeyVaultPath { get; set; }
-
-        /// <summary>
-        /// Path to keyvault containing ssoContext secret.
-        /// </summary>
-        [Input("ssoContext")]
-        public Input<string>? SsoContext { get; set; }
 
         /// <summary>
         /// The type of single sign on Secret Type.

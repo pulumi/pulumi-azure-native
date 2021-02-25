@@ -37,6 +37,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Entity Tag
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The location of the private endpoint connection
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -67,12 +75,16 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -94,6 +106,10 @@ export interface PrivateEndpointConnectionArgs {
      * The name of Cognitive Services account.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The location of the private endpoint connection
+     */
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Cognitive Services Account
      */

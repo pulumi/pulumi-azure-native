@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly ImmutableArray<string> Labels;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -101,11 +101,15 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
+        /// The system metadata relating to Event Subscription resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Name of the topic of the event subscription.
         /// </summary>
         public readonly string Topic;
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
 
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 
             Outputs.RetryPolicyResponse? retryPolicy,
 
+            Outputs.SystemDataResponse systemData,
+
             string topic,
 
             string type)
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
             Name = name;
             ProvisioningState = provisioningState;
             RetryPolicy = retryPolicy;
+            SystemData = systemData;
             Topic = topic;
             Type = type;
         }

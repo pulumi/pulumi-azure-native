@@ -47,6 +47,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101.Inputs
 
         public TransferFilterDetailsArgs()
         {
+            DataAccountType = "StorageAccount";
         }
     }
 }

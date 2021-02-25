@@ -33,7 +33,7 @@ class StorageAccount(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a Storage Account on the  Data Box Edge/Gateway device.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccount"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-native:databoxedge/latest:StorageAccount',

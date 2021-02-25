@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// The storage account credential.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStorageAccountCredentialResult> InvokeAsync(GetStorageAccountCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountCredentialResult>("azure-native:databoxedge/latest:getStorageAccountCredential", args ?? new GetStorageAccountCredentialArgs(), options.WithVersion());

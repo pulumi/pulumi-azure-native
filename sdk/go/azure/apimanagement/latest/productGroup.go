@@ -97,6 +97,12 @@ func NewProductGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ProductGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:ProductGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ProductGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ProductGroup

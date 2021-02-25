@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
+        /// The system metadata relating to Topic resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 
             Outputs.ResourceSkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

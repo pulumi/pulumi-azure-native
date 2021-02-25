@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.Network.V20200801
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// NatGateway of Public IP Prefix.
+        /// </summary>
+        public readonly Outputs.NatGatewayResponse? NatGateway;
+        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         public readonly int? PrefixLength;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Network.V20200801
 
             string name,
 
+            Outputs.NatGatewayResponse? natGateway,
+
             int? prefixLength,
 
             string provisioningState,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.Network.V20200801
             LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;
             Location = location;
             Name = name;
+            NatGateway = natGateway;
             PrefixLength = prefixLength;
             ProvisioningState = provisioningState;
             PublicIPAddressVersion = publicIPAddressVersion;

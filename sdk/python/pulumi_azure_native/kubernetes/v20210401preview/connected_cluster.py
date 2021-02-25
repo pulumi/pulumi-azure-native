@@ -24,6 +24,7 @@ class ConnectedCluster(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,6 +42,7 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this connected cluster is assigned to, if any.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -72,6 +74,7 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['infrastructure'] = infrastructure
             __props__['location'] = location
+            __props__['private_link_scope_resource_id'] = private_link_scope_resource_id
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -209,6 +212,14 @@ class ConnectedCluster(pulumi.CustomResource):
         Connected cluster offering
         """
         return pulumi.get(self, "offering")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of the private link scope this connected cluster is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
 
     @property
     @pulumi.getter(name="provisioningState")

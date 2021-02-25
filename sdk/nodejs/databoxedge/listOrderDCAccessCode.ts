@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * DC Access code in the case of Self Managed Shipping.
- * API Version: 2020-09-01.
+ * API Version: 2020-12-01.
  */
 export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pulumi.InvokeOptions): Promise<ListOrderDCAccessCodeResult> {
     if (!opts) {

@@ -33,7 +33,7 @@ type EventChannel struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source EventChannelSourceResponsePtrOutput `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Event Channel resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -107,7 +107,7 @@ type eventChannelState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source *EventChannelSourceResponse `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to Event Channel resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
@@ -132,7 +132,7 @@ type EventChannelState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
 	Source EventChannelSourceResponsePtrInput
-	// The system metadata relating to this resource.
+	// The system metadata relating to Event Channel resource.
 	SystemData SystemDataResponsePtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput

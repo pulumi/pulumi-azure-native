@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getShare'.
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {

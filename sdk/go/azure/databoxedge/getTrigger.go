@@ -8,7 +8,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge:getTrigger", args, &rv, opts...)

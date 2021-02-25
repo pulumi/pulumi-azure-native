@@ -272,12 +272,8 @@ type ApplicationGetHttpsEndpoint struct {
 	DestinationPort *int `pulumi:"destinationPort"`
 	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
-	// The location of the endpoint.
-	Location *string `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
-	// The public port to connect to.
-	PublicPort *int `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
@@ -301,12 +297,8 @@ type ApplicationGetHttpsEndpointArgs struct {
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
 	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
-	// The location of the endpoint.
-	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	// The public port to connect to.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
 }
@@ -378,19 +370,9 @@ func (o ApplicationGetHttpsEndpointOutput) DisableGatewayAuth() pulumi.BoolPtrOu
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *bool { return v.DisableGatewayAuth }).(pulumi.BoolPtrOutput)
 }
 
-// The location of the endpoint.
-func (o ApplicationGetHttpsEndpointOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
 // The private ip address of the endpoint.
 func (o ApplicationGetHttpsEndpointOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
-}
-
-// The public port to connect to.
-func (o ApplicationGetHttpsEndpointOutput) PublicPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpoint) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
 }
 
 // The subdomain suffix of the application.
@@ -427,11 +409,11 @@ type ApplicationGetHttpsEndpointResponse struct {
 	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
-	PublicPort *int `pulumi:"publicPort"`
+	PublicPort int `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
@@ -456,11 +438,11 @@ type ApplicationGetHttpsEndpointResponseArgs struct {
 	// The value indicates whether to disable GatewayAuth.
 	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
-	Location pulumi.StringPtrInput `pulumi:"location"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
+	PublicPort pulumi.IntInput `pulumi:"publicPort"`
 	// The subdomain suffix of the application.
 	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
 }
@@ -533,8 +515,8 @@ func (o ApplicationGetHttpsEndpointResponseOutput) DisableGatewayAuth() pulumi.B
 }
 
 // The location of the endpoint.
-func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The private ip address of the endpoint.
@@ -543,8 +525,8 @@ func (o ApplicationGetHttpsEndpointResponseOutput) PrivateIPAddress() pulumi.Str
 }
 
 // The public port to connect to.
-func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
+func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) int { return v.PublicPort }).(pulumi.IntOutput)
 }
 
 // The subdomain suffix of the application.
@@ -7070,6 +7052,8 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 type KafkaRestProperties struct {
 	// The information of AAD security group.
 	ClientGroupInfo *ClientGroupInfo `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride map[string]string `pulumi:"configurationOverride"`
 }
 
 // KafkaRestPropertiesInput is an input type that accepts KafkaRestPropertiesArgs and KafkaRestPropertiesOutput values.
@@ -7087,6 +7071,8 @@ type KafkaRestPropertiesInput interface {
 type KafkaRestPropertiesArgs struct {
 	// The information of AAD security group.
 	ClientGroupInfo ClientGroupInfoPtrInput `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride pulumi.StringMapInput `pulumi:"configurationOverride"`
 }
 
 func (KafkaRestPropertiesArgs) ElementType() reflect.Type {
@@ -7172,6 +7158,11 @@ func (o KafkaRestPropertiesOutput) ClientGroupInfo() ClientGroupInfoPtrOutput {
 	return o.ApplyT(func(v KafkaRestProperties) *ClientGroupInfo { return v.ClientGroupInfo }).(ClientGroupInfoPtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KafkaRestProperties) map[string]string { return v.ConfigurationOverride }).(pulumi.StringMapOutput)
+}
+
 type KafkaRestPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaRestPropertiesPtrOutput) ElementType() reflect.Type {
@@ -7200,10 +7191,22 @@ func (o KafkaRestPropertiesPtrOutput) ClientGroupInfo() ClientGroupInfoPtrOutput
 	}).(ClientGroupInfoPtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesPtrOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KafkaRestProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationOverride
+	}).(pulumi.StringMapOutput)
+}
+
 // The kafka rest proxy configuration which contains AAD security group information.
 type KafkaRestPropertiesResponse struct {
 	// The information of AAD security group.
 	ClientGroupInfo *ClientGroupInfoResponse `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride map[string]string `pulumi:"configurationOverride"`
 }
 
 // KafkaRestPropertiesResponseInput is an input type that accepts KafkaRestPropertiesResponseArgs and KafkaRestPropertiesResponseOutput values.
@@ -7221,6 +7224,8 @@ type KafkaRestPropertiesResponseInput interface {
 type KafkaRestPropertiesResponseArgs struct {
 	// The information of AAD security group.
 	ClientGroupInfo ClientGroupInfoResponsePtrInput `pulumi:"clientGroupInfo"`
+	// The configurations that need to be overriden.
+	ConfigurationOverride pulumi.StringMapInput `pulumi:"configurationOverride"`
 }
 
 func (KafkaRestPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7306,6 +7311,11 @@ func (o KafkaRestPropertiesResponseOutput) ClientGroupInfo() ClientGroupInfoResp
 	return o.ApplyT(func(v KafkaRestPropertiesResponse) *ClientGroupInfoResponse { return v.ClientGroupInfo }).(ClientGroupInfoResponsePtrOutput)
 }
 
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesResponseOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KafkaRestPropertiesResponse) map[string]string { return v.ConfigurationOverride }).(pulumi.StringMapOutput)
+}
+
 type KafkaRestPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaRestPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -7332,6 +7342,16 @@ func (o KafkaRestPropertiesResponsePtrOutput) ClientGroupInfo() ClientGroupInfoR
 		}
 		return v.ClientGroupInfo
 	}).(ClientGroupInfoResponsePtrOutput)
+}
+
+// The configurations that need to be overriden.
+func (o KafkaRestPropertiesResponsePtrOutput) ConfigurationOverride() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KafkaRestPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationOverride
+	}).(pulumi.StringMapOutput)
 }
 
 // The ssh username, password, and ssh public key.

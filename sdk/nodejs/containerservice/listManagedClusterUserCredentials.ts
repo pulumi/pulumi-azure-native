@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of credential result response.
- * API Version: 2020-12-01.
+ * API Version: 2021-02-01.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
     if (!opts) {

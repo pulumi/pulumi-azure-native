@@ -69,6 +69,12 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GatewayHostnameConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GatewayHostnameConfiguration

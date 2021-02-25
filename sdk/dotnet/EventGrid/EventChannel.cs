@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Channel.
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2020-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:EventChannel")]
     public partial class EventChannel : Pulumi.CustomResource
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.EventChannelFilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -67,7 +67,13 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.EventChannelSourceResponse?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the resource
+        /// The system metadata relating to Event Channel resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

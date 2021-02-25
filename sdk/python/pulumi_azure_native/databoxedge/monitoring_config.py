@@ -26,7 +26,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  __opts__=None):
         """
         The metric setting details for the role
-        API Version: 2020-09-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +66,7 @@ class MonitoringConfig(pulumi.CustomResource):
             __props__['role_name'] = role_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:MonitoringConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/latest:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/latest:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:MonitoringConfig"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:MonitoringConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MonitoringConfig, __self__).__init__(
             'azure-native:databoxedge:MonitoringConfig',

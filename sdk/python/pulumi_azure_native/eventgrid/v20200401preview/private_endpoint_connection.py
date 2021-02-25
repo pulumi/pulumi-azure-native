@@ -113,7 +113,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -145,7 +145,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

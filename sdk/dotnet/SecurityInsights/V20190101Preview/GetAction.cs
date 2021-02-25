@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
-        public readonly string? LogicAppResourceId;
+        public readonly string LogicAppResourceId;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 
             string id,
 
-            string? logicAppResourceId,
+            string logicAppResourceId,
 
             string name,
 

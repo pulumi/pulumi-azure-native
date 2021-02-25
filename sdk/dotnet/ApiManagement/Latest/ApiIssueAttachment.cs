@@ -88,6 +88,8 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiIssueAttachment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:ApiIssueAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

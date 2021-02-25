@@ -171,7 +171,7 @@ class GetEventSubscriptionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        The system metadata relating to Event Subscription resource.
         """
         return pulumi.get(self, "system_data")
 

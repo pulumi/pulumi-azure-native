@@ -124,7 +124,7 @@ class StatusLevelTypes(str, Enum):
 
 class StorageAccountTypes(str, Enum):
     """
-    Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+    Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
     """
     STANDARD_LRS = "Standard_LRS"
     PREMIUM_LRS = "Premium_LRS"

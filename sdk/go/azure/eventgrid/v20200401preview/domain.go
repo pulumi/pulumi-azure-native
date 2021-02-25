@@ -29,7 +29,7 @@ type Domain struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the domain.
 	MetricResourceId pulumi.StringOutput `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of private endpoint connections.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
@@ -42,7 +42,7 @@ type Domain struct {
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -58,6 +58,9 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -146,7 +149,7 @@ type domainState struct {
 	Location *string `pulumi:"location"`
 	// Metric resource id for the domain.
 	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// List of private endpoint connections.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
@@ -159,7 +162,7 @@ type domainState struct {
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -178,7 +181,7 @@ type DomainState struct {
 	Location pulumi.StringPtrInput
 	// Metric resource id for the domain.
 	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// List of private endpoint connections.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
@@ -191,7 +194,7 @@ type DomainState struct {
 	Sku ResourceSkuResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

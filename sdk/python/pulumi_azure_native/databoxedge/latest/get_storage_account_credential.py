@@ -183,7 +183,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     The storage account credential.
-    Latest API Version: 2020-09-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

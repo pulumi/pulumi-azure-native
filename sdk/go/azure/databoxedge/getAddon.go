@@ -8,7 +8,7 @@ import (
 )
 
 // Role Addon
-// API Version: 2020-09-01.
+// API Version: 2020-12-01.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:databoxedge:getAddon", args, &rv, opts...)

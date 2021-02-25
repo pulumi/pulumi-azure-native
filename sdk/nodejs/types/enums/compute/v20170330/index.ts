@@ -131,7 +131,7 @@ export const StorageAccountTypes = {
 } as const;
 
 /**
- * Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+ * Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
  */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
 

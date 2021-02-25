@@ -32,11 +32,11 @@ type Account struct {
 	// The full CName endpoint for this account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringOutput `pulumi:"firewallAllowAzureIps"`
+	FirewallAllowAzureIps pulumi.StringPtrOutput `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this account.
 	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
-	FirewallState pulumi.StringOutput `pulumi:"firewallState"`
+	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores HiveMetastoreResponseArrayOutput `pulumi:"hiveMetastores"`
 	// The account last modified time.
@@ -46,7 +46,7 @@ type Account struct {
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob pulumi.IntOutput `pulumi:"maxDegreeOfParallelismPerJob"`
+	MaxDegreeOfParallelismPerJob pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount pulumi.IntPtrOutput `pulumi:"maxJobCount"`
 	// The minimum supported priority per job for this account.
@@ -54,9 +54,11 @@ type Account struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The commitment tier for the next month.
-	NewTier pulumi.StringOutput `pulumi:"newTier"`
+	NewTier pulumi.StringPtrOutput `pulumi:"newTier"`
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The list of Data Lake Store accounts associated with this account.
+	PublicDataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"publicDataLakeStoreAccounts"`
 	// The number of days that job metadata is retained.
 	QueryStoreRetention pulumi.IntPtrOutput `pulumi:"queryStoreRetention"`
 	// The state of the Data Lake Analytics account.
@@ -185,6 +187,8 @@ type accountState struct {
 	NewTier *string `pulumi:"newTier"`
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The list of Data Lake Store accounts associated with this account.
+	PublicDataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"publicDataLakeStoreAccounts"`
 	// The number of days that job metadata is retained.
 	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
 	// The state of the Data Lake Analytics account.
@@ -246,6 +250,8 @@ type AccountState struct {
 	NewTier pulumi.StringPtrInput
 	// The provisioning status of the Data Lake Analytics account.
 	ProvisioningState pulumi.StringPtrInput
+	// The list of Data Lake Store accounts associated with this account.
+	PublicDataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayInput
 	// The number of days that job metadata is retained.
 	QueryStoreRetention pulumi.IntPtrInput
 	// The state of the Data Lake Analytics account.

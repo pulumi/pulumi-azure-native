@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Compute role.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getRole'. */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {

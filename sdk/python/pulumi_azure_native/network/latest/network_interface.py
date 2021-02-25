@@ -29,8 +29,11 @@ class NetworkInterface(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 migration_phase: Optional[pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
+                 nic_type: Optional[pulumi.Input[Union[str, 'NetworkInterfaceNicType']]] = None,
+                 private_link_service: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -49,8 +52,11 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceMigrationPhase']] migration_phase: Migration phase of Network Interface resource.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param pulumi.Input[Union[str, 'NetworkInterfaceNicType']] nic_type: Type of Network Interface resource.
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceArgs']] private_link_service: Privatelinkservice of the network interface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -79,8 +85,13 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
+            __props__['migration_phase'] = migration_phase
             __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
+            if nic_type is None:
+                nic_type = 'Standard'
+            __props__['nic_type'] = nic_type
+            __props__['private_link_service'] = private_link_service
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -204,6 +215,14 @@ class NetworkInterface(pulumi.CustomResource):
         return pulumi.get(self, "mac_address")
 
     @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> pulumi.Output[Optional[str]]:
+        """
+        Migration phase of Network Interface resource.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -220,6 +239,14 @@ class NetworkInterface(pulumi.CustomResource):
         return pulumi.get(self, "network_security_group")
 
     @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @property
     @pulumi.getter
     def primary(self) -> pulumi.Output[bool]:
         """
@@ -234,6 +261,14 @@ class NetworkInterface(pulumi.CustomResource):
         A reference to the private endpoint to which the network interface is linked.
         """
         return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceResponse']]:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
 
     @property
     @pulumi.getter(name="provisioningState")

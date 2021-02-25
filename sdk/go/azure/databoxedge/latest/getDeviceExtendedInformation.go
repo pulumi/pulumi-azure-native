@@ -8,7 +8,7 @@ import (
 )
 
 // The extended Info of the Data Box Edge/Gateway device.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getDeviceExtendedInformation'.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
@@ -37,12 +37,16 @@ type GetDeviceExtendedInformationResult struct {
 	ClientSecretStoreId *string `pulumi:"clientSecretStoreId"`
 	// The url to access the Client Key Vault
 	ClientSecretStoreUrl *string `pulumi:"clientSecretStoreUrl"`
+	// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
+	DeviceSecrets DeviceSecretsResponse `pulumi:"deviceSecrets"`
 	// The public part of the encryption certificate. Client uses this to encrypt any secret.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The digital signature of encrypted certificate.
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
+	// Key vault sync status
+	KeyVaultSyncStatus *string `pulumi:"keyVaultSyncStatus"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// The Resource ID of the Resource.

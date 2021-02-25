@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// DC Access code in the case of Self Managed Shipping.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListOrderDCAccessCodeResult> InvokeAsync(ListOrderDCAccessCodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-native:databoxedge/latest:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());

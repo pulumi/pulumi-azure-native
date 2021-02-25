@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
         /// <summary>
         /// Whether requests from Public Network are allowed
         /// </summary>
-        public readonly string PublicNetworkAccess;
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
@@ -237,7 +237,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
 
             string provisioningState,
 
-            string publicNetworkAccess,
+            string? publicNetworkAccess,
 
             ImmutableArray<Outputs.LocationResponse> readLocations,
 

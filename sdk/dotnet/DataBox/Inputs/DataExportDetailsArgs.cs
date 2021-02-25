@@ -35,6 +35,7 @@ namespace Pulumi.AzureNative.DataBox.Inputs
 
         public DataExportDetailsArgs()
         {
+            LogCollectionLevel = "Error";
         }
     }
 }

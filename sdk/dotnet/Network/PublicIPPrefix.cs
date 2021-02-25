@@ -65,6 +65,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// NatGateway of Public IP Prefix.
+        /// </summary>
+        [Output("natGateway")]
+        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
+
+        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         [Output("prefixLength")]
@@ -241,6 +247,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// NatGateway of Public IP Prefix.
+        /// </summary>
+        [Input("natGateway")]
+        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The Length of the Public IP Prefix.

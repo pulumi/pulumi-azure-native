@@ -66,7 +66,7 @@ export interface GetPartnerRegistrationResult {
      */
     readonly longDescription?: string;
     /**
-     * Name of the resource
+     * Name of the resource.
      */
     readonly name: string;
     /**
@@ -106,11 +106,15 @@ export interface GetPartnerRegistrationResult {
      */
     readonly setupUri?: string;
     /**
+     * The system metadata relating to Partner Registration resource.
+     */
+    readonly systemData: outputs.eventgrid.v20200401preview.SystemDataResponse;
+    /**
      * Tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Type of the resource
+     * Type of the resource.
      */
     readonly type: string;
     /**

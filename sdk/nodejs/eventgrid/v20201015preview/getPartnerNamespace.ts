@@ -63,7 +63,7 @@ export interface GetPartnerNamespaceResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to Partner Namespace resource.
      */
     readonly systemData: outputs.eventgrid.v20201015preview.SystemDataResponse;
     /**

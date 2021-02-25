@@ -19,6 +19,8 @@ type DomainTopic struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the domain topic.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The system metadata relating to Domain Topic resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -107,6 +109,8 @@ type domainTopicState struct {
 	Name *string `pulumi:"name"`
 	// Provisioning state of the domain topic.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system metadata relating to Domain Topic resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -116,6 +120,8 @@ type DomainTopicState struct {
 	Name pulumi.StringPtrInput
 	// Provisioning state of the domain topic.
 	ProvisioningState pulumi.StringPtrInput
+	// The system metadata relating to Domain Topic resource.
+	SystemData SystemDataResponsePtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

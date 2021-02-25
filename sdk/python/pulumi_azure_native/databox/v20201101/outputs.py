@@ -1766,6 +1766,8 @@ class DataExportDetailsResponse(dict):
         """
         pulumi.set(__self__, "account_details", account_details)
         pulumi.set(__self__, "transfer_configuration", transfer_configuration)
+        if log_collection_level is None:
+            log_collection_level = 'Error'
         if log_collection_level is not None:
             pulumi.set(__self__, "log_collection_level", log_collection_level)
 
@@ -1959,6 +1961,8 @@ class EncryptionPreferencesResponse(dict):
         Preferences related to the Encryption.
         :param str double_encryption: Defines secondary layer of software-based encryption enablement.
         """
+        if double_encryption is None:
+            double_encryption = 'Disabled'
         if double_encryption is not None:
             pulumi.set(__self__, "double_encryption", double_encryption)
 
@@ -2160,6 +2164,8 @@ class KeyEncryptionKeyResponse(dict):
         :param str kek_url: Key encryption key. It is required in case of Customer managed KekType.
         :param str kek_vault_resource_id: Kek vault resource id. It is required in case of Customer managed KekType.
         """
+        if kek_type is None:
+            kek_type = 'MicrosoftManaged'
         pulumi.set(__self__, "kek_type", kek_type)
         if identity_properties is not None:
             pulumi.set(__self__, "identity_properties", identity_properties)
@@ -2222,6 +2228,8 @@ class ManagedDiskDetailsResponse(dict):
         :param str staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
         :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
+        if data_account_type is None:
+            data_account_type = 'StorageAccount'
         pulumi.set(__self__, "data_account_type", 'ManagedDisk')
         pulumi.set(__self__, "resource_group_id", resource_group_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -2278,6 +2286,8 @@ class NotificationPreferenceResponse(dict):
         :param bool send_notification: Notification is required or not.
         :param str stage_name: Name of the stage.
         """
+        if send_notification is None:
+            send_notification = True
         pulumi.set(__self__, "send_notification", send_notification)
         pulumi.set(__self__, "stage_name", stage_name)
 
@@ -2417,6 +2427,8 @@ class ResourceIdentityResponse(dict):
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is None:
+            type = 'None'
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -2555,6 +2567,8 @@ class ShippingAddressResponse(dict):
         """
         pulumi.set(__self__, "country", country)
         pulumi.set(__self__, "street_address1", street_address1)
+        if address_type is None:
+            address_type = 'None'
         if address_type is not None:
             pulumi.set(__self__, "address_type", address_type)
         if city is not None:
@@ -2721,6 +2735,8 @@ class StorageAccountDetailsResponse(dict):
         :param str storage_account_id: Storage Account Resource Id.
         :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
+        if data_account_type is None:
+            data_account_type = 'StorageAccount'
         pulumi.set(__self__, "data_account_type", 'StorageAccount')
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if share_password is not None:
@@ -2770,6 +2786,8 @@ class TransferAllDetailsResponse(dict):
         :param bool transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param bool transfer_all_files: To indicate if all Azure Files have to be transferred
         """
+        if data_account_type is None:
+            data_account_type = 'StorageAccount'
         pulumi.set(__self__, "data_account_type", data_account_type)
         if transfer_all_blobs is not None:
             pulumi.set(__self__, "transfer_all_blobs", transfer_all_blobs)
@@ -2922,6 +2940,8 @@ class TransferFilterDetailsResponse(dict):
         :param 'BlobFilterDetailsResponseArgs' blob_filter_details: Filter details to transfer blobs.
         :param Sequence['FilterFileDetailsResponseArgs'] filter_file_details: Details of the filter files to be used for data transfer.
         """
+        if data_account_type is None:
+            data_account_type = 'StorageAccount'
         pulumi.set(__self__, "data_account_type", data_account_type)
         if azure_file_filter_details is not None:
             pulumi.set(__self__, "azure_file_filter_details", azure_file_filter_details)

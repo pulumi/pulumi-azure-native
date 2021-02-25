@@ -64,6 +64,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:MonitoringConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

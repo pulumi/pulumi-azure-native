@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? LongDescription;
         /// <summary>
-        /// Name of the resource
+        /// Name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -111,11 +111,15 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? SetupUri;
         /// <summary>
+        /// The system metadata relating to Partner Registration resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Type of the resource
+        /// Type of the resource.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 
             string? setupUri,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -176,6 +182,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
             PartnerResourceTypeName = partnerResourceTypeName;
             ProvisioningState = provisioningState;
             SetupUri = setupUri;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VisibilityState = visibilityState;

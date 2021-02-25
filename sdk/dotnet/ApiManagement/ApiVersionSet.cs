@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> VersionQueryName { get; private set; } = null!;
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Output("versioningScheme")]
         public Output<string> VersioningScheme { get; private set; } = null!;
@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:ApiVersionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiVersionSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:ApiVersionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,7 +167,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? VersionSetId { get; set; }
 
         /// <summary>
-        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// An value that determines where the API Version identifier will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.VersioningScheme> VersioningScheme { get; set; } = null!;

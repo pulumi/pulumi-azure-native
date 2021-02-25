@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2020-12-01.
+ * API Version: 2021-02-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     if (!opts) {
@@ -63,6 +63,10 @@ export interface GetManagedClusterResult {
      */
     readonly autoUpgradeProfile?: outputs.containerservice.ManagedClusterAutoUpgradeProfileResponse;
     /**
+     * FQDN for the master pool which used by proxy config.
+     */
+    readonly azurePortalFQDN: string;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: string;
@@ -82,6 +86,10 @@ export interface GetManagedClusterResult {
      * FQDN for the master pool.
      */
     readonly fqdn: string;
+    /**
+     * FQDN subdomain specified when creating private cluster with custom private dns zone.
+     */
+    readonly fqdnSubdomain?: string;
     /**
      * Resource Id
      */

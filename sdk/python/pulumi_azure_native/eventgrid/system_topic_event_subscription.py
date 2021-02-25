@@ -35,7 +35,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  __opts__=None):
         """
         Event Subscription
-        API Version: 2020-04-01-preview.
+        API Version: 2020-10-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,6 +77,8 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             __props__['dead_letter_with_resource_identity'] = dead_letter_with_resource_identity
             __props__['delivery_with_resource_identity'] = delivery_with_resource_identity
             __props__['destination'] = destination
+            if event_delivery_schema is None:
+                event_delivery_schema = 'EventGridSchema'
             __props__['event_delivery_schema'] = event_delivery_schema
             __props__['event_subscription_name'] = event_subscription_name
             __props__['expiration_time_utc'] = expiration_time_utc
@@ -91,6 +93,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             __props__['system_topic_name'] = system_topic_name
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['topic'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription")])
@@ -191,7 +194,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the resource
+        Name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -212,6 +215,14 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         return pulumi.get(self, "retry_policy")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to Event Subscription resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def topic(self) -> pulumi.Output[str]:
         """
@@ -223,7 +234,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource
+        Type of the resource.
         """
         return pulumi.get(self, "type")
 

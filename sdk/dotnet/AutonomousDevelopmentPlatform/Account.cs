@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
                 {
                     new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform/v20210201preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

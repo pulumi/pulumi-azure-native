@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public Input<string>? ClusterVersion { get; set; }
 
         /// <summary>
+        /// The compute isolation properties.
+        /// </summary>
+        [Input("computeIsolationProperties")]
+        public Input<Inputs.ComputeIsolationPropertiesArgs>? ComputeIsolationProperties { get; set; }
+
+        /// <summary>
         /// The compute profile.
         /// </summary>
         [Input("computeProfile")]
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
 
         public ClusterCreatePropertiesArgs()
         {
+            Tier = Pulumi.AzureNative.HDInsight.V20150301Preview.Tier.Standard;
         }
     }
 }

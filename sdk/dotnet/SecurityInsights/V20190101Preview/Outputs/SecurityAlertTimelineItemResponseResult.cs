@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
         /// </summary>
         public readonly string AzureResourceId;
         /// <summary>
+        /// The alert description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The alert name.
         /// </summary>
         public readonly string DisplayName;
@@ -37,7 +41,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
         /// <summary>
         /// The alert product name.
         /// </summary>
-        public readonly string ProductName;
+        public readonly string? ProductName;
         /// <summary>
         /// The alert severity.
         /// </summary>
@@ -57,13 +61,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 
             string azureResourceId,
 
+            string? description,
+
             string displayName,
 
             string endTimeUtc,
 
             string kind,
 
-            string productName,
+            string? productName,
 
             string severity,
 
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
         {
             AlertType = alertType;
             AzureResourceId = azureResourceId;
+            Description = description;
             DisplayName = displayName;
             EndTimeUtc = endTimeUtc;
             Kind = kind;

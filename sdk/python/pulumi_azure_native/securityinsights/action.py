@@ -67,6 +67,8 @@ class Action(pulumi.CustomResource):
             if rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_id'")
             __props__['rule_id'] = rule_id
+            if trigger_uri is None and not opts.urn:
+                raise TypeError("Missing required property 'trigger_uri'")
             __props__['trigger_uri'] = trigger_uri
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

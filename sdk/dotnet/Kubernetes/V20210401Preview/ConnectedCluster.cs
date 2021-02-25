@@ -88,6 +88,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         public Output<string> Offering { get; private set; } = null!;
 
         /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        [Output("privateLinkScopeResourceId")]
+        public Output<string?> PrivateLinkScopeResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Output("provisioningState")]
@@ -214,6 +220,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        [Input("privateLinkScopeResourceId")]
+        public Input<string>? PrivateLinkScopeResourceId { get; set; }
 
         /// <summary>
         /// Provisioning state of the connected cluster resource.

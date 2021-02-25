@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
@@ -44,5 +44,5 @@ type LookupUserResult struct {
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Type of the user.
-	UserType *string `pulumi:"userType"`
+	UserType string `pulumi:"userType"`
 }

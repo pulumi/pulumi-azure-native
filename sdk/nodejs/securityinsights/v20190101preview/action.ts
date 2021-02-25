@@ -41,7 +41,7 @@ export class Action extends pulumi.CustomResource {
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */
-    public readonly logicAppResourceId!: pulumi.Output<string | undefined>;
+    public readonly logicAppResourceId!: pulumi.Output<string>;
     /**
      * Azure resource name
      */
@@ -66,6 +66,9 @@ export class Action extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.logicAppResourceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'logicAppResourceId'");
+            }
             if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
@@ -74,6 +77,9 @@ export class Action extends pulumi.CustomResource {
             }
             if ((!args || args.ruleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleId'");
+            }
+            if ((!args || args.triggerUri === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'triggerUri'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
@@ -118,7 +124,7 @@ export interface ActionArgs {
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */
-    readonly logicAppResourceId?: pulumi.Input<string>;
+    readonly logicAppResourceId: pulumi.Input<string>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */
@@ -134,7 +140,7 @@ export interface ActionArgs {
     /**
      * Logic App Callback URL for this specific workflow.
      */
-    readonly triggerUri?: pulumi.Input<string>;
+    readonly triggerUri: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

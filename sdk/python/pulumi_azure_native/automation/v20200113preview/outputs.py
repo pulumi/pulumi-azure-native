@@ -18,8 +18,10 @@ __all__ = [
     'ContentLinkResponse',
     'DscConfigurationAssociationPropertyResponse',
     'EncryptionPropertiesResponse',
+    'EncryptionPropertiesResponseIdentity',
     'FieldDefinitionResponse',
     'IdentityResponse',
+    'IdentityResponseUserAssignedIdentities',
     'KeyResponseResult',
     'KeyVaultPropertiesResponse',
     'ModuleErrorInfoResponse',
@@ -263,17 +265,29 @@ class EncryptionPropertiesResponse(dict):
     The encryption settings for automation account
     """
     def __init__(__self__, *,
+                 identity: Optional['outputs.EncryptionPropertiesResponseIdentity'] = None,
                  key_source: Optional[str] = None,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         The encryption settings for automation account
+        :param 'EncryptionPropertiesResponseIdentityArgs' identity: User identity used for CMK.
         :param str key_source: Encryption Key Source
         :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EncryptionPropertiesResponseIdentity']:
+        """
+        User identity used for CMK.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="keySource")
@@ -290,6 +304,32 @@ class EncryptionPropertiesResponse(dict):
         Key vault properties.
         """
         return pulumi.get(self, "key_vault_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionPropertiesResponseIdentity(dict):
+    """
+    User identity used for CMK.
+    """
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[Any] = None):
+        """
+        User identity used for CMK.
+        :param Any user_assigned_identity: The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[Any]:
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -352,17 +392,21 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -387,6 +431,46 @@ class IdentityResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IdentityResponseUserAssignedIdentities(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

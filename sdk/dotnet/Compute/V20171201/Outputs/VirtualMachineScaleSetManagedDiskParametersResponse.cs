@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.V20171201.Outputs
     public sealed class VirtualMachineScaleSetManagedDiskParametersResponse
     {
         /// <summary>
-        /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        /// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. Possible values are: Standard_LRS or Premium_LRS.
         /// </summary>
         public readonly string? StorageAccountType;
 

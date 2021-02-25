@@ -19,17 +19,19 @@ type SystemTopic struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the system topic.
 	MetricResourceId pulumi.StringOutput `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the system topic.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
+	// The system metadata relating to System Topic resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// TopicType for the system topic.
 	TopicType pulumi.StringPtrOutput `pulumi:"topicType"`
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -84,17 +86,19 @@ type systemTopicState struct {
 	Location *string `pulumi:"location"`
 	// Metric resource id for the system topic.
 	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource
+	// Name of the resource.
 	Name *string `pulumi:"name"`
 	// Provisioning state of the system topic.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
+	// The system metadata relating to System Topic resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// TopicType for the system topic.
 	TopicType *string `pulumi:"topicType"`
-	// Type of the resource
+	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -103,17 +107,19 @@ type SystemTopicState struct {
 	Location pulumi.StringPtrInput
 	// Metric resource id for the system topic.
 	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource
+	// Name of the resource.
 	Name pulumi.StringPtrInput
 	// Provisioning state of the system topic.
 	ProvisioningState pulumi.StringPtrInput
 	// Source for the system topic.
 	Source pulumi.StringPtrInput
+	// The system metadata relating to System Topic resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// TopicType for the system topic.
 	TopicType pulumi.StringPtrInput
-	// Type of the resource
+	// Type of the resource.
 	Type pulumi.StringPtrInput
 }
 

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
     {
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
-        /// Latest API Version: 2020-09-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/latest:getContainer", args ?? new GetContainerArgs(), options.WithVersion());

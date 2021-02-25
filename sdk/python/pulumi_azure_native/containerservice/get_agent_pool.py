@@ -20,7 +20,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_node_public_ip=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_node_public_ip=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -69,6 +69,9 @@ class GetAgentPoolResult:
         if node_labels and not isinstance(node_labels, dict):
             raise TypeError("Expected argument 'node_labels' to be a dict")
         pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id and not isinstance(node_public_ip_prefix_id, str):
+            raise TypeError("Expected argument 'node_public_ip_prefix_id' to be a str")
+        pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints and not isinstance(node_taints, list):
             raise TypeError("Expected argument 'node_taints' to be a list")
         pulumi.set(__self__, "node_taints", node_taints)
@@ -250,6 +253,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "node_labels")
 
     @property
+    @pulumi.getter(name="nodePublicIPPrefixID")
+    def node_public_ip_prefix_id(self) -> Optional[str]:
+        """
+        Public IP Prefix ID. VM nodes use IPs assigned from this Public IP Prefix.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
+
+    @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[Sequence[str]]:
         """
@@ -408,6 +419,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             name=self.name,
             node_image_version=self.node_image_version,
             node_labels=self.node_labels,
+            node_public_ip_prefix_id=self.node_public_ip_prefix_id,
             node_taints=self.node_taints,
             orchestrator_version=self.orchestrator_version,
             os_disk_size_gb=self.os_disk_size_gb,
@@ -433,7 +445,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Agent Pool.
-    API Version: 2020-12-01.
+    API Version: 2021-02-01.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -467,6 +479,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         name=__ret__.name,
         node_image_version=__ret__.node_image_version,
         node_labels=__ret__.node_labels,
+        node_public_ip_prefix_id=__ret__.node_public_ip_prefix_id,
         node_taints=__ret__.node_taints,
         orchestrator_version=__ret__.orchestrator_version,
         os_disk_size_gb=__ret__.os_disk_size_gb,

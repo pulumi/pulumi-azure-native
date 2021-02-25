@@ -270,12 +270,12 @@ class ScalingScheduleResponse(dict):
                  ramp_down_load_balancing_algorithm: Optional[str] = None,
                  ramp_down_minimum_hosts_pct: Optional[int] = None,
                  ramp_down_notification_message: Optional[str] = None,
-                 ramp_down_notification_minutes: Optional[int] = None,
                  ramp_down_start_time: Optional[str] = None,
                  ramp_down_stop_hosts_when: Optional[str] = None,
-                 ramp_up_algorithm: Optional[str] = None,
+                 ramp_down_wait_time_minutes: Optional[int] = None,
                  ramp_up_capacity_threshold_pct: Optional[int] = None,
-                 ramp_up_minimum_host_pct: Optional[int] = None,
+                 ramp_up_load_balancing_algorithm: Optional[str] = None,
+                 ramp_up_minimum_hosts_pct: Optional[int] = None,
                  ramp_up_start_time: Optional[str] = None):
         """
         Scaling plan schedule.
@@ -290,12 +290,12 @@ class ScalingScheduleResponse(dict):
         :param str ramp_down_load_balancing_algorithm: Load balancing algorithm for ramp down period.
         :param int ramp_down_minimum_hosts_pct: Minimum host percentage for ramp down period.
         :param str ramp_down_notification_message: Notification message for users during ramp down period.
-        :param int ramp_down_notification_minutes: Number of minutes to wait to stop hosts during ramp down period.
         :param str ramp_down_start_time: Starting time for ramp down period.
         :param str ramp_down_stop_hosts_when: Specifies when to stop hosts during ramp down period.
-        :param str ramp_up_algorithm: Load balancing algorithm for ramp up period.
+        :param int ramp_down_wait_time_minutes: Number of minutes to wait to stop hosts during ramp down period.
         :param int ramp_up_capacity_threshold_pct: Capacity threshold for ramp up period.
-        :param int ramp_up_minimum_host_pct: Minimum host percentage for ramp up period.
+        :param str ramp_up_load_balancing_algorithm: Load balancing algorithm for ramp up period.
+        :param int ramp_up_minimum_hosts_pct: Minimum host percentage for ramp up period.
         :param str ramp_up_start_time: Starting time for ramp up period.
         """
         if days_of_week is not None:
@@ -320,18 +320,18 @@ class ScalingScheduleResponse(dict):
             pulumi.set(__self__, "ramp_down_minimum_hosts_pct", ramp_down_minimum_hosts_pct)
         if ramp_down_notification_message is not None:
             pulumi.set(__self__, "ramp_down_notification_message", ramp_down_notification_message)
-        if ramp_down_notification_minutes is not None:
-            pulumi.set(__self__, "ramp_down_notification_minutes", ramp_down_notification_minutes)
         if ramp_down_start_time is not None:
             pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
         if ramp_down_stop_hosts_when is not None:
             pulumi.set(__self__, "ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
-        if ramp_up_algorithm is not None:
-            pulumi.set(__self__, "ramp_up_algorithm", ramp_up_algorithm)
+        if ramp_down_wait_time_minutes is not None:
+            pulumi.set(__self__, "ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
         if ramp_up_capacity_threshold_pct is not None:
             pulumi.set(__self__, "ramp_up_capacity_threshold_pct", ramp_up_capacity_threshold_pct)
-        if ramp_up_minimum_host_pct is not None:
-            pulumi.set(__self__, "ramp_up_minimum_host_pct", ramp_up_minimum_host_pct)
+        if ramp_up_load_balancing_algorithm is not None:
+            pulumi.set(__self__, "ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
+        if ramp_up_minimum_hosts_pct is not None:
+            pulumi.set(__self__, "ramp_up_minimum_hosts_pct", ramp_up_minimum_hosts_pct)
         if ramp_up_start_time is not None:
             pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
 
@@ -424,14 +424,6 @@ class ScalingScheduleResponse(dict):
         return pulumi.get(self, "ramp_down_notification_message")
 
     @property
-    @pulumi.getter(name="rampDownNotificationMinutes")
-    def ramp_down_notification_minutes(self) -> Optional[int]:
-        """
-        Number of minutes to wait to stop hosts during ramp down period.
-        """
-        return pulumi.get(self, "ramp_down_notification_minutes")
-
-    @property
     @pulumi.getter(name="rampDownStartTime")
     def ramp_down_start_time(self) -> Optional[str]:
         """
@@ -448,12 +440,12 @@ class ScalingScheduleResponse(dict):
         return pulumi.get(self, "ramp_down_stop_hosts_when")
 
     @property
-    @pulumi.getter(name="rampUpAlgorithm")
-    def ramp_up_algorithm(self) -> Optional[str]:
+    @pulumi.getter(name="rampDownWaitTimeMinutes")
+    def ramp_down_wait_time_minutes(self) -> Optional[int]:
         """
-        Load balancing algorithm for ramp up period.
+        Number of minutes to wait to stop hosts during ramp down period.
         """
-        return pulumi.get(self, "ramp_up_algorithm")
+        return pulumi.get(self, "ramp_down_wait_time_minutes")
 
     @property
     @pulumi.getter(name="rampUpCapacityThresholdPct")
@@ -464,12 +456,20 @@ class ScalingScheduleResponse(dict):
         return pulumi.get(self, "ramp_up_capacity_threshold_pct")
 
     @property
-    @pulumi.getter(name="rampUpMinimumHostPct")
-    def ramp_up_minimum_host_pct(self) -> Optional[int]:
+    @pulumi.getter(name="rampUpLoadBalancingAlgorithm")
+    def ramp_up_load_balancing_algorithm(self) -> Optional[str]:
+        """
+        Load balancing algorithm for ramp up period.
+        """
+        return pulumi.get(self, "ramp_up_load_balancing_algorithm")
+
+    @property
+    @pulumi.getter(name="rampUpMinimumHostsPct")
+    def ramp_up_minimum_hosts_pct(self) -> Optional[int]:
         """
         Minimum host percentage for ramp up period.
         """
-        return pulumi.get(self, "ramp_up_minimum_host_pct")
+        return pulumi.get(self, "ramp_up_minimum_hosts_pct")
 
     @property
     @pulumi.getter(name="rampUpStartTime")

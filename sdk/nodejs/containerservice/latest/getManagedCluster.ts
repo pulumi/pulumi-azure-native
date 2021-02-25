@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed cluster.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getManagedCluster'. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
@@ -65,6 +65,10 @@ export interface GetManagedClusterResult {
      */
     readonly autoUpgradeProfile?: outputs.containerservice.latest.ManagedClusterAutoUpgradeProfileResponse;
     /**
+     * FQDN for the master pool which used by proxy config.
+     */
+    readonly azurePortalFQDN: string;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: string;
@@ -84,6 +88,10 @@ export interface GetManagedClusterResult {
      * FQDN for the master pool.
      */
     readonly fqdn: string;
+    /**
+     * FQDN subdomain specified when creating private cluster with custom private dns zone.
+     */
+    readonly fqdnSubdomain?: string;
     /**
      * Resource Id
      */

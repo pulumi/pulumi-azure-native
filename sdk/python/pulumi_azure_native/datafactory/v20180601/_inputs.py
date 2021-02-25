@@ -68812,17 +68812,17 @@ class WebActivityAuthenticationArgs:
                  type: pulumi.Input[str],
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  pfx: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 resource: Optional[pulumi.Input[str]] = None,
+                 resource: Optional[Any] = None,
                  user_tenant: Optional[Any] = None,
-                 username: Optional[pulumi.Input[str]] = None):
+                 username: Optional[Any] = None):
         """
         Web activity authentication properties.
         :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
-        :param pulumi.Input[str] resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
+        :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
-        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", type)
         if password is not None:
@@ -68874,14 +68874,14 @@ class WebActivityAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
+    def resource(self) -> Optional[Any]:
         """
-        Resource for which Azure Auth token will be requested when using MSI Authentication.
+        Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
+    def resource(self, value: Optional[Any]):
         pulumi.set(self, "resource", value)
 
     @property
@@ -68898,14 +68898,14 @@ class WebActivityAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
+    def username(self) -> Optional[Any]:
         """
-        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal
+        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
+    def username(self, value: Optional[Any]):
         pulumi.set(self, "username", value)
 
 

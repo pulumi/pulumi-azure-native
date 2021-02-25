@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         }
 
         /// <summary>
+        /// Indicates whether encrypt the data disks.
+        /// </summary>
+        [Input("encryptDataDisks")]
+        public Input<bool>? EncryptDataDisks { get; set; }
+
+        /// <summary>
         /// The hardware profile.
         /// </summary>
         [Input("hardwareProfile")]
@@ -76,6 +82,12 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
         public Input<int>? TargetInstanceCount { get; set; }
 
         /// <summary>
+        /// The name of the virtual machine group.
+        /// </summary>
+        [Input("vMGroupName")]
+        public Input<string>? VMGroupName { get; set; }
+
+        /// <summary>
         /// The virtual network profile.
         /// </summary>
         [Input("virtualNetworkProfile")]
@@ -83,6 +95,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Inputs
 
         public RoleArgs()
         {
+            EncryptDataDisks = false;
         }
     }
 }

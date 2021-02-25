@@ -64,6 +64,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
         /// <summary>
+        /// Application gateway IP configurations of virtual network resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIpConfigurations;
+        /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
@@ -139,12 +143,18 @@ namespace Pulumi.AzureNative.Network
         /// An array of service endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetSubnetResult(
             string? addressPrefix,
 
             ImmutableArray<string> addressPrefixes,
+
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIpConfigurations,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
@@ -182,10 +192,13 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ServiceEndpointPolicyResponse> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
+
+            string? type)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
+            ApplicationGatewayIpConfigurations = applicationGatewayIpConfigurations;
             Delegations = delegations;
             Etag = etag;
             Id = id;
@@ -205,6 +218,7 @@ namespace Pulumi.AzureNative.Network
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
+            Type = type;
         }
     }
 }

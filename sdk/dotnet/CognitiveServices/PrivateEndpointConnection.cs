@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.CognitiveServices
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Entity Tag
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the private endpoint connection
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -91,6 +103,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The location of the private endpoint connection
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Cognitive Services Account

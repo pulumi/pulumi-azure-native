@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
         [Output("logicAppResourceId")]
-        public Output<string?> LogicAppResourceId { get; private set; } = null!;
+        public Output<string> LogicAppResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
-        [Input("logicAppResourceId")]
-        public Input<string>? LogicAppResourceId { get; set; }
+        [Input("logicAppResourceId", required: true)]
+        public Input<string> LogicAppResourceId { get; set; } = null!;
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// Logic App Callback URL for this specific workflow.
         /// </summary>
-        [Input("triggerUri")]
-        public Input<string>? TriggerUri { get; set; }
+        [Input("triggerUri", required: true)]
+        public Input<string> TriggerUri { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

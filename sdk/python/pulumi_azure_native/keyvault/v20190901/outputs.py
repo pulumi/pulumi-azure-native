@@ -324,17 +324,21 @@ class PrivateEndpointConnectionItemResponse(dict):
     """
     def __init__(__self__, *,
                  provisioning_state: str,
+                 etag: Optional[str] = None,
                  id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param str etag: Modified whenever there is a change in the state of private endpoint connection.
         :param str id: Id of private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if private_endpoint is not None:
@@ -349,6 +353,14 @@ class PrivateEndpointConnectionItemResponse(dict):
         Provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Modified whenever there is a change in the state of private endpoint connection.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
