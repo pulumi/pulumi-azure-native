@@ -124,9 +124,7 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 
 			previousTypeName := pathTypeNames[normalizedPath]
 			if previousTypeName != "" && previousTypeName != typeName {
-				if previousTypeName != typeName {
-					delete(latestResources, previousTypeName)
-				}
+				delete(latestResources, previousTypeName)
 			}
 
 			pathTypeNames[normalizedPath] = typeName
