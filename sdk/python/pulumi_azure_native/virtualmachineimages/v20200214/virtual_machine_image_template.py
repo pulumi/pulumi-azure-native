@@ -64,6 +64,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if build_timeout_in_minutes is None:
+                build_timeout_in_minutes = 0
             __props__['build_timeout_in_minutes'] = build_timeout_in_minutes
             __props__['customize'] = customize
             if distribute is None and not opts.urn:

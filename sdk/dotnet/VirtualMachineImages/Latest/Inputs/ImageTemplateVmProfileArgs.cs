@@ -35,6 +35,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Latest.Inputs
 
         public ImageTemplateVmProfileArgs()
         {
+            OsDiskSizeGB = 0;
+            VmSize = "";
         }
     }
 }

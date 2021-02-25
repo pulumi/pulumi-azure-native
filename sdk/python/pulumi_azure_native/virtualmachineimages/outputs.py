@@ -56,6 +56,8 @@ class ImageTemplateFileCustomizerResponse(dict):
             pulumi.set(__self__, "destination", destination)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sha256_checksum is None:
+            sha256_checksum = ''
         if sha256_checksum is not None:
             pulumi.set(__self__, "sha256_checksum", sha256_checksum)
         if source_uri is not None:
@@ -380,7 +382,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         :param 'PlatformImagePurchasePlanResponseArgs' plan_info: Optional configuration of purchase plan for platform image.
         :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
         pulumi.set(__self__, "type", 'PlatformImage')
         if offer is not None:
@@ -439,7 +441,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
         return pulumi.get(self, "version")
 
@@ -478,12 +480,18 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
             pulumi.set(__self__, "inline", inline)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if run_as_system is None:
+            run_as_system = False
         if run_as_system is not None:
             pulumi.set(__self__, "run_as_system", run_as_system)
+        if run_elevated is None:
+            run_elevated = False
         if run_elevated is not None:
             pulumi.set(__self__, "run_elevated", run_elevated)
         if script_uri is not None:
             pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
         if sha256_checksum is not None:
             pulumi.set(__self__, "sha256_checksum", sha256_checksum)
         if valid_exit_codes is not None:
@@ -663,6 +671,8 @@ class ImageTemplateSharedImageDistributorResponse(dict):
         pulumi.set(__self__, "type", 'SharedImage')
         if artifact_tags is not None:
             pulumi.set(__self__, "artifact_tags", artifact_tags)
+        if exclude_from_latest is None:
+            exclude_from_latest = False
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if storage_account_type is not None:
@@ -794,6 +804,8 @@ class ImageTemplateShellCustomizerResponse(dict):
             pulumi.set(__self__, "name", name)
         if script_uri is not None:
             pulumi.set(__self__, "script_uri", script_uri)
+        if sha256_checksum is None:
+            sha256_checksum = ''
         if sha256_checksum is not None:
             pulumi.set(__self__, "sha256_checksum", sha256_checksum)
 
@@ -907,8 +919,12 @@ class ImageTemplateVmProfileResponse(dict):
         :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
         :param 'VirtualNetworkConfigResponseArgs' vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
         """
+        if os_disk_size_gb is None:
+            os_disk_size_gb = 0
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if vm_size is None:
+            vm_size = ''
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_config is not None:

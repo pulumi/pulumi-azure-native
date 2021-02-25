@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
 
         public ImageTemplateSharedImageDistributorArgs()
         {
+            ExcludeFromLatest = false;
         }
     }
 }

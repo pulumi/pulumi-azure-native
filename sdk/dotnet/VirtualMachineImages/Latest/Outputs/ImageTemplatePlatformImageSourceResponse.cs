@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Latest.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+        /// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         /// </summary>
         public readonly string? Version;
 
