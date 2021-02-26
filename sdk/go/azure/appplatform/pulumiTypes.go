@@ -3667,6 +3667,8 @@ type NetworkProfileResponse struct {
 	AppSubnetId *string `pulumi:"appSubnetId"`
 	// Desired outbound IP resources for Azure Spring Cloud instance.
 	OutboundIPs NetworkProfileResponseOutboundIPs `pulumi:"outboundIPs"`
+	// Required inbound or outbound traffics for Azure Spring Cloud instance.
+	RequiredTraffics []RequiredTrafficResponse `pulumi:"requiredTraffics"`
 	// Azure Spring Cloud service reserved CIDR
 	ServiceCidr *string `pulumi:"serviceCidr"`
 	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
@@ -3694,6 +3696,8 @@ type NetworkProfileResponseArgs struct {
 	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
 	// Desired outbound IP resources for Azure Spring Cloud instance.
 	OutboundIPs NetworkProfileResponseOutboundIPsInput `pulumi:"outboundIPs"`
+	// Required inbound or outbound traffics for Azure Spring Cloud instance.
+	RequiredTraffics RequiredTrafficResponseArrayInput `pulumi:"requiredTraffics"`
 	// Azure Spring Cloud service reserved CIDR
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
@@ -3795,6 +3799,11 @@ func (o NetworkProfileResponseOutput) OutboundIPs() NetworkProfileResponseOutbou
 	return o.ApplyT(func(v NetworkProfileResponse) NetworkProfileResponseOutboundIPs { return v.OutboundIPs }).(NetworkProfileResponseOutboundIPsOutput)
 }
 
+// Required inbound or outbound traffics for Azure Spring Cloud instance.
+func (o NetworkProfileResponseOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) []RequiredTrafficResponse { return v.RequiredTraffics }).(RequiredTrafficResponseArrayOutput)
+}
+
 // Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
@@ -3856,6 +3865,16 @@ func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOut
 		}
 		return &v.OutboundIPs
 	}).(NetworkProfileResponseOutboundIPsPtrOutput)
+}
+
+// Required inbound or outbound traffics for Azure Spring Cloud instance.
+func (o NetworkProfileResponsePtrOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkProfileResponse) []RequiredTrafficResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredTraffics
+	}).(RequiredTrafficResponseArrayOutput)
 }
 
 // Azure Spring Cloud service reserved CIDR
@@ -4345,6 +4364,142 @@ func (o PersistentDiskResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
 		}
 		return &v.UsedInGB
 	}).(pulumi.IntPtrOutput)
+}
+
+// Required inbound or outbound traffic for Azure Spring Cloud instance.
+type RequiredTrafficResponse struct {
+	// The direction of required traffic
+	Direction string `pulumi:"direction"`
+	// The FQDN list of required traffic
+	Fqdns []string `pulumi:"fqdns"`
+	// The ip list of required traffic
+	Ips []string `pulumi:"ips"`
+	// The port of required traffic
+	Port int `pulumi:"port"`
+	// The protocol of required traffic
+	Protocol string `pulumi:"protocol"`
+}
+
+// RequiredTrafficResponseInput is an input type that accepts RequiredTrafficResponseArgs and RequiredTrafficResponseOutput values.
+// You can construct a concrete instance of `RequiredTrafficResponseInput` via:
+//
+//          RequiredTrafficResponseArgs{...}
+type RequiredTrafficResponseInput interface {
+	pulumi.Input
+
+	ToRequiredTrafficResponseOutput() RequiredTrafficResponseOutput
+	ToRequiredTrafficResponseOutputWithContext(context.Context) RequiredTrafficResponseOutput
+}
+
+// Required inbound or outbound traffic for Azure Spring Cloud instance.
+type RequiredTrafficResponseArgs struct {
+	// The direction of required traffic
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The FQDN list of required traffic
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The ip list of required traffic
+	Ips pulumi.StringArrayInput `pulumi:"ips"`
+	// The port of required traffic
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol of required traffic
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (RequiredTrafficResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequiredTrafficResponse)(nil)).Elem()
+}
+
+func (i RequiredTrafficResponseArgs) ToRequiredTrafficResponseOutput() RequiredTrafficResponseOutput {
+	return i.ToRequiredTrafficResponseOutputWithContext(context.Background())
+}
+
+func (i RequiredTrafficResponseArgs) ToRequiredTrafficResponseOutputWithContext(ctx context.Context) RequiredTrafficResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequiredTrafficResponseOutput)
+}
+
+// RequiredTrafficResponseArrayInput is an input type that accepts RequiredTrafficResponseArray and RequiredTrafficResponseArrayOutput values.
+// You can construct a concrete instance of `RequiredTrafficResponseArrayInput` via:
+//
+//          RequiredTrafficResponseArray{ RequiredTrafficResponseArgs{...} }
+type RequiredTrafficResponseArrayInput interface {
+	pulumi.Input
+
+	ToRequiredTrafficResponseArrayOutput() RequiredTrafficResponseArrayOutput
+	ToRequiredTrafficResponseArrayOutputWithContext(context.Context) RequiredTrafficResponseArrayOutput
+}
+
+type RequiredTrafficResponseArray []RequiredTrafficResponseInput
+
+func (RequiredTrafficResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequiredTrafficResponse)(nil)).Elem()
+}
+
+func (i RequiredTrafficResponseArray) ToRequiredTrafficResponseArrayOutput() RequiredTrafficResponseArrayOutput {
+	return i.ToRequiredTrafficResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RequiredTrafficResponseArray) ToRequiredTrafficResponseArrayOutputWithContext(ctx context.Context) RequiredTrafficResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequiredTrafficResponseArrayOutput)
+}
+
+// Required inbound or outbound traffic for Azure Spring Cloud instance.
+type RequiredTrafficResponseOutput struct{ *pulumi.OutputState }
+
+func (RequiredTrafficResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequiredTrafficResponse)(nil)).Elem()
+}
+
+func (o RequiredTrafficResponseOutput) ToRequiredTrafficResponseOutput() RequiredTrafficResponseOutput {
+	return o
+}
+
+func (o RequiredTrafficResponseOutput) ToRequiredTrafficResponseOutputWithContext(ctx context.Context) RequiredTrafficResponseOutput {
+	return o
+}
+
+// The direction of required traffic
+func (o RequiredTrafficResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v RequiredTrafficResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The FQDN list of required traffic
+func (o RequiredTrafficResponseOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequiredTrafficResponse) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// The ip list of required traffic
+func (o RequiredTrafficResponseOutput) Ips() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequiredTrafficResponse) []string { return v.Ips }).(pulumi.StringArrayOutput)
+}
+
+// The port of required traffic
+func (o RequiredTrafficResponseOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v RequiredTrafficResponse) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol of required traffic
+func (o RequiredTrafficResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v RequiredTrafficResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type RequiredTrafficResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RequiredTrafficResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequiredTrafficResponse)(nil)).Elem()
+}
+
+func (o RequiredTrafficResponseArrayOutput) ToRequiredTrafficResponseArrayOutput() RequiredTrafficResponseArrayOutput {
+	return o
+}
+
+func (o RequiredTrafficResponseArrayOutput) ToRequiredTrafficResponseArrayOutputWithContext(ctx context.Context) RequiredTrafficResponseArrayOutput {
+	return o
+}
+
+func (o RequiredTrafficResponseArrayOutput) Index(i pulumi.IntInput) RequiredTrafficResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequiredTrafficResponse {
+		return vs[0].([]RequiredTrafficResponse)[vs[1].(int)]
+	}).(RequiredTrafficResponseOutput)
 }
 
 // Sku of Azure Spring Cloud
@@ -5432,6 +5587,8 @@ func init() {
 	pulumi.RegisterOutputType(PersistentDiskPtrOutput{})
 	pulumi.RegisterOutputType(PersistentDiskResponseOutput{})
 	pulumi.RegisterOutputType(PersistentDiskResponsePtrOutput{})
+	pulumi.RegisterOutputType(RequiredTrafficResponseOutput{})
+	pulumi.RegisterOutputType(RequiredTrafficResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

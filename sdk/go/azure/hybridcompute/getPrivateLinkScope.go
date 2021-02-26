@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure Arc PrivateLinkScope definition.
-// API Version: 2020-08-15-preview.
+// API Version: 2021-01-28-preview.
 func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkScopeResult, error) {
 	var rv LookupPrivateLinkScopeResult
 	err := ctx.Invoke("azure-native:hybridcompute:getPrivateLinkScope", args, &rv, opts...)
@@ -19,7 +19,7 @@ func LookupPrivateLinkScope(ctx *pulumi.Context, args *LookupPrivateLinkScopeArg
 }
 
 type LookupPrivateLinkScopeArgs struct {
-	// The name of the resource group.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Arc PrivateLinkScope resource.
 	ScopeName string `pulumi:"scopeName"`
@@ -33,12 +33,10 @@ type LookupPrivateLinkScopeResult struct {
 	Location string `pulumi:"location"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Properties that define a Azure Arc PrivateLinkScope resource.
+	Properties HybridComputePrivateLinkScopePropertiesResponse `pulumi:"properties"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

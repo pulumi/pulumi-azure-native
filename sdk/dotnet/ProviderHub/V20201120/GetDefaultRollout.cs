@@ -50,9 +50,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly string? ProvisioningState;
-        public readonly Outputs.DefaultRolloutPropertiesResponseSpecification? Specification;
-        public readonly Outputs.DefaultRolloutPropertiesResponseStatus? Status;
+        /// <summary>
+        /// Properties of the rollout.
+        /// </summary>
+        public readonly Outputs.DefaultRolloutResponseProperties Properties;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -64,19 +65,13 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
 
             string name,
 
-            string? provisioningState,
-
-            Outputs.DefaultRolloutPropertiesResponseSpecification? specification,
-
-            Outputs.DefaultRolloutPropertiesResponseStatus? status,
+            Outputs.DefaultRolloutResponseProperties properties,
 
             string type)
         {
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            Specification = specification;
-            Status = status;
+            Properties = properties;
             Type = type;
         }
     }

@@ -30,10 +30,9 @@ type LookupDefaultRolloutResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
-	Name              string                                         `pulumi:"name"`
-	ProvisioningState *string                                        `pulumi:"provisioningState"`
-	Specification     *DefaultRolloutPropertiesResponseSpecification `pulumi:"specification"`
-	Status            *DefaultRolloutPropertiesResponseStatus        `pulumi:"status"`
+	Name string `pulumi:"name"`
+	// Properties of the rollout.
+	Properties DefaultRolloutResponseProperties `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

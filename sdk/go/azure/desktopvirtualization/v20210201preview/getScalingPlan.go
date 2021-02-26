@@ -42,6 +42,8 @@ type LookupScalingPlanResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The ring number of scaling plan.
+	Ring *int `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
 	// Resource tags.

@@ -192,6 +192,15 @@ export const SubscriptionNotificationOperation = {
 
 export type SubscriptionNotificationOperation = (typeof SubscriptionNotificationOperation)[keyof typeof SubscriptionNotificationOperation];
 
+export const SubscriptionReregistrationResult = {
+    NotApplicable: "NotApplicable",
+    ConditionalUpdate: "ConditionalUpdate",
+    ForcedUpdate: "ForcedUpdate",
+    Failed: "Failed",
+} as const;
+
+export type SubscriptionReregistrationResult = (typeof SubscriptionReregistrationResult)[keyof typeof SubscriptionReregistrationResult];
+
 export const SubscriptionState = {
     NotDefined: "NotDefined",
     Enabled: "Enabled",
@@ -228,3 +237,16 @@ export const ThrottlingMetricType = {
 } as const;
 
 export type ThrottlingMetricType = (typeof ThrottlingMetricType)[keyof typeof ThrottlingMetricType];
+
+export const TrafficRegionCategory = {
+    NotSpecified: "NotSpecified",
+    Canary: "Canary",
+    LowTraffic: "LowTraffic",
+    MediumTraffic: "MediumTraffic",
+    HighTraffic: "HighTraffic",
+    None: "None",
+    RestOfTheWorldGroupOne: "RestOfTheWorldGroupOne",
+    RestOfTheWorldGroupTwo: "RestOfTheWorldGroupTwo",
+} as const;
+
+export type TrafficRegionCategory = (typeof TrafficRegionCategory)[keyof typeof TrafficRegionCategory];

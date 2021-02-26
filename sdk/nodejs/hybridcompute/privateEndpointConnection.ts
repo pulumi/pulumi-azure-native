@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-08-15-preview.
+ * API Version: 2021-01-28-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -41,17 +41,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint which the connection belongs to.
+     * Resource properties.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.hybridcompute.PrivateEndpointPropertyResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.hybridcompute.PrivateEndpointConnectionPropertiesResponse>;
     /**
-     * Connection state of the private endpoint connection.
+     * The system meta data relating to this resource.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.hybridcompute.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
-    /**
-     * State of the private endpoint connection.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -74,25 +70,23 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.scopeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
-            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeName"] = args ? args.scopeName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection" }, { type: "azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
@@ -103,19 +97,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * Private endpoint which the connection belongs to.
-     */
-    readonly privateEndpoint?: pulumi.Input<inputs.hybridcompute.PrivateEndpointProperty>;
-    /**
      * The name of the private endpoint connection.
      */
     readonly privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state of the private endpoint connection.
+     * Resource properties.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.hybridcompute.PrivateLinkServiceConnectionStateProperty>;
+    readonly properties?: pulumi.Input<inputs.hybridcompute.PrivateEndpointConnectionProperties>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

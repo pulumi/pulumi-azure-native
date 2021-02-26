@@ -45,8 +45,12 @@ type LookupActionGroupResult struct {
 	GroupShortName string `pulumi:"groupShortName"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
+	// Azure resource identity
+	Identity string `pulumi:"identity"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
+	// Azure resource kind
+	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.

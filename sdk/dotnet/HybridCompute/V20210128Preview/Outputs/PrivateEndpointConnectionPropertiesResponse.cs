@@ -7,20 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.HybridCompute.Outputs
+namespace Pulumi.AzureNative.HybridCompute.V20210128Preview.Outputs
 {
 
     [OutputType]
-    public sealed class PrivateEndpointConnectionResponse
+    public sealed class PrivateEndpointConnectionPropertiesResponse
     {
-        /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        public readonly string Name;
         /// <summary>
         /// Private endpoint which the connection belongs to.
         /// </summary>
@@ -33,31 +25,18 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// State of the private endpoint connection.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private PrivateEndpointConnectionResponse(
-            string id,
-
-            string name,
-
+        private PrivateEndpointConnectionPropertiesResponse(
             Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
 
-            string provisioningState,
-
-            string type)
+            string provisioningState)
         {
-            Id = id;
-            Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            Type = type;
         }
     }
 }

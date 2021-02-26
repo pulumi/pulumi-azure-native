@@ -19,10 +19,9 @@ type DefaultRollout struct {
 	pulumi.CustomResourceState
 
 	// The name of the resource
-	Name              pulumi.StringOutput                                    `pulumi:"name"`
-	ProvisioningState pulumi.StringPtrOutput                                 `pulumi:"provisioningState"`
-	Specification     DefaultRolloutPropertiesResponseSpecificationPtrOutput `pulumi:"specification"`
-	Status            DefaultRolloutPropertiesResponseStatusPtrOutput        `pulumi:"status"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Properties of the rollout.
+	Properties DefaultRolloutResponsePropertiesOutput `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -75,20 +74,18 @@ func GetDefaultRollout(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DefaultRollout resources.
 type defaultRolloutState struct {
 	// The name of the resource
-	Name              *string                                        `pulumi:"name"`
-	ProvisioningState *string                                        `pulumi:"provisioningState"`
-	Specification     *DefaultRolloutPropertiesResponseSpecification `pulumi:"specification"`
-	Status            *DefaultRolloutPropertiesResponseStatus        `pulumi:"status"`
+	Name *string `pulumi:"name"`
+	// Properties of the rollout.
+	Properties *DefaultRolloutResponseProperties `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type DefaultRolloutState struct {
 	// The name of the resource
-	Name              pulumi.StringPtrInput
-	ProvisioningState pulumi.StringPtrInput
-	Specification     DefaultRolloutPropertiesResponseSpecificationPtrInput
-	Status            DefaultRolloutPropertiesResponseStatusPtrInput
+	Name pulumi.StringPtrInput
+	// Properties of the rollout.
+	Properties DefaultRolloutResponsePropertiesPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
@@ -98,6 +95,8 @@ func (DefaultRolloutState) ElementType() reflect.Type {
 }
 
 type defaultRolloutArgs struct {
+	// Properties of the rollout.
+	Properties *DefaultRolloutProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The rollout name.
@@ -106,6 +105,8 @@ type defaultRolloutArgs struct {
 
 // The set of arguments for constructing a DefaultRollout resource.
 type DefaultRolloutArgs struct {
+	// Properties of the rollout.
+	Properties DefaultRolloutPropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
 	// The rollout name.
