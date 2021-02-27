@@ -29,6 +29,8 @@ type ScalingPlan struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ring number of scaling plan.
+	Ring pulumi.IntPtrOutput `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules ScalingScheduleResponseArrayOutput `pulumi:"schedules"`
 	// Resource tags.
@@ -106,6 +108,8 @@ type scalingPlanState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// The ring number of scaling plan.
+	Ring *int `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
 	// Resource tags.
@@ -131,6 +135,8 @@ type ScalingPlanState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// The ring number of scaling plan.
+	Ring pulumi.IntPtrInput
 	// List of ScalingSchedule definitions.
 	Schedules ScalingScheduleResponseArrayInput
 	// Resource tags.
@@ -160,6 +166,8 @@ type scalingPlanArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ring number of scaling plan.
+	Ring *int `pulumi:"ring"`
 	// The name of the scaling plan.
 	ScalingPlanName *string `pulumi:"scalingPlanName"`
 	// List of ScalingSchedule definitions.
@@ -186,6 +194,8 @@ type ScalingPlanArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The ring number of scaling plan.
+	Ring pulumi.IntPtrInput
 	// The name of the scaling plan.
 	ScalingPlanName pulumi.StringPtrInput
 	// List of ScalingSchedule definitions.

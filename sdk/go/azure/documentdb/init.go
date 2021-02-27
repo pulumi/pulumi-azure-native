@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:documentdb:CassandraCluster":
+		r, err = NewCassandraCluster(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:documentdb:CassandraDataCenter":
+		r, err = NewCassandraDataCenter(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:documentdb:CassandraResourceCassandraKeyspace":
 		r, err = NewCassandraResourceCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:documentdb:CassandraResourceCassandraTable":

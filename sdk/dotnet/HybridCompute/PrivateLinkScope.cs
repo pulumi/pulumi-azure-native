@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
-    /// API Version: 2020-08-15-preview.
+    /// API Version: 2021-01-28-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScope")]
     public partial class PrivateLinkScope : Pulumi.CustomResource
@@ -29,22 +29,16 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections.
+        /// Properties that define a Azure Arc PrivateLinkScope resource.
         /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.HybridComputePrivateLinkScopePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -85,6 +79,8 @@ namespace Pulumi.AzureNative.HybridCompute
                 {
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateLinkScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,13 +111,13 @@ namespace Pulumi.AzureNative.HybridCompute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        /// Properties that define a Azure Arc PrivateLinkScope resource.
         /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.HybridCompute.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
+        [Input("properties")]
+        public Input<Inputs.HybridComputePrivateLinkScopePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

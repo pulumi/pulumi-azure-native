@@ -30,7 +30,7 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB SQL Role Definition.
-        API Version: 2020-06-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -71,7 +71,7 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
             __props__['role_name'] = role_name
             __props__['type'] = type
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlRoleDefinition, __self__).__init__(
             'azure-native:documentdb:SqlResourceSqlRoleDefinition',

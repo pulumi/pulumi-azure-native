@@ -6,12 +6,14 @@ import * as v20190802preview from "./v20190802preview";
 import * as v20191212 from "./v20191212";
 import * as v20200730preview from "./v20200730preview";
 import * as v20200815preview from "./v20200815preview";
+import * as v20210128preview from "./v20210128preview";
 
 export {
     v20190802preview,
     v20191212,
     v20200730preview,
     v20200815preview,
+    v20210128preview,
 };
 
 export const PublicNetworkAccessType = {

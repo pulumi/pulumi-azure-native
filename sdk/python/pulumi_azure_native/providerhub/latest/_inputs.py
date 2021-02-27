@@ -11,6 +11,17 @@ from ._enums import *
 
 __all__ = [
     'AuthorizationActionMappingArgs',
+    'DefaultRolloutPropertiesArgs',
+    'DefaultRolloutPropertiesSpecificationArgs',
+    'DefaultRolloutPropertiesStatusArgs',
+    'DefaultRolloutSpecificationCanaryArgs',
+    'DefaultRolloutSpecificationHighTrafficArgs',
+    'DefaultRolloutSpecificationLowTrafficArgs',
+    'DefaultRolloutSpecificationMediumTrafficArgs',
+    'DefaultRolloutSpecificationProviderRegistrationArgs',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs',
+    'DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs',
+    'ExtendedErrorInfoArgs',
     'ExtendedLocationOptionsArgs',
     'LightHouseAuthorizationArgs',
     'LinkedAccessCheckArgs',
@@ -36,6 +47,7 @@ __all__ = [
     'ResourceTypeEndpointFeaturesRuleArgs',
     'ResourceTypeExtensionArgs',
     'ResourceTypeExtensionOptionsResourceCreationBeginArgs',
+    'ResourceTypeRegistrationArgs',
     'ResourceTypeRegistrationPropertiesArgs',
     'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs',
     'ResourceTypeRegistrationPropertiesExtensionOptionsArgs',
@@ -57,6 +69,7 @@ __all__ = [
     'SwaggerSpecificationArgs',
     'ThrottlingMetricArgs',
     'ThrottlingRuleArgs',
+    'TypedErrorInfoArgs',
 ]
 
 @pulumi.input_type
@@ -86,6 +99,472 @@ class AuthorizationActionMappingArgs:
     @original.setter
     def original(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "original", value)
+
+
+@pulumi.input_type
+class DefaultRolloutPropertiesArgs:
+    def __init__(__self__, *,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 specification: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']] = None,
+                 status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None):
+        """
+        Properties of the rollout.
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def specification(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]:
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]):
+        pulumi.set(self, "specification", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DefaultRolloutPropertiesSpecificationArgs:
+    def __init__(__self__, *,
+                 canary: Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']] = None,
+                 high_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']] = None,
+                 low_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']] = None,
+                 medium_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']] = None,
+                 provider_registration: Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']] = None,
+                 resource_type_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
+                 rest_of_the_world_group_one: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']] = None,
+                 rest_of_the_world_group_two: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None):
+        if canary is not None:
+            pulumi.set(__self__, "canary", canary)
+        if high_traffic is not None:
+            pulumi.set(__self__, "high_traffic", high_traffic)
+        if low_traffic is not None:
+            pulumi.set(__self__, "low_traffic", low_traffic)
+        if medium_traffic is not None:
+            pulumi.set(__self__, "medium_traffic", medium_traffic)
+        if provider_registration is not None:
+            pulumi.set(__self__, "provider_registration", provider_registration)
+        if resource_type_registrations is not None:
+            pulumi.set(__self__, "resource_type_registrations", resource_type_registrations)
+        if rest_of_the_world_group_one is not None:
+            pulumi.set(__self__, "rest_of_the_world_group_one", rest_of_the_world_group_one)
+        if rest_of_the_world_group_two is not None:
+            pulumi.set(__self__, "rest_of_the_world_group_two", rest_of_the_world_group_two)
+
+    @property
+    @pulumi.getter
+    def canary(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']]:
+        return pulumi.get(self, "canary")
+
+    @canary.setter
+    def canary(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']]):
+        pulumi.set(self, "canary", value)
+
+    @property
+    @pulumi.getter(name="highTraffic")
+    def high_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']]:
+        return pulumi.get(self, "high_traffic")
+
+    @high_traffic.setter
+    def high_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']]):
+        pulumi.set(self, "high_traffic", value)
+
+    @property
+    @pulumi.getter(name="lowTraffic")
+    def low_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']]:
+        return pulumi.get(self, "low_traffic")
+
+    @low_traffic.setter
+    def low_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']]):
+        pulumi.set(self, "low_traffic", value)
+
+    @property
+    @pulumi.getter(name="mediumTraffic")
+    def medium_traffic(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']]:
+        return pulumi.get(self, "medium_traffic")
+
+    @medium_traffic.setter
+    def medium_traffic(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']]):
+        pulumi.set(self, "medium_traffic", value)
+
+    @property
+    @pulumi.getter(name="providerRegistration")
+    def provider_registration(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']]:
+        return pulumi.get(self, "provider_registration")
+
+    @provider_registration.setter
+    def provider_registration(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']]):
+        pulumi.set(self, "provider_registration", value)
+
+    @property
+    @pulumi.getter(name="resourceTypeRegistrations")
+    def resource_type_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]:
+        return pulumi.get(self, "resource_type_registrations")
+
+    @resource_type_registrations.setter
+    def resource_type_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]]):
+        pulumi.set(self, "resource_type_registrations", value)
+
+    @property
+    @pulumi.getter(name="restOfTheWorldGroupOne")
+    def rest_of_the_world_group_one(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]:
+        return pulumi.get(self, "rest_of_the_world_group_one")
+
+    @rest_of_the_world_group_one.setter
+    def rest_of_the_world_group_one(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']]):
+        pulumi.set(self, "rest_of_the_world_group_one", value)
+
+    @property
+    @pulumi.getter(name="restOfTheWorldGroupTwo")
+    def rest_of_the_world_group_two(self) -> Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]:
+        return pulumi.get(self, "rest_of_the_world_group_two")
+
+    @rest_of_the_world_group_two.setter
+    def rest_of_the_world_group_two(self, value: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']]):
+        pulumi.set(self, "rest_of_the_world_group_two", value)
+
+
+@pulumi.input_type
+class DefaultRolloutPropertiesStatusArgs:
+    def __init__(__self__, *,
+                 completed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failed_or_skipped_regions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+                 next_traffic_region: Optional[pulumi.Input[Union[str, 'TrafficRegionCategory']]] = None,
+                 next_traffic_region_scheduled_time: Optional[pulumi.Input[str]] = None,
+                 subscription_reregistration_result: Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]] = None):
+        if completed_regions is not None:
+            pulumi.set(__self__, "completed_regions", completed_regions)
+        if failed_or_skipped_regions is not None:
+            pulumi.set(__self__, "failed_or_skipped_regions", failed_or_skipped_regions)
+        if next_traffic_region is not None:
+            pulumi.set(__self__, "next_traffic_region", next_traffic_region)
+        if next_traffic_region_scheduled_time is not None:
+            pulumi.set(__self__, "next_traffic_region_scheduled_time", next_traffic_region_scheduled_time)
+        if subscription_reregistration_result is not None:
+            pulumi.set(__self__, "subscription_reregistration_result", subscription_reregistration_result)
+
+    @property
+    @pulumi.getter(name="completedRegions")
+    def completed_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "completed_regions")
+
+    @completed_regions.setter
+    def completed_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "completed_regions", value)
+
+    @property
+    @pulumi.getter(name="failedOrSkippedRegions")
+    def failed_or_skipped_regions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]:
+        return pulumi.get(self, "failed_or_skipped_regions")
+
+    @failed_or_skipped_regions.setter
+    def failed_or_skipped_regions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]]):
+        pulumi.set(self, "failed_or_skipped_regions", value)
+
+    @property
+    @pulumi.getter(name="nextTrafficRegion")
+    def next_traffic_region(self) -> Optional[pulumi.Input[Union[str, 'TrafficRegionCategory']]]:
+        return pulumi.get(self, "next_traffic_region")
+
+    @next_traffic_region.setter
+    def next_traffic_region(self, value: Optional[pulumi.Input[Union[str, 'TrafficRegionCategory']]]):
+        pulumi.set(self, "next_traffic_region", value)
+
+    @property
+    @pulumi.getter(name="nextTrafficRegionScheduledTime")
+    def next_traffic_region_scheduled_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "next_traffic_region_scheduled_time")
+
+    @next_traffic_region_scheduled_time.setter
+    def next_traffic_region_scheduled_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_traffic_region_scheduled_time", value)
+
+    @property
+    @pulumi.getter(name="subscriptionReregistrationResult")
+    def subscription_reregistration_result(self) -> Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]]:
+        return pulumi.get(self, "subscription_reregistration_result")
+
+    @subscription_reregistration_result.setter
+    def subscription_reregistration_result(self, value: Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]]):
+        pulumi.set(self, "subscription_reregistration_result", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationCanaryArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skip_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if skip_regions is not None:
+            pulumi.set(__self__, "skip_regions", skip_regions)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="skipRegions")
+    def skip_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "skip_regions")
+
+    @skip_regions.setter
+    def skip_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skip_regions", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationHighTrafficArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationLowTrafficArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationMediumTrafficArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationProviderRegistrationArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class ExtendedErrorInfoArgs:
+    def __init__(__self__, *,
+                 additional_info: Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 details: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        if additional_info is not None:
+            pulumi.set(__self__, "additional_info", additional_info)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]:
+        return pulumi.get(self, "additional_info")
+
+    @additional_info.setter
+    def additional_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]]):
+        pulumi.set(self, "additional_info", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]:
+        return pulumi.get(self, "details")
+
+    @details.setter
+    def details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]]):
+        pulumi.set(self, "details", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
@@ -1247,6 +1726,23 @@ class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
 
 
 @pulumi.input_type
+class ResourceTypeRegistrationArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
 class ResourceTypeRegistrationPropertiesArgs:
     def __init__(__self__, *,
                  allowed_unauthorized_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2356,5 +2852,21 @@ class ThrottlingRuleArgs:
     @required_features.setter
     def required_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "required_features", value)
+
+
+@pulumi.input_type
+class TypedErrorInfoArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 

@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['PrivateLinkScope']
 
@@ -18,7 +19,7 @@ class PrivateLinkScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['HybridComputePrivateLinkScopePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,13 +28,13 @@ class PrivateLinkScope(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Arc PrivateLinkScope definition.
-        API Version: 2020-08-15-preview.
+        API Version: 2021-01-28-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['HybridComputePrivateLinkScopePropertiesArgs']] properties: Properties that define a Azure Arc PrivateLinkScope resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Arc PrivateLinkScope resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -55,17 +56,16 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            __props__['public_network_access'] = public_network_access
+            __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope_name'] = scope_name
             __props__['tags'] = tags
             __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:hybridcompute:PrivateLinkScope',
@@ -108,28 +108,20 @@ class PrivateLinkScope(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.HybridComputePrivateLinkScopePropertiesResponse']:
         """
-        List of private endpoint connections.
+        Properties that define a Azure Arc PrivateLinkScope resource.
         """
-        return pulumi.get(self, "private_endpoint_connections")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        The system meta data relating to this resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        """
-        return pulumi.get(self, "public_network_access")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

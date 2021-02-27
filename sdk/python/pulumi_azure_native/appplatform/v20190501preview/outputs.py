@@ -28,6 +28,7 @@ __all__ = [
     'NetworkProfileResponse',
     'NetworkProfileResponseOutboundIPs',
     'PersistentDiskResponse',
+    'RequiredTrafficResponse',
     'SkuResponse',
     'TemporaryDiskResponse',
     'TracePropertiesResponse',
@@ -1227,6 +1228,7 @@ class NetworkProfileResponse(dict):
     """
     def __init__(__self__, *,
                  outbound_ips: 'outputs.NetworkProfileResponseOutboundIPs',
+                 required_traffics: Sequence['outputs.RequiredTrafficResponse'],
                  app_network_resource_group: Optional[str] = None,
                  app_subnet_id: Optional[str] = None,
                  service_cidr: Optional[str] = None,
@@ -1235,6 +1237,7 @@ class NetworkProfileResponse(dict):
         """
         Service network profile payload
         :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
+        :param Sequence['RequiredTrafficResponseArgs'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR
@@ -1242,6 +1245,7 @@ class NetworkProfileResponse(dict):
         :param str service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
         """
         pulumi.set(__self__, "outbound_ips", outbound_ips)
+        pulumi.set(__self__, "required_traffics", required_traffics)
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
         if app_subnet_id is not None:
@@ -1260,6 +1264,14 @@ class NetworkProfileResponse(dict):
         Desired outbound IP resources for Azure Spring Cloud instance.
         """
         return pulumi.get(self, "outbound_ips")
+
+    @property
+    @pulumi.getter(name="requiredTraffics")
+    def required_traffics(self) -> Sequence['outputs.RequiredTrafficResponse']:
+        """
+        Required inbound or outbound traffics for Azure Spring Cloud instance.
+        """
+        return pulumi.get(self, "required_traffics")
 
     @property
     @pulumi.getter(name="appNetworkResourceGroup")
@@ -1380,6 +1392,75 @@ class PersistentDiskResponse(dict):
 
 
 @pulumi.output_type
+class RequiredTrafficResponse(dict):
+    """
+    Required inbound or outbound traffic for Azure Spring Cloud instance.
+    """
+    def __init__(__self__, *,
+                 direction: str,
+                 fqdns: Sequence[str],
+                 ips: Sequence[str],
+                 port: int,
+                 protocol: str):
+        """
+        Required inbound or outbound traffic for Azure Spring Cloud instance.
+        :param str direction: The direction of required traffic
+        :param Sequence[str] fqdns: The FQDN list of required traffic
+        :param Sequence[str] ips: The ip list of required traffic
+        :param int port: The port of required traffic
+        :param str protocol: The protocol of required traffic
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "fqdns", fqdns)
+        pulumi.set(__self__, "ips", ips)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        The direction of required traffic
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[str]:
+        """
+        The FQDN list of required traffic
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter
+    def ips(self) -> Sequence[str]:
+        """
+        The ip list of required traffic
+        """
+        return pulumi.get(self, "ips")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port of required traffic
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol of required traffic
+        """
+        return pulumi.get(self, "protocol")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     Sku of Azure Spring Cloud
@@ -1396,8 +1477,12 @@ class SkuResponse(dict):
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if name is None:
+            name = 'S0'
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 

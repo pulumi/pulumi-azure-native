@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.AppPlatform.Latest.Outputs
         /// </summary>
         public readonly Outputs.NetworkProfileResponseOutboundIPs OutboundIPs;
         /// <summary>
+        /// Required inbound or outbound traffics for Azure Spring Cloud instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RequiredTrafficResponse> RequiredTraffics;
+        /// <summary>
         /// Azure Spring Cloud service reserved CIDR
         /// </summary>
         public readonly string? ServiceCidr;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureNative.AppPlatform.Latest.Outputs
 
             Outputs.NetworkProfileResponseOutboundIPs outboundIPs,
 
+            ImmutableArray<Outputs.RequiredTrafficResponse> requiredTraffics,
+
             string? serviceCidr,
 
             string? serviceRuntimeNetworkResourceGroup,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNative.AppPlatform.Latest.Outputs
             AppNetworkResourceGroup = appNetworkResourceGroup;
             AppSubnetId = appSubnetId;
             OutboundIPs = outboundIPs;
+            RequiredTraffics = requiredTraffics;
             ServiceCidr = serviceCidr;
             ServiceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             ServiceRuntimeSubnetId = serviceRuntimeSubnetId;

@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        public readonly int? Ring;
+        /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 
             string name,
 
+            int? ring,
+
             ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
 
             ImmutableDictionary<string, string>? tags,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
             Id = id;
             Location = location;
             Name = name;
+            Ring = ring;
             Schedules = schedules;
             Tags = tags;
             TimeZone = timeZone;

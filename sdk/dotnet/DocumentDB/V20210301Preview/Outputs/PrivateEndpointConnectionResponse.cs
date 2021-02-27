@@ -7,12 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.HybridCompute.Outputs
+namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Outputs
 {
 
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
+        /// <summary>
+        /// Group id of the private endpoint.
+        /// </summary>
+        public readonly string? GroupId;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -26,13 +30,13 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// Connection State of the Private Endpoint Connection.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// State of the private endpoint connection.
+        /// Provisioning state of the private endpoint.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
+            string? groupId,
+
             string id,
 
             string name,
@@ -48,10 +54,11 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
             Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
 
-            string provisioningState,
+            string? provisioningState,
 
             string type)
         {
+            GroupId = groupId;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

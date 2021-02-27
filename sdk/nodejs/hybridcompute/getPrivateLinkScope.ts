@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
- * API Version: 2020-08-15-preview.
+ * API Version: 2021-01-28-preview.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi
 
 export interface GetPrivateLinkScopeArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -51,17 +51,13 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly name: string;
     /**
-     * List of private endpoint connections.
+     * Properties that define a Azure Arc PrivateLinkScope resource.
      */
-    readonly privateEndpointConnections: outputs.hybridcompute.PrivateEndpointConnectionResponse[];
+    readonly properties: outputs.hybridcompute.HybridComputePrivateLinkScopePropertiesResponse;
     /**
-     * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+     * The system meta data relating to this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-     */
-    readonly publicNetworkAccess?: string;
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * Resource tags
      */

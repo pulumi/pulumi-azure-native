@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+type AuthenticationMethod pulumi.String
+
+const (
+	AuthenticationMethodNone      = AuthenticationMethod("None")
+	AuthenticationMethodCassandra = AuthenticationMethod("Cassandra")
+)
+
+func (AuthenticationMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AuthenticationMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AuthenticationMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AuthenticationMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AuthenticationMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Describes the mode of backups.
 type BackupPolicyType pulumi.String
 
@@ -295,6 +323,38 @@ func (e IndexingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e IndexingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The status of the resource at the time the operation was called.
+type ManagedCassandraProvisioningState pulumi.String
+
+const (
+	ManagedCassandraProvisioningStateCreating  = ManagedCassandraProvisioningState("Creating")
+	ManagedCassandraProvisioningStateUpdating  = ManagedCassandraProvisioningState("Updating")
+	ManagedCassandraProvisioningStateDeleting  = ManagedCassandraProvisioningState("Deleting")
+	ManagedCassandraProvisioningStateSucceeded = ManagedCassandraProvisioningState("Succeeded")
+	ManagedCassandraProvisioningStateFailed    = ManagedCassandraProvisioningState("Failed")
+	ManagedCassandraProvisioningStateCanceled  = ManagedCassandraProvisioningState("Canceled")
+)
+
+func (ManagedCassandraProvisioningState) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ManagedCassandraProvisioningState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedCassandraProvisioningState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedCassandraProvisioningState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedCassandraProvisioningState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

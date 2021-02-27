@@ -75,9 +75,17 @@ namespace Pulumi.AzureNative.Insights.V20190301
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Azure resource identity
+        /// </summary>
+        public readonly string Identity;
+        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
+        /// <summary>
+        /// Azure resource kind
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -129,7 +137,11 @@ namespace Pulumi.AzureNative.Insights.V20190301
 
             string id,
 
+            string identity,
+
             ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
+
+            string kind,
 
             string location,
 
@@ -155,7 +167,9 @@ namespace Pulumi.AzureNative.Insights.V20190301
             Enabled = enabled;
             GroupShortName = groupShortName;
             Id = id;
+            Identity = identity;
             ItsmReceivers = itsmReceivers;
+            Kind = kind;
             Location = location;
             LogicAppReceivers = logicAppReceivers;
             Name = name;

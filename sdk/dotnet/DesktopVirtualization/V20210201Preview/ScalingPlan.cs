@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Output("ring")]
+        public Output<int?> Ring { get; private set; } = null!;
+
+        /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
         [Output("schedules")]
@@ -182,6 +188,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Input("ring")]
+        public Input<int>? Ring { get; set; }
 
         /// <summary>
         /// The name of the scaling plan.

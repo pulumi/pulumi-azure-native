@@ -552,6 +552,35 @@ func (e SubscriptionNotificationOperation) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type SubscriptionReregistrationResult pulumi.String
+
+const (
+	SubscriptionReregistrationResultNotApplicable     = SubscriptionReregistrationResult("NotApplicable")
+	SubscriptionReregistrationResultConditionalUpdate = SubscriptionReregistrationResult("ConditionalUpdate")
+	SubscriptionReregistrationResultForcedUpdate      = SubscriptionReregistrationResult("ForcedUpdate")
+	SubscriptionReregistrationResultFailed            = SubscriptionReregistrationResult("Failed")
+)
+
+func (SubscriptionReregistrationResult) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SubscriptionReregistrationResult) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionReregistrationResult) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionReregistrationResult) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriptionReregistrationResult) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type SubscriptionState pulumi.String
 
 const (
@@ -646,5 +675,38 @@ func (e ThrottlingMetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ThrottlingMetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrafficRegionCategory pulumi.String
+
+const (
+	TrafficRegionCategoryNotSpecified           = TrafficRegionCategory("NotSpecified")
+	TrafficRegionCategoryCanary                 = TrafficRegionCategory("Canary")
+	TrafficRegionCategoryLowTraffic             = TrafficRegionCategory("LowTraffic")
+	TrafficRegionCategoryMediumTraffic          = TrafficRegionCategory("MediumTraffic")
+	TrafficRegionCategoryHighTraffic            = TrafficRegionCategory("HighTraffic")
+	TrafficRegionCategoryNone                   = TrafficRegionCategory("None")
+	TrafficRegionCategoryRestOfTheWorldGroupOne = TrafficRegionCategory("RestOfTheWorldGroupOne")
+	TrafficRegionCategoryRestOfTheWorldGroupTwo = TrafficRegionCategory("RestOfTheWorldGroupTwo")
+)
+
+func (TrafficRegionCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TrafficRegionCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficRegionCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficRegionCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrafficRegionCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

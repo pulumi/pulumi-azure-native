@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
+    /// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMethod : IEquatable<AuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private AuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationMethod None { get; } = new AuthenticationMethod("None");
+        public static AuthenticationMethod Cassandra { get; } = new AuthenticationMethod("Cassandra");
+
+        public static bool operator ==(AuthenticationMethod left, AuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMethod left, AuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMethod other && Equals(other);
+        public bool Equals(AuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the mode of backups.
     /// </summary>
     [EnumType]
@@ -318,6 +349,41 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IndexingMode other && Equals(other);
         public bool Equals(IndexingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the resource at the time the operation was called.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCassandraProvisioningState : IEquatable<ManagedCassandraProvisioningState>
+    {
+        private readonly string _value;
+
+        private ManagedCassandraProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCassandraProvisioningState Creating { get; } = new ManagedCassandraProvisioningState("Creating");
+        public static ManagedCassandraProvisioningState Updating { get; } = new ManagedCassandraProvisioningState("Updating");
+        public static ManagedCassandraProvisioningState Deleting { get; } = new ManagedCassandraProvisioningState("Deleting");
+        public static ManagedCassandraProvisioningState Succeeded { get; } = new ManagedCassandraProvisioningState("Succeeded");
+        public static ManagedCassandraProvisioningState Failed { get; } = new ManagedCassandraProvisioningState("Failed");
+        public static ManagedCassandraProvisioningState Canceled { get; } = new ManagedCassandraProvisioningState("Canceled");
+
+        public static bool operator ==(ManagedCassandraProvisioningState left, ManagedCassandraProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ManagedCassandraProvisioningState left, ManagedCassandraProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCassandraProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCassandraProvisioningState other && Equals(other);
+        public bool Equals(ManagedCassandraProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

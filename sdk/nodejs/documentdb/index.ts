@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cassandraCluster";
+export * from "./cassandraDataCenter";
 export * from "./cassandraResourceCassandraKeyspace";
 export * from "./cassandraResourceCassandraTable";
 export * from "./databaseAccount";
@@ -17,6 +19,8 @@ export * from "./databaseAccountMongoDBDatabase";
 export * from "./databaseAccountSqlContainer";
 export * from "./databaseAccountSqlDatabase";
 export * from "./databaseAccountTable";
+export * from "./getCassandraCluster";
+export * from "./getCassandraDataCenter";
 export * from "./getCassandraResourceCassandraKeyspace";
 export * from "./getCassandraResourceCassandraTable";
 export * from "./getDatabaseAccount";
@@ -79,6 +83,7 @@ import * as v20200401 from "./v20200401";
 import * as v20200601preview from "./v20200601preview";
 import * as v20200901 from "./v20200901";
 import * as v20210115 from "./v20210115";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     latest,
@@ -95,9 +100,12 @@ export {
     v20200601preview,
     v20200901,
     v20210115,
+    v20210301preview,
 };
 
 // Import resources to register:
+import { CassandraCluster } from "./cassandraCluster";
+import { CassandraDataCenter } from "./cassandraDataCenter";
 import { CassandraResourceCassandraKeyspace } from "./cassandraResourceCassandraKeyspace";
 import { CassandraResourceCassandraTable } from "./cassandraResourceCassandraTable";
 import { DatabaseAccount } from "./databaseAccount";
@@ -129,6 +137,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:documentdb:CassandraCluster":
+                return new CassandraCluster(name, <any>undefined, { urn })
+            case "azure-native:documentdb:CassandraDataCenter":
+                return new CassandraDataCenter(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraKeyspace":
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:CassandraResourceCassandraTable":
