@@ -43,9 +43,10 @@ export class DefaultRollout extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly specification!: pulumi.Output<outputs.providerhub.latest.DefaultRolloutPropertiesResponseSpecification | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<outputs.providerhub.latest.DefaultRolloutPropertiesResponseStatus | undefined>;
+    /**
+     * Properties of the rollout.
+     */
+    public readonly properties!: pulumi.Output<outputs.providerhub.latest.DefaultRolloutResponseProperties>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -67,18 +68,14 @@ export class DefaultRollout extends pulumi.CustomResource {
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["rolloutName"] = args ? args.rolloutName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["specification"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["specification"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -94,6 +91,10 @@ export class DefaultRollout extends pulumi.CustomResource {
  * The set of arguments for constructing a DefaultRollout resource.
  */
 export interface DefaultRolloutArgs {
+    /**
+     * Properties of the rollout.
+     */
+    readonly properties?: pulumi.Input<inputs.providerhub.latest.DefaultRolloutProperties>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

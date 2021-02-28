@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['DefaultRollout']
 
@@ -20,6 +22,7 @@ class DefaultRollout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,6 +34,7 @@ class DefaultRollout(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']] properties: Properties of the rollout.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] rollout_name: The rollout name.
         """
@@ -52,14 +56,12 @@ class DefaultRollout(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['properties'] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
             __props__['rollout_name'] = rollout_name
             __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['specification'] = None
-            __props__['status'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -96,19 +98,12 @@ class DefaultRollout(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def specification(self) -> pulumi.Output[Optional['outputs.DefaultRolloutPropertiesResponseSpecification']]:
-        return pulumi.get(self, "specification")
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['outputs.DefaultRolloutPropertiesResponseStatus']]:
-        return pulumi.get(self, "status")
+    def properties(self) -> pulumi.Output['outputs.DefaultRolloutResponseProperties']:
+        """
+        Properties of the rollout.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

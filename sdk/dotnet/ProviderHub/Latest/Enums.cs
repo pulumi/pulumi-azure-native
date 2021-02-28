@@ -568,6 +568,36 @@ namespace Pulumi.AzureNative.ProviderHub.Latest
     }
 
     [EnumType]
+    public readonly struct SubscriptionReregistrationResult : IEquatable<SubscriptionReregistrationResult>
+    {
+        private readonly string _value;
+
+        private SubscriptionReregistrationResult(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriptionReregistrationResult NotApplicable { get; } = new SubscriptionReregistrationResult("NotApplicable");
+        public static SubscriptionReregistrationResult ConditionalUpdate { get; } = new SubscriptionReregistrationResult("ConditionalUpdate");
+        public static SubscriptionReregistrationResult ForcedUpdate { get; } = new SubscriptionReregistrationResult("ForcedUpdate");
+        public static SubscriptionReregistrationResult Failed { get; } = new SubscriptionReregistrationResult("Failed");
+
+        public static bool operator ==(SubscriptionReregistrationResult left, SubscriptionReregistrationResult right) => left.Equals(right);
+        public static bool operator !=(SubscriptionReregistrationResult left, SubscriptionReregistrationResult right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriptionReregistrationResult value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriptionReregistrationResult other && Equals(other);
+        public bool Equals(SubscriptionReregistrationResult other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SubscriptionState : IEquatable<SubscriptionState>
     {
         private readonly string _value;
@@ -660,6 +690,40 @@ namespace Pulumi.AzureNative.ProviderHub.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ThrottlingMetricType other && Equals(other);
         public bool Equals(ThrottlingMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TrafficRegionCategory : IEquatable<TrafficRegionCategory>
+    {
+        private readonly string _value;
+
+        private TrafficRegionCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrafficRegionCategory NotSpecified { get; } = new TrafficRegionCategory("NotSpecified");
+        public static TrafficRegionCategory Canary { get; } = new TrafficRegionCategory("Canary");
+        public static TrafficRegionCategory LowTraffic { get; } = new TrafficRegionCategory("LowTraffic");
+        public static TrafficRegionCategory MediumTraffic { get; } = new TrafficRegionCategory("MediumTraffic");
+        public static TrafficRegionCategory HighTraffic { get; } = new TrafficRegionCategory("HighTraffic");
+        public static TrafficRegionCategory None { get; } = new TrafficRegionCategory("None");
+        public static TrafficRegionCategory RestOfTheWorldGroupOne { get; } = new TrafficRegionCategory("RestOfTheWorldGroupOne");
+        public static TrafficRegionCategory RestOfTheWorldGroupTwo { get; } = new TrafficRegionCategory("RestOfTheWorldGroupTwo");
+
+        public static bool operator ==(TrafficRegionCategory left, TrafficRegionCategory right) => left.Equals(right);
+        public static bool operator !=(TrafficRegionCategory left, TrafficRegionCategory right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficRegionCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficRegionCategory other && Equals(other);
+        public bool Equals(TrafficRegionCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

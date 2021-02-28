@@ -58,10 +58,22 @@ namespace Pulumi.AzureNative.Insights.V20190601
         public Output<string> GroupShortName { get; private set; } = null!;
 
         /// <summary>
+        /// Azure resource identity
+        /// </summary>
+        [Output("identity")]
+        public Output<string> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         [Output("itsmReceivers")]
         public Output<ImmutableArray<Outputs.ItsmReceiverResponse>> ItsmReceivers { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure resource kind
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

@@ -20,7 +20,9 @@ __all__ = [
     'CassandraSchemaResponse',
     'CassandraTableGetPropertiesResponseOptions',
     'CassandraTableGetPropertiesResponseResource',
+    'CertificateResponse',
     'ClusterKeyResponse',
+    'ClusterResourceResponseProperties',
     'ColumnResponse',
     'CompositePathResponse',
     'ConflictResolutionPolicyResponse',
@@ -28,6 +30,7 @@ __all__ = [
     'ContainerPartitionKeyResponse',
     'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
+    'DataCenterResourceResponseProperties',
     'DatabaseAccountConnectionStringResponseResult',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
@@ -55,6 +58,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'SeedNodeResponse',
     'SpatialSpecResponse',
     'SqlContainerGetPropertiesResponseOptions',
     'SqlContainerGetPropertiesResponseResource',
@@ -429,6 +433,28 @@ class CassandraTableGetPropertiesResponseResource(dict):
 
 
 @pulumi.output_type
+class CertificateResponse(dict):
+    def __init__(__self__, *,
+                 pem: Optional[str] = None):
+        """
+        :param str pem: PEM formatted public key.
+        """
+        if pem is not None:
+            pulumi.set(__self__, "pem", pem)
+
+    @property
+    @pulumi.getter
+    def pem(self) -> Optional[str]:
+        """
+        PEM formatted public key.
+        """
+        return pulumi.get(self, "pem")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ClusterKeyResponse(dict):
     """
     Cosmos DB Cassandra table cluster key
@@ -461,6 +487,198 @@ class ClusterKeyResponse(dict):
         Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
         """
         return pulumi.get(self, "order_by")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClusterResourceResponseProperties(dict):
+    """
+    Properties of a managed Cassandra cluster.
+    """
+    def __init__(__self__, *,
+                 gossip_certificates: Sequence['outputs.CertificateResponse'],
+                 seed_nodes: Sequence['outputs.SeedNodeResponse'],
+                 authentication_method: Optional[str] = None,
+                 cassandra_version: Optional[str] = None,
+                 client_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+                 cluster_name_override: Optional[str] = None,
+                 delegated_management_subnet_id: Optional[str] = None,
+                 external_gossip_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+                 external_seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
+                 hours_between_backups: Optional[int] = None,
+                 initial_cassandra_admin_password: Optional[str] = None,
+                 prometheus_endpoint: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 repair_enabled: Optional[bool] = None,
+                 restore_from_backup_id: Optional[str] = None):
+        """
+        Properties of a managed Cassandra cluster.
+        :param Sequence['CertificateResponseArgs'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+        :param Sequence['SeedNodeResponseArgs'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+        :param str authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param str cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+        :param Sequence['CertificateResponseArgs'] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+        :param str cluster_name_override: If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        :param str delegated_management_subnet_id: Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        :param Sequence['CertificateResponseArgs'] external_gossip_certificates: List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+        :param Sequence['SeedNodeResponseArgs'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+        :param int hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        :param str initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+        :param str prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param str provisioning_state: The status of the resource at the time the operation was called.
+        :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+        :param str restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+        """
+        pulumi.set(__self__, "gossip_certificates", gossip_certificates)
+        pulumi.set(__self__, "seed_nodes", seed_nodes)
+        if authentication_method is not None:
+            pulumi.set(__self__, "authentication_method", authentication_method)
+        if cassandra_version is not None:
+            pulumi.set(__self__, "cassandra_version", cassandra_version)
+        if client_certificates is not None:
+            pulumi.set(__self__, "client_certificates", client_certificates)
+        if cluster_name_override is not None:
+            pulumi.set(__self__, "cluster_name_override", cluster_name_override)
+        if delegated_management_subnet_id is not None:
+            pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
+        if external_gossip_certificates is not None:
+            pulumi.set(__self__, "external_gossip_certificates", external_gossip_certificates)
+        if external_seed_nodes is not None:
+            pulumi.set(__self__, "external_seed_nodes", external_seed_nodes)
+        if hours_between_backups is not None:
+            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
+        if initial_cassandra_admin_password is not None:
+            pulumi.set(__self__, "initial_cassandra_admin_password", initial_cassandra_admin_password)
+        if prometheus_endpoint is not None:
+            pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if repair_enabled is not None:
+            pulumi.set(__self__, "repair_enabled", repair_enabled)
+        if restore_from_backup_id is not None:
+            pulumi.set(__self__, "restore_from_backup_id", restore_from_backup_id)
+
+    @property
+    @pulumi.getter(name="gossipCertificates")
+    def gossip_certificates(self) -> Sequence['outputs.CertificateResponse']:
+        """
+        List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+        """
+        return pulumi.get(self, "gossip_certificates")
+
+    @property
+    @pulumi.getter(name="seedNodes")
+    def seed_nodes(self) -> Sequence['outputs.SeedNodeResponse']:
+        """
+        List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+        """
+        return pulumi.get(self, "seed_nodes")
+
+    @property
+    @pulumi.getter(name="authenticationMethod")
+    def authentication_method(self) -> Optional[str]:
+        """
+        Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        """
+        return pulumi.get(self, "authentication_method")
+
+    @property
+    @pulumi.getter(name="cassandraVersion")
+    def cassandra_version(self) -> Optional[str]:
+        """
+        Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+        """
+        return pulumi.get(self, "cassandra_version")
+
+    @property
+    @pulumi.getter(name="clientCertificates")
+    def client_certificates(self) -> Optional[Sequence['outputs.CertificateResponse']]:
+        """
+        List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+        """
+        return pulumi.get(self, "client_certificates")
+
+    @property
+    @pulumi.getter(name="clusterNameOverride")
+    def cluster_name_override(self) -> Optional[str]:
+        """
+        If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+        """
+        return pulumi.get(self, "cluster_name_override")
+
+    @property
+    @pulumi.getter(name="delegatedManagementSubnetId")
+    def delegated_management_subnet_id(self) -> Optional[str]:
+        """
+        Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+        """
+        return pulumi.get(self, "delegated_management_subnet_id")
+
+    @property
+    @pulumi.getter(name="externalGossipCertificates")
+    def external_gossip_certificates(self) -> Optional[Sequence['outputs.CertificateResponse']]:
+        """
+        List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+        """
+        return pulumi.get(self, "external_gossip_certificates")
+
+    @property
+    @pulumi.getter(name="externalSeedNodes")
+    def external_seed_nodes(self) -> Optional[Sequence['outputs.SeedNodeResponse']]:
+        """
+        List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+        """
+        return pulumi.get(self, "external_seed_nodes")
+
+    @property
+    @pulumi.getter(name="hoursBetweenBackups")
+    def hours_between_backups(self) -> Optional[int]:
+        """
+        Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        """
+        return pulumi.get(self, "hours_between_backups")
+
+    @property
+    @pulumi.getter(name="initialCassandraAdminPassword")
+    def initial_cassandra_admin_password(self) -> Optional[str]:
+        """
+        Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+        """
+        return pulumi.get(self, "initial_cassandra_admin_password")
+
+    @property
+    @pulumi.getter(name="prometheusEndpoint")
+    def prometheus_endpoint(self) -> Optional[str]:
+        """
+        Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        """
+        return pulumi.get(self, "prometheus_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The status of the resource at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="repairEnabled")
+    def repair_enabled(self) -> Optional[bool]:
+        """
+        Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+        """
+        return pulumi.get(self, "repair_enabled")
+
+    @property
+    @pulumi.getter(name="restoreFromBackupId")
+    def restore_from_backup_id(self) -> Optional[str]:
+        """
+        To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+        """
+        return pulumi.get(self, "restore_from_backup_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -797,6 +1015,91 @@ class CorsPolicyResponse(dict):
         The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         return pulumi.get(self, "max_age_in_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataCenterResourceResponseProperties(dict):
+    """
+    Properties of a managed Cassandra data center.
+    """
+    def __init__(__self__, *,
+                 seed_nodes: Sequence['outputs.SeedNodeResponse'],
+                 base64_encoded_cassandra_yaml_fragment: Optional[str] = None,
+                 data_center_location: Optional[str] = None,
+                 delegated_subnet_id: Optional[str] = None,
+                 node_count: Optional[int] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Properties of a managed Cassandra data center.
+        :param Sequence['SeedNodeResponseArgs'] seed_nodes: IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+        :param str base64_encoded_cassandra_yaml_fragment: A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+        :param str data_center_location: The region this data center should be created in.
+        :param str delegated_subnet_id: Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+        :param int node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        :param str provisioning_state: The status of the resource at the time the operation was called.
+        """
+        pulumi.set(__self__, "seed_nodes", seed_nodes)
+        if base64_encoded_cassandra_yaml_fragment is not None:
+            pulumi.set(__self__, "base64_encoded_cassandra_yaml_fragment", base64_encoded_cassandra_yaml_fragment)
+        if data_center_location is not None:
+            pulumi.set(__self__, "data_center_location", data_center_location)
+        if delegated_subnet_id is not None:
+            pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="seedNodes")
+    def seed_nodes(self) -> Sequence['outputs.SeedNodeResponse']:
+        """
+        IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+        """
+        return pulumi.get(self, "seed_nodes")
+
+    @property
+    @pulumi.getter(name="base64EncodedCassandraYamlFragment")
+    def base64_encoded_cassandra_yaml_fragment(self) -> Optional[str]:
+        """
+        A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+        """
+        return pulumi.get(self, "base64_encoded_cassandra_yaml_fragment")
+
+    @property
+    @pulumi.getter(name="dataCenterLocation")
+    def data_center_location(self) -> Optional[str]:
+        """
+        The region this data center should be created in.
+        """
+        return pulumi.get(self, "data_center_location")
+
+    @property
+    @pulumi.getter(name="delegatedSubnetId")
+    def delegated_subnet_id(self) -> Optional[str]:
+        """
+        Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+        """
+        return pulumi.get(self, "delegated_subnet_id")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[int]:
+        """
+        The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The status of the resource at the time the operation was called.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2117,6 +2420,28 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SeedNodeResponse(dict):
+    def __init__(__self__, *,
+                 ip_address: Optional[str] = None):
+        """
+        :param str ip_address: IP address of this seed node.
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP address of this seed node.
+        """
+        return pulumi.get(self, "ip_address")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

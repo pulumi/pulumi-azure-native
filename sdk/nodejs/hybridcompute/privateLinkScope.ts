@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
- * API Version: 2020-08-15-preview.
+ * API Version: 2021-01-28-preview.
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**
@@ -45,17 +45,13 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * List of private endpoint connections.
+     * Properties that define a Azure Arc PrivateLinkScope resource.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.hybridcompute.PrivateEndpointConnectionResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.hybridcompute.HybridComputePrivateLinkScopePropertiesResponse>;
     /**
-     * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+     * The system meta data relating to this resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-     */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -80,27 +76,25 @@ export class PrivateLinkScope extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeName"] = args ? args.scopeName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateLinkScope" }, { type: "azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, inputs, opts);
     }
@@ -115,11 +109,11 @@ export interface PrivateLinkScopeArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+     * Properties that define a Azure Arc PrivateLinkScope resource.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.PublicNetworkAccessType>;
+    readonly properties?: pulumi.Input<inputs.hybridcompute.HybridComputePrivateLinkScopeProperties>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

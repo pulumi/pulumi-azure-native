@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Access Review Schedule Definition.
- * API Version: 2018-05-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     public readonly autoApplyDecisionsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * This is the collection of backup reviewers.
+     */
+    public readonly backupReviewers!: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */
@@ -157,6 +161,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["autoApplyDecisionsEnabled"] = args ? args.autoApplyDecisionsEnabled : undefined;
+            inputs["backupReviewers"] = args ? args.backupReviewers : undefined;
             inputs["defaultDecision"] = args ? args.defaultDecision : undefined;
             inputs["defaultDecisionEnabled"] = args ? args.defaultDecisionEnabled : undefined;
             inputs["descriptionForAdmins"] = args ? args.descriptionForAdmins : undefined;
@@ -186,6 +191,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["userPrincipalName"] = undefined /*out*/;
         } else {
             inputs["autoApplyDecisionsEnabled"] = undefined /*out*/;
+            inputs["backupReviewers"] = undefined /*out*/;
             inputs["defaultDecision"] = undefined /*out*/;
             inputs["defaultDecisionEnabled"] = undefined /*out*/;
             inputs["descriptionForAdmins"] = undefined /*out*/;
@@ -230,6 +236,10 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     readonly autoApplyDecisionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * This is the collection of backup reviewers.
+     */
+    readonly backupReviewers?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewReviewer>[]>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */

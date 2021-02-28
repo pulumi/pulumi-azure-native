@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Role Assignment
-// API Version: 2020-06-01-preview.
+// API Version: 2021-03-01-preview.
 type SqlResourceSqlRoleAssignment struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +47,12 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

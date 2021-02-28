@@ -210,6 +210,165 @@ func (o AuthorizationActionMappingResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(AuthorizationActionMappingResponseOutput)
 }
 
+// Properties of the rollout.
+type DefaultRolloutProperties struct {
+	ProvisioningState *string                                `pulumi:"provisioningState"`
+	Specification     *DefaultRolloutPropertiesSpecification `pulumi:"specification"`
+	Status            *DefaultRolloutPropertiesStatus        `pulumi:"status"`
+}
+
+// DefaultRolloutPropertiesInput is an input type that accepts DefaultRolloutPropertiesArgs and DefaultRolloutPropertiesOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesInput` via:
+//
+//          DefaultRolloutPropertiesArgs{...}
+type DefaultRolloutPropertiesInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesOutput() DefaultRolloutPropertiesOutput
+	ToDefaultRolloutPropertiesOutputWithContext(context.Context) DefaultRolloutPropertiesOutput
+}
+
+// Properties of the rollout.
+type DefaultRolloutPropertiesArgs struct {
+	ProvisioningState pulumi.StringPtrInput                         `pulumi:"provisioningState"`
+	Specification     DefaultRolloutPropertiesSpecificationPtrInput `pulumi:"specification"`
+	Status            DefaultRolloutPropertiesStatusPtrInput        `pulumi:"status"`
+}
+
+func (DefaultRolloutPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutProperties)(nil)).Elem()
+}
+
+func (i DefaultRolloutPropertiesArgs) ToDefaultRolloutPropertiesOutput() DefaultRolloutPropertiesOutput {
+	return i.ToDefaultRolloutPropertiesOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesArgs) ToDefaultRolloutPropertiesOutputWithContext(ctx context.Context) DefaultRolloutPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesOutput)
+}
+
+func (i DefaultRolloutPropertiesArgs) ToDefaultRolloutPropertiesPtrOutput() DefaultRolloutPropertiesPtrOutput {
+	return i.ToDefaultRolloutPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesArgs) ToDefaultRolloutPropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesOutput).ToDefaultRolloutPropertiesPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutPropertiesPtrInput is an input type that accepts DefaultRolloutPropertiesArgs, DefaultRolloutPropertiesPtr and DefaultRolloutPropertiesPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesPtrInput` via:
+//
+//          DefaultRolloutPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesPtrOutput() DefaultRolloutPropertiesPtrOutput
+	ToDefaultRolloutPropertiesPtrOutputWithContext(context.Context) DefaultRolloutPropertiesPtrOutput
+}
+
+type defaultRolloutPropertiesPtrType DefaultRolloutPropertiesArgs
+
+func DefaultRolloutPropertiesPtr(v *DefaultRolloutPropertiesArgs) DefaultRolloutPropertiesPtrInput {
+	return (*defaultRolloutPropertiesPtrType)(v)
+}
+
+func (*defaultRolloutPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutProperties)(nil)).Elem()
+}
+
+func (i *defaultRolloutPropertiesPtrType) ToDefaultRolloutPropertiesPtrOutput() DefaultRolloutPropertiesPtrOutput {
+	return i.ToDefaultRolloutPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutPropertiesPtrType) ToDefaultRolloutPropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesPtrOutput)
+}
+
+// Properties of the rollout.
+type DefaultRolloutPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutProperties)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesOutput() DefaultRolloutPropertiesOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesOutputWithContext(ctx context.Context) DefaultRolloutPropertiesOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesPtrOutput() DefaultRolloutPropertiesPtrOutput {
+	return o.ToDefaultRolloutPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutProperties) *DefaultRolloutProperties {
+		return &v
+	}).(DefaultRolloutPropertiesPtrOutput)
+}
+func (o DefaultRolloutPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesOutput) Specification() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutProperties) *DefaultRolloutPropertiesSpecification { return v.Specification }).(DefaultRolloutPropertiesSpecificationPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesOutput) Status() DefaultRolloutPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutProperties) *DefaultRolloutPropertiesStatus { return v.Status }).(DefaultRolloutPropertiesStatusPtrOutput)
+}
+
+type DefaultRolloutPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutProperties)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) ToDefaultRolloutPropertiesPtrOutput() DefaultRolloutPropertiesPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) ToDefaultRolloutPropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) Elem() DefaultRolloutPropertiesOutput {
+	return o.ApplyT(func(v *DefaultRolloutProperties) DefaultRolloutProperties { return *v }).(DefaultRolloutPropertiesOutput)
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) Specification() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutProperties) *DefaultRolloutPropertiesSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.Specification
+	}).(DefaultRolloutPropertiesSpecificationPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesPtrOutput) Status() DefaultRolloutPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutProperties) *DefaultRolloutPropertiesStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DefaultRolloutPropertiesStatusPtrOutput)
+}
+
 type DefaultRolloutPropertiesResponseSpecification struct {
 	Canary                    *DefaultRolloutSpecificationResponseCanary                 `pulumi:"canary"`
 	HighTraffic               *DefaultRolloutSpecificationResponseHighTraffic            `pulumi:"highTraffic"`
@@ -645,6 +804,1292 @@ func (o DefaultRolloutPropertiesResponseStatusPtrOutput) SubscriptionReregistrat
 		}
 		return v.SubscriptionReregistrationResult
 	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutPropertiesSpecification struct {
+	Canary                    *DefaultRolloutSpecificationCanary                 `pulumi:"canary"`
+	HighTraffic               *DefaultRolloutSpecificationHighTraffic            `pulumi:"highTraffic"`
+	LowTraffic                *DefaultRolloutSpecificationLowTraffic             `pulumi:"lowTraffic"`
+	MediumTraffic             *DefaultRolloutSpecificationMediumTraffic          `pulumi:"mediumTraffic"`
+	ProviderRegistration      *DefaultRolloutSpecificationProviderRegistration   `pulumi:"providerRegistration"`
+	ResourceTypeRegistrations []ResourceTypeRegistrationType                     `pulumi:"resourceTypeRegistrations"`
+	RestOfTheWorldGroupOne    *DefaultRolloutSpecificationRestOfTheWorldGroupOne `pulumi:"restOfTheWorldGroupOne"`
+	RestOfTheWorldGroupTwo    *DefaultRolloutSpecificationRestOfTheWorldGroupTwo `pulumi:"restOfTheWorldGroupTwo"`
+}
+
+// DefaultRolloutPropertiesSpecificationInput is an input type that accepts DefaultRolloutPropertiesSpecificationArgs and DefaultRolloutPropertiesSpecificationOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesSpecificationInput` via:
+//
+//          DefaultRolloutPropertiesSpecificationArgs{...}
+type DefaultRolloutPropertiesSpecificationInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesSpecificationOutput() DefaultRolloutPropertiesSpecificationOutput
+	ToDefaultRolloutPropertiesSpecificationOutputWithContext(context.Context) DefaultRolloutPropertiesSpecificationOutput
+}
+
+type DefaultRolloutPropertiesSpecificationArgs struct {
+	Canary                    DefaultRolloutSpecificationCanaryPtrInput                 `pulumi:"canary"`
+	HighTraffic               DefaultRolloutSpecificationHighTrafficPtrInput            `pulumi:"highTraffic"`
+	LowTraffic                DefaultRolloutSpecificationLowTrafficPtrInput             `pulumi:"lowTraffic"`
+	MediumTraffic             DefaultRolloutSpecificationMediumTrafficPtrInput          `pulumi:"mediumTraffic"`
+	ProviderRegistration      DefaultRolloutSpecificationProviderRegistrationPtrInput   `pulumi:"providerRegistration"`
+	ResourceTypeRegistrations ResourceTypeRegistrationTypeArrayInput                    `pulumi:"resourceTypeRegistrations"`
+	RestOfTheWorldGroupOne    DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrInput `pulumi:"restOfTheWorldGroupOne"`
+	RestOfTheWorldGroupTwo    DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrInput `pulumi:"restOfTheWorldGroupTwo"`
+}
+
+func (DefaultRolloutPropertiesSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutPropertiesSpecification)(nil)).Elem()
+}
+
+func (i DefaultRolloutPropertiesSpecificationArgs) ToDefaultRolloutPropertiesSpecificationOutput() DefaultRolloutPropertiesSpecificationOutput {
+	return i.ToDefaultRolloutPropertiesSpecificationOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesSpecificationArgs) ToDefaultRolloutPropertiesSpecificationOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesSpecificationOutput)
+}
+
+func (i DefaultRolloutPropertiesSpecificationArgs) ToDefaultRolloutPropertiesSpecificationPtrOutput() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return i.ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesSpecificationArgs) ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesSpecificationOutput).ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutPropertiesSpecificationPtrInput is an input type that accepts DefaultRolloutPropertiesSpecificationArgs, DefaultRolloutPropertiesSpecificationPtr and DefaultRolloutPropertiesSpecificationPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesSpecificationPtrInput` via:
+//
+//          DefaultRolloutPropertiesSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutPropertiesSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesSpecificationPtrOutput() DefaultRolloutPropertiesSpecificationPtrOutput
+	ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(context.Context) DefaultRolloutPropertiesSpecificationPtrOutput
+}
+
+type defaultRolloutPropertiesSpecificationPtrType DefaultRolloutPropertiesSpecificationArgs
+
+func DefaultRolloutPropertiesSpecificationPtr(v *DefaultRolloutPropertiesSpecificationArgs) DefaultRolloutPropertiesSpecificationPtrInput {
+	return (*defaultRolloutPropertiesSpecificationPtrType)(v)
+}
+
+func (*defaultRolloutPropertiesSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutPropertiesSpecification)(nil)).Elem()
+}
+
+func (i *defaultRolloutPropertiesSpecificationPtrType) ToDefaultRolloutPropertiesSpecificationPtrOutput() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return i.ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutPropertiesSpecificationPtrType) ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesSpecificationPtrOutput)
+}
+
+type DefaultRolloutPropertiesSpecificationOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutPropertiesSpecification)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesSpecificationOutput() DefaultRolloutPropertiesSpecificationOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesSpecificationOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesSpecificationPtrOutput() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o.ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutPropertiesSpecification {
+		return &v
+	}).(DefaultRolloutPropertiesSpecificationPtrOutput)
+}
+func (o DefaultRolloutPropertiesSpecificationOutput) Canary() DefaultRolloutSpecificationCanaryPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationCanary { return v.Canary }).(DefaultRolloutSpecificationCanaryPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) HighTraffic() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationHighTraffic {
+		return v.HighTraffic
+	}).(DefaultRolloutSpecificationHighTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) LowTraffic() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationLowTraffic {
+		return v.LowTraffic
+	}).(DefaultRolloutSpecificationLowTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) MediumTraffic() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationMediumTraffic {
+		return v.MediumTraffic
+	}).(DefaultRolloutSpecificationMediumTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ProviderRegistration() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationProviderRegistration {
+		return v.ProviderRegistration
+	}).(DefaultRolloutSpecificationProviderRegistrationPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) ResourceTypeRegistrations() ResourceTypeRegistrationTypeArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) []ResourceTypeRegistrationType {
+		return v.ResourceTypeRegistrations
+	}).(ResourceTypeRegistrationTypeArrayOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) RestOfTheWorldGroupOne() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationRestOfTheWorldGroupOne {
+		return v.RestOfTheWorldGroupOne
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationOutput) RestOfTheWorldGroupTwo() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
+		return v.RestOfTheWorldGroupTwo
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput)
+}
+
+type DefaultRolloutPropertiesSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutPropertiesSpecification)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) ToDefaultRolloutPropertiesSpecificationPtrOutput() DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) Elem() DefaultRolloutPropertiesSpecificationOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) DefaultRolloutPropertiesSpecification { return *v }).(DefaultRolloutPropertiesSpecificationOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) Canary() DefaultRolloutSpecificationCanaryPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationCanary {
+		if v == nil {
+			return nil
+		}
+		return v.Canary
+	}).(DefaultRolloutSpecificationCanaryPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) HighTraffic() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationHighTraffic {
+		if v == nil {
+			return nil
+		}
+		return v.HighTraffic
+	}).(DefaultRolloutSpecificationHighTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) LowTraffic() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationLowTraffic {
+		if v == nil {
+			return nil
+		}
+		return v.LowTraffic
+	}).(DefaultRolloutSpecificationLowTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) MediumTraffic() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationMediumTraffic {
+		if v == nil {
+			return nil
+		}
+		return v.MediumTraffic
+	}).(DefaultRolloutSpecificationMediumTrafficPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) ProviderRegistration() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationProviderRegistration {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderRegistration
+	}).(DefaultRolloutSpecificationProviderRegistrationPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) ResourceTypeRegistrations() ResourceTypeRegistrationTypeArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) []ResourceTypeRegistrationType {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypeRegistrations
+	}).(ResourceTypeRegistrationTypeArrayOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) RestOfTheWorldGroupOne() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationRestOfTheWorldGroupOne {
+		if v == nil {
+			return nil
+		}
+		return v.RestOfTheWorldGroupOne
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput)
+}
+
+func (o DefaultRolloutPropertiesSpecificationPtrOutput) RestOfTheWorldGroupTwo() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
+		if v == nil {
+			return nil
+		}
+		return v.RestOfTheWorldGroupTwo
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput)
+}
+
+type DefaultRolloutPropertiesStatus struct {
+	CompletedRegions                 []string                     `pulumi:"completedRegions"`
+	FailedOrSkippedRegions           map[string]ExtendedErrorInfo `pulumi:"failedOrSkippedRegions"`
+	NextTrafficRegion                *string                      `pulumi:"nextTrafficRegion"`
+	NextTrafficRegionScheduledTime   *string                      `pulumi:"nextTrafficRegionScheduledTime"`
+	SubscriptionReregistrationResult *string                      `pulumi:"subscriptionReregistrationResult"`
+}
+
+// DefaultRolloutPropertiesStatusInput is an input type that accepts DefaultRolloutPropertiesStatusArgs and DefaultRolloutPropertiesStatusOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesStatusInput` via:
+//
+//          DefaultRolloutPropertiesStatusArgs{...}
+type DefaultRolloutPropertiesStatusInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesStatusOutput() DefaultRolloutPropertiesStatusOutput
+	ToDefaultRolloutPropertiesStatusOutputWithContext(context.Context) DefaultRolloutPropertiesStatusOutput
+}
+
+type DefaultRolloutPropertiesStatusArgs struct {
+	CompletedRegions                 pulumi.StringArrayInput   `pulumi:"completedRegions"`
+	FailedOrSkippedRegions           ExtendedErrorInfoMapInput `pulumi:"failedOrSkippedRegions"`
+	NextTrafficRegion                pulumi.StringPtrInput     `pulumi:"nextTrafficRegion"`
+	NextTrafficRegionScheduledTime   pulumi.StringPtrInput     `pulumi:"nextTrafficRegionScheduledTime"`
+	SubscriptionReregistrationResult pulumi.StringPtrInput     `pulumi:"subscriptionReregistrationResult"`
+}
+
+func (DefaultRolloutPropertiesStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutPropertiesStatus)(nil)).Elem()
+}
+
+func (i DefaultRolloutPropertiesStatusArgs) ToDefaultRolloutPropertiesStatusOutput() DefaultRolloutPropertiesStatusOutput {
+	return i.ToDefaultRolloutPropertiesStatusOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesStatusArgs) ToDefaultRolloutPropertiesStatusOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesStatusOutput)
+}
+
+func (i DefaultRolloutPropertiesStatusArgs) ToDefaultRolloutPropertiesStatusPtrOutput() DefaultRolloutPropertiesStatusPtrOutput {
+	return i.ToDefaultRolloutPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutPropertiesStatusArgs) ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesStatusOutput).ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutPropertiesStatusPtrInput is an input type that accepts DefaultRolloutPropertiesStatusArgs, DefaultRolloutPropertiesStatusPtr and DefaultRolloutPropertiesStatusPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutPropertiesStatusPtrInput` via:
+//
+//          DefaultRolloutPropertiesStatusArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutPropertiesStatusPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutPropertiesStatusPtrOutput() DefaultRolloutPropertiesStatusPtrOutput
+	ToDefaultRolloutPropertiesStatusPtrOutputWithContext(context.Context) DefaultRolloutPropertiesStatusPtrOutput
+}
+
+type defaultRolloutPropertiesStatusPtrType DefaultRolloutPropertiesStatusArgs
+
+func DefaultRolloutPropertiesStatusPtr(v *DefaultRolloutPropertiesStatusArgs) DefaultRolloutPropertiesStatusPtrInput {
+	return (*defaultRolloutPropertiesStatusPtrType)(v)
+}
+
+func (*defaultRolloutPropertiesStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutPropertiesStatus)(nil)).Elem()
+}
+
+func (i *defaultRolloutPropertiesStatusPtrType) ToDefaultRolloutPropertiesStatusPtrOutput() DefaultRolloutPropertiesStatusPtrOutput {
+	return i.ToDefaultRolloutPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutPropertiesStatusPtrType) ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutPropertiesStatusPtrOutput)
+}
+
+type DefaultRolloutPropertiesStatusOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutPropertiesStatus)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusOutput() DefaultRolloutPropertiesStatusOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusPtrOutput() DefaultRolloutPropertiesStatusPtrOutput {
+	return o.ToDefaultRolloutPropertiesStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) *DefaultRolloutPropertiesStatus {
+		return &v
+	}).(DefaultRolloutPropertiesStatusPtrOutput)
+}
+func (o DefaultRolloutPropertiesStatusOutput) CompletedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) []string { return v.CompletedRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) FailedOrSkippedRegions() ExtendedErrorInfoMapOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) map[string]ExtendedErrorInfo { return v.FailedOrSkippedRegions }).(ExtendedErrorInfoMapOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) NextTrafficRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) *string { return v.NextTrafficRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) NextTrafficRegionScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) *string { return v.NextTrafficRegionScheduledTime }).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusOutput) SubscriptionReregistrationResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) *string { return v.SubscriptionReregistrationResult }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutPropertiesStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutPropertiesStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutPropertiesStatus)(nil)).Elem()
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) ToDefaultRolloutPropertiesStatusPtrOutput() DefaultRolloutPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) Elem() DefaultRolloutPropertiesStatusOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) DefaultRolloutPropertiesStatus { return *v }).(DefaultRolloutPropertiesStatusOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) CompletedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CompletedRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) FailedOrSkippedRegions() ExtendedErrorInfoMapOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) map[string]ExtendedErrorInfo {
+		if v == nil {
+			return nil
+		}
+		return v.FailedOrSkippedRegions
+	}).(ExtendedErrorInfoMapOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) NextTrafficRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextTrafficRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) NextTrafficRegionScheduledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextTrafficRegionScheduledTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutPropertiesStatusPtrOutput) SubscriptionReregistrationResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionReregistrationResult
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the rollout.
+type DefaultRolloutResponseProperties struct {
+	ProvisioningState *string                                        `pulumi:"provisioningState"`
+	Specification     *DefaultRolloutPropertiesResponseSpecification `pulumi:"specification"`
+	Status            *DefaultRolloutPropertiesResponseStatus        `pulumi:"status"`
+}
+
+// DefaultRolloutResponsePropertiesInput is an input type that accepts DefaultRolloutResponsePropertiesArgs and DefaultRolloutResponsePropertiesOutput values.
+// You can construct a concrete instance of `DefaultRolloutResponsePropertiesInput` via:
+//
+//          DefaultRolloutResponsePropertiesArgs{...}
+type DefaultRolloutResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutResponsePropertiesOutput() DefaultRolloutResponsePropertiesOutput
+	ToDefaultRolloutResponsePropertiesOutputWithContext(context.Context) DefaultRolloutResponsePropertiesOutput
+}
+
+// Properties of the rollout.
+type DefaultRolloutResponsePropertiesArgs struct {
+	ProvisioningState pulumi.StringPtrInput                                 `pulumi:"provisioningState"`
+	Specification     DefaultRolloutPropertiesResponseSpecificationPtrInput `pulumi:"specification"`
+	Status            DefaultRolloutPropertiesResponseStatusPtrInput        `pulumi:"status"`
+}
+
+func (DefaultRolloutResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutResponseProperties)(nil)).Elem()
+}
+
+func (i DefaultRolloutResponsePropertiesArgs) ToDefaultRolloutResponsePropertiesOutput() DefaultRolloutResponsePropertiesOutput {
+	return i.ToDefaultRolloutResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutResponsePropertiesArgs) ToDefaultRolloutResponsePropertiesOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutResponsePropertiesOutput)
+}
+
+func (i DefaultRolloutResponsePropertiesArgs) ToDefaultRolloutResponsePropertiesPtrOutput() DefaultRolloutResponsePropertiesPtrOutput {
+	return i.ToDefaultRolloutResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutResponsePropertiesArgs) ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutResponsePropertiesOutput).ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutResponsePropertiesPtrInput is an input type that accepts DefaultRolloutResponsePropertiesArgs, DefaultRolloutResponsePropertiesPtr and DefaultRolloutResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutResponsePropertiesPtrInput` via:
+//
+//          DefaultRolloutResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutResponsePropertiesPtrOutput() DefaultRolloutResponsePropertiesPtrOutput
+	ToDefaultRolloutResponsePropertiesPtrOutputWithContext(context.Context) DefaultRolloutResponsePropertiesPtrOutput
+}
+
+type defaultRolloutResponsePropertiesPtrType DefaultRolloutResponsePropertiesArgs
+
+func DefaultRolloutResponsePropertiesPtr(v *DefaultRolloutResponsePropertiesArgs) DefaultRolloutResponsePropertiesPtrInput {
+	return (*defaultRolloutResponsePropertiesPtrType)(v)
+}
+
+func (*defaultRolloutResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutResponseProperties)(nil)).Elem()
+}
+
+func (i *defaultRolloutResponsePropertiesPtrType) ToDefaultRolloutResponsePropertiesPtrOutput() DefaultRolloutResponsePropertiesPtrOutput {
+	return i.ToDefaultRolloutResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutResponsePropertiesPtrType) ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutResponsePropertiesPtrOutput)
+}
+
+// Properties of the rollout.
+type DefaultRolloutResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutResponseProperties)(nil)).Elem()
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponsePropertiesOutput() DefaultRolloutResponsePropertiesOutput {
+	return o
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponsePropertiesOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesOutput {
+	return o
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponsePropertiesPtrOutput() DefaultRolloutResponsePropertiesPtrOutput {
+	return o.ToDefaultRolloutResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutResponseProperties) *DefaultRolloutResponseProperties {
+		return &v
+	}).(DefaultRolloutResponsePropertiesPtrOutput)
+}
+func (o DefaultRolloutResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) Specification() DefaultRolloutPropertiesResponseSpecificationPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutResponseProperties) *DefaultRolloutPropertiesResponseSpecification {
+		return v.Specification
+	}).(DefaultRolloutPropertiesResponseSpecificationPtrOutput)
+}
+
+func (o DefaultRolloutResponsePropertiesOutput) Status() DefaultRolloutPropertiesResponseStatusPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutResponseProperties) *DefaultRolloutPropertiesResponseStatus { return v.Status }).(DefaultRolloutPropertiesResponseStatusPtrOutput)
+}
+
+type DefaultRolloutResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutResponseProperties)(nil)).Elem()
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) ToDefaultRolloutResponsePropertiesPtrOutput() DefaultRolloutResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) Elem() DefaultRolloutResponsePropertiesOutput {
+	return o.ApplyT(func(v *DefaultRolloutResponseProperties) DefaultRolloutResponseProperties { return *v }).(DefaultRolloutResponsePropertiesOutput)
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) Specification() DefaultRolloutPropertiesResponseSpecificationPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutResponseProperties) *DefaultRolloutPropertiesResponseSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.Specification
+	}).(DefaultRolloutPropertiesResponseSpecificationPtrOutput)
+}
+
+func (o DefaultRolloutResponsePropertiesPtrOutput) Status() DefaultRolloutPropertiesResponseStatusPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutResponseProperties) *DefaultRolloutPropertiesResponseStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DefaultRolloutPropertiesResponseStatusPtrOutput)
+}
+
+type DefaultRolloutSpecificationCanary struct {
+	Regions     []string `pulumi:"regions"`
+	SkipRegions []string `pulumi:"skipRegions"`
+}
+
+// DefaultRolloutSpecificationCanaryInput is an input type that accepts DefaultRolloutSpecificationCanaryArgs and DefaultRolloutSpecificationCanaryOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationCanaryInput` via:
+//
+//          DefaultRolloutSpecificationCanaryArgs{...}
+type DefaultRolloutSpecificationCanaryInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationCanaryOutput() DefaultRolloutSpecificationCanaryOutput
+	ToDefaultRolloutSpecificationCanaryOutputWithContext(context.Context) DefaultRolloutSpecificationCanaryOutput
+}
+
+type DefaultRolloutSpecificationCanaryArgs struct {
+	Regions     pulumi.StringArrayInput `pulumi:"regions"`
+	SkipRegions pulumi.StringArrayInput `pulumi:"skipRegions"`
+}
+
+func (DefaultRolloutSpecificationCanaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationCanary)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationCanaryArgs) ToDefaultRolloutSpecificationCanaryOutput() DefaultRolloutSpecificationCanaryOutput {
+	return i.ToDefaultRolloutSpecificationCanaryOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationCanaryArgs) ToDefaultRolloutSpecificationCanaryOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationCanaryOutput)
+}
+
+func (i DefaultRolloutSpecificationCanaryArgs) ToDefaultRolloutSpecificationCanaryPtrOutput() DefaultRolloutSpecificationCanaryPtrOutput {
+	return i.ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationCanaryArgs) ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationCanaryOutput).ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationCanaryPtrInput is an input type that accepts DefaultRolloutSpecificationCanaryArgs, DefaultRolloutSpecificationCanaryPtr and DefaultRolloutSpecificationCanaryPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationCanaryPtrInput` via:
+//
+//          DefaultRolloutSpecificationCanaryArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationCanaryPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationCanaryPtrOutput() DefaultRolloutSpecificationCanaryPtrOutput
+	ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(context.Context) DefaultRolloutSpecificationCanaryPtrOutput
+}
+
+type defaultRolloutSpecificationCanaryPtrType DefaultRolloutSpecificationCanaryArgs
+
+func DefaultRolloutSpecificationCanaryPtr(v *DefaultRolloutSpecificationCanaryArgs) DefaultRolloutSpecificationCanaryPtrInput {
+	return (*defaultRolloutSpecificationCanaryPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationCanaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationCanary)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationCanaryPtrType) ToDefaultRolloutSpecificationCanaryPtrOutput() DefaultRolloutSpecificationCanaryPtrOutput {
+	return i.ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationCanaryPtrType) ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationCanaryPtrOutput)
+}
+
+type DefaultRolloutSpecificationCanaryOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationCanaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationCanary)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCanaryOutput() DefaultRolloutSpecificationCanaryOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCanaryOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCanaryPtrOutput() DefaultRolloutSpecificationCanaryPtrOutput {
+	return o.ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationCanary) *DefaultRolloutSpecificationCanary {
+		return &v
+	}).(DefaultRolloutSpecificationCanaryPtrOutput)
+}
+func (o DefaultRolloutSpecificationCanaryOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationCanary) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationCanaryOutput) SkipRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationCanary) []string { return v.SkipRegions }).(pulumi.StringArrayOutput)
+}
+
+type DefaultRolloutSpecificationCanaryPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationCanaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationCanary)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationCanaryPtrOutput) ToDefaultRolloutSpecificationCanaryPtrOutput() DefaultRolloutSpecificationCanaryPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationCanaryPtrOutput) ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationCanaryPtrOutput) Elem() DefaultRolloutSpecificationCanaryOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationCanary) DefaultRolloutSpecificationCanary { return *v }).(DefaultRolloutSpecificationCanaryOutput)
+}
+
+func (o DefaultRolloutSpecificationCanaryPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationCanary) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationCanaryPtrOutput) SkipRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationCanary) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+type DefaultRolloutSpecificationHighTraffic struct {
+	Regions      []string `pulumi:"regions"`
+	WaitDuration *string  `pulumi:"waitDuration"`
+}
+
+// DefaultRolloutSpecificationHighTrafficInput is an input type that accepts DefaultRolloutSpecificationHighTrafficArgs and DefaultRolloutSpecificationHighTrafficOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationHighTrafficInput` via:
+//
+//          DefaultRolloutSpecificationHighTrafficArgs{...}
+type DefaultRolloutSpecificationHighTrafficInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationHighTrafficOutput() DefaultRolloutSpecificationHighTrafficOutput
+	ToDefaultRolloutSpecificationHighTrafficOutputWithContext(context.Context) DefaultRolloutSpecificationHighTrafficOutput
+}
+
+type DefaultRolloutSpecificationHighTrafficArgs struct {
+	Regions      pulumi.StringArrayInput `pulumi:"regions"`
+	WaitDuration pulumi.StringPtrInput   `pulumi:"waitDuration"`
+}
+
+func (DefaultRolloutSpecificationHighTrafficArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationHighTraffic)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationHighTrafficArgs) ToDefaultRolloutSpecificationHighTrafficOutput() DefaultRolloutSpecificationHighTrafficOutput {
+	return i.ToDefaultRolloutSpecificationHighTrafficOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationHighTrafficArgs) ToDefaultRolloutSpecificationHighTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationHighTrafficOutput)
+}
+
+func (i DefaultRolloutSpecificationHighTrafficArgs) ToDefaultRolloutSpecificationHighTrafficPtrOutput() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationHighTrafficArgs) ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationHighTrafficOutput).ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationHighTrafficPtrInput is an input type that accepts DefaultRolloutSpecificationHighTrafficArgs, DefaultRolloutSpecificationHighTrafficPtr and DefaultRolloutSpecificationHighTrafficPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationHighTrafficPtrInput` via:
+//
+//          DefaultRolloutSpecificationHighTrafficArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationHighTrafficPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationHighTrafficPtrOutput() DefaultRolloutSpecificationHighTrafficPtrOutput
+	ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput
+}
+
+type defaultRolloutSpecificationHighTrafficPtrType DefaultRolloutSpecificationHighTrafficArgs
+
+func DefaultRolloutSpecificationHighTrafficPtr(v *DefaultRolloutSpecificationHighTrafficArgs) DefaultRolloutSpecificationHighTrafficPtrInput {
+	return (*defaultRolloutSpecificationHighTrafficPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationHighTrafficPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationHighTraffic)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationHighTrafficPtrType) ToDefaultRolloutSpecificationHighTrafficPtrOutput() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationHighTrafficPtrType) ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationHighTrafficPtrOutput)
+}
+
+type DefaultRolloutSpecificationHighTrafficOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationHighTrafficOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationHighTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificationHighTrafficOutput() DefaultRolloutSpecificationHighTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificationHighTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificationHighTrafficPtrOutput() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o.ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationHighTraffic) *DefaultRolloutSpecificationHighTraffic {
+		return &v
+	}).(DefaultRolloutSpecificationHighTrafficPtrOutput)
+}
+func (o DefaultRolloutSpecificationHighTrafficOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationHighTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationHighTrafficOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationHighTraffic) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationHighTrafficPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationHighTrafficPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationHighTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationHighTrafficPtrOutput) ToDefaultRolloutSpecificationHighTrafficPtrOutput() DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationHighTrafficPtrOutput) ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationHighTrafficPtrOutput) Elem() DefaultRolloutSpecificationHighTrafficOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationHighTraffic) DefaultRolloutSpecificationHighTraffic { return *v }).(DefaultRolloutSpecificationHighTrafficOutput)
+}
+
+func (o DefaultRolloutSpecificationHighTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationHighTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationHighTrafficPtrOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationHighTraffic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationLowTraffic struct {
+	Regions      []string `pulumi:"regions"`
+	WaitDuration *string  `pulumi:"waitDuration"`
+}
+
+// DefaultRolloutSpecificationLowTrafficInput is an input type that accepts DefaultRolloutSpecificationLowTrafficArgs and DefaultRolloutSpecificationLowTrafficOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationLowTrafficInput` via:
+//
+//          DefaultRolloutSpecificationLowTrafficArgs{...}
+type DefaultRolloutSpecificationLowTrafficInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationLowTrafficOutput() DefaultRolloutSpecificationLowTrafficOutput
+	ToDefaultRolloutSpecificationLowTrafficOutputWithContext(context.Context) DefaultRolloutSpecificationLowTrafficOutput
+}
+
+type DefaultRolloutSpecificationLowTrafficArgs struct {
+	Regions      pulumi.StringArrayInput `pulumi:"regions"`
+	WaitDuration pulumi.StringPtrInput   `pulumi:"waitDuration"`
+}
+
+func (DefaultRolloutSpecificationLowTrafficArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationLowTraffic)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationLowTrafficArgs) ToDefaultRolloutSpecificationLowTrafficOutput() DefaultRolloutSpecificationLowTrafficOutput {
+	return i.ToDefaultRolloutSpecificationLowTrafficOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationLowTrafficArgs) ToDefaultRolloutSpecificationLowTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationLowTrafficOutput)
+}
+
+func (i DefaultRolloutSpecificationLowTrafficArgs) ToDefaultRolloutSpecificationLowTrafficPtrOutput() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationLowTrafficArgs) ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationLowTrafficOutput).ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationLowTrafficPtrInput is an input type that accepts DefaultRolloutSpecificationLowTrafficArgs, DefaultRolloutSpecificationLowTrafficPtr and DefaultRolloutSpecificationLowTrafficPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationLowTrafficPtrInput` via:
+//
+//          DefaultRolloutSpecificationLowTrafficArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationLowTrafficPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationLowTrafficPtrOutput() DefaultRolloutSpecificationLowTrafficPtrOutput
+	ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput
+}
+
+type defaultRolloutSpecificationLowTrafficPtrType DefaultRolloutSpecificationLowTrafficArgs
+
+func DefaultRolloutSpecificationLowTrafficPtr(v *DefaultRolloutSpecificationLowTrafficArgs) DefaultRolloutSpecificationLowTrafficPtrInput {
+	return (*defaultRolloutSpecificationLowTrafficPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationLowTrafficPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationLowTraffic)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationLowTrafficPtrType) ToDefaultRolloutSpecificationLowTrafficPtrOutput() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationLowTrafficPtrType) ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationLowTrafficPtrOutput)
+}
+
+type DefaultRolloutSpecificationLowTrafficOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationLowTrafficOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationLowTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificationLowTrafficOutput() DefaultRolloutSpecificationLowTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificationLowTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificationLowTrafficPtrOutput() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o.ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationLowTraffic) *DefaultRolloutSpecificationLowTraffic {
+		return &v
+	}).(DefaultRolloutSpecificationLowTrafficPtrOutput)
+}
+func (o DefaultRolloutSpecificationLowTrafficOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationLowTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationLowTrafficOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationLowTraffic) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationLowTrafficPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationLowTrafficPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationLowTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationLowTrafficPtrOutput) ToDefaultRolloutSpecificationLowTrafficPtrOutput() DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationLowTrafficPtrOutput) ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationLowTrafficPtrOutput) Elem() DefaultRolloutSpecificationLowTrafficOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationLowTraffic) DefaultRolloutSpecificationLowTraffic { return *v }).(DefaultRolloutSpecificationLowTrafficOutput)
+}
+
+func (o DefaultRolloutSpecificationLowTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationLowTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationLowTrafficPtrOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationLowTraffic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationMediumTraffic struct {
+	Regions      []string `pulumi:"regions"`
+	WaitDuration *string  `pulumi:"waitDuration"`
+}
+
+// DefaultRolloutSpecificationMediumTrafficInput is an input type that accepts DefaultRolloutSpecificationMediumTrafficArgs and DefaultRolloutSpecificationMediumTrafficOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationMediumTrafficInput` via:
+//
+//          DefaultRolloutSpecificationMediumTrafficArgs{...}
+type DefaultRolloutSpecificationMediumTrafficInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationMediumTrafficOutput() DefaultRolloutSpecificationMediumTrafficOutput
+	ToDefaultRolloutSpecificationMediumTrafficOutputWithContext(context.Context) DefaultRolloutSpecificationMediumTrafficOutput
+}
+
+type DefaultRolloutSpecificationMediumTrafficArgs struct {
+	Regions      pulumi.StringArrayInput `pulumi:"regions"`
+	WaitDuration pulumi.StringPtrInput   `pulumi:"waitDuration"`
+}
+
+func (DefaultRolloutSpecificationMediumTrafficArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationMediumTraffic)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationMediumTrafficArgs) ToDefaultRolloutSpecificationMediumTrafficOutput() DefaultRolloutSpecificationMediumTrafficOutput {
+	return i.ToDefaultRolloutSpecificationMediumTrafficOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationMediumTrafficArgs) ToDefaultRolloutSpecificationMediumTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationMediumTrafficOutput)
+}
+
+func (i DefaultRolloutSpecificationMediumTrafficArgs) ToDefaultRolloutSpecificationMediumTrafficPtrOutput() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationMediumTrafficArgs) ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationMediumTrafficOutput).ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationMediumTrafficPtrInput is an input type that accepts DefaultRolloutSpecificationMediumTrafficArgs, DefaultRolloutSpecificationMediumTrafficPtr and DefaultRolloutSpecificationMediumTrafficPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationMediumTrafficPtrInput` via:
+//
+//          DefaultRolloutSpecificationMediumTrafficArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationMediumTrafficPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationMediumTrafficPtrOutput() DefaultRolloutSpecificationMediumTrafficPtrOutput
+	ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput
+}
+
+type defaultRolloutSpecificationMediumTrafficPtrType DefaultRolloutSpecificationMediumTrafficArgs
+
+func DefaultRolloutSpecificationMediumTrafficPtr(v *DefaultRolloutSpecificationMediumTrafficArgs) DefaultRolloutSpecificationMediumTrafficPtrInput {
+	return (*defaultRolloutSpecificationMediumTrafficPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationMediumTrafficPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationMediumTraffic)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationMediumTrafficPtrType) ToDefaultRolloutSpecificationMediumTrafficPtrOutput() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return i.ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationMediumTrafficPtrType) ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationMediumTrafficPtrOutput)
+}
+
+type DefaultRolloutSpecificationMediumTrafficOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationMediumTrafficOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationMediumTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecificationMediumTrafficOutput() DefaultRolloutSpecificationMediumTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecificationMediumTrafficOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecificationMediumTrafficPtrOutput() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o.ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationMediumTraffic) *DefaultRolloutSpecificationMediumTraffic {
+		return &v
+	}).(DefaultRolloutSpecificationMediumTrafficPtrOutput)
+}
+func (o DefaultRolloutSpecificationMediumTrafficOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationMediumTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationMediumTraffic) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationMediumTrafficPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationMediumTrafficPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationMediumTraffic)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) ToDefaultRolloutSpecificationMediumTrafficPtrOutput() DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) Elem() DefaultRolloutSpecificationMediumTrafficOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationMediumTraffic) DefaultRolloutSpecificationMediumTraffic { return *v }).(DefaultRolloutSpecificationMediumTrafficOutput)
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationMediumTraffic) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationMediumTraffic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationProviderRegistration struct {
+	Properties *ProviderRegistrationProperties `pulumi:"properties"`
+}
+
+// DefaultRolloutSpecificationProviderRegistrationInput is an input type that accepts DefaultRolloutSpecificationProviderRegistrationArgs and DefaultRolloutSpecificationProviderRegistrationOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationProviderRegistrationInput` via:
+//
+//          DefaultRolloutSpecificationProviderRegistrationArgs{...}
+type DefaultRolloutSpecificationProviderRegistrationInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationProviderRegistrationOutput() DefaultRolloutSpecificationProviderRegistrationOutput
+	ToDefaultRolloutSpecificationProviderRegistrationOutputWithContext(context.Context) DefaultRolloutSpecificationProviderRegistrationOutput
+}
+
+type DefaultRolloutSpecificationProviderRegistrationArgs struct {
+	Properties ProviderRegistrationPropertiesPtrInput `pulumi:"properties"`
+}
+
+func (DefaultRolloutSpecificationProviderRegistrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationProviderRegistration)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationProviderRegistrationArgs) ToDefaultRolloutSpecificationProviderRegistrationOutput() DefaultRolloutSpecificationProviderRegistrationOutput {
+	return i.ToDefaultRolloutSpecificationProviderRegistrationOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationProviderRegistrationArgs) ToDefaultRolloutSpecificationProviderRegistrationOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationProviderRegistrationOutput)
+}
+
+func (i DefaultRolloutSpecificationProviderRegistrationArgs) ToDefaultRolloutSpecificationProviderRegistrationPtrOutput() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return i.ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationProviderRegistrationArgs) ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationProviderRegistrationOutput).ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationProviderRegistrationPtrInput is an input type that accepts DefaultRolloutSpecificationProviderRegistrationArgs, DefaultRolloutSpecificationProviderRegistrationPtr and DefaultRolloutSpecificationProviderRegistrationPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationProviderRegistrationPtrInput` via:
+//
+//          DefaultRolloutSpecificationProviderRegistrationArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationProviderRegistrationPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationProviderRegistrationPtrOutput() DefaultRolloutSpecificationProviderRegistrationPtrOutput
+	ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput
+}
+
+type defaultRolloutSpecificationProviderRegistrationPtrType DefaultRolloutSpecificationProviderRegistrationArgs
+
+func DefaultRolloutSpecificationProviderRegistrationPtr(v *DefaultRolloutSpecificationProviderRegistrationArgs) DefaultRolloutSpecificationProviderRegistrationPtrInput {
+	return (*defaultRolloutSpecificationProviderRegistrationPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationProviderRegistrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationProviderRegistration)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationProviderRegistrationPtrType) ToDefaultRolloutSpecificationProviderRegistrationPtrOutput() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return i.ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationProviderRegistrationPtrType) ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationProviderRegistrationPtrOutput)
+}
+
+type DefaultRolloutSpecificationProviderRegistrationOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationProviderRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationProviderRegistration)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutSpecificationProviderRegistrationOutput() DefaultRolloutSpecificationProviderRegistrationOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutSpecificationProviderRegistrationOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutSpecificationProviderRegistrationPtrOutput() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o.ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationProviderRegistration) *DefaultRolloutSpecificationProviderRegistration {
+		return &v
+	}).(DefaultRolloutSpecificationProviderRegistrationPtrOutput)
+}
+func (o DefaultRolloutSpecificationProviderRegistrationOutput) Properties() ProviderRegistrationPropertiesPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationProviderRegistration) *ProviderRegistrationProperties {
+		return v.Properties
+	}).(ProviderRegistrationPropertiesPtrOutput)
+}
+
+type DefaultRolloutSpecificationProviderRegistrationPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationProviderRegistrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationProviderRegistration)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) ToDefaultRolloutSpecificationProviderRegistrationPtrOutput() DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) Elem() DefaultRolloutSpecificationProviderRegistrationOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationProviderRegistration) DefaultRolloutSpecificationProviderRegistration {
+		return *v
+	}).(DefaultRolloutSpecificationProviderRegistrationOutput)
+}
+
+func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) Properties() ProviderRegistrationPropertiesPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationProviderRegistration) *ProviderRegistrationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(ProviderRegistrationPropertiesPtrOutput)
 }
 
 type DefaultRolloutSpecificationResponseCanary struct {
@@ -1691,6 +3136,455 @@ func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput) Wait
 		}
 		return v.WaitDuration
 	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupOne struct {
+	Regions      []string `pulumi:"regions"`
+	WaitDuration *string  `pulumi:"waitDuration"`
+}
+
+// DefaultRolloutSpecificationRestOfTheWorldGroupOneInput is an input type that accepts DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs and DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationRestOfTheWorldGroupOneInput` via:
+//
+//          DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs{...}
+type DefaultRolloutSpecificationRestOfTheWorldGroupOneInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutputWithContext(context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs struct {
+	Regions      pulumi.StringArrayInput `pulumi:"regions"`
+	WaitDuration pulumi.StringPtrInput   `pulumi:"waitDuration"`
+}
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationRestOfTheWorldGroupOne)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput)
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput).ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrInput is an input type that accepts DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs, DefaultRolloutSpecificationRestOfTheWorldGroupOnePtr and DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrInput` via:
+//
+//          DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput
+}
+
+type defaultRolloutSpecificationRestOfTheWorldGroupOnePtrType DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs
+
+func DefaultRolloutSpecificationRestOfTheWorldGroupOnePtr(v *DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrInput {
+	return (*defaultRolloutSpecificationRestOfTheWorldGroupOnePtrType)(v)
+}
+
+func (*defaultRolloutSpecificationRestOfTheWorldGroupOnePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationRestOfTheWorldGroupOne)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationRestOfTheWorldGroupOnePtrType) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationRestOfTheWorldGroupOnePtrType) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationRestOfTheWorldGroupOne)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOneOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o.ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupOne) *DefaultRolloutSpecificationRestOfTheWorldGroupOne {
+		return &v
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput)
+}
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupOne) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupOne) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationRestOfTheWorldGroupOne)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) Elem() DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupOne) DefaultRolloutSpecificationRestOfTheWorldGroupOne {
+		return *v
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupOne) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupOne) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwo struct {
+	Regions      []string `pulumi:"regions"`
+	WaitDuration *string  `pulumi:"waitDuration"`
+}
+
+// DefaultRolloutSpecificationRestOfTheWorldGroupTwoInput is an input type that accepts DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs and DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationRestOfTheWorldGroupTwoInput` via:
+//
+//          DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs{...}
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwoInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutputWithContext(context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs struct {
+	Regions      pulumi.StringArrayInput `pulumi:"regions"`
+	WaitDuration pulumi.StringPtrInput   `pulumi:"waitDuration"`
+}
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationRestOfTheWorldGroupTwo)(nil)).Elem()
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput)
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput).ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx)
+}
+
+// DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrInput is an input type that accepts DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs, DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtr and DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput values.
+// You can construct a concrete instance of `DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrInput` via:
+//
+//          DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput
+	ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput
+}
+
+type defaultRolloutSpecificationRestOfTheWorldGroupTwoPtrType DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs
+
+func DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtr(v *DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrInput {
+	return (*defaultRolloutSpecificationRestOfTheWorldGroupTwoPtrType)(v)
+}
+
+func (*defaultRolloutSpecificationRestOfTheWorldGroupTwoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationRestOfTheWorldGroupTwo)(nil)).Elem()
+}
+
+func (i *defaultRolloutSpecificationRestOfTheWorldGroupTwoPtrType) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return i.ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRolloutSpecificationRestOfTheWorldGroupTwoPtrType) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRolloutSpecificationRestOfTheWorldGroupTwo)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o.ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) *DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
+		return &v
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput)
+}
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRolloutSpecificationRestOfTheWorldGroupTwo)(nil)).Elem()
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput() DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
+	return o
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) Elem() DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupTwo) DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
+		return *v
+	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupTwo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupTwo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WaitDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExtendedErrorInfo struct {
+	AdditionalInfo []TypedErrorInfo    `pulumi:"additionalInfo"`
+	Code           *string             `pulumi:"code"`
+	Details        []ExtendedErrorInfo `pulumi:"details"`
+	Message        *string             `pulumi:"message"`
+	Target         *string             `pulumi:"target"`
+}
+
+// ExtendedErrorInfoInput is an input type that accepts ExtendedErrorInfoArgs and ExtendedErrorInfoOutput values.
+// You can construct a concrete instance of `ExtendedErrorInfoInput` via:
+//
+//          ExtendedErrorInfoArgs{...}
+type ExtendedErrorInfoInput interface {
+	pulumi.Input
+
+	ToExtendedErrorInfoOutput() ExtendedErrorInfoOutput
+	ToExtendedErrorInfoOutputWithContext(context.Context) ExtendedErrorInfoOutput
+}
+
+type ExtendedErrorInfoArgs struct {
+	AdditionalInfo TypedErrorInfoArrayInput    `pulumi:"additionalInfo"`
+	Code           pulumi.StringPtrInput       `pulumi:"code"`
+	Details        ExtendedErrorInfoArrayInput `pulumi:"details"`
+	Message        pulumi.StringPtrInput       `pulumi:"message"`
+	Target         pulumi.StringPtrInput       `pulumi:"target"`
+}
+
+func (ExtendedErrorInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (i ExtendedErrorInfoArgs) ToExtendedErrorInfoOutput() ExtendedErrorInfoOutput {
+	return i.ToExtendedErrorInfoOutputWithContext(context.Background())
+}
+
+func (i ExtendedErrorInfoArgs) ToExtendedErrorInfoOutputWithContext(ctx context.Context) ExtendedErrorInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedErrorInfoOutput)
+}
+
+// ExtendedErrorInfoArrayInput is an input type that accepts ExtendedErrorInfoArray and ExtendedErrorInfoArrayOutput values.
+// You can construct a concrete instance of `ExtendedErrorInfoArrayInput` via:
+//
+//          ExtendedErrorInfoArray{ ExtendedErrorInfoArgs{...} }
+type ExtendedErrorInfoArrayInput interface {
+	pulumi.Input
+
+	ToExtendedErrorInfoArrayOutput() ExtendedErrorInfoArrayOutput
+	ToExtendedErrorInfoArrayOutputWithContext(context.Context) ExtendedErrorInfoArrayOutput
+}
+
+type ExtendedErrorInfoArray []ExtendedErrorInfoInput
+
+func (ExtendedErrorInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (i ExtendedErrorInfoArray) ToExtendedErrorInfoArrayOutput() ExtendedErrorInfoArrayOutput {
+	return i.ToExtendedErrorInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ExtendedErrorInfoArray) ToExtendedErrorInfoArrayOutputWithContext(ctx context.Context) ExtendedErrorInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedErrorInfoArrayOutput)
+}
+
+// ExtendedErrorInfoMapInput is an input type that accepts ExtendedErrorInfoMap and ExtendedErrorInfoMapOutput values.
+// You can construct a concrete instance of `ExtendedErrorInfoMapInput` via:
+//
+//          ExtendedErrorInfoMap{ "key": ExtendedErrorInfoArgs{...} }
+type ExtendedErrorInfoMapInput interface {
+	pulumi.Input
+
+	ToExtendedErrorInfoMapOutput() ExtendedErrorInfoMapOutput
+	ToExtendedErrorInfoMapOutputWithContext(context.Context) ExtendedErrorInfoMapOutput
+}
+
+type ExtendedErrorInfoMap map[string]ExtendedErrorInfoInput
+
+func (ExtendedErrorInfoMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (i ExtendedErrorInfoMap) ToExtendedErrorInfoMapOutput() ExtendedErrorInfoMapOutput {
+	return i.ToExtendedErrorInfoMapOutputWithContext(context.Background())
+}
+
+func (i ExtendedErrorInfoMap) ToExtendedErrorInfoMapOutputWithContext(ctx context.Context) ExtendedErrorInfoMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedErrorInfoMapOutput)
+}
+
+type ExtendedErrorInfoOutput struct{ *pulumi.OutputState }
+
+func (ExtendedErrorInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (o ExtendedErrorInfoOutput) ToExtendedErrorInfoOutput() ExtendedErrorInfoOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoOutput) ToExtendedErrorInfoOutputWithContext(ctx context.Context) ExtendedErrorInfoOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoOutput) AdditionalInfo() TypedErrorInfoArrayOutput {
+	return o.ApplyT(func(v ExtendedErrorInfo) []TypedErrorInfo { return v.AdditionalInfo }).(TypedErrorInfoArrayOutput)
+}
+
+func (o ExtendedErrorInfoOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedErrorInfo) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtendedErrorInfoOutput) Details() ExtendedErrorInfoArrayOutput {
+	return o.ApplyT(func(v ExtendedErrorInfo) []ExtendedErrorInfo { return v.Details }).(ExtendedErrorInfoArrayOutput)
+}
+
+func (o ExtendedErrorInfoOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedErrorInfo) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtendedErrorInfoOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedErrorInfo) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedErrorInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtendedErrorInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (o ExtendedErrorInfoArrayOutput) ToExtendedErrorInfoArrayOutput() ExtendedErrorInfoArrayOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoArrayOutput) ToExtendedErrorInfoArrayOutputWithContext(ctx context.Context) ExtendedErrorInfoArrayOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoArrayOutput) Index(i pulumi.IntInput) ExtendedErrorInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtendedErrorInfo {
+		return vs[0].([]ExtendedErrorInfo)[vs[1].(int)]
+	}).(ExtendedErrorInfoOutput)
+}
+
+type ExtendedErrorInfoMapOutput struct{ *pulumi.OutputState }
+
+func (ExtendedErrorInfoMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExtendedErrorInfo)(nil)).Elem()
+}
+
+func (o ExtendedErrorInfoMapOutput) ToExtendedErrorInfoMapOutput() ExtendedErrorInfoMapOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoMapOutput) ToExtendedErrorInfoMapOutputWithContext(ctx context.Context) ExtendedErrorInfoMapOutput {
+	return o
+}
+
+func (o ExtendedErrorInfoMapOutput) MapIndex(k pulumi.StringInput) ExtendedErrorInfoOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExtendedErrorInfo {
+		return vs[0].(map[string]ExtendedErrorInfo)[vs[1].(string)]
+	}).(ExtendedErrorInfoOutput)
 }
 
 type ExtendedErrorInfoResponse struct {
@@ -8764,6 +10658,100 @@ func (o ResourceTypeExtensionResponseArrayOutput) Index(i pulumi.IntInput) Resou
 	}).(ResourceTypeExtensionResponseOutput)
 }
 
+type ResourceTypeRegistrationType struct {
+	Properties *ResourceTypeRegistrationProperties `pulumi:"properties"`
+}
+
+// ResourceTypeRegistrationTypeInput is an input type that accepts ResourceTypeRegistrationTypeArgs and ResourceTypeRegistrationTypeOutput values.
+// You can construct a concrete instance of `ResourceTypeRegistrationTypeInput` via:
+//
+//          ResourceTypeRegistrationTypeArgs{...}
+type ResourceTypeRegistrationTypeInput interface {
+	pulumi.Input
+
+	ToResourceTypeRegistrationTypeOutput() ResourceTypeRegistrationTypeOutput
+	ToResourceTypeRegistrationTypeOutputWithContext(context.Context) ResourceTypeRegistrationTypeOutput
+}
+
+type ResourceTypeRegistrationTypeArgs struct {
+	Properties ResourceTypeRegistrationPropertiesPtrInput `pulumi:"properties"`
+}
+
+func (ResourceTypeRegistrationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceTypeRegistrationType)(nil)).Elem()
+}
+
+func (i ResourceTypeRegistrationTypeArgs) ToResourceTypeRegistrationTypeOutput() ResourceTypeRegistrationTypeOutput {
+	return i.ToResourceTypeRegistrationTypeOutputWithContext(context.Background())
+}
+
+func (i ResourceTypeRegistrationTypeArgs) ToResourceTypeRegistrationTypeOutputWithContext(ctx context.Context) ResourceTypeRegistrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationTypeOutput)
+}
+
+// ResourceTypeRegistrationTypeArrayInput is an input type that accepts ResourceTypeRegistrationTypeArray and ResourceTypeRegistrationTypeArrayOutput values.
+// You can construct a concrete instance of `ResourceTypeRegistrationTypeArrayInput` via:
+//
+//          ResourceTypeRegistrationTypeArray{ ResourceTypeRegistrationTypeArgs{...} }
+type ResourceTypeRegistrationTypeArrayInput interface {
+	pulumi.Input
+
+	ToResourceTypeRegistrationTypeArrayOutput() ResourceTypeRegistrationTypeArrayOutput
+	ToResourceTypeRegistrationTypeArrayOutputWithContext(context.Context) ResourceTypeRegistrationTypeArrayOutput
+}
+
+type ResourceTypeRegistrationTypeArray []ResourceTypeRegistrationTypeInput
+
+func (ResourceTypeRegistrationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceTypeRegistrationType)(nil)).Elem()
+}
+
+func (i ResourceTypeRegistrationTypeArray) ToResourceTypeRegistrationTypeArrayOutput() ResourceTypeRegistrationTypeArrayOutput {
+	return i.ToResourceTypeRegistrationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceTypeRegistrationTypeArray) ToResourceTypeRegistrationTypeArrayOutputWithContext(ctx context.Context) ResourceTypeRegistrationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationTypeArrayOutput)
+}
+
+type ResourceTypeRegistrationTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceTypeRegistrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceTypeRegistrationType)(nil)).Elem()
+}
+
+func (o ResourceTypeRegistrationTypeOutput) ToResourceTypeRegistrationTypeOutput() ResourceTypeRegistrationTypeOutput {
+	return o
+}
+
+func (o ResourceTypeRegistrationTypeOutput) ToResourceTypeRegistrationTypeOutputWithContext(ctx context.Context) ResourceTypeRegistrationTypeOutput {
+	return o
+}
+
+func (o ResourceTypeRegistrationTypeOutput) Properties() ResourceTypeRegistrationPropertiesPtrOutput {
+	return o.ApplyT(func(v ResourceTypeRegistrationType) *ResourceTypeRegistrationProperties { return v.Properties }).(ResourceTypeRegistrationPropertiesPtrOutput)
+}
+
+type ResourceTypeRegistrationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceTypeRegistrationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceTypeRegistrationType)(nil)).Elem()
+}
+
+func (o ResourceTypeRegistrationTypeArrayOutput) ToResourceTypeRegistrationTypeArrayOutput() ResourceTypeRegistrationTypeArrayOutput {
+	return o
+}
+
+func (o ResourceTypeRegistrationTypeArrayOutput) ToResourceTypeRegistrationTypeArrayOutputWithContext(ctx context.Context) ResourceTypeRegistrationTypeArrayOutput {
+	return o
+}
+
+func (o ResourceTypeRegistrationTypeArrayOutput) Index(i pulumi.IntInput) ResourceTypeRegistrationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceTypeRegistrationType {
+		return vs[0].([]ResourceTypeRegistrationType)[vs[1].(int)]
+	}).(ResourceTypeRegistrationTypeOutput)
+}
+
 type ResourceTypeRegistrationProperties struct {
 	AllowedUnauthorizedActions                      []string                                                                           `pulumi:"allowedUnauthorizedActions"`
 	AuthorizationActionMappings                     []AuthorizationActionMapping                                                       `pulumi:"authorizationActionMappings"`
@@ -15151,6 +17139,100 @@ func (o ThrottlingRuleResponseArrayOutput) Index(i pulumi.IntInput) ThrottlingRu
 	}).(ThrottlingRuleResponseOutput)
 }
 
+type TypedErrorInfo struct {
+	Type string `pulumi:"type"`
+}
+
+// TypedErrorInfoInput is an input type that accepts TypedErrorInfoArgs and TypedErrorInfoOutput values.
+// You can construct a concrete instance of `TypedErrorInfoInput` via:
+//
+//          TypedErrorInfoArgs{...}
+type TypedErrorInfoInput interface {
+	pulumi.Input
+
+	ToTypedErrorInfoOutput() TypedErrorInfoOutput
+	ToTypedErrorInfoOutputWithContext(context.Context) TypedErrorInfoOutput
+}
+
+type TypedErrorInfoArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TypedErrorInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypedErrorInfo)(nil)).Elem()
+}
+
+func (i TypedErrorInfoArgs) ToTypedErrorInfoOutput() TypedErrorInfoOutput {
+	return i.ToTypedErrorInfoOutputWithContext(context.Background())
+}
+
+func (i TypedErrorInfoArgs) ToTypedErrorInfoOutputWithContext(ctx context.Context) TypedErrorInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoOutput)
+}
+
+// TypedErrorInfoArrayInput is an input type that accepts TypedErrorInfoArray and TypedErrorInfoArrayOutput values.
+// You can construct a concrete instance of `TypedErrorInfoArrayInput` via:
+//
+//          TypedErrorInfoArray{ TypedErrorInfoArgs{...} }
+type TypedErrorInfoArrayInput interface {
+	pulumi.Input
+
+	ToTypedErrorInfoArrayOutput() TypedErrorInfoArrayOutput
+	ToTypedErrorInfoArrayOutputWithContext(context.Context) TypedErrorInfoArrayOutput
+}
+
+type TypedErrorInfoArray []TypedErrorInfoInput
+
+func (TypedErrorInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypedErrorInfo)(nil)).Elem()
+}
+
+func (i TypedErrorInfoArray) ToTypedErrorInfoArrayOutput() TypedErrorInfoArrayOutput {
+	return i.ToTypedErrorInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TypedErrorInfoArray) ToTypedErrorInfoArrayOutputWithContext(ctx context.Context) TypedErrorInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoArrayOutput)
+}
+
+type TypedErrorInfoOutput struct{ *pulumi.OutputState }
+
+func (TypedErrorInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypedErrorInfo)(nil)).Elem()
+}
+
+func (o TypedErrorInfoOutput) ToTypedErrorInfoOutput() TypedErrorInfoOutput {
+	return o
+}
+
+func (o TypedErrorInfoOutput) ToTypedErrorInfoOutputWithContext(ctx context.Context) TypedErrorInfoOutput {
+	return o
+}
+
+func (o TypedErrorInfoOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TypedErrorInfo) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TypedErrorInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TypedErrorInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypedErrorInfo)(nil)).Elem()
+}
+
+func (o TypedErrorInfoArrayOutput) ToTypedErrorInfoArrayOutput() TypedErrorInfoArrayOutput {
+	return o
+}
+
+func (o TypedErrorInfoArrayOutput) ToTypedErrorInfoArrayOutputWithContext(ctx context.Context) TypedErrorInfoArrayOutput {
+	return o
+}
+
+func (o TypedErrorInfoArrayOutput) Index(i pulumi.IntInput) TypedErrorInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypedErrorInfo {
+		return vs[0].([]TypedErrorInfo)[vs[1].(int)]
+	}).(TypedErrorInfoOutput)
+}
+
 type TypedErrorInfoResponse struct {
 	Info interface{} `pulumi:"info"`
 	Type string      `pulumi:"type"`
@@ -15256,10 +17338,28 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizationActionMappingArrayOutput{})
 	pulumi.RegisterOutputType(AuthorizationActionMappingResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationActionMappingResponseArrayOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutPropertiesResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutPropertiesResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutPropertiesResponseStatusOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutPropertiesResponseStatusPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesSpecificationOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesStatusOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutPropertiesStatusPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationCanaryOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationCanaryPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationHighTrafficOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationHighTrafficPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationLowTrafficOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationLowTrafficPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationMediumTrafficOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationMediumTrafficPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationProviderRegistrationOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationProviderRegistrationPtrOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseCanaryOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseCanaryPtrOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseHighTrafficOutput{})
@@ -15274,6 +17374,13 @@ func init() {
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput{})
 	pulumi.RegisterOutputType(DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput{})
+	pulumi.RegisterOutputType(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedErrorInfoOutput{})
+	pulumi.RegisterOutputType(ExtendedErrorInfoArrayOutput{})
+	pulumi.RegisterOutputType(ExtendedErrorInfoMapOutput{})
 	pulumi.RegisterOutputType(ExtendedErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedErrorInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedErrorInfoResponseMapOutput{})
@@ -15374,6 +17481,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput{})
 	pulumi.RegisterOutputType(ResourceTypeExtensionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceTypeExtensionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceTypeRegistrationTypeOutput{})
+	pulumi.RegisterOutputType(ResourceTypeRegistrationTypeArrayOutput{})
 	pulumi.RegisterOutputType(ResourceTypeRegistrationPropertiesOutput{})
 	pulumi.RegisterOutputType(ResourceTypeRegistrationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOutput{})
@@ -15462,6 +17571,8 @@ func init() {
 	pulumi.RegisterOutputType(ThrottlingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ThrottlingRuleResponseOutput{})
 	pulumi.RegisterOutputType(ThrottlingRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(TypedErrorInfoOutput{})
+	pulumi.RegisterOutputType(TypedErrorInfoArrayOutput{})
 	pulumi.RegisterOutputType(TypedErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(TypedErrorInfoResponseArrayOutput{})
 }

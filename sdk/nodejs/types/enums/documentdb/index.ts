@@ -15,6 +15,7 @@ import * as v20200401 from "./v20200401";
 import * as v20200601preview from "./v20200601preview";
 import * as v20200901 from "./v20200901";
 import * as v20210115 from "./v20210115";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     latest,
@@ -30,7 +31,18 @@ export {
     v20200601preview,
     v20200901,
     v20210115,
+    v20210301preview,
 };
+
+export const AuthenticationMethod = {
+    None: "None",
+    Cassandra: "Cassandra",
+} as const;
+
+/**
+ * Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+ */
+export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
 export const BackupPolicyType = {
     Periodic: "Periodic",
@@ -139,6 +151,20 @@ export const IndexingMode = {
  * Indicates the indexing mode.
  */
 export type IndexingMode = (typeof IndexingMode)[keyof typeof IndexingMode];
+
+export const ManagedCassandraProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+} as const;
+
+/**
+ * The status of the resource at the time the operation was called.
+ */
+export type ManagedCassandraProvisioningState = (typeof ManagedCassandraProvisioningState)[keyof typeof ManagedCassandraProvisioningState];
 
 export const NetworkAclBypass = {
     None: "None",

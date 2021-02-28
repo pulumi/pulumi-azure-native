@@ -14,6 +14,7 @@ __all__ = [
     'AuthorizationActionMappingResponse',
     'DefaultRolloutPropertiesResponseSpecification',
     'DefaultRolloutPropertiesResponseStatus',
+    'DefaultRolloutResponseProperties',
     'DefaultRolloutSpecificationResponseCanary',
     'DefaultRolloutSpecificationResponseHighTraffic',
     'DefaultRolloutSpecificationResponseLowTraffic',
@@ -211,6 +212,44 @@ class DefaultRolloutPropertiesResponseStatus(dict):
     @pulumi.getter(name="subscriptionReregistrationResult")
     def subscription_reregistration_result(self) -> Optional[str]:
         return pulumi.get(self, "subscription_reregistration_result")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DefaultRolloutResponseProperties(dict):
+    """
+    Properties of the rollout.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: Optional[str] = None,
+                 specification: Optional['outputs.DefaultRolloutPropertiesResponseSpecification'] = None,
+                 status: Optional['outputs.DefaultRolloutPropertiesResponseStatus'] = None):
+        """
+        Properties of the rollout.
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesResponseSpecification']:
+        return pulumi.get(self, "specification")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.DefaultRolloutPropertiesResponseStatus']:
+        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Access Review Schedule Definition.
-    /// API Version: 2018-05-01-preview.
+    /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("autoApplyDecisionsEnabled")]
         public Output<bool?> AutoApplyDecisionsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the collection of backup reviewers.
+        /// </summary>
+        [Output("backupReviewers")]
+        public Output<ImmutableArray<Outputs.AccessReviewReviewerResponse>> BackupReviewers { get; private set; } = null!;
 
         /// <summary>
         /// This specifies the behavior for the autoReview feature when an access review completes.
@@ -235,6 +241,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Input("autoApplyDecisionsEnabled")]
         public Input<bool>? AutoApplyDecisionsEnabled { get; set; }
+
+        [Input("backupReviewers")]
+        private InputList<Inputs.AccessReviewReviewerArgs>? _backupReviewers;
+
+        /// <summary>
+        /// This is the collection of backup reviewers.
+        /// </summary>
+        public InputList<Inputs.AccessReviewReviewerArgs> BackupReviewers
+        {
+            get => _backupReviewers ?? (_backupReviewers = new InputList<Inputs.AccessReviewReviewerArgs>());
+            set => _backupReviewers = value;
+        }
 
         /// <summary>
         /// This specifies the behavior for the autoReview feature when an access review completes.

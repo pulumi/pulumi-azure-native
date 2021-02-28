@@ -201,6 +201,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200730preview:Machine"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200802:Machine"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200802:Machine"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:Machine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:Machine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

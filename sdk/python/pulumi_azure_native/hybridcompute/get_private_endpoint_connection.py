@@ -20,22 +20,19 @@ class GetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if private_endpoint and not isinstance(private_endpoint, dict):
-            raise TypeError("Expected argument 'private_endpoint' to be a dict")
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
-            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -57,28 +54,20 @@ class GetPrivateEndpointConnectionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Private endpoint which the connection belongs to.
+        Resource properties.
         """
-        return pulumi.get(self, "private_endpoint")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Connection state of the private endpoint connection.
+        The system meta data relating to this resource.
         """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        State of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -97,9 +86,8 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         return GetPrivateEndpointConnectionResult(
             id=self.id,
             name=self.name,
-            private_endpoint=self.private_endpoint,
-            private_link_service_connection_state=self.private_link_service_connection_state,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -109,11 +97,11 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
-    API Version: 2020-08-15-preview.
+    API Version: 2021-01-28-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_name: The name of the Azure Arc PrivateLinkScope resource.
     """
     __args__ = dict()
@@ -129,7 +117,6 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     return AwaitableGetPrivateEndpointConnectionResult(
         id=__ret__.id,
         name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
+        properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)

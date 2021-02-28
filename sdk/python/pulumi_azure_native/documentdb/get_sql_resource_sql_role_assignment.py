@@ -108,7 +108,7 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlRoleAssignmentResult:
     """
     An Azure Cosmos DB Role Assignment
-    API Version: 2020-06-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.

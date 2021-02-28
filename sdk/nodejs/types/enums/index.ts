@@ -45,6 +45,7 @@ import * as datafactory from "./datafactory";
 import * as datalakeanalytics from "./datalakeanalytics";
 import * as datalakestore from "./datalakestore";
 import * as datamigration from "./datamigration";
+import * as dataprotection from "./dataprotection";
 import * as datashare from "./datashare";
 import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
@@ -181,6 +182,7 @@ export {
     datalakeanalytics,
     datalakestore,
     datamigration,
+    dataprotection,
     datashare,
     dbformariadb,
     dbformysql,

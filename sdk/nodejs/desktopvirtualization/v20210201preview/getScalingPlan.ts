@@ -70,6 +70,10 @@ export interface GetScalingPlanResult {
      */
     readonly name: string;
     /**
+     * The ring number of scaling plan.
+     */
+    readonly ring?: number;
+    /**
      * List of ScalingSchedule definitions.
      */
     readonly schedules?: outputs.desktopvirtualization.v20210201preview.ScalingScheduleResponse[];

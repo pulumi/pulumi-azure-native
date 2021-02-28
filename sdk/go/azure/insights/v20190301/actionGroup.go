@@ -29,8 +29,12 @@ type ActionGroup struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName pulumi.StringOutput `pulumi:"groupShortName"`
+	// Azure resource identity
+	Identity pulumi.StringOutput `pulumi:"identity"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers ItsmReceiverResponseArrayOutput `pulumi:"itsmReceivers"`
+	// Azure resource kind
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.
@@ -143,8 +147,12 @@ type actionGroupState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName *string `pulumi:"groupShortName"`
+	// Azure resource identity
+	Identity *string `pulumi:"identity"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
+	// Azure resource kind
+	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The list of logic app receivers that are part of this action group.
@@ -178,8 +186,12 @@ type ActionGroupState struct {
 	Enabled pulumi.BoolPtrInput
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName pulumi.StringPtrInput
+	// Azure resource identity
+	Identity pulumi.StringPtrInput
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers ItsmReceiverResponseArrayInput
+	// Azure resource kind
+	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The list of logic app receivers that are part of this action group.

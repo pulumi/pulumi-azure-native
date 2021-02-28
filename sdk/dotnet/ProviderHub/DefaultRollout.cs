@@ -22,14 +22,11 @@ namespace Pulumi.AzureNative.ProviderHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
-
-        [Output("specification")]
-        public Output<Outputs.DefaultRolloutPropertiesResponseSpecification?> Specification { get; private set; } = null!;
-
-        [Output("status")]
-        public Output<Outputs.DefaultRolloutPropertiesResponseStatus?> Status { get; private set; } = null!;
+        /// <summary>
+        /// Properties of the rollout.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.DefaultRolloutResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -89,6 +86,12 @@ namespace Pulumi.AzureNative.ProviderHub
 
     public sealed class DefaultRolloutArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Properties of the rollout.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.DefaultRolloutPropertiesArgs>? Properties { get; set; }
+
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>
