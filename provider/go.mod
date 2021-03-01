@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azure-nextgen-provider/provider
+module github.com/pulumi/pulumi-azure-native/provider
 
 go 1.15
 

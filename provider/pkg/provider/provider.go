@@ -26,9 +26,9 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -564,7 +564,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 		}
 		if prop.Pattern != "" {
 			pattern, err := regexp.Compile(prop.Pattern)
-			// TODO: Support ECMA-262 regexp https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/164
+			// TODO: Support ECMA-262 regexp https://github.com/pulumi/pulumi-azure-native/issues/164
 			if err == nil && !pattern.MatchString(value) {
 				failures = append(failures, &rpc.CheckFailure{
 					Reason: fmt.Sprintf("'%s' does not match expression '%s'", ctx, prop.Pattern),

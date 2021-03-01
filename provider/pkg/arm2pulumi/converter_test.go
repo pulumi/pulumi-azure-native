@@ -1,7 +1,7 @@
 package arm2pulumi
 
 import (
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

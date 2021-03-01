@@ -3,8 +3,8 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -2,8 +2,8 @@ package gen
 
 import (
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 )
 
 // FlattenParams takes the parameters specified in Azure API specs/ARM templates and

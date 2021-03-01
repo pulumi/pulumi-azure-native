@@ -2,7 +2,7 @@ package arm2pulumi
 
 import (
 	"errors"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"regexp"
 	"strings"
 )

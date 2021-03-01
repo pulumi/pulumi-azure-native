@@ -20,7 +20,7 @@ func TestAccSimpleGo(t *testing.T) {
 }
 
 func TestAccAksGo(t *testing.T) {
-	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/304")
+	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "go-aks"),
@@ -33,7 +33,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseGo := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-azure-nextgen/sdk/go", // TODO: rename to native when the repo is renamed
+			"github.com/pulumi/pulumi-azure-native/sdk/go",
 		},
 	})
 

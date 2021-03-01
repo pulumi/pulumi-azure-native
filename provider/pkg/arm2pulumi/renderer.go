@@ -3,9 +3,9 @@ package arm2pulumi
 import (
 	"fmt"
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2"
@@ -20,7 +20,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 	"github.com/sourcegraph/jsonx"
 )

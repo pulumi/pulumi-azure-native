@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"os"
 	"path/filepath"
 	"sort"

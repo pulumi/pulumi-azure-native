@@ -4,7 +4,7 @@ package provider
 
 import (
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"

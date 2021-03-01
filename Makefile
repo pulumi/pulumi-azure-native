@@ -2,7 +2,7 @@ PROJECT_NAME := Pulumi Native Azure Resource Provider
 
 PACK            := azure-native
 PACKDIR         := sdk
-PROJECT         := github.com/pulumi/pulumi-azure-nextgen-provider
+PROJECT         := github.com/pulumi/pulumi-azure-native
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := $(shell pulumictl get version)
@@ -10,7 +10,7 @@ VERSION         := $(shell pulumictl get version)
 PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version.Version=${VERSION}"
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -71,8 +71,7 @@ build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
 		node --max-old-space-size=4096 /usr/local/bin/tsc --diagnostics && \
-		cp ../../README.md package.json yarn.lock ./bin/ && \
-		cp ../SDK_LICENSE ./bin/LICENSE && \
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
@@ -123,7 +122,7 @@ install_nodejs_sdk::
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
-build:: init_submodules clean codegen local_generate provider build_sdks install_sdks
+build:: init_submodules clean m local_generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
