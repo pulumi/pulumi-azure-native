@@ -59,6 +59,9 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:AutomationAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:automation:AutomationAccount"),
 		},
 		{

@@ -40,6 +40,9 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azure-native:storage:StorageAccountManagementPolicies"),
 		},
 		{

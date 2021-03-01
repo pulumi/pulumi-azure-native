@@ -64,6 +64,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid:EventSubscription"),
 		},
 		{

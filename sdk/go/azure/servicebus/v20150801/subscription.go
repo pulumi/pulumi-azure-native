@@ -73,6 +73,9 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Subscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicebus:Subscription"),
 		},
 		{

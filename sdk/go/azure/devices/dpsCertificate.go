@@ -41,6 +41,9 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devices:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azure-native:devices/latest:DpsCertificate"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20200101:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:JitNetworkAccessPolicy"),
 		},
 		{

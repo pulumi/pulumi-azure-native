@@ -77,6 +77,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20171001:ApplicationGateway"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:ApplicationGateway"),
 		},
 		{

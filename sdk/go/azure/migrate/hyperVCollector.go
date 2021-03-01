@@ -36,6 +36,9 @@ func NewHyperVCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate:HyperVCollector"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate/latest:HyperVCollector"),
 		},
 		{

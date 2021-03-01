@@ -46,6 +46,9 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"),
+		},
+		{
 			Type: pulumi.String("azure-native:sqlvirtualmachine:AvailabilityGroupListener"),
 		},
 		{

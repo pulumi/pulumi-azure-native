@@ -53,6 +53,9 @@ func NewExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:Export"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement:Export"),
 		},
 		{

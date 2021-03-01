@@ -40,6 +40,9 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-native:streamanalytics:PrivateEndpoint"),
 		},
 		{

@@ -51,6 +51,9 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:media/latest:StreamingPolicy"),
 		},
 		{

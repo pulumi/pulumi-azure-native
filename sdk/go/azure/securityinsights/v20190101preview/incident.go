@@ -86,6 +86,12 @@ func NewIncident(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:Incident"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Incident
 	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:Incident", name, args, &resource, opts...)
 	if err != nil {

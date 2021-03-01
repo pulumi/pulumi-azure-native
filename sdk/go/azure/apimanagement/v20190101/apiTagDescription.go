@@ -47,6 +47,9 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiTagDescription"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:ApiTagDescription"),
 		},
 		{

@@ -90,6 +90,9 @@ func NewManagedInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ManagedInstance"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ManagedInstance"),
 		},
 		{

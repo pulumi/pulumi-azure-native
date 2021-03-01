@@ -54,6 +54,9 @@ func NewAction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/latest:Action"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:Action"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppDomainOwnershipIdentifier"),
 		},
 		{

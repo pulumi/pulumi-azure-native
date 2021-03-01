@@ -53,6 +53,9 @@ func NewNatRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:NatRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:NatRule"),
 		},
 		{

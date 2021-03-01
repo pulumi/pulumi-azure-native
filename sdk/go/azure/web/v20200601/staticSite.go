@@ -53,6 +53,9 @@ func NewStaticSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20200601:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:StaticSite"),
 		},
 		{

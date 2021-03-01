@@ -50,6 +50,9 @@ func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkDhcp"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkDhcp"),
 		},
 		{

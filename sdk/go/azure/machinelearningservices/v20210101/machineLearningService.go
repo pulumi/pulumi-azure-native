@@ -51,6 +51,9 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningService"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningService"),
 		},
 		{

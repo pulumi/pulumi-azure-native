@@ -42,6 +42,9 @@ func NewScopeAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managednetwork:ScopeAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:managednetwork/v20190601preview:ScopeAssignment"),
 		},
 		{

@@ -67,6 +67,9 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid:PartnerTopicEventSubscription"),
 		},
 		{

@@ -45,6 +45,9 @@ func NewStorageDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple:StorageDomain"),
 		},
 		{

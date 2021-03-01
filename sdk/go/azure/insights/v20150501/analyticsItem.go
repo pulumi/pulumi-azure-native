@@ -51,6 +51,9 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20150501:AnalyticsItem"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:AnalyticsItem"),
 		},
 		{

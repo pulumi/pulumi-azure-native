@@ -56,6 +56,9 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic/v20190501:IntegrationAccountPartner"),
+		},
+		{
 			Type: pulumi.String("azure-native:logic:IntegrationAccountPartner"),
 		},
 		{

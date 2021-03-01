@@ -50,6 +50,9 @@ func NewAutoScaleVCore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore"),
+		},
+		{
 			Type: pulumi.String("azure-native:powerbidedicated:AutoScaleVCore"),
 		},
 		{

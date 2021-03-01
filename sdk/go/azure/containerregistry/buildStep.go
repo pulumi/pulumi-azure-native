@@ -42,6 +42,9 @@ func NewBuildStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:BuildStep"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry/v20180201preview:BuildStep"),
 		},
 		{

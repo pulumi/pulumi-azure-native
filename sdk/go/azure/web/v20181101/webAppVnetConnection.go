@@ -53,6 +53,9 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppVnetConnection"),
 		},
 		{

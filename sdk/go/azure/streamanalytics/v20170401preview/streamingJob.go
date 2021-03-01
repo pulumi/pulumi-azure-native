@@ -87,6 +87,9 @@ func NewStreamingJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:StreamingJob"),
+		},
+		{
 			Type: pulumi.String("azure-native:streamanalytics:StreamingJob"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewCreator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:maps/v20200201preview:Creator"),
+		},
+		{
 			Type: pulumi.String("azure-native:maps:Creator"),
 		},
 		{

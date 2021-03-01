@@ -58,6 +58,9 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagesync:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagesync/latest:CloudEndpoint"),
 		},
 		{

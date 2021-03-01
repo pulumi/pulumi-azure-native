@@ -54,6 +54,9 @@ func NewEventChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventChannel"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid:EventChannel"),
 		},
 		{

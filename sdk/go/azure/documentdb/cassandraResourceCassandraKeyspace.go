@@ -46,6 +46,9 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/latest:CassandraResourceCassandraKeyspace"),
 		},
 		{

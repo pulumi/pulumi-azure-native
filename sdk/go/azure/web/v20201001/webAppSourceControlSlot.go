@@ -55,6 +55,9 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControlSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppSourceControlSlot"),
 		},
 		{

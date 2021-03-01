@@ -49,6 +49,9 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:HubRouteTable"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:HubRouteTable"),
 		},
 		{

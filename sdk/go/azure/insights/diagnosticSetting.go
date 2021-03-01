@@ -50,6 +50,9 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:DiagnosticSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights/v20170501preview:DiagnosticSetting"),
 		},
 		{

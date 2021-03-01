@@ -48,6 +48,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devices/v20200831preview:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azure-native:devices:IotHubResource"),
 		},
 		{

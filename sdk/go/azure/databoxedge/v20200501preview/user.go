@@ -45,6 +45,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:User"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:User"),
 		},
 		{

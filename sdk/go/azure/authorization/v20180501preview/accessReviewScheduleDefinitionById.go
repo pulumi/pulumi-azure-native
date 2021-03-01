@@ -79,6 +79,9 @@ func NewAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:AccessReviewScheduleDefinitionById"),
 		},
 		{

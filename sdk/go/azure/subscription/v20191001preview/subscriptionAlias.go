@@ -31,6 +31,9 @@ func NewSubscriptionAlias(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:subscription/v20191001preview:SubscriptionAlias"),
+		},
+		{
 			Type: pulumi.String("azure-native:subscription:SubscriptionAlias"),
 		},
 		{

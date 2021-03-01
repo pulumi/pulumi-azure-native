@@ -49,6 +49,9 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/latest:WebAppSlotConfigurationNames"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppSlotConfigurationNames"),
 		},
 		{

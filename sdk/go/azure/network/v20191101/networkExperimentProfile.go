@@ -43,6 +43,9 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20191101:NetworkExperimentProfile"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:NetworkExperimentProfile"),
 		},
 		{

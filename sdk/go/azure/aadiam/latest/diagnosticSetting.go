@@ -44,6 +44,9 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:aadiam/latest:DiagnosticSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:aadiam:DiagnosticSetting"),
 		},
 		{

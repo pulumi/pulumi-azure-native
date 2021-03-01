@@ -36,6 +36,9 @@ func NewVendorSkuPreview(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview"),
+		},
+		{
 			Type: pulumi.String("azure-native:hybridnetwork:VendorSkuPreview"),
 		},
 		{

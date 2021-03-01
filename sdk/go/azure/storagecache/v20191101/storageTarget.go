@@ -48,6 +48,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagecache/v20191101:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagecache:StorageTarget"),
 		},
 		{

@@ -53,6 +53,9 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkLink"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VirtualNetworkLink"),
 		},
 		{

@@ -43,6 +43,9 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:appplatform/v20190501preview:Deployment"),
+		},
+		{
 			Type: pulumi.String("azure-native:appplatform:Deployment"),
 		},
 		{

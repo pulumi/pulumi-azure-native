@@ -50,6 +50,9 @@ func NewPrivateLinkServicesForM365SecurityCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter"),
 		},
 		{

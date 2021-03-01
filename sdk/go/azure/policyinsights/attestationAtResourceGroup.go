@@ -57,6 +57,9 @@ func NewAttestationAtResourceGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:policyinsights:AttestationAtResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:policyinsights/latest:AttestationAtResourceGroup"),
 		},
 		{

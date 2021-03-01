@@ -48,6 +48,9 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/latest:WebAppMetadataSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppMetadataSlot"),
 		},
 		{

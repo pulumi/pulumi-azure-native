@@ -52,6 +52,9 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteRelayServiceConnectionSlot"),
 		},
 		{

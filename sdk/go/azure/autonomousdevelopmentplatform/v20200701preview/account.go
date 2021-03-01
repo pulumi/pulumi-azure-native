@@ -43,6 +43,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:Account"),
+		},
+		{
 			Type: pulumi.String("azure-native:autonomousdevelopmentplatform:Account"),
 		},
 		{

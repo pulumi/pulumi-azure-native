@@ -51,6 +51,9 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformysql/latest:Configuration"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbformysql:Configuration"),
 		},
 		{

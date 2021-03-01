@@ -45,6 +45,9 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:DiskAccessAPrivateEndpointConnection"),
 		},
 		{

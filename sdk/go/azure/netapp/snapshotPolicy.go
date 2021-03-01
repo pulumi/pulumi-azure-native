@@ -53,6 +53,9 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:netapp:SnapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:netapp/latest:SnapshotPolicy"),
 		},
 		{

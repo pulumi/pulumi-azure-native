@@ -56,6 +56,9 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:windowsesu:MultipleActivationKey"),
+		},
+		{
 			Type: pulumi.String("azure-native:windowsesu/v20190916preview:MultipleActivationKey"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dataprotection/v20210201preview:BackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:dataprotection:BackupPolicy"),
 		},
 		{

@@ -58,6 +58,9 @@ func NewElasticPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20140401:ElasticPool"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ElasticPool"),
 		},
 		{

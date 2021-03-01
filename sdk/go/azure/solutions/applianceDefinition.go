@@ -62,6 +62,9 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:solutions:ApplianceDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions/v20160901preview:ApplianceDefinition"),
 		},
 		{

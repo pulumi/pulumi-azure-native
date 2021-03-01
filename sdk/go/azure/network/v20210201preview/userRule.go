@@ -67,6 +67,9 @@ func NewUserRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20210201preview:UserRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:UserRule"),
 		},
 		{

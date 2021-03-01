@@ -57,6 +57,9 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab/latest:VirtualNetwork"),
 		},
 		{

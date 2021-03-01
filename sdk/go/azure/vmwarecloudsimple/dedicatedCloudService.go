@@ -49,6 +49,9 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudService"),
+		},
+		{
 			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:DedicatedCloudService"),
 		},
 		{

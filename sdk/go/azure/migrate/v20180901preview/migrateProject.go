@@ -41,6 +41,9 @@ func NewMigrateProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate/v20180901preview:MigrateProject"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate:MigrateProject"),
 		},
 		{

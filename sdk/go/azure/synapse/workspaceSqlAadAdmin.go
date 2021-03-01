@@ -45,6 +45,9 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse:WorkspaceSqlAadAdmin"),
+		},
+		{
 			Type: pulumi.String("azure-native:synapse/latest:WorkspaceSqlAadAdmin"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewManagedHsm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:keyvault:ManagedHsm"),
+		},
+		{
 			Type: pulumi.String("azure-native:keyvault/v20200401preview:ManagedHsm"),
 		},
 		{

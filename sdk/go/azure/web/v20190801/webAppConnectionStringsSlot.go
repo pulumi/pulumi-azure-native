@@ -43,6 +43,9 @@ func NewWebAppConnectionStringsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppConnectionStringsSlot"),
 		},
 		{

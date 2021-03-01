@@ -65,6 +65,9 @@ func NewConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:customerinsights:Connector"),
+		},
+		{
 			Type: pulumi.String("azure-native:customerinsights/latest:Connector"),
 		},
 		{

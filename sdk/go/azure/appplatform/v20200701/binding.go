@@ -41,6 +41,9 @@ func NewBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:appplatform/v20200701:Binding"),
+		},
+		{
 			Type: pulumi.String("azure-native:appplatform:Binding"),
 		},
 		{

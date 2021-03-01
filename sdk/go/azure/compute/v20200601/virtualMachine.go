@@ -85,6 +85,9 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:VirtualMachine"),
 		},
 		{

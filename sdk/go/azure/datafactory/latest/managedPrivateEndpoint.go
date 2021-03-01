@@ -49,6 +49,9 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datafactory/latest:ManagedPrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-native:datafactory:ManagedPrivateEndpoint"),
 		},
 		{

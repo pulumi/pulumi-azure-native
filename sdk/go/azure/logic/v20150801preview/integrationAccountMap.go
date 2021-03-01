@@ -53,6 +53,9 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic/v20150801preview:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azure-native:logic:IntegrationAccountMap"),
 		},
 		{

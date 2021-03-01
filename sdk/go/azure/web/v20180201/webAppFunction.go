@@ -64,6 +64,9 @@ func NewWebAppFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppFunction"),
 		},
 		{

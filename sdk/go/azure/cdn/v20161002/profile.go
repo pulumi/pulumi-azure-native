@@ -46,6 +46,9 @@ func NewProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn/v20161002:Profile"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn:Profile"),
 		},
 		{

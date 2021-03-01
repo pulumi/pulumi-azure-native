@@ -56,6 +56,9 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:customerinsights/latest:View"),
+		},
+		{
 			Type: pulumi.String("azure-native:customerinsights:View"),
 		},
 		{

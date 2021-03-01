@@ -49,6 +49,9 @@ func NewReportByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement:ReportByResourceGroupName"),
 		},
 		{

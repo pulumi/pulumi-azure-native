@@ -52,6 +52,9 @@ func NewContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Container"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:Container"),
 		},
 		{

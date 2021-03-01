@@ -43,6 +43,9 @@ func NewDataConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:DataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:DataConnector"),
 		},
 		{

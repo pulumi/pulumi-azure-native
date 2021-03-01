@@ -71,6 +71,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:solutions:ApplicationDefinition"),
 		},
 		{

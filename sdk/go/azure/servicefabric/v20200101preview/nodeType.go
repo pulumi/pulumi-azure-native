@@ -77,6 +77,9 @@ func NewNodeType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabric/v20200101preview:NodeType"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicefabric:NodeType"),
 		},
 		{

@@ -34,6 +34,9 @@ func NewNotificationRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20201120:NotificationRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-native:providerhub:NotificationRegistration"),
 		},
 		{

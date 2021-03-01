@@ -45,6 +45,9 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azure-native:resources:DeploymentAtManagementGroupScope"),
 		},
 		{

@@ -69,6 +69,9 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:notificationhubs:NotificationHubAuthorizationRule"),
 		},
 		{

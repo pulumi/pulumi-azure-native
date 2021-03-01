@@ -49,6 +49,9 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/latest:GremlinResourceGremlinGraph"),
 		},
 		{

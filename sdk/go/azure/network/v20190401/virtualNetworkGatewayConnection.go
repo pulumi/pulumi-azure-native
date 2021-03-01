@@ -83,6 +83,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VirtualNetworkGatewayConnection"),
 		},
 		{

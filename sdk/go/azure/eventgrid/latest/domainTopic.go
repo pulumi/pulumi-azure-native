@@ -43,6 +43,9 @@ func NewDomainTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid/latest:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid:DomainTopic"),
 		},
 		{

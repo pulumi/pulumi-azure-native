@@ -67,6 +67,9 @@ func NewAzureFirewall(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20191101:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:AzureFirewall"),
 		},
 		{

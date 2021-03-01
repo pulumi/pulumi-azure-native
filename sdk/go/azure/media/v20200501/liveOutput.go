@@ -65,6 +65,9 @@ func NewLiveOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20200501:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:LiveOutput"),
 		},
 		{

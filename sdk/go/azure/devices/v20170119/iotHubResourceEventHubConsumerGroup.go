@@ -39,6 +39,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:devices:IotHubResourceEventHubConsumerGroup"),
 		},
 		{

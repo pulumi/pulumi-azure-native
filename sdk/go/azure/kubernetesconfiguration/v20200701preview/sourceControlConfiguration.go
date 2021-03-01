@@ -73,6 +73,9 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration:SourceControlConfiguration"),
 		},
 		{

@@ -80,6 +80,9 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:batch/v20200501:Pool"),
+		},
+		{
 			Type: pulumi.String("azure-native:batch:Pool"),
 		},
 		{

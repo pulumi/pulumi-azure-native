@@ -74,6 +74,9 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ManagedDatabase"),
 		},
 		{

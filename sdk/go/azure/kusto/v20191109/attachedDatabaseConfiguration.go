@@ -57,6 +57,9 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:kusto:AttachedDatabaseConfiguration"),
 		},
 		{

@@ -55,6 +55,9 @@ func NewManagementLockAtResourceLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtResourceLevel"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization/latest:ManagementLockAtResourceLevel"),
 		},
 		{

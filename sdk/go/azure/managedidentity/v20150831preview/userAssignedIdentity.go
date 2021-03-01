@@ -45,6 +45,9 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managedidentity/v20150831preview:UserAssignedIdentity"),
+		},
+		{
 			Type: pulumi.String("azure-native:managedidentity:UserAssignedIdentity"),
 		},
 		{

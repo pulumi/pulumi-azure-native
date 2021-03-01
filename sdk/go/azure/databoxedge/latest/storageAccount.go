@@ -56,6 +56,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/latest:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:StorageAccount"),
 		},
 		{

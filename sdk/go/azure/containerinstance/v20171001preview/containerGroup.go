@@ -62,6 +62,9 @@ func NewContainerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerinstance/v20171001preview:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerinstance:ContainerGroup"),
 		},
 		{

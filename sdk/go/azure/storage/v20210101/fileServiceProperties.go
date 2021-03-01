@@ -44,6 +44,9 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage/v20210101:FileServiceProperties"),
+		},
+		{
 			Type: pulumi.String("azure-native:storage:FileServiceProperties"),
 		},
 		{

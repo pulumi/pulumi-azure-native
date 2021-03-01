@@ -38,6 +38,9 @@ func NewSaasSubscriptionLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:saas:SaasSubscriptionLevel"),
+		},
+		{
 			Type: pulumi.String("azure-native:saas/v20180301beta:SaasSubscriptionLevel"),
 		},
 		{

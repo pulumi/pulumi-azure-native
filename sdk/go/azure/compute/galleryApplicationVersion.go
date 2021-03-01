@@ -53,6 +53,9 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute:GalleryApplicationVersion"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute/latest:GalleryApplicationVersion"),
 		},
 		{

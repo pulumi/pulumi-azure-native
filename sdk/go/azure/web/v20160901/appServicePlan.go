@@ -80,6 +80,9 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20160901:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:AppServicePlan"),
 		},
 		{

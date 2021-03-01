@@ -50,6 +50,9 @@ func NewProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20190615:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ProtectedItem"),
 		},
 		{

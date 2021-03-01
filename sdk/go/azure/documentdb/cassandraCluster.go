@@ -42,6 +42,9 @@ func NewCassandraCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:CassandraCluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:CassandraCluster"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlRoleAssignment"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewAccountFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/latest:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:AccountFilter"),
 		},
 		{

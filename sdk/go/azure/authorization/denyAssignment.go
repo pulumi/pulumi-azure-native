@@ -68,6 +68,9 @@ func NewDenyAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization:DenyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization/v20200301preview:DenyAssignment"),
 		},
 		{

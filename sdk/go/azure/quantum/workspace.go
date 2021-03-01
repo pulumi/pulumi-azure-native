@@ -52,6 +52,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:quantum:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:quantum/v20191104preview:Workspace"),
 		},
 		{

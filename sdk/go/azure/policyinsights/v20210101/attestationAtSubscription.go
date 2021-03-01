@@ -53,6 +53,9 @@ func NewAttestationAtSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:policyinsights/v20210101:AttestationAtSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:policyinsights:AttestationAtSubscription"),
 		},
 		{

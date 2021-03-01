@@ -44,6 +44,9 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:visualstudio/v20171101preview:Extension"),
+		},
+		{
 			Type: pulumi.String("azure-native:visualstudio:Extension"),
 		},
 		{

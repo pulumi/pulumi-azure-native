@@ -55,6 +55,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlStoredProcedure"),
 		},
 		{

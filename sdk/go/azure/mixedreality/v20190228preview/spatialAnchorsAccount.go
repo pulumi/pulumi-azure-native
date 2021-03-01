@@ -43,6 +43,9 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:mixedreality:SpatialAnchorsAccount"),
 		},
 		{

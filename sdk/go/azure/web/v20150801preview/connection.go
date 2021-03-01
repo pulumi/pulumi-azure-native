@@ -61,6 +61,9 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801preview:Connection"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:Connection"),
 		},
 		{

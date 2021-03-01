@@ -41,6 +41,9 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:powerbi/latest:WorkspaceCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:powerbi:WorkspaceCollection"),
 		},
 		{

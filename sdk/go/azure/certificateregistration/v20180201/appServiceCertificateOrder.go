@@ -86,6 +86,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azure-native:certificateregistration:AppServiceCertificateOrder"),
 		},
 		{

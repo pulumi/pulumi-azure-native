@@ -57,6 +57,12 @@ func NewAssignment(ctx *pulumi.Context,
 	if args.ResourceGroups == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroups'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:Assignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Assignment
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:Assignment", name, args, &resource, opts...)
 	if err != nil {

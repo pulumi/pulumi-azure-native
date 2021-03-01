@@ -59,6 +59,9 @@ func NewDataExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationalinsights/latest:DataExport"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationalinsights:DataExport"),
 		},
 		{

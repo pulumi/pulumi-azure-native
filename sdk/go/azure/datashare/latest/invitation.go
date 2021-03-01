@@ -66,6 +66,9 @@ func NewInvitation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datashare/latest:Invitation"),
+		},
+		{
 			Type: pulumi.String("azure-native:datashare:Invitation"),
 		},
 		{

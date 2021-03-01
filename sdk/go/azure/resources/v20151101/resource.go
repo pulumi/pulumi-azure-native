@@ -50,6 +50,9 @@ func NewResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources/v20151101:Resource"),
+		},
+		{
 			Type: pulumi.String("azure-native:resources:Resource"),
 		},
 		{

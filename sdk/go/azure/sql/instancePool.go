@@ -55,6 +55,9 @@ func NewInstancePool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:InstancePool"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:InstancePool"),
 		},
 		{

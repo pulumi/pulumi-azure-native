@@ -67,6 +67,9 @@ func NewExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:ExpressRouteCrossConnectionPeering"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:ExpressRouteCrossConnectionPeering"),
 		},
 		{

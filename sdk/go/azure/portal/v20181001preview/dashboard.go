@@ -41,6 +41,9 @@ func NewDashboard(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:portal/v20181001preview:Dashboard"),
+		},
+		{
 			Type: pulumi.String("azure-native:portal:Dashboard"),
 		},
 		{

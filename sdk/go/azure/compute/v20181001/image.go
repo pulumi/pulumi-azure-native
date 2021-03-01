@@ -43,6 +43,9 @@ func NewImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20181001:Image"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:Image"),
 		},
 		{

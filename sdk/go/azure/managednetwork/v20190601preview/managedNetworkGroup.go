@@ -52,6 +52,9 @@ func NewManagedNetworkGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:managednetwork:ManagedNetworkGroup"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse:PrivateLinkHub"),
+		},
+		{
 			Type: pulumi.String("azure-native:synapse/latest:PrivateLinkHub"),
 		},
 		{

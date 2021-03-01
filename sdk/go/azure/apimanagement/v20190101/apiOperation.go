@@ -64,6 +64,9 @@ func NewApiOperation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:ApiOperation"),
 		},
 		{

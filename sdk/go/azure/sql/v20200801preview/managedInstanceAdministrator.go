@@ -53,6 +53,9 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ManagedInstanceAdministrator"),
 		},
 		{

@@ -35,6 +35,9 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate/v20191001:VMwareCollector"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate:VMwareCollector"),
 		},
 		{

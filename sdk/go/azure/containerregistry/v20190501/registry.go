@@ -61,6 +61,9 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Registry"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry:Registry"),
 		},
 		{

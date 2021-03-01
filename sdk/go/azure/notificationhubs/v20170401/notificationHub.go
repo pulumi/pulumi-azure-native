@@ -58,6 +58,9 @@ func NewNotificationHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:NotificationHub"),
+		},
+		{
 			Type: pulumi.String("azure-native:notificationhubs:NotificationHub"),
 		},
 		{

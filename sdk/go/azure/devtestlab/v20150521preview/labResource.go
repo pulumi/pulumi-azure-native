@@ -53,6 +53,9 @@ func NewLabResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:LabResource"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:LabResource"),
 		},
 		{

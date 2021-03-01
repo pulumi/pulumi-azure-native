@@ -45,6 +45,9 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:logic:IntegrationAccountBatchConfiguration"),
 		},
 		{

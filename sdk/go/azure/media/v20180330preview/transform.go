@@ -47,6 +47,9 @@ func NewTransform(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20180330preview:Transform"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:Transform"),
 		},
 		{
